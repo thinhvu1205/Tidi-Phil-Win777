@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Globals;
 
+
 public class SafeArena : MonoBehaviour
 {
     public static SafeArena instance = null;
