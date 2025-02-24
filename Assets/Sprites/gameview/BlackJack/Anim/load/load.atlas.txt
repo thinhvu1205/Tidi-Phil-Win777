@@ -1,0 +1,55 @@
+
+load.png
+size: 78,55
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 212
+  rotate: false
+  xy: 2, 2
+  size: 51, 51
+  orig: 53, 53
+  offset: 1, 1
+  index: -1
+Layer 213
+  rotate: false
+  xy: 55, 43
+  size: 10, 10
+  orig: 12, 12
+  offset: 1, 1
+  index: -1
+Layer 213 copy
+  rotate: false
+  xy: 67, 43
+  size: 9, 10
+  orig: 11, 12
+  offset: 1, 1
+  index: -1
+Layer 213 copy 2
+  rotate: false
+  xy: 55, 31
+  size: 10, 10
+  orig: 12, 12
+  offset: 1, 1
+  index: -1
+Layer 213 copy 3
+  rotate: false
+  xy: 55, 19
+  size: 10, 10
+  orig: 12, 12
+  offset: 1, 1
+  index: -1
+Layer 213 copy 4
+  rotate: false
+  xy: 55, 7
+  size: 10, 10
+  orig: 12, 12
+  offset: 1, 1
+  index: -1
+Layer 213 copy 5
+  rotate: false
+  xy: 67, 31
+  size: 9, 10
+  orig: 11, 12
+  offset: 1, 1
+  index: -1

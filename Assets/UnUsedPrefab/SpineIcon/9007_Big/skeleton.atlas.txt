@@ -1,0 +1,104 @@
+
+skeleton.png
+size: 508,508
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1l
+  rotate: true
+  xy: 412, 379
+  size: 127, 87
+  orig: 127, 130
+  offset: 0, 19
+  index: -1
+3light
+  rotate: true
+  xy: 303, 50
+  size: 97, 115
+  orig: 100, 116
+  offset: 1, 0
+  index: -1
+4light
+  rotate: false
+  xy: 159, 25
+  size: 142, 112
+  orig: 143, 143
+  offset: 1, 15
+  index: -1
+bich
+  rotate: true
+  xy: 448, 165
+  size: 30, 34
+  orig: 30, 34
+  offset: 0, 0
+  index: -1
+chip
+  rotate: true
+  xy: 2, 14
+  size: 123, 155
+  orig: 124, 156
+  offset: 1, 0
+  index: -1
+co
+  rotate: true
+  xy: 412, 162
+  size: 33, 34
+  orig: 33, 34
+  offset: 0, 0
+  index: -1
+diamond2
+  rotate: false
+  xy: 420, 98
+  size: 58, 62
+  orig: 66, 70
+  offset: 3, 2
+  index: -1
+ewvs
+  rotate: true
+  xy: 420, 33
+  size: 63, 57
+  orig: 68, 63
+  offset: 5, 3
+  index: -1
+rec
+  rotate: false
+  xy: 2, 139
+  size: 208, 367
+  orig: 208, 367
+  offset: 0, 0
+  index: -1
+rec_1
+  rotate: false
+  xy: 212, 149
+  size: 198, 357
+  orig: 198, 357
+  offset: 0, 0
+  index: -1
+ro
+  rotate: false
+  xy: 479, 57
+  size: 27, 39
+  orig: 27, 39
+  offset: 0, 0
+  index: -1
+ruby2
+  rotate: true
+  xy: 412, 197
+  size: 64, 62
+  orig: 70, 69
+  offset: 6, 4
+  index: -1
+tep
+  rotate: false
+  xy: 476, 231
+  size: 28, 30
+  orig: 28, 30
+  offset: 0, 0
+  index: -1
+text
+  rotate: true
+  xy: 412, 263
+  size: 114, 81
+  orig: 114, 81
+  offset: 0, 0
+  index: -1

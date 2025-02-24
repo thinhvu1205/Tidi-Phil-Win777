@@ -1,0 +1,181 @@
+
+skeleton.png
+size: 269,269
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 2
+  rotate: false
+  xy: 2, 24
+  size: 75, 58
+  orig: 77, 60
+  offset: 1, 1
+  index: -1
+Layer 3
+  rotate: false
+  xy: 106, 137
+  size: 71, 61
+  orig: 73, 63
+  offset: 1, 1
+  index: -1
+Layer 4
+  rotate: false
+  xy: 106, 200
+  size: 73, 67
+  orig: 75, 69
+  offset: 1, 1
+  index: -1
+Layer 5
+  rotate: false
+  xy: 181, 175
+  size: 72, 58
+  orig: 74, 60
+  offset: 1, 1
+  index: -1
+Layer 6
+  rotate: false
+  xy: 189, 85
+  size: 61, 51
+  orig: 63, 53
+  offset: 1, 1
+  index: -1
+Layer 7
+  rotate: false
+  xy: 179, 138
+  size: 66, 35
+  orig: 68, 37
+  offset: 1, 1
+  index: -1
+Layer 8
+  rotate: false
+  xy: 181, 235
+  size: 86, 32
+  orig: 88, 34
+  offset: 1, 1
+  index: -1
+Layer 9
+  rotate: false
+  xy: 98, 95
+  size: 89, 40
+  orig: 91, 42
+  offset: 1, 1
+  index: -1
+body
+  rotate: false
+  xy: 186, 43
+  size: 46, 40
+  orig: 48, 44
+  offset: 1, 3
+  index: -1
+chan_L
+  rotate: true
+  xy: 2, 5
+  size: 17, 43
+  orig: 19, 92
+  offset: 1, 1
+  index: -1
+chan_R
+  rotate: true
+  xy: 47, 6
+  size: 16, 43
+  orig: 19, 47
+  offset: 1, 1
+  index: -1
+dui_L
+  rotate: true
+  xy: 148, 18
+  size: 23, 38
+  orig: 25, 41
+  offset: 1, 1
+  index: -1
+dui_R
+  rotate: false
+  xy: 234, 41
+  size: 22, 42
+  orig: 25, 48
+  offset: 1, 1
+  index: -1
+eye
+  rotate: false
+  xy: 188, 22
+  size: 19, 19
+  orig: 19, 19
+  offset: 0, 0
+  index: -1
+eye1
+  rotate: false
+  xy: 209, 22
+  size: 19, 19
+  orig: 19, 19
+  offset: 0, 0
+  index: -1
+eye2
+  rotate: false
+  xy: 92, 3
+  size: 19, 19
+  orig: 19, 19
+  offset: 0, 0
+  index: -1
+eye3
+  rotate: false
+  xy: 230, 20
+  size: 19, 19
+  orig: 19, 19
+  offset: 0, 0
+  index: -1
+eye4
+  rotate: false
+  xy: 113, 14
+  size: 19, 19
+  orig: 19, 19
+  offset: 0, 0
+  index: -1
+hair
+  rotate: false
+  xy: 2, 173
+  size: 102, 94
+  orig: 102, 94
+  offset: 0, 0
+  index: -1
+hand_R
+  rotate: false
+  xy: 79, 24
+  size: 31, 58
+  orig: 34, 62
+  offset: 2, 3
+  index: -1
+hand_R copy
+  rotate: false
+  xy: 112, 35
+  size: 34, 58
+  orig: 36, 61
+  offset: 1, 2
+  index: -1
+head
+  rotate: false
+  xy: 2, 84
+  size: 94, 87
+  orig: 97, 89
+  offset: 2, 1
+  index: -1
+mom1
+  rotate: true
+  xy: 98, 137
+  size: 15, 4
+  orig: 17, 6
+  offset: 1, 1
+  index: -1
+mom2
+  rotate: true
+  xy: 98, 154
+  size: 17, 4
+  orig: 19, 6
+  offset: 1, 1
+  index: -1
+mong
+  rotate: true
+  xy: 148, 43
+  size: 50, 36
+  orig: 52, 38
+  offset: 1, 1
+  index: -1

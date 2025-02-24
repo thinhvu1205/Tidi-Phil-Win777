@@ -1,0 +1,823 @@
+fileFormatVersion: 2
+guid: 1e61d105ee9804ee08b9eb8225e30e98
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6497010562163189210
+    second: itemSlotChipOnline_0
+  - first:
+      213: 2792184896575252395
+    second: itemSlotChipOnline_1
+  - first:
+      213: -6374691368229614246
+    second: itemSlotChipOnline_2
+  - first:
+      213: -1800509118672214668
+    second: itemSlotChipOnline_3
+  - first:
+      213: -6821603072131136907
+    second: itemSlotChipOnline_4
+  - first:
+      213: -8207469910442029117
+    second: itemSlotChipOnline_5
+  - first:
+      213: 4769130688264620795
+    second: itemSlotChipOnline_6
+  - first:
+      213: -826947795021245184
+    second: itemSlotChipOnline_7
+  - first:
+      213: -6119971143505954300
+    second: itemSlotChipOnline_8
+  - first:
+      213: 4206259142477210249
+    second: itemSlotChipOnline_9
+  - first:
+      213: 7961693221112837887
+    second: itemSlotChipOnline_10
+  - first:
+      213: -1988994244822620934
+    second: itemSlotChipOnline_11
+  - first:
+      213: -6135108415181254174
+    second: itemSlotChipOnline_12
+  - first:
+      213: -91229006699652742
+    second: itemSlotChipOnline_13
+  - first:
+      213: -1818111443914210658
+    second: itemSlotChipOnline_14
+  - first:
+      213: -4775865181879567186
+    second: itemSlotChipOnline_15
+  - first:
+      213: 3790272973223235122
+    second: itemSlotChipOnline_16
+  - first:
+      213: 4127345769682298790
+    second: itemSlotChipOnline_17
+  - first:
+      213: 1450196720708057718
+    second: itemSlotChipOnline_18
+  - first:
+      213: 300453199160797325
+    second: itemSlotChipOnline_19
+  - first:
+      213: 7015972468558412662
+    second: itemSlotChipOnline_20
+  - first:
+      213: -5058841065373713591
+    second: itemSlotChipOnline_21
+  - first:
+      213: -2547712707401867842
+    second: itemSlotChipOnline_22
+  - first:
+      213: 6803673100420663954
+    second: itemSlotChipOnline_23
+  - first:
+      213: 61319258333843758
+    second: itemSlotChipOnline_24
+  - first:
+      213: -8230720676201202877
+    second: itemSlotChipOnline_25
+  - first:
+      213: 4053283049789162068
+    second: itemSlotChipOnline_26
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 100
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: itemSlotChipOnline_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 398
+        width: 120
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a5d4cf05bf5d5a0800000000000000
+      internalID: -6497010562163189210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 399
+        width: 107
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7249bae55dfb620800000000000000
+      internalID: 2792184896575252395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_2
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 401
+        width: 100
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5dcce3a9fb8887a0800000000000000
+      internalID: -6374691368229614246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 402
+        width: 101
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475e0befe7e4307e0800000000000000
+      internalID: -1800509118672214668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_4
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 402
+        width: 102
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57209e6f52cc451a0800000000000000
+      internalID: -6821603072131136907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_5
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 403
+        width: 96
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf456bf995391e80800000000000000
+      internalID: -8207469910442029117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_6
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa4d61d71b5f2240800000000000000
+      internalID: 4769130688264620795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 295
+        width: 128
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00557fd9c571684f0800000000000000
+      internalID: -826947795021245184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 296
+        width: 95
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40abfa38bae711ba0800000000000000
+      internalID: -6119971143505954300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_9
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 295
+        width: 105
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 982e7948762af5a30800000000000000
+      internalID: 4206259142477210249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_10
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 294
+        width: 103
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff6f01f3dcd9d7e60800000000000000
+      internalID: 7961693221112837887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_11
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 295
+        width: 107
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af42d01c54ca564e0800000000000000
+      internalID: -1988994244822620934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_12
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 289
+        width: 100
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e19c9ec667bbdaa0800000000000000
+      internalID: -6135108415181254174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_13
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a799476a3b3ebbef0800000000000000
+      internalID: -91229006699652742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 198
+        width: 115
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92cb674645c4c6e0800000000000000
+      internalID: -1818111443914210658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_15
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 180
+        width: 110
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac79e2bbe7b8bdb0800000000000000
+      internalID: -4775865181879567186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_16
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 174
+        width: 102
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e0cbaff21c99430800000000000000
+      internalID: 3790272973223235122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_17
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 196
+        width: 97
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a7ef132c17474930800000000000000
+      internalID: 4127345769682298790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_18
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 189
+        width: 108
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a7d38eb32202410800000000000000
+      internalID: 1450196720708057718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_19
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 170
+        width: 97
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88eb9fb79c6b2400800000000000000
+      internalID: 300453199160797325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_20
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b3856b9cdbd5160800000000000000
+      internalID: 7015972468558412662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 91
+        width: 106
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94bbd3b9ad26bc9b0800000000000000
+      internalID: -5058841065373713591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_22
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 55
+        width: 118
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd109d7ac4b4acd0800000000000000
+      internalID: -2547712707401867842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_23
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 55
+        width: 104
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29a447e23a08b6e50800000000000000
+      internalID: 6803673100420663954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_24
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 90
+        width: 99
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2111e26a89d9d000800000000000000
+      internalID: 61319258333843758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 39
+        width: 108
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b7099372b96cd80800000000000000
+      internalID: -8230720676201202877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: itemSlotChipOnline_26
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4528bc46577204830800000000000000
+      internalID: 4053283049789162068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      itemSlotChipOnline_0: -6497010562163189210
+      itemSlotChipOnline_1: 2792184896575252395
+      itemSlotChipOnline_10: 7961693221112837887
+      itemSlotChipOnline_11: -1988994244822620934
+      itemSlotChipOnline_12: -6135108415181254174
+      itemSlotChipOnline_13: -91229006699652742
+      itemSlotChipOnline_14: -1818111443914210658
+      itemSlotChipOnline_15: -4775865181879567186
+      itemSlotChipOnline_16: 3790272973223235122
+      itemSlotChipOnline_17: 4127345769682298790
+      itemSlotChipOnline_18: 1450196720708057718
+      itemSlotChipOnline_19: 300453199160797325
+      itemSlotChipOnline_2: -6374691368229614246
+      itemSlotChipOnline_20: 7015972468558412662
+      itemSlotChipOnline_21: -5058841065373713591
+      itemSlotChipOnline_22: -2547712707401867842
+      itemSlotChipOnline_23: 6803673100420663954
+      itemSlotChipOnline_24: 61319258333843758
+      itemSlotChipOnline_25: -8230720676201202877
+      itemSlotChipOnline_26: 4053283049789162068
+      itemSlotChipOnline_3: -1800509118672214668
+      itemSlotChipOnline_4: -6821603072131136907
+      itemSlotChipOnline_5: -8207469910442029117
+      itemSlotChipOnline_6: 4769130688264620795
+      itemSlotChipOnline_7: -826947795021245184
+      itemSlotChipOnline_8: -6119971143505954300
+      itemSlotChipOnline_9: 4206259142477210249
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
