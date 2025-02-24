@@ -1303,6 +1303,7 @@ public class HandleService
                 SiXiangView.Instance.handleBuyBonusGame(dataGame);
                 break;
             case Globals.ACTION_SLOT_SIXIANG.dragonPearlSpin:
+                
                 SiXiangView.Instance.handleDragonPealsSpin(dataGame);
                 break;
             case Globals.ACTION_SLOT_SIXIANG.rapidPay:
