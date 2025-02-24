@@ -1,0 +1,20 @@
+
+skeleton.png
+size: 577,577
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Kartu Double
+  rotate: false
+  xy: 2, 494
+  size: 204, 81
+  orig: 204, 81
+  offset: 0, 0
+  index: -1
+bg
+  rotate: false
+  xy: 208, 470
+  size: 367, 105
+  orig: 377, 105
+  offset: 4, 0
+  index: -1

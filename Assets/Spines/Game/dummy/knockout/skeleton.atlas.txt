@@ -1,0 +1,41 @@
+
+skeleton.png
+size: 427,427
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ef
+  rotate: false
+  xy: 2, 131
+  size: 320, 294
+  orig: 324, 294
+  offset: 2, 0
+  index: -1
+ribbon
+  rotate: true
+  xy: 324, 115
+  size: 310, 91
+  orig: 310, 93
+  offset: 0, 2
+  index: -1
+star
+  rotate: false
+  xy: 195, 36
+  size: 51, 35
+  orig: 51, 36
+  offset: 0, 1
+  index: -1
+texteng
+  rotate: false
+  xy: 195, 73
+  size: 230, 40
+  orig: 230, 40
+  offset: 0, 0
+  index: -1
+textthaiLand
+  rotate: false
+  xy: 2, 42
+  size: 191, 87
+  orig: 191, 88
+  offset: 0, 0
+  index: -1

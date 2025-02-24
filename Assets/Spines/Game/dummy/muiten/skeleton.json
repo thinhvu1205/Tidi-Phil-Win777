@@ -1,0 +1,46 @@
+{
+"skeleton": {
+	"hash": "z27X6yLjUkfB7QOhgQU+jfbbEIk",
+	"spine": "3.8.99",
+	"x": -23,
+	"y": -32.5,
+	"width": 46,
+	"height": 65,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "muiten", "parent": "root", "length": 20.32, "rotation": 90, "x": -0.5, "y": -21.48 }
+],
+"slots": [
+	{ "name": "muiten copy", "bone": "muiten", "attachment": "muiten copy", "blend": "additive" },
+	{ "name": "muiten", "bone": "muiten", "attachment": "muiten" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"muiten": {
+				"muiten": { "x": 21.48, "y": -0.5, "rotation": -90, "width": 25, "height": 42 }
+			},
+			"muiten copy": {
+				"muiten copy": { "x": 21.48, "y": -0.5, "rotation": -90, "width": 46, "height": 65 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"muiten": {
+				"translate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.2667, "y": -7.37, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.5 }
+				]
+			}
+		}
+	}
+}
+}

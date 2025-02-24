@@ -1,0 +1,174 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+E
+  rotate: false
+  xy: 406, 691
+  size: 43, 49
+  orig: 43, 49
+  offset: 0, 0
+  index: -1
+L
+  rotate: false
+  xy: 608, 758
+  size: 39, 49
+  orig: 39, 49
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_1
+  rotate: false
+  xy: 810, 892
+  size: 121, 49
+  orig: 121, 49
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_10
+  rotate: false
+  xy: 406, 876
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_11
+  rotate: false
+  xy: 608, 943
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_12
+  rotate: false
+  xy: 2, 675
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_13
+  rotate: false
+  xy: 204, 742
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_14
+  rotate: false
+  xy: 406, 809
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_15
+  rotate: false
+  xy: 608, 876
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_16
+  rotate: false
+  xy: 810, 943
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_17
+  rotate: false
+  xy: 2, 608
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_18
+  rotate: false
+  xy: 204, 675
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_19
+  rotate: false
+  xy: 406, 742
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_2
+  rotate: false
+  xy: 2, 943
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_20
+  rotate: false
+  xy: 608, 809
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_3
+  rotate: false
+  xy: 2, 876
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_4
+  rotate: false
+  xy: 204, 943
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_5
+  rotate: false
+  xy: 2, 809
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_6
+  rotate: false
+  xy: 204, 876
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_7
+  rotate: false
+  xy: 406, 943
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_8
+  rotate: false
+  xy: 2, 742
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+New folder/anim_lost_leaf_9
+  rotate: false
+  xy: 204, 809
+  size: 200, 65
+  orig: 200, 65
+  offset: 0, 0
+  index: -1
+O
+  rotate: false
+  xy: 2, 558
+  size: 49, 48
+  orig: 49, 48
+  offset: 0, 0
+  index: -1
+S
+  rotate: false
+  xy: 204, 625
+  size: 45, 48
+  orig: 45, 48
+  offset: 0, 0
+  index: -1
