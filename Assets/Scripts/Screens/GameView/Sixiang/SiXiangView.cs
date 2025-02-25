@@ -565,17 +565,17 @@ public class SiXiangView : BaseSlotView
         //Debug.Log("allCollumStopDP");
         hideAllSymbol();
         gameState = GAME_STATE.SHOWING_RESULT;
-        yield return StartCoroutine(DragonPearlView.setInfo(dragonPearlSpin, false, true));
+        yield return DragonPearlView.setInfo(dragonPearlSpin, false, true);
         resetSlotViewDP();
     }
 
 
     public override IEnumerator allCollumStopCompleted()
     {
-        base.allCollumStopCompleted();
+        yield return base.allCollumStopCompleted();
         if (gameType == (int)GAME_TYPE.DRAGON_PEARL)
         {
-            allCollumStopDP();
+            StartCoroutine(allCollumStopDP());
         }
         else
         {
@@ -647,6 +647,7 @@ public class SiXiangView : BaseSlotView
         setStateButtonBuyPeals(true);
         if (gameType == (int)GAME_TYPE.DRAGON_PEARL)
         {
+            Debug.Log("gameType DRAGON_PEARL");
             SoundManager.instance.playMusicInGame(Globals.SOUND_SLOT_BASE.BG_GAME);
             if (isGrandJackpot)
             {
@@ -664,9 +665,9 @@ public class SiXiangView : BaseSlotView
             }
         }
 
-        //Debug.Log("wait show specialWin");
+        Debug.Log("wait show specialWin");
         yield return showSpineSpecialWin(winType, winAmount);
-        //Debug.Log("endMinigame after special spine:gameState=" + gameState);
+        Debug.Log("endMinigame after special spine:gameState=" + gameState);
         //if (gameType != (int)GAME_TYPE.DRAGON_PEARL)
         //{
         StartCoroutine(showEffectChip());

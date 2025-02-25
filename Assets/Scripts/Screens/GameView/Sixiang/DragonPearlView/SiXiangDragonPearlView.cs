@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
+
 using DG.Tweening;
 using System;
 using Facebook.Unity;
@@ -70,7 +70,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         }
         isDPSpin = isDPSpinn;
         List<JObject> pearls = new List<JObject>();
-        List<Task> tasksDP = new List<Task>();
+        // List<Task> tasksDP = new List<Task>();
         if (data.ContainsKey("dragonPearls"))
         {
             pearls = data["dragonPearls"].ToObject<List<JObject>>();
@@ -164,7 +164,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         yield return SiXiangView.Instance.endMinigame(dataEnd);
         gameObject.SetActive(false);
     }
-    public async Task startView6Gold(List<JObject> pearls)
+    public IEnumerator startView6Gold(List<JObject> pearls)
     {
 
         Debug.Log("startView6Gold");
@@ -182,7 +182,8 @@ public class SiXiangDragonPearlView : MonoBehaviour
             itemGold.transform.DOScale(new Vector2(1.0f, 1.0f), 1.0f).SetEase(Ease.OutSine).SetId("itemGold_" + i);
             listItemGold.Add(itemGold);
             SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.PEARL_RUNITEM);
-            await Task.Delay(TimeSpan.FromSeconds(i != pearls.Count - 1 ? 0.1f : 0.9f));
+            // await Task.Delay(TimeSpan.FromSeconds(i != pearls.Count - 1 ? 0.1f : 0.9f));
+            yield return new WaitForSeconds(i != pearls.Count - 1 ? 0.1f : 0.9f);
         }
         listItemGold.ForEach(item =>
         {
@@ -219,7 +220,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
     {
         return listItem[col][row].transform.position;
     }
-    public async Task setDoubleItem()
+    public IEnumerator setDoubleItem()
     {
         bool isWait = false;
         dataPearl.ForEach(dataPearl =>
@@ -233,6 +234,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
                 isWait = true;
             }
         });
-        await Task.Delay(TimeSpan.FromSeconds(isWait ? 2.0f : 0));
+        // await Task.Delay(TimeSpan.FromSeconds(isWait ? 2.0f : 0));
+        yield return new WaitForSeconds(isWait ? 2.0f : 0);
     }
 }
