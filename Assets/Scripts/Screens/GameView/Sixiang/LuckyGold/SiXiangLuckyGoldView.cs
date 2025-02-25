@@ -54,6 +54,11 @@ public class SiXiangLuckyGoldView : MonoBehaviour
     private void OnEnable()
     {
         canClick = true;
+        btnCollect.onClick.RemoveAllListeners();
+        btnCollect.onClick.AddListener(() =>
+        {
+            StartCoroutine(onClickCollect());
+        });
         initRainItem();
         DOTween.Sequence().AppendInterval(7.0f).AppendCallback(() =>
         {
@@ -268,7 +273,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
                 {
                     if (gameObject.activeSelf)
                     {
-                        onClickCollect();
+                        StartCoroutine(onClickCollect());
                     }
                 }).SetId("autoEnd");
         }

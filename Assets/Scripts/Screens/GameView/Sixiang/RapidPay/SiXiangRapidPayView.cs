@@ -47,6 +47,15 @@ public class SiXiangRapidPayView : MonoBehaviour
             listItem.AddRange(row.btnItemPick);
         });
     }
+    
+    private void OnEnable()
+    {
+        btnCollect.onClick.RemoveAllListeners();
+        btnCollect.onClick.AddListener(() =>
+        {
+            StartCoroutine(onClickCollect());
+        });
+    }
 
     // Update is called once per frame
     public IEnumerator Show(SiXiangView SiXiangView, bool isUltimate, List<JObject> initData = null)
