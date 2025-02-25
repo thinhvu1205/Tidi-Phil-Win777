@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Spine.Unity;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 
@@ -39,7 +40,7 @@ public class SiXiangRapidPayView : MonoBehaviour
     [HideInInspector]
     private SiXiangView gameView;
     private List<Button> listItem = new List<Button>();
-    public Task rapidTask;
+    public UniTaskCompletionSource rapidTask;
     void Start()
     {
         SiXiangRapidPayView.instance = this;
@@ -50,7 +51,7 @@ public class SiXiangRapidPayView : MonoBehaviour
     }
 
     // Update is called once per frame
-    public Task Show(SiXiangView SiXiangView, bool isUltimate, List<JObject> initData = null)
+    public UniTask Show(SiXiangView SiXiangView, bool isUltimate, List<JObject> initData = null)
     {
         Debug.Log("winAmount====" + Globals.Config.FormatNumber(winAmount));
         currentRow = listRows[0];
@@ -64,8 +65,8 @@ public class SiXiangRapidPayView : MonoBehaviour
             setInitView(initData);
         }
 
-        rapidTask = new Task(() => { });
-        return rapidTask;
+        rapidTask = new UniTaskCompletionSource();
+        return rapidTask.Task;
     }
     private void setInitView(List<JObject> data)
     {
@@ -164,7 +165,7 @@ public class SiXiangRapidPayView : MonoBehaviour
         dataEnd["isSelectBonusGame"] = isSelectBonusGame;
         //dataEnd["userAmount"]=
         await gameView.endMinigame(dataEnd);
-        rapidTask.Start();
+        rapidTask.TrySetResult();
 
 
     }

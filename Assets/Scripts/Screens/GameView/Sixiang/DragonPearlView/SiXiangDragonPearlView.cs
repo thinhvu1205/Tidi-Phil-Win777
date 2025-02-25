@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
 using DG.Tweening;
 using System;
+using Cysharp.Threading.Tasks;
 using Facebook.Unity;
 using Globals;
 
@@ -61,7 +61,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
             }
         });
     }
-    public async Task setInfo(JObject data, bool isInit6Gold, bool isDPSpinn = false)
+    public async UniTask setInfo(JObject data, bool isInit6Gold, bool isDPSpinn = false)
     {
         SiXiangView.Instance.gameState = SiXiangView.GAME_STATE.SHOWING_RESULT;
         if (data.ContainsKey("userAmount"))
@@ -70,7 +70,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         }
         isDPSpin = isDPSpinn;
         List<JObject> pearls = new List<JObject>();
-        List<Task> tasksDP = new List<Task>();
+        // List<Task> tasksDP = new List<Task>();
         if (data.ContainsKey("dragonPearls"))
         {
             pearls = data["dragonPearls"].ToObject<List<JObject>>();
@@ -88,7 +88,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         {
             winAmount = (int)data["winAmount"];
         }
-        List<Task> tasksSetInfo = new List<Task>();
+        List<UniTask> tasksSetInfo = new List<UniTask>();
         if (!isDPSpin)
         {
             resetView();
@@ -121,7 +121,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
 
         if (pearls.Count > 0)
         {
-            await Task.WhenAll(tasksSetInfo.ToArray());
+            await UniTask.WhenAll(tasksSetInfo.ToArray());
             SiXiangView.Instance.updateWinAmount(winAmount);
             SiXiangView.Instance.infoBar.setStateWin("totalWin");
             if (isInit6Gold && SiXiangView.Instance.spintype == SiXiangView.SPIN_TYPE.AUTO)
@@ -131,7 +131,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         }
         else
         {
-            await Task.Delay(TimeSpan.FromSeconds(0.25f));
+            await UniTask.Delay(TimeSpan.FromSeconds(0.25f));
         }
 
         if (data.ContainsKey("isFinished"))
@@ -140,7 +140,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
             if ((bool)data["isFinished"] == true)
             {
                 isGrandJackpot = (bool)data["isGrandJackpot"];
-                await Task.Delay(TimeSpan.FromSeconds(1.5f));
+                await UniTask.Delay(TimeSpan.FromSeconds(1.5f));
                 await showResult();
             }
         }
@@ -149,7 +149,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
             SiXiangView.Instance.gameState = SiXiangView.GAME_STATE.PREPARE;
         }
     }
-    private async Task showResult()
+    private async UniTask showResult()
     {
         JObject dataEnd = new JObject();
         dataEnd["winAmount"] = winAmount;
@@ -160,7 +160,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         await SiXiangView.Instance.endMinigame(dataEnd);
         gameObject.SetActive(false);
     }
-    public async Task startView6Gold(List<JObject> pearls)
+    public async UniTask startView6Gold(List<JObject> pearls)
     {
 
         Debug.Log("startView6Gold");
@@ -178,7 +178,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
             itemGold.transform.DOScale(new Vector2(1.0f, 1.0f), 1.0f).SetEase(Ease.OutSine).SetId("itemGold_" + i);
             listItemGold.Add(itemGold);
             SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.PEARL_RUNITEM);
-            await Task.Delay(TimeSpan.FromSeconds(i != pearls.Count - 1 ? 0.1f : 0.9f));
+            await UniTask.Delay(TimeSpan.FromSeconds(i != pearls.Count - 1 ? 0.1f : 0.9f));
         }
         listItemGold.ForEach(item =>
         {
@@ -215,7 +215,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
     {
         return listItem[col][row].transform.position;
     }
-    public async Task setDoubleItem()
+    public async UniTask setDoubleItem()
     {
         bool isWait = false;
         dataPearl.ForEach(dataPearl =>
@@ -229,6 +229,6 @@ public class SiXiangDragonPearlView : MonoBehaviour
                 isWait = true;
             }
         });
-        await Task.Delay(TimeSpan.FromSeconds(isWait ? 2.0f : 0));
+        await UniTask.Delay(TimeSpan.FromSeconds(isWait ? 2.0f : 0));
     }
 }

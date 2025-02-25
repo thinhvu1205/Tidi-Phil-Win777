@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Threading.Tasks;
 using System;
+using Cysharp.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Random = UnityEngine.Random;
 using Socket.Quobject.EngineIoClientDotNet.Modules;
@@ -35,7 +36,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
     private List<GameObject> itemPool = new List<GameObject>();
     private RectTransform itemConTainerRect;
     private SiXiangView gameView;
-    private Task luckyGoldTask;
+    private UniTaskCompletionSource luckyGoldTask;
     private GameObject currentItemClick;
     public int remainPick = 20;
     private bool isFinished = false;
@@ -81,7 +82,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
             }).SetId("autoPlay");
         }
     }
-    public Task Show(SiXiangView SiXiangView)
+    public UniTask Show(SiXiangView SiXiangView)
     {
         GameObject bottom = Instantiate(SiXiangView.Instance.transform.Find("Bottom").gameObject, transform);
 
@@ -91,9 +92,9 @@ public class SiXiangLuckyGoldView : MonoBehaviour
         bottom.transform.SetSiblingIndex(transform.Find("EffectContainer").GetSiblingIndex() - 1);
         lbRemainPick.text = remainPick + " Remaining Picks";
         gameView = SiXiangView;
-        luckyGoldTask = new Task(() => { });
+        luckyGoldTask = new UniTaskCompletionSource();
         SiXiangView.gameState = BaseSlotView.GAME_STATE.SHOWING_RESULT;
-        return luckyGoldTask;
+        return luckyGoldTask.Task;
     }
     private void initRainItem()
     {
@@ -114,7 +115,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
     private async void moveItem(GameObject item, int index)
     {
         LuckyGoldItem itemComp = item.GetComponent<LuckyGoldItem>();
-        await Task.Delay(TimeSpan.FromSeconds(index * 0.2f));
+        await UniTask.Delay(TimeSpan.FromSeconds(index * 0.2f));
         var time = Random.Range(5, 7);
         item.transform.DOBlendableLocalMoveBy(new Vector3(0, -700), time, true).OnUpdate(() =>
         {
@@ -255,7 +256,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
             soundMoney.Stop();
             SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_END);
         });
-        await Task.Delay(2000);
+        await UniTask.Delay(2000);
         btnCollect.gameObject.SetActive(true);
         if (gameView.spintype == BaseSlotView.SPIN_TYPE.AUTO)
         {
@@ -321,7 +322,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
         dataEnd["isSelectBonusGame"] = isSelectBonusGame;
 
         gameView.setStateNodeGameForLuckyGold(true);
-        luckyGoldTask.Start();
+        luckyGoldTask.TrySetResult();
         totalWinAmount = 0;
         remainPick = 20;
         listItem.ForEach(item =>

@@ -5,8 +5,8 @@ using DG.Tweening;
 using Spine.Unity;
 using UnityEngine.UI;
 using TMPro;
-using System.Threading.Tasks;
 using System;
+using Cysharp.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Globals;
 
@@ -43,7 +43,7 @@ public class SiXiangScatterView : MonoBehaviour
 
     [HideInInspector]
     private bool isPrepareStop = false;
-    public Task scatterTask;
+    public UniTaskCompletionSource scatterTask;
     [HideInInspector]
     private int typeResult = 5;
     private long winAmount = 0, userAmount = 0;
@@ -116,7 +116,7 @@ public class SiXiangScatterView : MonoBehaviour
         SocketSend.sendPackageMiniGame(Globals.ACTION_SLOT_SIXIANG.scatterSpin, minigameType);
         isWaitForAutoSpin = false;
     }
-    public Task startSpin()
+    public UniTask startSpin()
     {
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SCATTER_SPIN);
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SPIN_REEL);
@@ -140,10 +140,10 @@ public class SiXiangScatterView : MonoBehaviour
             SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SCATTER_SYMBOL);
             preShowResult();
         });
-        scatterTask = new Task(() => { });
-        return scatterTask;
+        scatterTask = new UniTaskCompletionSource();
+        return scatterTask.Task;
     }
-    public async Task handleScatterSpin(JObject data)
+    public async UniTask handleScatterSpin(JObject data)
     {
         int reward = (int)data["reward"];
         userAmount = (long)data["userAmount"];
@@ -190,11 +190,11 @@ public class SiXiangScatterView : MonoBehaviour
         nodeSpin.transform.DOScale(new Vector3(1.0f, 1.0f, 1), 1.0f).SetEase(Ease.OutSine).SetId("nodeSpin");
         Tween nodeSpinTween = DOTween.TweensById("nodeSpin")[0];
         await nodeSpinTween.AsyncWaitForCompletion();
-        await Task.Delay(1000);
+        await UniTask.Delay(1000);
 
         await showResultAnim();
     }
-    private async Task showResultAnim()
+    private async UniTask showResultAnim()
     {
         btnCollect.gameObject.SetActive(false);
         string pathSkeData = "";
@@ -250,7 +250,7 @@ public class SiXiangScatterView : MonoBehaviour
         animResultSpin.Initialize(true);
         animResultSpin.AnimationState.SetAnimation(0, animName, false);
         animResultSpin.transform.parent.gameObject.SetActive(true);
-        await Task.Delay((int)animResultSpin.Skeleton.Data.FindAnimation(animName).Duration * 1000);
+        await UniTask.Delay((int)animResultSpin.Skeleton.Data.FindAnimation(animName).Duration * 1000);
         if (typeResult % 2 != 0)
         {
             endView();
@@ -280,7 +280,7 @@ public class SiXiangScatterView : MonoBehaviour
         animResultSpin.transform.parent.gameObject.SetActive(false);
         await gameView.showAnimCutScene();
 
-        scatterTask.Start();
+        scatterTask.TrySetResult();
         Destroy(gameObject);
         nodeReel.transform.localEulerAngles = Vector3.zero;
         if (typeResult == (int)RESULT_SPIN.COIN_1 || typeResult == (int)RESULT_SPIN.COIN_2 || typeResult == (int)RESULT_SPIN.COIN_4 || typeResult == (int)RESULT_SPIN.COIN_5)

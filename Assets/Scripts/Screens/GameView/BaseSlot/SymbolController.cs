@@ -6,8 +6,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Newtonsoft.Json.Linq;
 using System.Linq;
-using System.Threading.Tasks;
 using System;
+using Cysharp.Threading.Tasks;
 using Spine;
 using Random = UnityEngine.Random;
 
@@ -174,7 +174,7 @@ public class SymbolController : MonoBehaviour
     {
         setSpine(10);
         sprite.gameObject.SetActive(false);
-        await Task.Delay(1000);
+        await UniTask.Delay(1000);
         spine.gameObject.SetActive(false);
         sprite.gameObject.SetActive(true);
     }

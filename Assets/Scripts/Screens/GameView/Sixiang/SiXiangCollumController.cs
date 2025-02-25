@@ -3,7 +3,7 @@ using Globals;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class SiXiangCollumController : CollumController
@@ -19,7 +19,7 @@ public class SiXiangCollumController : CollumController
         base.stopCollumCompleted();
       
     }
-    public async Task checkWildSpread()
+    public async UniTask checkWildSpread()
     {
         float timeDelay = slotView.spintype == BaseSlotView.SPIN_TYPE.NORMAL ? 2f : 1.33f;
         float timeScale = slotView.spintype == BaseSlotView.SPIN_TYPE.NORMAL ? 1f : 1.5f;
@@ -31,7 +31,7 @@ public class SiXiangCollumController : CollumController
         if (symbolWild != null)
         {
             symbolWild.showWild(timeScale);
-            await Task.Delay(TimeSpan.FromSeconds(timeDelay));
+            await UniTask.Delay(TimeSpan.FromSeconds(timeDelay));
             if (symbolWild.indexSymbol > 0)
             {
                 await showWildSpread(symbolWild.indexSymbol);
@@ -39,10 +39,10 @@ public class SiXiangCollumController : CollumController
         }
 
     }
-    private async Task showWildSpread(int indexWild)
+    private async UniTask showWildSpread(int indexWild)
     {
        
-        List<Task> tasks = new List<Task>();
+        List<UniTask> tasks = new List<UniTask>();
         float timeDelay = slotView.spintype == BaseSlotView.SPIN_TYPE.NORMAL ? 2f : 1.33f;
         float timeScale = slotView.spintype == BaseSlotView.SPIN_TYPE.NORMAL ? 1f : 1.5f;
         for (int i = 0; i < listSymbols.Count; i++)
@@ -61,7 +61,7 @@ public class SiXiangCollumController : CollumController
                 symbolWild.spine.gameObject.SetActive(false);
             });
         }
-        await Task.WhenAny(tasks.ToArray());
+        await UniTask.WhenAny(tasks.ToArray());
     }
     public bool checkWildSymbol()
     {

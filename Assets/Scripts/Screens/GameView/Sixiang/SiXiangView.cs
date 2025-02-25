@@ -4,8 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 using Spine.Unity;
 using UnityEngine.UI;
-using System.Threading.Tasks;
 using System;
+using Cysharp.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Random = UnityEngine.Random;
 using Globals;
@@ -30,7 +30,7 @@ public class SiXiangView : BaseSlotView
     [SerializeField] private SixiangChooseGameBonus ChooseGameBonus;
 
     [HideInInspector] public bool isBonusMiniGame = false, isBonusGame = false;
-    private List<Task> taskAtion = new();
+    // private List<Task> taskAtion = new();
     private List<JObject> listPearls = new();
     private List<int> bonusPrices = new();
     private JObject dragonPearlSpin = new(), scatterSpinGame = null;
@@ -279,7 +279,7 @@ public class SiXiangView : BaseSlotView
                 }
         }
     }
-    public async Task showMiniGameAfterSpinScatter(JObject data, int typeMiniGame)
+    public async UniTask showMiniGameAfterSpinScatter(JObject data, int typeMiniGame)
     {
         infoBar.setStateWin("totalWin");
         lbChipWins.setValue(0, false);
@@ -358,9 +358,9 @@ public class SiXiangView : BaseSlotView
         }
         return indexPeal;
     }
-    private async Task checkWildSpread()
+    private async UniTask checkWildSpread()
     {
-        List<Task> tasks = new();
+        List<UniTask> tasks = new();
         bool isHasWild = false;
         listCollum.ForEach((col) =>
         {
@@ -379,7 +379,7 @@ public class SiXiangView : BaseSlotView
                 SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.WILD_EXPAND);
             });
         }
-        await Task.WhenAll(tasks);
+        await UniTask.WhenAll(tasks);
     }
     private void setStateButtonBuyPeals(bool state)
     {
@@ -544,7 +544,7 @@ public class SiXiangView : BaseSlotView
                     Debug.Log($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");
                 }
             }
-            await Task.Delay(TimeSpan.FromSeconds(0.5f));
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             setStateButtonBuyPeals(true);
             bool isWaittChipEff = (winAmount > 0 || normalWinAmount > 0);
             resetSlotView();
@@ -553,7 +553,7 @@ public class SiXiangView : BaseSlotView
                 setStateSpin(GAME_STATE.SHOWING_RESULT);
                 if (isWaittChipEff)
                 {
-                    await Task.Delay(TimeSpan.FromSeconds(1.0));
+                    await UniTask.Delay(TimeSpan.FromSeconds(1.0));
                 }
                 isBonusMiniGame = false;
                 setStateSpin(GAME_STATE.SHOWING_RESULT);
@@ -562,7 +562,7 @@ public class SiXiangView : BaseSlotView
         }
 
     }
-    public async Task endMinigame(JObject data)
+    public async UniTask endMinigame(JObject data)
     {
 
         setAnimGameName("sixiang");
@@ -636,7 +636,7 @@ public class SiXiangView : BaseSlotView
             spintype = SPIN_TYPE.NORMAL;
         }
         setStateBtnSpin();
-        await Task.Delay(TimeSpan.FromSeconds(0.5f));
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
         isGrandJackpot = false;
         winAmount = 0;
         if (autoSpinRemain > 0 && isBonusGame == false)
@@ -751,7 +751,7 @@ public class SiXiangView : BaseSlotView
         isGrandJackpot = false;
 
     }
-    protected virtual async Task showLuckyGoldView(int remainPick = 20)
+    protected virtual async UniTask showLuckyGoldView(int remainPick = 20)
     {
         gameType = (int)GAME_TYPE.LUCKY_GOLD;
         setStateNodeGameForLuckyGold(false);
@@ -798,7 +798,7 @@ public class SiXiangView : BaseSlotView
         animNameGame.Initialize(true);
         animNameGame.AnimationState.SetAnimation(0, gameName, true);
     }
-    protected virtual async Task showScatterSpin()
+    protected virtual async UniTask showScatterSpin()
     {
         await showAnimCutScene();
         if (ScatterView == null)
@@ -809,7 +809,7 @@ public class SiXiangView : BaseSlotView
         ScatterView.transform.SetSiblingIndex(animCutScene.transform.GetSiblingIndex() - 1);
         ScatterView.Show(this);
     }
-    protected async Task showDragonPearlView(JObject pearls, bool isInit6Gold = false, bool isDbSpin = false)
+    protected async UniTask showDragonPearlView(JObject pearls, bool isInit6Gold = false, bool isDbSpin = false)
     {
         SoundManager.instance.playMusicInGame(Globals.SOUND_SLOT_BASE.PEARL_BG);
         setAnimGameName("dragonpearl");
@@ -822,7 +822,7 @@ public class SiXiangView : BaseSlotView
         DragonPearlView.gameObject.SetActive(true);
         if (isInit6Gold)
         {
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
         }
         infoBar.setStateWin("totalWin");
         lbChipWins.setValue(0, false);
@@ -831,7 +831,7 @@ public class SiXiangView : BaseSlotView
 
         await DragonPearlView.setInfo(pearls, isInit6Gold, isDbSpin);
     }
-    protected virtual async Task showRapidPayGame(int initWinAmount, List<JObject> data = null, bool isUltimate = false)
+    protected virtual async UniTask showRapidPayGame(int initWinAmount, List<JObject> data = null, bool isUltimate = false)
     {
         gameType = (int)GAME_TYPE.RAPID_PAY;
         if (RapidPayView == null)
@@ -842,7 +842,7 @@ public class SiXiangView : BaseSlotView
         RapidPayView.winAmount = initWinAmount;
         await RapidPayView.Show(this, isUltimate, data);
     }
-    protected virtual async Task showLuckyDrawView(JObject initView = null)
+    protected virtual async UniTask showLuckyDrawView(JObject initView = null)
     {
         setAnimGameName("luckydraw");
         gameType = (int)GAME_TYPE.LUCKY_DRAW;
@@ -861,7 +861,7 @@ public class SiXiangView : BaseSlotView
         await LuckyDrawView.Show(this);
     }
 
-    public async Task showAnimCutScene()
+    public async UniTask showAnimCutScene()
     {
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.CUT_SCENE);
         animCutScene.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/CutSceneBonus/skeleton_SkeletonData");
@@ -874,7 +874,7 @@ public class SiXiangView : BaseSlotView
            {
                animCutScene.gameObject.SetActive(false);
            }).SetTarget(transform);
-        await Task.Delay(1500);
+        await UniTask.Delay(1500);
     }
 
 
@@ -924,9 +924,9 @@ public class SiXiangView : BaseSlotView
         infoBar.setDPSpinLeft(freeSpinleft);
         showDragonPearlView(data, true);
     }
-    protected async Task showSpineAnimalBuy(string pathAnim, string animName = "animation")
+    protected async UniTask showSpineAnimalBuy(string pathAnim, string animName = "animation")
     {
-        spineSpecialWinTask = new Task(() => { });
+        var spineSpecialWinTask = new UniTaskCompletionSource();
         Action<SkeletonDataAsset> cb = async (skeData) =>
         {
             SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SHOW_ANIMAL);
@@ -936,7 +936,7 @@ public class SiXiangView : BaseSlotView
             }
             Debug.Log("showSpineAnimalBuy:" + animName);
             animAnimal.skeletonDataAsset = skeData;
-            await Task.Delay(TimeSpan.FromSeconds(0.1f));
+            await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
             effectContainer.SetActive(true);
             spineBgMoney.gameObject.SetActive(false);
             animAnimal.gameObject.SetActive(true);
@@ -945,10 +945,10 @@ public class SiXiangView : BaseSlotView
             //animAnimal.transform.Find("btnConfirm").gameObject.SetActive(false);
             animAnimal.transform.parent.gameObject.SetActive(true);
             //lbSpecicalWin.gameObject.SetActive(false);
-            await Task.Delay((int)animAnimal.Skeleton.Data.FindAnimation(animName).Duration * 1000);
+            await UniTask.Delay((int)animAnimal.Skeleton.Data.FindAnimation(animName).Duration * 1000);
             animAnimal.AnimationState.Complete += delegate
             {
-                spineSpecialWinTask.Start();
+                spineSpecialWinTask.TrySetResult();
                 animAnimal.transform.parent.gameObject.SetActive(false);
                 animAnimal.gameObject.SetActive(false);
                 effectContainer.SetActive(false);
@@ -959,7 +959,7 @@ public class SiXiangView : BaseSlotView
         {
             StartCoroutine(UIManager.instance.loadSkeletonDataAsync(pathAnim, cb));
         });
-        await spineSpecialWinTask;
+        await spineSpecialWinTask.Task;
     }
     public void updateFreeSpinLeft()
     {
