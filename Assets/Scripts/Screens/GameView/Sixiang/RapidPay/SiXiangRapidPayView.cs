@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Spine.Unity;
 using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 
@@ -39,7 +38,7 @@ public class SiXiangRapidPayView : MonoBehaviour
     [HideInInspector]
     private SiXiangView gameView;
     private List<Button> listItem = new List<Button>();
-    public Task rapidTask;
+    // public Task rapidTask;
     void Start()
     {
         SiXiangRapidPayView.instance = this;
@@ -50,7 +49,7 @@ public class SiXiangRapidPayView : MonoBehaviour
     }
 
     // Update is called once per frame
-    public Task Show(SiXiangView SiXiangView, bool isUltimate, List<JObject> initData = null)
+    public IEnumerator Show(SiXiangView SiXiangView, bool isUltimate, List<JObject> initData = null)
     {
         Debug.Log("winAmount====" + Globals.Config.FormatNumber(winAmount));
         currentRow = listRows[0];
@@ -64,8 +63,9 @@ public class SiXiangRapidPayView : MonoBehaviour
             setInitView(initData);
         }
 
-        rapidTask = new Task(() => { });
-        return rapidTask;
+        // rapidTask = new Task(() => { });
+        // return rapidTask;
+        yield return null;
     }
     private void setInitView(List<JObject> data)
     {
@@ -82,38 +82,44 @@ public class SiXiangRapidPayView : MonoBehaviour
         lbBonusTotal.text = "x" + totalBonus;
 
     }
-    public async void setResult(JObject data)
+
+    public IEnumerator setResult(JObject data)
     {
-        Button btnItem = await currentRow.setResult(data);
-        int indexPick = listItem.IndexOf(btnItem) + 1;
-        winAmount = (int)data["winAmount"];
-        isSelectBonusGame = (bool)data["isSelectBonusGame"];
-        if (data.ContainsKey("userAmount")) userAmount = (long)data["userAmount"];
-
-        isFinished = (bool)data["isFinished"];
-        int itemPicked = (int)data["item"];
-        if (itemPicked != 1) //ko pick phai end = 1
+        bool isDone = false;
+        yield return currentRow.setResult(data, (btnItem) =>
         {
-            spineLight.gameObject.SetActive(true);
-            spineLight.Initialize(true);
-            spineLight.AnimationState.SetAnimation(0, indexPick.ToString(), false);
-            totalBonus *= (int)data["multiplier"];
-            SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.RAPID_CHIP_FLY);
-        }
+            int indexPick = listItem.IndexOf(btnItem) + 1;
+            winAmount = (int)data["winAmount"];
+            isSelectBonusGame = (bool)data["isSelectBonusGame"];
+            if (data.ContainsKey("userAmount")) userAmount = (long)data["userAmount"];
 
-        DOTween.Sequence()
-            .AppendInterval(spineLight.Skeleton.Data.FindAnimation(indexPick.ToString()).Duration - 0.35f)
-            .AppendCallback(() =>
+            isFinished = (bool)data["isFinished"];
+            int itemPicked = (int)data["item"];
+            if (itemPicked != 1) //ko pick phai end = 1
             {
-                lbBonusTotal.text = "x" + totalBonus;
-            }).AppendInterval(0.2f)
-            .AppendCallback(() =>
-            {
-                spineLight.gameObject.SetActive(false);
-                Globals.Config.tweenNumberToNumber(lbWinAmount, winAmount);
-                if (!isFinished) nextRow();
-                else showResult();
-            });
+                spineLight.gameObject.SetActive(true);
+                spineLight.Initialize(true);
+                spineLight.AnimationState.SetAnimation(0, indexPick.ToString(), false);
+                totalBonus *= (int)data["multiplier"];
+                SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.RAPID_CHIP_FLY);
+            }
+
+            DOTween.Sequence()
+                .AppendInterval(spineLight.Skeleton.Data.FindAnimation(indexPick.ToString()).Duration - 0.35f)
+                .AppendCallback(() => { lbBonusTotal.text = "x" + totalBonus; }).AppendInterval(0.2f)
+                .AppendCallback(() =>
+                {
+                    spineLight.gameObject.SetActive(false);
+                    Globals.Config.tweenNumberToNumber(lbWinAmount, winAmount);
+                    if (!isFinished) nextRow();
+                    else showResult();
+                });
+            isDone = true;
+        });
+        while (!isDone)
+        {
+            yield return null;
+        }
     }
     private void nextRow()
     {
@@ -147,7 +153,7 @@ public class SiXiangRapidPayView : MonoBehaviour
             btnCollect.gameObject.SetActive(true);
         }
     }
-    public async void onClickCollect()
+    public IEnumerator onClickCollect()
     {
         spineResult.transform.DOScale(new Vector2(0.8f, 0.8f), 0.3f).SetEase(Ease.InBack).OnComplete(() =>
         {
@@ -163,8 +169,8 @@ public class SiXiangRapidPayView : MonoBehaviour
         dataEnd["gameType"] = (int)SiXiangView.GAME_TYPE.RAPID_PAY;
         dataEnd["isSelectBonusGame"] = isSelectBonusGame;
         //dataEnd["userAmount"]=
-        await gameView.endMinigame(dataEnd);
-        rapidTask.Start();
+        yield return gameView.endMinigame(dataEnd);
+        // rapidTask.Start();
 
 
     }

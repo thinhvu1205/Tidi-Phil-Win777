@@ -6,7 +6,6 @@ using TMPro;
 using UnityEngine.UI;
 using Newtonsoft.Json.Linq;
 using DG.Tweening;
-using System.Threading.Tasks;
 using System;
 
 public class LuckyDrawItem : MonoBehaviour
@@ -23,7 +22,7 @@ public class LuckyDrawItem : MonoBehaviour
     {
 
     }
-    public async Task setResult(JObject data)
+    public IEnumerator setResult(JObject data)
     {
         //{"winAmount":0,"userAmount":2299779,"card":4,"multiplier":0.0,"index":10,"jackpot":0,"isFinished":false," ":0,"isSelectBonusGame":false}
         string animationQuay = "quay_";
@@ -105,7 +104,8 @@ public class LuckyDrawItem : MonoBehaviour
                     })).Append(transform.DOScale(Vector2.one, 0.1f));
                 });
             Tween nodeShowTween = DOTween.TweensById("showNormal")[0];
-            await nodeShowTween.AsyncWaitForCompletion();
+            // await nodeShowTween.AsyncWaitForCompletion();
+            yield return nodeShowTween.WaitForCompletion();
         }
         else
         {
@@ -119,7 +119,7 @@ public class LuckyDrawItem : MonoBehaviour
             {
                 SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.LUCKYDRAW_ITEM_JACKPOT);
             });
-            await Task.Delay(TimeSpan.FromSeconds(timeDelayAnim));
+            yield return new WaitForSeconds(timeDelayAnim);
             spine.AnimationState.SetAnimation(0, (data.ContainsKey("isFinished") && (bool)data["isFinished"]) ? animName : animationNormal + typeAnim, true);
         }
 

@@ -5,7 +5,6 @@ using DG.Tweening;
 using Spine.Unity;
 using UnityEngine.UI;
 using TMPro;
-using System.Threading.Tasks;
 using System;
 using Newtonsoft.Json.Linq;
 using Random = UnityEngine.Random;
@@ -35,7 +34,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
     private List<GameObject> itemPool = new List<GameObject>();
     private RectTransform itemConTainerRect;
     private SiXiangView gameView;
-    private Task luckyGoldTask;
+    // private Task luckyGoldTask;
     private GameObject currentItemClick;
     public int remainPick = 20;
     private bool isFinished = false;
@@ -81,7 +80,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
             }).SetId("autoPlay");
         }
     }
-    public Task Show(SiXiangView SiXiangView)
+    public IEnumerator Show(SiXiangView SiXiangView)
     {
         GameObject bottom = Instantiate(SiXiangView.Instance.transform.Find("Bottom").gameObject, transform);
 
@@ -91,9 +90,10 @@ public class SiXiangLuckyGoldView : MonoBehaviour
         bottom.transform.SetSiblingIndex(transform.Find("EffectContainer").GetSiblingIndex() - 1);
         lbRemainPick.text = remainPick + " Remaining Picks";
         gameView = SiXiangView;
-        luckyGoldTask = new Task(() => { });
+        // luckyGoldTask = new Task(() => { });
         SiXiangView.gameState = BaseSlotView.GAME_STATE.SHOWING_RESULT;
-        return luckyGoldTask;
+        // return luckyGoldTask;
+        yield return null;
     }
     private void initRainItem()
     {
@@ -105,16 +105,17 @@ public class SiXiangLuckyGoldView : MonoBehaviour
                 GameObject item = createItemGold();
                 item.transform.localPosition = new Vector2(Random.Range(-600, 600), Random.Range(400, 500));
                 item.transform.localEulerAngles = new Vector3(0, 0, Random.Range(0, 360));
-                moveItem(item, i);
+                StartCoroutine(moveItem(item, i));
             }
         })
             .AppendInterval(3.5f).SetLoops(-1).SetId("initRainItem");
 
     }
-    private async void moveItem(GameObject item, int index)
+    private IEnumerator moveItem(GameObject item, int index)
     {
         LuckyGoldItem itemComp = item.GetComponent<LuckyGoldItem>();
-        await Task.Delay(TimeSpan.FromSeconds(index * 0.2f));
+        // await Task.Delay(TimeSpan.FromSeconds(index * 0.2f));
+        yield return new WaitForSeconds(index * 0.2f);
         var time = Random.Range(5, 7);
         item.transform.DOBlendableLocalMoveBy(new Vector3(0, -700), time, true).OnUpdate(() =>
         {
@@ -129,6 +130,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
         }).SetLoops(-1, LoopType.Incremental);
     }
     int index = 0;
+    
     public void onClickItemGold(GameObject item)
     {
         if (canClick)
@@ -233,7 +235,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
                     .AppendInterval(2.0f)
                     .AppendCallback(() =>
                     {
-                        showAnimResult();
+                        StartCoroutine(showAnimResult());
                     });
                 DOTween.Kill("initRainItem");
                 DOTween.Kill("autoPlay");
@@ -241,7 +243,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
             currentItemClick = null;
         }
     }
-    private async void showAnimResult()
+    private IEnumerator showAnimResult()
     {
         animResult.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/BigWinGoldPick/skeleton_SkeletonData");
         animResult.Initialize(true);
@@ -255,7 +257,8 @@ public class SiXiangLuckyGoldView : MonoBehaviour
             soundMoney.Stop();
             SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_END);
         });
-        await Task.Delay(2000);
+        // await Task.Delay(2000);
+        yield return new WaitForSeconds(2f);
         btnCollect.gameObject.SetActive(true);
         if (gameView.spintype == BaseSlotView.SPIN_TYPE.AUTO)
         {
@@ -305,7 +308,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
         DOTween.Kill(item.transform);
         itemPool.Add(item);
     }
-    public async void onClickCollect()
+    public IEnumerator onClickCollect()
     {
         DOTween.Kill("autoPlay");
         DOTween.Kill("autoEnd");
@@ -321,7 +324,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
         dataEnd["isSelectBonusGame"] = isSelectBonusGame;
 
         gameView.setStateNodeGameForLuckyGold(true);
-        luckyGoldTask.Start();
+        // luckyGoldTask.Start();
         totalWinAmount = 0;
         remainPick = 20;
         listItem.ForEach(item =>
@@ -333,7 +336,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
         index = 0;
         DOTween.Kill("initRainItem");
         gameObject.SetActive(false);
-        await gameView.endMinigame(dataEnd);
+        yield return gameView.endMinigame(dataEnd);
     }
 
 }

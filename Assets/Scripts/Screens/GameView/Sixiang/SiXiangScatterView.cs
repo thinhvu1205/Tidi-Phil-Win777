@@ -116,34 +116,39 @@ public class SiXiangScatterView : MonoBehaviour
         SocketSend.sendPackageMiniGame(Globals.ACTION_SLOT_SIXIANG.scatterSpin, minigameType);
         isWaitForAutoSpin = false;
     }
-    public Task startSpin()
+    public IEnumerator startSpin()
     {
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SCATTER_SPIN);
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SPIN_REEL);
+
         float startAngle = 0;
         int deltaAngle = typeResult * 45;
         int totalAngle = 4320 + deltaAngle;
-        DOTween.To(() => startAngle, x => startAngle = x, totalAngle, 5.0f).OnUpdate(() =>
-        {
-            nodeReel.transform.localEulerAngles = new Vector3(0, 0, startAngle);
-            if (startAngle > 3000 && isPrepareStop == false)
+        
+        Tween spinTween = DOTween.To(() => startAngle, x => startAngle = x, totalAngle, 5.0f)
+            .OnUpdate(() =>
             {
-                prepareStop();
-            }
-        }).SetEase(Ease.InOutSine).OnComplete(() =>
-        {
-            animBgWin.Initialize(true);
-            animBgWin.AnimationState.SetAnimation(0, "khung eat", true);
-            animBgWin.gameObject.SetActive(true);
-            bgLight.gameObject.SetActive(false);
-            animBG.AnimationState.SetAnimation(0, "normal", true);
-            SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SCATTER_SYMBOL);
-            preShowResult();
-        });
-        scatterTask = new Task(() => { });
-        return scatterTask;
+                nodeReel.transform.localEulerAngles = new Vector3(0, 0, startAngle);
+                if (startAngle > 3000 && isPrepareStop == false)
+                {
+                    prepareStop();
+                }
+            })
+            .SetEase(Ease.InOutSine);
+        
+        yield return spinTween.WaitForCompletion();
+        
+        animBgWin.Initialize(true);
+        animBgWin.AnimationState.SetAnimation(0, "khung eat", true);
+        animBgWin.gameObject.SetActive(true);
+        bgLight.gameObject.SetActive(false);
+        animBG.AnimationState.SetAnimation(0, "normal", true);
+        SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SCATTER_SYMBOL);
+
+        StartCoroutine(preShowResult());
     }
-    public async Task handleScatterSpin(JObject data)
+
+    public IEnumerator handleScatterSpin(JObject data)
     {
         int reward = (int)data["reward"];
         userAmount = (long)data["userAmount"];
@@ -175,26 +180,27 @@ public class SiXiangScatterView : MonoBehaviour
                 typeResult = 2; // x15
                 break;
         }
-        await startSpin();
+        yield return startSpin();
     }
+    
     private void prepareStop()
     {
         isPrepareStop = true;
         nodeSpin.transform.DOLocalMoveY(-331, 1.0f).SetEase(Ease.InSine);
         nodeSpin.transform.DOScale(new Vector3(1.5f, 1.5f, 1), 1.0f).SetEase(Ease.InSine);
-
     }
-    private async void preShowResult()
+    
+    private IEnumerator preShowResult()
     {
         nodeSpin.transform.DOLocalMoveY(-39, 1.0f).SetEase(Ease.OutSine);
         nodeSpin.transform.DOScale(new Vector3(1.0f, 1.0f, 1), 1.0f).SetEase(Ease.OutSine).SetId("nodeSpin");
         Tween nodeSpinTween = DOTween.TweensById("nodeSpin")[0];
-        await nodeSpinTween.AsyncWaitForCompletion();
-        await Task.Delay(1000);
-
-        await showResultAnim();
+        yield return nodeSpinTween.WaitForCompletion(); 
+        yield return new WaitForSeconds(1.0f);
+        yield return showResultAnim();
     }
-    private async Task showResultAnim()
+    
+    private IEnumerator showResultAnim()
     {
         btnCollect.gameObject.SetActive(false);
         string pathSkeData = "";
@@ -250,10 +256,10 @@ public class SiXiangScatterView : MonoBehaviour
         animResultSpin.Initialize(true);
         animResultSpin.AnimationState.SetAnimation(0, animName, false);
         animResultSpin.transform.parent.gameObject.SetActive(true);
-        await Task.Delay((int)animResultSpin.Skeleton.Data.FindAnimation(animName).Duration * 1000);
+        yield return new WaitForSeconds(animResultSpin.Skeleton.Data.FindAnimation(animName).Duration * 1000);
         if (typeResult % 2 != 0)
         {
-            endView();
+            yield return endView();
         }
         else
         {
@@ -262,25 +268,29 @@ public class SiXiangScatterView : MonoBehaviour
             {
                 DOTween.Sequence()
                     .AppendInterval(5.0f)
-                    .AppendCallback(() =>
-                    {
-                        endView();
-                    })
+                    .AppendCallback(StartEndView)
                     .SetId("autoEnd");
             }
         }
     }
+    
     public void onClickCollect()
     {
         DOTween.Kill("autoEnd");
-        endView();
+        StartEndView();
     }
-    private async void endView()
+    
+    void StartEndView()
+    {
+        StartCoroutine(endView());
+    }
+    
+    private IEnumerator endView()
     {
         animResultSpin.transform.parent.gameObject.SetActive(false);
-        await gameView.showAnimCutScene();
+        yield return gameView.showAnimCutScene();
 
-        scatterTask.Start();
+        // scatterTask.Start();
         Destroy(gameObject);
         nodeReel.transform.localEulerAngles = Vector3.zero;
         if (typeResult == (int)RESULT_SPIN.COIN_1 || typeResult == (int)RESULT_SPIN.COIN_2 || typeResult == (int)RESULT_SPIN.COIN_4 || typeResult == (int)RESULT_SPIN.COIN_5)
@@ -290,10 +300,8 @@ public class SiXiangScatterView : MonoBehaviour
             dataEnd["gameType"] = (int)SiXiangView.GAME_TYPE.SCATTER;
             dataEnd["userAmount"] = userAmount;
             dataEnd["isSelectBonusGame"] = false;
-            await SiXiangView.Instance.endMinigame(dataEnd);
+            yield return SiXiangView.Instance.endMinigame(dataEnd);
         }
-
-
     }
-
+    
 }

@@ -148,6 +148,7 @@ public class SymbolController : MonoBehaviour
         }
         sprite.SetNativeSize();
     }
+    
     public void setSpine(int idSpine, float timeScale = 1.0f)
     {
         Action<SkeletonDataAsset> cb = (skeData) =>
@@ -170,14 +171,17 @@ public class SymbolController : MonoBehaviour
         };
         StartCoroutine(UIManager.instance.loadSkeletonDataAsync(getSpinePath(idSpine), cb));
     }
-    public async void showScatterSpine()
+    
+    public IEnumerator showScatterSpine()
     {
         setSpine(10);
         sprite.gameObject.SetActive(false);
-        await Task.Delay(1000);
+        // await Task.Delay(1000);
+        yield return new WaitForSeconds(1f);
         spine.gameObject.SetActive(false);
         sprite.gameObject.SetActive(true);
     }
+    
     private string getSpinePath(int idSpine)
     {
         string path = "GameView/SiXiang/Spine/Icon/%s/skeleton_SkeletonData";
@@ -185,6 +189,7 @@ public class SymbolController : MonoBehaviour
         path = Globals.Config.formatStr(path, listFolderName[idSpine]);
         return path;
     }
+    
     public void Reset()
     {
         if (indexSymbol == 0)
@@ -197,6 +202,7 @@ public class SymbolController : MonoBehaviour
         spine.gameObject.SetActive(false);
 
     }
+    
     public void setBgWin(bool state)
     {
         bgWin.gameObject.SetActive(state);
@@ -205,8 +211,6 @@ public class SymbolController : MonoBehaviour
             bgWin.Initialize(true);
             bgWin.AnimationState.SetAnimation(0, "animation", true);
         }
-
-
     }
 
 

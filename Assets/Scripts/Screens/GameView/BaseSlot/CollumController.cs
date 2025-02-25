@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
 using DG.Tweening;
 using Spine.Unity;
 using System;
@@ -26,7 +25,7 @@ public class CollumController : MonoBehaviour
     public JObject SPEED_TYPE = new JObject();
     [HideInInspector]
     public List<int> listIDResult = new List<int>();
-    private Task collumSpinTask;
+    // private Task collumSpinTask;
     public bool isNeerSpin = false;
     private bool isChangeSpeedNFS = false;
     public float speedNFS = 0.05f;
@@ -38,11 +37,10 @@ public class CollumController : MonoBehaviour
         SPEED_TYPE["AUTO"] = 0.05f;
     }
 
-    public Task Stop(List<int> listID)
+    public IEnumerator Stop(List<int> listID)
     {
-
         listIDResult.AddRange(listID);
-        collumSpinTask = new Task(() => { });
+        // collumSpinTask = new Task(() => { });
         if (isNeerSpin)
         {
             listSymbols.ForEach((sym) => { sym.Speed = (float)SPEED_TYPE["AUTO"]; });
@@ -64,8 +62,10 @@ public class CollumController : MonoBehaviour
             isStop = true;
             SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.COLLUM_STOP);
         }
-        return collumSpinTask;
+        // return collumSpinTask;
+        yield return null;
     }
+    
     private void slowDownNFS()
     {
         DOTween.To(() => speedNFS, x => speedNFS = x, 0.5f, timeNFS).OnUpdate(() =>
@@ -75,6 +75,7 @@ public class CollumController : MonoBehaviour
 
         });
     }
+    
     public void spinSymbol()
     {
         listSymbols.ForEach((sym) =>
@@ -90,6 +91,7 @@ public class CollumController : MonoBehaviour
             sym.spin();
         });
     }
+    
     public void setRandomView()
     {
         listSymbols.ForEach((sym) =>
@@ -98,9 +100,9 @@ public class CollumController : MonoBehaviour
             sym.setSprite(randomID);
         });
     }
+    
     public virtual void stopCollumCompleted()
     {
-
         spineNFS.gameObject.SetActive(false);
         listSymbols.Sort((a, b) =>
         {
@@ -110,12 +112,12 @@ public class CollumController : MonoBehaviour
         if (collumIndex == 4)
         {
             slotView.activeAllSymbol();
-            slotView.allCollumStopCompleted();
+            StartCoroutine(slotView.allCollumStopCompleted());
         }
     }
     public void prepareStop()
     {
-        collumSpinTask.Start();
+        // collumSpinTask.Start();
     }
     public void Reset()
     {
@@ -128,21 +130,23 @@ public class CollumController : MonoBehaviour
         isNeerSpin = false;
         speedNFS = 0.05f;
     }
+    
     protected SymbolController getSylbolFromIndex(int index)
     {
         return listSymbols.Find(symbol => symbol.indexSymbol == index);
-
     }
+    
     public void showScatterSymbol()
     {
         listSymbols.ForEach(symbol =>
         {
             if (symbol.id == 10)
             {
-                symbol.showScatterSpine();
+                StartCoroutine(symbol.showScatterSpine());
             }
         });
     }
+    
     public void hideAllSymbol(int ignoreID = -1)
     {
         listSymbols.ForEach((symbol) =>
@@ -157,6 +161,7 @@ public class CollumController : MonoBehaviour
             }
         });
     }
+    
     public void activeAllSymbol()
     {
         listSymbols.ForEach((symbol) =>
@@ -164,7 +169,8 @@ public class CollumController : MonoBehaviour
             symbol.sprite.color = Color.white;
         });
     }
-    public async Task activeSymbol(int index)
+    
+    public IEnumerator activeSymbol(int index)
     {
         listSymbols[index].setSpine(listSymbols[index].id);
         listSymbols[index].setBgWin(true);
@@ -174,7 +180,8 @@ public class CollumController : MonoBehaviour
             listSymbols[index].setBgWin(false);
             listSymbols[index].setSprite(listSymbols[index].id);
         }).SetTarget(listSymbols[index]);
-        await Task.Delay(TimeSpan.FromSeconds(2.0f), slotView.cts_ShowEffect.Token);
+        // await Task.Delay(TimeSpan.FromSeconds(2.0f), slotView.cts_ShowEffect.Token);
+        yield return new WaitForSeconds(2.0f);
     }
     public Vector2 getPosSymbol(int index)
     {

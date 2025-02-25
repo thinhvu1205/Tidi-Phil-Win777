@@ -5,7 +5,6 @@ using DG.Tweening;
 using Spine.Unity;
 using UnityEngine.UI;
 using TMPro;
-using System.Threading.Tasks;
 using System;
 using Newtonsoft.Json.Linq;
 using Random = UnityEngine.Random;
@@ -29,7 +28,7 @@ public class SiXiangLuckyDrawView : MonoBehaviour
     public TextNumberControl lbTotalWin;
 
     [HideInInspector]
-    private Task luckyDrawTask;
+    // private Task luckyDrawTask;
     private SiXiangView gameView;
 
     private LuckyDrawItem currenItem;
@@ -73,23 +72,20 @@ public class SiXiangLuckyDrawView : MonoBehaviour
     }
 
     // Update is called once per frame
-    public Task Show(SiXiangView SiXiangView)
+    public IEnumerator Show(SiXiangView SiXiangView)
     {
-
         gameView = SiXiangView;
         gameView.gameState = SiXiangView.GAME_STATE.SHOWING_RESULT;
         gameView.lbChipWins.ResetValue();
         gameView.infoBar.setStateWin("totalWin");
-        luckyDrawTask = new Task(() => { });
-        DOTween.Sequence(luckyDrawTask);
+        // luckyDrawTask = new Task(() => { });
+        // DOTween.Sequence(luckyDrawTask);
         DOTween.Sequence(transform)
             .AppendInterval(10.0f)
-            .AppendCallback(() =>
-            {
-                onPlayAuto();
-            }).SetId("autoPlay");
-        return luckyDrawTask;
+            .AppendCallback(() => { onPlayAuto(); }).SetId("autoPlay");
+        yield return null;
     }
+
     public void setInitView(JObject dataInit, SiXiangView SiXiangView)
     {
         gameView = SiXiangView;
@@ -97,7 +93,7 @@ public class SiXiangLuckyDrawView : MonoBehaviour
         List<JObject> initView = dataInit["cards"].ToObject<List<JObject>>();
         for (int i = 0; i < initView.Count; i++)
         {
-            setInfoItem(initView[i]);
+            StartCoroutine(setInfoItem(initView[i]));
         }
         isInitView = false;
         winAmount = (long)dataInit["winAmount"];
@@ -133,7 +129,7 @@ public class SiXiangLuckyDrawView : MonoBehaviour
         }
 
     }
-    public async void setInfoItem(JObject data)
+    public IEnumerator setInfoItem(JObject data)
     {
         if (data.ContainsKey("userAmount"))
         {
@@ -148,7 +144,7 @@ public class SiXiangLuckyDrawView : MonoBehaviour
         {
             isSelectBonusGame = (bool)data["isSelectBonusGame"];
         }
-        await listItem[(int)data["index"]].setResult(data);
+        yield return listItem[(int)data["index"]].setResult(data);
         if (data.ContainsKey("isFinished"))
         {
             isFinished = (bool)data["isFinished"];
@@ -167,9 +163,9 @@ public class SiXiangLuckyDrawView : MonoBehaviour
             //});
             if (jackpotType != 0)
             {
-                await showEffectItemJP();
+                yield return showEffectItemJP();
             }
-            showAnimResult();
+            StartCoroutine(showAnimResult());
         }
         else
         {
@@ -184,7 +180,7 @@ public class SiXiangLuckyDrawView : MonoBehaviour
 
     }
 
-    public async void onClickCollect()
+    public IEnumerator onClickCollect()
     {
         Debug.Log("onClickCollect");
         DOTween.Kill("autoEnd");
@@ -198,16 +194,16 @@ public class SiXiangLuckyDrawView : MonoBehaviour
         dataEnd["gameType"] = (int)SiXiangView.GAME_TYPE.LUCKY_DRAW;
         dataEnd["isSelectBonusGame"] = isSelectBonusGame;
         //await gameView.showAnimCutScene();
-        luckyDrawTask.Start();
+        // luckyDrawTask.Start();
         gameView.setStateNodeGameForLuckyDraw(true);
         btnCollect.gameObject.SetActive(false);
         Destroy(gameObject);
         SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.CLICK);
-        await gameView.endMinigame(dataEnd);
+        yield return gameView.endMinigame(dataEnd);
     }
-    public async void showAnimResult()
+    public IEnumerator showAnimResult()
     {
-        Task loadAsynTask = new Task(() => { });
+        // Task loadAsynTask = new Task(() => { });
         long chipWin = 0;
         string soundPathStart = "";
         string soundPathEnd = "";
@@ -225,7 +221,8 @@ public class SiXiangLuckyDrawView : MonoBehaviour
             soundPathStart = Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_START;
             soundPathEnd = Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_END;
         }
-        await Task.Delay(1000);
+        // await Task.Delay(1000);
+        yield return new WaitForSeconds(1f);
         spineResult.transform.parent.gameObject.SetActive(true);
         spineResult.Initialize(true);
         spineResult.AnimationState.SetAnimation(0, getAnimResultName(), false);
@@ -237,7 +234,9 @@ public class SiXiangLuckyDrawView : MonoBehaviour
             soundCount.Stop();
             SoundManager.instance.playEffectFromPath(soundPathEnd);
         });
-        await Task.Delay(TimeSpan.FromSeconds(duration));
+        // await Task.Delay(TimeSpan.FromSeconds(duration));
+        yield return new WaitForSeconds(duration);
+
         btnCollect.gameObject.SetActive(true);
         if (gameView.spintype == SiXiangView.SPIN_TYPE.AUTO)
         {
@@ -246,7 +245,7 @@ public class SiXiangLuckyDrawView : MonoBehaviour
                 .AppendInterval(3.0f)
                 .AppendCallback(() =>
                 {
-                    onClickCollect();
+                    StartCoroutine(onClickCollect());
                 });
         }
 
@@ -255,7 +254,7 @@ public class SiXiangLuckyDrawView : MonoBehaviour
     {
         DOTween.Kill("autoEnd");
     }
-    private async Task showEffectItemJP()
+    private IEnumerator showEffectItemJP()
     {
         SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.LUCKYDRAW_WIN_JACKPOT);
         listItem.ForEach(item =>
@@ -266,7 +265,7 @@ public class SiXiangLuckyDrawView : MonoBehaviour
                 item.showEffectWinJp();
             }
         });
-        await Task.Delay(2000);
+        yield return new WaitForSeconds(2f);
     }
     private string getAnimResultName()
     {

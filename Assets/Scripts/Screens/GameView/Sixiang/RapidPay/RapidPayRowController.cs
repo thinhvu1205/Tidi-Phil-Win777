@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,7 +54,7 @@ public class RapidPayRowController : MonoBehaviour
         SocketSend.sendPackageRapidPay(Globals.ACTION_SLOT_SIXIANG.rapidPay, btnItemPick.IndexOf(btn).ToString());
     }
 
-    public async Task<Button> setResult(JObject data)
+    public IEnumerator setResult(JObject data, Action<Button> callback = null)
     {
         listResult = data["items"].ToObject<List<int>>();
         int result = (int)data["item"];
@@ -72,7 +73,8 @@ public class RapidPayRowController : MonoBehaviour
                 SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.CLICK_ITEM_MISS);
             else
                 SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.RAPID_ITEM_WIN);
-            await Task.Delay((int)spineItemCurrent.Skeleton.Data.FindAnimation(getAnimName(result)).Duration * 1000);
+            // await Task.Delay((int)spineItemCurrent.Skeleton.Data.FindAnimation(getAnimName(result)).Duration * 1000);
+            yield return new WaitForSeconds((int)spineItemCurrent.Skeleton.Data.FindAnimation(getAnimName(result)).Duration);
         }
         for (int i = 0; i < btnItemPick.Count; i++)
         {
@@ -84,7 +86,7 @@ public class RapidPayRowController : MonoBehaviour
                 spineItem.AnimationState.SetAnimation(0, getAnimName(listResult[i]), false);
             }
         }
-        return currentItemPick;
+        callback?.Invoke(currentItemPick);
     }
     private void setEffectResult()
     {

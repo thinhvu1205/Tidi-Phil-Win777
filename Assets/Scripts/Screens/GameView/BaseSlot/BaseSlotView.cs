@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using System.Threading.Tasks;
 using System;
 using TMPro;
 using Spine.Unity;
@@ -20,8 +19,7 @@ public class BaseSlotView : GameView
     // Start is called before the first frame update
     public static BaseSlotView Instance = null;
 
-    [SerializeField]
-    protected List<CollumController> listCollum;
+    [SerializeField] protected List<CollumController> listCollum;
 
     [SerializeField] protected SkeletonGraphic spineSpecialWin;
     [SerializeField] protected SkeletonGraphic spineJackpotWin;
@@ -30,40 +28,25 @@ public class BaseSlotView : GameView
     [HideInInspector] protected Spine.TrackEntry spineSpecialWinTrack;
     [HideInInspector] protected Spine.TrackEntry spineJPWinTrack;
 
-    [SerializeField]
-    protected GameObject collumContainer;
-    [SerializeField]
-    protected List<Sprite> sprStateBets = new List<Sprite>();
-    [SerializeField]
-    protected Image imgStateBet;
-    [SerializeField]
-    protected GameObject nodeAutoSpin;
-    [SerializeField]
-    protected GameObject effectContainer;
+    [SerializeField] protected GameObject collumContainer;
+    [SerializeField] protected List<Sprite> sprStateBets = new List<Sprite>();
+    [SerializeField] protected Image imgStateBet;
+    [SerializeField] protected GameObject nodeAutoSpin;
+    [SerializeField] protected GameObject effectContainer;
 
-    [SerializeField]
-    GameObject rulePr;
+    [SerializeField] GameObject rulePr;
 
-    [SerializeField]
-    protected TextMeshProUGUI lbAutoRemain, lbInfoSession;
-    [SerializeField]
-    protected TextNumberControl lbSpecicalWin;
-    [SerializeField]
-    protected TextNumberControl lbJPWin;
-    [SerializeField]
-    protected TextMeshProUGUI lbBetLevel;
-    [SerializeField]
-    protected TextNumberControl lbUserAmount;
-    [SerializeField]
-    public TextNumberControl lbChipWins;
-    [SerializeField]
-    protected List<TextNumberControl> listLbJackpot = new List<TextNumberControl>();
+    [SerializeField] protected TextMeshProUGUI lbAutoRemain, lbInfoSession;
+    [SerializeField] protected TextNumberControl lbSpecicalWin;
+    [SerializeField] protected TextNumberControl lbJPWin;
+    [SerializeField] protected TextMeshProUGUI lbBetLevel;
+    [SerializeField] protected TextNumberControl lbUserAmount;
+    [SerializeField] public TextNumberControl lbChipWins;
+    [SerializeField] protected List<TextNumberControl> listLbJackpot = new List<TextNumberControl>();
 
-    [SerializeField]
-    public InfoBarController infoBar;
+    [SerializeField] public InfoBarController infoBar;
     protected bool _CanSpinDP = true;
     //[HideInInspector] protected string soundLineWin = "";
-
 
 
     [HideInInspector]
@@ -72,12 +55,14 @@ public class BaseSlotView : GameView
         NORMAL,
         AUTO
     }
+
     [HideInInspector]
     public enum SPEED_MOVE
     {
         NORMAL,
         AUTO
     }
+
     [HideInInspector]
     public enum GAME_STATE
     {
@@ -86,11 +71,11 @@ public class BaseSlotView : GameView
         SHOWING_RESULT,
         JOIN_GAME
     }
+
     [HideInInspector] public SPIN_TYPE spintype = SPIN_TYPE.NORMAL;
     [HideInInspector] public GAME_STATE gameState = GAME_STATE.JOIN_GAME;
     [SerializeField] public SkeletonGraphic animBtnSpin;
-    [HideInInspector]
-    protected bool isHoldSpin = false;
+    [HideInInspector] protected bool isHoldSpin = false;
 
     protected WIN_TYPE winType = WIN_TYPE.NORMAL;
     public WIN_JACKPOT_TYPE winTypeJackpot = WIN_JACKPOT_TYPE.NONE;
@@ -123,36 +108,50 @@ public class BaseSlotView : GameView
     List<Image> lsCoinPool = new List<Image>();
     [SerializeField] Image coinEffectPrefab;
     protected List<GameObject> listLineStraight = new List<GameObject>();
-    [SerializeField]
-    protected GameObject linePrf;
-    [SerializeField]
-    protected GameObject lineContainer;
-    public CancellationTokenSource cts_ShowEffect;
-    private List<CancellationTokenSource> cancelTokList = new List<CancellationTokenSource>();
-    protected Task spineSpecialWinTask = null;
-    protected Task spineJPWinTask = null;
+    [SerializeField] protected GameObject linePrf;
+
+    [SerializeField] protected GameObject lineContainer;
+
+    // public CancellationTokenSource cts_ShowEffect;
+    // private List<CancellationTokenSource> cancelTokList = new List<CancellationTokenSource>();
+    public bool isEffectActive = false;
+    public List<bool> effectStates = new List<bool>();
+
+    // protected Task spineSpecialWinTask = null;
+    // protected Task spineJPWinTask = null;
 
     protected string PATH_ANIM_SPECICAL_WIN = "";
 
-    protected List<List<int>> payLines = new List<List<int>> {new List<int>{1, 1, 1, 1, 1}, new List<int>{0, 0, 0, 0, 0}, new List<int>{2, 2, 2, 2, 2}, new List<int>{0, 1, 2, 1, 0}, new List<int>{2, 1, 0, 1, 2},
-        new List<int>{1, 0, 0, 0, 1}, new List<int>{1, 2, 2, 2, 1}, new List<int>{0, 0, 1, 2, 2}, new List<int>{2, 2, 1, 0, 0}, new List<int>{1, 2, 1, 0, 1},
-        new List<int>{1, 0, 1, 2, 1}, new List<int>{0, 1, 1, 1, 0}, new List<int>{2, 1, 1, 1, 2}, new List<int>{0, 1, 0, 1, 0}, new List<int>{2, 1, 2, 1, 2},
-        new List<int>{1, 1, 0, 1, 1}, new List<int>{1, 1, 2, 1, 1}, new List<int>{0, 0, 2, 0, 0}, new List<int>{2, 2, 0, 2, 2}, new List<int>{0, 2, 2, 2, 0},
-        new List<int>{2, 0, 0, 0, 2}, new List<int>{1, 2, 0, 2, 1}, new List<int>{1, 0, 2, 0, 1}, new List<int>{0, 2, 0, 2, 0}, new List<int>{2, 0, 2, 0, 2}};
+    protected List<List<int>> payLines = new List<List<int>>
+    {
+        new List<int> { 1, 1, 1, 1, 1 }, new List<int> { 0, 0, 0, 0, 0 }, new List<int> { 2, 2, 2, 2, 2 },
+        new List<int> { 0, 1, 2, 1, 0 }, new List<int> { 2, 1, 0, 1, 2 },
+        new List<int> { 1, 0, 0, 0, 1 }, new List<int> { 1, 2, 2, 2, 1 }, new List<int> { 0, 0, 1, 2, 2 },
+        new List<int> { 2, 2, 1, 0, 0 }, new List<int> { 1, 2, 1, 0, 1 },
+        new List<int> { 1, 0, 1, 2, 1 }, new List<int> { 0, 1, 1, 1, 0 }, new List<int> { 2, 1, 1, 1, 2 },
+        new List<int> { 0, 1, 0, 1, 0 }, new List<int> { 2, 1, 2, 1, 2 },
+        new List<int> { 1, 1, 0, 1, 1 }, new List<int> { 1, 1, 2, 1, 1 }, new List<int> { 0, 0, 2, 0, 0 },
+        new List<int> { 2, 2, 0, 2, 2 }, new List<int> { 0, 2, 2, 2, 0 },
+        new List<int> { 2, 0, 0, 0, 2 }, new List<int> { 1, 2, 0, 2, 1 }, new List<int> { 1, 0, 2, 0, 1 },
+        new List<int> { 0, 2, 0, 2, 0 }, new List<int> { 2, 0, 2, 0, 2 }
+    };
 
-    protected List<string> listColor = new List<string> {
+    protected List<string> listColor = new List<string>
+    {
         "#69C4C9", "#067048", "#25A0F0", "#6AF28E", "#003CC3",
-    "#1DC42C", "#6C58B1", "#97B158", "#0F0098", "#6700BE",
-    "#920E48", "#F277E2", "#BC8B15", "#AC6456", "#E17512",
-    "#E8C500", "#F0E915", "#FD93A1", "#C735D4", "#FF0C04",
-    "#69C4C9", "#067048", "#25A0F0", "#6AF28E", "#003CC3",
-    "#1DC42C", "#6C58B1", "#97B158", "#0F0098", "#6700BE",
-    "#920E48", "#F277E2", "#BC8B15", "#AC6456", "#E17512",
-    "#E8C500", "#F0E915", "#FD93A1", "#C735D4", "#FF0C04",
-    "#69C4C9", "#067048", "#25A0F0", "#6AF28E", "#003CC3",
-    "#1DC42C", "#6C58B1", "#97B158", "#0F0098", "#6700BE",
-    "#69C4C9", "#067048", "#25A0F0", "#6AF28E", "#003CC3",
-    "#1DC42C", "#6C58B1", "#97B158", "#0F0098", "#6700BE"};
+        "#1DC42C", "#6C58B1", "#97B158", "#0F0098", "#6700BE",
+        "#920E48", "#F277E2", "#BC8B15", "#AC6456", "#E17512",
+        "#E8C500", "#F0E915", "#FD93A1", "#C735D4", "#FF0C04",
+        "#69C4C9", "#067048", "#25A0F0", "#6AF28E", "#003CC3",
+        "#1DC42C", "#6C58B1", "#97B158", "#0F0098", "#6700BE",
+        "#920E48", "#F277E2", "#BC8B15", "#AC6456", "#E17512",
+        "#E8C500", "#F0E915", "#FD93A1", "#C735D4", "#FF0C04",
+        "#69C4C9", "#067048", "#25A0F0", "#6AF28E", "#003CC3",
+        "#1DC42C", "#6C58B1", "#97B158", "#0F0098", "#6700BE",
+        "#69C4C9", "#067048", "#25A0F0", "#6AF28E", "#003CC3",
+        "#1DC42C", "#6C58B1", "#97B158", "#0F0098", "#6700BE"
+    };
+
     protected enum WIN_TYPE
     {
         NORMAL = 0,
@@ -160,8 +159,8 @@ public class BaseSlotView : GameView
         BIGWIN = 2,
         HUGEWIN = 3,
         MEGAWIN = 4,
-
     }
+
     public enum WIN_JACKPOT_TYPE
     {
         NONE = 0,
@@ -170,33 +169,43 @@ public class BaseSlotView : GameView
         JACKPOT_MEGA = 3,
         JACKPOT_GRAND = 4,
     }
+
     public override void OnDestroy()
     {
         base.OnDestroy();
 
-        if (cts_ShowEffect != null)
+        isEffectActive = false;
+
+        for (int i = 0; i < effectStates.Count; i++)
         {
-            cts_ShowEffect.Cancel();
+            effectStates[i] = false;
         }
-        cancelTokList.ForEach((token) =>
-        {
-            Debug.Log("Cancel Token");
-            token?.Cancel();
-            token.Dispose();
-        });
+
+        // if (cts_ShowEffect != null)
+        // {
+        //     cts_ShowEffect.Cancel();
+        // }
+        // cancelTokList.ForEach((token) =>
+        // {
+        //     Debug.Log("Cancel Token");
+        //     token?.Cancel();
+        //     token.Dispose();
+        // });
     }
+
     protected override void Start()
     {
         base.Start();
         infoBar.prepareSpin();
-
     }
+
     protected override void Awake()
     {
         base.Awake();
         initCollum();
         setRandomView();
     }
+
     protected override void Update()
     {
         base.Update();
@@ -217,22 +226,25 @@ public class BaseSlotView : GameView
                 }
             }
         }
-
     }
+
     public void setAGPlayer()
     {
         lbUserAmount.setValue(agPlayer, true);
     }
-    protected async void showEffectChip()
+
+    protected IEnumerator showEffectChip()
     {
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.CHIP_REWARD);
         Transform transFrom = lbChipWins.transform;
         Transform transTo = lbUserAmount.transform;
         coinFly(transFrom, transTo);
-        await Task.Delay(TimeSpan.FromSeconds(1.0f));
+        // await Task.Delay(TimeSpan.FromSeconds(1.0f));
+        yield return new WaitForSeconds(1f);
         //Globals.Config.tweenNumberToNumber(lbUserAmount, agPlayer, agPlayer - winAmount, 0.2f);
         lbUserAmount.setValue(agPlayer, true);
     }
+
     protected void coinFly(Transform transFrom, Transform transTo, int count = 10, float timeInterval = 0.1f)
     {
         var parentCoin = transform.Find("CoinLayer");
@@ -249,16 +261,15 @@ public class BaseSlotView : GameView
                 else
                 {
                     obj = Instantiate(coinEffectPrefab, parentCoin).GetComponent<Image>();
-
                 }
+
                 obj.gameObject.SetActive(true);
                 obj.GetComponent<Animator>().Play("idle");
                 effectCoinFly(obj, transFrom, transTo);
             });
-
         }
-
     }
+
     void effectCoinFly(Image coinEffect, Transform transFrom, Transform transTo)
 
     {
@@ -274,7 +285,7 @@ public class BaseSlotView : GameView
             .AppendInterval(.5f)
             .Append(coinEffect.transform.DOScale(2, 0.25f))
             .AppendInterval(0.15f)
-            .Append(coinEffect.transform.DOScale(0.5f, 0.25f))//0.85
+            .Append(coinEffect.transform.DOScale(0.5f, 0.25f)) //0.85
             .AppendInterval(0.6f)
             .Append(coinEffect.DOFade(0, .25f)).AppendCallback(() =>
             {
@@ -283,21 +294,19 @@ public class BaseSlotView : GameView
                 //Destroy(coinEffect.gameObject);
             });
     }
+
     public virtual void setStateBtnSpin()
     {
-
     }
+
     protected virtual void resetSlotView()
     {
         setStateSpin(GAME_STATE.PREPARE);
         infoBar.prepareSpin();
-        listCollum.ForEach((col) =>
-        {
-            col.Reset();
-        });
+        listCollum.ForEach((col) => { col.Reset(); });
         setBetLevel(validBetLevels[currentBetLevel]);
-
     }
+
     public virtual void handleGetInfo(JObject data)
     {
         //{\"minor\":10,\"major\":20,\"mega\":30,\"grand\":150,\"payTable\":[[0.0,0.0,0.5,2.5,5.0],[0.0,0.0,0.5,2.5,5.0],[0.0,0.0,0.5,2.5,5.0],[0.0,0.0,0.5,2.5,5.0],[0.0,0.0,0.5,2.5,5.0],[0.0,0.0,2.0,10.0,20.0],[0.0,0.0,1.5,7.5,15.0],[0.0,0.0,1.2,6.0,12.0],[0.0,0.0,1.0,5.0,10.0],[0.0,0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0,0.0]],\"betLevels\":[1,5,50,500,1000,2500,5000,10000,25000,50000,100000,200000,500000,1000000,5000000,10000000],\"bet\":2500,\"userAmount\":91338,\"gameType\":0,\"isBonusGame\":false,\"bonusGameMultiplier\":4.0,\"winAmount\":0,\"pearls\":[],\"numberOfDragonPearlSpins\":0,\"numberOfPick\":0,\"cards\":[],\"rewards\":[]}
@@ -305,12 +314,13 @@ public class BaseSlotView : GameView
         betLevels = data["betLevels"].ToObject<List<int>>();
         agPlayer = getLong(data, "userAmount");
         lbUserAmount.Text = Globals.Config.FormatNumber(agPlayer);
-        jackpotLevel = new List<int> { getInt(data, "minor"), getInt(data, "major"), getInt(data, "mega"), getInt(data, "grand") };
+        jackpotLevel = new List<int>
+            { getInt(data, "minor"), getInt(data, "major"), getInt(data, "mega"), getInt(data, "grand") };
         payTalbe = data["payTable"].ToObject<List<List<int>>>();
         currentBetLevel = betLevels.IndexOf(getInt(data, "bet"));
         setBetLevel(getInt(data, "bet"));
-
     }
+
     protected void onClickChangeBetLevel(string type)
     {
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.CLICK);
@@ -320,6 +330,7 @@ public class BaseSlotView : GameView
             {
                 return;
             }
+
             isChangeBet = true;
             if (type == "plus")
             {
@@ -334,18 +345,15 @@ public class BaseSlotView : GameView
                 if (currentBetLevel == validBetLevels.Count - 1 && canClickSpin())
                 {
                     onSpinTriggerUp();
-                    DOTween.Sequence().AppendInterval(0.25f).AppendCallback(() =>
-                    {
-                        isChangeBet = false;
-                    });
+                    DOTween.Sequence().AppendInterval(0.25f).AppendCallback(() => { isChangeBet = false; });
                     return;
                 }
                 else
                 {
                     currentBetLevel = validBetLevels.Count - 1;
                 }
-
             }
+
             lbBetLevel.text = Globals.Config.FormatNumber(validBetLevels[currentBetLevel]);
             if (currentBetLevel == validBetLevels.Count - 1)
             {
@@ -355,80 +363,79 @@ public class BaseSlotView : GameView
             {
                 imgStateBet.sprite = sprStateBets[0];
             }
+
             imgStateBet.SetNativeSize();
             setJackpotInfo();
-            DOTween.Sequence().AppendInterval(0.25f).AppendCallback(() =>
-            {
-                isChangeBet = false;
-            });
-            SocketSend.sendPackageSlotSixiang(Globals.ACTION_SLOT_SIXIANG.getBonusGames, validBetLevels[currentBetLevel]);
+            DOTween.Sequence().AppendInterval(0.25f).AppendCallback(() => { isChangeBet = false; });
+            SocketSend.sendPackageSlotSixiang(Globals.ACTION_SLOT_SIXIANG.getBonusGames,
+                validBetLevels[currentBetLevel]);
         }
-
     }
+
     private bool canClickSpin()
     {
         if (gameState == GAME_STATE.SPINNING)
         {
             return false;
         }
+
         return true;
     }
+
     public virtual void handleBonusInfo(JObject data)
     {
-
     }
+
     // Update is called once per frame
     protected void initCollum()
     {
         for (int i = 1; i < 5; i++)
         {
-            CollumController col = Instantiate(listCollum[0], collumContainer.transform).GetComponent<CollumController>();
+            CollumController col = Instantiate(listCollum[0], collumContainer.transform)
+                .GetComponent<CollumController>();
 
             col.transform.name = "ItemCollum" + (i + 1);
             col.collumIndex = i;
             listCollum.Add(col);
         }
     }
+
     protected void setRandomView()
     {
-        listCollum.ForEach((col) =>
-        {
-            col.setRandomView();
-        });
+        listCollum.ForEach((col) => { col.setRandomView(); });
     }
+
     public void startSpin()
     {
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SPIN_REEL);
         onHideNodeAuto();
-        listCollum.ForEach((col) =>
-        {
-            col.spinSymbol();
-        });
+        listCollum.ForEach((col) => { col.spinSymbol(); });
     }
+
     public void onClickSelectAuto(int number)
     {
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.CLICK);
         if (!DOTween.IsTweening(nodeAutoSpin.transform))
         {
-            if (cts_ShowEffect != null)
-            {
-                cts_ShowEffect.Cancel();
-            }
+            // if (cts_ShowEffect != null)
+            // {
+            //     cts_ShowEffect.Cancel();
+            // }
+            isEffectActive = false;
             autoSpinRemain = number;
             onHideNodeAuto();
             lbAutoRemain.gameObject.SetActive(true);
             spintype = SPIN_TYPE.AUTO;
             if (gameState == GAME_STATE.SHOWING_RESULT)
             {
-                cts_ShowEffect.Cancel(true);
+                // cts_ShowEffect.Cancel(true);
+                isEffectActive = false;
             }
             else
             {
                 onSpinTriggerUp();
             }
         }
-
-
     }
 
     protected void setAutoSpinRemain()
@@ -446,7 +453,7 @@ public class BaseSlotView : GameView
         }
     }
 
-    protected async Task checkScatterItem()
+    protected IEnumerator checkScatterItem()
     {
         int scatterInCol = 0;
 
@@ -459,25 +466,25 @@ public class BaseSlotView : GameView
         });
         if (scatterInCol > 2)
         {
-            listCollum.ForEach(col =>
-            {
-                col.showScatterSymbol();
-            });
+            listCollum.ForEach(col => { col.showScatterSymbol(); });
             SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SCATTER_WIN);
-            await Task.Delay(TimeSpan.FromSeconds(1.5f));
+            yield return new WaitForSeconds(1.5f);
         }
     }
 
-    public virtual async void allCollumStopCompleted()
+    public virtual IEnumerator allCollumStopCompleted()
     {
-        cts_ShowEffect = new CancellationTokenSource();
+        // cts_ShowEffect = new CancellationTokenSource();
+        isEffectActive = true;
+        yield return null;
     }
-    public CancellationTokenSource getCancelToken()
+
+    public int getEffectIndex()
     {
-        CancellationTokenSource cancelTok = new CancellationTokenSource();
-        cancelTokList.Add(cancelTok);
-        return cancelTok;
+        effectStates.Add(true);
+        return effectStates.Count - 1;
     }
+
     public void onShowNodeAuto()
     {
         if (nodeAutoSpin.activeSelf == false && gameType == (int)GAME_TYPE.NORMAL)
@@ -486,6 +493,7 @@ public class BaseSlotView : GameView
             nodeAutoSpin.transform.DOLocalMoveY(150, 0.2f).SetEase(Ease.OutSine);
         }
     }
+
     public void onHideNodeAuto()
     {
         nodeAutoSpin.transform.DOLocalMoveY(-153, 0.3f).SetEase(Ease.InBack).OnComplete(() =>
@@ -494,13 +502,15 @@ public class BaseSlotView : GameView
         });
     }
 
-    public async void handleStopSpin()
+    public IEnumerator handleStopSpin()
     {
         foreach (CollumController col in listCollum)
         {
-            col.Stop(spinReelView[listCollum.IndexOf(col)]);
-            await Task.Delay(TimeSpan.FromSeconds(spintype == SPIN_TYPE.NORMAL ? 0.4f : 0.2f));
+            yield return col.Stop(spinReelView[listCollum.IndexOf(col)]);
+            // await Task.Delay(TimeSpan.FromSeconds(spintype == SPIN_TYPE.NORMAL ? 0.4f : 0.2f));
+            yield return new WaitForSeconds(spintype == SPIN_TYPE.NORMAL ? 0.4f : 0.2f);
         }
+
         _CanSpinDP = true;
     }
 
@@ -514,17 +524,17 @@ public class BaseSlotView : GameView
         agPlayer = getLong(data, "userAmount");
         setNearSpinEffect();
 
-        handleStopSpin();
+        StartCoroutine(handleStopSpin());
     }
 
     public void setWinType(long winAmount)
     {
-
         winType = WIN_TYPE.NORMAL;
         if (isGrandJackpot)
         {
             winAmount = winAmount + validBetLevels[currentBetLevel] * jackpotLevel[3];
         }
+
         Debug.Log("winAmount=" + winAmount);
         int betAmount = validBetLevels[currentBetLevel];
         if (winAmount > 50 * betAmount)
@@ -544,6 +554,7 @@ public class BaseSlotView : GameView
             winType = WIN_TYPE.NICE_WIN;
         }
     }
+
     protected void setNearSpinEffect()
     {
         int scatterInCol = 0;
@@ -556,14 +567,15 @@ public class BaseSlotView : GameView
                 if (listCollum[spinReelView.IndexOf(colView)].collumIndex == 4)
                     listCollum[spinReelView.IndexOf(colView)].isNeerSpin = true;
             }
+
             if (colView.Contains(10))
             {
                 scatterInCol++;
             }
         });
-
     }
-    protected async Task showWinLine()
+
+    protected IEnumerator showWinLine()
     {
         if (spinPayLines.Count > 0)
         {
@@ -578,78 +590,85 @@ public class BaseSlotView : GameView
                 listPos.Clear();
                 for (int j = 0; j < 5; j++)
                 {
-                    listPos.Add(lineContainer.transform.InverseTransformPoint(listCollum[j].getPosSymbol(payLineWin[j] + 1)));
+                    listPos.Add(
+                        lineContainer.transform.InverseTransformPoint(listCollum[j].getPosSymbol(payLineWin[j] + 1)));
                 }
+
                 drawLines(listPos, colorLine);
-                await Task.Delay(100);
+                // await Task.Delay(100);
+                yield return new WaitForSeconds(0.1f);
             }
-            await Task.Delay(500);
+
+            // await Task.Delay(500);
+            yield return new WaitForSeconds(0.5f);
             listLineStraight.ForEach(line => Destroy(line));
             listLineStraight.Clear();
-            await showLineOneByOne();
+            yield return showLineOneByOne();
         }
     }
+
     public Vector2 getPosSymbol(int col, int row)
     {
         return listCollum[col].getPosSymbol(row);
     }
-    protected async Task showLineOneByOne()
+
+    protected IEnumerator showLineOneByOne()
     {
         if (autoSpinRemain == 0)
         {
-            await Task.Run(async () =>
+            UnityMainThread.instance.AddJob(() =>
             {
-                UnityMainThread.instance.AddJob(() =>
+                setStateSpin(GAME_STATE.SHOWING_RESULT);
+
+                if (spinPayLines.Count > 0)
                 {
-                    setStateSpin(GAME_STATE.SHOWING_RESULT);
-
-                    if (spinPayLines.Count > 0)
-                    {
-                        lbChipWins.ResetValue();
-                        lbChipWins.setValue(normalWinAmount, true);
-                        infoBar.setStateWin("win");
-                    }
-                });
-                List<Vector2> listPos = new List<Vector2>();
-                int index = 0;
-                for (int i = 0, l = spinPayLines.Count; i < l; i++)
-                {
-                    List<Task> drawLinesTask = new List<Task>();
-
-                    UnityMainThread.instance.AddJob(() =>
-                    {
-                        SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.LINE_WIN);
-                        hideAllSymbol();
-                        listPos.Clear();
-                        JObject dataLine = spinPayLines[index];
-                        List<int> payLineWin = payLines[getInt(dataLine, "lineNumber")];
-                        int numberOfSymbols = getInt(dataLine, "numberOfSymbols");
-                        Color colorLine = new Color();
-                        UnityEngine.ColorUtility.TryParseHtmlString(listColor[getInt(dataLine, "lineNumber")], out colorLine);
-                        infoBar.setInfoWinLine(getInt(dataLine, "symbol"), numberOfSymbols, getInt(dataLine, "winAmount"));
-                        for (int j = 0; j < numberOfSymbols; j++)
-                        {
-                            //listPos.Add(lineContainer.transform.InverseTransformPoint(listCollum[j].getPosSymbol(payLineWin[j] + 1)));
-                            drawLinesTask.Add(listCollum[j].activeSymbol(payLineWin[j] + 1));
-
-                        }
-                        index++;
-
-                    });
-                    await Task.Delay(TimeSpan.FromSeconds(0.1f), cts_ShowEffect.Token);
-                    await Task.WhenAll(drawLinesTask.ToArray());
+                    lbChipWins.ResetValue();
+                    lbChipWins.setValue(normalWinAmount, true);
+                    infoBar.setStateWin("win");
                 }
+            });
+            List<Vector2> listPos = new List<Vector2>();
+            int index = 0;
+            for (int i = 0, l = spinPayLines.Count; i < l; i++)
+            {
+                // List<Task> drawLinesTask = new List<Task>();
+                List<IEnumerator> coroutines = new List<IEnumerator>();
+
                 UnityMainThread.instance.AddJob(() =>
                 {
-                    activeAllSymbol();
-                });
-            }, cts_ShowEffect.Token);
-        }
+                    SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.LINE_WIN);
+                    hideAllSymbol();
+                    listPos.Clear();
+                    JObject dataLine = spinPayLines[index];
+                    List<int> payLineWin = payLines[getInt(dataLine, "lineNumber")];
+                    int numberOfSymbols = getInt(dataLine, "numberOfSymbols");
+                    Color colorLine = new Color();
+                    UnityEngine.ColorUtility.TryParseHtmlString(listColor[getInt(dataLine, "lineNumber")],
+                        out colorLine);
+                    infoBar.setInfoWinLine(getInt(dataLine, "symbol"), numberOfSymbols, getInt(dataLine, "winAmount"));
+                    for (int j = 0; j < numberOfSymbols; j++)
+                    {
+                        //listPos.Add(lineContainer.transform.InverseTransformPoint(listCollum[j].getPosSymbol(payLineWin[j] + 1)));
+                        coroutines.Add(listCollum[j].activeSymbol(payLineWin[j] + 1));
+                    }
 
+                    index++;
+                });
+                // await Task.Delay(TimeSpan.FromSeconds(0.1f), cts_ShowEffect.Token);
+                // await Task.WhenAll(drawLinesTask.ToArray());
+                yield return new WaitForSeconds(0.1f);
+                foreach (var coroutine in coroutines)
+                {
+                    yield return StartCoroutine(coroutine);
+                }
+            }
+
+            UnityMainThread.instance.AddJob(() => { activeAllSymbol(); });
+        }
     }
+
     protected Vector2 getCrossPoint(Vector2 vec1, Vector2 vec2)
     {
-
         int delta = vec1.y > vec2.y ? -1 : 1;
         Vector2 posA = new Vector2(vec1.x - RECT_SIZE.x / 2, vec1.y + (RECT_SIZE.y / 2) * delta);
         Vector2 posB = new Vector2(posA.x + RECT_SIZE.x, posA.y);
@@ -658,9 +677,11 @@ public class BaseSlotView : GameView
             posA = new Vector2(vec1.x + RECT_SIZE.x / 2, vec1.y + RECT_SIZE.y / 2);
             posB = new Vector2(vec1.x + RECT_SIZE.x / 2, vec1.y - RECT_SIZE.y / 2);
         }
+
         Vector2 getCrossPoint = new Vector2(posA.x + RECT_SIZE.x / 2, posA.y);
         return getCrossPoint;
     }
+
     protected void drawLines2(List<Vector2> listPos, Color colorLine)
     {
         GameObject lineStraight = Instantiate(linePrf, lineContainer.transform);
@@ -671,9 +692,9 @@ public class BaseSlotView : GameView
         LineController lineComp = lineStraight.GetComponent<LineController>();
         lineComp.drawLine(listPos, colorLine);
     }
+
     protected void drawRect(List<Vector2> listPosRect, Color colorLine, int numberItem)
     {
-
         List<Vector2> listPosRemain = new List<Vector2>();
         for (int i = 0, l = listPosRect.Count; i < l; i++)
         {
@@ -682,9 +703,8 @@ public class BaseSlotView : GameView
             {
                 Vector2 nextPos = listPosRect[i + 1];
 
-                if (Mathf.Abs(nextPos.y - startPos.y) > 200)// check 2 o vuong cach nhau 1 moi ve line noi tiep;
+                if (Mathf.Abs(nextPos.y - startPos.y) > 200) // check 2 o vuong cach nhau 1 moi ve line noi tiep;
                 {
-
                     if (i < numberItem - 1)
                     {
                         List<Vector2> listPos = new List<Vector2>();
@@ -695,9 +715,10 @@ public class BaseSlotView : GameView
                         drawLines2(listPos, colorLine);
                     }
                 }
-
             }
-            if (i >= numberItem && listPosRemain.Count == 0) // t?nh position ?i?m b?t ??u v? line t? ? cu?i c?ng ??n m?p ph?i
+
+            if (i >= numberItem &&
+                listPosRemain.Count == 0) // t?nh position ?i?m b?t ??u v? line t? ? cu?i c?ng ??n m?p ph?i
             {
                 Vector2 previousPos = listPosRect[i - 1];
                 Vector2 startPosLineRemain = new Vector2();
@@ -710,30 +731,39 @@ public class BaseSlotView : GameView
                     bool isTwoItemSpace = (Mathf.Abs(startPos.y - previousPos.y) > 200);
                     if (previousPos.y < startPos.y)
                     {
-                        startPosLineRemain = isTwoItemSpace ? new Vector2(previousPos.x, previousPos.y + RECT_SIZE.y / 2) : new Vector2(previousPos.x + RECT_SIZE.x / 2, previousPos.y + RECT_SIZE.y / 2);
+                        startPosLineRemain = isTwoItemSpace
+                            ? new Vector2(previousPos.x, previousPos.y + RECT_SIZE.y / 2)
+                            : new Vector2(previousPos.x + RECT_SIZE.x / 2, previousPos.y + RECT_SIZE.y / 2);
                     }
                     else
                     {
-                        startPosLineRemain = isTwoItemSpace ? new Vector2(previousPos.x, previousPos.y - RECT_SIZE.y / 2) : new Vector2(previousPos.x + RECT_SIZE.x / 2, previousPos.y - RECT_SIZE.y / 2);
+                        startPosLineRemain = isTwoItemSpace
+                            ? new Vector2(previousPos.x, previousPos.y - RECT_SIZE.y / 2)
+                            : new Vector2(previousPos.x + RECT_SIZE.x / 2, previousPos.y - RECT_SIZE.y / 2);
                     }
-
                 }
+
                 listPosRemain.Add(startPosLineRemain);
             }
+
             if (i >= numberItem)
             {
                 listPosRemain.Add(listPosRect[i]);
             }
         }
-        listPosRemain.Add(new Vector2(listPosRect[listPosRect.Count - 1].x + RECT_SIZE.x / 2, listPosRect[listPosRect.Count - 1].y)); //add them 1 doan cuoi cung ve tu tam icon cuoi ra mep phai
+
+        listPosRemain.Add(new Vector2(listPosRect[listPosRect.Count - 1].x + RECT_SIZE.x / 2,
+            listPosRect[listPosRect.Count - 1].y)); //add them 1 doan cuoi cung ve tu tam icon cuoi ra mep phai
         drawLines2(listPosRemain, colorLine);
     }
+
     public virtual void onClickSpin()
     {
         Globals.Config.Vibration();
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SPIN);
-        if (cts_ShowEffect != null)
-            cts_ShowEffect.Cancel();
+        // if (cts_ShowEffect != null)
+        //     cts_ShowEffect.Cancel();
+        isEffectActive = false;
         if (gameType == 0)
         {
             agPlayer -= validBetLevels[currentBetLevel];
@@ -747,24 +777,21 @@ public class BaseSlotView : GameView
 
     public void onSpinTriggerDown()
     {
-
         timeHoldSpin = 0;
         isHoldSpin = true;
-
     }
+
     public virtual void onSpinTriggerUp()
     {
         Debug.Log("onSpinTriggerUp:gameState=" + gameState);
-        if ((gameState == GAME_STATE.PREPARE || gameState == GAME_STATE.JOIN_GAME) && agPlayer < validBetLevels[currentBetLevel])
+        if ((gameState == GAME_STATE.PREPARE || gameState == GAME_STATE.JOIN_GAME) &&
+            agPlayer < validBetLevels[currentBetLevel])
         {
             infoBar.setInfoText(Globals.Config.getTextConfig("not_enought_gold"));
             string textShow = Globals.Config.getTextConfig("txt_not_enough_money_gl");
             string textBtn2 = Globals.Config.getTextConfig("shop");
             string textBtn3 = Globals.Config.getTextConfig("label_cancel");
-            UIManager.instance.showDialog(textShow, textBtn2, () =>
-            {
-                UIManager.instance.openShop();
-            }, textBtn3);
+            UIManager.instance.showDialog(textShow, textBtn2, () => { UIManager.instance.openShop(); }, textBtn3);
         }
         else
         {
@@ -774,8 +801,9 @@ public class BaseSlotView : GameView
                 {
                     if (gameState == GAME_STATE.SHOWING_RESULT)
                     {
-                        if (cts_ShowEffect != null)
-                            cts_ShowEffect.Cancel();
+                        // if (cts_ShowEffect != null)
+                        //     cts_ShowEffect.Cancel();
+                        isEffectActive = false;
                     }
                     else
                     {
@@ -793,10 +821,12 @@ public class BaseSlotView : GameView
                     {
                         autoSpinRemain = 0;
                     }
+
                     lbAutoRemain.gameObject.SetActive(false);
                     setStateSpin(gameState);
                     setStateBtnSpin();
                 }
+
                 timeHoldSpin = 0;
                 isHoldSpin = false;
             }
@@ -809,11 +839,13 @@ public class BaseSlotView : GameView
                     onShowNodeAuto();
                 }
             }
+
             Debug.Log("timeHoldSpin=" + timeHoldSpin);
         }
-        isHoldSpin = false;
 
+        isHoldSpin = false;
     }
+
     protected void setBetLevel(int betInit = 0)
     {
         //validBetLevels.Clear();
@@ -843,6 +875,7 @@ public class BaseSlotView : GameView
         {
             imgStateBet.sprite = sprStateBets[0];
         }
+
         imgStateBet.SetNativeSize();
         setJackpotInfo();
 
@@ -880,13 +913,13 @@ public class BaseSlotView : GameView
         //        setJackpotInfo();
         //    }
         //}
-
-
     }
+
     public int getBetValue()
     {
         return validBetLevels[currentBetLevel];
     }
+
     protected void setJackpotInfo()
     {
         if (currentBetLevel >= 0)
@@ -898,28 +931,23 @@ public class BaseSlotView : GameView
         }
         else
         {
-
             for (int i = 0; i < 4; i++)
             {
                 listLbJackpot[i].setValue(0);
             }
         }
-
     }
+
     public void hideAllSymbol(int ignoreId = -1)
     {
-        listCollum.ForEach((col) =>
-        {
-            col.hideAllSymbol(ignoreId);
-        });
+        listCollum.ForEach((col) => { col.hideAllSymbol(ignoreId); });
     }
+
     public void activeAllSymbol()
     {
-        listCollum.ForEach((col) =>
-        {
-            col.activeAllSymbol();
-        });
+        listCollum.ForEach((col) => { col.activeAllSymbol(); });
     }
+
     protected void drawLines(List<Vector2> listPos, Color colorLine)
     {
         Vector2 startPos = new Vector2(listPos[0].x - 80, listPos[0].y);
@@ -935,258 +963,271 @@ public class BaseSlotView : GameView
         LineController lineComp = lineStraight.GetComponent<LineController>();
         lineComp.drawLine(listPos, colorLine);
     }
+
     protected void setStateSpin(GAME_STATE state)
     {
         gameState = state;
         switch (gameState)
         {
             case GAME_STATE.SPINNING:
-                {
-                    animBtnSpin.color = spintype == SPIN_TYPE.NORMAL ? Color.gray : Color.white;
-                    break;
-                }
+            {
+                animBtnSpin.color = spintype == SPIN_TYPE.NORMAL ? Color.gray : Color.white;
+                break;
+            }
             case GAME_STATE.SHOWING_RESULT:
-                {
-                    animBtnSpin.color = Color.white;
-                    break;
-                }
+            {
+                animBtnSpin.color = Color.white;
+                break;
+            }
             case GAME_STATE.JOIN_GAME:
-                {
-                    animBtnSpin.color = Color.white;
-                    break;
-                }
+            {
+                animBtnSpin.color = Color.white;
+                break;
+            }
             case GAME_STATE.PREPARE:
-                {
-                    animBtnSpin.color = Color.white;
-                    break;
-                }
+            {
+                animBtnSpin.color = Color.white;
+                break;
+            }
         }
     }
-    public async Task showResultMoneyAnim(string path, string animName, long chipWin, Vector2 posLbMoney)
+
+    private IEnumerator HandleAnimationSequence(SkeletonDataAsset skeData, string animName, long chipWin,
+        Vector2 posLbMoney, Action onComplete)
     {
+        spineJackpotWin.skeletonDataAsset = skeData;
+        yield return new WaitForSeconds(0.2f);
 
-        spineJPWinTask = new Task(() => { spineJPWinTask = null; });
-        Action<SkeletonDataAsset> cb = async (skeData) =>
-        {
-            spineJackpotWin.skeletonDataAsset = skeData;// UIManager.instance.loadSkeletonData(path);
-            await Task.Delay(TimeSpan.FromSeconds(0.2f));
-            spineBgMoney.skeletonDataAsset = UIManager.instance.loadSkeletonData(PATH_ANIM_SPECICAL_WIN);
-            spineBgMoney.Initialize(true);
-            spineBgMoney.AnimationState.SetAnimation(0, "money", true);
-            spineBgMoney.gameObject.SetActive(true);
-            effectContainer.SetActive(true);
-            spineJackpotWin.transform.parent.gameObject.SetActive(true);
-            spineJackpotWin.gameObject.SetActive(true);
-            spineJackpotWin.Initialize(true);
-            spineJPWinTrack = spineJackpotWin.AnimationState.SetAnimation(0, animName, false);
-            spineJackpotWin.transform.Find("btnConfirm").gameObject.SetActive(true);
-            lbJPWin.gameObject.SetActive(true);
-            lbJPWin.transform.localPosition = posLbMoney;
-            lbJPWin.ResetValue();
-            AudioSource soundMoney = SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_START);
-            lbJPWin.setValue(chipWin, true, 2.0f, "", () =>
-            {
-                soundMoney?.Stop();
-                SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_END);
-            });
-            await Task.Delay(TimeSpan.FromSeconds(spineJackpotWin.Skeleton.Data.FindAnimation(animName).Duration + 1.0f));
-            Debug.Log("spineJPWinTask=" + spineJPWinTask);
-            spineJPWinTask.Start();
-            spineJackpotWin.transform.parent.gameObject.SetActive(false);
-            spineJackpotWin.gameObject.SetActive(false);
-            effectContainer.SetActive(false);
-            spineJackpotWin.transform.Find("btnConfirm").gameObject.SetActive(true);
-        };
+        spineBgMoney.skeletonDataAsset = UIManager.instance.loadSkeletonData(PATH_ANIM_SPECICAL_WIN);
+        spineBgMoney.Initialize(true);
+        spineBgMoney.AnimationState.SetAnimation(0, "money", true);
+        spineBgMoney.gameObject.SetActive(true);
+        effectContainer.SetActive(true);
+        spineJackpotWin.transform.parent.gameObject.SetActive(true);
+        spineJackpotWin.gameObject.SetActive(true);
+        spineJackpotWin.Initialize(true);
+        spineJPWinTrack = spineJackpotWin.AnimationState.SetAnimation(0, animName, false);
+        spineJackpotWin.transform.Find("btnConfirm").gameObject.SetActive(true);
+        lbJPWin.gameObject.SetActive(true);
+        lbJPWin.transform.localPosition = posLbMoney;
+        lbJPWin.ResetValue();
 
-        UnityMainThread.instance.AddJob(() =>
+        AudioSource soundMoney =
+            SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_START);
+        lbJPWin.setValue(chipWin, true, 2.0f, "", () =>
         {
-            StartCoroutine(UIManager.instance.loadSkeletonDataAsync(path, cb));
+            soundMoney?.Stop();
+            SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_END);
         });
-        await spineJPWinTask;
+
+        float animDuration = spineJackpotWin.Skeleton.Data.FindAnimation(animName).Duration + 1.0f;
+        yield return new WaitForSeconds(animDuration);
+
+        spineJackpotWin.transform.parent.gameObject.SetActive(false);
+        spineJackpotWin.gameObject.SetActive(false);
+        effectContainer.SetActive(false);
+        spineJackpotWin.transform.Find("btnConfirm").gameObject.SetActive(true);
+
+        onComplete?.Invoke();
     }
 
-    protected Task showSpineSpecialWin(WIN_TYPE wintype, long chipWin = 0)
+    public IEnumerator showResultMoneyAnim(string path, string animName, long chipWin, Vector2 posLbMoney)
     {
-        spineSpecialWinTask = new Task(() =>
+        bool isDone = false;
+        Action<SkeletonDataAsset> cb = (skeData) =>
         {
-            spineSpecialWinTask = null;
-            Debug.Log("showSpineSpecialWin start:" + winType);
+            StartCoroutine(
+                HandleAnimationSequence(skeData, animName, chipWin, posLbMoney, () => { isDone = true; }));
+        };
+
+        UnityMainThread.instance.AddJob(() => { StartCoroutine(UIManager.instance.loadSkeletonDataAsync(path, cb)); });
+        while (!isDone) yield return null;
+    }
+
+
+    private IEnumerator HandleSpecialWinAnimation(SkeletonDataAsset skeData, WIN_TYPE wintype, long chipWin,
+        Action onComplete)
+    {
+        string animName = "";
+        float timeRun = 1.0f;
+
+        switch (wintype)
+        {
+            case WIN_TYPE.NICE_WIN:
+                animName = "nicewin";
+                break;
+            case WIN_TYPE.BIGWIN:
+                animName = "bigwin";
+                timeRun = 2.5f;
+                break;
+            case WIN_TYPE.HUGEWIN:
+                animName = "hugewin";
+                timeRun = 3.5f;
+                break;
+            case WIN_TYPE.MEGAWIN:
+                animName = "megawin";
+                timeRun = 5.5f;
+                break;
+        }
+
+        spineSpecialWin.skeletonDataAsset = skeData;
+        yield return new WaitForSeconds(0.1f);
+
+        effectContainer.SetActive(true);
+        spineSpecialWin.gameObject.SetActive(true);
+        spineSpecialWin.Initialize(true);
+        spineBgMoney.skeletonDataAsset = spineSpecialWin.skeletonDataAsset;
+        spineBgMoney.Initialize(true);
+        spineBgMoney.AnimationState.SetAnimation(0, "money", true);
+        spineBgMoney.gameObject.SetActive(true);
+        spineSpecialWinTrack = spineSpecialWin.AnimationState.SetAnimation(0, animName, false);
+        spineSpecialWin.transform.Find("btnConfirm").gameObject.SetActive(true);
+        spineSpecialWin.transform.Find("btnConfirm").localPosition = new Vector2(0, -299);
+        spineSpecialWin.transform.parent.gameObject.SetActive(true);
+        lbSpecicalWin.gameObject.SetActive(chipWin != 0);
+        lbSpecicalWin.transform.localPosition = new Vector2(0, -165);
+        lbSpecicalWin.ResetValue();
+
+        AudioSource soundBig = SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.BIGWIN_START);
+        lbSpecicalWin.setValue(chipWin, true, timeRun, "", () =>
+        {
+            if (soundBig != null && soundBig.isPlaying)
+            {
+                soundBig.Stop();
+            }
+
+            SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.BIGWIN_END);
         });
 
+        yield return new WaitForSeconds(timeRun);
+
+        hideSpineSpecical();
+        onComplete?.Invoke();
+    }
+
+    protected IEnumerator showSpineSpecialWin(WIN_TYPE wintype, long chipWin = 0)
+    {
         if (wintype != WIN_TYPE.NORMAL)
         {
-            Action<SkeletonDataAsset> cb = async (skeData) =>
+            bool isDone = false;
+            Action<SkeletonDataAsset> cb = (skeData) =>
             {
-                string animName = "";
-                spineSpecialWin.skeletonDataAsset = skeData;// UIManager.instance.loadSkeletonData(PATH_ANIM_SPECICAL_WIN);
-                await Task.Delay(TimeSpan.FromSeconds(0.1f));
-                float timeRun = 1.0f;
-                switch (wintype)
-                {
-                    case WIN_TYPE.NICE_WIN:
-                        {
-                            animName = "nicewin";
-                            break;
-                        }
-                    case WIN_TYPE.BIGWIN:
-                        {
-                            animName = "bigwin";
-                            timeRun = 2.5f;
-                            break;
-                        }
-                    case WIN_TYPE.HUGEWIN:
-                        {
-                            animName = "hugewin";
-                            timeRun = 3.5f;
-                            break;
-                        }
-                    case WIN_TYPE.MEGAWIN:
-                        {
-                            animName = "megawin";
-                            timeRun = 5.5f;
-                            break;
-                        }
-                }
-                effectContainer.SetActive(true);
-                spineSpecialWin.gameObject.SetActive(true);
-                spineSpecialWin.Initialize(true);
-                spineBgMoney.skeletonDataAsset = spineSpecialWin.skeletonDataAsset;
-                spineBgMoney.Initialize(true);
-                spineBgMoney.AnimationState.SetAnimation(0, "money", true);
-                spineBgMoney.gameObject.SetActive(true);
-                spineSpecialWinTrack = spineSpecialWin.AnimationState.SetAnimation(0, animName, false);
-                spineSpecialWin.transform.Find("btnConfirm").gameObject.SetActive(true);
-                spineSpecialWin.transform.Find("btnConfirm").localPosition = new Vector2(0, -299);
-                spineSpecialWin.transform.parent.gameObject.SetActive(true);
-                lbSpecicalWin.gameObject.SetActive((chipWin != 0));
-                lbSpecicalWin.transform.localPosition = new Vector2(0, -165);
-                lbSpecicalWin.ResetValue();
-                AudioSource soundBig = SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.BIGWIN_START);
-                lbSpecicalWin.setValue(chipWin, true, timeRun, "", () =>
-                {
-                    if (soundBig != null && soundBig.isPlaying)
-                    {
-                        soundBig.Stop();
-                    }
-                    SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.BIGWIN_END);
-                });
-
-                spineSpecialWin.AnimationState.Complete += delegate
-                {
-                    hideSpineSpecical();
-                };
+                StartCoroutine(HandleSpecialWinAnimation(skeData, wintype, chipWin, () => { isDone = true; }));
             };
+
             UnityMainThread.instance.AddJob(() =>
-             {
-                 StartCoroutine(UIManager.instance.loadSkeletonDataAsync(PATH_ANIM_SPECICAL_WIN, cb));
-             });
+            {
+                StartCoroutine(UIManager.instance.loadSkeletonDataAsync(PATH_ANIM_SPECICAL_WIN, cb));
+            });
+            while (!isDone) yield return null;
         }
         else
         {
-            DOTween.Sequence().AppendInterval(0.2f).AppendCallback(() =>
-            {
-                spineSpecialWinTask.Start();
-            });
+            yield return new WaitForSeconds(0.2f);
         }
-        return spineSpecialWinTask;
-
     }
-    public async Task showSpineJackpotWin(long chipWin)
-    {
 
-        Action<SkeletonDataAsset> cb = async (skeData) =>
+    private IEnumerator HandleJackpotWinAnimation(SkeletonDataAsset skeData, long chipWin, Action onComplete)
+    {
+        string animName = "";
+        spineJackpotWin.skeletonDataAsset = skeData;
+        spineBgMoney.skeletonDataAsset = UIManager.instance.loadSkeletonData(PATH_ANIM_SPECICAL_WIN);
+
+        yield return new WaitForSeconds(0.1f);
+
+        switch (winTypeJackpot)
         {
-            string animName = "";
-            spineJackpotWin.skeletonDataAsset = skeData;// UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/LuckyDraw/BigWin/skeleton_SkeletonData");
-            spineBgMoney.skeletonDataAsset = UIManager.instance.loadSkeletonData(PATH_ANIM_SPECICAL_WIN);
-            await Task.Delay(TimeSpan.FromSeconds(0.1f));
-            switch (winTypeJackpot)
+            case WIN_JACKPOT_TYPE.JACKPOT_MINOR:
+                animName = "minor";
+                break;
+            case WIN_JACKPOT_TYPE.JACKPOT_MAJOR:
+                animName = "major";
+                break;
+            case WIN_JACKPOT_TYPE.JACKPOT_MEGA:
+                animName = "mega";
+                break;
+            case WIN_JACKPOT_TYPE.JACKPOT_GRAND:
+                animName = "grand";
+                break;
+        }
+
+        effectContainer.SetActive(true);
+        spineBgMoney.Initialize(true);
+        spineBgMoney.AnimationState.SetAnimation(0, "money", true);
+        spineBgMoney.gameObject.SetActive(true);
+        spineJackpotWin.gameObject.SetActive(true);
+        spineJackpotWin.Initialize(true);
+        spineJPWinTrack = spineJackpotWin.AnimationState.SetAnimation(0, animName, false);
+        lbJPWin.gameObject.SetActive(true);
+        lbJPWin.transform.localPosition = new Vector2(0, -70);
+        spineJackpotWin.transform.parent.gameObject.SetActive(true);
+        spineJackpotWin.transform.Find("btnConfirm").gameObject.SetActive(false);
+        lbJPWin.ResetValue();
+
+        AudioSource soundMoney = SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.WIN_JACKPOT_START);
+        lbJPWin.setValue(chipWin, true, 4.0f, "", () =>
+        {
+            soundMoney.Stop();
+            SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.WIN_JACKPOT_END);
+        });
+
+        spineJackpotWin.AnimationState.Complete += delegate
+        {
+            spineJackpotWin.transform.Find("btnConfirm").gameObject.SetActive(true);
+        };
+
+        if (spintype == SPIN_TYPE.AUTO)
+        {
+            float animationDuration = spineJackpotWin.Skeleton.Data.FindAnimation(animName).Duration;
+            yield return new WaitForSeconds(5.0f + animationDuration);
+
+            if (spineJackpotWin.gameObject.activeSelf)
             {
-                case WIN_JACKPOT_TYPE.JACKPOT_MINOR:
-                    {
-                        animName = "minor";
-                        break;
-                    }
-                case WIN_JACKPOT_TYPE.JACKPOT_MAJOR:
-                    {
-                        animName = "major";
-                        break;
-                    }
-                case WIN_JACKPOT_TYPE.JACKPOT_MEGA:
-                    {
-                        animName = "mega";
-                        break;
-                    }
-                case WIN_JACKPOT_TYPE.JACKPOT_GRAND:
-                    {
-                        animName = "grand";
-                        break;
-                    }
+                hideSpineJackpot();
             }
-            effectContainer.SetActive(true);
-            spineBgMoney.Initialize(true);
-            spineBgMoney.AnimationState.SetAnimation(0, "money", true);
-            spineBgMoney.gameObject.SetActive(true);
-            spineJackpotWin.gameObject.SetActive(true);
-            spineJackpotWin.Initialize(true);
-            spineJPWinTrack = spineJackpotWin.AnimationState.SetAnimation(0, animName, false);
-            lbJPWin.gameObject.SetActive(true);
-            lbJPWin.transform.localPosition = new Vector2(0, -70);
-            spineJackpotWin.transform.parent.gameObject.SetActive(true);
-            spineJackpotWin.transform.Find("btnConfirm").gameObject.SetActive(false);
-            lbJPWin.ResetValue();
-            //lbSpecicalWin.setValue(chipWin, true, (spineSpecialWin.Skeleton.Data.FindAnimation(animName).Duration - 1.0f));
-            AudioSource soundMoney = SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.WIN_JACKPOT_START);
-            lbJPWin.setValue(chipWin, true, 4.0f, "", () =>
-            {
-                soundMoney.Stop();
-                SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.WIN_JACKPOT_END);
-            });
-            spineJackpotWin.AnimationState.Complete += delegate
-            {
-                spineJackpotWin.transform.Find("btnConfirm").gameObject.SetActive(true);
-            };
-            if (spintype == SPIN_TYPE.AUTO)
-            {
-                await Task.Delay(TimeSpan.FromSeconds(5.0f + spineJackpotWin.Skeleton.Data.FindAnimation(animName).Duration));
-                if (spineJackpotWin.gameObject.activeSelf)
-                {
-                    hideSpineJackpot();
-                }
-            }
+        }
+
+        onComplete?.Invoke();
+    }
+
+    public IEnumerator showSpineJackpotWin(long chipWin)
+    {
+        bool isDone = false;
+        Action<SkeletonDataAsset> cb = (skeData) =>
+        {
+            StartCoroutine(HandleJackpotWinAnimation(skeData, chipWin, () => { isDone = true; }));
         };
         UnityMainThread.instance.AddJob(() =>
-           {
-               StartCoroutine(UIManager.instance.loadSkeletonDataAsync("GameView/SiXiang/Spine/LuckyDraw/BigWin/skeleton_SkeletonData", cb));
-           });
-        spineJPWinTask = new Task(() =>
         {
-            Debug.Log("showSpineJackpotWin start");
-            spineJPWinTask = null;
+            StartCoroutine(
+                UIManager.instance.loadSkeletonDataAsync(
+                    "GameView/SiXiang/Spine/LuckyDraw/BigWin/skeleton_SkeletonData", cb));
         });
-        await spineJPWinTask;
+
+        while (!isDone) yield return null;
         //spineSpecialWin.transform.parent.gameObject.SetActive(false);
         //spineSpecialWin.gameObject.SetActive(false);
         //effectContainer.SetActive(false);
-
     }
+
     public void hideSpineSpecical()
     {
-
-        spineSpecialWinTask.Start();
+        // spineSpecialWinTask.Start();
         spineSpecialWin.transform.parent.gameObject.SetActive(false);
         spineSpecialWin.gameObject.SetActive(false);
         effectContainer.SetActive(false);
         Debug.Log("hideSpineSpecical");
     }
+
     public void hideSpineJackpot()
     {
-        spineJPWinTask.Start();
+        // spineJPWinTask.Start();
         spineJackpotWin.transform.parent.gameObject.SetActive(false);
         spineJackpotWin.gameObject.SetActive(false);
         effectContainer.SetActive(false);
         Debug.Log("hideSpineJackpot");
     }
+
     public void onClickSkipSpecialSpine()
     {
         if (spineSpecialWinTrack.IsComplete)
@@ -1200,7 +1241,6 @@ public class BaseSlotView : GameView
             float currentTime = spineSpecialWin.AnimationState.GetCurrent(0).AnimationTime;
             if (currentTime > duration * 0.6f)
             {
-
                 lbSpecicalWin.setLastValue();
                 spineSpecialWinTrack.TrackTime = duration;
                 spineSpecialWin.transform.Find("btnConfirm").gameObject.SetActive(false);
@@ -1211,9 +1251,9 @@ public class BaseSlotView : GameView
                 lbSpecicalWin.setLastValue();
                 spineSpecialWin.transform.Find("btnConfirm").gameObject.SetActive(false);
             }
-
         }
     }
+
     public void onClickSkipSpineJackPot()
     {
         if (spineJPWinTrack.IsComplete)
@@ -1226,7 +1266,6 @@ public class BaseSlotView : GameView
             float currentTime = spineJackpotWin.AnimationState.GetCurrent(0).AnimationTime;
             if (currentTime > duration * 0.6f)
             {
-
                 lbJPWin.setLastValue();
                 spineJPWinTrack.TrackTime = duration;
                 spineJackpotWin.transform.Find("btnConfirm").gameObject.SetActive(false);
@@ -1239,6 +1278,7 @@ public class BaseSlotView : GameView
             }
         }
     }
+
     public void updateWinAmount(long amount)
     {
         UnityMainThread.instance.AddJob(() =>
@@ -1253,18 +1293,17 @@ public class BaseSlotView : GameView
             {
                 lbChipWins.Text = Globals.Config.FormatNumber(winAmount);
             }
-
         });
-
     }
+
     public override void onClickBack()
     {
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.CLICK);
         var subView = Instantiate(UIManager.instance.loadPrefab("GameView/Objects/GroupMenu"), transform);
 
         subView.transform.localScale = Vector3.one;
-
     }
+
     public override void onClickRule()
     {
         GameObject ruleView = Instantiate(rulePr, transform);

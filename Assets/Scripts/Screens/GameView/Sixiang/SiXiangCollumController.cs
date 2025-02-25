@@ -19,7 +19,7 @@ public class SiXiangCollumController : CollumController
         base.stopCollumCompleted();
       
     }
-    public async Task checkWildSpread()
+    public IEnumerator checkWildSpread()
     {
         float timeDelay = slotView.spintype == BaseSlotView.SPIN_TYPE.NORMAL ? 2f : 1.33f;
         float timeScale = slotView.spintype == BaseSlotView.SPIN_TYPE.NORMAL ? 1f : 1.5f;
@@ -31,18 +31,18 @@ public class SiXiangCollumController : CollumController
         if (symbolWild != null)
         {
             symbolWild.showWild(timeScale);
-            await Task.Delay(TimeSpan.FromSeconds(timeDelay));
+            yield return new WaitForSeconds(timeDelay);
             if (symbolWild.indexSymbol > 0)
             {
-                await showWildSpread(symbolWild.indexSymbol);
+                yield return showWildSpread(symbolWild.indexSymbol);
             }
         }
 
     }
-    private async Task showWildSpread(int indexWild)
+    private IEnumerator showWildSpread(int indexWild)
     {
        
-        List<Task> tasks = new List<Task>();
+        List<IEnumerator> coroutines = new List<IEnumerator>();
         float timeDelay = slotView.spintype == BaseSlotView.SPIN_TYPE.NORMAL ? 2f : 1.33f;
         float timeScale = slotView.spintype == BaseSlotView.SPIN_TYPE.NORMAL ? 1f : 1.5f;
         for (int i = 0; i < listSymbols.Count; i++)
@@ -52,7 +52,7 @@ public class SiXiangCollumController : CollumController
             if (symbol.indexSymbol != indexWild && symbol.indexSymbol > 0) //check ne thang wild ra de move spine den vi tri 2 thang nay
             {
                 Vector2 wildItemPos = symbolWild.transform.localPosition;
-                tasks.Add(symbol.showEffectSpeadWild(wildItemPos));
+                coroutines.Add(symbol.showEffectSpeadWild(wildItemPos));
             }
 
             symbolWild.setSpine(9, timeScale);
@@ -61,7 +61,10 @@ public class SiXiangCollumController : CollumController
                 symbolWild.spine.gameObject.SetActive(false);
             });
         }
-        await Task.WhenAny(tasks.ToArray());
+        foreach (var coroutine in coroutines)
+        {
+            yield return StartCoroutine(coroutine);
+        }
     }
     public bool checkWildSymbol()
     {

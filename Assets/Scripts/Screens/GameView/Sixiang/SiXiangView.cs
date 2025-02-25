@@ -14,8 +14,15 @@ public class SiXiangView : BaseSlotView
 {
     public enum GAME_TYPE
     {
-        NORMAL, SCATTER, DRAGON_PEARL, LUCKY_DRAW, LUCKY_GOLD, RAPID_PAY, BONUS_GAME
+        NORMAL,
+        SCATTER,
+        DRAGON_PEARL,
+        LUCKY_DRAW,
+        LUCKY_GOLD,
+        RAPID_PAY,
+        BONUS_GAME
     }
+
     public static SiXiangView Instance;
     public List<int> bonusGame = new();
     public int bonusGameMultiplier = 1;
@@ -53,6 +60,7 @@ public class SiXiangView : BaseSlotView
         //SocketSend.sendExitSlotSixiang(Globals.ACTION_SLOT_SIXIANG.exitGame);
         DOTween.Kill(transform);
     }
+
     protected override void Update()
     {
         if (gameType == (int)GAME_TYPE.LUCKY_GOLD || gameType == (int)GAME_TYPE.LUCKY_DRAW)
@@ -67,6 +75,7 @@ public class SiXiangView : BaseSlotView
             base.Update();
         }
     }
+
     protected override void Start()
     {
         base.Start();
@@ -78,6 +87,7 @@ public class SiXiangView : BaseSlotView
         }).SetTarget(transform);
         Config.tableId = 23521;
     }
+
     protected override void Awake()
     {
         base.Awake();
@@ -111,14 +121,17 @@ public class SiXiangView : BaseSlotView
         {
             winTypeJackpot = WIN_JACKPOT_TYPE.JACKPOT_GRAND;
         }
+
         if (isBonusMiniGame)
         {
             gameType = (int)GAME_TYPE.SCATTER;
         }
+
         winAmount = (long)spinData["winAmount"];
         getNormalWinAmount();
         setWinType(normalWinAmount);
     }
+
     private void getNormalWinAmount()
     {
         //for (int i = 0, l = spinPayLines.Count; i < l; i++)
@@ -129,19 +142,23 @@ public class SiXiangView : BaseSlotView
         //normalWinAmount = winAmount >= validBetLevels[currentBetLevel] ? validBetLevels[currentBetLevel] + winAmount : winAmount;
         normalWinAmount = validBetLevels[currentBetLevel] + winAmount;
     }
+
     public void handleRapidPay(JObject data)
     {
-        RapidPayView.setResult(data);
+        StartCoroutine(RapidPayView.setResult(data));
     }
+
     public void handleGoldPick(JObject data)
     {
         LuckyGoldView.setResult(data);
     }
+
     public void handleLuckyDraw(JObject data)
     {
-        LuckyDrawView.setInfoItem(data);
+        StartCoroutine(LuckyDrawView.setInfoItem(data));
     }
-    public async void handleSelectBonusGame(JObject data)
+
+    public IEnumerator handleSelectBonusGame(JObject data)
     {
         //Debug.Log
         ChooseGameBonus.onClose();
@@ -151,35 +168,37 @@ public class SiXiangView : BaseSlotView
         switch (gameType)
         {
             case (int)GAME_TYPE.DRAGON_PEARL:
-                await showSpineAnimalBuy(PATH_ANIM_THANHLONG);
-                await showAnimCutScene();
-                await showDragonPearlView(data, true);
+                yield return showSpineAnimalBuy(PATH_ANIM_THANHLONG);
+                yield return showAnimCutScene();
+                yield return showDragonPearlView(data, true);
                 break;
             case (int)GAME_TYPE.LUCKY_DRAW:
-                {
-                    await showSpineAnimalBuy(PATH_ANIM_CHUTUOC);
-                    await showAnimCutScene();
-                    await showLuckyDrawView();
-                    break;
-                }
+            {
+                yield return showSpineAnimalBuy(PATH_ANIM_CHUTUOC);
+                yield return showAnimCutScene();
+                yield return showLuckyDrawView();
+                break;
+            }
             case (int)GAME_TYPE.RAPID_PAY:
-                {
-                    await showSpineAnimalBuy(PATH_ANIM_HUYENVU);
-                    await showAnimCutScene();
-                    await showRapidPayGame(initWinAmount: validBetLevels[currentBetLevel] / 2, isUltimate: true);
-                    break;
-                }
+            {
+                yield return showSpineAnimalBuy(PATH_ANIM_HUYENVU);
+                yield return showAnimCutScene();
+                yield return showRapidPayGame(initWinAmount: validBetLevels[currentBetLevel] / 2, isUltimate: true);
+                break;
+            }
             case (int)GAME_TYPE.LUCKY_GOLD:
-                {
-                    await showSpineAnimalBuy(PATH_ANIM_BACHHO);
-                    await showAnimCutScene();
-                    await showLuckyGoldView();
-                    break;
-                }
+            {
+                yield return showSpineAnimalBuy(PATH_ANIM_BACHHO);
+                yield return showAnimCutScene();
+                yield return showLuckyGoldView();
+                break;
+            }
         }
+
         infoBar.setStateWin("totalWin");
         lbChipWins.setValue(0, false);
     }
+
     public void handleDragonPealsSpin(JObject data)
     {
         dragonPearlSpin = data;
@@ -212,9 +231,11 @@ public class SiXiangView : BaseSlotView
                 }
             }
         }
-        handleStopSpin();
+
+        StartCoroutine(handleStopSpin());
     }
-    public override async void handleGetInfo(JObject data)
+
+    public override void handleGetInfo(JObject data)
     {
         //data = JObject.Parse(SiXiangFakeData.Instance.getInfoDragonPearl);
         base.handleGetInfo(data);
@@ -227,6 +248,7 @@ public class SiXiangView : BaseSlotView
         {
             winAmount = winAmount * bonusGameMultiplier;
         }
+
         Debug.Log("bonusGameMultiplier=" + bonusGameMultiplier);
         Debug.Log("winAmount=" + winAmount);
         lbChipWins.Text = Globals.Config.FormatNumber(winAmount);
@@ -234,76 +256,81 @@ public class SiXiangView : BaseSlotView
         {
             infoBar.setStateWin("totalWin");
         }
+
         switch (gameType)
         {
             case (int)GAME_TYPE.NORMAL:
                 break;
             case (int)GAME_TYPE.SCATTER:
-                await showScatterSpin();
+                StartCoroutine(showScatterSpin());
                 break;
             case (int)GAME_TYPE.DRAGON_PEARL:
-                {
-                    freeSpinleft = getInt(data, "numberOfDragonPearlSpins");
-                    infoBar.setDPSpinLeft(freeSpinleft);
-                    await showDragonPearlView(data);
-                    break;
-                }
+            {
+                freeSpinleft = getInt(data, "numberOfDragonPearlSpins");
+                infoBar.setDPSpinLeft(freeSpinleft);
+                StartCoroutine(showDragonPearlView(data));
+                break;
+            }
             case (int)GAME_TYPE.LUCKY_GOLD:
-                {
-                    await showLuckyGoldView(getInt(data, "numberOfPick"));
-                    setStateButtonBuyPeals(true);
-                    gameType = 0;
-                    break;
-                }
+            {
+                StartCoroutine(showLuckyGoldView(getInt(data, "numberOfPick")));
+                setStateButtonBuyPeals(true);
+                gameType = 0;
+                break;
+            }
             case (int)GAME_TYPE.RAPID_PAY:
-                {
-                    //await showAnimCutScene();
-                    List<JObject> rewards = data["rewards"].ToObject<List<JObject>>();
-                    int winAmount = getInt(data, "winAmount");
-                    await showRapidPayGame(winAmount, rewards, isBonusGame);
-                    break;
-                }
+            {
+                //await showAnimCutScene();
+                List<JObject> rewards = data["rewards"].ToObject<List<JObject>>();
+                int winAmount = getInt(data, "winAmount");
+                StartCoroutine(showRapidPayGame(winAmount, rewards, isBonusGame));
+                break;
+            }
             case (int)GAME_TYPE.LUCKY_DRAW:
-                {
-                    //await showAnimCutScene();
-                    await showLuckyDrawView(data);
-                    updateWinAmount(winAmount);
-                    gameType = 0;
-                    break;
-                }
+            {
+                //await showAnimCutScene();
+                StartCoroutine(showLuckyDrawView(data));
+                updateWinAmount(winAmount);
+                gameType = 0;
+                break;
+            }
             case (int)GAME_TYPE.BONUS_GAME:
-                {
-                    //await showAnimCutScene();
-                    showChooseGameBonus();
-                    break;
-                }
+            {
+                //await showAnimCutScene();
+                showChooseGameBonus();
+                break;
+            }
         }
     }
-    public async Task showMiniGameAfterSpinScatter(JObject data, int typeMiniGame)
+
+    public IEnumerator showMiniGameAfterSpinScatter(JObject data, int typeMiniGame)
     {
         infoBar.setStateWin("totalWin");
         lbChipWins.setValue(0, false);
         if (typeMiniGame == 0) //DRAGON Pearl
         {
-            await showDragonPearlView(scatterSpinGame, true, false);
+            StartCoroutine(showDragonPearlView(scatterSpinGame, true, false));
             infoBar.setDPSpinLeft(getInt(data, "numberOfDragonPearlSpins"));
             freeSpinleft = getInt(data, "numberOfDragonPearlSpins");
             setStateBtnSpin();
         }
-        else if (typeMiniGame == 3)//rapid Pay
+        else if (typeMiniGame == 3) //rapid Pay
         {
-            await showRapidPayGame(validBetLevels[currentBetLevel] / 2);
+            StartCoroutine(showRapidPayGame(validBetLevels[currentBetLevel] / 2));
         }
         else if (typeMiniGame == 2)
         {
-            await showLuckyGoldView();
+            StartCoroutine(showLuckyGoldView());
         }
         else if (typeMiniGame == 1)
         {
-            await showLuckyDrawView();
+            StartCoroutine(showLuckyDrawView());
         }
+
         scatterSpinGame = null;
+        yield return null;
     }
+
     public override void handleBonusInfo(JObject data)
     {
         // {\"bonusGames\":[2],\"prices\":[4500,5500,7500,12500],\"bet\":50}
@@ -312,13 +339,15 @@ public class SiXiangView : BaseSlotView
         {
             isBonusGame = true;
         }
+
         bonusPrices = data["prices"].ToObject<List<int>>();
 
         sprPeals.ForEach(spr => spr.material = materialPeals[1]);
         btnBuyPeals.ForEach(btn =>
         {
             DOTween.Kill(btn.transform);
-            btn.transform.DOLocalMoveX(82, 0.5f).SetEase(Ease.InSine).OnComplete(() => { btn.gameObject.SetActive(true); });
+            btn.transform.DOLocalMoveX(82, 0.5f).SetEase(Ease.InSine)
+                .OnComplete(() => { btn.gameObject.SetActive(true); });
         });
         bonusGame.ForEach((bonus) =>
         {
@@ -326,46 +355,50 @@ public class SiXiangView : BaseSlotView
             Button btn = btnBuyPeals[indexPeal];
             DOTween.Kill(btn.transform);
             sprPeals[indexPeal].material = materialPeals[0];
-            btn.transform.DOLocalMoveX(-5, 0.5f).SetEase(Ease.OutSine).OnComplete(() => { btn.gameObject.SetActive(false); });
+            btn.transform.DOLocalMoveX(-5, 0.5f).SetEase(Ease.OutSine)
+                .OnComplete(() => { btn.gameObject.SetActive(false); });
         });
         if (gameType != 0) setStateButtonBuyPeals(false);
     }
+
     private int getIndexPeals(int bonusIndex)
     {
         int indexPeal = 0;
         switch (bonusIndex)
         {
             case 2:
-                {
-                    indexPeal = 0;
-                    break;
-                }
+            {
+                indexPeal = 0;
+                break;
+            }
             case 3:
-                {
-                    indexPeal = 3;
-                    break;
-                }
+            {
+                indexPeal = 3;
+                break;
+            }
             case 4:
-                {
-                    indexPeal = 1;
-                    break;
-                }
+            {
+                indexPeal = 1;
+                break;
+            }
             case 5:
-                {
-                    indexPeal = 2;
-                    break;
-                }
+            {
+                indexPeal = 2;
+                break;
+            }
         }
+
         return indexPeal;
     }
-    private async Task checkWildSpread()
+
+    private IEnumerator checkWildSpread()
     {
-        List<Task> tasks = new();
+        List<IEnumerator> coroutines = new List<IEnumerator>();
         bool isHasWild = false;
         listCollum.ForEach((col) =>
         {
             SiXiangCollumController collum = (SiXiangCollumController)col;
-            tasks.Add(collum.checkWildSpread());
+            coroutines.Add(collum.checkWildSpread());
             if (collum.checkWildSymbol())
             {
                 isHasWild = true;
@@ -374,13 +407,16 @@ public class SiXiangView : BaseSlotView
         if (isHasWild)
         {
             SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.WILD_SYMBOL);
-            DOTween.Sequence().AppendInterval(2.0f).AppendCallback(() =>
-            {
-                SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.WILD_EXPAND);
-            });
+            yield return new WaitForSeconds(2.0f);
+            SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.WILD_EXPAND);
         }
-        await Task.WhenAll(tasks);
+
+        foreach (var coroutine in coroutines)
+        {
+            yield return coroutine;
+        }
     }
+
     private void setStateButtonBuyPeals(bool state)
     {
         if (!state)
@@ -389,10 +425,11 @@ public class SiXiangView : BaseSlotView
             {
                 Button btn = btnBuyPeals[i];
                 DOTween.Kill(btn.transform);
-                btn.transform.DOLocalMoveX(-5, 0.3f).SetEase(Ease.OutSine).OnComplete(() => { btn.gameObject.SetActive(false); });
+                btn.transform.DOLocalMoveX(-5, 0.3f).SetEase(Ease.OutSine)
+                    .OnComplete(() => { btn.gameObject.SetActive(false); });
             }
         }
-        else  //phai check nhung thang nao dang duoc active de bam mua duoc.
+        else //phai check nhung thang nao dang duoc active de bam mua duoc.
         {
             List<int> listIndexPealActive = new();
             bonusGame.ForEach((bonus) => { listIndexPealActive.Add(getIndexPeals(bonus)); });
@@ -400,12 +437,17 @@ public class SiXiangView : BaseSlotView
             {
                 Button btn = btnBuyPeals[i];
                 if (listIndexPealActive.Contains(i)) //an di
-                    btn.transform.DOLocalMoveX(-5, 0.3f).SetEase(Ease.OutSine).OnComplete(() => { btn.gameObject.SetActive(false); });
+                    btn.transform.DOLocalMoveX(-5, 0.3f).SetEase(Ease.OutSine).OnComplete(() =>
+                    {
+                        btn.gameObject.SetActive(false);
+                    });
                 else
-                    btn.transform.DOLocalMoveX(75, 0.3f).SetEase(Ease.OutBack).SetDelay(0.05f * i).OnComplete(() => { btn.gameObject.SetActive(true); });
+                    btn.transform.DOLocalMoveX(75, 0.3f).SetEase(Ease.OutBack).SetDelay(0.05f * i)
+                        .OnComplete(() => { btn.gameObject.SetActive(true); });
             }
         }
     }
+
     public override void onClickSpin()
     {
         base.onClickSpin();
@@ -421,6 +463,7 @@ public class SiXiangView : BaseSlotView
             {
                 spintype = SPIN_TYPE.NORMAL;
             }
+
             setAutoSpinRemain();
             setStateSpin(GAME_STATE.SPINNING);
             setStateBtnSpin();
@@ -430,9 +473,11 @@ public class SiXiangView : BaseSlotView
             onClickSpinDP();
         }
     }
+
     public void onClickSpinDP()
     {
-        if (!_CanSpinDP) return; // code cũ đang xảy ra lỗi có lúc bấm 2 lần spin này nên kiểm soát thêm biến _CanSpinDP để tránh
+        if (!_CanSpinDP)
+            return; // code cũ đang xảy ra lỗi có lúc bấm 2 lần spin này nên kiểm soát thêm biến _CanSpinDP để tránh
         _CanSpinDP = false;
         spintype = SPIN_TYPE.AUTO;
         lbAutoRemain.gameObject.SetActive(false);
@@ -443,24 +488,27 @@ public class SiXiangView : BaseSlotView
         {
             freeSpinleft--;
         }
+
         infoBar.setDPSpinLeft(freeSpinleft);
         hideAllSymbol();
         SocketSend.sendGetInfoSlotSixiang(Globals.ACTION_SLOT_SIXIANG.dragonPearlSpin);
         startSpin();
     }
+
     public override void onSpinTriggerUp()
     {
         if (gameType == (int)GAME_TYPE.LUCKY_GOLD || gameType == (int)GAME_TYPE.LUCKY_DRAW)
         {
-
         }
         else if (gameType == (int)GAME_TYPE.DRAGON_PEARL)
         {
             Debug.Log("onSpinTriggerUp DP --> Game State==" + gameState + ", " + spintype + ", " + _CanSpinDP);
-            if (gameState != GAME_STATE.SPINNING && gameState != GAME_STATE.SHOWING_RESULT && spintype == SPIN_TYPE.NORMAL)
+            if (gameState != GAME_STATE.SPINNING && gameState != GAME_STATE.SHOWING_RESULT &&
+                spintype == SPIN_TYPE.NORMAL)
             {
                 onClickSpinDP();
             }
+
             isHoldSpin = false;
             timeHoldSpin = 0;
         }
@@ -469,6 +517,7 @@ public class SiXiangView : BaseSlotView
             base.onSpinTriggerUp();
         }
     }
+
     public void onClickBuyPeals(int index)
     {
         Debug.Log("onClickBuyPeals:" + gameState);
@@ -476,42 +525,52 @@ public class SiXiangView : BaseSlotView
         {
             return;
         }
+
         if (nodeAutoSpin.gameObject.activeSelf)
         {
             onHideNodeAuto();
         }
+
         int price = bonusPrices[bonusGame.Count];
         showPopupBuyPeals(index, price);
     }
+
     private void showPopupBuyPeals(int index, int price)
     {
         if (BuyPealsPopup == null)
         {
-            BuyPealsPopup = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/BuyPealsPopup"), transform).GetComponent<SiXiangBuyPealsPopup>();
-
+            BuyPealsPopup =
+                Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/BuyPealsPopup"), transform)
+                    .GetComponent<SiXiangBuyPealsPopup>();
         }
+
         BuyPealsPopup.setInfo(index, price, validBetLevels[currentBetLevel], agPlayer);
     }
+
     public void showChooseGameBonus()
     {
         ChooseGameBonus.gameObject.SetActive(true);
     }
-    public async void handleScatterSpin(JObject data)
+
+    public IEnumerator handleScatterSpin(JObject data)
     {
-        await ScatterView.handleScatterSpin(data);
+        yield return ScatterView.handleScatterSpin(data);
         scatterSpinGame = data;
         scatterSpinGameType = getInt(data, "reward");
-        await showMiniGameAfterSpinScatter(scatterSpinGame, scatterSpinGameType);
+        yield return showMiniGameAfterSpinScatter(scatterSpinGame, scatterSpinGameType);
     }
-    private async void allCollumStopDP()
+
+    private IEnumerator allCollumStopDP()
     {
         //Debug.Log("allCollumStopDP");
         hideAllSymbol();
         gameState = GAME_STATE.SHOWING_RESULT;
-        await DragonPearlView.setInfo(dragonPearlSpin, false, true);
+        yield return StartCoroutine(DragonPearlView.setInfo(dragonPearlSpin, false, true));
         resetSlotViewDP();
     }
-    public override async void allCollumStopCompleted()
+
+
+    public override IEnumerator allCollumStopCompleted()
     {
         base.allCollumStopCompleted();
         if (gameType == (int)GAME_TYPE.DRAGON_PEARL)
@@ -523,28 +582,21 @@ public class SiXiangView : BaseSlotView
             Debug.Log("allCollumStopCompleted:isGrandJackpot=" + isGrandJackpot);
             if (gameType == (int)GAME_TYPE.NORMAL || gameType == (int)GAME_TYPE.SCATTER)
             {
-                try
+                yield return checkScatterItem();
+                yield return checkWildSpread();
+                if (isGrandJackpot)
                 {
-                    await checkScatterItem();
-                    await checkWildSpread();
-                    if (isGrandJackpot)
-                    {
-                        await showSpineJackpotWin((long)(validBetLevels[currentBetLevel] * jackpotLevel[3]));
-                    }
-                    else
-                    {
-
-                        await showSpineSpecialWin(winType, normalWinAmount);
-                    }
-                    await showWinLine();
-
+                    yield return showSpineJackpotWin((long)(validBetLevels[currentBetLevel] * jackpotLevel[3]));
                 }
-                catch (OperationCanceledException e)
+                else
                 {
-                    Debug.Log($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");
+                    yield return showSpineSpecialWin(winType, normalWinAmount);
                 }
+
+                yield return showWinLine();
             }
-            await Task.Delay(TimeSpan.FromSeconds(0.5f));
+
+            yield return new WaitForSeconds(0.5f);
             setStateButtonBuyPeals(true);
             bool isWaittChipEff = (winAmount > 0 || normalWinAmount > 0);
             resetSlotView();
@@ -553,18 +605,18 @@ public class SiXiangView : BaseSlotView
                 setStateSpin(GAME_STATE.SHOWING_RESULT);
                 if (isWaittChipEff)
                 {
-                    await Task.Delay(TimeSpan.FromSeconds(1.0));
+                    yield return new WaitForSeconds(1.0f);
                 }
+
                 isBonusMiniGame = false;
                 setStateSpin(GAME_STATE.SHOWING_RESULT);
-                await showScatterSpin();
+                yield return showScatterSpin();
             }
         }
-
     }
-    public async Task endMinigame(JObject data)
-    {
 
+    public IEnumerator endMinigame(JObject data)
+    {
         setAnimGameName("sixiang");
         if (data.ContainsKey("gameType"))
         {
@@ -578,10 +630,12 @@ public class SiXiangView : BaseSlotView
             activeAllSymbol();
             infoBar.prepareSpin();
         }
+
         if (isGrandJackpot)
         {
             winTypeJackpot = WIN_JACKPOT_TYPE.JACKPOT_GRAND;
         }
+
         lbChipWins.ResetValue();
         winAmount = getLong(data, "winAmount");
 
@@ -596,24 +650,26 @@ public class SiXiangView : BaseSlotView
             SoundManager.instance.playMusicInGame(Globals.SOUND_SLOT_BASE.BG_GAME);
             if (isGrandJackpot)
             {
-                await showSpineJackpotWin(getJackpotValue(winTypeJackpot));
+                yield return showSpineJackpotWin(getJackpotValue(winTypeJackpot));
             }
-            await showResultMoneyAnim(PATH_ANIM_WINRESULT_DP, "eng", winAmount, new Vector2(0, -68));
+
+            yield return showResultMoneyAnim(PATH_ANIM_WINRESULT_DP, "eng", winAmount, new Vector2(0, -68));
             activeAllSymbol();
         }
         else
         {
             if (isGrandJackpot)
             {
-                await showSpineJackpotWin(getJackpotValue(winTypeJackpot));
+                yield return showSpineJackpotWin(getJackpotValue(winTypeJackpot));
             }
         }
+
         //Debug.Log("wait show specialWin");
-        await showSpineSpecialWin(winType, winAmount);
+        yield return showSpineSpecialWin(winType, winAmount);
         //Debug.Log("endMinigame after special spine:gameState=" + gameState);
         //if (gameType != (int)GAME_TYPE.DRAGON_PEARL)
         //{
-        showEffectChip();
+        StartCoroutine(showEffectChip());
         //}
         bgGame.skeletonDataAsset = animBgNormal;
         bgGame.Initialize(true);
@@ -623,6 +679,7 @@ public class SiXiangView : BaseSlotView
         {
             showChooseGameBonus();
         }
+
         gameType = 0; //set gametype ve 0 roi
         agPlayer = getLong(data, "userAmount");
         SocketSend.sendPackageSlotSixiang(ACTION_SLOT_SIXIANG.getBonusGames, validBetLevels[currentBetLevel]);
@@ -635,30 +692,29 @@ public class SiXiangView : BaseSlotView
         {
             spintype = SPIN_TYPE.NORMAL;
         }
+
         setStateBtnSpin();
-        await Task.Delay(TimeSpan.FromSeconds(0.5f));
+        // await Task.Delay(TimeSpan.FromSeconds(0.5f));
+        yield return new WaitForSeconds(0.5f);
         isGrandJackpot = false;
         winAmount = 0;
         if (autoSpinRemain > 0 && isBonusGame == false)
         {
             lbAutoRemain.gameObject.SetActive(true);
             onClickSpin();
-
         }
         else
         {
             setStateSpin(GAME_STATE.PREPARE);
         }
-        Debug.Log("endMinigame:gameState=" + gameState);
 
+        Debug.Log("endMinigame:gameState=" + gameState);
     }
+
     private void resetSlotViewDP()
     {
         infoBar.prepareSpin();
-        listCollum.ForEach((col) =>
-        {
-            col.Reset();
-        });
+        listCollum.ForEach((col) => { col.Reset(); });
         setBetLevel(validBetLevels[currentBetLevel]);
         infoBar.setDPSpinLeft(freeSpinleft);
         if (DragonPearlView.isFinish == true)
@@ -677,8 +733,8 @@ public class SiXiangView : BaseSlotView
         {
             setStateButtonBuyPeals(false);
             hideAllSymbol();
-
         }
+
         if (freeSpinleft <= 0)
         {
             infoBar.prepareSpin();
@@ -689,9 +745,10 @@ public class SiXiangView : BaseSlotView
         {
             onClickSpinDP();
         }
-        Debug.Log("resetSlotViewDP:gameState=" + gameState + "--SpintType=" + spintype);
 
+        Debug.Log("resetSlotViewDP:gameState=" + gameState + "--SpintType=" + spintype);
     }
+
     protected override void resetSlotView()
     {
         base.resetSlotView();
@@ -701,11 +758,12 @@ public class SiXiangView : BaseSlotView
             setStateButtonBuyPeals(false);
         }
 
-        if ((winAmount > 0 || normalWinAmount > 0) && (gameType == (int)GAME_TYPE.NORMAL || gameType == (int)GAME_TYPE.SCATTER))
+        if ((winAmount > 0 || normalWinAmount > 0) &&
+            (gameType == (int)GAME_TYPE.NORMAL || gameType == (int)GAME_TYPE.SCATTER))
         {
             lbChipWins.setValue(normalWinAmount, true);
             infoBar.setStateWin("win");
-            showEffectChip();
+            StartCoroutine(showEffectChip());
             normalWinAmount = 0;
         }
 
@@ -714,18 +772,17 @@ public class SiXiangView : BaseSlotView
             gameType = (int)GAME_TYPE.NORMAL;
             setStateButtonBuyPeals(true);
         }
+
         if (autoSpinRemain > 0)
         {
-            if ((gameState == GAME_STATE.PREPARE || gameState == GAME_STATE.JOIN_GAME) && agPlayer < validBetLevels[currentBetLevel])
+            if ((gameState == GAME_STATE.PREPARE || gameState == GAME_STATE.JOIN_GAME) &&
+                agPlayer < validBetLevels[currentBetLevel])
             {
                 infoBar.setInfoText(Globals.Config.getTextConfig("not_enought_gold"));
                 string textShow = Globals.Config.getTextConfig("txt_not_enough_money_gl");
                 string textBtn2 = Globals.Config.getTextConfig("shop");
                 string textBtn3 = Globals.Config.getTextConfig("label_cancel");
-                UIManager.instance.showDialog(textShow, textBtn2, () =>
-                {
-                    UIManager.instance.openShop();
-                }, textBtn3);
+                UIManager.instance.showDialog(textShow, textBtn2, () => { UIManager.instance.openShop(); }, textBtn3);
             }
             else
             {
@@ -739,7 +796,6 @@ public class SiXiangView : BaseSlotView
                     lbAutoRemain.gameObject.SetActive(false);
                 }
             }
-
         }
         else
         {
@@ -747,27 +803,31 @@ public class SiXiangView : BaseSlotView
             spintype = SPIN_TYPE.NORMAL;
             setStateBtnSpin();
         }
+
         winAmount = 0;
         isGrandJackpot = false;
-
     }
-    protected virtual async Task showLuckyGoldView(int remainPick = 20)
+
+    protected virtual IEnumerator showLuckyGoldView(int remainPick = 20)
     {
         gameType = (int)GAME_TYPE.LUCKY_GOLD;
         setStateNodeGameForLuckyGold(false);
         if (LuckyGoldView == null)
         {
-            LuckyGoldView = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/LuckyGoldView"), transform).GetComponent<SiXiangLuckyGoldView>();
+            LuckyGoldView =
+                Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/LuckyGoldView"), transform)
+                    .GetComponent<SiXiangLuckyGoldView>();
             LuckyGoldView.transform.SetSiblingIndex(animCutScene.transform.GetSiblingIndex() - 3);
-
         }
+
         LuckyGoldView.remainPick = remainPick;
         LuckyGoldView.gameObject.SetActive(true);
         infoBar.setStateWin("totalWin");
         lbChipWins.ResetValue();
-        await LuckyGoldView.Show(this);
+        yield return LuckyGoldView.Show(this);
         LuckyGoldView.transform.SetSiblingIndex(LuckyGoldView.transform.GetSiblingIndex() + 2);
     }
+
     public void setStateNodeGameForLuckyGold(bool isShow)
     {
         //Assets/Resources/GameView/SiXiang/Spine/BgMiniGame/skeleton_SkeletonData.asset
@@ -775,14 +835,15 @@ public class SiXiangView : BaseSlotView
         bgGame.gameObject.SetActive(isShow);
         bgQuay.SetActive(isShow);
     }
+
     public void setStateNodeGameForLuckyDraw(bool isShow)
     {
         if (!isShow)
         {
-            bgGame.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/LuckyDraw/BgGame/skeleton_SkeletonData");
+            bgGame.skeletonDataAsset =
+                UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/LuckyDraw/BgGame/skeleton_SkeletonData");
             bgGame.Initialize(true);
             bgGame.AnimationState.SetAnimation(0, "animation", true);
-
         }
         else
         {
@@ -790,59 +851,70 @@ public class SiXiangView : BaseSlotView
             bgGame.Initialize(true);
             bgGame.AnimationState.SetAnimation(0, "animation", true);
         }
-        collumContainer.SetActive(isShow);
 
+        collumContainer.SetActive(isShow);
     }
+
     protected void setAnimGameName(string gameName)
     {
         animNameGame.Initialize(true);
         animNameGame.AnimationState.SetAnimation(0, gameName, true);
     }
-    protected virtual async Task showScatterSpin()
+
+    protected virtual IEnumerator showScatterSpin()
     {
-        await showAnimCutScene();
+        yield return StartCoroutine(showAnimCutScene());
         if (ScatterView == null)
         {
-            ScatterView = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/ScatterView"), transform).GetComponent<SiXiangScatterView>();
-
+            ScatterView = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/ScatterView"), transform)
+                .GetComponent<SiXiangScatterView>();
         }
+
         ScatterView.transform.SetSiblingIndex(animCutScene.transform.GetSiblingIndex() - 1);
         ScatterView.Show(this);
     }
-    protected async Task showDragonPearlView(JObject pearls, bool isInit6Gold = false, bool isDbSpin = false)
+
+    protected IEnumerator showDragonPearlView(JObject pearls, bool isInit6Gold = false, bool isDbSpin = false)
     {
         SoundManager.instance.playMusicInGame(Globals.SOUND_SLOT_BASE.PEARL_BG);
         setAnimGameName("dragonpearl");
         hideAllSymbol();
         setStateButtonBuyPeals(false);
         gameType = (int)GAME_TYPE.DRAGON_PEARL;
-        bgGame.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/DragonPearl/BgGame/skeleton_SkeletonData");
+        bgGame.skeletonDataAsset =
+            UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/DragonPearl/BgGame/skeleton_SkeletonData");
         bgGame.Initialize(true);
         bgGame.AnimationState.SetAnimation(0, "animation", true);
         DragonPearlView.gameObject.SetActive(true);
         if (isInit6Gold)
         {
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            yield return new WaitForSeconds(1);
         }
+
         infoBar.setStateWin("totalWin");
         lbChipWins.setValue(0, false);
         freeSpinleft = getInt(pearls, "numberOfDragonPearlSpins");
         setStateBtnSpin();
 
-        await DragonPearlView.setInfo(pearls, isInit6Gold, isDbSpin);
+        yield return DragonPearlView.setInfo(pearls, isInit6Gold, isDbSpin);
     }
-    protected virtual async Task showRapidPayGame(int initWinAmount, List<JObject> data = null, bool isUltimate = false)
+
+    protected virtual IEnumerator showRapidPayGame(int initWinAmount, List<JObject> data = null,
+        bool isUltimate = false)
     {
         gameType = (int)GAME_TYPE.RAPID_PAY;
         if (RapidPayView == null)
         {
-            RapidPayView = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/RapidPayView"), transform).GetComponent<SiXiangRapidPayView>();
+            RapidPayView = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/RapidPayView"), transform)
+                .GetComponent<SiXiangRapidPayView>();
             RapidPayView.transform.SetSiblingIndex(animCutScene.transform.GetSiblingIndex() - 2);
         }
+
         RapidPayView.winAmount = initWinAmount;
-        await RapidPayView.Show(this, isUltimate, data);
+        yield return RapidPayView.Show(this, isUltimate, data);
     }
-    protected virtual async Task showLuckyDrawView(JObject initView = null)
+
+    protected virtual IEnumerator showLuckyDrawView(JObject initView = null)
     {
         setAnimGameName("luckydraw");
         gameType = (int)GAME_TYPE.LUCKY_DRAW;
@@ -850,35 +922,35 @@ public class SiXiangView : BaseSlotView
         setStateButtonBuyPeals(false);
         if (LuckyDrawView == null)
         {
-            LuckyDrawView = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/LuckyDrawView"), transform).GetComponent<SiXiangLuckyDrawView>();
+            LuckyDrawView =
+                Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/LuckyDrawView"), transform)
+                    .GetComponent<SiXiangLuckyDrawView>();
             LuckyDrawView.transform.SetSiblingIndex(animCutScene.transform.GetSiblingIndex() - 1);
-
         }
+
         if (initView != null)
         {
             LuckyDrawView.setInitView(initView, this);
         }
-        await LuckyDrawView.Show(this);
+
+        yield return LuckyDrawView.Show(this);
     }
 
-    public async Task showAnimCutScene()
+    public IEnumerator showAnimCutScene()
     {
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.CUT_SCENE);
-        animCutScene.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/CutSceneBonus/skeleton_SkeletonData");
+        animCutScene.skeletonDataAsset =
+            UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/CutSceneBonus/skeleton_SkeletonData");
         animCutScene.Initialize(true);
         animCutScene.AnimationState.SetAnimation(0, "animation", false);
         animCutScene.transform.gameObject.SetActive(true);
         DOTween.Sequence()
-           .AppendInterval(animCutScene.Skeleton.Data.FindAnimation("animation").Duration)
-           .AppendCallback(() =>
-           {
-               animCutScene.gameObject.SetActive(false);
-           }).SetTarget(transform);
-        await Task.Delay(1500);
+            .AppendInterval(animCutScene.Skeleton.Data.FindAnimation("animation").Duration)
+            .AppendCallback(() => { animCutScene.gameObject.SetActive(false); }).SetTarget(transform);
+        yield return new WaitForSeconds(1.5f);
     }
 
-
-    public async void handleBuyBonusGame(JObject data)
+    public IEnumerator handleBuyBonusGame(JObject data)
     {
         //{\"userAmount\":411187,\"multiplier\":90,\"price\":90,\"miniGameType\":2,\"bet\":1,\"numberOflistPearlss\":3,\"dragonPearls\":[{\"item\":6,\"luckyMoney\":0,\"multiplier\":2.695,\"winAmount\":2,\"jackpot\":0,\"row\":1,\"col\":0,\"isBonusSpin\":false,\"isJackpot\":false,\"isDoubled\":false},{\"item\":2,\"luckyMoney\":0,\"multiplier\":0.044,\"winAmount\":0,\"jackpot\":0,\"row\":0,\"col\":2,\"isBonusSpin\":false,\"isJackpot\":false,\"isDoubled\":false},{\"item\":2,\"luckyMoney\":0,\"multiplier\":0.046,\"winAmount\":0,\"jackpot\":0,\"row\":1,\"col\":2,\"isBonusSpin\":false,\"isJackpot\":false,\"isDoubled\":false},{\"item\":5,\"luckyMoney\":0,\"multiplier\":1.5580001,\"winAmount\":1,\"jackpot\":0,\"row\":1,\"col\":4,\"isBonusSpin\":false,\"isJackpot\":false,\"isDoubled\":false},{\"item\":5,\"luckyMoney\":0,\"multiplier\":1.5580001,\"winAmount\":1,\"jackpot\":0,\"row\":2,\"col\":1,\"isBonusSpin\":false,\"isJackpot\":false,\"isDoubled\":false},{\"item\":4,\"luckyMoney\":0,\"multiplier\":0.30400002,\"winAmount\":0,\"jackpot\":0,\"row\":0,\"col\":0,\"isBonusSpin\":false,\"isJackpot\":false,\"isDoubled\":false}],\"dragonPearlWinPot\":6,\"numberOfGoldPicks\":0}
         gameType = getInt(data, "miniGameType");
@@ -889,84 +961,95 @@ public class SiXiangView : BaseSlotView
             case 2:
                 pathAnimGameMini = PATH_ANIM_THANHLONG;
                 gameState = GAME_STATE.SHOWING_RESULT;
-                await showSpineAnimalBuy(pathAnimGameMini);
-                await showAnimCutScene();
+                yield return showSpineAnimalBuy(pathAnimGameMini);
+                yield return showAnimCutScene();
                 handleBuyDragonPearl(data);
                 break;
             case 3:
                 //{\"userAmount\":28925472,\"multiplier\":110.0,\"price\":110,\"miniGameType\":3,\"bet\":1,\"numberOfDragonPearlSpins\":0,\"dragonPearlWinPot\":0,\"numberOfGoldPicks\":0}
                 pathAnimGameMini = PATH_ANIM_CHUTUOC;
-                await showSpineAnimalBuy(pathAnimGameMini);
-                await showAnimCutScene();
-                await showLuckyDrawView();
+                yield return showSpineAnimalBuy(pathAnimGameMini);
+                yield return showAnimCutScene();
+                yield return showLuckyDrawView();
                 break;
             case 4:
                 pathAnimGameMini = PATH_ANIM_BACHHO;
-
-                await showSpineAnimalBuy(pathAnimGameMini, "3");
-                await showAnimCutScene();
-                await showLuckyGoldView();
+                yield return showSpineAnimalBuy(pathAnimGameMini, "3");
+                yield return showAnimCutScene();
+                yield return showLuckyGoldView();
                 break;
             case 5:
                 pathAnimGameMini = PATH_ANIM_HUYENVU;
                 // "{\"userAmount\":28925139,\"multiplier\":250.0,\"price\":250,\"miniGameType\":5,\"bet\":1,\"numberOfDragonPearlSpins\":0,\"dragonPearlWinPot\":0,\"numberOfGoldPicks\":0}"
-                await showSpineAnimalBuy(pathAnimGameMini);
-                await showAnimCutScene();
-                await showRapidPayGame(validBetLevels[currentBetLevel] / 2);
+                yield return showSpineAnimalBuy(pathAnimGameMini);
+                yield return showAnimCutScene();
+                yield return showRapidPayGame(validBetLevels[currentBetLevel] / 2);
                 break;
         }
+
         infoBar.setStateWin("totalWin");
         lbChipWins.setValue(0, false);
     }
+
     private void handleBuyDragonPearl(JObject data)
     {
         freeSpinleft = (int)data["numberOfDragonPearlSpins"];
         infoBar.setDPSpinLeft(freeSpinleft);
-        showDragonPearlView(data, true);
+        StartCoroutine(showDragonPearlView(data, true));
     }
-    protected async Task showSpineAnimalBuy(string pathAnim, string animName = "animation")
+
+    protected IEnumerator showSpineAnimalBuy(string pathAnim, string animName = "animation")
     {
-        spineSpecialWinTask = new Task(() => { });
-        Action<SkeletonDataAsset> cb = async (skeData) =>
+        bool isAnimationCompleted = false;
+
+        Action<SkeletonDataAsset> cb = (skeData) =>
         {
             SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SHOW_ANIMAL);
             if (pathAnim == PATH_ANIM_BACHHO)
             {
                 animName = "3";
             }
+
             Debug.Log("showSpineAnimalBuy:" + animName);
             animAnimal.skeletonDataAsset = skeData;
-            await Task.Delay(TimeSpan.FromSeconds(0.1f));
+
             effectContainer.SetActive(true);
             spineBgMoney.gameObject.SetActive(false);
             animAnimal.gameObject.SetActive(true);
             animAnimal.Initialize(true);
             animAnimal.AnimationState.SetAnimation(0, animName, false);
-            //animAnimal.transform.Find("btnConfirm").gameObject.SetActive(false);
             animAnimal.transform.parent.gameObject.SetActive(true);
-            //lbSpecicalWin.gameObject.SetActive(false);
-            await Task.Delay((int)animAnimal.Skeleton.Data.FindAnimation(animName).Duration * 1000);
+
+            // Lắng nghe sự kiện hoàn thành animation
             animAnimal.AnimationState.Complete += delegate
             {
-                spineSpecialWinTask.Start();
+                isAnimationCompleted = true;
                 animAnimal.transform.parent.gameObject.SetActive(false);
                 animAnimal.gameObject.SetActive(false);
                 effectContainer.SetActive(false);
             };
-
         };
+
         UnityMainThread.instance.AddJob(() =>
         {
             StartCoroutine(UIManager.instance.loadSkeletonDataAsync(pathAnim, cb));
         });
-        await spineSpecialWinTask;
+
+        yield return new WaitForSeconds(0.1f);
+
+        while (!isAnimationCompleted)
+        {
+            yield return null;
+        }
     }
+
     public void updateFreeSpinLeft()
     {
         infoBar.setDPSpinLeft(freeSpinleft);
         infoBar.effectUpdateDBFSL();
         setStateBtnSpin();
     }
+
     public void onClickTestData()
     {
         //handleBuyBonusGame(JObject.Parse(SiXiangFakeData.Instance.getBuyBonusDragonPearl));
@@ -975,6 +1058,7 @@ public class SiXiangView : BaseSlotView
         //handleDragonPealsSpin(JObject.Parse(SiXiangFakeData.Instance.getHuyenVuDragonPearl()));
         handleDragonPealsSpin(JObject.Parse(SiXiangFakeData.Instance.getDragonPearlFinishedSpin()));
     }
+
     public long getJackpotValue(WIN_JACKPOT_TYPE type, int typeNumber = -1)
     {
         if (typeNumber != -1)
@@ -985,8 +1069,8 @@ public class SiXiangView : BaseSlotView
         {
             return validBetLevels[currentBetLevel] * jackpotLevel[(int)type - 1];
         }
-
     }
+
     public override void setStateBtnSpin()
     {
         base.setStateBtnSpin();
@@ -1011,9 +1095,7 @@ public class SiXiangView : BaseSlotView
                 animBtnSpin.AnimationState.SetAnimation(0, "freespin", true);
                 animBtnSpin.color = Color.white;
             }
-
         }
     }
     // Update is called once per frame
-
 }

@@ -1297,13 +1297,12 @@ public class HandleService
                 SiXiangView.Instance.handleNormalSpin(dataGame);
                 break;
             case Globals.ACTION_SLOT_SIXIANG.scatterSpin:
-                SiXiangView.Instance.handleScatterSpin(dataGame);
+                SiXiangView.Instance.StartCoroutine(SiXiangView.Instance.handleScatterSpin(dataGame));
                 break;
             case Globals.ACTION_SLOT_SIXIANG.buyBonusGame:
-                SiXiangView.Instance.handleBuyBonusGame(dataGame);
+                SiXiangView.Instance.StartCoroutine(SiXiangView.Instance.handleBuyBonusGame(dataGame));
                 break;
             case Globals.ACTION_SLOT_SIXIANG.dragonPearlSpin:
-                
                 SiXiangView.Instance.handleDragonPealsSpin(dataGame);
                 break;
             case Globals.ACTION_SLOT_SIXIANG.rapidPay:
@@ -1316,7 +1315,7 @@ public class HandleService
                 SiXiangView.Instance.handleLuckyDraw(dataGame);
                 break;
             case Globals.ACTION_SLOT_SIXIANG.selectBonusGame:
-                SiXiangView.Instance.handleSelectBonusGame(dataGame);
+                SiXiangView.Instance.StartCoroutine(SiXiangView.Instance.handleSelectBonusGame(dataGame));
                 break;
         }
     }

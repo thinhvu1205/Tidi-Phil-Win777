@@ -10,7 +10,7 @@ public class SiXiangSymbolController : SymbolController
     // Start is called before the first frame update
 
 
-    public async Task showEffectSpeadWild(Vector2 initPos)
+    public IEnumerator showEffectSpeadWild(Vector2 initPos)
     {
         spine.transform.SetParent(collumCtrl.transform);
         spine.transform.localPosition = initPos;
@@ -29,7 +29,7 @@ public class SiXiangSymbolController : SymbolController
             setSprite(9);
         }).SetId("seqWildSpead");
         Tween tw = DOTween.TweensById("seqWildSpead")[0];
-        await tw.AsyncWaitForCompletion();
+        yield return tw.WaitForCompletion();
     }
     public void showWild(float timeScale = 1.0f)
     {

@@ -61,7 +61,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
             }
         });
     }
-    public async Task setInfo(JObject data, bool isInit6Gold, bool isDPSpinn = false)
+    public IEnumerator setInfo(JObject data, bool isInit6Gold, bool isDPSpinn = false)
     {
         SiXiangView.Instance.gameState = SiXiangView.GAME_STATE.SHOWING_RESULT;
         if (data.ContainsKey("userAmount"))
@@ -88,7 +88,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         {
             winAmount = (int)data["winAmount"];
         }
-        List<Task> tasksSetInfo = new List<Task>();
+        List<IEnumerator> coroutinesSetInfo = new List<IEnumerator>();
         if (!isDPSpin)
         {
             resetView();
@@ -100,7 +100,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         }
         if (isInit6Gold)
         {
-            await startView6Gold(pearls);
+            yield return startView6Gold(pearls);
         }
 
         pearls.ForEach(dataPearl =>
@@ -110,18 +110,22 @@ public class SiXiangDragonPearlView : MonoBehaviour
             if ((bool)dataPearl["isDoubled"] == false && isDPSpin == true)
             {
                 DragonPearlItem item = listItem[col][row];
-                tasksSetInfo.Add(item.setInfo(dataPearl, this));
+                coroutinesSetInfo.Add(item.setInfo(dataPearl, this));
             }
             else if (isDPSpin == false)
             {
                 DragonPearlItem item = listItem[col][row];
-                tasksSetInfo.Add(item.setInfo(dataPearl, this));
+                coroutinesSetInfo.Add(item.setInfo(dataPearl, this));
             }
         });
 
         if (pearls.Count > 0)
         {
-            await Task.WhenAll(tasksSetInfo.ToArray());
+            // await Task.WhenAll(tasksSetInfo.ToArray());
+            foreach (var coroutine in coroutinesSetInfo)
+            {
+                yield return coroutine;
+            }
             SiXiangView.Instance.updateWinAmount(winAmount);
             SiXiangView.Instance.infoBar.setStateWin("totalWin");
             if (isInit6Gold && SiXiangView.Instance.spintype == SiXiangView.SPIN_TYPE.AUTO)
@@ -131,7 +135,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         }
         else
         {
-            await Task.Delay(TimeSpan.FromSeconds(0.25f));
+            yield return new WaitForSeconds(0.25f);
         }
 
         if (data.ContainsKey("isFinished"))
@@ -140,8 +144,8 @@ public class SiXiangDragonPearlView : MonoBehaviour
             if ((bool)data["isFinished"] == true)
             {
                 isGrandJackpot = (bool)data["isGrandJackpot"];
-                await Task.Delay(TimeSpan.FromSeconds(1.5f));
-                await showResult();
+                yield return new WaitForSeconds(1.5f);
+                yield return StartCoroutine(showResult());
             }
         }
         else
@@ -149,7 +153,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
             SiXiangView.Instance.gameState = SiXiangView.GAME_STATE.PREPARE;
         }
     }
-    private async Task showResult()
+    private IEnumerator showResult()
     {
         JObject dataEnd = new JObject();
         dataEnd["winAmount"] = winAmount;
@@ -157,7 +161,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         dataEnd["isGrandJackpot"] = isGrandJackpot;
         dataEnd["userAmount"] = userAmount;
         dataEnd["isSelectBonusGame"] = isSelectBonusGame;
-        await SiXiangView.Instance.endMinigame(dataEnd);
+        yield return SiXiangView.Instance.endMinigame(dataEnd);
         gameObject.SetActive(false);
     }
     public async Task startView6Gold(List<JObject> pearls)
