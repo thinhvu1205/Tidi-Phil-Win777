@@ -12,6 +12,7 @@ using System.Collections;
 
 public class LobbyView : BaseView
 {
+    [SerializeField] private Button WhotGameButton;
     [SerializeField] private List<ItemGame> m_ConfigOffIGs;
     [SerializeField] List<Button> listTabs = new();
     [SerializeField]
@@ -478,6 +479,10 @@ public class LobbyView : BaseView
             if (gameId == (int)GAMEID.PUSOY && UIManager.instance.PusoyJackPot > 0) item.UpdateJackpot(UIManager.instance.PusoyJackPot);
             _AllGameIGs.Add(item);
         }
+        //TODO:Tinh
+        ItemGame whotGameBtn = Instantiate(WhotGameButton,m_MiniGameIconTf).GetComponent<ItemGame>();
+        _AllGameIGs.Add(whotGameBtn);
+        //TODO:EndTinh
         foreach (ItemGame ig in _AllGameIGs)
         {
             if (!slotGames.Contains(ig.gameID)) continue;

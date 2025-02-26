@@ -489,4 +489,9 @@ public class TableView : BaseView
             edbPass.text = strIn;
         });
     }
+    //TODO:Tinh_VaoGame
+    public void ClickButtonWhot(){
+        Debug.Log($"Tinh_Click_VaoGame");
+        UIManager.instance.showGame();
+    }
 }

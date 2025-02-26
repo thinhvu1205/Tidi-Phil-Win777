@@ -4,6 +4,7 @@ using Spine.Unity;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Globals;
 
 
 public class ItemGame : MonoBehaviour
@@ -14,7 +15,7 @@ public class ItemGame : MonoBehaviour
     [SerializeField]
     TextNumberControl m_JackPotTNC;
 
-    [HideInInspector]
+    // [HideInInspector]
     public int gameID;
     System.Action callbackClick = null;
     public void setInfo(int _gameID, SkeletonDataAsset skeAnim, Sprite _icon, Material material, System.Action callback)
@@ -69,5 +70,11 @@ public class ItemGame : MonoBehaviour
         {
             callbackClick.Invoke();
         }
+    }
+    public void ClickButtonWhotGame()//TODO:Tinh_ClickWhotGame
+    {
+        Debug.Log($"ClickButtonWhotGame");
+        Config.curGameId = 8888;
+        UIManager.instance.openTableView();
     }
 }

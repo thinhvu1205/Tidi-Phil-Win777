@@ -283,7 +283,8 @@ namespace Globals
         SLOT_SIXIANG = 9011,
         RONGHO = 8009,
         KARTU_QIU = 8805,
-        MINE_FINDING = 8804
+        MINE_FINDING = 8804,
+        WHOT_GAME = 8888 // TODO:TINH_WHOT
     }
     public enum DOTWEEN_TAG
     {

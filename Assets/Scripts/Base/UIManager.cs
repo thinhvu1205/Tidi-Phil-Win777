@@ -469,7 +469,7 @@ public class UIManager : MonoBehaviour
             loginView.reconnect();
         }
     }
-
+//TODO:showGame
     public void showGame()
     {
 
@@ -641,10 +641,10 @@ public class UIManager : MonoBehaviour
                     gameView = Instantiate(loadPrefabGame("SabongView"), parentGame).GetComponent<SabongGameView>();
                     break;
                 }
-            case (int)Globals.GAMEID.MINE_FINDING:
+            case (int)Globals.GAMEID.WHOT_GAME:
                 {
-                    Globals.Logging.Log("showGame MineFinding");
-                    gameView = Instantiate(loadPrefabGame("PopupMineFinding"), parentGame).GetComponent<MineFindingView>();
+                    Globals.Logging.Log("showGame WhotGameView");
+                    gameView = Instantiate(loadPrefabGame("WhotGameView"), parentGame).GetComponent<WhotGameVIew>();
                     break;
                 }
             //case (int)Globals.GAMEID.ROULETTE:

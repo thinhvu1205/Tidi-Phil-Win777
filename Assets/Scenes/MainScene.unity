@@ -15896,7 +15896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1552870527
@@ -20688,6 +20688,7 @@ MonoBehaviour:
   isAlawayTop: 0
   isSetParentNull: 0
   isPlaySoundOpen: 1
+  WhotGameButton: {fileID: 4326926040227097825, guid: 7c43e6391c7b5ff47bc17d23499506ad, type: 3}
   m_ConfigOffIGs:
   - {fileID: 1507422193}
   - {fileID: 1630293475}
