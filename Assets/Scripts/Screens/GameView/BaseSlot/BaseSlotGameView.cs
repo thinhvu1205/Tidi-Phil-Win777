@@ -291,6 +291,11 @@ public class BaseSlotGameView : GameView
             timeHoldSpin += Time.deltaTime;
             if (timeHoldSpin > 1.3f)
             {
+                if (agPlayer < totalListBetRoom[currentMarkBet])
+                {
+                    lbInfoSession.text = Config.getTextConfig("msg_warrning_send");
+                    return;
+                }
                 spintype = SPIN_TYPE.AUTO;
                 setSpinType();
                 if (gameState != GAME_STATE.SPINNING)
