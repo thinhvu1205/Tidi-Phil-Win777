@@ -14,7 +14,7 @@ using Globals;
 public class SlotJuicyGardenView : BaseSlotGameView
 {
     public static SlotJuicyGardenView instance;
-    [SerializeField] public GameObject holdPackageContainer, m_ButtonExchange;
+    [SerializeField] public GameObject holdPackageContainer;
     [SerializeField] protected TextNumberControl lbJpGrand, lbJpMajor, lbJpMinor, lbJpMini;
     [SerializeField] protected TextMeshProUGUI lbTotalPackageValue;
     [SerializeField]
