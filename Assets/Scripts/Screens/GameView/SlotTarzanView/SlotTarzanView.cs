@@ -90,7 +90,7 @@ public class SlotTarzanView : BaseSlotGameView
 
     public override void handleCTable(string data)
     {
-        Globals.Logging.Log("HandleCtable Tarzan:" + data);
+        Logging.Log("HandleCtable Tarzan:" + data);
         //data = GetFakeDataTarzan.instance.dataCtableLastCharacter;
         //base.handleCTable(data);
 
@@ -131,7 +131,7 @@ public class SlotTarzanView : BaseSlotGameView
         JArray arrP = (JArray)dataCtable["ArrP"];
         JObject dataPlayer = (JObject)arrP[0];
         agPlayer = (long)dataPlayer["AG"];
-        lbCurrentChips.Text = Globals.Config.FormatNumber(agPlayer);
+        lbCurrentChips.Text = Config.FormatNumber(agPlayer);
         listMarkbet = ((JArray)dataCtable["MarkBet"]).ToObject<List<int>>();
         listBetRoom = getListBetRoom();
         freespinLeft = getInt(dataCtable, "freeSpinCount");
@@ -139,7 +139,7 @@ public class SlotTarzanView : BaseSlotGameView
         isFreeSpin = freespinLeft > 0;
         singleLineBet = getInt(dataCtable, "singleLineBet");
         currentChipBonus = getInt(dataCtable, "currentChipBonus");
-        lbCurrentChipBonus.text = Globals.Config.FormatNumber(currentChipBonus);
+        lbCurrentChipBonus.text = Config.FormatNumber(currentChipBonus);
         lbDiamondNum.text = getInt(dataCtable, "numExp").ToString();
         float progressChipBonus = (float)getInt(dataCtable, "numExp") / getInt(dataCtable, "maxExp");
         if (progressChipBonus != 0)
@@ -167,26 +167,26 @@ public class SlotTarzanView : BaseSlotGameView
         {
             if (listBetRoom.Count - 1 >= currentMarkBet)
             {
-                lbCurrentBet.text = Globals.Config.FormatMoney2(listBetRoom[currentMarkBet], true);
-                lbStateBet.text = currentMarkBet == listBetRoom.Count - 1 ? Globals.Config.getTextConfig("txt_max_bet") : Globals.Config.getTextConfig("txt_bet");
+                lbCurrentBet.text = Config.FormatMoney2(listBetRoom[currentMarkBet], true);
+                lbStateBet.text = currentMarkBet == listBetRoom.Count - 1 ? Config.getTextConfig("txt_max_bet") : Config.getTextConfig("txt_bet");
             }
             else
             {
-                lbCurrentBet.text = Globals.Config.FormatMoney2(totalListBetRoom[currentMarkBet], true);
+                lbCurrentBet.text = Config.FormatMoney2(totalListBetRoom[currentMarkBet], true);
             }
         }
         else
         {
             if (!isFreeSpin)
             {
-                lbInfoSession.text = Globals.Config.getTextConfig("msg_warrning_send");
-                lbCurrentBet.text = Globals.Config.FormatMoney2(totalListBetRoom[currentMarkBet], true);
-                lbStateBet.text = currentMarkBet == listBetRoom.Count - 1 ? Globals.Config.getTextConfig("txt_max_bet") : Globals.Config.getTextConfig("txt_bet");
+                lbInfoSession.text = Config.getTextConfig("msg_warrning_send");
+                lbCurrentBet.text = Config.FormatMoney2(totalListBetRoom[currentMarkBet], true);
+                lbStateBet.text = currentMarkBet == listBetRoom.Count - 1 ? Config.getTextConfig("txt_max_bet") : Config.getTextConfig("txt_bet");
             }
             else
             {
-                lbCurrentBet.text = Globals.Config.FormatMoney2(totalListBetRoom[currentMarkBet], true);
-                lbStateBet.text = currentMarkBet == listBetRoom.Count - 1 ? Globals.Config.getTextConfig("txt_max_bet") : Globals.Config.getTextConfig("txt_bet");
+                lbCurrentBet.text = Config.FormatMoney2(totalListBetRoom[currentMarkBet], true);
+                lbStateBet.text = currentMarkBet == listBetRoom.Count - 1 ? Config.getTextConfig("txt_max_bet") : Config.getTextConfig("txt_bet");
             }
         }
         arrayBonus = getJArray(dataCtable, "arrayBonus").ToObject<List<int>>();
@@ -208,8 +208,8 @@ public class SlotTarzanView : BaseSlotGameView
         Debug.Log("setSpinType: freespinLeft=" + freespinLeft);
         if (freespinLeft > 0)
         {
-            Globals.Logging.Log("isGetFreeSpin==" + isGetFreeSpin);
-            Globals.Logging.Log("spintype==" + spintype);
+            Logging.Log("isGetFreeSpin==" + isGetFreeSpin);
+            Logging.Log("spintype==" + spintype);
             if (!isGetFreeSpin)
             {
                 if (spintype == SPIN_TYPE.AUTO)
@@ -265,7 +265,7 @@ public class SlotTarzanView : BaseSlotGameView
                 .AppendInterval(i * 2.0f)
                 .AppendCallback(() =>
                 {
-                    Globals.Logging.Log("Show Anim Character");
+                    Logging.Log("Show Anim Character");
                     animCharacter.gameObject.SetActive(true);
                     string CHARACTER_ANIMPATH = "GameView/SlotSpine/Tarzan/JungleCharacter/" + listChar[listIndex[index]] + "/skeleton_SkeletonData";
                     animCharacter.skeletonDataAsset = UIManager.instance.loadSkeletonData(CHARACTER_ANIMPATH);
@@ -330,7 +330,7 @@ public class SlotTarzanView : BaseSlotGameView
         agPlayer += miniGameView.totalWin;
         listBetRoom = getListBetRoom();
         setCurrentMarkBet();
-        //Globals.Config.tweenNumberToNumber(lbCurrentChips, agPlayer, agPlayer - System.Convert.ToInt64(miniGameView.totalWin));
+        //Config.tweenNumberToNumber(lbCurrentChips, agPlayer, agPlayer - System.Convert.ToInt64(miniGameView.totalWin));
         lbCurrentChips.setValue(agPlayer, true);
         miniGameView.resetUI();
         DOTween.Sequence()
@@ -346,7 +346,7 @@ public class SlotTarzanView : BaseSlotGameView
     }
     private void showPopupResultGem()
     {
-        Globals.Logging.Log("showPopupResultGem");
+        Logging.Log("showPopupResultGem");
         string animPath = "GameView/SlotSpine/Tarzan/PopupFreeSpin/skeleton_SkeletonData";
 
         animPopupResult.gameObject.SetActive(true);
@@ -357,7 +357,7 @@ public class SlotTarzanView : BaseSlotGameView
         animPopupResult.Initialize(true);
         animPopupResult.AnimationState.SetAnimation(0, "getgem", true);
         animPopupResult.transform.DOScale(new Vector2(1.0f, 1.0f), 0.3f).SetEase(Ease.OutBack);
-        Globals.Config.tweenNumberTo(lbChipPopupReward, getInt(finishData, "chipBonusFullExp"), 0, 1.0f, true);
+        Config.tweenNumberTo(lbChipPopupReward, getInt(finishData, "chipBonusFullExp"), 0, 1.0f, true);
         if (spintype == SPIN_TYPE.AUTO)
         {
             DOTween.Sequence()
@@ -394,18 +394,18 @@ public class SlotTarzanView : BaseSlotGameView
         animPopupResultMinigame.transform.localScale = new Vector2(.8f, .8f);
         effectContainer.SetActive(true);
         animPopupResultMinigame.Initialize(true);
-        animPopupResultMinigame.transform.Find("lbReward").GetComponent<TextMeshProUGUI>().text = Globals.Config.FormatMoney3(value, 10000);
+        animPopupResultMinigame.transform.Find("lbReward").GetComponent<TextMeshProUGUI>().text = Config.FormatMoney3(value, 10000);
         animPopupResultMinigame.AnimationState.SetAnimation(0, "Eng", true);
         animPopupResultMinigame.transform.DOScale(new Vector2(1.0f, 1.0f), 0.3f).SetEase(Ease.OutBack);
 
         agPlayer += value;
-        //lbCurrentChips.text = Globals.Config.FormatNumber(agPlayer);
-        //Globals.Config.tweenNumberToNumber(lbCurrentChips, agPlayer - System.Convert.ToInt64(value), agPlayer);
+        //lbCurrentChips.text = Config.FormatNumber(agPlayer);
+        //Config.tweenNumberToNumber(lbCurrentChips, agPlayer - System.Convert.ToInt64(value), agPlayer);
         lbCurrentChips.setValue(agPlayer - System.Convert.ToInt64(value), true);
     }
     protected override void showFreeSpin()
     {
-        playSound(Globals.SOUND_SLOT.FREESPIN);
+        playSound(SOUND_SLOT.FREESPIN);
         animPopupGetFreeSpin.gameObject.SetActive(true);
         animPopupGetFreeSpin.skeletonDataAsset = UIManager.instance.loadSkeletonData(FREESPIN_ANIMPATH);
         animPopupGetFreeSpin.TrimRenderers();
@@ -526,7 +526,12 @@ public class SlotTarzanView : BaseSlotGameView
         agPlayer = (long)finishData["AG"];
     }
     //private int indexPick = 0;
-
+    public override bool checkWinScatter()
+    {
+        int numberScatter = slotViews.FindAll(arr => arr.Contains(12)).Count;
+        isGetFreeSpin = numberScatter == 3;
+        return numberScatter >= 2;
+    }
     public override void handleSpin(JObject data)
     {
         isSendingSpin = false;
@@ -614,7 +619,7 @@ public class SlotTarzanView : BaseSlotGameView
                     //animLightBar.gameObject.SetActive(posLight > -103);
                 });
                 lbDiamondNum.text = getInt(finishData, "numExp").ToString();
-                Globals.Config.tweenNumberToNumber(lbCurrentChipBonus, getInt(finishData, "currentChipBonus"), currentChipBonus, 0.3f);
+                Config.tweenNumberToNumber(lbCurrentChipBonus, getInt(finishData, "currentChipBonus"), currentChipBonus, 0.3f);
                 currentChipBonus = getInt(finishData, "currentChipBonus");
                 handleActionResult();
             }
@@ -789,13 +794,13 @@ public class SlotTarzanView : BaseSlotGameView
         if (currentMarkBet >= listBetRoom.Count && listBetRoom.Count > 0 && !isInFreeSpin)
         {
             currentMarkBet = listBetRoom.Count - 1;
-            lbCurrentBet.text = Globals.Config.FormatMoney2(listBetRoom[currentMarkBet], true);
+            lbCurrentBet.text = Config.FormatMoney2(listBetRoom[currentMarkBet], true);
         }
         if (!isInFreeSpin) //khong co freespin
         {
             if ((long)finishData["agWin"] != 0)
             {
-                //Globals.Config.tweenNumberTo(lbChipWins, (long)finishData["agWin"], 0, 0.3f, true);
+                //Config.tweenNumberTo(lbChipWins, (long)finishData["agWin"], 0, 0.3f, true);
                 lbChipWins.setValue((long)finishData["agWin"], true);
                 if ((long)finishData["agWin"] > 0)
                 {
@@ -810,7 +815,7 @@ public class SlotTarzanView : BaseSlotGameView
             countTotalAgFreespin += (int)finishData["agWin"];
             sprStateWin.sprite = listSprStateWin[1];
             sprStateWin.SetNativeSize();
-            //Globals.Config.tweenNumberTo(lbChipWins, countTotalAgFreespin, countTotalAgFreespin - (int)finishData["agWin"]);
+            //Config.tweenNumberTo(lbChipWins, countTotalAgFreespin, countTotalAgFreespin - (int)finishData["agWin"]);
             lbChipWins.setValue(countTotalAgFreespin, true);
             if (countTotalAgFreespin > payLines.Count * listBetRoom[currentMarkBet]) winType = 1;
             if (countTotalAgFreespin > 50 * listBetRoom[currentMarkBet]) winType = 2;
@@ -818,7 +823,7 @@ public class SlotTarzanView : BaseSlotGameView
         else //dang trong freespin
         {
             countTotalAgFreespin += (int)finishData["agWin"];
-            //Globals.Config.tweenNumberTo(lbChipWins, countTotalAgFreespin, countTotalAgFreespin - (int)finishData["agWin"]);
+            //Config.tweenNumberTo(lbChipWins, countTotalAgFreespin, countTotalAgFreespin - (int)finishData["agWin"]);
             lbChipWins.setValue(countTotalAgFreespin, true);
         }
         TweenCallback acCheckNextSpin = () =>
@@ -829,17 +834,11 @@ public class SlotTarzanView : BaseSlotGameView
             {
                 resetSlotView();
                 if (spintype == SPIN_TYPE.FREE_AUTO || (spintype == SPIN_TYPE.FREE_NORMAL && isInFreeSpin)) //freenormal nhung ko quay o lan dau tien dc scatter
-                {
                     onClickSpin();
-                }
                 else if (listBetRoom.Count > 0 && spintype == SPIN_TYPE.AUTO)
-                {
                     onClickSpin();
-                }
                 else
-                {
                     setStateBtnSpin();
-                }
             }
             else
             {
@@ -853,7 +852,7 @@ public class SlotTarzanView : BaseSlotGameView
             Debug.Log("isFreeSpin && !isInFreeSpin=" + isFreeSpin + "&" + isInFreeSpin);
             if (!isFreeSpin || (!isFreeSpin && isInFreeSpin) || (isFreeSpin && !isInFreeSpin)) //khong co freespin || freespin turn cuoi || bat dau freespin
             {
-                //Globals.Config.tweenNumberToNumber(lbCurrentChips, (long)finishData["AG"], agPlayer);
+                //Config.tweenNumberToNumber(lbCurrentChips, (long)finishData["AG"], agPlayer);
                 lbCurrentChips.setValue((long)finishData["AG"], true);
                 showAnimChipBay();
             }
@@ -893,7 +892,7 @@ public class SlotTarzanView : BaseSlotGameView
             {
                 if ((spintype == SPIN_TYPE.AUTO || spintype == SPIN_TYPE.FREE_AUTO) && (!isFreeSpin || (!isFreeSpin && isInFreeSpin) || (isFreeSpin && !isInFreeSpin))) //khong co freespin || freespin turn cuoi || bat dau freespin
                 {
-                    //Globals.Config.tweenNumberToNumber(lbCurrentChips, (long)finishData["AG"], agPlayer);
+                    //Config.tweenNumberToNumber(lbCurrentChips, (long)finishData["AG"], agPlayer);
                     lbCurrentChips.setValue((long)finishData["AG"], true);
                     showAnimChipBay();
                 }
@@ -1024,7 +1023,7 @@ public class SlotTarzanView : BaseSlotGameView
     }
     protected override void showBigWin()
     {
-        playSound(Globals.SOUND_SLOT.BIG_WIN);
+        playSound(SOUND_SLOT.BIG_WIN);
         effectContainer.SetActive(true);
         animEffect.gameObject.SetActive(true);
         DOTween.Sequence()
@@ -1034,11 +1033,11 @@ public class SlotTarzanView : BaseSlotGameView
             lbBigWin.gameObject.SetActive(true);
             if (isInFreeSpin == true && isFreeSpin == false) //vua quay het freespin turn cuoi cung;
             {
-                Globals.Config.tweenNumberTo(lbBigWin, countTotalAgFreespin, 0, 1.5f);
+                Config.tweenNumberTo(lbBigWin, countTotalAgFreespin, 0, 1.5f);
             }
             else
             {
-                Globals.Config.tweenNumberTo(lbBigWin, getInt(finishData, "agWin"), 0, 1.5f);
+                Config.tweenNumberTo(lbBigWin, getInt(finishData, "agWin"), 0, 1.5f);
             }
         })
             .AppendInterval(3.5f)
@@ -1067,7 +1066,7 @@ public class SlotTarzanView : BaseSlotGameView
     }
     protected override void showMegaWin()
     {
-        playSound(Globals.SOUND_SLOT.MEGA_WIN);
+        playSound(SOUND_SLOT.MEGA_WIN);
         effectContainer.SetActive(true);
         animEffect.gameObject.SetActive(true);
         DOTween.Sequence()
@@ -1077,11 +1076,11 @@ public class SlotTarzanView : BaseSlotGameView
                lbBigWin.gameObject.SetActive(true);
                if (isInFreeSpin == true && isFreeSpin == false) //vua quay het freespin turn cuoi cung;
                {
-                   Globals.Config.tweenNumberTo(lbBigWin, countTotalAgFreespin, 0, 3.0f);
+                   Config.tweenNumberTo(lbBigWin, countTotalAgFreespin, 0, 3.0f);
                }
                else
                {
-                   Globals.Config.tweenNumberTo(lbBigWin, getInt(finishData, "agWin"), 0, 3.0f);
+                   Config.tweenNumberTo(lbBigWin, getInt(finishData, "agWin"), 0, 3.0f);
                }
            })
            .AppendInterval(4.8f)
@@ -1090,7 +1089,7 @@ public class SlotTarzanView : BaseSlotGameView
                lbBigWin.gameObject.SetActive(false);
            });
 
-        //Globals.Config.tweenNumberTo(lbBigWin, 100000, 0, 3.0f);
+        //Config.tweenNumberTo(lbBigWin, 100000, 0, 3.0f);
         animEffect.TrimRenderers();
         animEffect.skeletonDataAsset = UIManager.instance.loadSkeletonData(BIGWIN_ANIMPATH);
         animEffect.transform.localScale = new Vector2(1.0f, 1.0f);
@@ -1111,7 +1110,7 @@ public class SlotTarzanView : BaseSlotGameView
     }
     protected override void showHugeWin()
     {
-        playSound(Globals.SOUND_SLOT.MEGA_WIN);
+        playSound(SOUND_SLOT.MEGA_WIN);
         effectContainer.SetActive(true);
         animEffect.gameObject.SetActive(true);
         DOTween.Sequence()
@@ -1121,11 +1120,11 @@ public class SlotTarzanView : BaseSlotGameView
                lbBigWin.gameObject.SetActive(true);
                if (isInFreeSpin == true && isFreeSpin == false) //vua quay het freespin turn cuoi cung;
                {
-                   Globals.Config.tweenNumberTo(lbBigWin, countTotalAgFreespin, 0, 2.5f);
+                   Config.tweenNumberTo(lbBigWin, countTotalAgFreespin, 0, 2.5f);
                }
                else
                {
-                   Globals.Config.tweenNumberTo(lbBigWin, getInt(finishData, "agWin"), 0, 2.5f);
+                   Config.tweenNumberTo(lbBigWin, getInt(finishData, "agWin"), 0, 2.5f);
                }
            })
            .AppendInterval(4.5f)
@@ -1134,13 +1133,13 @@ public class SlotTarzanView : BaseSlotGameView
                lbBigWin.gameObject.SetActive(false);
            });
 
-        //Globals.Config.tweenNumberTo(lbBigWin, 100000, 0, 3.0f);
+        //Config.tweenNumberTo(lbBigWin, 100000, 0, 3.0f);
         animEffect.TrimRenderers();
         animEffect.skeletonDataAsset = UIManager.instance.loadSkeletonData(BIGWIN_ANIMPATH);
         animEffect.transform.localScale = new Vector2(1.0f, 1.0f);
         animEffect.gameObject.GetComponent<RectTransform>().localScale = new Vector2(1.0f, 1.0f);
         animEffect.Initialize(true);
-        Globals.Logging.Log("ANIM_HUGEWIN_NAME=" + ANIM_HUGEWIN_NAME);
+        Logging.Log("ANIM_HUGEWIN_NAME=" + ANIM_HUGEWIN_NAME);
         animEffect.AnimationState.SetAnimation(0, ANIM_HUGEWIN_NAME, false);
         animEffect.AnimationState.Complete += delegate
         {
@@ -1156,9 +1155,9 @@ public class SlotTarzanView : BaseSlotGameView
     }
     public void showPopupResultFreeSpin()
     {
-        Globals.Logging.Log("showPopupResultFreeSpin");
+        Logging.Log("showPopupResultFreeSpin");
         //countTotalAgFreespin = 123456;
-        playSound(Globals.SOUND_SLOT.SHOW_LINE);
+        playSound(SOUND_SLOT.SHOW_LINE);
         animPopupResultFreeSpin.skeletonDataAsset = UIManager.instance.loadSkeletonData(FREESPIN_ANIMPATH);
         animPopupResultFreeSpin.TrimRenderers();
         animPopupResultFreeSpin.transform.localScale = new Vector2(0.25f, 0.25f);
@@ -1170,7 +1169,7 @@ public class SlotTarzanView : BaseSlotGameView
         TextMeshProUGUI lbMultiplier = animPopupResultFreeSpin.transform.Find("lbMultiplierNum").GetComponent<TextMeshProUGUI>();
         lbFreeSpinNum.text = totalFreeSpinGet + "";
         lbMultiplier.text = "x" + getInt(finishData, "multiFreeGame");
-        Globals.Config.tweenNumberToMoney(lbFreeSpinWin, countTotalAgFreespin, 0, 1.0f, 10000);
+        Config.tweenNumberToMoney(lbFreeSpinWin, countTotalAgFreespin, 0, 1.0f, 10000);
         animPopupResultFreeSpin.AnimationState.SetAnimation(0, "wonderful", true);
         animPopupResultFreeSpin.transform.DOScale(new Vector2(1, 1), 0.3f).SetEase(Ease.OutBack);
         totalFreeSpinGet = 0;
