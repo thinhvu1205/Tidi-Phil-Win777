@@ -994,7 +994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 203.00002, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 58.79}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7482162969014981150
@@ -3603,7 +3603,6 @@ MonoBehaviour:
   spintype: 0
   gameState: 3
   coinEffectPrefab: {fileID: 8505864806230690149}
-  m_ButtonExchange: {fileID: 0}
 --- !u!1 &4590942562543171047
 GameObject:
   m_ObjectHideFlags: 0
@@ -5693,9 +5692,9 @@ RectTransform:
   - {fileID: 6309495731800955402}
   m_Father: {fileID: 9082131055446980074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 198.00002, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &7275891223319465665
