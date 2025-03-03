@@ -25,6 +25,7 @@ public class SafeArena : MonoBehaviour
     {
         // return; // test portrait orientation, remove on build
         changeOrient();
+        enabled = false;
     }
     public void changeOrient()
     {
