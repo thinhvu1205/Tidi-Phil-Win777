@@ -99,7 +99,7 @@ public class SlotJuicyGardenView : BaseSlotGameView
         updateCurrentMarkBet();
         if (isFreeSpin)
         {
-            currentMarkBet = listMarkbet.IndexOf(singleLineBet);
+            currentMarkBet = listMarkbet.IndexOf(singleLineBet * payLines.Count);
             lbFreespinLeft.text = Globals.Config.getTextConfig("txt_freespinRM") + ": " + freespinLeft;
             animFreespinNum.gameObject.SetActive(true);
             animBgFreeSpin.gameObject.SetActive(true);
