@@ -453,7 +453,7 @@ public class BaseSlotGameView : GameView
         {
             if (singleLineBet > 0 && gameState == GAME_STATE.JOIN_GAME)
             {
-                currentMarkBet = listMarkbet.IndexOf(singleLineBet * payLines.Count);
+                currentMarkBet = listMarkbet.IndexOf(singleLineBet);
             }
         }
         lbCurrentBet.text = Config.FormatMoney2(totalListBetRoom[currentMarkBet], true);
