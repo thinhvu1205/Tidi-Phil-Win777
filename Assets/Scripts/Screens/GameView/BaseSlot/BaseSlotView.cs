@@ -595,7 +595,7 @@ public class BaseSlotView : GameView
     }
     protected async Task showLineOneByOne()
     {
-        if (autoSpinRemain == 0)
+        if (autoSpinRemain == 0 || (spintype == SPIN_TYPE.AUTO && spinPayLines.Count == 1))
         {
             await Task.Run(async () =>
             {

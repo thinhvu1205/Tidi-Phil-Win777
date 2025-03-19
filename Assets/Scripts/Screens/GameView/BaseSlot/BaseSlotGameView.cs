@@ -608,6 +608,7 @@ public class BaseSlotGameView : GameView
             }
             else if (spintype == SPIN_TYPE.AUTO || spintype == SPIN_TYPE.FREE_AUTO)
             {
+                if (winningLines.Count == 1) listActionHandleSpin.Add(() => { showOneByOneLine(); });
                 if (!isInFreeSpin) listActionHandleSpin.Add(acShowAnimChipBay);
             }
         }
@@ -948,11 +949,6 @@ public class BaseSlotGameView : GameView
     }
     public virtual void showOneByOneLine()
     {
-        if (spintype == SPIN_TYPE.AUTO || spintype == SPIN_TYPE.FREE_AUTO)
-        {
-            handleActionResult();
-            return;
-        }
         int index = 0;
 
         for (int i = 0, l = winningLines.Count; i < l; i++)
@@ -996,10 +992,13 @@ public class BaseSlotGameView : GameView
                 if (index == winningLines.Count - 1)
                 {
                     handleActionResult();
-                    setDarkAllItem(false);
-                    resetSlotView();
+                    if (spintype == SPIN_TYPE.NORMAL)
+                    {
+                        setDarkAllItem(false);
+                        resetSlotView();
+                        index++;
+                    }
                 }
-                index++;
             });
         }
     }
@@ -1637,10 +1636,6 @@ public class BaseSlotGameView : GameView
     public void onSpinHold()
     {
         Logging.Log("onSpinHold:");
-    }
-    public void onClickShop()
-    {
-        UIManager.instance.openShop();
     }
     public override void onClickRule()
     {
