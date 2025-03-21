@@ -63,29 +63,29 @@ public class LoadConfig : MonoBehaviour
 
     void init()
     {
-        Globals.Config.deviceId = SystemInfo.deviceUniqueIdentifier;
-        //Globals.Config.versionGame = Application.version;
+        Config.deviceId = SystemInfo.deviceUniqueIdentifier;
+        //Config.versionGame = Application.version;
 
     }
 
     //IEnumerator GetRequest(string uri, WWWForm wwwForm, System.Action<string> callback)
     //{
     //    //Thread trd = new Thread(new ThreadStart(()=> {
-    //    Globals.Logging.Log("-=-=uri " + uri);
+    //    Logging.Log("-=-=uri " + uri);
     //    using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, wwwForm))
     //        {
     //        // Request and wait for the desired page.
     //        yield return webRequest.SendWebRequest();
 
-    //        Globals.Logging.Log("Received: " + webRequest.downloadHandler.text);
-    //        //Globals.Logging.Log("Received code: " + webRequest.responseCode);
+    //        Logging.Log("Received: " + webRequest.downloadHandler.text);
+    //        //Logging.Log("Received code: " + webRequest.responseCode);
 
     //        if (!webRequest.isNetworkError)
     //        {
     //            callback.Invoke(webRequest.downloadHandler.text);
     //        }
     //        else {
-    //            Globals.Logging.LogError(webRequest.error);
+    //            Logging.LogError(webRequest.error);
     //        }
     //        }
     //    //}));
@@ -121,7 +121,7 @@ public class LoadConfig : MonoBehaviour
         // read results:
         if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError || www.result == UnityWebRequest.Result.DataProcessingError)
         {
-            Globals.Logging.Log("Error While Sending: " + www.error);
+            Logging.Log("Error While Sending: " + www.error);
             if (callbackError != null)
             {
                 callbackError.Invoke();
@@ -130,7 +130,7 @@ public class LoadConfig : MonoBehaviour
         }
         else
         {
-            Globals.Logging.Log("Received: " + www.downloadHandler.text);
+            Logging.Log("Received: " + www.downloadHandler.text);
             callback.Invoke(www.downloadHandler.text);
             www.Dispose();
         }
@@ -141,7 +141,7 @@ public class LoadConfig : MonoBehaviour
     //IEnumerator GetRequest(string url, string json, Action<string> callback, Action callbackError = null)
     //{
 
-    //    //Globals.Logging.Log("===> datapost ===>> : " + json);
+    //    //Logging.Log("===> datapost ===>> : " + json);
     //    UIManager.instance.showWatting();
     //    var uwr = new UnityWebRequest(url, "POST");
     //    byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
@@ -163,7 +163,7 @@ public class LoadConfig : MonoBehaviour
     //    UIManager.instance.hideWatting();
     //    if (uwr.result == UnityWebRequest.Result.ConnectionError)
     //    {
-    //        Globals.Logging.Log("Error While Sending: " + uwr.error);
+    //        Logging.Log("Error While Sending: " + uwr.error);
     //        if (callbackError != null)
     //        {
     //            callbackError.Invoke();
@@ -171,7 +171,7 @@ public class LoadConfig : MonoBehaviour
     //    }
     //    else
     //    {
-    //        Globals.Logging.Log("Received2: " + uwr.downloadHandler.text);
+    //        Logging.Log("Received2: " + uwr.downloadHandler.text);
     //        callback.Invoke(uwr.downloadHandler.text);
     //    }
     //}
@@ -188,15 +188,15 @@ public class LoadConfig : MonoBehaviour
         //form.AddField("mcc", "[0,0]");
 
         JObject wWForm = new JObject();
-        wWForm["version"] = Globals.Config.versionGame + "";
-        wWForm["operatorID"] = Globals.Config.OPERATOR + "";
+        wWForm["version"] = Config.versionGame + "";
+        wWForm["operatorID"] = Config.OPERATOR + "";
         // wWForm["bundleID"] = "tongits11.game.cocos"; //old
         wWForm["bundleID"] = "win777.unity.apk"; wWForm["publisher"] = "win777_unity_apk_100";
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
-        if (Globals.User.userMain != null)
+        if (User.userMain != null)
         {
-            wWForm["vip"] = Globals.User.userMain.VIP + "";
+            wWForm["vip"] = User.userMain.VIP + "";
         }
         return wWForm;
     }
@@ -204,13 +204,13 @@ public class LoadConfig : MonoBehaviour
     JObject createBodyJson()
     {
         var wWForm = createBodyJsonNormal();
-        if (Globals.User.userMain != null)
+        if (User.userMain != null)
         {
-            wWForm["id"] = Globals.User.userMain.Userid + "";
-            wWForm["ag"] = Globals.User.userMain.AG + "";
-            wWForm["lq"] = Globals.User.userMain.LQ + "";
-            wWForm["vip"] = Globals.User.userMain.VIP + "";
-            wWForm["group"] = (int)Globals.User.userMain.Group + "";
+            wWForm["id"] = User.userMain.Userid + "";
+            wWForm["ag"] = User.userMain.AG + "";
+            wWForm["lq"] = User.userMain.LQ + "";
+            wWForm["vip"] = User.userMain.VIP + "";
+            wWForm["group"] = (int)User.userMain.Group + "";
         }
         return wWForm;
     }
@@ -229,45 +229,45 @@ public class LoadConfig : MonoBehaviour
     public void getInfoUser(string _data0)
     {
         var wWForm = createBodyJson();
-        if (Globals.Config.data0)
+        if (Config.data0)
             wWForm["data0"] = _data0;
 
         Debug.Log("-=-=getInfoUser   " + wWForm.ToString());
-        //StartCoroutine(GetRequest(Globals.Config.infoUser, wWForm.ToString(), handleUserInfo));
-        ProgressHandle(Globals.Config.infoUser, wWForm.ToString(), handleUserInfo);
+        //StartCoroutine(GetRequest(Config.infoUser, wWForm.ToString(), handleUserInfo));
+        ProgressHandle(Config.infoUser, wWForm.ToString(), handleUserInfo);
     }
 
     public void getInfoShop(Action<string> callback, Action callbackError = null)
     {
         var wWForm = createBodyJson();
-        Globals.Logging.Log(wWForm);
-        Globals.Logging.Log(Globals.Config.infoChip);
+        Logging.Log(wWForm);
+        Logging.Log(Config.infoChip);
 
-        Debug.Log("-=-=Globals.Config.infoChip===" + Globals.Config.infoChip);
-        //StartCoroutine(GetRequest(Globals.Config.infoChip, wWForm.ToString(), callback, callbackError));
-        ProgressHandle(Globals.Config.infoChip, wWForm.ToString(), callback, callbackError);
+        Debug.Log("-=-=Config.infoChip===" + Config.infoChip);
+        //StartCoroutine(GetRequest(Config.infoChip, wWForm.ToString(), callback, callbackError));
+        ProgressHandle(Config.infoChip, wWForm.ToString(), callback, callbackError);
     }
 
     public void getInfoEX(Action<string> callback)
     {
         var wWForm = createBodyJson();
-        //StartCoroutine(GetRequest(Globals.Config.infoDT, wWForm.ToString(), callback));
-        ProgressHandle(Globals.Config.infoDT, wWForm.ToString(), callback);
+        //StartCoroutine(GetRequest(Config.infoDT, wWForm.ToString(), callback));
+        ProgressHandle(Config.infoDT, wWForm.ToString(), callback);
     }
 
     public void getInfoBenefit(Action<string> callback)
     {
         var wWForm = createBodyJson();
-        //StartCoroutine(GetRequest(Globals.Config.infoBNF, wWForm.ToString(), callback));
-        ProgressHandle(Globals.Config.infoBNF, wWForm.ToString(), callback);
+        //StartCoroutine(GetRequest(Config.infoBNF, wWForm.ToString(), callback));
+        ProgressHandle(Config.infoBNF, wWForm.ToString(), callback);
     }
     public void getTextConfig(string _url, string _language, bool isInit)
     {
         var wWForm = createBodyJsonNormal();
         //StartCoroutine(GetRequest(_url, wWForm.ToString(), (string strData) =>
         //{
-        //    //Globals.Logging.Log("___ language  " + _language);
-        //    //Globals.Logging.Log(_url + ": " + strData);
+        //    //Logging.Log("___ language  " + _language);
+        //    //Logging.Log(_url + ": " + strData);
         //    JObject jConfig = null;
         //    try
         //    {
@@ -275,20 +275,20 @@ public class LoadConfig : MonoBehaviour
         //    }
         //    catch (Exception e)
         //    {
-        //        Globals.Logging.LogException(e);
+        //        Logging.LogException(e);
         //    }
 
         //    if (jConfig == null) return;
         //    var key = "config_text_" + _language.ToUpper();
         //    PlayerPrefs.SetString(key, strData);
         //    if (isInit)
-        //        Globals.Config.loadTextConfig();
+        //        Config.loadTextConfig();
         //}));
 
         ProgressHandle(_url, wWForm.ToString(), (string strData) =>
         {
-            //Globals.Logging.Log("___ language  " + _language);
-            //Globals.Logging.Log(_url + ": " + strData);
+            //Logging.Log("___ language  " + _language);
+            //Logging.Log(_url + ": " + strData);
             JObject jConfig = null;
             try
             {
@@ -296,14 +296,14 @@ public class LoadConfig : MonoBehaviour
             }
             catch (Exception e)
             {
-                Globals.Logging.LogException(e);
+                Logging.LogException(e);
             }
 
             if (jConfig == null) return;
             var key = "config_text_" + _language.ToUpper();
             PlayerPrefs.SetString(key, strData);
             if (isInit)
-                Globals.Config.loadTextConfig();
+                Config.loadTextConfig();
         });
     }
 
@@ -311,7 +311,7 @@ public class LoadConfig : MonoBehaviour
     {
         PlayerPrefs.SetString("config_save", strData);
         isLoadedConfig = true;
-        Globals.Logging.Log("-=-=handleConfigInfo: " + strData);
+        Logging.Log("-=-=handleConfigInfo: " + strData);
         JObject jConfig = null;
         try
         {
@@ -319,80 +319,80 @@ public class LoadConfig : MonoBehaviour
         }
         catch (Exception e)
         {
-            Globals.Logging.LogException(e);
+            Logging.LogException(e);
         }
 
         if (jConfig == null) return;
-        //Globals.Logging.Log("-=-=-=-=-=-=-=-=-= 1");
-        //Globals.Logging.Log(jConfig);
+        //Logging.Log("-=-=-=-=-=-=-=-=-= 1");
+        //Logging.Log(jConfig);
 
         if (jConfig.ContainsKey("gamenotification"))
-            Globals.Config.gamenotification = (bool)jConfig["gamenotification"];
+            Config.gamenotification = (bool)jConfig["gamenotification"];
         if (jConfig.ContainsKey("allowPushOffline"))
-            Globals.Config.allowPushOffline = (bool)jConfig["allowPushOffline"];
+            Config.allowPushOffline = (bool)jConfig["allowPushOffline"];
         if (jConfig.ContainsKey("is_reg"))
-            Globals.Config.is_reg = (bool)jConfig["is_reg"];
+            Config.is_reg = (bool)jConfig["is_reg"];
         if (jConfig.ContainsKey("isShowLog"))
-            Globals.Config.isShowLog = (bool)jConfig["isShowLog"];
+            Config.isShowLog = (bool)jConfig["isShowLog"];
         if (jConfig.ContainsKey("is_login_guest"))
-            Globals.Config.is_login_guest = (bool)jConfig["is_login_guest"];
+            Config.is_login_guest = (bool)jConfig["is_login_guest"];
         if (jConfig.ContainsKey("is_login_fb"))
-            Globals.Config.is_login_fb = (bool)jConfig["is_login_fb"];
+            Config.is_login_fb = (bool)jConfig["is_login_fb"];
         if (jConfig.ContainsKey("time_request"))
-            Globals.Config.time_request = (int)jConfig["time_request"];
+            Config.time_request = (int)jConfig["time_request"];
         if (jConfig.ContainsKey("avatar_change"))
-            Globals.Config.avatar_change = (int)jConfig["avatar_change"];
+            Config.avatar_change = (int)jConfig["avatar_change"];
         if (jConfig.ContainsKey("avatar_count"))
-            Globals.Config.avatar_count = (int)jConfig["avatar_count"];
+            Config.avatar_count = (int)jConfig["avatar_count"];
         if (jConfig.ContainsKey("avatar_build"))
-            Globals.Config.avatar_build = (string)jConfig["avatar_build"];
+            Config.avatar_build = (string)jConfig["avatar_build"];
         if (jConfig.ContainsKey("url_privacy_policy"))
-            Globals.Config.url_privacy_policy = (string)jConfig["url_privacy_policy"];
+            Config.url_privacy_policy = (string)jConfig["url_privacy_policy"];
         if (jConfig.ContainsKey("lotteryEnable"))
             Config.enableLottery = (bool)jConfig["lotteryEnable"];
         if (jConfig.ContainsKey("u_SIO"))
         {
-            Globals.Config.u_SIO = (string)jConfig["u_SIO"];
-            Globals.Logging.LogWarning("-=-=-u_SIO  " + Globals.Config.u_SIO);
+            Config.u_SIO = (string)jConfig["u_SIO"];
+            Logging.LogWarning("-=-=-u_SIO  " + Config.u_SIO);
             SocketIOManager.getInstance().intiSml();
             SocketIOManager.getInstance().startSIO();
         }
         else
         {
-            Globals.Config.u_SIO = "";
+            Config.u_SIO = "";
         }
 
         if (jConfig.ContainsKey("avatar_fb"))
-            Globals.Config.avatar_fb = (string)jConfig["avatar_fb"];
+            Config.avatar_fb = (string)jConfig["avatar_fb"];
         if (jConfig.ContainsKey("name_fb"))
-            Globals.Config.name_fb = (string)jConfig["name_fb"];
+            Config.name_fb = (string)jConfig["name_fb"];
         if (jConfig.ContainsKey("text"))
         {
-            Globals.Config.listTextConfig = jConfig["text"] as JArray;//arr
-            for (var i = 0; i < Globals.Config.listTextConfig.Count; i++)
+            Config.listTextConfig = jConfig["text"] as JArray;//arr
+            for (var i = 0; i < Config.listTextConfig.Count; i++)
             {
-                JObject itemLanguage = (JObject)Globals.Config.listTextConfig[i];
-                getTextConfig((string)itemLanguage["url"], (string)itemLanguage["lang"], i >= Globals.Config.listTextConfig.Count - 1);
+                JObject itemLanguage = (JObject)Config.listTextConfig[i];
+                getTextConfig((string)itemLanguage["url"], (string)itemLanguage["lang"], i >= Config.listTextConfig.Count - 1);
             }
         }
         if (jConfig.ContainsKey("disID"))
-            Globals.Config.disID = (int)jConfig["disID"];
+            Config.disID = (int)jConfig["disID"];
 
-        Globals.Logging.Log("-=-=disID   " + Globals.Config.disID);
+        Logging.Log("-=-=disID   " + Config.disID);
         if (jConfig.ContainsKey("fbprivateappid"))
-            Globals.Config.fbprivateappid = (string)jConfig["fbprivateappid"];
+            Config.fbprivateappid = (string)jConfig["fbprivateappid"];
         if (jConfig.ContainsKey("fanpageID"))
-            Globals.Config.fanpageID = (string)jConfig["fanpageID"];
+            Config.fanpageID = (string)jConfig["fanpageID"];
         else
-            Globals.Config.fanpageID = "";
+            Config.fanpageID = "";
         if (jConfig.ContainsKey("groupID"))
-            Globals.Config.groupID = (string)jConfig["groupID"];
+            Config.groupID = (string)jConfig["groupID"];
         else
-            Globals.Config.groupID = "";
+            Config.groupID = "";
         if (jConfig.ContainsKey("hotline"))
-            Globals.Config.hotline = (string)jConfig["hotline"];
+            Config.hotline = (string)jConfig["hotline"];
         else
-            Globals.Config.hotline = "";
+            Config.hotline = "";
 
         if (jConfig.ContainsKey("listGame"))
         {
@@ -417,38 +417,40 @@ public class LoadConfig : MonoBehaviour
                 }
             }
             Config.listGame.AddRange(tempListGameJA);
+            Config.curServerIp = (string)Config.listGame[0]["ip_dm"];
+            PlayerPrefs.SetString("curServerIp", Config.curServerIp);
         }
         Debug.Log("=-=-=-=-=-=-=-=-=- list agam");
-        Debug.Log(Globals.Config.listGame);
+        Debug.Log(Config.listGame);
         if (jConfig.ContainsKey("listTop"))
         {
-            Globals.Config.listRankGame = jConfig["listTop"] as JArray;//array
+            Config.listRankGame = jConfig["listTop"] as JArray;//array
         }
-        else Globals.Config.listRankGame.Clear();
+        else Config.listRankGame.Clear();
         if (jConfig.ContainsKey("u_chat_fb"))
-            Globals.Config.u_chat_fb = (string)jConfig["u_chat_fb"];
-        else Globals.Config.u_chat_fb = "";
+            Config.u_chat_fb = (string)jConfig["u_chat_fb"];
+        else Config.u_chat_fb = "";
         if (jConfig.ContainsKey("infoChip"))
         {
-            Globals.Config.infoChip = (string)jConfig["infoChip"];
+            Config.infoChip = (string)jConfig["infoChip"];
         }
         else
         {
-            Globals.Config.infoChip = "";
+            Config.infoChip = "";
         }
         if (jConfig.ContainsKey("infoDT"))
-            Globals.Config.infoDT = (string)jConfig["infoDT"];
-        else Globals.Config.infoDT = "";
+            Config.infoDT = (string)jConfig["infoDT"];
+        else Config.infoDT = "";
         if (jConfig.ContainsKey("infoBNF"))
         {
-            Globals.Config.infoBNF = (string)jConfig["infoBNF"];
+            Config.infoBNF = (string)jConfig["infoBNF"];
             getInfoBenefit((res) =>
             {
                 if (res == "") return;
                 var objData = JObject.Parse(res);
                 if (objData.ContainsKey("jackpot"))
                 {
-                    Globals.Config.listRuleJackPot.Clear();
+                    Config.listRuleJackPot.Clear();
 
                     var data = (JArray)objData["jackpot"];
 
@@ -468,38 +470,38 @@ public class LoadConfig : MonoBehaviour
                         }
                         item["listMark"] = arrMark;
                         item["listChip"] = arrChip;
-                        Globals.Config.listRuleJackPot.Add(item);
-                        Globals.Config.listVipBonusJackPot.Add(data[i]["bonus_vip"]);
+                        Config.listRuleJackPot.Add(item);
+                        Config.listVipBonusJackPot.Add(data[i]["bonus_vip"]);
                     }
                 }
 
                 if (objData.ContainsKey("agContactAd"))
-                    Globals.Config.agContactAd = (int)objData["agContactAd"];
+                    Config.agContactAd = (int)objData["agContactAd"];
                 if (objData.ContainsKey("agRename"))
-                    Globals.Config.agRename = (int)objData["agRename"];
+                    Config.agRename = (int)objData["agRename"];
 
             });
         }
         if (jConfig.ContainsKey("url_rule_js_new"))
-            Globals.Config.url_rule = (string)jConfig["url_rule_js_new"];
+            Config.url_rule = (string)jConfig["url_rule_js_new"];
         else
-            Globals.Config.url_rule = "";
+            Config.url_rule = "";
         if (jConfig.ContainsKey("url_help"))
-            Globals.Config.url_help = (string)jConfig["url_help"];
+            Config.url_help = (string)jConfig["url_help"];
         else
-            Globals.Config.url_help = "";
+            Config.url_help = "";
         if (jConfig.ContainsKey("url_rule_refGuide"))
-            Globals.Config.url_rule_refGuide = (string)jConfig["url_rule_refGuide"];
+            Config.url_rule_refGuide = (string)jConfig["url_rule_refGuide"];
         if (jConfig.ContainsKey("delayNoti"))
-            Globals.Config.delayNoti = jConfig["delayNoti"] as JArray;//array
-        Globals.Config.data0 = jConfig.ContainsKey("") ? (bool)jConfig["data0"] : false;
+            Config.delayNoti = jConfig["delayNoti"] as JArray;//array
+        Config.data0 = jConfig.ContainsKey("") ? (bool)jConfig["data0"] : false;
         if (jConfig.ContainsKey("infoUser"))
-            Globals.Config.infoUser = (string)jConfig["infoUser"];
+            Config.infoUser = (string)jConfig["infoUser"];
         else
-            Globals.Config.infoUser = "";
+            Config.infoUser = "";
 
         if (jConfig.ContainsKey("newest_versionUrl"))
-            Globals.Config.newest_versionUrl = (string)jConfig["newest_versionUrl"];
+            Config.newest_versionUrl = (string)jConfig["newest_versionUrl"];
         if (jConfig.ContainsKey("apkfull"))
             Config.ApkFullUrl = (string)jConfig["apkfull"];
         var umode = jConfig.ContainsKey("umode") ? (int)jConfig["umode"] : 0;
@@ -507,7 +509,7 @@ public class LoadConfig : MonoBehaviour
         var uop2 = jConfig.ContainsKey("uop2") ? (string)jConfig["uop2"] : "";
         var umsg = jConfig.ContainsKey("umsg") ? (string)jConfig["umsg"] : "";
         var utar = jConfig.ContainsKey("utar") ? (string)jConfig["utar"] : "";
-        //Globals.Logging.Log("dmmm    " + umode);
+        //Logging.Log("dmmm    " + umode);
         updateConfigUmode(umode, uop1, uop2, utar, umsg);
         UIManager.instance.refreshUIFromConfig();
         PlayerPrefs.Save();
@@ -516,7 +518,7 @@ public class LoadConfig : MonoBehaviour
     void handleUserInfo(string strData)
     {
         //-=-= handleUserInfo { "bundleID":"7E26B7BB-77C6-5938-AF2B-401DFB79724A","version":"1.00","operatorID":7000,"os":"android_unity","publisher":"dummy_co_1_10","disID":1006,"ketPhe":5,"is_dt":true,"ketT":true,"ket":true,"ismaqt":true,"is_bl_salert":true,"is_bl_fb":true,"is_xs":false}
-        Globals.Logging.Log("-=-=handleUserInfo " + strData);
+        Logging.Log("-=-=handleUserInfo " + strData);
         JObject jConfig = null;
         try
         {
@@ -524,25 +526,24 @@ public class LoadConfig : MonoBehaviour
         }
         catch (Exception e)
         {
-            Globals.Logging.LogException(e);
+            Logging.LogException(e);
         }
 
         if (jConfig == null) return;
-        Globals.Logging.Log("-------------------->Config Game<------------------>\n" + jConfig);
+        Logging.Log("-------------------->Config Game<------------------>\n" + jConfig);
 
         if (jConfig.ContainsKey("disID"))
-            Globals.Config.disID = (int)jConfig["disID"];
+            Config.disID = (int)jConfig["disID"];
 
-        Globals.Config.ketPhe = jConfig.ContainsKey("ketPhe") ? (int)jConfig["ketPhe"] : 10;
-        Globals.Config.is_dt = jConfig.ContainsKey("is_dt") ? (bool)jConfig["is_dt"] : false;
-        Globals.Config.ketT = jConfig.ContainsKey("ketT") ? (bool)jConfig["ketT"] : false;
-        Globals.Config.ket = jConfig.ContainsKey("ket") ? (bool)jConfig["ket"] : false;
-        Globals.Config.ismaqt = jConfig.ContainsKey("ismaqt") ? (bool)jConfig["ismaqt"] : false;
-        Globals.Config.is_bl_salert = jConfig.ContainsKey("is_bl_salert") ? (bool)jConfig["is_bl_salert"] : false;
-        Globals.Config.is_bl_fb = jConfig.ContainsKey("is_bl_fb") ? (bool)jConfig["is_bl_fb"] : false;
-        Globals.Config.is_xs = jConfig.ContainsKey("is_xs") ? (bool)jConfig["is_xs"] : false;
-        Globals.Config.show_new_alert = jConfig.ContainsKey("show_new_alert") ? (bool)jConfig["show_new_alert"] : false;
-
+        Config.ketPhe = jConfig.ContainsKey("ketPhe") ? (int)jConfig["ketPhe"] : 10;
+        Config.is_dt = jConfig.ContainsKey("is_dt") ? (bool)jConfig["is_dt"] : false;
+        Config.ketT = jConfig.ContainsKey("ketT") ? (bool)jConfig["ketT"] : false;
+        Config.ket = jConfig.ContainsKey("ket") ? (bool)jConfig["ket"] : false;
+        Config.ismaqt = jConfig.ContainsKey("ismaqt") ? (bool)jConfig["ismaqt"] : false;
+        Config.is_bl_salert = jConfig.ContainsKey("is_bl_salert") ? (bool)jConfig["is_bl_salert"] : false;
+        Config.is_bl_fb = jConfig.ContainsKey("is_bl_fb") ? (bool)jConfig["is_bl_fb"] : false;
+        Config.is_xs = jConfig.ContainsKey("is_xs") ? (bool)jConfig["is_xs"] : false;
+        Config.show_new_alert = jConfig.ContainsKey("show_new_alert") ? (bool)jConfig["show_new_alert"] : false;
         if (UIManager.instance.gameView == null) UIManager.instance.showLobbyScreen(true);
         UIManager.instance.refreshUIFromConfig();
     }
