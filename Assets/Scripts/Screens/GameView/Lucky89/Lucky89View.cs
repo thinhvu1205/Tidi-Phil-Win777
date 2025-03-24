@@ -6,7 +6,6 @@ using Globals;
 using Newtonsoft.Json.Linq;
 using Spine.Unity;
 using TMPro;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -272,29 +271,28 @@ public class Lucky89View : GameView
     }
     private void _HandleStartGame(JObject data)
     {
-        playSound(SOUND_GAME.START_GAME);
-        stateGame = STATE_GAME.PLAYING;
-        m_DealerPVL89.ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0).ShowRate(0).HideAllCards();
-        foreach (Player p in players) ((PlayerViewLucky89)p.playerView).ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0).ShowRate(0).HideAllCards();
-        m_Actions.SetActive(false);
-        _SetTickDraw(true, 0);
-        _CallAsyncFunction(Awaitable.WaitForSecondsAsync(m_BeginGameSG.SkeletonData.FindAnimation(_ShowAnimOnBegin(true)).Duration));
-        foreach (Player player in players)
+        StartCoroutine(handleData());
+        IEnumerator handleData()
         {
-            if (player.id == User.userMain.Userid) player.setTurn(true, (float)data["T"] / 1000, timeVibrate: 3f);
-            else player.setTurn(true, (float)data["T"] / 1000, timeVibrate: -1f);
-        }
-        _CallAsyncFunction(showBetButtons());
-        //======================================================
-        async Awaitable showBetButtons()
-        {
+            playSound(SOUND_GAME.START_GAME);
+            stateGame = STATE_GAME.PLAYING;
+            m_DealerPVL89.ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0).ShowRate(0).HideAllCards();
+            foreach (Player p in players) ((PlayerViewLucky89)p.playerView).ShowHideBetChips(false).ShowAnimResult(false, 0).ShowScore(false, 0).ShowRate(0).HideAllCards();
+            m_Actions.SetActive(false);
+            _SetTickDraw(true, 0);
+            yield return new WaitForSeconds((int)m_BeginGameSG.SkeletonData.FindAnimation(_ShowAnimOnBegin(true)).Duration);
+            foreach (Player player in players)
+            {
+                if (player.id == User.userMain.Userid) player.setTurn(true, (float)data["T"] / 1000, timeVibrate: 3f);
+                else player.setTurn(true, (float)data["T"] / 1000, timeVibrate: -1f);
+            }
             for (int i = 0; i < m_BetOptionTMPs.Count; i++)
             {
                 Transform tf = m_BetOptionTMPs[i].transform;
                 m_BetOptionTMPs[i].text = i == m_BetOptionTMPs.Count - 1 ? "Max Bet" : Config.FormatMoney3(_BetValues[i]);
                 tf.parent.gameObject.SetActive(true);
                 tf.DOLocalJump(tf.localPosition, 20f, 1, .1f);
-                await Awaitable.WaitForSecondsAsync(.1f);
+                yield return new WaitForSeconds(.1f);
             }
         }
     }
@@ -312,28 +310,28 @@ public class Lucky89View : GameView
     }
     private void _HandleReceiveMyCards(JObject data)
     {
-        _CallAsyncFunction(handleData());
+        StartCoroutine(handleData());
         //======================================================
         void getAllACard(int myCardCode, bool updateCardsParent)
         {
-            _CallAsyncFunction(_DrawCard(m_DealerPVL89, 0));
+            StartCoroutine(_DrawCard(m_DealerPVL89, 0));
             if (updateCardsParent) m_DealerPVL89.UpdateCardsParentPositionAndRotation();
             foreach (Player player in players)
             {
                 bool isMe = player == thisPlayer;
                 PlayerViewLucky89 playerView = (PlayerViewLucky89)player.playerView;
-                _CallAsyncFunction(_DrawCard(playerView, isMe ? myCardCode : 0));
+                StartCoroutine(_DrawCard(playerView, isMe ? myCardCode : 0));
                 if (updateCardsParent) playerView.UpdateCardsParentPositionAndRotation();
             }
         }
-        async Awaitable handleData()
-        { //await tổng bao nhiêu lâu thì HandleAnyoneReceivesLuckyCards() phải await bấy nhiêu tránh xung đột tween rotate
+        IEnumerator handleData()
+        { // delay tổng bao nhiêu lâu thì HandleAnyoneReceivesLuckyCards() phải delay bấy nhiêu tránh xung đột tween rotate
             JArray dataMyCards = (JArray)data["arr"];
             getAllACard((int)dataMyCards[0], false);
             _SetTickDraw(true, 0);
-            await Awaitable.WaitForSecondsAsync(CARD_FLYING_DURATION);
+            yield return new WaitForSeconds(CARD_FLYING_DURATION);
             getAllACard((int)dataMyCards[1], true);
-            await Awaitable.WaitForSecondsAsync(CARD_FLYING_DURATION);
+            yield return new WaitForSeconds(CARD_FLYING_DURATION);
             PlayerViewLucky89 thisPVL89 = (PlayerViewLucky89)thisPlayer.playerView;
             int myScore = (int)data["score"]; // riêng service lc này thì lucky8 lucky9 sv lại trả về 8, 9
             if (myScore == 8) myScore = (int)SCORE.LUCKY_8;
@@ -344,11 +342,11 @@ public class Lucky89View : GameView
     }
     private void _HandleAnyoneReceivesLuckyCards(JObject data)
     {
-        _CallAsyncFunction(handleData());
+        StartCoroutine(handleData());
         //======================================================
-        async Awaitable handleData()
+        IEnumerator handleData()
         {
-            await Awaitable.WaitForSecondsAsync(2 * CARD_FLYING_DURATION);
+            yield return new WaitForSeconds(2 * CARD_FLYING_DURATION);
             JArray dataLuckyPlayers = JArray.Parse((string)data["data"]);
             bool isDealerLucky = false, isThisPlayerLucky = false;
             foreach (JToken dataLucky in dataLuckyPlayers)
@@ -366,15 +364,15 @@ public class Lucky89View : GameView
                     else if (playerP.id == User.userMain.Userid) isThisPlayerLucky = true;
                 }
             }
-            if (stateGame == STATE_GAME.VIEWING) return;
+            if (stateGame == STATE_GAME.VIEWING) yield break;
             m_Actions.SetActive(!isDealerLucky && !isThisPlayerLucky);
         }
     }
     private void _HandleAnyoneTimeOut(JObject data)
     {
-        _CallAsyncFunction(handleData());
+        StartCoroutine(handleData());
         //======================================================
-        async Awaitable handleData()
+        IEnumerator handleData()
         {
             Player player = players.Find(x => x.namePl.Equals((string)data["NN"]));
             float time = (float)data["T"] / 1000;
@@ -390,7 +388,7 @@ public class Lucky89View : GameView
                     _IsMyDrawTime = true;
                     m_Actions.SetActive(true);
                     _SetTickDraw(false, 0);
-                    await Awaitable.WaitForSecondsAsync(time);
+                    yield return new WaitForSeconds(time);
                     _IsMyDrawTime = false;
                     m_Actions.SetActive(false);
                 }
@@ -409,7 +407,7 @@ public class Lucky89View : GameView
         int cardCode = (int)data["C"];
         if (cardCode > 0)
         {
-            _CallAsyncFunction(_DrawCard(playerView, isMe ? cardCode : 0));
+            StartCoroutine(_DrawCard(playerView, isMe ? cardCode : 0));
             playerView.UpdateCardsParentPositionAndRotation();
         }
         if (isMe)
@@ -421,9 +419,9 @@ public class Lucky89View : GameView
     }
     private void _HandleFinishGame(JObject data)
     {
-        _CallAsyncFunction(handleData());
+        StartCoroutine(handleData());
         //======================================================
-        async Awaitable handleData()
+        IEnumerator handleData()
         {
             HandleData.DelayHandleLeave = 5f;
             stateGame = STATE_GAME.WAITING;
@@ -447,8 +445,8 @@ public class Lucky89View : GameView
                 playerView.ShowAnimResult(true, chips);
                 if (playerView != m_DealerPVL89)
                 {
-                    if (chips > 0) playerWinCbs.Add(() => _CallAsyncFunction(PlayerWinChips(player.id, chips, (long)result["AG"])));
-                    else if (chips < 0) playerLoseCbs.Add(() => _CallAsyncFunction(PlayerLoseChips(player.id, chips, (long)result["AG"])));
+                    if (chips > 0) playerWinCbs.Add(() => StartCoroutine(playerWinChips(player.id, chips, (long)result["AG"])));
+                    else if (chips < 0) playerLoseCbs.Add(() => StartCoroutine(playerLoseChips(player.id, chips, (long)result["AG"])));
                     else
                     {
                         player.ag += ((PlayerViewLucky89)player.playerView).GetBetValue();
@@ -458,18 +456,18 @@ public class Lucky89View : GameView
                 else finalDealerCb = () => m_DealerPVL89.effectFlyMoney(chips);
             }
             foreach (Action cb in playerLoseCbs) cb.Invoke();
-            if (playerLoseCbs.Count > 0) await Awaitable.WaitForSecondsAsync(2 * LOSE_CHIP_DURATION + 1f);
+            if (playerLoseCbs.Count > 0) yield return new WaitForSeconds(2 * LOSE_CHIP_DURATION + 1);
             foreach (Action cb in playerWinCbs) cb.Invoke();
-            if (playerWinCbs.Count > 0) await Awaitable.WaitForSecondsAsync(3 * WIN_CHIP_DURATION);
+            if (playerWinCbs.Count > 0) yield return new WaitForSeconds(3 * WIN_CHIP_DURATION);
             finalDealerCb.Invoke();
-            await Awaitable.WaitForSecondsAsync(1f);
+            yield return new WaitForSeconds(1);
             _WaitForFinishCompleteCb?.Invoke();
             _WaitForFinishCompleteCb = null;
             checkAutoExit();
         }
-        async Awaitable PlayerLoseChips(int pId, long changedChips, long currentChips)
+        IEnumerator playerLoseChips(int pId, long changedChips, long currentChips)
         {
-            if (changedChips >= 0) return;
+            if (changedChips >= 0) yield break;
             for (int i = 0; i < 3; i++)
             {
                 Transform chipTf = null;
@@ -484,18 +482,18 @@ public class Lucky89View : GameView
                 chipTf.gameObject.SetActive(true);
                 chipTf.position = (Vector2)(players.Find(x => x.id == pId).playerView.transform.position) + new Vector2(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f));
                 chipTf.DOMove(m_DealerPVL89.transform.position, 2 * LOSE_CHIP_DURATION).SetEase(Ease.OutQuad).OnComplete(() => chipTf.gameObject.SetActive(false));
-                await Awaitable.WaitForSecondsAsync(.05f);
+                yield return new WaitForSeconds(.05f);
             }
-            await Awaitable.WaitForSecondsAsync(LOSE_CHIP_DURATION);
+            yield return new WaitForSeconds(LOSE_CHIP_DURATION);
             Player player = players.Find(x => x.id == pId);
             if (player.id == User.userMain.Userid) User.userMain.AG = currentChips;
             player.playerView.effectFlyMoney(changedChips);
             player.ag = currentChips;
             player.updatePlayerView();
         }
-        async Awaitable PlayerWinChips(int pId, long changedChips, long currentChips)
+        IEnumerator playerWinChips(int pId, long changedChips, long currentChips)
         {
-            if (changedChips <= 0) return;
+            if (changedChips <= 0) yield break;
             for (int i = 0; i < 3; i++)
             {
                 Transform chipTf = null;
@@ -516,9 +514,9 @@ public class Lucky89View : GameView
                         chipTf.DOMove((Vector2)(players.Find(x => x.id == pId).playerView.transform.position), WIN_CHIP_DURATION)
                             .OnComplete(() => chipTf.gameObject.SetActive(false));
                     });
-                await Awaitable.WaitForSecondsAsync(.05f);
+                yield return new WaitForSeconds(.05f);
             }
-            await Awaitable.WaitForSecondsAsync(3 * WIN_CHIP_DURATION);
+            yield return new WaitForSeconds(3 * WIN_CHIP_DURATION);
             Player player = players.Find(x => x.id == pId);
             if (player.id == User.userMain.Userid) User.userMain.AG = currentChips;
             player.playerView.effectFlyMoney(changedChips);
@@ -593,11 +591,11 @@ public class Lucky89View : GameView
         cardTf.DOComplete();
         cardTf.DOLocalMove(targetPosV2, CARD_FLYING_DURATION).SetEase(Ease.OutQuad);
     }
-    private async Awaitable _DrawCard(PlayerViewLucky89 playerView, int cardCode = 0)
+    private IEnumerator _DrawCard(PlayerViewLucky89 playerView, int cardCode = 0)
     {
         playSound(SOUND_GAME.CARD_FLIP_1);
         Card cardC = playerView.GetACard();
-        if (cardC == null) return;
+        if (cardC == null) yield break;
         Transform cardParentTf = cardC.transform.parent;
         RectTransform cardRT = cardC.GetComponent<RectTransform>();
         Vector2 targetPosV2 = cardRT.anchoredPosition;
@@ -609,23 +607,17 @@ public class Lucky89View : GameView
         cardRT.SetParent(cardParentTf);
         _MoveACard(cardRT, targetPosV2);
         _RevealACard(cardC, cardCode, targetRotV3);
-        await Awaitable.WaitForSecondsAsync(CARD_FLYING_DURATION);
+        yield return new WaitForSeconds(CARD_FLYING_DURATION);
     }
     private void _DistributeCardsToAPlayer(PlayerViewLucky89 playerView, List<int> codes, int rate, int score)
     {
         playSound(SOUND_GAME.DISPATCH_CARD);
         playerView.HideAllCards();
         List<Card> cardCs = playerView.GetListCards();
-        for (int i = 0; i < cardCs.Count; i++) if (i < codes.Count) _CallAsyncFunction(_DrawCard(playerView, codes[i]));
+        for (int i = 0; i < cardCs.Count; i++) if (i < codes.Count) StartCoroutine(_DrawCard(playerView, codes[i]));
         int totalCode = 0;
         foreach (int code in codes) totalCode += code;
         playerView.UpdateCardsParentPositionAndRotation().ShowRate(totalCode > 0 ? rate : 0).ShowScore(totalCode > 0, score);
-    }
-    private async void _CallAsyncFunction(Awaitable function)
-    {
-        try { await function; }
-        // catch (Exception e) { Debug.LogError("Async Error: " + e.Message); }
-        catch (Exception e) { if (e.GetType() != typeof(MissingReferenceException)) Debug.LogError("Error on calling async function: " + e.Message); }
     }
     protected override void Start()
     {
