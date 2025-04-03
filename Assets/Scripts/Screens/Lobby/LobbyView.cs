@@ -135,7 +135,7 @@ public class LobbyView : BaseView
         if (Config.is_dt)
         {
             reloadListGame(); // clear button ondisable, bật lại ở đây cho nhẹ game, tăng performance khi chơi
-            if (_AllGameIGs.Find(x => x.gameID == (int)GAMEID.PUSOY)) _GetInfoPusoyJackPotC = StartCoroutine(_GetJackpotPusoy());
+            if (_AllGameIGs.Find(x => x.GameId == (int)GAMEID.PUSOY)) _GetInfoPusoyJackPotC = StartCoroutine(_GetJackpotPusoy());
             OnClickTab(listTabs[TabGame]);
 
             if (bannerLobbyContainer.pageCount > 0)
@@ -147,7 +147,7 @@ public class LobbyView : BaseView
         else
         {
             foreach (ItemGame ig in m_ConfigOffIGs)
-                ig.setInfo(int.Parse(ig.name), null, null, materialDefault, () => onClickGame(ig));
+                ig.setInfo(int.Parse(ig.name), null, materialDefault, () => onClickGame(ig));
         }
         if (Config.isChangeTable)
         {
@@ -418,7 +418,7 @@ public class LobbyView : BaseView
     {
         _AllGameIGs.ForEach(btnGame =>
         {
-            if (btnGame.gameID == Globals.Config.lastGameIDSave)
+            if (btnGame.GameId == Globals.Config.lastGameIDSave)
             {
                 Config.isPlayNowFromLobby = true;
                 btnGame.onClick();
@@ -474,22 +474,22 @@ public class LobbyView : BaseView
             item.transform.localScale = Vector3.one;
             item.transform.position = Vector3.zero;
             item.gameObject.SetActive(true);
-            item.setInfo(gameId, skeAsset, null, materialDefault, () => onClickGame(item));
+            item.setInfo(gameId, skeAsset, materialDefault, () => onClickGame(item), true);
             if (gameId == (int)GAMEID.PUSOY && UIManager.instance.PusoyJackPot > 0) item.UpdateJackpot(UIManager.instance.PusoyJackPot);
             _AllGameIGs.Add(item);
         }
         foreach (ItemGame ig in _AllGameIGs)
         {
-            if (!slotGames.Contains(ig.gameID)) continue;
-            SkeletonDataAsset bigSlotGameSDA = Resources.Load<SkeletonDataAsset>("AnimIconGame/" + ig.gameID + "-big" + "/skeleton_SkeletonData");
+            if (!slotGames.Contains(ig.GameId)) continue;
+            SkeletonDataAsset bigSlotGameSDA = Resources.Load<SkeletonDataAsset>("AnimIconGame/" + ig.GameId + "-big" + "/skeleton_SkeletonData");
             if (bigSlotGameSDA == null) continue;
             ItemGame bigSlotIconIG = Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
 
-            bigSlotIconIG.name = ig.gameID.ToString();
+            bigSlotIconIG.name = ig.GameId.ToString();
             bigSlotIconIG.transform.localScale = Vector3.one;
             bigSlotIconIG.transform.position = Vector3.zero;
             bigSlotIconIG.gameObject.SetActive(true);
-            bigSlotIconIG.setInfo(ig.gameID, bigSlotGameSDA, null, materialDefault, () => onClickGame(bigSlotIconIG));
+            bigSlotIconIG.setInfo(ig.GameId, bigSlotGameSDA, materialDefault, () => onClickGame(bigSlotIconIG), false);
         }
         changeTabGame();
     }
@@ -510,7 +510,7 @@ public class LobbyView : BaseView
     {
         for (var i = 0; i < _AllGameIGs.Count; i++)
         {
-            if (_AllGameIGs[i].gameID == gameID)
+            if (_AllGameIGs[i].GameId == gameID)
             {
                 onClickGame(_AllGameIGs[i]);
                 break;
@@ -525,7 +525,7 @@ public class LobbyView : BaseView
         if (isClicked)
         {
             Debug.Log(" Dang Click Game ròi " + isClicked + ", " + (User.userMain.lastGameID != 0)
-            + ", " + (User.userMain.lastGameID != itemGame.gameID) + User.userMain.lastGameID + ", " + itemGame.gameID);
+            + ", " + (User.userMain.lastGameID != itemGame.GameId) + User.userMain.lastGameID + ", " + itemGame.GameId);
             return;
         }
         isClicked = true;
@@ -541,18 +541,18 @@ public class LobbyView : BaseView
             UIManager.instance.showPopupWhenLostChip(false, true);
             return;
         }
-        Config.curGameId = itemGame.gameID;
+        Config.curGameId = itemGame.GameId;
         if (Config.curGameId != (int)GAMEID.SLOT_SIXIANG)
         {
             //game slot sixaing dùng service. k can select game. e đang thấy bị select game con này toàn bị treo trong bàn.
-            Debug.Log("select game  " + itemGame.gameID);
+            Debug.Log("select game  " + itemGame.GameId);
             Globals.Config.isSendingSelectGame = false;
-            SocketSend.sendSelectGame(itemGame.gameID);
+            SocketSend.sendSelectGame(itemGame.GameId);
         }
         else
         {
             UIManager.instance.playVideoSiXiang();
-            SocketSend.sendSelectGame(itemGame.gameID);
+            SocketSend.sendSelectGame(itemGame.GameId);
         }
         if (Config.isShowTableWithGameId(Config.curGameId) && User.userMain.VIP >= 1)
         {
@@ -650,7 +650,7 @@ public class LobbyView : BaseView
     }
     public void UpdateJackpotPusoy()
     {
-        ItemGame ig = _AllGameIGs.Find(x => x.gameID == (int)GAMEID.PUSOY);
+        ItemGame ig = _AllGameIGs.Find(x => x.GameId == (int)GAMEID.PUSOY);
         if (ig == null) return;
         ig.UpdateJackpot(UIManager.instance.PusoyJackPot);
     }

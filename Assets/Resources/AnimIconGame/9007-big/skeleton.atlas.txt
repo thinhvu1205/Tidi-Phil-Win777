@@ -1,6 +1,6 @@
 
 skeleton.png
-size: 200,1008
+size: 200,1004
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
@@ -14,8 +14,8 @@ Fruit
 bg
   rotate: false
   xy: 2, 623
-  size: 195, 381
-  orig: 195, 381
+  size: 196, 377
+  orig: 196, 377
   offset: 0, 0
   index: -1
 diamond

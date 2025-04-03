@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "7zPPlrLCZkAYID7EkxtYepxQcus",
+	"hash": "3pyHi7fEd5V5wkAi7J4pnDo6vQc",
 	"spine": "3.8.99",
-	"x": -298.55,
+	"x": -96.72,
 	"y": -91.37,
-	"width": 396.83,
-	"height": 181.87,
+	"width": 195,
+	"height": 181,
 	"images": "./images/",
 	"audio": "G:/game/phil/Pusoy Win/anim/icon_game/tongits"
 },
@@ -15,7 +15,7 @@
 	{ "name": "tongits", "parent": "tong", "x": -4.97, "y": 137.04 },
 	{ "name": "abich", "parent": "root", "length": 67.43, "rotation": 66.3, "x": -24.53, "y": -28.23 },
 	{ "name": "atep", "parent": "root", "length": 57.86, "rotation": 45.35, "x": 8.85, "y": -31.49 },
-	{ "name": "aco", "parent": "root", "length": 59.72, "rotation": 84.94, "x": -46.62, "y": -5.14 }
+	{ "name": "aco", "parent": "root", "length": 59.72, "rotation": 84.94, "x": -43.58, "y": -13.35 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "tong", "attachment": "bg" },
@@ -43,7 +43,7 @@
 				"bg": { "x": 14.41, "y": 180.85, "width": 195, "height": 181 }
 			},
 			"butasan": {
-				"butasan": { "x": -60.92, "y": 55.85, "width": 74, "height": 69 }
+				"butasan": { "x": -57.12, "y": 53.57, "width": 74, "height": 71 }
 			},
 			"tongits": {
 				"tongits": { "x": 14.96, "y": -0.37, "width": 107, "height": 60 }

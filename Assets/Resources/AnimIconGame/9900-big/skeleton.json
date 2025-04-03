@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "tGjMwVd0caG4KJb2Qivg2+wz1sg",
+	"hash": "bKW4Z8/+dAwq1Jbt6omw64Y/q24",
 	"spine": "3.8.99",
 	"x": -99.56,
 	"y": -190.01,
@@ -41,7 +41,7 @@
 				"a": { "y": 1.74, "width": 231, "height": 167 }
 			},
 			"bg": {
-				"bg": { "y": -1.01, "width": 195, "height": 378 }
+				"bg": { "y": -1.01, "width": 195, "height": 377 }
 			},
 			"dau tay": {
 				"dau tay": { "x": 51.14, "y": 5.73, "rotation": -91.21, "width": 121, "height": 164 }

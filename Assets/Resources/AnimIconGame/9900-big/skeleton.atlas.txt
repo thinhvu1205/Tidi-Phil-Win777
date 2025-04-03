@@ -14,8 +14,8 @@ a
 bg
   rotate: false
   xy: 2, 736
-  size: 195, 378
-  orig: 195, 378
+  size: 195, 377
+  orig: 195, 377
   offset: 0, 0
   index: -1
 dau tay

@@ -43,7 +43,7 @@ public class WebSocketManager : MonoBehaviour
         //Globals.Config.isSvTest = true;
         //Globals.Config.curServerIp = "app.test.topbangkokclub.com";
         //Globals.Config.curServerIp = "app1.jakartagames.net";
-        // Globals.Config.curServerIp = "app1.davaogames.com";
+        Globals.Config.curServerIp = "app1.davaogames.com";
         // Globals.Config.curServerIp = "test.app.1707casino.com";
         //Globals.Config.curServerIp = "app-002.ngwcasino.com";
         Debug.Log(" Globals.Config.curServerI=" + Globals.Config.curServerIp);

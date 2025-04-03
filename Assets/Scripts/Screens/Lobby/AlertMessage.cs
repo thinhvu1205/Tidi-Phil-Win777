@@ -42,7 +42,7 @@ public class AlertMessage : MonoBehaviour
         instance = this;
         rectTfParent = transform.parent.GetComponent<RectTransform>();
         parentRect = rectTfParent.rect;
-        lbAlert.transform.localPosition = new Vector2(parentRect.width / 2 , 17);
+        lbAlert.transform.localPosition = new Vector2(parentRect.width / 2, 17);
     }
 
     // Update is called once per frame
@@ -83,12 +83,11 @@ public class AlertMessage : MonoBehaviour
             }
             else
             {
-                lbAlert.transform.localPosition = new Vector2(parentRect.height / 2+17, 17);
+                lbAlert.transform.localPosition = new Vector2(parentRect.height / 2 + 17, 17);
                 posEnd = new Vector2(-parentRect.height / 2 - lbAlert.preferredWidth, 17);
             }
-            lbAlert.transform.DOLocalMoveX(posEnd.x, 7.5f).OnComplete(() =>
+            lbAlert.transform.DOLocalMoveX(posEnd.x, 12.5f).OnComplete(() =>
             {
-
                 isRunning = false;
                 DOTween.Sequence().AppendInterval(0.5f).AppendCallback(() =>
                 {

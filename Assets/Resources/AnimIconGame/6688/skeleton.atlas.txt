@@ -53,13 +53,6 @@ recc
   orig: 200, 382
   offset: 0, 0
   index: -1
-runLight
-  rotate: false
-  xy: 147, 305
-  size: 47, 282
-  orig: 47, 282
-  offset: 0, 0
-  index: -1
 txt
   rotate: false
   xy: 2, 220

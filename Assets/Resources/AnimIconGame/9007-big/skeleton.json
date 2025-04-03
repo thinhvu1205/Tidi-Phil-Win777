@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "D747FLgiirt6dEL4/tmSpByNLL0",
+	"hash": "o6Y2qWDStNBo8Bs3SOlVgRXPBWA",
 	"spine": "3.8.99",
 	"x": -129.09,
 	"y": -190.22,
@@ -36,7 +36,7 @@
 				"Fruit": { "x": -0.02, "y": -40.27, "scaleX": 0.9719, "width": 168, "height": 50 }
 			},
 			"bg": {
-				"bg": { "x": 0.87, "y": 87.76, "width": 195, "height": 381 }
+				"bg": { "x": 0.87, "y": 87.76, "width": 196, "height": 377 }
 			},
 			"diamond": {
 				"diamond": { "x": -0.62, "y": -6.55, "width": 198, "height": 136 }

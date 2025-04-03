@@ -1,34 +1,27 @@
 
 skeleton.png
-size: 400,400
+size: 456,204
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 7
   rotate: false
-  xy: 229, 223
+  xy: 229, 24
   size: 128, 175
   orig: 128, 175
   offset: 0, 0
   index: -1
-Tongits War
-  rotate: false
-  xy: 2, 100
-  size: 291, 113
-  orig: 291, 113
-  offset: 0, 0
-  index: -1
 ef
   rotate: false
-  xy: 2, 215
+  xy: 2, 16
   size: 225, 183
   orig: 225, 183
   offset: 0, 0
   index: -1
 win
-  rotate: false
-  xy: 2, 2
-  size: 207, 96
-  orig: 207, 96
+  rotate: true
+  xy: 359, 2
+  size: 197, 94
+  orig: 197, 94
   offset: 0, 0
   index: -1

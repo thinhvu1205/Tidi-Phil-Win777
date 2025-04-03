@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "YlywYWXEvAveiiQA3HClOLn9Kp0",
+	"hash": "O/1/aTVA8K1kxcrgczBvYSgJoPs",
 	"spine": "3.8.99",
 	"x": -93.6,
-	"y": -180.96,
+	"y": -180.48,
 	"width": 187.2,
-	"height": 361.92,
+	"height": 360.96,
 	"images": "./images/",
 	"audio": ""
 },
@@ -64,7 +64,7 @@
 				"a": { "x": 5.7, "y": 2.44, "width": 231, "height": 167 }
 			},
 			"bg": {
-				"bg": { "width": 195, "height": 377 }
+				"bg": { "width": 195, "height": 376 }
 			},
 			"ca/candie_0": {
 				"ca/candie_00000": { "x": -2.72, "y": 22.6, "width": 50, "height": 80 },
