@@ -19,12 +19,6 @@ PluginImporter:
   - first:
       Editor: Editor
     second:
-      enabled: 0
-      settings:
-        DefaultValueInitialized: true
-  - first:
-      Facebook: WebGL
-    second:
       enabled: 1
       settings: {}
   - first:

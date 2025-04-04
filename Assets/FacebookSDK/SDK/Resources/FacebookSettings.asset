@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 
+  - 63bdcbe59995225f3ba3ad7a1708a27d
   appIds:
-  - 371484828492768
+  - 2683365924295180
   appLabels:
-  - Dummy CO
+  - App Name
   cookie: 1
   logging: 1
   status: 1
   xfbml: 0
   frictionlessRequests: 1
-  androidKeystorePath: 
+  androidKeystorePath: dummycasi.keystore
   iosURLSuffix: 
   appLinkSchemes:
   - list: []

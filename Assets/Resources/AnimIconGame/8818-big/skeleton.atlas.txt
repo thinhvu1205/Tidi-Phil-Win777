@@ -14,8 +14,8 @@ a
 bg
   rotate: false
   xy: 2, 876
-  size: 195, 376
-  orig: 195, 376
+  size: 195, 377
+  orig: 196, 377
   offset: 0, 0
   index: -1
 ca/candie_00000

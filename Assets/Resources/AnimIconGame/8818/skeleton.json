@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "+SpEpq/sr7S0bVqgcMm2VNuuPuA",
+	"hash": "Ay8K1kPEXWHshqMDIyZpmdh6VIU",
 	"spine": "3.8.99",
 	"x": -97.75,
 	"y": -111.01,
@@ -10,7 +10,7 @@
 	"audio": ""
 },
 "bones": [
-	{ "name": "root", "scaleX": 0.96, "scaleY": 0.96 },
+	{ "name": "root" },
 	{ "name": "a", "parent": "root", "x": 6.37, "y": -46.65, "scaleX": 0.7921, "scaleY": 0.7921 },
 	{ "name": "a2", "parent": "root", "x": 6.37, "y": -46.65, "scaleX": -0.873, "scaleY": 0.8511 },
 	{ "name": "bone", "parent": "root", "x": 3.33, "y": 3.82, "scaleX": 0.8311, "scaleY": 0.8311 },

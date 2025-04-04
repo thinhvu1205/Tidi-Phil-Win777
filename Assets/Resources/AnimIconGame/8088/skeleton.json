@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "v8wHu67GXKu54sf3XRCa+LzS0TU",
+	"hash": "cM9PrN22Ukr30QWFr8JL4IE4J6k",
 	"spine": "3.8.99",
-	"x": -98.12,
+	"x": -96.72,
 	"y": -91.37,
-	"width": 205.76,
-	"height": 181.68,
+	"width": 204.36,
+	"height": 181,
 	"images": "./images/",
 	"audio": "G:/game/phil/Pusoy Win/anim/icon_game/tongits"
 },
@@ -44,7 +44,7 @@
 				"bg": { "x": 14.41, "y": 180.85, "width": 195, "height": 181 }
 			},
 			"butasan_jk": {
-				"butasan_jk": { "x": -54.17, "y": 88.83, "width": 93, "height": 89 }
+				"butasan_jk": { "x": -46.79, "y": 83.52, "width": 98, "height": 95 }
 			},
 			"chip": {
 				"chip": { "y": 20.96, "width": 95, "height": 115 }

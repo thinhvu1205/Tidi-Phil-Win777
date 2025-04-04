@@ -106,7 +106,6 @@ public class ItemGame : MonoBehaviour
                     }
                 case (int)GAMEID.SLOTNOEL:
                     {
-                        shownSG.transform.localScale = 1.05f * Vector3.one;
                         colorsGCK[0] = new GradientColorKey(new(0.9568628f, 0.5686275f, 0.7843138f), 0);
                         break;
                     }
