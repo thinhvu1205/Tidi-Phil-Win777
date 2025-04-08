@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: da4e2f5576571cf43972d055f5f98fc7, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 144e65de7bd904894b50417eaa534b51, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
@@ -1645,7 +1645,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: f0ae243973e3323418d647604380567a, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 8cbcca9f9c647465a828da1a721a9af5, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
@@ -2866,11 +2866,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: dbeb4b9989abd76469bec7adb579caf9, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 6eef1015241d341f087605383b7af518, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: animation
+  startingAnimation: draw
   startingLoop: 0
   timeScale: 1
   freeze: 0
