@@ -10,12 +10,26 @@ public class UnityMainThread : MonoBehaviour
     private Queue<Action> jobs = new Queue<Action>();
     private const float TIME_PING_MAX = 4f;
     private float _TimePing = 0;
-    public bool isHasNet = true;
+    private bool _HasNet = true;
+
+    private IEnumerator _SendGetConfig()
+    {
+        while (!LoadConfig.instance.isLoadedConfig)
+        {
+            yield return new WaitForSeconds(3f);
+            Globals.Config.isErrorNet = false;
+            LoadConfig.instance.getConfigInfo();
+        }
+    }
     void Awake()
     {
         instance = this;
     }
 
+    void Start()
+    {
+        StartCoroutine(_SendGetConfig());
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,28 +46,23 @@ public class UnityMainThread : MonoBehaviour
         {
             if (isConnected || !WebSocketManager.getInstance().IsAlive())
             {
-                isHasNet = false;
+                _HasNet = false;
                 Globals.Logging.Log("Error. Check internet connection!");
                 WebSocketManager.getInstance().connectionStatus = Globals.ConnectionStatus.DISCONNECTED;
                 UIManager.instance.showLoginScreen(false);
                 return;
             }
-            else if (isHasNet)
+            else if (_HasNet)
             {
                 Globals.Logging.Log("vao day roi");
-                isHasNet = false;
-                StartCoroutine(_DelayShowMessageBox());
+                _HasNet = false;
+                StartCoroutine(_DelayShowMessageNetworkError());
                 return;
             }
         }
         else
         {
-            if (!isHasNet && !LoadConfig.instance.isLoadedConfig)
-            {
-                Globals.Config.isErrorNet = false;
-                LoadConfig.instance.getConfigInfo();
-            }
-            isHasNet = true;
+            _HasNet = true;
         }
         _TimePing += Time.fixedDeltaTime;
         if (_TimePing >= TIME_PING_MAX)
@@ -75,7 +84,7 @@ public class UnityMainThread : MonoBehaviour
             jobs.Dequeue();
         }
     }
-    private IEnumerator _DelayShowMessageBox()
+    private IEnumerator _DelayShowMessageNetworkError()
     {
         yield return new WaitForSeconds(1);
         if (Globals.Config.isErrorNet) yield break;
