@@ -177,7 +177,10 @@ public class BaseSlotGameView : GameView
 
     [SerializeField]
     Image coinEffectPrefab;
-
+    public void DoClickShop()
+    {
+        UIManager.instance.openShop();
+    }
     protected override void Start()
     {
         base.Start();
@@ -1456,7 +1459,18 @@ public class BaseSlotGameView : GameView
     public virtual void changeBetRoom(string type)
     {
         SoundManager.instance.soundClick();
-        if (isFreeSpin || listBetRoom.Count == 0) return;//free thi k change muc bet;
+        if (isFreeSpin) return;//free thi k change muc bet;
+        if (listBetRoom.Count == 0)
+        {
+            string textShow = Config.getTextConfig("txt_not_enough_money_gl");
+            string textBtn2 = Config.getTextConfig("shop");
+            string textBtn3 = Config.getTextConfig("label_cancel");
+            UIManager.instance.showDialog(textShow, textBtn2, () =>
+            {
+                UIManager.instance.openShop();
+            }, textBtn3);
+            return;
+        }
         if (gameState == GAME_STATE.SPINNING)
         {
             return;

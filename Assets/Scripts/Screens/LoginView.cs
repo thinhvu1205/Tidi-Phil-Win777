@@ -31,7 +31,7 @@ public class LoginView : BaseView
         if (isFirstOpen == 0)
         {
             PlayerPrefs.SetInt("isFirstOpen", 1);
-            onClickPlayNow();
+            // onClickPlayNow();
             PlayerPrefs.Save();
         }
         else
@@ -47,7 +47,7 @@ public class LoginView : BaseView
 
     public void reconnect()
     {
-        UIManager.instance.showWaiting();
+        // UIManager.instance.showWaiting();
         switch (Globals.Config.typeLogin)
         {
             case Globals.LOGIN_TYPE.NORMAL:

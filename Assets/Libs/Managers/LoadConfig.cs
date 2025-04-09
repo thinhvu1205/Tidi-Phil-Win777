@@ -95,7 +95,7 @@ public class LoadConfig : MonoBehaviour
 
     async void ProgressHandle(string url, string json, Action<string> callback, Action callbackError = null)
     {
-        UIManager.instance.showWaiting();
+        // UIManager.instance.showWaiting();
         UnityWebRequest www = new UnityWebRequest(url, "POST");
 
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
@@ -191,7 +191,8 @@ public class LoadConfig : MonoBehaviour
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
         // wWForm["bundleID"] = "tongits11.game.cocos"; //old
-        wWForm["bundleID"] = "win777.unity.apk"; wWForm["publisher"] = "win777_unity_apk_100";
+        wWForm["bundleID"] = "ruby.tongits.war777.com";
+        wWForm["publisher"] = "ruby_tongits_war777_apk";
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
         if (User.userMain != null)
@@ -502,8 +503,6 @@ public class LoadConfig : MonoBehaviour
 
         if (jConfig.ContainsKey("newest_versionUrl"))
             Config.newest_versionUrl = (string)jConfig["newest_versionUrl"];
-        if (jConfig.ContainsKey("apkfull"))
-            Config.ApkFullUrl = (string)jConfig["apkfull"];
         var umode = jConfig.ContainsKey("umode") ? (int)jConfig["umode"] : 0;
         var uop1 = jConfig.ContainsKey("uop1") ? (string)jConfig["uop1"] : "";
         var uop2 = jConfig.ContainsKey("uop2") ? (string)jConfig["uop2"] : "";
@@ -544,6 +543,13 @@ public class LoadConfig : MonoBehaviour
         Config.is_bl_fb = jConfig.ContainsKey("is_bl_fb") ? (bool)jConfig["is_bl_fb"] : false;
         Config.is_xs = jConfig.ContainsKey("is_xs") ? (bool)jConfig["is_xs"] : false;
         Config.show_new_alert = jConfig.ContainsKey("show_new_alert") ? (bool)jConfig["show_new_alert"] : false;
+        if (jConfig.ContainsKey("linkci"))
+        {
+            Config.ApkFullUrl = (string)jConfig["linkci"];
+            Config.ApkFullUrl = Config.ApkFullUrl.Replace("%username%", Config.user_name);
+            Config.ApkFullUrl = Config.ApkFullUrl.Replace("%password%", Config.user_pass);
+        }
+        else Config.ApkFullUrl = "";
         if (UIManager.instance.gameView == null) UIManager.instance.showLobbyScreen(true);
         UIManager.instance.refreshUIFromConfig();
     }

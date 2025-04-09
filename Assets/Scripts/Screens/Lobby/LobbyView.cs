@@ -357,7 +357,7 @@ public class LobbyView : BaseView
     public void updateName()
     {
         lb_name.text = User.userMain.displayName;
-        Config.effectTextRunInMask(lb_name, true);
+        // Config.effectTextRunInMask(lb_name, true);
     }
 
     public void updateAg()
@@ -697,13 +697,9 @@ public class LobbyView : BaseView
     {
         SoundManager.instance.soundClick();
         if (!Config.fanpageID.Equals("") && Config.is_bl_fb)
-        {
             Application.OpenURL("https://" + Config.u_chat_fb);
-        }
         else
-        {
             UIManager.instance.openFeedback();
-        }
     }
     //bool isHideBot = false;
     public void updateBotWithScrollShop(Vector2 value)

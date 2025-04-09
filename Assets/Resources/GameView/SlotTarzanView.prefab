@@ -12940,7 +12940,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4477751165722684877}
         m_TargetAssemblyTypeName: BaseSlotGameView, Assembly-CSharp
-        m_MethodName: onClickShop
+        m_MethodName: DoClickShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13913,10 +13913,10 @@ RectTransform:
   - {fileID: 8753862967762714434}
   m_Father: {fileID: 8753862968189356550}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -247.5}
-  m_SizeDelta: {x: 1280, y: 225}
+  m_SizeDelta: {x: 0, y: 225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8753862967297103085
 CanvasRenderer:
@@ -14692,10 +14692,10 @@ RectTransform:
   - {fileID: 4865535833007732734}
   m_Father: {fileID: 8753862968189356550}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 313}
-  m_SizeDelta: {x: 1280, y: 94}
+  m_SizeDelta: {x: 0, y: 94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4609727900913869889
 CanvasRenderer:
