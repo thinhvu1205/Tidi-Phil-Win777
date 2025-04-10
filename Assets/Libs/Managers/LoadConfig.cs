@@ -22,6 +22,7 @@ public class LoadConfig : MonoBehaviour
     string url_start = "https://n.cfg.davaogames.com/info";
     //string url_start = "https://cfg.jakartagames.net/info";
     string config_info = "";
+    bool isOpenFirst = true;
 
     public bool isLoadedConfig = false;
     void Awake()
@@ -508,10 +509,23 @@ public class LoadConfig : MonoBehaviour
         var uop2 = jConfig.ContainsKey("uop2") ? (string)jConfig["uop2"] : "";
         var umsg = jConfig.ContainsKey("umsg") ? (string)jConfig["umsg"] : "";
         var utar = jConfig.ContainsKey("utar") ? (string)jConfig["utar"] : "";
-        //Logging.Log("dmmm    " + umode);
         updateConfigUmode(umode, uop1, uop2, utar, umsg);
-        UIManager.instance.refreshUIFromConfig();
         PlayerPrefs.Save();
+        var isFirstOpen = PlayerPrefs.GetInt("isFirstOpen", 0);
+        Globals.Logging.Log("isFirstOpen " + isFirstOpen);
+        if (isFirstOpen == 0)
+        {
+            UIManager.instance.loginView.onClickPlayNow();
+        }
+        else
+        {
+            Globals.Logging.Log("isOpenFirst " + isOpenFirst);
+            if (isOpenFirst)
+            {
+                isOpenFirst = false;
+                UIManager.instance.loginView.reconnect();
+            }
+        }
     }
 
     void handleUserInfo(string strData)

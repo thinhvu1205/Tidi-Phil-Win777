@@ -12,24 +12,11 @@ public class UnityMainThread : MonoBehaviour
     private float _TimePing = 0;
     private bool _HasNet = true;
 
-    private IEnumerator _SendGetConfig()
-    {
-        while (!LoadConfig.instance.isLoadedConfig)
-        {
-            yield return new WaitForSeconds(3f);
-            Globals.Config.isErrorNet = false;
-            LoadConfig.instance.getConfigInfo();
-        }
-    }
     void Awake()
     {
         instance = this;
     }
 
-    void Start()
-    {
-        StartCoroutine(_SendGetConfig());
-    }
     // Update is called once per frame
     void Update()
     {

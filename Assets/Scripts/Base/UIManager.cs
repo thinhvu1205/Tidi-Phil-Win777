@@ -1007,9 +1007,22 @@ public class UIManager : MonoBehaviour
 
     public void openShop()
     {
-        var shopView = Instantiate(loadPrefabPopup("PopupShop"), parentPopups).GetComponent<ShopView>();
-        shopView.init();
-        shopView.transform.localScale = Vector3.one;
+        if (IsBuildStore)
+        {
+            if (ApkFullUrl.Equals(""))
+            {
+                ShopView shopView = Instantiate(loadPrefabPopup("PopupShop"), parentPopups).GetComponent<ShopView>();
+                shopView.init();
+                shopView.transform.localScale = Vector3.one;
+            }
+            else Application.OpenURL(ApkFullUrl);
+        }
+        else
+        {
+            ShopView shopView = Instantiate(loadPrefabPopup("PopupShop"), parentPopups).GetComponent<ShopView>();
+            shopView.init();
+            shopView.transform.localScale = Vector3.one;
+        }
     }
     public LuckyNumberView OpenLuckyNumber()
     {

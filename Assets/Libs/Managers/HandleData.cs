@@ -114,7 +114,7 @@ public class HandleData
             SocketIOManager.getInstance().emitSIOWithValue(objLogin, "LoginPacket", false);
 
             if (Config.curGameId == 0) Config.curGameId = (int)objUser["gameid"];
-            LoadConfig.instance.getConfigInfo();
+            // LoadConfig.instance.getConfigInfo();
             LoadConfig.instance.isLoadedConfig = false;
             LoadConfig.instance.getInfoUser(strUser);
 

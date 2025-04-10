@@ -20,27 +20,21 @@ public class ShopView : BaseView
     private JObject itemBest = null;
     private IAPManager iapManager = null;
     private bool isTab = false;
-    private string dataDefault = "[{\"type\":\"iap\",\"title\":\"iap\",\"focus\":false,\"title_img\":\"https://cdn.jakartagames.net/api/public/dl/sdfs45d/img/shop/IAPAND.png?inline=true\",\"items\":[{\"url\":\"diamond.domino.slots.1\",\"txtPromo\":\"1USD = 7,576 Chips\",\"txtChip\":\"7,500 Chips\",\"txtBuy\":\"0.990000 USD\",\"txtBonus\":\"0%\",\"cost\":1},{\"url\":\"diamond.domino.slots.2\",\"txtPromo\":\"1USD = 7,538 Chips\",\"txtChip\":\"15,000 Chips\",\"txtBuy\":\"1.990000 USD\",\"txtBonus\":\"0%\",\"cost\":2},{\"url\":\"diamond.domino.slots.5\",\"txtPromo\":\"1USD = 7,515 Chips\",\"txtChip\":\"37,500 Chips\",\"txtBuy\":\"4.990000 USD\",\"txtBonus\":\"0%\",\"cost\":5},{\"url\":\"diamond.domino.slots.10\",\"txtPromo\":\"1USD = 9,009 Chips\",\"txtChip\":\"90,000 Chips\",\"txtBuy\":\"9.990000 USD\",\"txtBonus\":\"0%\",\"cost\":10},{\"url\":\"diamond.domino.slots.20\",\"txtPromo\":\"1USD = 9,005 Chips\",\"txtChip\":\"180,000 Chips\",\"txtBuy\":\"19.990000 USD\",\"txtBonus\":\"0%\",\"cost\":20},{\"url\":\"diamond.domino.slots.50\",\"txtPromo\":\"1USD = 9,002 Chips\",\"txtChip\":\"450,000 Chips\",\"txtBuy\":\"49.990000 USD\",\"txtBonus\":\"0%\",\"cost\":50},{\"url\":\"diamond.domino.slots.100\",\"txtPromo\":\"1USD = 9,001 Chips\",\"txtChip\":\"900,000 Chips\",\"txtBuy\":\"99.990000 USD\",\"txtBonus\":\"0%\",\"cost\":100}]}]";
+    private string dataDefault = "[{\"type\":\"iap\",\"title\":\"iap\",\"bestDeal\":[\"0.99 USD\",\"0.99 USD\",\"4.99 USD\",\"4.99 USD\",\"9.99 USD\",\"9.99 USD\",\"49.99 USD\",\"49.99 USD\",\"49.99 USD\",\"99.99 USD\",\"99.99 USD\"],\"focus\":false,\"title_img\":\"https://storage.googleapis.com/cdn.davaogames.com/img/shop/IAPAND.png?v=1\",\"items\":[{\"url\":\"ruby.tongits.war777.com.1\",\"txtPromo\":\"1USD = 7,576 Chips\",\"txtChip\":\"7,500 Chips\",\"txtBuy\":\"0.990000 USD\",\"txtBonus\":\"0%\",\"cost\":1},{\"url\":\"ruby.tongits.war777.com.2\",\"txtPromo\":\"1USD = 7,538 Chips\",\"txtChip\":\"15,000 Chips\",\"txtBuy\":\"1.990000 USD\",\"txtBonus\":\"0%\",\"cost\":2},{\"url\":\"ruby.tongits.war777.com.5\",\"txtPromo\":\"1USD = 7,515 Chips\",\"txtChip\":\"37,500 Chips\",\"txtBuy\":\"4.990000 USD\",\"txtBonus\":\"0%\",\"cost\":5},{\"url\":\"ruby.tongits.war777.com.10\",\"txtPromo\":\"1USD = 9,009 Chips\",\"txtChip\":\"90,000 Chips\",\"txtBuy\":\"9.990000 USD\",\"txtBonus\":\"0%\",\"cost\":10},{\"url\":\"ruby.tongits.war777.com.20\",\"txtPromo\":\"1USD = 9,005 Chips\",\"txtChip\":\"180,000 Chips\",\"txtBuy\":\"19.990000 USD\",\"txtBonus\":\"0%\",\"cost\":20},{\"url\":\"ruby.tongits.war777.com.50\",\"txtPromo\":\"1USD = 9,002 Chips\",\"txtChip\":\"450,000 Chips\",\"txtBuy\":\"49.990000 USD\",\"txtBonus\":\"0%\",\"cost\":50},{\"url\":\"ruby.tongits.war777.com.100\",\"txtPromo\":\"1USD = 9,001 Chips\",\"txtChip\":\"900,000 Chips\",\"txtBuy\":\"99.990000 USD\",\"txtBonus\":\"0%\",\"cost\":100}]}]";
 
     public void init()
     {
-
         if (UIManager.instance.gameView == null)
         {
-            Globals.CURRENT_VIEW.setCurView(Globals.CURRENT_VIEW.PAYMENT);
-            SocketIOManager.getInstance().emitSIOCCCNew(Globals.Config.formatStr("ClickShop_%s", Globals.CURRENT_VIEW.getCurrentSceneName()));
+            CURRENT_VIEW.setCurView(CURRENT_VIEW.PAYMENT);
+            SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickShop_%s", CURRENT_VIEW.getCurrentSceneName()));
         }
         instance = this;
-        if (Globals.Config.infoChip != "")
-        {
-            LoadConfig.instance.getInfoShop(updateInfo, () =>
-            {
-                updateInfo(dataDefault);
-            });
-        }
+        if (Config.IsBuildStore) updateInfo(dataDefault);
         else
-        {
-            updateInfo(dataDefault);
+        { // full version
+            if (!Config.infoChip.Equals("")) LoadConfig.instance.getInfoShop(updateInfo, () => updateInfo(dataDefault));
+            else updateInfo(dataDefault);
         }
         scrContent.onValueChanged.AddListener(onDragScroll);
     }
@@ -310,9 +304,6 @@ public class ShopView : BaseView
         itemData["partner"] = partner;
         this.itemBest = itemData;
     }
-
-
-
     public void updateAg()
     {
 
@@ -396,6 +387,7 @@ public class ShopView : BaseView
                 else
                 {
                     Sprite spr = await Globals.Config.GetRemoteSprite(title_img);
+
                     if (spr != null)
                     {
                         spLogo.sprite = spr;

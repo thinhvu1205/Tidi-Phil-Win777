@@ -37,7 +37,12 @@ public class LobbyView : BaseView
 
     public void DoClickDownloadGame()
     {
-        Application.OpenURL(Config.ApkFullUrl);
+        if (Config.ApkFullUrl.Equals(""))
+            UIManager.instance.showDialog(
+                "Condition to become Pro:\nPlay game on 30 days and at least 50 Tongit games.",
+                isShowClose: true
+            );
+        else Application.OpenURL(Config.ApkFullUrl);
     }
 
     protected override void Start()
@@ -45,7 +50,7 @@ public class LobbyView : BaseView
         isRunStart = true;
         base.Start();
         refreshUIFromConfig(true);
-        if (Config.is_dt)
+        if (!Config.IsBuildStore)
         {
             for (var i = 0; i < listTabs.Count; i++)
             {
@@ -130,24 +135,23 @@ public class LobbyView : BaseView
     {
         CURRENT_VIEW.setCurView(CURRENT_VIEW.GAMELIST_VIEW);
         SoundManager.instance.playMusic();
-        m_ConfigOn.SetActive(Config.is_dt);
-        m_ConfigOff.SetActive(!Config.is_dt);
-        if (Config.is_dt)
+        if (Config.IsBuildStore)
         {
+            foreach (ItemGame ig in m_ConfigOffIGs)
+                ig.setInfo(int.Parse(ig.name), null, materialDefault, () => onClickGame(ig));
+            Destroy(m_ConfigOn);
+        }
+        else
+        { //full version
             reloadListGame(); // clear button ondisable, bật lại ở đây cho nhẹ game, tăng performance khi chơi
             if (_AllGameIGs.Find(x => x.GameId == (int)GAMEID.PUSOY)) _GetInfoPusoyJackPotC = StartCoroutine(_GetJackpotPusoy());
             OnClickTab(listTabs[TabGame]);
-
             if (bannerLobbyContainer.pageCount > 0)
             {
                 bannerLobbyContainer.gameObject.SetActive(true);
                 setPosWhenBannerActive();
             }
-        }
-        else
-        {
-            foreach (ItemGame ig in m_ConfigOffIGs)
-                ig.setInfo(int.Parse(ig.name), null, materialDefault, () => onClickGame(ig));
+            Destroy(m_ConfigOff);
         }
         if (Config.isChangeTable)
         {

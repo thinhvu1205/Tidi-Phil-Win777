@@ -17,7 +17,6 @@ public class LoginView : BaseView
     [SerializeField] GameObject m_CheckTest, m_ButtonLogin, m_ButtonCreateAccount, m_ButtonPlayGuest;
     public string accPlayNow = "";
     public string passPlayNow = "";
-    bool isOpenFirst = true;
 
     bool isLoginingFB = false;
     protected override void Start()
@@ -26,28 +25,12 @@ public class LoginView : BaseView
         if (!Config.username_normal.Equals("")) m_AccountTMPIF.text = Config.username_normal;
         if (!FB.IsInitialized) FB.Init(InitCallback, OnHideUnity); // Initialize the Facebook SDK
         else FB.ActivateApp(); // Already initialized, signal an app activation App Event
-        var isFirstOpen = PlayerPrefs.GetInt("isFirstOpen", 0);
-        Globals.Logging.Log("isFirstOpen " + isFirstOpen);
-        if (isFirstOpen == 0)
-        {
-            PlayerPrefs.SetInt("isFirstOpen", 1);
-            // onClickPlayNow();
-            PlayerPrefs.Save();
-        }
-        else
-        {
-            Globals.Logging.Log("isOpenFirst " + isOpenFirst);
-            if (isOpenFirst)
-            {
-                isOpenFirst = false;
-                reconnect();
-            }
-        }
+        LoadConfig.instance.getConfigInfo();
     }
 
     public void reconnect()
     {
-        // UIManager.instance.showWaiting();
+        UIManager.instance.showWaiting();
         switch (Globals.Config.typeLogin)
         {
             case Globals.LOGIN_TYPE.NORMAL:
@@ -252,6 +235,8 @@ public class LoginView : BaseView
 
     public void onClickPlayNow()
     {
+        PlayerPrefs.SetInt("isFirstOpen", 1);
+        PlayerPrefs.Save();
         Globals.Config.typeLogin = Globals.LOGIN_TYPE.PLAYNOW;
         SoundManager.instance.soundClick();
 
