@@ -1,0 +1,3 @@
+Keystore: ruby777 - 123456
+Store: Icon Store, Product Name: Ruby777, Package Name: ruby.tongits.war777.com
+Pro: Icon Pro, Product Name: Ruby777Pro, Package Name: pro.ruby.tongits.war777.com

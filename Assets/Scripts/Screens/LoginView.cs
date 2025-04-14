@@ -23,8 +23,8 @@ public class LoginView : BaseView
     {
         base.Start();
         if (!Config.username_normal.Equals("")) m_AccountTMPIF.text = Config.username_normal;
-        if (!FB.IsInitialized) FB.Init(InitCallback, OnHideUnity); // Initialize the Facebook SDK
-        else FB.ActivateApp(); // Already initialized, signal an app activation App Event
+        // if (!FB.IsInitialized) FB.Init(InitCallback, OnHideUnity); // Initialize the Facebook SDK
+        // else FB.ActivateApp(); // Already initialized, signal an app activation App Event
     }
     public bool IsInputsClear() { return m_AccountTMPIF.text.Equals(""); }
     public void reconnect()
