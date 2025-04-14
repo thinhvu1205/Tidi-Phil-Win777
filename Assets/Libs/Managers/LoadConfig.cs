@@ -58,8 +58,8 @@ public class LoadConfig : MonoBehaviour
         var configOff = PlayerPrefs.GetString("config_save", "");
         init();
         // handleConfigInfo(configOff.Equals("") ? config_info : configOff);
-        // isLoadedConfig = false;
         // getConfigInfo();
+
     }
 
     void init()
@@ -96,7 +96,7 @@ public class LoadConfig : MonoBehaviour
 
     async void ProgressHandle(string url, string json, Action<string> callback, Action callbackError = null)
     {
-        // UIManager.instance.showWaiting();
+        UIManager.instance.showWaiting();
         UnityWebRequest www = new UnityWebRequest(url, "POST");
 
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
@@ -221,6 +221,7 @@ public class LoadConfig : MonoBehaviour
     public void getConfigInfo()
     {
         //loadInfo();
+        isLoadedConfig = false;
         var wWForm = createBodyJsonNormal();
         Debug.Log("-=-=getConfigInfo   " + wWForm.ToString());
         //StartCoroutine(GetRequest(url_start, wWForm.ToString(), handleConfigInfo));
@@ -233,8 +234,7 @@ public class LoadConfig : MonoBehaviour
         var wWForm = createBodyJson();
         if (Config.data0)
             wWForm["data0"] = _data0;
-
-        Debug.Log("-=-=getInfoUser   " + wWForm.ToString());
+        Debug.Log("-=-=getInfoUser   " + Config.infoUser + " / " + wWForm.ToString());
         //StartCoroutine(GetRequest(Config.infoUser, wWForm.ToString(), handleUserInfo));
         ProgressHandle(Config.infoUser, wWForm.ToString(), handleUserInfo);
     }
@@ -511,18 +511,17 @@ public class LoadConfig : MonoBehaviour
         var utar = jConfig.ContainsKey("utar") ? (string)jConfig["utar"] : "";
         updateConfigUmode(umode, uop1, uop2, utar, umsg);
         PlayerPrefs.Save();
-        var isFirstOpen = PlayerPrefs.GetInt("isFirstOpen", 0);
-        Globals.Logging.Log("isFirstOpen " + isFirstOpen);
-        if (isFirstOpen == 0)
-        {
+        // var isFirstOpen = PlayerPrefs.GetInt("isFirstOpen", 0);
+        // Globals.Logging.Log("isFirstOpen " + isFirstOpen);
+        if (UIManager.instance.loginView.IsInputsClear())
             UIManager.instance.loginView.onClickPlayNow();
-        }
         else
         {
             Globals.Logging.Log("isOpenFirst " + isOpenFirst);
             if (isOpenFirst)
             {
                 isOpenFirst = false;
+                Config.typeLogin = LOGIN_TYPE.NORMAL;
                 UIManager.instance.loginView.reconnect();
             }
         }

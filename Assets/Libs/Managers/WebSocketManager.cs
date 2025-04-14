@@ -20,6 +20,10 @@ public class WebSocketManager : MonoBehaviour
     public WebSocketManager()
     {
     }
+    private void Start()
+    {
+        LoadConfig.instance.getConfigInfo();
+    }
 
     public static WebSocketManager getInstance()
     {

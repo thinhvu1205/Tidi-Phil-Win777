@@ -17,17 +17,16 @@ public class LoginView : BaseView
     [SerializeField] GameObject m_CheckTest, m_ButtonLogin, m_ButtonCreateAccount, m_ButtonPlayGuest;
     public string accPlayNow = "";
     public string passPlayNow = "";
-
     bool isLoginingFB = false;
+
     protected override void Start()
     {
         base.Start();
         if (!Config.username_normal.Equals("")) m_AccountTMPIF.text = Config.username_normal;
         if (!FB.IsInitialized) FB.Init(InitCallback, OnHideUnity); // Initialize the Facebook SDK
         else FB.ActivateApp(); // Already initialized, signal an app activation App Event
-        LoadConfig.instance.getConfigInfo();
     }
-
+    public bool IsInputsClear() { return m_AccountTMPIF.text.Equals(""); }
     public void reconnect()
     {
         UIManager.instance.showWaiting();
@@ -235,8 +234,8 @@ public class LoginView : BaseView
 
     public void onClickPlayNow()
     {
-        PlayerPrefs.SetInt("isFirstOpen", 1);
-        PlayerPrefs.Save();
+        // PlayerPrefs.SetInt("isFirstOpen", 1);
+        // PlayerPrefs.Save();
         Globals.Config.typeLogin = Globals.LOGIN_TYPE.PLAYNOW;
         SoundManager.instance.soundClick();
 

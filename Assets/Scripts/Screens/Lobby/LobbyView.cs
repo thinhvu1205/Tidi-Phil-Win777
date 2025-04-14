@@ -435,9 +435,9 @@ public class LobbyView : BaseView
     }
     private void _ClearButtonGameOnDisable()
     {
-        foreach (Transform childTf in scrListGame.content) if (childTf != m_MiniGameIconTf && childTf != m_OnlySloticonTf) Destroy(childTf.gameObject);
-        foreach (Transform childTf in m_MiniGameIconTf) Destroy(childTf.gameObject);
-        foreach (Transform childTf in m_OnlySloticonTf) Destroy(childTf.gameObject);
+        if (scrListGame != null) foreach (Transform childTf in scrListGame.content) if (childTf != m_MiniGameIconTf && childTf != m_OnlySloticonTf) Destroy(childTf.gameObject);
+        if (m_MiniGameIconTf != null) foreach (Transform childTf in m_MiniGameIconTf) Destroy(childTf.gameObject);
+        if (m_OnlySloticonTf != null) foreach (Transform childTf in m_OnlySloticonTf) Destroy(childTf.gameObject);
     }
     void reloadListGame()
     {
@@ -665,7 +665,7 @@ public class LobbyView : BaseView
 
     public void refreshUIFromConfig(bool isStart = false)
     {
-        btnEx.SetActive(Config.is_dt);
+        btnEx.SetActive(!Config.IsBuildStore && Config.is_dt);
         var issket = Config.ket;
         if (User.userMain != null && User.userMain.VIP == 0)
         {
@@ -684,15 +684,12 @@ public class LobbyView : BaseView
         {
             m_VipFarmBVF.gameObject.SetActive(User.userMain.VIP > 1);
         }
-        if (!isStart)
-            reloadListGame();
-        if (!m_VipFarmBVF.gameObject.activeSelf && !btnEx.activeSelf && !btnBannerNews.activeSelf)
-        {
-            btnSupport.SetActive(false);
-        }
+        if (!isStart) reloadListGame();
+        if (Config.IsBuildStore) btnSupport.SetActive(true);
         else
         {
-            btnSupport.SetActive(true);
+            if (!m_VipFarmBVF.gameObject.activeSelf && !btnEx.activeSelf && !btnBannerNews.activeSelf) btnSupport.SetActive(false);
+            else btnSupport.SetActive(true);
         }
 
         //setDefaultPosBtnMore();
@@ -702,8 +699,7 @@ public class LobbyView : BaseView
         SoundManager.instance.soundClick();
         if (!Config.fanpageID.Equals("") && Config.is_bl_fb)
             Application.OpenURL("https://" + Config.u_chat_fb);
-        else
-            UIManager.instance.openFeedback();
+        else UIManager.instance.openFeedback();
     }
     //bool isHideBot = false;
     public void updateBotWithScrollShop(Vector2 value)
