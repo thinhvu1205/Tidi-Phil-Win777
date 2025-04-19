@@ -16,21 +16,24 @@ public class LobbyView : BaseView
     [SerializeField] List<Button> listTabs = new();
     [SerializeField]
     GameObject objDot, btnEx, gameItemObject, modelLobby, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
-        btnSupport, icNotiMail, icNotiFree, icNotiMessage, bannerTemp, btnBannerNews, m_Lottery, m_ConfigOn, m_ConfigOff;
+        icNotiMail, icNotiFree, icNotiMessage, bannerTemp, btnBannerNews, m_Lottery, m_ConfigOn, m_ConfigOff;
     [SerializeField] RectTransform tfBot, CenterNode;
     [SerializeField] TextMeshProUGUI lb_name, lb_id, lb_ag, lb_safe, lbTimeOnline, lbQuickGame;
     [SerializeField] Transform m_MiniGameIconTf, m_OnlySloticonTf;
-    [SerializeField] Button btnNext, btnPrevious;
+    [SerializeField] Button m_NextProBtn, m_PrevProBtn, m_NextStoreBtn, m_PrevStoreBtn;
     [SerializeField] SkeletonGraphic animQuickPlay;
-    [SerializeField] ScrollRect scrListGame;
+    [SerializeField] ScrollRect m_ProGamesSR, m_StoreGamesSR; //m_ProGamesSR
     [SerializeField] Avatar avatar;
     [SerializeField] ButtonVipFarm m_VipFarmBVF;
-    [SerializeField] PageSlider bannerLobbyContainer;
+    [SerializeField] PageSlider m_ProBannersPS, m_StoreBannerPS;
     [SerializeField] Material materialDefault;
 
     private List<ItemGame> _AllGameIGs = new List<ItemGame>();
     private List<string> listShowPopupNoti = new();
+    private Button _ThisButtonNextBtn, _ThisButtonPrevBtn;
     private Coroutine _GetInfoPusoyJackPotC;
+    private PageSlider _ThisBannerPS;
+    private ScrollRect _ThisListGamesSR;
     private int TabGame = 0;
     private bool blockSpamTabGame, isHideBtnScroll, isRunStart;
 
@@ -44,11 +47,30 @@ public class LobbyView : BaseView
             );
         else Application.OpenURL(Config.ApkFullUrl);
     }
-
+    protected override void Awake()
+    {
+        base.Awake();
+        if (Config.IsBuildStore)
+        {
+            _ThisBannerPS = m_StoreBannerPS;
+            _ThisListGamesSR = m_StoreGamesSR;
+            _ThisButtonNextBtn = m_NextStoreBtn;
+            _ThisButtonPrevBtn = m_PrevStoreBtn;
+        }
+        else
+        {
+            _ThisBannerPS = m_ProBannersPS;
+            _ThisListGamesSR = m_ProGamesSR;
+            _ThisButtonNextBtn = m_NextProBtn;
+            _ThisButtonPrevBtn = m_PrevProBtn;
+        }
+        resetLogout();
+    }
     protected override void Start()
     {
         isRunStart = true;
         base.Start();
+        bool isBuildStore = Config.IsBuildStore;
         refreshUIFromConfig(true);
         if (!Config.IsBuildStore)
         {
@@ -93,7 +115,7 @@ public class LobbyView : BaseView
                 }
             }
             TabGame = indexTab;
-            changeTabGame();
+            _ChangeTabGameProversion(true);
             blockSpamTabGame = true;
             DOTween.Kill("blockSpamTabGame");
             DOTween.Sequence().AppendInterval(1.0f).AppendCallback(() =>
@@ -102,19 +124,19 @@ public class LobbyView : BaseView
             }).SetId("blockSpamTabGame");
         }
     }
-    private void changeTabGame()
+    private void _ChangeTabGameProversion(bool resetPos = false)
     {
-        ContentSizeFitter gameTabsCSF = scrListGame.content.GetComponent<ContentSizeFitter>();
+        ContentSizeFitter gameTabsCSF = m_ProGamesSR.content.GetComponent<ContentSizeFitter>();
         gameTabsCSF.enabled = true;
         if (TabGame == 0)
         {
-            for (int i = 0; i < scrListGame.content.childCount; i++)
-                scrListGame.content.GetChild(i).gameObject.SetActive(i != m_OnlySloticonTf.GetSiblingIndex());
+            for (int i = 0; i < m_ProGamesSR.content.childCount; i++)
+                m_ProGamesSR.content.GetChild(i).gameObject.SetActive(i != m_OnlySloticonTf.GetSiblingIndex());
         }
         else if (TabGame == 1)
         {
-            for (int i = 0; i < scrListGame.content.childCount; i++)
-                scrListGame.content.GetChild(i).gameObject.SetActive(i == m_OnlySloticonTf.GetSiblingIndex());
+            for (int i = 0; i < m_ProGamesSR.content.childCount; i++)
+                m_ProGamesSR.content.GetChild(i).gameObject.SetActive(i == m_OnlySloticonTf.GetSiblingIndex());
         }
         if (!gameObject.activeSelf) return;
         StartCoroutine(delay1FrameAndCheck()); //có trường hợp màn hình dài content nhỏ hơn viewport sẽ bị dồn lệch về 1 bên
@@ -122,12 +144,12 @@ public class LobbyView : BaseView
         {
             yield return null;
             yield return null;
-            if (scrListGame.content.rect.width < scrListGame.viewport.rect.width)
+            if (m_ProGamesSR.content.rect.width < m_ProGamesSR.viewport.rect.width)
             {
                 gameTabsCSF.enabled = false;
-                scrListGame.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, scrListGame.viewport.rect.width);
+                m_ProGamesSR.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, m_ProGamesSR.viewport.rect.width);
             }
-            scrListGame.content.anchoredPosition = Vector2.zero;
+            if (resetPos) m_ProGamesSR.content.anchoredPosition = Vector2.zero;
         }
     }
 
@@ -139,18 +161,24 @@ public class LobbyView : BaseView
         {
             foreach (ItemGame ig in m_ConfigOffIGs)
                 ig.setInfo(int.Parse(ig.name), null, materialDefault, () => onClickGame(ig));
+            if (m_StoreBannerPS.pageCount > 0)
+            {
+                m_StoreBannerPS.gameObject.SetActive(true);
+                _SetPosWhenBannerActive();
+            }
             Destroy(m_ConfigOn);
         }
         else
         { //full version
-            reloadListGame(); // clear button ondisable, bật lại ở đây cho nhẹ game, tăng performance khi chơi
+            _ReloadListGamesProVersion(); // clear button ondisable, bật lại ở đây cho nhẹ game, tăng performance khi chơi
             if (_AllGameIGs.Find(x => x.GameId == (int)GAMEID.PUSOY)) _GetInfoPusoyJackPotC = StartCoroutine(_GetJackpotPusoy());
             OnClickTab(listTabs[TabGame]);
-            if (bannerLobbyContainer.pageCount > 0)
+            if (_ThisBannerPS.pageCount > 0)
             {
-                bannerLobbyContainer.gameObject.SetActive(true);
-                setPosWhenBannerActive();
+                _ThisBannerPS.gameObject.SetActive(true);
+                _SetPosWhenBannerActive();
             }
+
             Destroy(m_ConfigOff);
         }
         if (Config.isChangeTable)
@@ -168,7 +196,7 @@ public class LobbyView : BaseView
     {
         if (_GetInfoPusoyJackPotC != null) StopCoroutine(_GetInfoPusoyJackPotC);
         removeAllPopupNoti();
-        _ClearButtonGameOnDisable();
+        _ClearButtonGamesProVersion();
     }
 
     public void updateInfo()
@@ -189,27 +217,25 @@ public class LobbyView : BaseView
     {
         objDot.SetActive(User.userMain.canInputInvite);
     }
-    private void setPosWhenBannerActive()
+    private void _SetPosWhenBannerActive()
     {
-        bool isActive = bannerLobbyContainer.gameObject.activeSelf;
-        // modelLobby.transform.localPosition = new Vector2(isActive ? -65f : -250f, modelLobby.transform.localPosition.y);
-        RectTransform rt = scrListGame.GetComponent<RectTransform>();
-        if (isActive)
+        RectTransform bannersRT = _ThisListGamesSR.GetComponent<RectTransform>();
+        if (_ThisBannerPS.gameObject.activeSelf)
         {
-            rt.offsetMin = new Vector2(370, rt.offsetMin.y);
-            rt.offsetMax = new Vector2(-70, rt.offsetMax.y);
+            bannersRT.offsetMin = new Vector2(370, bannersRT.offsetMin.y);
+            bannersRT.offsetMax = new Vector2(-70, bannersRT.offsetMax.y);
         }
     }
 
     //Sequence seqLoopBanner;
     public async void showBanner()
     {
-        bannerLobbyContainer.Clear();
-        bannerLobbyContainer.currentPage = 0;
+        _ThisBannerPS.Clear();
+        _ThisBannerPS.currentPage = 0;
         Debug.Log("Config.arrBannerLobby.Count==" + Config.arrBannerLobby.Count);
         bool isShow = Config.arrBannerLobby.Count > 0;
         bool updatePos = false;
-        bannerLobbyContainer.gameObject.SetActive(isShow);
+        _ThisBannerPS.gameObject.SetActive(isShow);
         if (!isShow) return;
         for (var i = 0; i < Config.arrBannerLobby.Count; i++)
         {
@@ -223,11 +249,11 @@ public class LobbyView : BaseView
 
             nodeBanner.isBannerType9 = true;
             nodeBanner.gameObject.SetActive(true);
-            bannerLobbyContainer.AddPage(nodeBanner.GetComponent<RectTransform>());
+            _ThisBannerPS.AddPage(nodeBanner.GetComponent<RectTransform>());
             nodeBanner.setInfo(dataBanner, false);
             if (!updatePos)
             {
-                setPosWhenBannerActive();
+                _SetPosWhenBannerActive();
                 updatePos = true;
             }
         }
@@ -236,20 +262,20 @@ public class LobbyView : BaseView
     float timeRun = 0;
     protected override void Update()
     {
-        if (bannerLobbyContainer.pageCount > 1)
+        if (_ThisBannerPS.pageCount > 1)
         {
             timeRun += Time.deltaTime;
             if (timeRun >= 5)
             {
                 timeRun = 0;
 
-                var page = bannerLobbyContainer.currentPage;
+                var page = _ThisBannerPS.currentPage;
                 page++;
-                if (page >= bannerLobbyContainer.pageCount)
+                if (page >= _ThisBannerPS.pageCount)
                 {
                     page = 0;
                 }
-                bannerLobbyContainer.changeToPage(page);
+                _ThisBannerPS.changeToPage(page);
             }
         }
     }
@@ -394,29 +420,29 @@ public class LobbyView : BaseView
         Logging.LogWarning("arrOnlistTrue  " + Config.arrOnlistTrue.ToString());
         btnBannerNews.SetActive(isShow);
     }
-    public void onClickNext(Button btnNex)
+    public void onClickNext()
     {
-        scrListGame.DOHorizontalNormalizedPos(1.0f, 0.2f).SetEase(Ease.OutSine);
+        _ThisListGamesSR.DOHorizontalNormalizedPos(1.0f, 0.2f).SetEase(Ease.OutSine);
         if (isHideBtnScroll) return;
-        btnNex.gameObject.SetActive(false);
-        btnPrevious.gameObject.SetActive(true);
+        _ThisButtonNextBtn.gameObject.SetActive(false);
+        _ThisButtonPrevBtn.gameObject.SetActive(true);
     }
-    public void onClickPrevious(Button btnPre)
+    public void onClickPrevious()
     {
-        scrListGame.DOHorizontalNormalizedPos(0.0f, 0.1f).SetEase(Ease.OutSine);
+        _ThisListGamesSR.DOHorizontalNormalizedPos(0.0f, 0.1f).SetEase(Ease.OutSine);
         if (isHideBtnScroll) return;
-        btnPre.gameObject.SetActive(false);
-        btnNext.gameObject.SetActive(true);
+        _ThisButtonPrevBtn.gameObject.SetActive(false);
+        _ThisButtonNextBtn.gameObject.SetActive(true);
     }
     public void onScrollScrGame()
     {
         //Globals.Logging.Log(scrBet.horizontalNormalizedPosition);
-        float posX = scrListGame.horizontalNormalizedPosition;
+        float posX = _ThisListGamesSR.horizontalNormalizedPosition;
         if (isHideBtnScroll) return;
-        float viewportWidth = scrListGame.viewport.GetComponent<RectTransform>().rect.width;
-        float contentWidth = scrListGame.content.GetComponent<RectTransform>().rect.width;
-        btnPrevious.gameObject.SetActive(viewportWidth < contentWidth && posX > 0.25f);
-        btnNext.gameObject.SetActive(viewportWidth < contentWidth && posX < 0.75f);
+        float viewportWidth = _ThisListGamesSR.viewport.GetComponent<RectTransform>().rect.width;
+        float contentWidth = _ThisListGamesSR.content.GetComponent<RectTransform>().rect.width;
+        _ThisButtonPrevBtn.gameObject.SetActive(viewportWidth < contentWidth && posX > 0.25f);
+        _ThisButtonNextBtn.gameObject.SetActive(viewportWidth < contentWidth && posX < 0.75f);
     }
     public void onClickQuickPlay()
     {
@@ -433,15 +459,16 @@ public class LobbyView : BaseView
     {
         UIManager.instance.showPopupListBanner();
     }
-    private void _ClearButtonGameOnDisable()
+    private void _ClearButtonGamesProVersion()
     {
-        if (scrListGame != null) foreach (Transform childTf in scrListGame.content) if (childTf != m_MiniGameIconTf && childTf != m_OnlySloticonTf) Destroy(childTf.gameObject);
+        if (m_ProGamesSR != null) foreach (Transform childTf in m_ProGamesSR.content) if (childTf != m_MiniGameIconTf && childTf != m_OnlySloticonTf) Destroy(childTf.gameObject);
         if (m_MiniGameIconTf != null) foreach (Transform childTf in m_MiniGameIconTf) Destroy(childTf.gameObject);
         if (m_OnlySloticonTf != null) foreach (Transform childTf in m_OnlySloticonTf) Destroy(childTf.gameObject);
     }
-    void reloadListGame()
+    void _ReloadListGamesProVersion()
     {
-        _ClearButtonGameOnDisable();
+        if (Config.IsBuildStore) return;
+        _ClearButtonGamesProVersion();
         for (int i = 0; i < Config.listGame.Count; i++)
         {
             JObject dt = new()
@@ -452,8 +479,8 @@ public class LobbyView : BaseView
         }
 
         _AllGameIGs.Clear();
-        Rect sizeCell = scrListGame.GetComponent<RectTransform>().rect;
         List<int> slotGames = new() { (int)GAMEID.DOMINO, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT20FRUIT };
+        Rect sizeCell = m_ProGamesSR.GetComponent<RectTransform>().rect;
         for (var i = 0; i < Config.listGame.Count; i++)
         {
             JObject data = (JObject)Config.listGame[i];
@@ -466,7 +493,7 @@ public class LobbyView : BaseView
                 case (int)GAMEID.LUCKY9:
                 case (int)GAMEID.PUSOY:
                 case (int)GAMEID.TONGITS_OLD:
-                    item = Instantiate(gameItemObject, scrListGame.content).GetComponent<ItemGame>();
+                    item = Instantiate(gameItemObject, m_ProGamesSR.content).GetComponent<ItemGame>();
                     item.transform.SetSiblingIndex(0);
                     break;
                 default:
@@ -495,7 +522,7 @@ public class LobbyView : BaseView
             bigSlotIconIG.gameObject.SetActive(true);
             bigSlotIconIG.setInfo(ig.GameId, bigSlotGameSDA, materialDefault, () => onClickGame(bigSlotIconIG), false);
         }
-        changeTabGame();
+        _ChangeTabGameProversion();
     }
     private IEnumerator _GetJackpotPusoy()
     {
@@ -684,14 +711,7 @@ public class LobbyView : BaseView
         {
             m_VipFarmBVF.gameObject.SetActive(User.userMain.VIP > 1);
         }
-        if (!isStart) reloadListGame();
-        if (Config.IsBuildStore) btnSupport.SetActive(true);
-        else
-        {
-            if (!m_VipFarmBVF.gameObject.activeSelf && !btnEx.activeSelf && !btnBannerNews.activeSelf) btnSupport.SetActive(false);
-            else btnSupport.SetActive(true);
-        }
-
+        if (!isStart) _ReloadListGamesProVersion();
         //setDefaultPosBtnMore();
     }
     public void onClickSupport()
@@ -736,8 +756,8 @@ public class LobbyView : BaseView
         // modelLobby.GetComponent<SkeletonGraphic>().Initialize(true);
         // modelLobby.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, "animation", true);
         //scrollSnapView.gameObject.SetActive(false);
-        bannerLobbyContainer.gameObject.SetActive(false);
-        setPosWhenBannerActive();
+        _ThisBannerPS.gameObject.SetActive(false);
+        _SetPosWhenBannerActive();
         btnBannerNews.SetActive(false);
         TabGame = 0;
     }

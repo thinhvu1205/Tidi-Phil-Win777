@@ -25,6 +25,17 @@ public class LoginView : BaseView
         if (!Config.username_normal.Equals("")) m_AccountTMPIF.text = Config.username_normal;
         // if (!FB.IsInitialized) FB.Init(InitCallback, OnHideUnity); // Initialize the Facebook SDK
         // else FB.ActivateApp(); // Already initialized, signal an app activation App Event
+        StartCoroutine(login());
+        IEnumerator login()
+        {
+            while (Config.curServerIp.Equals("")) yield return new WaitForSeconds(1f);
+            if (UIManager.instance.loginView.IsInputsClear()) UIManager.instance.loginView.onClickPlayNow();
+            else
+            {
+                Config.typeLogin = LOGIN_TYPE.NORMAL;
+                UIManager.instance.loginView.reconnect();
+            }
+        }
     }
     public bool IsInputsClear() { return m_AccountTMPIF.text.Equals(""); }
     public void reconnect()
@@ -60,15 +71,15 @@ public class LoginView : BaseView
     {
         Globals.Config.arrBannerLobby.Clear();
         Globals.Config.arrOnlistTrue.Clear();
-        if (UIManager.instance == null)
-        {
-            LobbyView lobbyView = transform.parent.Find("LobbyView").GetComponent<LobbyView>();
-            lobbyView.resetLogout();
-        }
-        else
-        {
-            UIManager.instance.lobbyView.resetLogout();
-        }
+        // if (UIManager.instance == null)
+        // {
+        //     LobbyView lobbyView = transform.parent.Find("LobbyView").GetComponent<LobbyView>();
+        //     lobbyView.resetLogout();
+        // }
+        // else
+        // {
+        //     UIManager.instance.lobbyView.resetLogout();
+        // }
 
         Globals.Config.invitePlayGame = true;
         Globals.Config.isLoginSuccess = false;

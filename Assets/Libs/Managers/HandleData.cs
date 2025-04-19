@@ -115,13 +115,14 @@ public class HandleData
 
             if (Config.curGameId == 0) Config.curGameId = (int)objUser["gameid"];
             // LoadConfig.instance.getConfigInfo();
-            LoadConfig.instance.isLoadedConfig = false;
+            // LoadConfig.instance.isLoadedConfig = false;
             LoadConfig.instance.getInfoUser(strUser);
 
             if (Config.typeLogin == LOGIN_TYPE.NORMAL) Config.saveLoginAccount();
             //Logging.Log("emit update info o day nua");
             SocketIOManager.getInstance().emitUpdateInfo();
             Dictionary<string, object> tags = new Dictionary<string, object>();
+            if (UIManager.instance.gameView == null) UIManager.instance.showLobbyScreen(true);
 
             tags.Add("deviceid", Config.deviceId);
             tags.Add("publisher", Config.publisher);
@@ -289,7 +290,6 @@ public class HandleData
         }
         JObject packet = JObject.Parse(strData);
         //string message = (string)data["message"];
-
         if ((string)packet["status"] == "OK")
         {
             if (UIManager.instance.gameView != null)
@@ -320,7 +320,7 @@ public class HandleData
             }
             else
             {
-                UIManager.instance.showLobbyScreen(false);
+                UIManager.instance.showLobbyScreen();
             }
         }
         else

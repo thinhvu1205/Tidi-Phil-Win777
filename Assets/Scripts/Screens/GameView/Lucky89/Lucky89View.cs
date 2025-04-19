@@ -433,12 +433,15 @@ public class Lucky89View : GameView
             foreach (JToken result in dataResults)
             {
                 Player player = players.Find(x => x.namePl.Equals((string)result["N"]));
-                PlayerViewLucky89 playerView = player == null ? m_DealerPVL89 : (PlayerViewLucky89)player.playerView;
+                PlayerViewLucky89 playerView = null;
+                if (player == null) playerView = m_DealerPVL89;
+                else playerView = (PlayerViewLucky89)player.playerView;
                 if ((int)result["S"] < (int)SCORE.LUCKY_8)
                 {
                     List<Card> cardCs = playerView.GetListCards();
                     JArray dataCards = (JArray)result["ArrCard"];
-                    for (int i = 0; i < dataCards.Count; i++) _RevealACard(cardCs[i], (int)dataCards[i], cardCs[i].transform.localEulerAngles);
+                    for (int i = 0; i < dataCards.Count; i++)
+                        _RevealACard(cardCs[i], (int)dataCards[i], cardCs[i].transform.localEulerAngles);
                     playerView.ShowScore(true, (int)result["S"]).ShowRate((int)result["rate"]);
                 }
                 long chips = (long)result["M"];

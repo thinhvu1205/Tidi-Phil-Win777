@@ -81,6 +81,7 @@ namespace Globals
 
         public static string getCurrentSceneName()
         {
+
             var sceneName = "";
             if (currentView == Config.curGameId.ToString())
             {
@@ -577,9 +578,9 @@ namespace Globals
         public static string chat_support_link = "https://m.me/100087270858966";
         //public static string IP = "app1.topbangkokclub.com";
         public const string PORT = "443";
-        public static bool isSound = true;
-        public static bool isMusic = true;
-        public static bool isVibration = true;
+        public static bool isSound = false;
+        public static bool isMusic = false;
+        public static bool isVibration = false;
         public static bool invitePlayGame = true;
         public static bool isErrorNet = false;
         public static string language = "THAI";
@@ -1600,9 +1601,9 @@ namespace Globals
 
         public static void getConfigSetting()
         {
-            isSound = (PlayerPrefs.GetInt("sound", 1) == 1);
-            isMusic = (PlayerPrefs.GetInt("music", 1) == 1);
-            isVibration = (PlayerPrefs.GetInt("vibration", 1) == 1);
+            // isSound = PlayerPrefs.GetInt("sound", 1) == 1;
+            // isMusic = PlayerPrefs.GetInt("music", 1) == 1;
+            // isVibration = PlayerPrefs.GetInt("vibration", 1) == 1;
         }
 
         public static void updateConfigSetting()

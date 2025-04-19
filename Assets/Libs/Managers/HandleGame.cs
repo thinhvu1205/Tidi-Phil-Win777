@@ -16,7 +16,7 @@ public class HandleGame
         }
         string evt = (string)jData["evt"];
         List<string> listEvtNotDelay = new List<string> { "chattable", "dealer", "findDealer", "leave_dealer" };
-        if (evt == "ltable")
+        if (evt.Equals("ltable"))
         {
 
             JObject data = jData;

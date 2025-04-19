@@ -31,6 +31,7 @@ using System.Threading;
 
 public class UIManager : MonoBehaviour
 {
+
     public static UIManager instance = null;
     [SerializeField] Sprite sf_toast = null;
     [SerializeField] GameObject nodeLoad;
@@ -346,6 +347,7 @@ public class UIManager : MonoBehaviour
     {
         Globals.Logging.LogWarning("-=-=OnApplicationQuit ");
         SocketIOManager.getInstance().stopIO();
+        WebSocketManager.getInstance().stop();
     }
     //long timeOnPause = 0;
     public void OnApplicationPause(bool pause)
@@ -1336,15 +1338,15 @@ public class UIManager : MonoBehaviour
         var dataBanner = (JObject)arrayDataBannerIO[indexCurrentDataBannerIO];
         if (!dataBanner.ContainsKey("urlImg") || (string)dataBanner["urlImg"] == "")
         {
-            indexCurrentDataBannerIO++;
+            // indexCurrentDataBannerIO++;
             nextBanner();
             return;
         }
 
         var urlImg = (string)dataBanner["urlImg"];
         Debug.Log("showBannerIO");
-        Texture2D texture = await Globals.Config.GetRemoteTexture(urlImg);
-        if (texture == null)
+        Sprite imageS = await Globals.Config.GetRemoteSprite(urlImg);
+        if (imageS == null)
         {
             nextBanner();
             return;
@@ -1361,7 +1363,7 @@ public class UIManager : MonoBehaviour
         nodeBanner.setInfo(dataBanner, true, () =>
         {
             Destroy(nodeBanner.gameObject);
-        });
+        }, imageS);
 
     }
     public void nextBanner(bool isNotShow = false)

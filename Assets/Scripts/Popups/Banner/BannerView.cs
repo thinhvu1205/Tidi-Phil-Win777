@@ -37,7 +37,7 @@ public class BannerView : BaseView
         }
     }
 
-    public async void setInfo(JObject _data, bool isMark = true, System.Action _callbaclClick = null)
+    public async void setInfo(JObject _data, bool isMark = true, System.Action _callbaclClick = null, Sprite imageS = null)
     {
         data = _data;
         //Debug.Log("DataBanner=" + data.ToString());
@@ -64,7 +64,7 @@ public class BannerView : BaseView
 
         bool isClose = (bool)data["isClose"];
         if (this == null) return;
-        imageBanner.sprite = await Globals.Config.GetRemoteSprite(urlImg, true);
+        imageBanner.sprite = imageS == null ? await Globals.Config.GetRemoteSprite(urlImg, true) : imageS;
         if (btnClose != null) btnClose.SetActive(isClose);
         if (this == null || gameObject == null || imageBanner.IsDestroyed()) return;
         if (UIManager.instance.gameView != null && !isBannerType9)
@@ -188,11 +188,7 @@ public class BannerView : BaseView
                             UIManager.instance.openVipFarm();
                             break;
                     }
-
-                    if (callbaclClick != null)
-                    {
-                        callbaclClick.Invoke();
-                    }
+                    callbaclClick?.Invoke();
                 });
             }
         }

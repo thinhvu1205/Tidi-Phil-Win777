@@ -22,7 +22,7 @@ public class LoadConfig : MonoBehaviour
     string url_start = "https://n.cfg.davaogames.com/info";
     //string url_start = "https://cfg.jakartagames.net/info";
     string config_info = "";
-    bool isOpenFirst = true;
+
 
     public bool isLoadedConfig = false;
     void Awake()
@@ -40,26 +40,35 @@ public class LoadConfig : MonoBehaviour
         //}
         //else
         //{
-        config_info = "{\"gamenotification\":false,\"is_reg\":false,\"isShowLog\":false,\"is_login_guest\":true,\"is_login_fb\":true,\"time_request\":5,\"avatar_change\":2,\"avatar_count\":10,\"avatar_build\":\"https://cdn.tongitsonline.com/api/public/dl/ierd34s/images/avatar/%avaNO%.png?inline=true\",\"avatar_fb\":\"https://graph.facebook.com/v10.0/%fbID%/picture?width=200&height=200&redirect=true&access_token=%token%\",\"name_fb\":\"https://graph.facebook.com/%userID%/?fields=name&access_token=%token%\",\"contentChat\":\"https://cfg.jakartagames.net/contentChat\",\"bundleID\":\"diamond.domino.slots\",\"version\":\"1.00\",\"operatorID\":7000,\"os\":\"android_cocosjs\",\"publisher\":\"config_offline_android\",\"disID\":1005,\"fbprivateappid\":\"\",\"fanpageID\":\"\",\"groupID\":\"\",\"hotline\":\"\",\"listGame\":[{\"id\":8009,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8010,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8020,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8021,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8044,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8805,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":8818,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9007,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9008,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9500,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9501,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9900,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9950,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9011,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2}],\"u_chat_fb\":\"\",\"infoUser\":\"https://cfg.jakartagames.net/infoUser\",\"umode\":0,\"uop1\":\"OK\",\"umsg\":\"\",\"utar\":\"\",\"uop2\":\"Cancel\",\"newest_versionUrl\":\"https://play.google.com/store/apps/details?id=diamond.domino.slots\"}";
+        // config_info = "{\"gamenotification\":false,\"is_reg\":false,\"isShowLog\":false,\"is_login_guest\":true,\"is_login_fb\":true,\"time_request\":5,\"avatar_change\":2,\"avatar_count\":10,\"avatar_build\":\"https://cdn.tongitsonline.com/api/public/dl/ierd34s/images/avatar/%avaNO%.png?inline=true\",\"avatar_fb\":\"https://graph.facebook.com/v10.0/%fbID%/picture?width=200&height=200&redirect=true&access_token=%token%\",\"name_fb\":\"https://graph.facebook.com/%userID%/?fields=name&access_token=%token%\",\"contentChat\":\"https://cfg.jakartagames.net/contentChat\",\"bundleID\":\"diamond.domino.slots\",\"version\":\"1.00\",\"operatorID\":7000,\"os\":\"android_cocosjs\",\"publisher\":\"config_offline_android\",\"disID\":1005,\"fbprivateappid\":\"\",\"fanpageID\":\"\",\"groupID\":\"\",\"hotline\":\"\",\"listGame\":[{\"id\":8009,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8010,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8020,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8021,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8044,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8805,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":8818,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9007,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9008,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9500,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9501,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9900,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9950,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9011,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2}],\"u_chat_fb\":\"\",\"infoUser\":\"https://cfg.jakartagames.net/infoUser\",\"umode\":0,\"uop1\":\"OK\",\"umsg\":\"\",\"utar\":\"\",\"uop2\":\"Cancel\",\"newest_versionUrl\":\"https://play.google.com/store/apps/details?id=diamond.domino.slots\"}";
         //}
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            this.config_info = "{\"gamenotification\":false,\"is_reg\":false,\"isShowLog\":false,\"is_login_guest\":true,\"is_login_fb\":true,\"time_request\":5,\"avatar_change\":2,\"avatar_count\":10,\"avatar_build\":\"https://cdn.tongitsonline.com/api/public/dl/ierd34s/images/avatar/%avaNO%.png?inline=true\",\"avatar_fb\":\"https://graph.facebook.com/v10.0/%fbID%/picture?width=200&height=200&redirect=true&access_token=%token%\",\"name_fb\":\"https://graph.facebook.com/%userID%/?fields=name&access_token=%token%\",\"contentChat\":\"https://cfg.jakartagames.net/contentChat\",\"bundleID\":\"indo.test\",\"version\":\"1.00\",\"operatorID\":7000,\"os\":\"android_cocosjs\",\"publisher\":\"config_offline_android\",\"disID\":1005,\"fbprivateappid\":\"\",\"fanpageID\":\"\",\"groupID\":\"\",\"hotline\":\"\",\"listGame\":[{\"id\":8009,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8010,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8020,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8021,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8044,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8805,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":8818,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9007,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9008,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9500,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9501,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9900,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9950,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9011,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2}],\"u_chat_fb\":\"\",\"infoUser\":\"https://cfg.jakartagames.net/infoUser\",\"umode\":0,\"uop1\":\"OK\",\"umsg\":\"\",\"utar\":\"\",\"uop2\":\"Cancel\",\"newest_versionUrl\":\"https://play.google.com/store/apps/details?id=indo.test\"}";
-        }
-        else if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            this.config_info = @"{""gamenotification"":false,""allowPushOffline"":true,""is_reg"":false,""isShowLog"":true,""is_login_guest"":true,""is_login_fb"":true,""time_request"":5,""avatar_change"":2,""avatar_count"":10,""avatar_build"":""https://storage.googleapis.com/cdn.davaogames.com/img/avatar/%avaNO%.png"",""avatar_fb"":""https://graph.facebook.com/v10.0/%fbID%/picture?width=200&height=200&redirect=true&access_token=%token%"",""listGame"":[{""id"":8091,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8044,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":10000,""v_tb"":2},{""id"":8090,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8088,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":6688,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":10000,""v_tb"":2},{""id"":9007,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8802,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8011,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8808,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":10000,""v_tb"":2},{""id"":8012,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":9008,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":9500,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":10000,""v_tb"":2},{""id"":8803,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8010,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":1111,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8818,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2}],""bundleID"":""bitbet.global.tongits"",""version"":""1.05"",""operatorID"":7000,""os"":""ios_cocosjs"",""publisher"":""config_offline_ios"",""disID"":1007,""fbprivateappid"":"""",""fanpageID"":"""",""groupID"":"""",""hotline"":"""",""u_chat_fb"":"""",""infoUser"":""https://n.cfg.davaogames.com/infoUser"",""umode"":0,""uop1"":""OK"",""umsg"":"""",""utar"":"""",""uop2"":""Cancel"",""newest_versionUrl"":""https://play.google.com/store/apps/details?id=bitbet.global.tongits""}';this.config_PM='[{""type"":""iap"",""title"":""iap"",""title_img"":""https://storage.googleapis.com/cdn.davaogames.com/img/shop/IAPIOS.png"",""items"":[{""url"":""bitbet.global.tongits.1"",""txtPromo"":""1USD=392,727Chips"",""txtChip"":""388,800Chips"",""txtBuy"":""0.99USD"",""txtBonus"":""0%"",""cost"":1},{""url"":""bitbet.global.tongits.2"",""txtPromo"":""1USD=390,754Chips"",""txtChip"":""777,600Chips"",""txtBuy"":""1.99USD"",""txtBonus"":""0%"",""cost"":2},{""url"":""bitbet.global.tongits.5"",""txtPromo"":""1USD=389,579Chips"",""txtChip"":""1,944,000Chips"",""txtBuy"":""4.99USD"",""txtBonus"":""0%"",""cost"":5},{""url"":""bitbet.global.tongits.10"",""txtPromo"":""1USD=486,486Chips"",""txtChip"":""4,860,000Chips"",""txtBuy"":""9.99USD"",""txtBonus"":""25%"",""cost"":10},{""url"":""bitbet.global.tongits.20"",""txtPromo"":""1USD=486,243Chips"",""txtChip"":""9,720,000Chips"",""txtBuy"":""19.99USD"",""txtBonus"":""25%"",""cost"":20},{""url"":""bitbet.global.tongits.50"",""txtPromo"":""1USD=486,097Chips"",""txtChip"":""24,300,000Chips"",""txtBuy"":""49.99USD"",""txtBonus"":""25%"",""cost"":50}]}]";
-        }
-        else
-        {
-            this.config_info = "{\"gamenotification\":false,\"is_reg\":false,\"isShowLog\":false,\"is_login_guest\":true,\"is_login_fb\":true,\"time_request\":5,\"avatar_change\":2,\"avatar_count\":10,\"avatar_build\":\"https://cdn.tongitsonline.com/api/public/dl/ierd34s/images/avatar/%avaNO%.png?inline=true\",\"avatar_fb\":\"https://graph.facebook.com/v10.0/%fbID%/picture?width=200&height=200&redirect=true&access_token=%token%\",\"name_fb\":\"https://graph.facebook.com/%userID%/?fields=name&access_token=%token%\",\"contentChat\":\"https://cfg.jakartagames.net/contentChat\",\"bundleID\":\"diamond.domino.slots\",\"version\":\"1.00\",\"operatorID\":7000,\"os\":\"android_cocosjs\",\"publisher\":\"config_offline_ios\",\"disID\":1005,\"fbprivateappid\":\"\",\"fanpageID\":\"\",\"groupID\":\"\",\"hotline\":\"\",\"listGame\":[{\"id\":8009,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8010,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8020,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8021,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8044,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8805,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":8818,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9007,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9008,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9500,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9501,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9900,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9950,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9011,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2}],\"u_chat_fb\":\"\",\"infoUser\":\"https://cfg.jakartagames.net/infoUser\",\"umode\":0,\"uop1\":\"OK\",\"umsg\":\"\",\"utar\":\"\",\"uop2\":\"Cancel\",\"newest_versionUrl\":\"https://play.google.com/store/apps/details?id=diamond.domino.slots\"}";
-        }
+        // if (Application.platform == RuntimePlatform.Android)
+        // {
+        //     config_info = "{\"gamenotification\":false,\"is_reg\":false,\"isShowLog\":false,\"is_login_guest\":true,\"is_login_fb\":true,\"time_request\":5,\"avatar_change\":2,\"avatar_count\":10,\"avatar_build\":\"https://cdn.tongitsonline.com/api/public/dl/ierd34s/images/avatar/%avaNO%.png?inline=true\",\"avatar_fb\":\"https://graph.facebook.com/v10.0/%fbID%/picture?width=200&height=200&redirect=true&access_token=%token%\",\"name_fb\":\"https://graph.facebook.com/%userID%/?fields=name&access_token=%token%\",\"contentChat\":\"https://cfg.jakartagames.net/contentChat\",\"bundleID\":\"indo.test\",\"version\":\"1.00\",\"operatorID\":7000,\"os\":\"android_cocosjs\",\"publisher\":\"config_offline_android\",\"disID\":1005,\"fbprivateappid\":\"\",\"fanpageID\":\"\",\"groupID\":\"\",\"hotline\":\"\",\"listGame\":[{\"id\":8009,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8010,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8020,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8021,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8044,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8805,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":8818,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9007,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9008,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9500,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9501,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9900,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9950,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9011,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2}],\"u_chat_fb\":\"\",\"infoUser\":\"https://cfg.jakartagames.net/infoUser\",\"umode\":0,\"uop1\":\"OK\",\"umsg\":\"\",\"utar\":\"\",\"uop2\":\"Cancel\",\"newest_versionUrl\":\"https://play.google.com/store/apps/details?id=indo.test\"}";
+        // }
+        // else if (Application.platform == RuntimePlatform.IPhonePlayer)
+        // {
+        //     config_info = @"{""gamenotification"":false,""allowPushOffline"":true,""is_reg"":false,""isShowLog"":true,""is_login_guest"":true,""is_login_fb"":true,""time_request"":5,""avatar_change"":2,""avatar_count"":10,""avatar_build"":""https://storage.googleapis.com/cdn.davaogames.com/img/avatar/%avaNO%.png"",""avatar_fb"":""https://graph.facebook.com/v10.0/%fbID%/picture?width=200&height=200&redirect=true&access_token=%token%"",""listGame"":[{""id"":8091,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8044,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":10000,""v_tb"":2},{""id"":8090,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8088,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":6688,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":10000,""v_tb"":2},{""id"":9007,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8802,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8011,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8808,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":10000,""v_tb"":2},{""id"":8012,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":9008,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":9500,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":10000,""v_tb"":2},{""id"":8803,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8010,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":1111,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2},{""id"":8818,""ip"":""34.87.57.36"",""ip_dm"":""app2.davaogames.com"",""agSvipMin"":25000,""v_tb"":2}],""bundleID"":""bitbet.global.tongits"",""version"":""1.05"",""operatorID"":7000,""os"":""ios_cocosjs"",""publisher"":""config_offline_ios"",""disID"":1007,""fbprivateappid"":"""",""fanpageID"":"""",""groupID"":"""",""hotline"":"""",""u_chat_fb"":"""",""infoUser"":""https://n.cfg.davaogames.com/infoUser"",""umode"":0,""uop1"":""OK"",""umsg"":"""",""utar"":"""",""uop2"":""Cancel"",""newest_versionUrl"":""https://play.google.com/store/apps/details?id=bitbet.global.tongits""}';this.config_PM='[{""type"":""iap"",""title"":""iap"",""title_img"":""https://storage.googleapis.com/cdn.davaogames.com/img/shop/IAPIOS.png"",""items"":[{""url"":""bitbet.global.tongits.1"",""txtPromo"":""1USD=392,727Chips"",""txtChip"":""388,800Chips"",""txtBuy"":""0.99USD"",""txtBonus"":""0%"",""cost"":1},{""url"":""bitbet.global.tongits.2"",""txtPromo"":""1USD=390,754Chips"",""txtChip"":""777,600Chips"",""txtBuy"":""1.99USD"",""txtBonus"":""0%"",""cost"":2},{""url"":""bitbet.global.tongits.5"",""txtPromo"":""1USD=389,579Chips"",""txtChip"":""1,944,000Chips"",""txtBuy"":""4.99USD"",""txtBonus"":""0%"",""cost"":5},{""url"":""bitbet.global.tongits.10"",""txtPromo"":""1USD=486,486Chips"",""txtChip"":""4,860,000Chips"",""txtBuy"":""9.99USD"",""txtBonus"":""25%"",""cost"":10},{""url"":""bitbet.global.tongits.20"",""txtPromo"":""1USD=486,243Chips"",""txtChip"":""9,720,000Chips"",""txtBuy"":""19.99USD"",""txtBonus"":""25%"",""cost"":20},{""url"":""bitbet.global.tongits.50"",""txtPromo"":""1USD=486,097Chips"",""txtChip"":""24,300,000Chips"",""txtBuy"":""49.99USD"",""txtBonus"":""25%"",""cost"":50}]}]";
+        // }
+        // else
+        // {
+        //     config_info = "{\"gamenotification\":false,\"is_reg\":false,\"isShowLog\":false,\"is_login_guest\":true,\"is_login_fb\":true,\"time_request\":5,\"avatar_change\":2,\"avatar_count\":10,\"avatar_build\":\"https://cdn.tongitsonline.com/api/public/dl/ierd34s/images/avatar/%avaNO%.png?inline=true\",\"avatar_fb\":\"https://graph.facebook.com/v10.0/%fbID%/picture?width=200&height=200&redirect=true&access_token=%token%\",\"name_fb\":\"https://graph.facebook.com/%userID%/?fields=name&access_token=%token%\",\"contentChat\":\"https://cfg.jakartagames.net/contentChat\",\"bundleID\":\"diamond.domino.slots\",\"version\":\"1.00\",\"operatorID\":7000,\"os\":\"android_cocosjs\",\"publisher\":\"config_offline_ios\",\"disID\":1005,\"fbprivateappid\":\"\",\"fanpageID\":\"\",\"groupID\":\"\",\"hotline\":\"\",\"listGame\":[{\"id\":8009,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8010,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8020,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8021,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8044,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":8805,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":8818,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9007,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9008,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9500,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":10000,\"v_tb\":2},{\"id\":9501,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9900,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9950,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2},{\"id\":9011,\"ip\":\"8.213.193.230\",\"ip_dm\":\"app1.jakartagames.net\",\"agSvipMin\":25000,\"v_tb\":2}],\"u_chat_fb\":\"\",\"infoUser\":\"https://cfg.jakartagames.net/infoUser\",\"umode\":0,\"uop1\":\"OK\",\"umsg\":\"\",\"utar\":\"\",\"uop2\":\"Cancel\",\"newest_versionUrl\":\"https://play.google.com/store/apps/details?id=diamond.domino.slots\"}";
+        // }
 
-        var configOff = PlayerPrefs.GetString("config_save", "");
+        string storedConfig = PlayerPrefs.GetString("config_save", "");
         init();
-        // handleConfigInfo(configOff.Equals("") ? config_info : configOff);
-        // getConfigInfo();
-
+        if (!storedConfig.Equals("")) handleConfigInfo(storedConfig);
+        else UIManager.instance.showWaiting();
+        StartCoroutine(loadConfig());
+        IEnumerator loadConfig()
+        {
+            do
+            {
+                getConfigInfo();
+                yield return new WaitForSeconds(5f);
+            }
+            while (!isLoadedConfig);
+        }
     }
 
     void init()
@@ -96,7 +105,7 @@ public class LoadConfig : MonoBehaviour
 
     async void ProgressHandle(string url, string json, Action<string> callback, Action callbackError = null)
     {
-        UIManager.instance.showWaiting();
+        // UIManager.instance.showWaiting();
         UnityWebRequest www = new UnityWebRequest(url, "POST");
 
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
@@ -191,9 +200,8 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        // wWForm["bundleID"] = "tongits11.game.cocos"; //old
-        wWForm["bundleID"] = "ruby.tongits.war777.com";
-        wWForm["publisher"] = "ruby_tongits_war777_apk";
+        wWForm["bundleID"] = Config.IsBuildStore ? "ruby.tongits.war777.com_store" : "ruby.tongits.war777.com_pro";
+        wWForm["publisher"] = Config.IsBuildStore ? "ruby_tongits_war777_com_store" : "ruby_tongits_war777_com_pro";
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
         if (User.userMain != null)
@@ -221,10 +229,9 @@ public class LoadConfig : MonoBehaviour
     public void getConfigInfo()
     {
         //loadInfo();
-        isLoadedConfig = false;
         var wWForm = createBodyJsonNormal();
         Debug.Log("-=-=getConfigInfo   " + wWForm.ToString());
-        //StartCoroutine(GetRequest(url_start, wWForm.ToString(), handleConfigInfo));
+        isLoadedConfig = false;
         ProgressHandle(url_start, wWForm.ToString(), handleConfigInfo);
     }
 
@@ -232,8 +239,7 @@ public class LoadConfig : MonoBehaviour
     public void getInfoUser(string _data0)
     {
         var wWForm = createBodyJson();
-        if (Config.data0)
-            wWForm["data0"] = _data0;
+        if (Config.data0) wWForm["data0"] = _data0;
         Debug.Log("-=-=getInfoUser   " + Config.infoUser + " / " + wWForm.ToString());
         //StartCoroutine(GetRequest(Config.infoUser, wWForm.ToString(), handleUserInfo));
         ProgressHandle(Config.infoUser, wWForm.ToString(), handleUserInfo);
@@ -312,7 +318,6 @@ public class LoadConfig : MonoBehaviour
     void handleConfigInfo(string strData)
     {
         PlayerPrefs.SetString("config_save", strData);
-        isLoadedConfig = true;
         Logging.Log("-=-=handleConfigInfo: " + strData);
         JObject jConfig = null;
         try
@@ -356,7 +361,7 @@ public class LoadConfig : MonoBehaviour
         {
             Config.u_SIO = (string)jConfig["u_SIO"];
             Logging.LogWarning("-=-=-u_SIO  " + Config.u_SIO);
-            SocketIOManager.getInstance().intiSml();
+            SocketIOManager.getInstance().initSml();
             SocketIOManager.getInstance().startSIO();
         }
         else
@@ -511,20 +516,8 @@ public class LoadConfig : MonoBehaviour
         var utar = jConfig.ContainsKey("utar") ? (string)jConfig["utar"] : "";
         updateConfigUmode(umode, uop1, uop2, utar, umsg);
         PlayerPrefs.Save();
-        // var isFirstOpen = PlayerPrefs.GetInt("isFirstOpen", 0);
-        // Globals.Logging.Log("isFirstOpen " + isFirstOpen);
-        if (UIManager.instance.loginView.IsInputsClear())
-            UIManager.instance.loginView.onClickPlayNow();
-        else
-        {
-            Globals.Logging.Log("isOpenFirst " + isOpenFirst);
-            if (isOpenFirst)
-            {
-                isOpenFirst = false;
-                Config.typeLogin = LOGIN_TYPE.NORMAL;
-                UIManager.instance.loginView.reconnect();
-            }
-        }
+        UIManager.instance.refreshUIFromConfig();
+        isLoadedConfig = true;
     }
 
     void handleUserInfo(string strData)
@@ -563,7 +556,6 @@ public class LoadConfig : MonoBehaviour
             Config.ApkFullUrl = Config.ApkFullUrl.Replace("%password%", Config.user_pass);
         }
         else Config.ApkFullUrl = "";
-        if (UIManager.instance.gameView == null) UIManager.instance.showLobbyScreen(true);
         UIManager.instance.refreshUIFromConfig();
     }
 

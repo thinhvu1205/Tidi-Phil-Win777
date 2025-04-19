@@ -418,7 +418,7 @@ public class BaccaratView : GameView
                 });
         }
 
-        //HandleGame.nextEvt();
+        // HandleGame.nextEvt();
 
     }
 

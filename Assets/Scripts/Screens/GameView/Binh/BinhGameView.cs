@@ -429,11 +429,11 @@ public class BinhGameView : GameView
         }
         if (num > 1)
         {
-            showChi3();
+            if (this != null) showChi3();
             await Awaitable.WaitForSecondsAsync(3.5f);
-            showChi2();
+            if (this != null) showChi2();
             await Awaitable.WaitForSecondsAsync(3.5f);
-            showChi1();
+            if (this != null) showChi1();
             await Awaitable.WaitForSecondsAsync(2f);
             for (int i = 0; i < 4; i++) m_RankImgs[i].gameObject.SetActive(false);
             await Awaitable.WaitForSecondsAsync(2f);
@@ -660,7 +660,7 @@ public class BinhGameView : GameView
     private IEnumerator soundBoom(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SoundManager.instance.playEffectFromPath(SOUND_CHAT.BOOM);
+        if (this != null) SoundManager.instance.playEffectFromPath(SOUND_CHAT.BOOM);
     }
     async Awaitable checkSapHam(float delayTime)
     {
@@ -768,7 +768,7 @@ public class BinhGameView : GameView
             bombSG.Initialize(true);
             bombSG.AnimationState.SetAnimation(0, "animation", false);
             bombSG.AnimationState.Complete += delegate { StartCoroutine(turnOffAnimBom(0.5f, bombSG)); };
-            SoundManager.instance.playEffectFromPath(SOUND_CHAT.BOOM);
+            if (this != null) SoundManager.instance.playEffectFromPath(SOUND_CHAT.BOOM);
         });
         int point = 0;
         foreach (JObject data in _DataResultJOs)
@@ -895,7 +895,7 @@ public class BinhGameView : GameView
     }
     async void showChi1()
     {
-        SoundManager.instance.playEffectFromPath(thisPlayer.scoreChi1 + thisPlayer.bonusChi1 > 0 ? SOUND_BINH.COMPARE_WIN : SOUND_BINH.COMPARE_LOSE);
+        if (this != null) SoundManager.instance.playEffectFromPath(thisPlayer.scoreChi1 + thisPlayer.bonusChi1 > 0 ? SOUND_BINH.COMPARE_WIN : SOUND_BINH.COMPARE_LOSE);
         for (int i = 0; i < players.Count; i++)
         {
             if (stateGame == STATE_GAME.VIEWING && players[i] == thisPlayer) continue;
@@ -945,7 +945,7 @@ public class BinhGameView : GameView
     }
     async void showChi2()
     {
-        SoundManager.instance.playEffectFromPath(thisPlayer.scoreChi2 + thisPlayer.bonusChi2 > 0 ? SOUND_BINH.COMPARE_WIN : SOUND_BINH.COMPARE_LOSE);
+        if (this != null) SoundManager.instance.playEffectFromPath(thisPlayer.scoreChi2 + thisPlayer.bonusChi2 > 0 ? SOUND_BINH.COMPARE_WIN : SOUND_BINH.COMPARE_LOSE);
         for (int i = 0; i < players.Count; i++)
         {
             if (stateGame == STATE_GAME.VIEWING && players[i] == thisPlayer) continue;
@@ -995,7 +995,7 @@ public class BinhGameView : GameView
     async void showChi3()
     {
         m_SpecialSG.transform.parent.gameObject.SetActive(false);
-        SoundManager.instance.playEffectFromPath(thisPlayer.scoreChi3 + thisPlayer.bonusChi3 > 0 ? SOUND_BINH.COMPARE_WIN : SOUND_BINH.COMPARE_LOSE);
+        if (this != null) SoundManager.instance.playEffectFromPath(thisPlayer.scoreChi3 + thisPlayer.bonusChi3 > 0 ? SOUND_BINH.COMPARE_WIN : SOUND_BINH.COMPARE_LOSE);
         m_ScoreBg.SetActive(!(stateGame == STATE_GAME.VIEWING || thisPlayer.mauBinh_MB >= 10 || thisPlayer.mauBinh_BL));
         for (int i = 0; i < players.Count; i++)
         {
@@ -1415,7 +1415,7 @@ public class BinhGameView : GameView
             if (players[i] == null || (players[i] == thisPlayer && stateGame == STATE_GAME.VIEWING)) continue;
             if (players[i].mauBinh_M < 0)
             {
-                if (players[i] == thisPlayer) SoundManager.instance.playEffectFromPath(SOUND_GAME.LOSE);
+                if (players[i] == thisPlayer) if (this != null) SoundManager.instance.playEffectFromPath(SOUND_GAME.LOSE);
                 players[i].playerView.setEffectLose(false);
                 players[i].playerView.effectFlyMoney(players[i].mauBinh_M, 40);
                 for (int j = 0; j < _DataFinishJA.Count; j++)
@@ -1428,7 +1428,7 @@ public class BinhGameView : GameView
                         players[i].playerView.chipJackpot = 0;
                     }
                 }
-                SoundManager.instance.playEffectFromPath(SOUND_GAME.THROW_CHIP);
+                if (this != null) SoundManager.instance.playEffectFromPath(SOUND_GAME.THROW_CHIP);
                 for (int j = 0; j < 10; j++)
                 {
                     posV2.x = UnityEngine.Random.Range(0, 80) - 40;
@@ -1448,8 +1448,8 @@ public class BinhGameView : GameView
             if (playerP == null || (playerP == thisPlayer && stateGame == STATE_GAME.VIEWING)) continue;
             if (playerP.mauBinh_M > 0)
             {
-                SoundManager.instance.playEffectFromPath(SOUND_GAME.THROW_CHIP);
-                if (playerP == thisPlayer) SoundManager.instance.playEffectFromPath(SOUND_GAME.WIN);
+                if (this != null) SoundManager.instance.playEffectFromPath(SOUND_GAME.THROW_CHIP);
+                if (playerP == thisPlayer) if (this != null) SoundManager.instance.playEffectFromPath(SOUND_GAME.WIN);
                 bool checkWin = false;
                 for (int j = 0; j < 10; j++)
                 {
