@@ -2837,6 +2837,7 @@ MonoBehaviour:
   inviteContainer: {fileID: 5134814060711992350}
   playerContainer: {fileID: 6111792474886174865}
   txtGameName: {fileID: 0}
+  m_HiddenPlayersTf: {fileID: 0}
   agTable: 0
   maxbet: 0
   delayEvents: []

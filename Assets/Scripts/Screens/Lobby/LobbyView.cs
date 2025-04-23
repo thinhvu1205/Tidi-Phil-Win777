@@ -155,6 +155,7 @@ public class LobbyView : BaseView
 
     protected override void OnEnable()
     {
+        LoadConfig.instance.getConfigInfo();
         CURRENT_VIEW.setCurView(CURRENT_VIEW.GAMELIST_VIEW);
         SoundManager.instance.playMusic();
         if (Config.IsBuildStore)
@@ -219,11 +220,11 @@ public class LobbyView : BaseView
     }
     private void _SetPosWhenBannerActive()
     {
-        RectTransform bannersRT = _ThisListGamesSR.GetComponent<RectTransform>();
+        RectTransform gamesRT = _ThisListGamesSR.GetComponent<RectTransform>();
         if (_ThisBannerPS.gameObject.activeSelf)
         {
-            bannersRT.offsetMin = new Vector2(370, bannersRT.offsetMin.y);
-            bannersRT.offsetMax = new Vector2(-70, bannersRT.offsetMax.y);
+            gamesRT.offsetMin = new Vector2(370, gamesRT.offsetMin.y);
+            gamesRT.offsetMax = new Vector2(-70, gamesRT.offsetMax.y);
         }
     }
 

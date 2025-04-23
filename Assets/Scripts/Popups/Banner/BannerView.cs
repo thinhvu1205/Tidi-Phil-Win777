@@ -148,7 +148,7 @@ public class BannerView : BaseView
                             }
                         case "pm":
                             {
-                                UIManager.instance.lobbyView.onClickShop();
+                                UIManager.instance.openShop((string)dtBtn["titlePM"]);
                                 break;
                             }
                         case "playnow":

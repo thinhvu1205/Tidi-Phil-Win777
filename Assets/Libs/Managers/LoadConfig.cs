@@ -65,7 +65,7 @@ public class LoadConfig : MonoBehaviour
             do
             {
                 getConfigInfo();
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(10f);
             }
             while (!isLoadedConfig);
         }

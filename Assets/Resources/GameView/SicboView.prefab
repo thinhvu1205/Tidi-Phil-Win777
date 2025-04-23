@@ -13869,7 +13869,8 @@ MonoBehaviour:
   m_HiddenPlayersTf: {fileID: 1022153414677782791}
   agTable: 0
   maxbet: 0
-  delayEvents: []
+  delayEvents:
+  - ltable
   stateGame: 0
   soundBg: Sounds/Common/casbg_audio
   dealer: {fileID: 1755227009610034997}
@@ -13924,8 +13925,6 @@ MonoBehaviour:
   buttonBet: {fileID: 0}
   gateBet: {fileID: 0}
   boxBet: {fileID: 0}
-  m_ButtonEmoji: {fileID: 7429343920198201345}
-  m_ButtonVipFarm: {fileID: 3750146458102780750}
 --- !u!1 &6496233193046975593
 GameObject:
   m_ObjectHideFlags: 0
@@ -19507,11 +19506,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a18d1974d508dca46b52327fa3f7a30e, type: 3}
---- !u!1 &3750146458102780750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2557132732218851504, guid: a18d1974d508dca46b52327fa3f7a30e, type: 3}
-  m_PrefabInstance: {fileID: 1691085160181273598}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4994918168702181655 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5919545626683077353, guid: a18d1974d508dca46b52327fa3f7a30e, type: 3}

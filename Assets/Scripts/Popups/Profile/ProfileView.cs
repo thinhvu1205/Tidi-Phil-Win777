@@ -212,12 +212,12 @@ public class
     public void onClickLogout()
     {
         SoundManager.instance.soundClick();
+        SocketIOManager.getInstance().emitSIOCCCNew("ClickLogOut");
         SocketSend.sendLogOut();
         Config.typeLogin = LOGIN_TYPE.NONE;
         PlayerPrefs.SetInt("type_login", (int)LOGIN_TYPE.NONE);
         PlayerPrefs.Save();
         UIManager.instance.showLoginScreen(false);
-        SocketIOManager.getInstance().emitSIOCCCNew("ClickLogOut");
     }
     public void onClickChangeAvatar(Avatar avatarItem)
     {
