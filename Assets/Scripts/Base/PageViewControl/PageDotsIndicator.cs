@@ -80,8 +80,7 @@ namespace TS.PageSlider
 
         public void ChangeActiveDot(int fromIndex, int toIndex)
         {
-            _dots[fromIndex].ChangeActiveState(false);
-            _dots[toIndex].ChangeActiveState(true);
+            for (int i = 0; i < _dots.Count; i++) _dots[i].ChangeActiveState(i == toIndex);
         }
 
 #if UNITY_EDITOR

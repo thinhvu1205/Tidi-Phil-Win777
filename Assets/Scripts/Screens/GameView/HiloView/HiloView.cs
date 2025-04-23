@@ -1026,7 +1026,7 @@ public class HiloView : GameView
     public virtual void handleFinish(string objData)
     {
         //----- NEXT EVT ------//
-
+        HandleData.DelayHandleLeave = 12f;
         //stateGame = STATE_GAME.PLAYING;
         Debug.Log("handleFinish");
         JObject data = JObject.Parse(objData);

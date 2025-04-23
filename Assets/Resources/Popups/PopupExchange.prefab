@@ -633,7 +633,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b6740bc89d92df143a51668901ddc7ec, type: 3}
+    m_Font: {fileID: 12800000, guid: d176eb4589cd045899fdc922344a114b, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
@@ -712,7 +712,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b6740bc89d92df143a51668901ddc7ec, type: 3}
+    m_Font: {fileID: 12800000, guid: d176eb4589cd045899fdc922344a114b, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
@@ -1890,11 +1890,6 @@ MonoBehaviour:
   itemEx: {fileID: 165772138954721782, guid: 1564dbda35e4a44a2a162a27d8998aab, type: 3}
   itemAgency: {fileID: 7792852997665164076, guid: e47714837f14f4aef9503d965210b520, type: 3}
   itemHistory: {fileID: 5932368813004638753, guid: 53234d023c0254f749508f3926d53ce8, type: 3}
-  m_Keyboard: {fileID: 0}
-  m_OpenKeyboardPhone: {fileID: 0}
-  m_OpenKeyBoardConfirmPhone: {fileID: 0}
-  m_HighlightPhone: {fileID: 0}
-  m_HighlightConfirmPhone: {fileID: 0}
   m_PrefabHistoryTf: {fileID: 4149551832769829082}
   m_HistoryTf: {fileID: 725534953855655111}
   lbChips: {fileID: 2308090562226438793}

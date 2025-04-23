@@ -587,7 +587,7 @@ namespace Globals
         public static bool isReconnect = false;
         public static LOGIN_TYPE typeLogin = LOGIN_TYPE.NORMAL;
 
-        public static string curServerIp = "";
+        public static string curServerIp = "app1.davaogames.com";
         public static int curGameId = 0;
         public static bool isBackGame = false;
 
@@ -671,7 +671,7 @@ namespace Globals
         public static bool is_First_CheckVIPFarms = true;
         public static bool isPlayNowFromLobby = false;
         public static bool enableLottery = false;
-        public static bool IsBuildStore = true; // tùy theo bản build, nếu build bản up store thì true, bản full thì là false
+        public static bool IsBuildStore = false; // tùy theo bản build, nếu build bản up store thì true, bản full thì là false
 
         public static JArray arrOnlistTrue = new JArray();
         public static JArray arrBannerLobby = new JArray();

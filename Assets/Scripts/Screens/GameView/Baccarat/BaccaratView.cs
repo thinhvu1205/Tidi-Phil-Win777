@@ -282,6 +282,7 @@ public class BaccaratView : GameView
 
     public void handleFinishGame(JObject jData)
     {
+        HandleData.DelayHandleLeave = 7f;
         clock.SetActive(false);
         buttonBetBaccarat.SetActive(false);
         for (int i = 0; i < listPot.Count; i++)
