@@ -166,8 +166,8 @@ public class ListBannerView : BaseView
     protected override void Start()
     {
         CURRENT_VIEW.setCurView(CURRENT_VIEW.NEWS_VIEW);
-        m_PrefBannerRT.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.width);
-        m_PrefBannerRT.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.height);
+        m_PrefBannerRT.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, m_BannersSR.viewport.rect.width);
+        m_PrefBannerRT.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, m_BannersSR.viewport.rect.height);
         _LoadListBanner();
     }
 }
