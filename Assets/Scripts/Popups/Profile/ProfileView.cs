@@ -7,8 +7,7 @@ using DG.Tweening;
 using Globals;
 using Newtonsoft.Json.Linq;
 
-public class
-    ProfileView : BaseView
+public class ProfileView : BaseView
 {
     // Start is called before the first frame update
     public static ProfileView instance;

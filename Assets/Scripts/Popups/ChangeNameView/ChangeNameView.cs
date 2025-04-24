@@ -9,14 +9,8 @@ public class ChangeNameView : BaseView
 {
     public static ChangeNameView intance;
     //InputField edb_username, edb_password, edb_retype;
-    [SerializeField]
-    TMP_InputField edb_username, edb_password, edb_retype;
-
-    //[SerializeField]
-    //List<Sprite> lsTitleEng = new List<Sprite>();
-    [SerializeField]
-    [Tooltip("0-change pass, 1-register, 2-rename")]
-    List<Sprite> lsTitleThai = new List<Sprite>();
+    [SerializeField] TMP_InputField edb_username, edb_password, edb_retype;
+    [SerializeField] private GameObject m_ChangePass, m_Register;
 
     [SerializeField]
     TextMeshProUGUI lb_Confirm, lbBonus;
@@ -46,6 +40,8 @@ public class ChangeNameView : BaseView
 
         if (Globals.Config.typeLogin == Globals.LOGIN_TYPE.NORMAL)
         {
+            m_ChangePass.SetActive(true);
+            m_Register.SetActive(false);
             tagBonus.SetActive(false);
             edb_password.gameObject.SetActive(true);
             edb_retype.gameObject.SetActive(true);
@@ -61,7 +57,8 @@ public class ChangeNameView : BaseView
         }
         else if (Globals.Config.typeLogin == Globals.LOGIN_TYPE.FACEBOOK || Globals.Config.typeLogin == Globals.LOGIN_TYPE.APPLE_ID || Globals.Config.typeLogin == Globals.LOGIN_TYPE.FACEBOOK_INSTANT)
         {
-
+            m_ChangePass.SetActive(true);
+            m_Register.SetActive(false);
             //tagBonus.SetActive(Globals.Config.agRename>0);
             tagBonus.SetActive(false);
             Globals.Logging.Log("vao day la doi ten");
@@ -77,9 +74,10 @@ public class ChangeNameView : BaseView
         }
         else if (Globals.Config.typeLogin == Globals.LOGIN_TYPE.PLAYNOW)
         {
-
             if (PlayerPrefs.GetInt("isReg", 0) == 0)
             {
+                m_ChangePass.SetActive(false);
+                m_Register.SetActive(true);
                 tagBonus.SetActive(false);
                 lbBonus.text = "+" + Globals.Config.FormatNumber(Globals.Config.agRename);
 
@@ -97,6 +95,8 @@ public class ChangeNameView : BaseView
             }
             else
             {
+                m_ChangePass.SetActive(true);
+                m_Register.SetActive(false);
                 tagBonus.SetActive(false);
 
                 edb_password.gameObject.SetActive(true);

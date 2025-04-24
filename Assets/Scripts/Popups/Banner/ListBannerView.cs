@@ -25,26 +25,28 @@ public class ListBannerView : BaseView
     {
         if (m_BannersSR.content.childCount <= 1) return;
         if (_IsClicking) return;
+        m_BannersSR.content.DOComplete();
         _IsClicking = true;
         m_BannersSR.content.DOLocalMoveX(m_BannersSR.content.localPosition.x + m_PrefBannerRT.rect.width, _SWIPE_TIME)
-        .OnComplete(() =>
-        {
-            _CheckOnEdge();
-            _IsClicking = false;
-        });
+            .OnComplete(() =>
+            {
+                _CheckOnEdge();
+                _IsClicking = false;
+            });
         _UpdatePaginateDots();
     }
     public void DoClickNext()
     {
         if (m_BannersSR.content.childCount <= 1) return;
         if (_IsClicking) return;
+        m_BannersSR.content.DOComplete();
         _IsClicking = true;
         m_BannersSR.content.DOLocalMoveX(m_BannersSR.content.localPosition.x - m_PrefBannerRT.rect.width, _SWIPE_TIME)
-        .OnComplete(() =>
-        {
-            _CheckOnEdge();
-            _IsClicking = false;
-        });
+            .OnComplete(() =>
+            {
+                _CheckOnEdge();
+                _IsClicking = false;
+            });
         _UpdatePaginateDots();
     }
     #endregion
@@ -62,6 +64,9 @@ public class ListBannerView : BaseView
         //     GameObject dot = Instantiate(m_PrefDotRT, m_PaginatesTf).gameObject;
         //     dot.SetActive(true);
         // }
+        // _BannerNowBV = _BannerBVs[1];
+        // m_BannersSR.content.anchoredPosition -= new Vector2(m_PrefBannerRT.rect.width, 0);
+
         JObject dataBannerFirst = null, databannerLast = null;
         Sprite firstS = null, lastS = null;
         for (int i = 0; i < Config.arrOnlistTrue.Count; i++)
