@@ -1552,7 +1552,6 @@ public class BaseSlotGameView : GameView
 
         if (timeHoldSpin < 1.3f)
         {
-
             if (gameState != GAME_STATE.SPINNING) //dang dung.chua quay
             {
                 if (isFreeSpin == false && (listBetRoom.Count == 0 || agPlayer < totalListBetRoom[currentMarkBet]))

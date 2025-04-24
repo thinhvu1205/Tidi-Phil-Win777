@@ -832,30 +832,7 @@ public class UIManager : MonoBehaviour
     {
         //new Thread(new ThreadStart(() =>
         //{
-        DialogView dialog;
-        if (dialogPool.Count == 0)
-        {
-            //messageBox = Instantiate(loadPrefabPopup("Dialog"), parentPopups).GetComponent<DialogView>();
-            Debug.Log("-=-=listDialogOne  " + listDialogOne.Count);
-            if (listDialogOne.FirstOrDefault(x => x.getMessage().Equals(msg)) == null)
-            {
-                dialog = Instantiate(prefab, parentPopups).GetComponent<DialogView>();
-            }
-            else return;
-        }
-        else
-        {
-            //dialog = dialogPool[0];
-            //dialogPool.RemoveAt(0);
-            //dialog.transform.parent = parentPopups;
-            dialog = listDialogOne.FirstOrDefault(x => x.getMessage().Equals(msg));
-            if (dialog == null)
-            {
-                dialog = dialogPool[0];
-                dialogPool.RemoveAt(0);
-                dialog.transform.parent = parentPopups;
-            }
-        }
+        DialogView dialog = dialog = Instantiate(prefab, parentPopups).GetComponent<DialogView>(); ;
 
         listDialogOne.Add(dialog);
         dialog.gameObject.SetActive(true);
@@ -891,28 +868,8 @@ public class UIManager : MonoBehaviour
 
     DialogView createDialog(GameObject prefab, string msg, string nameBtn1 = "", Action callback1 = null, string nameBtn2 = "", Action callback2 = null, bool isShowClose = false, Action callback3 = null)
     {
-        DialogView dialog;
-        if (dialogPool.Count == 0)
-        {
-            //dialog = Instantiate(loadPrefabPopup("Dialog"), parentPopups).GetComponent<DialogView>();
-            dialog = listDialogOne.FirstOrDefault(x => x.getMessage().Equals(msg));
-            if (dialog == null)
-            {
-                dialog = Instantiate(prefab, parentPopups).GetComponent<DialogView>();
-                listDialogOne.Add(dialog);
-            }
-        }
-        else
-        {
-            dialog = listDialogOne.FirstOrDefault(x => x.getMessage().Equals(msg));
-            if (dialog == null)
-            {
-                dialog = dialogPool[0];
-                dialogPool.RemoveAt(0);
-                dialog.transform.parent = parentPopups;
-                listDialogOne.Add(dialog);
-            }
-        }
+        DialogView dialog = Instantiate(prefab, parentPopups).GetComponent<DialogView>();
+        listDialogOne.Add(dialog);
         dialog.gameObject.SetActive(true);
         dialog.transform.localScale = Vector3.one;
         dialog.transform.SetAsLastSibling();
