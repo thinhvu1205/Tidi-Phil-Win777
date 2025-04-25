@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour
     public Sprite spAvatarMe;
     void Awake()
     {
-        Application.targetFrameRate = 60;
+        // Application.targetFrameRate = 60;
 
         instance = this;
         curGameId = PlayerPrefs.GetInt("curGameId", 0);
