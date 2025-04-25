@@ -188,11 +188,11 @@ public class LoadConfig : MonoBehaviour
 
     JObject createBodyJsonNormal()
     {
-        var osName = "android_unity";
+        var osName = "android";
         if (Application.platform == RuntimePlatform.Android)
-            osName = "android_unity";
+            osName = "android";
         else if (Application.platform == RuntimePlatform.IPhonePlayer)
-            osName = "ios_unity";
+            osName = "ios";
 
         //form.AddField("os", osName);
         //form.AddField("mcc", "[0,0]");

@@ -29,12 +29,10 @@ public class LoginView : BaseView
         IEnumerator login()
         {
             while (Config.curServerIp.Equals("")) yield return new WaitForSeconds(1f);
-            if (UIManager.instance.loginView.IsInputsClear()) UIManager.instance.loginView.onClickPlayNow();
-            else
-            {
-                Config.typeLogin = LOGIN_TYPE.NORMAL;
+            if (Config.typeLogin == LOGIN_TYPE.PLAYNOW || Config.typeLogin == LOGIN_TYPE.NONE)
+                UIManager.instance.loginView.onClickPlayNow();
+            else if (Config.typeLogin == LOGIN_TYPE.NORMAL)
                 UIManager.instance.loginView.reconnect();
-            }
         }
     }
     public bool IsInputsClear() { return m_AccountTMPIF.text.Equals(""); }

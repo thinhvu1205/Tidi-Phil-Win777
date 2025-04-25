@@ -27,10 +27,11 @@ public class ListBannerView : BaseView
         if (_IsClicking) return;
         m_BannersSR.content.DOComplete();
         _IsClicking = true;
+        if (_BannerBVs.IndexOf(_BannerNowBV) == 1) _BannerNowBV = _BannerBVs[_BannerBVs.Count - 2];
         m_BannersSR.content.DOLocalMoveX(m_BannersSR.content.localPosition.x + m_PrefBannerRT.rect.width, _SWIPE_TIME)
             .OnComplete(() =>
             {
-                _CheckOnEdge();
+                // _CheckOnEdge();
                 _IsClicking = false;
             });
         _UpdatePaginateDots();
@@ -41,10 +42,11 @@ public class ListBannerView : BaseView
         if (_IsClicking) return;
         m_BannersSR.content.DOComplete();
         _IsClicking = true;
+        // if (_BannerBVs.IndexOf(_BannerNowBV) == _BannerBVs.Count - 1) _BannerNowBV = _BannerBVs[1];
         m_BannersSR.content.DOLocalMoveX(m_BannersSR.content.localPosition.x - m_PrefBannerRT.rect.width, _SWIPE_TIME)
             .OnComplete(() =>
             {
-                _CheckOnEdge();
+                // _CheckOnEdge();
                 _IsClicking = false;
             });
         _UpdatePaginateDots();
@@ -163,9 +165,8 @@ public class ListBannerView : BaseView
             m_BannersSR.content.anchoredPosition += new Vector2(countBanners * m_PrefBannerRT.rect.width, 0);
         }
     }
-    protected override void Update()
+    private void LateUpdate()
     {
-        base.Update();
         if (_IsClicking) return;
         if (!Input.GetMouseButton(0))
         {

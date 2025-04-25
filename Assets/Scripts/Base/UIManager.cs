@@ -832,7 +832,7 @@ public class UIManager : MonoBehaviour
     {
         //new Thread(new ThreadStart(() =>
         //{
-        DialogView dialog = dialog = Instantiate(prefab, parentPopups).GetComponent<DialogView>(); ;
+        DialogView dialog = Instantiate(prefab, parentPopups).GetComponent<DialogView>(); ;
 
         listDialogOne.Add(dialog);
         dialog.gameObject.SetActive(true);
@@ -974,7 +974,11 @@ public class UIManager : MonoBehaviour
                 shopView.init(tabNameFocus);
                 shopView.transform.localScale = Vector3.one;
             }
-            else Application.OpenURL(ApkFullUrl);
+            else
+            {
+                if (gameView != null) SocketSend.sendExitGame();
+                Application.OpenURL(ApkFullUrl);
+            }
         }
         else
         {

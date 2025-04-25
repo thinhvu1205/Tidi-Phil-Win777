@@ -447,14 +447,28 @@ public class LobbyView : BaseView
     }
     public void onClickQuickPlay()
     {
-        _AllGameIGs.ForEach(btnGame =>
+        if (Config.IsBuildStore)
         {
-            if (btnGame.GameId == Globals.Config.lastGameIDSave)
+            foreach (ItemGame ig in m_ConfigOffIGs)
             {
-                Config.isPlayNowFromLobby = true;
-                btnGame.onClick();
+                if (ig.GameId == Globals.Config.lastGameIDSave)
+                {
+                    Config.isPlayNowFromLobby = true;
+                    ig.onClick();
+                }
             }
-        });
+        }
+        else
+        {
+            _AllGameIGs.ForEach(btnGame =>
+            {
+                if (btnGame.GameId == Globals.Config.lastGameIDSave)
+                {
+                    Config.isPlayNowFromLobby = true;
+                    btnGame.onClick();
+                }
+            });
+        }
     }
     public void onClickBannerNews()
     {
