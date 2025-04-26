@@ -155,6 +155,7 @@ public class LobbyView : BaseView
 
     protected override void OnEnable()
     {
+        WebSocketManager.getInstance().UserLogout = false;
         LoadConfig.instance.getConfigInfo();
         CURRENT_VIEW.setCurView(CURRENT_VIEW.GAMELIST_VIEW);
         SoundManager.instance.playMusic();

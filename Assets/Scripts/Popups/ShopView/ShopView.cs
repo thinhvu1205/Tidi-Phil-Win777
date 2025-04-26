@@ -7,6 +7,7 @@ using TMPro;
 using System.Linq;
 using Globals;
 using ZXing;
+using UnityEngine.Animations;
 public class ShopView : BaseView
 {
     public static ShopView instance = null;
@@ -48,6 +49,9 @@ public class ShopView : BaseView
             updateInfo(dataDefault);
             return;
         }
+        RectTransform rt = scrContent.GetComponent<RectTransform>();
+        if (strData == dataDefault) rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 460f);
+        else rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 395f);
         UIManager.instance.destroyAllChildren(scrTabs.content.transform);
         UIManager.instance.destroyAllChildren(scrContent.content.transform);
         if (arrayData.Count == 1)

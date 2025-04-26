@@ -10,7 +10,7 @@ public class UnityMainThread : MonoBehaviour
     private Queue<Action> jobs = new Queue<Action>();
     private const float TIME_PING_MAX = 4f;
     private float _TimePing = 0;
-    private bool _HasNet = true;
+    private bool _HasNet = true, _ShowDialogOnNoInternet = true;
 
     void Awake()
     {
@@ -36,6 +36,11 @@ public class UnityMainThread : MonoBehaviour
                 Globals.Logging.Log("Error. Check internet connection!");
                 WebSocketManager.getInstance().connectionStatus = Globals.ConnectionStatus.DISCONNECTED;
                 UIManager.instance.showLoginScreen(false);
+                if (_ShowDialogOnNoInternet)
+                {
+                    UIManager.instance.showMessageBox(Globals.Config.getTextConfig("err_network"));
+                }
+                _ShowDialogOnNoInternet = false;
                 return;
             }
             else if (_HasNet)
@@ -48,6 +53,7 @@ public class UnityMainThread : MonoBehaviour
         }
         else
         {
+            _ShowDialogOnNoInternet = true;
             _HasNet = true;
         }
         _TimePing += Time.fixedDeltaTime;

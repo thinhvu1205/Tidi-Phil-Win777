@@ -115,8 +115,10 @@ public class SocketSend
     {
         JObject data = new JObject();
         data["evt"] = "logout";
-        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
-        WebSocketManager.getInstance().stop();
+        WebSocketManager instance = WebSocketManager.getInstance();
+        instance.UserLogout = true;
+        instance.sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+        instance.stop();
     }
     public static void getChatWorld()
     {

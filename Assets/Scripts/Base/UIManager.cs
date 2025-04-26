@@ -362,7 +362,10 @@ public class UIManager : MonoBehaviour
         {
             Globals.Logging.Log("-=-=!OnApplicationResume " + (gameView != null));
             if (gameView != null)
+            {
+                WebSocketManager.getInstance().UserLogout = true;
                 showLoginScreen(true);
+            }
         }
     }
     public bool isLoginShow()
@@ -1378,6 +1381,7 @@ public class UIManager : MonoBehaviour
         //PlayerPrefs.Save();
         //UIManager.instance.showLoginScreen(false);
         //SocketIOManager.getInstance().emitSIOCCCNew("ClickLogOut");
+        WebSocketManager.getInstance().UserLogout = true;
         showLoginScreen();
     }
 

@@ -16,6 +16,7 @@ public class WebSocketManager : MonoBehaviour
     WebSocket ws = null;
     Action _OnConnectCb;
     static WebSocketManager instance = null;
+    public bool UserLogout;
 
     public WebSocketManager()
     {
@@ -81,11 +82,16 @@ public class WebSocketManager : MonoBehaviour
         UnityMainThread.instance.AddJob(() =>
         {
             UIManager.instance.showLoginScreen(false);
+            if (!UserLogout)
+            {
+                UIManager.instance.showDialog("You have logged in from another place!", "Confirm");
+            }
         });
     }
     private void _HandleOnOpenWebSocket()
     {
         connectionStatus = ConnectionStatus.CONNECTED;
+        UserLogout = true;
         _OnConnectCb?.Invoke();
         Logging.Log("OnOpen ");
         while (jobsResend.Count > 0)

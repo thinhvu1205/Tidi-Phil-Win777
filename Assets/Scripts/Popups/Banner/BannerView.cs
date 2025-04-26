@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Globals;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -173,10 +174,17 @@ public class BannerView : BaseView
                             break;
                         case "cashout": // open CO
                                         //              cc.NGWlog('chay vao  btn  cash out', require("ConfigManager").getInstance().is_dt);
-                            if (Globals.Config.is_dt)
+                            if (Config.IsBuildStore)
                             {
-                                //cc.NGWlog('chay vao  btn  cash out 22222');
-                                UIManager.instance.openEx();
+
+                            }
+                            else
+                            {
+                                if (Globals.Config.is_dt)
+                                {
+                                    //cc.NGWlog('chay vao  btn  cash out 22222');
+                                    UIManager.instance.openEx();
+                                }
                             }
                             break;
                         case "topgame": // top game

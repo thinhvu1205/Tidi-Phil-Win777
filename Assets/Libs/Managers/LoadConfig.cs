@@ -552,8 +552,16 @@ public class LoadConfig : MonoBehaviour
         if (jConfig.ContainsKey("linkci"))
         {
             Config.ApkFullUrl = (string)jConfig["linkci"];
-            Config.ApkFullUrl = Config.ApkFullUrl.Replace("%username%", Config.user_name);
-            Config.ApkFullUrl = Config.ApkFullUrl.Replace("%password%", Config.user_pass);
+            if (Config.typeLogin == LOGIN_TYPE.NORMAL)
+            {
+                Config.ApkFullUrl = Config.ApkFullUrl.Replace("%username%", Config.user_name);
+                Config.ApkFullUrl = Config.ApkFullUrl.Replace("%password%", Config.user_pass);
+            }
+            else if (Config.typeLogin == LOGIN_TYPE.PLAYNOW)
+            {
+                Config.ApkFullUrl = Config.ApkFullUrl.Replace("%username%", UIManager.instance.loginView.accPlayNow);
+                Config.ApkFullUrl = Config.ApkFullUrl.Replace("%password%", UIManager.instance.loginView.passPlayNow);
+            }
         }
         else Config.ApkFullUrl = "";
         UIManager.instance.refreshUIFromConfig();

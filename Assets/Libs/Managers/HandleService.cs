@@ -675,6 +675,7 @@ public class HandleService
                                 {
                                     ProfileView.instance.setInfo();
                                 }
+                                WebSocketManager.getInstance().UserLogout = true;
                                 UIManager.instance.showLoginScreen(true);
                             });
                         }
@@ -704,6 +705,7 @@ public class HandleService
                                 Globals.Config.getTextConfig("change_name_success") + " " + jsonData["U"], Globals.Config.getTextConfig("ok"),
                                 () =>
                                 {
+                                    WebSocketManager.getInstance().UserLogout = true;
                                     UIManager.instance.showLoginScreen(true);
                                 }
                             );

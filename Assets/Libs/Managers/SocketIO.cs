@@ -5,6 +5,7 @@ using Globals;
 using Newtonsoft.Json.Linq;
 using SocketIOClient;
 using SocketIOClient.Newtonsoft.Json;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SocketIOManager
@@ -78,7 +79,11 @@ public class SocketIOManager
                 if (DATAEVT0 != null)
                     if (Config.isLoginSuccess)
                         emitSIOWithValue(DATAEVT0, "LoginPacket", false);
-                for (int i = 0; i < listResendData.Count; i++) emitSIO(listResendData[i]);
+                for (int i = 0; i < listResendData.Count; i++)
+                {
+                    if (listResendData[i].Contains("ClickLogOut")) continue;
+                    emitSIO(listResendData[i]);
+                }
                 listResendData.Clear();
             };
             clientIO.OnDisconnected += (sender, e) =>
