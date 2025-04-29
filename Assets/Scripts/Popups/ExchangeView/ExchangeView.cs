@@ -109,7 +109,10 @@ public class ExchangeView : BaseView
         _contentHeight += tf.GetComponent<RectTransform>().rect.height;
 
     }
-
+    public void UpdateAg()
+    {
+        lbChips.text = Globals.Config.FormatNumber(Globals.User.userMain.AG);
+    }
     void updateInfo(string strData)
     {
         Globals.Logging.Log("updateInfo EX   " + strData);

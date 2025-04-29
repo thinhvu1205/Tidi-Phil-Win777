@@ -609,9 +609,13 @@ public class HandleService
                         // Tracking:: sendTrackBanner(3, _idBanner, paybanner);
                         UIManager.instance.updateAG();
                         SocketIOManager.getInstance().emitUpdateInfo();
-                        if (TableView.instance)
+                        if (TableView.instance != null)
                         {
                             TableView.instance.reloadLtv();
+                        }
+                        if (ExchangeView.instance != null)
+                        {
+                            ExchangeView.instance.UpdateAg();
                         }
                         break;
                     }
