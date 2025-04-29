@@ -1084,6 +1084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banner
       objectReference: {fileID: 0}
+    - target: {fileID: 8786574393286912785, guid: db3287d25502440fa81a9cb5fa106197, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8786574393286912790, guid: db3287d25502440fa81a9cb5fa106197, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

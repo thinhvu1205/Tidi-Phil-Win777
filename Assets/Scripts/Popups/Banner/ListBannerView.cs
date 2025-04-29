@@ -54,21 +54,6 @@ public class ListBannerView : BaseView
     #endregion
     private async void _LoadListBanner()
     {
-        // for (int i = 0; i < 5; i++)
-        // {
-        //     RectTransform go = Instantiate(m_PrefBannerRT, m_BannersSR.content);
-        //     go.name = i.ToString();
-        //     go.gameObject.SetActive(true);
-        //     BannerView nodeBanner = go.GetComponentInChildren<BannerView>();
-        //     nodeBanner.GetComponentInChildren<TextMeshProUGUI>().text = (i + 1).ToString();
-        //     _BannerBVs.Add(nodeBanner);
-        //     nodeBanner.transform.localScale = Vector3.one;
-        //     GameObject dot = Instantiate(m_PrefDotRT, m_PaginatesTf).gameObject;
-        //     dot.SetActive(true);
-        // }
-        // _BannerNowBV = _BannerBVs[1];
-        // m_BannersSR.content.anchoredPosition -= new Vector2(m_PrefBannerRT.rect.width, 0);
-
         JObject dataBannerFirst = null, databannerLast = null;
         Sprite firstS = null, lastS = null;
         for (int i = 0; i < Config.arrOnlistTrue.Count; i++)
@@ -81,7 +66,7 @@ public class ListBannerView : BaseView
             RectTransform go = Instantiate(m_PrefBannerRT, m_BannersSR.content);
             go.name = i.ToString();
             go.gameObject.SetActive(true);
-            BannerView nodeBanner = go.GetComponentInChildren<BannerView>();
+            BannerView nodeBanner = go.transform.GetChild(0).GetComponent<BannerView>();
             nodeBanner.transform.localScale = Vector3.one;
             nodeBanner.setInfo(dataBanner, false, () => { hide(); }, spriteS);
             _BannerBVs.Add(nodeBanner);
@@ -104,23 +89,24 @@ public class ListBannerView : BaseView
             cloneLastTf.gameObject.SetActive(true);
             cloneFirstTf.localScale = Vector3.one;
             cloneLastTf.localScale = Vector3.one;
-            BannerView cloneFirstBV = cloneFirstTf.GetComponentInChildren<BannerView>();
+            BannerView cloneFirstBV = cloneFirstTf.GetChild(0).GetComponent<BannerView>();
             cloneFirstBV.transform.localScale = Vector3.one;
             cloneFirstBV.setInfo(dataBannerFirst, false, () => { hide(); }, firstS);
             cloneFirstTf.SetAsLastSibling();
-            BannerView cloneLastBV = cloneLastTf.GetComponentInChildren<BannerView>();
+            BannerView cloneLastBV = cloneLastTf.GetChild(0).GetComponent<BannerView>();
             cloneLastBV.transform.localScale = Vector3.one;
             cloneLastBV.setInfo(databannerLast, false, () => { hide(); }, lastS);
             cloneLastTf.SetAsFirstSibling();
             await Task.Yield();
             await Task.Yield();
             await Task.Yield();
+            m_BannersSR.content.anchoredPosition -= new Vector2(m_PrefBannerRT.rect.width, 0);
             _BannerBVs.Insert(0, cloneLastBV);
             _BannerBVs.Add(cloneFirstBV);
             _BannerNowBV = _BannerBVs[1];
-            m_BannersSR.content.anchoredPosition -= new Vector2(m_PrefBannerRT.rect.width, 0);
         }
         else _BannerNowBV = _BannerBVs[0];
+        foreach (BannerView bv in _BannerBVs) bv.gameObject.SetActive(true);
         _UpdatePaginateDots();
     }
     private void _UpdatePaginateDots()
