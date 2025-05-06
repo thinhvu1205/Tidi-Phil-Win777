@@ -200,8 +200,8 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        wWForm["bundleID"] = Config.IsBuildStore ? "ruby.tongits.war777.com.store" : "ruby.tongits.war777.com.pro";
-        wWForm["publisher"] = Config.IsBuildStore ? "ruby_tongits_war777_com_store" : "ruby_tongits_war777_com_pro";
+        wWForm["bundleID"] = Config.IsBuildStore ? "ruby.tongits.war777.store" : "ruby.tongits.war777.com.pro";
+        wWForm["publisher"] = Config.IsBuildStore ? "ruby_tongits_war777_store" : "ruby_tongits_war777_com_pro";
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
         if (User.userMain != null)

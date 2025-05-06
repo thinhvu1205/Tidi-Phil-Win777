@@ -671,7 +671,7 @@ namespace Globals
         public static bool is_First_CheckVIPFarms = true;
         public static bool isPlayNowFromLobby = false;
         public static bool enableLottery = false;
-        public static bool IsBuildStore = false; // tùy theo bản build, nếu build bản up store thì true, bản full thì là false
+        public static bool IsBuildStore = true;
 
         public static JArray arrOnlistTrue = new JArray();
         public static JArray arrBannerLobby = new JArray();

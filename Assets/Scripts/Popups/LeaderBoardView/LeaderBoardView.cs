@@ -79,85 +79,43 @@ public class LeaderBoardView : BaseView
     }
     private void genListTabGame()
     {
-        if (Config.IsBuildStore)
-        {
-            for (int i = 0; i < scrTab.content.childCount; i++) scrTab.content.GetChild(i).gameObject.SetActive(false);
-            int indexSelect = 0;
-            scrTab.gameObject.SetActive(true);
-            List<int> listGameID = new() { (int)GAMEID.PUSOY, (int)GAMEID.LUCKY9, (int)GAMEID.TONGITS_OLD, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN };
-            JArray listRankGame = new();
-            foreach (JObject data in Config.listRankGame) if (listGameID.Contains((int)data["id"])) listRankGame.Add(data);
-            Config.listRankGame = listRankGame;
-            List<int> gameIds = new(){
+        for (int i = 0; i < scrTab.content.childCount; i++) scrTab.content.GetChild(i).gameObject.SetActive(false);
+        int indexSelect = 0;
+        scrTab.gameObject.SetActive(true);
+        List<int> listGameID = new();
+        JArray listRankGame = new();
+        foreach (JObject data in Config.listGame) listGameID.Add((int)data["id"]);
+        foreach (JObject data in Config.listRankGame) if (listGameID.Contains((int)data["id"])) listRankGame.Add(data);
+        Config.listRankGame = listRankGame;
+        List<int> gameIds = new(){
                 (int)GAMEID.TONGITS,(int)GAMEID.TONGITS_OLD,(int)GAMEID.PUSOY,(int)GAMEID.TONGITS_JOKER,(int)GAMEID.LUCKY9,
                 (int)GAMEID.SLOT20FRUIT,(int)GAMEID.LUCKY_89,(int)GAMEID.SABONG,(int)GAMEID.SLOT_INCA,(int)GAMEID.BACCARAT,
                 (int)GAMEID.SICBO,(int)GAMEID.SLOTNOEL,(int)GAMEID.SLOTTARZAN,(int)GAMEID.SLOT_JUICY_GARDEN,(int)GAMEID.SLOT_SIXIANG,
                 (int)GAMEID.MINE_FINDING
             };
-            for (int i = 0; i < Config.listRankGame.Count; i++)
-            {
-                JObject itemData = (JObject)Config.listRankGame[i];
-                int gameId = (int)itemData["id"];
-                if (!gameIds.Contains(gameId)) continue;
-                string name = getGameNameWithId(gameId);
-                if (!name.Equals(""))
-                {
-                    TabView itemTab;
-                    if (i < listTab.Count) itemTab = listTab[i];
-                    else
-                    {
-                        itemTab = Instantiate(itemTabGame, scrTab.content).GetComponent<TabView>();
-
-                        listTab.Add(itemTab);
-                    }
-                    itemTab.data = itemData;
-                    itemTab.gameObject.SetActive(true);
-                    itemTab.setInfo(name, onClickItemGame);
-                    if (gameId == gameIDOpen) indexSelect = i;
-                }
-            }
-            if (indexSelect < listTab.Count) onClickItemGame(listTab[indexSelect]);
-        }
-        else
+        for (int i = 0; i < Config.listRankGame.Count; i++)
         {
-            for (int i = 0; i < scrTab.content.childCount; i++) scrTab.content.GetChild(i).gameObject.SetActive(false);
-            int indexSelect = 0;
-            scrTab.gameObject.SetActive(true);
-            List<int> listGameID = new();
-            JArray listRankGame = new();
-            foreach (JObject data in Config.listGame) listGameID.Add((int)data["id"]);
-            foreach (JObject data in Config.listRankGame) if (listGameID.Contains((int)data["id"])) listRankGame.Add(data);
-            Config.listRankGame = listRankGame;
-            List<int> gameIds = new(){
-                (int)GAMEID.TONGITS,(int)GAMEID.TONGITS_OLD,(int)GAMEID.PUSOY,(int)GAMEID.TONGITS_JOKER,(int)GAMEID.LUCKY9,
-                (int)GAMEID.SLOT20FRUIT,(int)GAMEID.LUCKY_89,(int)GAMEID.SABONG,(int)GAMEID.SLOT_INCA,(int)GAMEID.BACCARAT,
-                (int)GAMEID.SICBO,(int)GAMEID.SLOTNOEL,(int)GAMEID.SLOTTARZAN,(int)GAMEID.SLOT_JUICY_GARDEN,(int)GAMEID.SLOT_SIXIANG,
-                (int)GAMEID.MINE_FINDING
-            };
-            for (int i = 0; i < Config.listRankGame.Count; i++)
+            JObject itemData = (JObject)Config.listRankGame[i];
+            int gameId = (int)itemData["id"];
+            if (!gameIds.Contains(gameId)) continue;
+            string name = getGameNameWithId(gameId);
+            if (!name.Equals(""))
             {
-                JObject itemData = (JObject)Config.listRankGame[i];
-                int gameId = (int)itemData["id"];
-                if (!gameIds.Contains(gameId)) continue;
-                string name = getGameNameWithId(gameId);
-                if (!name.Equals(""))
+                TabView itemTab;
+                if (i < listTab.Count) itemTab = listTab[i];
+                else
                 {
-                    TabView itemTab;
-                    if (i < listTab.Count) itemTab = listTab[i];
-                    else
-                    {
-                        itemTab = Instantiate(itemTabGame, scrTab.content).GetComponent<TabView>();
+                    itemTab = Instantiate(itemTabGame, scrTab.content).GetComponent<TabView>();
 
-                        listTab.Add(itemTab);
-                    }
-                    itemTab.data = itemData;
-                    itemTab.gameObject.SetActive(true);
-                    itemTab.setInfo(name, onClickItemGame);
-                    if (gameId == gameIDOpen) indexSelect = i;
+                    listTab.Add(itemTab);
                 }
+                itemTab.data = itemData;
+                itemTab.gameObject.SetActive(true);
+                itemTab.setInfo(name, onClickItemGame);
+                if (gameId == gameIDOpen) indexSelect = i;
             }
-            if (indexSelect < listTab.Count) onClickItemGame(listTab[indexSelect]);
         }
+        if (indexSelect < listTab.Count) onClickItemGame(listTab[indexSelect]);
     }
     private string getGameNameWithId(int idGame)
     {

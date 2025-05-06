@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Ruby
-  productName: Ruby777_Pro
+  productName: Big Win Club - Ruby Online
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: -3242750566743738548, guid: f535c877b2f522a4dad35844326b9754, type: 3}
+  - logo: {fileID: -4054111720429725101, guid: 68bcdb65091b1744e85b9f3caf483714, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
@@ -162,7 +162,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: ruby.tongits.war777.com.pro
+    Android: ruby.tongits.war777.store
     Lumin: com.DefaultCompany.com.unity.template.mobile2D
     Standalone: com.DefaultCompany.com.unity.template.mobile2D
     iPhone: com.DefaultCompany.com.unity.template.mobile2D
@@ -288,7 +288,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: f535c877b2f522a4dad35844326b9754, type: 3}
+      m_Icon: {fileID: 2800000, guid: 68bcdb65091b1744e85b9f3caf483714, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
