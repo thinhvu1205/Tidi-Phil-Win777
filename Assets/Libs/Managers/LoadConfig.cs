@@ -201,7 +201,8 @@ public class LoadConfig : MonoBehaviour
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
         wWForm["bundleID"] = Config.IsBuildStore ? "ruby.tongits.war777.store" : "ruby.tongits.war777.com.pro";
-        wWForm["publisher"] = Config.IsBuildStore ? "ruby_tongits_war777_store" : "ruby_tongits_war777_com_pro";
+        // wWForm["publisher"] = Config.IsBuildStore ? "ruby_tongits_war777_store" : "ruby_tongits_war777_com_pro";
+        wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
         if (User.userMain != null)
@@ -506,6 +507,7 @@ public class LoadConfig : MonoBehaviour
             Config.infoUser = (string)jConfig["infoUser"];
         else
             Config.infoUser = "";
+        if (jConfig.ContainsKey("publisher")) Config.publisher = (string)jConfig["publisher"];
 
         if (jConfig.ContainsKey("newest_versionUrl"))
             Config.newest_versionUrl = (string)jConfig["newest_versionUrl"];

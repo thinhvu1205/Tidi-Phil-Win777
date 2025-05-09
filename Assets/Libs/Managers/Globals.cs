@@ -609,7 +609,7 @@ namespace Globals
 
         public static string deviceId = "";
         public static string versionGame = Application.version;
-        public static string publisher = "diamond_domino_slots_" + versionGame.Replace('.', '_');
+        public static string publisher = "";
         public static string package_name = Application.identifier;
         public static string versionDevice = getVersionDevice();
         public static string versionNameOS = SystemInfo.operatingSystem;
