@@ -565,7 +565,6 @@ namespace Globals
     {
         public const int CODE_JOKER_BLACK = 60;
         public const int CODE_JOKER_RED = 61;
-
         public static bool isSvTest = false;
         public const int OPERATOR = 7000;
 
