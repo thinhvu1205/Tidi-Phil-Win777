@@ -22,6 +22,7 @@ public class BundleHandler
     private Dictionary<string, BundleVersion> _AssetsMapD = new();
     private Dictionary<Object, BundleLoader> _LoadersBLs = new();
 
+    public Dictionary<string, BundleVersion> GetDictionaryAssets() { return _AssetsMapD; }
     public void AddLoader(Object loader) => _LoadersBLs.Add(loader, loader.GetComponent<BundleLoader>());
     public void RemoveLoader(Object loader) => _LoadersBLs.Remove(loader);
 
@@ -68,7 +69,7 @@ public class BundleHandler
     public static SkeletonDataAsset LoadSkeletonData(string path) { return _GetAsset<SkeletonDataAsset>(path, _SKELETON_TAILS); }
     public static Sprite[] LoadMultipleSprites(string path) { return _GetAssetWithSubAssets<Sprite>(path, _IMAGE_TAILS); }
     #endregion
-    public static bool SetDataForASkeletonGraphic(SkeletonGraphic targetSG, string animName, bool loop, string path)
+    public static bool SetDataForASkeletonGraphic(SkeletonGraphic targetSG, string path, string animName, bool loop)
     {
         if (targetSG == null) return false;
         SkeletonDataAsset skeDataSDA = LoadSkeletonData(path);
@@ -94,7 +95,7 @@ public class BundleHandler
 }
 public class BundleVersion
 {
-    public enum STATE { Cloud, Downloading, Donwloaded }
+    public enum STATE { Cloud, Downloading, Downloaded }
     public STATE State = STATE.Cloud;
     public HashSet<string> AssetNamesHS = new();
     public AssetBundle BundleAB;

@@ -34,7 +34,7 @@ public class BundleLoader : MonoBehaviour
                 {
                     if (ThisSG == null) ThisSG = GetComponent<SkeletonGraphic>();
                     if (ThisSG == null || !ThisSG.enabled) return;
-                    ThisSG.AnimationState.SetAnimation(0, AnimName, ThisSG.startingLoop);
+                    BundleHandler.SetDataForASkeletonGraphic(ThisSG, AssetName, AnimName, ThisSG.startingLoop);
                     break;
                 }
         }
@@ -95,9 +95,13 @@ public class LoaderEditor : Editor
                         return;
                     }
                     thisBL.AssetName = AssetDatabase.GetAssetPath(thisBL.ThisImg.sprite);
-                    thisBL.BundleLabel = AssetImporter.GetAtPath(thisBL.AssetName).assetBundleName;
-                    if (thisBL.BundleLabel.Equals(""))
-                        thisBL.BundleLabel = AssetImporter.GetAtPath(Path.GetDirectoryName(thisBL.AssetName)).assetBundleName;
+                    string path = thisBL.AssetName;
+                    do
+                    {
+                        thisBL.BundleLabel = AssetImporter.GetAtPath(path).assetBundleName;
+                        if (thisBL.BundleLabel.Equals("")) path = Path.GetDirectoryName(path);
+                        else path = "";
+                    } while (!path.Equals(""));
                     EditorGUILayout.TextField("Bundle Label", thisBL.BundleLabel);
                     if (thisBL.BundleLabel.Equals(""))
                         EditorGUILayout.HelpBox("No label, this asset is not in any bundle!", MessageType.Warning);
@@ -122,7 +126,14 @@ public class LoaderEditor : Editor
                         return;
                     }
                     thisBL.AssetName = AssetDatabase.GetAssetPath(thisBL.ThisSG.skeletonDataAsset);
-                    thisBL.BundleLabel = AssetImporter.GetAtPath(Path.GetDirectoryName(thisBL.AssetName)).assetBundleName;
+                    string path = Path.GetDirectoryName(thisBL.AssetName);
+                    do
+                    {
+                        thisBL.BundleLabel = AssetImporter.GetAtPath(path).assetBundleName;
+                        if (thisBL.BundleLabel.Equals("")) path = Path.GetDirectoryName(path);
+                        else path = "";
+                    }
+                    while (!path.Equals(""));
                     EditorGUILayout.TextField("Bundle Label", thisBL.BundleLabel);
                     if (thisBL.BundleLabel.Equals(""))
                         EditorGUILayout.HelpBox("No label, this asset is not in any bundle!", MessageType.Warning);
@@ -134,9 +145,8 @@ public class LoaderEditor : Editor
                         int id = 0;
                         ExposedList<Spine.Animation> thisAs = thisSD.Animations;
                         foreach (Spine.Animation anim in thisAs) _AnimNames[id++] = anim.Name;
-                        thisBL.AnimName = _AnimNames[0];
                     }
-                    thisBL.AnimName = _AnimNames[EditorGUILayout.Popup("Animation", Array.IndexOf(_AnimNames, thisBL.AnimName), _AnimNames)];
+                    thisBL.AnimName = _AnimNames[EditorGUILayout.Popup("Animation", Mathf.Max(0, Array.IndexOf(_AnimNames, thisBL.AnimName)), _AnimNames)];
                     break;
                 }
         }
