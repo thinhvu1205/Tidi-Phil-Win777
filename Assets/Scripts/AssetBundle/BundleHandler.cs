@@ -58,21 +58,31 @@ public class BundleHandler
         return Resources.LoadAll<T>(path.Replace("Assets/Resources/", ""));
     }
     #region Load Assets
-    public static GameObject LoadPrefab(string path) { return _GetAsset<GameObject>(path, _PREFAB_TAILS); }
-    public static TextAsset LoadTextAsset(string path) { return _GetAsset<TextAsset>(path, _TEXT_TAILS); }
-    public static Sprite LoadSprite(string path) { return _GetAsset<Sprite>(path, _IMAGE_TAILS); }
-    public static Texture LoadTexture(string path) { return _GetAsset<Texture>(path, _IMAGE_TAILS); }
-    public static Texture2D LoadTexture2D(string path) { return _GetAsset<Texture2D>(path, _IMAGE_TAILS); }
-    public static AudioClip LoadAudioClip(string path) { return _GetAsset<AudioClip>(path, _AUDIO_TAILS); }
-    public static VideoClip LoadVideoClip(string path) { return _GetAsset<VideoClip>(path, _VIDEO_TAILS); }
-    public static Material LoadMaterial(string path) { return _GetAsset<Material>(path, _MATERIAL_TAILS); }
-    public static SkeletonDataAsset LoadSkeletonData(string path) { return _GetAsset<SkeletonDataAsset>(path, _SKELETON_TAILS); }
-    public static Sprite[] LoadMultipleSprites(string path) { return _GetAssetWithSubAssets<Sprite>(path, _IMAGE_TAILS); }
+    public static GameObject LoadGameObject(string path)
+    { return _GetAsset<GameObject>(path, _PREFAB_TAILS); }
+    public static TextAsset LoadTextAsset(string path)
+    { return _GetAsset<TextAsset>(path, _TEXT_TAILS); }
+    public static Sprite LoadSprite(string path)
+    { return _GetAsset<Sprite>(path, _IMAGE_TAILS); }
+    public static Texture LoadTexture(string path)
+    { return _GetAsset<Texture>(path, _IMAGE_TAILS); }
+    public static Texture2D LoadTexture2D(string path)
+    { return _GetAsset<Texture2D>(path, _IMAGE_TAILS); }
+    public static AudioClip LoadAudioClip(string path)
+    { return _GetAsset<AudioClip>(path, _AUDIO_TAILS); }
+    public static VideoClip LoadVideoClip(string path)
+    { return _GetAsset<VideoClip>(path, _VIDEO_TAILS); }
+    public static Material LoadMaterial(string path)
+    { return _GetAsset<Material>(path, _MATERIAL_TAILS); }
+    public static SkeletonDataAsset LoadSkeletonDataAsset(string path)
+    { return _GetAsset<SkeletonDataAsset>(path, _SKELETON_TAILS); }
+    public static Sprite[] LoadMultipleSprites(string path)
+    { return _GetAssetWithSubAssets<Sprite>(path, _IMAGE_TAILS); }
     #endregion
     public static bool SetDataForASkeletonGraphic(SkeletonGraphic targetSG, string path, string animName, bool loop)
     {
         if (targetSG == null) return false;
-        SkeletonDataAsset skeDataSDA = LoadSkeletonData(path);
+        SkeletonDataAsset skeDataSDA = LoadSkeletonDataAsset(path);
         if (skeDataSDA == null) return false;
         targetSG.skeletonDataAsset = skeDataSDA;
         targetSG.Initialize(true);

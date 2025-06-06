@@ -812,15 +812,15 @@ public class UIManager : MonoBehaviour
     }
     public Sprite LoadChipImage(int chipId)
     {
-        return Resources.Load<Sprite>("Sprite Assets/Chips/chip_" + chipId);
+        return BundleHandler.LoadSprite("Sprite Assets/Chips/chip_" + chipId);
     }
     public GameObject loadPrefab(string path)
     {
-        return Resources.Load(path) as GameObject;
+        return BundleHandler.LoadGameObject(path);
     }
     public SkeletonDataAsset loadSkeletonData(string path)
     {
-        return Resources.Load<SkeletonDataAsset>(path);
+        return BundleHandler.LoadSkeletonDataAsset(path);
 
     }
     public IEnumerator loadSkeletonDataAsync(string path, Action<SkeletonDataAsset> cb)

@@ -24,11 +24,10 @@ public class BundleDownloader : MonoBehaviour
     {
         if (url.Equals("")) return;
         if (!url[^1].Equals('/')) url += "/"; // if it does not end with "/" then add it
-        string platformFolder = "";
 #if UNITY_ANDROID
-        platformFolder = "/" + BundleHandler.PLATFORM.Android.ToString() + "/";
+        string platformFolder = "/" + BundleHandler.PLATFORM.Android.ToString() + "/";
 #elif UNITY_IOS
-        platformFolder = "/" + BundleHandler.PLATFORM.iOS.ToString() + "/";
+        string platformFolder = "/" + BundleHandler.PLATFORM.iOS.ToString() + "/";
 #endif
         if (!url.EndsWith(platformFolder)) url += platformFolder.Remove(0, 1);
         PlayerPrefs.SetString(_STORED_BUNDLE_URL, url);
@@ -46,7 +45,11 @@ public class BundleDownloader : MonoBehaviour
         using UnityWebRequest aUWR = UnityWebRequest.Get(url + BundleHandler.CATEGORY); // get new category content from server
         yield return aUWR.SendWebRequest();
 
-        if (aUWR.result != UnityWebRequest.Result.Success) Debug.Log("|   ) )=33 Get category fail: " + aUWR.error + " / Path: " + aUWR.uri);
+        if (aUWR.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log("|   ) )=33 Get category fail: " + aUWR.result.ToString() + " / " + aUWR.error + " / Path: " + aUWR.uri);
+            _OnFailCb?.Invoke();
+        }
         else
         {
             string newContent = aUWR.downloadHandler.text, storedPath = Application.persistentDataPath + "/" + BundleHandler.CATEGORY;

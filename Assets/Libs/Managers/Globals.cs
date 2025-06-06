@@ -1651,7 +1651,7 @@ namespace Globals
                 }
             }
 
-            TextAsset jsonData = (TextAsset)Resources.Load("JsonText/text_" + language.ToLower());
+            TextAsset jsonData = BundleHandler.LoadTextAsset("JsonText/text_" + language.ToLower());
 
             jsonConfigOff = (JObject)JObject.Parse(jsonData.text)["ConfigClient"];
         }
@@ -1670,11 +1670,11 @@ namespace Globals
         }
         public static Sprite LoadGameNameByGameId(int id)
         {
-            return Resources.Load<Sprite>("Sprite Assets/Game Names/game_" + id);
+            return BundleHandler.LoadSprite("Sprite Assets/Game Names/game_" + id);
         }
         public static Sprite LoadLuckyBallById(int id)
         {
-            return Resources.Load<Sprite>("Sprite Assets/Lucky Number/ball_" + id);
+            return BundleHandler.LoadSprite("Sprite Assets/Lucky Number/ball_" + id);
         }
 
         public static string convertTimeToString(int seconds)
