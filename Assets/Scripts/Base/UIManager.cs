@@ -89,12 +89,10 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("OnEnable Uimanager");
     }
-    public IEnumerator loadVideoAsync(Action<VideoClip> cb)
+    public async Awaitable loadVideoAsync(Action<VideoClip> cb)
     {
-        ResourceRequest resourceRequest = Resources.LoadAsync<VideoClip>("GameView/SiXiang/intromp4");
-        yield return resourceRequest;
-        cb(resourceRequest.asset as VideoClip);
-        //loadAsyncTask.Start();
+        VideoClip vc = await BundleHandler.LoadVideoClipAsync("GameView/SiXiang/intromp4");
+        cb(vc);
     }
     public void SetDataVipFarmList()
     {
@@ -823,12 +821,10 @@ public class UIManager : MonoBehaviour
         return BundleHandler.LoadSkeletonDataAsset(path);
 
     }
-    public IEnumerator loadSkeletonDataAsync(string path, Action<SkeletonDataAsset> cb)
+    public async Awaitable loadSkeletonDataAsync(string path, Action<SkeletonDataAsset> cb)
     {
-        ResourceRequest resourceRequest = Resources.LoadAsync<SkeletonDataAsset>(path);
-        yield return resourceRequest;
-        cb(resourceRequest.asset as SkeletonDataAsset);
-        //loadAsyncTask.Start();
+        SkeletonDataAsset sda = await BundleHandler.LoadSkeletonDataAssetAsync(path);
+        cb(sda);
     }
 
     void createMessageBox(GameObject prefab, string msg, Action callback1 = null, bool isHaveClose = false)
