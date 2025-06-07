@@ -770,7 +770,6 @@ public class SiXiangView : BaseSlotView
     }
     public void setStateNodeGameForLuckyGold(bool isShow)
     {
-        //Assets/Resources/GameView/SiXiang/Spine/BgMiniGame/skeleton_SkeletonData.asset
         bgGameGoldPick.SetActive(!isShow);
         bgGame.gameObject.SetActive(isShow);
         bgQuay.SetActive(isShow);

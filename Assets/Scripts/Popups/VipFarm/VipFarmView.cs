@@ -21,6 +21,9 @@ public class VipFarmView : BaseView
     {
         base.Awake();
         instance = this;
+        BundleLoader[] loaderBLs = FindObjectsByType<BundleLoader>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (BundleLoader aBL in loaderBLs)
+            if (aBL.Type == BundleLoader.TYPE_ASSET.SKELETON_GRAPHIC) aBL.RefreshUI();
     }
 
     protected override void OnEnable()

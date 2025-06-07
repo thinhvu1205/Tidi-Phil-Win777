@@ -51,20 +51,14 @@ public class BundleHandler
     }
     private static ResourceRequest _GetAssetAsync<T>(string path, string[] tails) where T : Object
     {
-        Debug.Log(") =3 " + path);
         if (!path.StartsWith(RESOURCES)) path = RESOURCES + path;
-        Debug.Log(") =333 " + path);
         foreach (string tail in tails)
         {
             if (path.EndsWith(tail)) path = path.Replace(tail, "");
             string fullPath = (path + tail).ToLower();
             if (MAIN._AssetsMapD.ContainsKey(fullPath))
-            {
-                Debug.Log(") =31 " + fullPath);
                 return MAIN._AssetsMapD[fullPath].BundleAB.LoadAssetAsync<T>(fullPath);
-            }
         }
-        Debug.Log(") =32 " + path.Replace(RESOURCES, ""));
         return Resources.LoadAsync<T>(path.Replace(RESOURCES, ""));
     }
     private static T[] _GetAssetWithSubAssets<T>(string path, string[] tails) where T : Object
