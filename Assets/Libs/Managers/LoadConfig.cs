@@ -66,7 +66,7 @@ public class LoadConfig : MonoBehaviour
         string storedConfig = PlayerPrefs.GetString("config_save", "");
         init();
         if (!storedConfig.Equals("")) handleConfigInfo(storedConfig);
-        else UIManager.instance.showWaiting();
+        // else UIManager.instance.showWaiting();
         StartCoroutine(loadConfig());
         IEnumerator loadConfig()
         {
