@@ -12,7 +12,7 @@ using UnityEngine.UI;
 
 public class BundleDownloader : MonoBehaviour
 {
-    private const string _STORED_BUNDLE_URL = "storedBundleUrl";
+    public const string STORED_BUNDLE_URL = "storedBundleUrl";
     [SerializeField] private Image m_ProgressImg;
     [SerializeField] private TextMeshProUGUI m_ProgressTMPUI;
     private List<Coroutine> _SentGettingBundleCs = new();
@@ -30,7 +30,7 @@ public class BundleDownloader : MonoBehaviour
         string platformFolder = "/" + BundleHandler.PLATFORM.iOS.ToString() + "/";
 #endif
         if (!url.EndsWith(platformFolder)) url += platformFolder.Remove(0, 1);
-        PlayerPrefs.SetString(_STORED_BUNDLE_URL, url);
+        PlayerPrefs.SetString(STORED_BUNDLE_URL, url);
         PlayerPrefs.Save();
         AssetBundle.UnloadAllAssetBundles(true);
         if (!url.Contains("://")) url = "file:///" + url;

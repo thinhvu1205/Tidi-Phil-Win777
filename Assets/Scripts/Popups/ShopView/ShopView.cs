@@ -32,12 +32,8 @@ public class ShopView : BaseView
             SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickShop_%s", CURRENT_VIEW.getCurrentSceneName()));
         }
         instance = this;
-        if (Config.IsBuildStore) updateInfo(dataDefault);
-        else
-        { // full version
-            if (!Config.infoChip.Equals("")) LoadConfig.instance.getInfoShop(updateInfo, () => updateInfo(dataDefault));
-            else updateInfo(dataDefault);
-        }
+        if (!Config.infoChip.Equals("")) LoadConfig.instance.getInfoShop(updateInfo, () => updateInfo(dataDefault));
+        else updateInfo(dataDefault);
         scrContent.onValueChanged.AddListener(onDragScroll);
     }
     async void updateInfo(string strData)

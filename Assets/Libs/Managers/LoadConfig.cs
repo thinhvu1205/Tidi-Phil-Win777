@@ -24,10 +24,10 @@ public class LoadConfig : MonoBehaviour
     string config_info = "";
 
 
-    private bool _isLoadedConfig = false;
+    private bool _isConfigLoaded = false;
     void Awake()
     {
-        Config.publisher = Config.IsBuildStore ? "ruby_tongits_war777_store" : "ruby_tongits_war777_com_pro";
+        Config.publisher = "ruby_tongits_war777_com_pro";
         if (instance == null) instance = this;
         else
         {
@@ -75,7 +75,7 @@ public class LoadConfig : MonoBehaviour
                 getConfigInfo();
                 yield return new WaitForSeconds(10f);
             }
-            while (!_isLoadedConfig);
+            while (!_isConfigLoaded);
         }
     }
 
@@ -113,7 +113,6 @@ public class LoadConfig : MonoBehaviour
 
     async void ProgressHandle(string url, string json, Action<string> callback, Action callbackError = null)
     {
-        // UIManager.instance.showWaiting();
         UnityWebRequest www = new UnityWebRequest(url, "POST");
 
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
@@ -135,7 +134,7 @@ public class LoadConfig : MonoBehaviour
             await Task.Yield();
             //await Task.Delay(200);//30 hertz
         }
-        UIManager.instance.hideWatting();
+        if (UIManager.instance != null) UIManager.instance.hideWatting();
         // read results:
         if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError || www.result == UnityWebRequest.Result.DataProcessingError)
         {
@@ -208,7 +207,7 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        wWForm["bundleID"] = Config.IsBuildStore ? "ruby.tongits.war777.store" : "ruby.tongits.war777.com.pro";
+        wWForm["bundleID"] = "ruby.tongits.war777.com.pro";
         wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
@@ -239,7 +238,7 @@ public class LoadConfig : MonoBehaviour
         //loadInfo();
         var wWForm = createBodyJsonNormal();
         Debug.Log("-=-=getConfigInfo   " + wWForm.ToString());
-        _isLoadedConfig = false;
+        _isConfigLoaded = false;
         ProgressHandle(url_start, wWForm.ToString(), handleConfigInfo);
     }
 
@@ -521,15 +520,19 @@ public class LoadConfig : MonoBehaviour
 
         if (jConfig.ContainsKey("newest_versionUrl"))
             Config.newest_versionUrl = (string)jConfig["newest_versionUrl"];
-        var umode = jConfig.ContainsKey("umode") ? (int)jConfig["umode"] : 0;
-        var uop1 = jConfig.ContainsKey("uop1") ? (string)jConfig["uop1"] : "";
-        var uop2 = jConfig.ContainsKey("uop2") ? (string)jConfig["uop2"] : "";
-        var umsg = jConfig.ContainsKey("umsg") ? (string)jConfig["umsg"] : "";
-        var utar = jConfig.ContainsKey("utar") ? (string)jConfig["utar"] : "";
-        updateConfigUmode(umode, uop1, uop2, utar, umsg);
+        if (UIManager.instance != null)
+        {
+            var umode = jConfig.ContainsKey("umode") ? (int)jConfig["umode"] : 0;
+            var uop1 = jConfig.ContainsKey("uop1") ? (string)jConfig["uop1"] : "";
+            var uop2 = jConfig.ContainsKey("uop2") ? (string)jConfig["uop2"] : "";
+            var umsg = jConfig.ContainsKey("umsg") ? (string)jConfig["umsg"] : "";
+            var utar = jConfig.ContainsKey("utar") ? (string)jConfig["utar"] : "";
+            updateConfigUmode(umode, uop1, uop2, utar, umsg);
+            UIManager.instance.refreshUIFromConfig();
+        }
+        if (jConfig.ContainsKey("url_cdn")) Config.Bundle_URL = (string)jConfig["url_cdn"];
         PlayerPrefs.Save();
-        UIManager.instance.refreshUIFromConfig();
-        _isLoadedConfig = true;
+        _isConfigLoaded = true;
     }
 
     void handleUserInfo(string strData)

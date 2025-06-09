@@ -567,7 +567,7 @@ namespace Globals
         public const int CODE_JOKER_RED = 61;
         public static bool isSvTest = false;
         public const int OPERATOR = 7000;
-
+        public static string Bundle_URL;
         public static string user_name = "";
         public static string user_pass = "";
         public static string user_name_temp = "";
@@ -670,7 +670,6 @@ namespace Globals
         public static bool is_First_CheckVIPFarms = true;
         public static bool isPlayNowFromLobby = false;
         public static bool enableLottery = false;
-        public static bool IsBuildStore = false;
 
         public static JArray arrOnlistTrue = new JArray();
         public static JArray arrBannerLobby = new JArray();

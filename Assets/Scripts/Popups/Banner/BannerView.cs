@@ -192,17 +192,10 @@ public class BannerView : BaseView
                             Application.OpenURL(urlUpdate);
                             break;
                         case "cashout": // open CO
-                            if (Config.IsBuildStore)
+                            if (Globals.Config.is_dt)
                             {
-
-                            }
-                            else
-                            {
-                                if (Globals.Config.is_dt)
-                                {
-                                    //cc.NGWlog('chay vao  btn  cash out 22222');
-                                    UIManager.instance.openEx();
-                                }
+                                //cc.NGWlog('chay vao  btn  cash out 22222');
+                                UIManager.instance.openEx();
                             }
                             break;
                         case "topgame": // top game

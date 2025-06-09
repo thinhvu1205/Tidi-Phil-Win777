@@ -646,7 +646,7 @@ public class LobbyView : BaseView
 
     public void refreshUIFromConfig(bool isStart = false)
     {
-        btnEx.SetActive(!Config.IsBuildStore && Config.is_dt);
+        btnEx.SetActive(Config.is_dt);
         var issket = Config.ket;
         if (User.userMain != null && User.userMain.VIP == 0)
         {

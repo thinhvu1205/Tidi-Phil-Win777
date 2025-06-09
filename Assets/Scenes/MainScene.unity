@@ -16000,7 +16000,6 @@ GameObject:
   - component: {fileID: 1874968569}
   - component: {fileID: 1874968570}
   - component: {fileID: 1874968571}
-  - component: {fileID: 1874968573}
   m_Layer: 5
   m_Name: SafeArea
   m_TagString: Untagged
@@ -16085,19 +16084,6 @@ MonoBehaviour:
   spAvatarMe: {fileID: 0}
   environment: production
   banerTemp: {fileID: 8786574393286912785, guid: db3287d25502440fa81a9cb5fa106197, type: 3}
---- !u!114 &1874968573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874968568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c354421e978f34b7eafc2e8d8f1b4f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLoadedConfig: 0
 --- !u!1 &1890581781
 GameObject:
   m_ObjectHideFlags: 0
