@@ -74,7 +74,18 @@ public class BundleHandler
     }
     #region Load Assets
     // GameObject
-    public static GameObject LoadGameObject(string path) { return _GetAsset<GameObject>(path, _PREFAB_TAILS); }
+    public static GameObject LoadGameObject(string path)
+    {
+        GameObject output = _GetAsset<GameObject>(path, _PREFAB_TAILS);
+        if (output != null)
+        {
+            BundleLoader[] itemBLs = output.GetComponentsInChildren<BundleLoader>(true);
+            foreach (BundleLoader itemBL in itemBLs)
+                if (itemBL.Type == BundleLoader.TYPE_ASSET.SKELETON_GRAPHIC)
+                    itemBL.RefreshUI();
+        }
+        return output;
+    }
     // TextAsset
     public static TextAsset LoadTextAsset(string path) { return _GetAsset<TextAsset>(path, _TEXT_TAILS); }
     // Sprite
