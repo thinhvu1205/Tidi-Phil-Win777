@@ -45,9 +45,13 @@ public class BundleLoader : MonoBehaviour
     {
         BundleHandler.MAIN.RemoveLoader(this);
     }
-    private void OnEnable()
+    void Start()
     {
         RefreshUI();
+    }
+    private void OnEnable()
+    {
+
         m_OnEnableUE?.Invoke();
     }
     private void Awake()
@@ -55,7 +59,7 @@ public class BundleLoader : MonoBehaviour
         BundleHandler.MAIN.AddLoader(this);
     }
 }
-//-------------------------------------------------- |   ) )=33 --------------------------------------------------
+//-------------------------------------------------- |   ) )=3 --------------------------------------------------
 #if UNITY_EDITOR 
 [CustomEditor(typeof(BundleLoader))]
 public class LoaderEditor : Editor

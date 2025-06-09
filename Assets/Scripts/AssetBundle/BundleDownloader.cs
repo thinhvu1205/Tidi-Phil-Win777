@@ -47,15 +47,16 @@ public class BundleDownloader : MonoBehaviour
 
         if (aUWR.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log("|   ) )=33 Get category fail: " + aUWR.result.ToString() + " / " + aUWR.error + " / Path: " + aUWR.uri);
+            Debug.Log("|   ) )=3 Get category fail: " + aUWR.result.ToString() + " / " + aUWR.error + " / Path: " + aUWR.uri);
             _OnFailCb?.Invoke();
         }
         else
         {
+            BundleHandler.MAIN.ClearAssetsDictionary();
             string newContent = aUWR.downloadHandler.text, storedPath = Application.persistentDataPath + "/" + BundleHandler.CATEGORY;
             if (!_TryParseCategory(_NewDataBVs, _TryParseJsonArray(newContent), url))
             {
-                Debug.Log("|   ) )=33 Wrong latest bundle info!");
+                Debug.Log("|   ) )=3 Wrong latest bundle info!");
                 _OnFailCb?.Invoke();
                 yield break;
             }
@@ -63,7 +64,7 @@ public class BundleDownloader : MonoBehaviour
             {
                 if (!_TryParseCategory(_StoredDataBVs, _TryParseJsonArray(File.ReadAllText(storedPath)), ""))
                 {
-                    Debug.Log("|   ) )=33 Wrong stored bundles info, clear all cached bundles!");
+                    Debug.Log("|   ) )=3 Wrong stored bundles info, clear all cached bundles!");
                     Caching.ClearCache();
                     File.Delete(storedPath);
                 }
@@ -75,7 +76,6 @@ public class BundleDownloader : MonoBehaviour
             if (_TotalBundles > 0)
             {
                 _SetProgressUI(0);
-                BundleHandler.MAIN.ClearAssetsDictionary();
                 _SentGettingBundleCs.Add(StartCoroutine(_LoadAssetBundles()));
             }
             else _CompleteLoadingAssets();
@@ -97,7 +97,7 @@ public class BundleDownloader : MonoBehaviour
             }
             if (aUWR.result != UnityWebRequest.Result.Success)
             {
-                Debug.Log("|   ) )=33 Error getting asset bundle: " + aUWR.error + " | " + aUWR.url);
+                Debug.Log("|   ) )=3 Error getting asset bundle: " + aUWR.error + " | " + aUWR.url);
                 thisBV.State = BundleVersion.STATE.Cloud;
                 _OnFailCb?.Invoke();
                 foreach (Coroutine sentRequestC in _SentGettingBundleCs) StopCoroutine(sentRequestC);
@@ -118,7 +118,7 @@ public class BundleDownloader : MonoBehaviour
     private JSONArray _TryParseJsonArray(string input)
     {
         try { return JSON.Parse(input).AsArray; }
-        catch (Exception e) { Debug.Log("|   ) )=33 Error parsing array: " + e); return null; }
+        catch (Exception e) { Debug.Log("|   ) )=3 Error parsing array: " + e); return null; }
     }
     private bool _TryParseCategory(List<BundleVersion> storedBVs, JSONArray categoryJA, string url)
     {
@@ -133,7 +133,7 @@ public class BundleDownloader : MonoBehaviour
             }
             return true;
         }
-        catch (Exception e) { Debug.Log("|   ) )=33 Fail to parse Category content!!! " + e); return false; }
+        catch (Exception e) { Debug.Log("|   ) )=3 Fail to parse Category content!!! " + e); return false; }
     }
     private void _ClearOldCachedBundleVersions()
     {
@@ -148,7 +148,7 @@ public class BundleDownloader : MonoBehaviour
     }
     private void _CompleteLoadingAssets()
     {
-        Debug.Log("|   ) )=33 Complete Loading AssetBundles");
+        Debug.Log("|   ) )=3 Complete Loading AssetBundles");
         _SetProgressUI(1);
         _OnCompleteCb?.Invoke();
     }
