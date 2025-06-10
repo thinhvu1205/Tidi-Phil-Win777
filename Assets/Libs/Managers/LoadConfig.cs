@@ -20,7 +20,6 @@ public class LoadConfig : MonoBehaviour
 {
     public static LoadConfig instance;
     string url_start = "https://n.cfg.davaogames.com/info";
-    //string url_start = "https://cfg.jakartagames.net/info";
     string config_info = "";
 
 
@@ -207,7 +206,7 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        wWForm["bundleID"] = "ruby.tongits.war777.com.pro";
+        wWForm["bundleID"] = "unity.lucky777.tongitswar";
         wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
