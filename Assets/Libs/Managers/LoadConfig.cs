@@ -409,27 +409,27 @@ public class LoadConfig : MonoBehaviour
 
         if (jConfig.ContainsKey("listGame"))
         {
-            Config.listGame = new();
-            JArray tempListGameJA = jConfig["listGame"] as JArray;
-            List<GAMEID> sortedListGI = new() {
-                GAMEID.TONGITS_OLD, GAMEID.LUCKY9, GAMEID.PUSOY, GAMEID.TONGITS, GAMEID.TONGITS_JOKER,
-                GAMEID.BACCARAT, GAMEID.LUCKY_89, GAMEID.SABONG, GAMEID.SICBO, GAMEID.SLOTTARZAN, GAMEID.SLOT_INCA,
-                GAMEID.SLOT20FRUIT, GAMEID.SLOTNOEL, GAMEID.SLOT_JUICY_GARDEN, GAMEID.SLOT_SIXIANG
+            List<int> sortedListId = new() {
+                (int)GAMEID.TONGITS_OLD, (int)GAMEID.LUCKY9, (int)GAMEID.PUSOY, (int)GAMEID.TONGITS, (int)GAMEID.TONGITS_JOKER,
+                (int)GAMEID.BACCARAT, (int)GAMEID.LUCKY_89, (int)GAMEID.SABONG, (int)GAMEID.SICBO, (int)GAMEID.SLOTTARZAN,
+                (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT_SIXIANG
             };
-            while (sortedListGI.Count > 0)
+            Config.listGame = new();
+            JArray tempListGameJA = jConfig["listGame"] as JArray, sortedListGameJA = new();
+            foreach (int id in sortedListId)
             {
                 foreach (JToken item in tempListGameJA)
                 {
-                    if ((int)item["id"] == (int)sortedListGI[0])
+                    if ((int)item["id"] == id)
                     {
-                        Config.listGame.Add(item);
+                        sortedListGameJA.Add(item);
                         tempListGameJA.Remove(item);
-                        sortedListGI.RemoveAt(0);
                         break;
                     }
                 }
             }
-            Config.listGame.AddRange(tempListGameJA);
+            sortedListGameJA.AddRange(tempListGameJA);
+            Config.listGame.AddRange(sortedListGameJA);
             Config.curServerIp = (string)Config.listGame[0]["ip_dm"];
             PlayerPrefs.SetString("curServerIp", Config.curServerIp);
         }
