@@ -650,18 +650,30 @@ public class UIManager : MonoBehaviour
                     gameView = Instantiate(loadPrefabGame("PopupMineFinding"), parentGame).GetComponent<MineFindingView>();
                     break;
                 }
-            //case (int)Globals.GAMEID.ROULETTE:
-            //    {
-            //        Globals.Logging.Log("showGame ROULETTE");
-            //        gameView = Instantiate(loadPrefabGame(""), parentGame).GetComponent<SabongGameView>();
-            //        break;
-            //    }
-            //case (int)Globals.GAMEID.BAUCUA:
-            //    {
-            //        Globals.Logging.Log("showGame BAUCUA");
-            //        gameView = Instantiate(loadPrefabGame("SabongView"), parentGame).GetComponent<SabongGameView>();
-            //        break;
-            //    }
+            case (int)Globals.GAMEID.BAUCUA:
+                {
+                    Globals.Logging.Log("showGame BAUCUA");
+                    gameView = Instantiate(loadPrefabGame("BaucuaView"), parentGame).GetComponent<BaucuaGameView>();
+                    break;
+                }
+            case (int)Globals.GAMEID.THREE_CARD_POKER:
+                {
+                    Globals.Logging.Log("showGame 3 lá bài");
+                    gameView = Instantiate(loadPrefabGame("ThreePokerView"), parentGame).GetComponent<ThreePokerCardGameView>();
+                    break;
+                }
+            case (int)Globals.GAMEID.ROULETTE:
+                {
+                    Globals.Logging.Log("showGame RouLette");
+                    gameView = Instantiate(loadPrefabGame("RouLetteView"), parentGame).GetComponent<RouLetteView>();
+                    break;
+                }
+            case (int)Globals.GAMEID.SHOW:
+                {
+                    Globals.Logging.Log("showGame Hong Kong Poker");
+                    gameView = Instantiate(loadPrefabGame("HongKongPokerView"), parentGame).GetComponent<HongKongPokerView>();
+                    break;
+                }
             default:
                 {
                     Globals.Logging.Log("-=-= chua co game nao ma vao. Lm thi tu them vao di;;;;");
