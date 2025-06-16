@@ -87,8 +87,6 @@ public class RouLetteView : GameView
 
     void Start()
     {
-        isBetTime = false;
-        Application.targetFrameRate = 60;
         Input.multiTouchEnabled = false;
         for (int i = 0; i < listBetOptions.Count; i++)
         {
@@ -128,9 +126,6 @@ public class RouLetteView : GameView
         {
             case "timeToStart":
                 HandleStartGame(jData);
-                break;
-            case "ctable":
-                handleCTable(jData.ToString());
                 break;
             case "stable":
                 handleSTable(jData.ToString());
