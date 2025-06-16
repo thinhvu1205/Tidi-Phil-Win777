@@ -18,15 +18,16 @@ public class BundleHandler
         }
     }
     private static string[] _PREFAB_TAILS = { ".prefab" }, _TEXT_TAILS = { ".txt" }, _IMAGE_TAILS = { ".png", ".jpg", ".jpeg" },
-        _AUDIO_TAILS = { ".mp3" }, _VIDEO_TAILS = { ".mp4" }, _MATERIAL_TAILS = { ".mat" }, _SKELETON_TAILS = { ".asset" };
+        _AUDIO_TAILS = { ".mp3", ".ogg" }, _VIDEO_TAILS = { ".mp4" }, _MATERIAL_TAILS = { ".mat" }, _SKELETON_TAILS = { ".asset" };
     private static BundleHandler _INSTANCE;
     public const string BASE_PATH = "Assets/AssetBundles/", CATEGORY = "category.txt", SPLIT = "_hash_", RESOURCES = "Assets/Resources/";
+    public string BundleUrl;
     private Dictionary<string, BundleVersion> _AssetsMapD = new();
     private Dictionary<Object, BundleLoader> _LoadersBLs = new();
-    public Dictionary<string, BundleVersion> GetDictionaryAssets() { return _AssetsMapD; }
+
+
     public void AddLoader(Object loader) => _LoadersBLs.Add(loader, loader.GetComponent<BundleLoader>());
     public void RemoveLoader(Object loader) => _LoadersBLs.Remove(loader);
-
     public void ClearAssetsDictionary() => _AssetsMapD.Clear();
     public void AddToLocalMap(BundleVersion aBV)
     {
@@ -124,19 +125,6 @@ public class BundleHandler
         if (skeDataSDA == null) return false;
         targetSG.skeletonDataAsset = skeDataSDA;
         targetSG.Initialize(true);
-        targetSG.allowMultipleCanvasRenderers = false;
-        if (skeDataSDA.atlasAssets.Length > 1
-            || skeDataSDA.atlasAssets[0].MaterialCount > 1
-            || skeDataSDA.blendModeMaterials.additiveMaterials.Count > 0
-            || skeDataSDA.blendModeMaterials.multiplyMaterials.Count > 0
-            || skeDataSDA.blendModeMaterials.screenMaterials.Count > 0
-            || targetSG.canvasRenderers.Count > 0)
-        {   // if these options were turned on before then now keep using them
-            targetSG.allowMultipleCanvasRenderers = true;
-            targetSG.canvasRenderer.Clear();
-            targetSG.TrimRenderers();
-            targetSG.UpdateMesh();
-        }
         targetSG.AnimationState.SetAnimation(0, animName, loop);
         return true;
     }

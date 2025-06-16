@@ -129,9 +129,9 @@ public class RouLetteView : GameView
             case "timeToStart":
                 HandleStartGame(jData);
                 break;
-            // case "ctable":
-            //     handleCTable(jData.ToString());
-            //     break;
+            case "ctable":
+                handleCTable(jData.ToString());
+                break;
             case "stable":
                 handleSTable(jData.ToString());
                 break;

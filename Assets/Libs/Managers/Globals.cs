@@ -575,7 +575,6 @@ namespace Globals
         public const int CODE_JOKER_RED = 61;
         public static bool isSvTest = false;
         public const int OPERATOR = 7000;
-        public static string Bundle_URL;
         public static string user_name = "";
         public static string user_pass = "";
         public static string user_name_temp = "";
@@ -682,10 +681,10 @@ namespace Globals
         public static JArray arrOnlistTrue = new JArray();
         public static JArray arrBannerLobby = new JArray();
 
-        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.RONGHO, (int)GAMEID.BANDAR_QQ, (int)GAMEID.ROULETTE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.XOCDIA, (int)GAMEID.MINE_FINDING, (int)GAMEID.BAUCUA};
+        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.RONGHO, (int)GAMEID.BANDAR_QQ, (int)GAMEID.ROULETTE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.XOCDIA, (int)GAMEID.MINE_FINDING, (int)GAMEID.BAUCUA };
         public static List<int> listGameSlot = new List<int>() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL };
 
-       
+
         public static bool isShowTableWithGameId(int gameID)
         {
             switch (gameID)
@@ -701,9 +700,9 @@ namespace Globals
                 case (int)GAMEID.BAUCUA:
                 case (int)GAMEID.MINE_FINDING:
                 case (int)GAMEID.ROULETTE:
-                {
-                    return false;
-                }
+                    {
+                        return false;
+                    }
             }
 
             return true;

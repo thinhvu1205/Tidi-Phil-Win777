@@ -529,7 +529,7 @@ public class LoadConfig : MonoBehaviour
             updateConfigUmode(umode, uop1, uop2, utar, umsg);
             UIManager.instance.refreshUIFromConfig();
         }
-        if (jConfig.ContainsKey("url_cdn")) Config.Bundle_URL = (string)jConfig["url_cdn"];
+        if (jConfig.ContainsKey("url_cdn")) BundleHandler.MAIN.BundleUrl = (string)jConfig["url_cdn"];
         PlayerPrefs.Save();
         _isConfigLoaded = true;
     }

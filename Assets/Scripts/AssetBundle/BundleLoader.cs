@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using Spine;
 using Spine.Unity;
 using UnityEditor;
@@ -41,17 +42,34 @@ public class BundleLoader : MonoBehaviour
     }
     public void RemoveOnEnableCbListeners() => m_OnEnableUE.RemoveAllListeners();
     public void AddOnEnableCb(UnityAction eventUE) => m_OnEnableUE.AddListener(eventUE);
+
     private void OnDisable()
     {
         BundleHandler.MAIN.RemoveLoader(this);
     }
-    void Start()
+    private void Start()
     {
-        RefreshUI();
+        if (Type == TYPE_ASSET.SKELETON_GRAPHIC)
+        {
+            if (ThisSG.skeletonDataAsset == null) RefreshUI();
+            ThisSG.allowMultipleCanvasRenderers = false;
+            if (ThisSG.skeletonDataAsset.atlasAssets.Length > 1
+                || ThisSG.skeletonDataAsset.atlasAssets[0].MaterialCount > 1
+                || ThisSG.skeletonDataAsset.blendModeMaterials.additiveMaterials.Count > 0
+                || ThisSG.skeletonDataAsset.blendModeMaterials.multiplyMaterials.Count > 0
+                || ThisSG.skeletonDataAsset.blendModeMaterials.screenMaterials.Count > 0
+                || ThisSG.canvasRenderers.Count > 0)
+            {   // if these options were turned on before then now keep using them
+                ThisSG.allowMultipleCanvasRenderers = true;
+                ThisSG.canvasRenderer.Clear();
+                ThisSG.TrimRenderers();
+                ThisSG.UpdateMesh();
+            }
+        }
+        else RefreshUI();
     }
     private void OnEnable()
     {
-
         m_OnEnableUE?.Invoke();
     }
     private void Awake()
@@ -165,6 +183,7 @@ public class LoaderEditor : Editor
                         int id = 0;
                         ExposedList<Spine.Animation> thisAs = thisSD.Animations;
                         foreach (Spine.Animation anim in thisAs) _AnimNames[id++] = anim.Name;
+                        thisBL.AnimName = thisBL.ThisSG.startingAnimation;
                     }
                     thisBL.AnimName = _AnimNames[EditorGUILayout.Popup("Animation", Mathf.Max(0, Array.IndexOf(_AnimNames, thisBL.AnimName)), _AnimNames)];
                     break;
