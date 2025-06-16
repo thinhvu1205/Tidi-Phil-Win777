@@ -26,8 +26,9 @@ public class SplashScene : MonoBehaviour
 
         IEnumerator retry()
         {
-            while (Config.Bundle_URL.Equals("")) yield return new WaitForSeconds(3f);
-            m_BundleBD.CheckAndDownloadAssets(Config.Bundle_URL,
+            while (BundleHandler.MAIN.BundleUrl == null || BundleHandler.MAIN.BundleUrl.Equals(""))
+                yield return new WaitForSeconds(1f);
+            m_BundleBD.CheckAndDownloadAssets(BundleHandler.MAIN.BundleUrl,
                 () =>
                 {
                     m_BundleBD.SetProgressText("Fail to get assets!");
