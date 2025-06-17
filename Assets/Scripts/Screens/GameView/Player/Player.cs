@@ -50,6 +50,7 @@ public class Player
 
 
     public List<Card> vectorCard = new List<Card>();
+    public List<Card> vectorCardP1 = new List<Card>();
     public List<Card> vectorCardD = new List<Card>();
     public List<List<Card>> vectorCardD2 = new List<List<Card>>();
     public List<int> arrCodeCard = new List<int>();

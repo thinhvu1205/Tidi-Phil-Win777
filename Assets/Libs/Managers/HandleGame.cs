@@ -16,9 +16,8 @@ public class HandleGame
         }
         string evt = (string)jData["evt"];
         List<string> listEvtNotDelay = new List<string> { "chattable", "dealer", "findDealer", "leave_dealer" };
-        if (evt.Equals("ltable"))
+        if (evt != null && evt.Equals("ltable"))
         {
-
             JObject data = jData;
             var tableId = Globals.Config.tableId;
             var namePl = "";
@@ -255,6 +254,28 @@ public class HandleGame
             case (int)Globals.GAMEID.MINE_FINDING:
                 {
                     ((MineFindingView)gameView).ProcessResponseData(jData);
+                    break;
+                }
+            case (int)Globals.GAMEID.BAUCUA:
+                {
+                    Debug.Log("check var xem data baucua tra ve nhu nào" + jData.ToString());
+                    HandleBaucua.processData(jData);
+                    break;
+                }
+            case (int)Globals.GAMEID.THREE_CARD_POKER:
+                {
+                    Debug.Log("check var xem data baucua tra ve nhu nào" + jData.ToString());
+                    HandlePokerCard.processData(jData);
+                    break;
+                }
+            case (int)Globals.GAMEID.ROULETTE:
+                {
+                    ((RouLetteView)gameView).ProcessResponseData(jData);
+                    break;
+                }
+            case (int)Globals.GAMEID.SHOW:
+                {
+                    HandleDataHongKongView.processData(jData);
                     break;
                 }
         }

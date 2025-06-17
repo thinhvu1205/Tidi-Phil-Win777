@@ -403,6 +403,14 @@ namespace Globals
         public const string BG_JUICY_GARDEN = "Sounds/JuicyGarden/juicyBg";
 
     }
+    public class SOUND_ROULETTE
+    {
+        // public const string snd_click = "Sounds/Roulette/snd_click";
+        public const string resultWin = "Sounds/Roulette/resultWin";
+        public const string chipAdd = "Sounds/Roulette/chipAdd";
+        public const string coinAdd = "Sounds/Roulette/coinAdd";
+        public const string showResult = "Sounds/Roulette/PopUpOpen";
+    }
     public class SOUND_SLOT_BASE
     {
         public const string BG_GAME = "GameView/SiXiang/Sound/background";
@@ -673,7 +681,7 @@ namespace Globals
         public static JArray arrOnlistTrue = new JArray();
         public static JArray arrBannerLobby = new JArray();
 
-        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.RONGHO, (int)GAMEID.BANDAR_QQ, (int)GAMEID.ROULETTE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.XOCDIA, (int)GAMEID.BAUCUA, (int)GAMEID.MINE_FINDING };
+        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.RONGHO, (int)GAMEID.BANDAR_QQ, (int)GAMEID.ROULETTE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.XOCDIA, (int)GAMEID.MINE_FINDING, (int)GAMEID.BAUCUA };
         public static List<int> listGameSlot = new List<int>() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL };
 
 
@@ -689,11 +697,14 @@ namespace Globals
                 case (int)GAMEID.BANDAR_QQ:
                 case (int)GAMEID.RONGHO:
                 case (int)GAMEID.SLOT_SIXIANG:
+                case (int)GAMEID.BAUCUA:
                 case (int)GAMEID.MINE_FINDING:
+                case (int)GAMEID.ROULETTE:
                     {
                         return false;
                     }
             }
+
             return true;
         }
         public static string getVersionDevice()
