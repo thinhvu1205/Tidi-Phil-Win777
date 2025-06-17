@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 3485556230919665524}
   - component: {fileID: 5784052095662595846}
   - component: {fileID: 3949879990638893464}
+  - component: {fileID: 41100069036933394}
   m_Layer: 5
   m_Name: skeleton
   m_TagString: Untagged
@@ -283,3 +284,25 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &41100069036933394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518635400226851512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 3949879990638893464}
+  BundleLabel: assets--resources--gameview--threepoker--animation
+  AssetName: Assets/Resources/GameView/ThreePoker/animation/point/skeleton_SkeletonData.asset
+  AnimName: point
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []

@@ -249,28 +249,16 @@ namespace Globals
     }
     public enum GAMEID
     {
-        GAOGEA = 8100,//show
-        KEANG = 8013,
-        DUMMY = 8015,
-        SLOT_20_LINE = 1009, //doi cho 50.tam thoi;
-        SLOT_20_LINE_JP = 1010,
-        TIENLEN = 9009,
-        SLOT100LINE = 1008,
         ROULETTE = 1111,
-        SLOT_INCA = 9008, // doi cho 20.tam thoi
+        SLOT_INCA = 9008,
         TONGITS_OLD = 8091,
         TONGITS = 8090,
         TONGITS_JOKER = 8088,
-        XOCDIA = 8813,
         SHOW = 8808,
         BAUCUA = 8803,
         LUCKY_89 = 8802,
-        SHANKOEMEE = 1001,
         PUSOY = 8044,
-        BURMESE_POKER = 8819,
-        BLACKJACK = 9501,
         BACCARAT = 9500,
-        TONGITS11 = 8089,
         LUCKY9 = 6688,
         SLOT20FRUIT = 9007,
         THREE_CARD_POKER = 8012,
@@ -279,11 +267,7 @@ namespace Globals
         SLOTNOEL = 8818,
         SLOT_JUICY_GARDEN = 9900,
         SLOTTARZAN = 9950,
-        DOMINO = 8020,
-        BANDAR_QQ = 8021,
         SLOT_SIXIANG = 9011,
-        RONGHO = 8009,
-        KARTU_QIU = 8805,
         MINE_FINDING = 8804
     }
     public enum DOTWEEN_TAG
@@ -681,7 +665,7 @@ namespace Globals
         public static JArray arrOnlistTrue = new JArray();
         public static JArray arrBannerLobby = new JArray();
 
-        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.RONGHO, (int)GAMEID.BANDAR_QQ, (int)GAMEID.ROULETTE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.XOCDIA, (int)GAMEID.MINE_FINDING, (int)GAMEID.BAUCUA };
+        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.ROULETTE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.MINE_FINDING, (int)GAMEID.BAUCUA };
         public static List<int> listGameSlot = new List<int>() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL };
 
 
@@ -694,8 +678,6 @@ namespace Globals
                 case (int)GAMEID.SLOT_INCA:
                 case (int)GAMEID.SLOT_JUICY_GARDEN:
                 case (int)GAMEID.SLOTTARZAN:
-                case (int)GAMEID.BANDAR_QQ:
-                case (int)GAMEID.RONGHO:
                 case (int)GAMEID.SLOT_SIXIANG:
                 case (int)GAMEID.BAUCUA:
                 case (int)GAMEID.MINE_FINDING:
@@ -715,7 +697,7 @@ namespace Globals
             var sdkLevel = AndroidJNI.GetStaticIntField(clazz, fieldID);
             return sdkLevel.ToString();
 #elif UNITY_IOS
-                return UnityEngine.iOS.Device.systemVersion;
+            return UnityEngine.iOS.Device.systemVersion;
 #else
 
             return SystemInfo.operatingSystem;
@@ -757,15 +739,12 @@ namespace Globals
             S = ((code - 1) / 13) + 1; //>=1 <=4
             N = ((code - 1) % 13) + 2; // >=2 , <=14
 
-            if (curGameId == (int)GAMEID.LUCKY_89
-                || curGameId == (int)GAMEID.KEANG
-                || curGameId == (int)GAMEID.RONGHO)
+            if (curGameId == (int)GAMEID.LUCKY_89)
             {
                 N = ((code - 1) % 13) + 1;
             }
 
-            if (curGameId == (int)GAMEID.TONGITS_JOKER ||
-                curGameId == (int)GAMEID.TONGITS11)
+            if (curGameId == (int)GAMEID.TONGITS_JOKER)
             {
                 if (N == 14) N = 1;
             }

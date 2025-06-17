@@ -62,7 +62,7 @@ public class LobbyView : BaseView
         animQuickPlay.AnimationState.SetAnimation(0, "coTag", true);
     }
 
-    List<GAMEID> listSlot = new List<GAMEID>() { GAMEID.DOMINO, GAMEID.SLOT_SIXIANG, GAMEID.SLOTTARZAN, GAMEID.SLOT20FRUIT, GAMEID.SLOT_JUICY_GARDEN, GAMEID.SLOT_INCA, GAMEID.SLOTNOEL, GAMEID.SLOT_SIXIANG };
+    List<GAMEID> listSlot = new List<GAMEID>() { GAMEID.SLOT_SIXIANG, GAMEID.SLOTTARZAN, GAMEID.SLOT20FRUIT, GAMEID.SLOT_JUICY_GARDEN, GAMEID.SLOT_INCA, GAMEID.SLOTNOEL, GAMEID.SLOT_SIXIANG };
 
     void OnClickTab(Button btn)
     {
@@ -433,7 +433,7 @@ public class LobbyView : BaseView
         }
 
         _AllGameIGs.Clear();
-        List<int> slotGames = new() { (int)GAMEID.DOMINO, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT20FRUIT };
+        List<int> slotGames = new() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT20FRUIT };
         Rect sizeCell = m_GamesSR.GetComponent<RectTransform>().rect;
         for (var i = 0; i < Config.listGame.Count; i++)
         {

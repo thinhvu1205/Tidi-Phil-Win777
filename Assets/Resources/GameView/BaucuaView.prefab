@@ -1102,6 +1102,7 @@ GameObject:
   - component: {fileID: 7843276089826561862}
   - component: {fileID: 3443101026181171020}
   - component: {fileID: 4354073895302117527}
+  - component: {fileID: 9151197811156282837}
   m_Layer: 5
   m_Name: ani_win
   m_TagString: Untagged
@@ -1183,6 +1184,28 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &9151197811156282837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594437226990049206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 4354073895302117527}
+  BundleLabel: assets--resources--gameview--baucua--animations
+  AssetName: Assets/Resources/GameView/Baucua/animations/win 2/New folder/skeleton_SkeletonData.asset
+  AnimName: animation
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &612385435575740322
 GameObject:
   m_ObjectHideFlags: 0
@@ -17142,6 +17165,7 @@ GameObject:
   - component: {fileID: 5886098148860434870}
   - component: {fileID: 2270004569776840249}
   - component: {fileID: 4140413979824635554}
+  - component: {fileID: 4943698190402670597}
   m_Layer: 5
   m_Name: ani_lose
   m_TagString: Untagged
@@ -17223,6 +17247,28 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &4943698190402670597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078754955441472652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 4140413979824635554}
+  BundleLabel: assets--resources--gameview--baucua--animations
+  AssetName: Assets/Resources/GameView/Baucua/animations/lose/skeleton_SkeletonData.asset
+  AnimName: animation
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7082850816829126282
 GameObject:
   m_ObjectHideFlags: 0

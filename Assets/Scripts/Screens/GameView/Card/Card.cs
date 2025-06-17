@@ -56,10 +56,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     private RectTransform _ThisRT;
     void Start()
     {
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.DUMMY || Globals.Config.curGameId == (int)Globals.GAMEID.KEANG)
-        {
-            GetComponent<Image>().raycastTarget = true;
-        }
         _ThisRT = GetComponent<RectTransform>();
     }
     private void OnEnable()
@@ -219,17 +215,13 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 {
                     imgValue.GetComponent<RectTransform>().sizeDelta = new Vector2(37, imgValue.GetComponent<RectTransform>().sizeDelta.y);
                 }
-                if (Globals.Config.curGameId == (int)Globals.GAMEID.DUMMY && (code == 11 || code == 14))
-                {
-                    bkgDummySpecial.SetActive(true);
-                }
-                else if (bkgDummySpecial != null)
+                if (bkgDummySpecial != null)
                 {
                     bkgDummySpecial.SetActive(false);
                 }
             }
             var gameId = Globals.Config.curGameId;
-            if (gameId == (int)Globals.GAMEID.TONGITS_OLD || gameId == (int)Globals.GAMEID.TONGITS || gameId == (int)Globals.GAMEID.TONGITS11 || gameId == (int)Globals.GAMEID.TONGITS_JOKER)
+            if (gameId == (int)Globals.GAMEID.TONGITS_OLD || gameId == (int)Globals.GAMEID.TONGITS || gameId == (int)Globals.GAMEID.TONGITS_JOKER)
             {
                 if (N == 14 || N == 13 || N == 1)
                 {
@@ -329,8 +321,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         // // mỗi game có 1 điều encode # nhau
         if (N == Globals.Config.CODE_JOKER_RED || N == Globals.Config.CODE_JOKER_BLACK)
             return N;
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.KARTU_QIU)
-            return 13 * (S - 1) + N;
         return 13 * (S - 1) + N - 1;
     }
     public void decodeCard(int cod)
@@ -351,13 +341,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             N = ((cod - 1) % 13) + 2; // >=2 , <=14
         }
 
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.KARTU_QIU
-            || Globals.Config.curGameId == (int)Globals.GAMEID.KEANG)
-        {
-            N = ((cod - 1) % 13) + 1;
-        }
         if (Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS ||
-            Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS11 ||
             Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_OLD ||
             Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_JOKER)
         {

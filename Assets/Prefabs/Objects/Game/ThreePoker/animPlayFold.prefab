@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4245062278001658497}
   - component: {fileID: 2334548577253584692}
   - component: {fileID: 1762339902479085501}
+  - component: {fileID: 5929891595770343881}
   m_Layer: 5
   m_Name: animPlayFold
   m_TagString: Untagged
@@ -91,3 +92,25 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &5929891595770343881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834464235625309653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisImg: {fileID: 0}
+  ThisSG: {fileID: 1762339902479085501}
+  BundleLabel: assets--resources--gameview--threepoker--animation
+  AssetName: Assets/Resources/GameView/ThreePoker/animation/fold_Play/skeleton_SkeletonData.asset
+  AnimName: fold
+  SetNativeSize: 0
+  m_OnEnableUE:
+    m_PersistentCalls:
+      m_Calls: []

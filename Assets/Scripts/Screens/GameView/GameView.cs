@@ -637,14 +637,7 @@ public class GameView : BaseView
         agTable = m;
         maxbet = maxBett;
         //Debug.Log("maxbet === " + maxBett);
-        if (Config.curGameId == (int)GAMEID.BLACKJACK)
-        {
-            lbInfo.text = string.Format("{0} {1}\n{2}: {3}\n{4}: {5}", Config.getTextConfig("txt_id"), id, Config.getTextConfig("txt_bet"), Config.FormatNumber(m), Config.getTextConfig("shan2_maxbet"), Config.FormatNumber(maxbet));
-        }
-        else
-        {
-            lbInfo.text = string.Format("{0} {1}\n{2}: {3}", Config.getTextConfig("txt_id"), id, Config.getTextConfig("txt_bet"), Config.FormatMoney(m));
-        }
+        lbInfo.text = string.Format("{0} {1}\n{2}: {3}", Config.getTextConfig("txt_id"), id, Config.getTextConfig("txt_bet"), Config.FormatMoney(m));
 
         // Config.table_mark = m;
         // Config.tableId = id;
@@ -779,32 +772,6 @@ public class GameView : BaseView
     {
         if (index == 0) return 0;
         var _index = index;
-        if (Config.curGameId == (int)GAMEID.GAOGEA) //9 nguoi
-        {
-            if (players.Count <= 6 && players.Count > 4)
-            {
-                if (index < 3)
-                {
-                    _index += 1;
-                }
-                else
-                {
-                    _index += 2;
-                }
-
-            }
-            else if (players.Count <= 4)
-            {
-                if (index == 1)
-                {
-                    _index += 1;
-                }
-                else
-                {
-                    _index += 3;
-                }
-            }
-        }
         if (players.Count == 2 && Config.curGameId != (int)GAMEID.TONGITS && Config.curGameId != (int)GAMEID.TONGITS_OLD && Config.curGameId != (int)GAMEID.TONGITS_JOKER)
         {
             _index++;
@@ -822,23 +789,10 @@ public class GameView : BaseView
 
         switch (Config.curGameId)
         {
-            case (int)GAMEID.DUMMY:
-                {
-                    return plView.GetComponent<PlayerViewDummy>();
-                }
             case (int)GAMEID.LUCKY_89:
                 {
                     return plView.GetComponent<PlayerViewLucky89>();
                 }
-            case (int)GAMEID.KEANG:
-                {
-                    return plView.GetComponent<PlayerViewKeang>();
-                }
-            //case (int)GAMEID.RONGHO:
-            //    {
-            //        plView.transform.localScale = new Vector2(0.8f, 0.8f);
-            //        return plView.GetComponent<PlayerViewDragonTiger>();
-            //    }
             case (int)GAMEID.SABONG:
                 {
                     plView.transform.localScale = new Vector2(.75f, .75f);

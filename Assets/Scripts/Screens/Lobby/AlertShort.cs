@@ -73,13 +73,6 @@ public class AlertShort : MonoBehaviour
                         posType = POSITION.CLOCK_8H00;
                         break;
                     }
-                case (int)Globals.GAMEID.BANDAR_QQ:
-                case (int)Globals.GAMEID.RONGHO:
-                    {
-                        posType = POSITION.CLOCK_4H30;
-                        break;
-                    }
-                case (int)Globals.GAMEID.KARTU_QIU:
                 case (int)Globals.GAMEID.SLOTNOEL:
                 case (int)Globals.GAMEID.SLOT_JUICY_GARDEN:
                 case (int)Globals.GAMEID.SLOTTARZAN:

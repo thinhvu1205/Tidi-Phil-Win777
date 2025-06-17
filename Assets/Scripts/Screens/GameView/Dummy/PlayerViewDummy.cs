@@ -13,21 +13,10 @@ public class PlayerViewDummy : PlayerView
 
     public void updateKaengPoint(int score, bool isHide = false)
     {
-        if (Globals.Config.curGameId != (int)Globals.GAMEID.DUMMY)
+        if (score < 0)
         {
-            if (score < 0)
-            {
-                txtScore.transform.parent.gameObject.SetActive(false);
-                return;
-            }
-        }
-        else
-        {
-            if (isHide)
-            {
-                txtScore.transform.parent.gameObject.SetActive(false);
-                return;
-            }
+            txtScore.transform.parent.gameObject.SetActive(false);
+            return;
         }
 
         txtScore.transform.parent.gameObject.SetActive(true);

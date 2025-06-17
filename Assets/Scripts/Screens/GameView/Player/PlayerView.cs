@@ -106,7 +106,7 @@ public class PlayerView : MonoBehaviour
                     case 2: vecPos.x = 100; break;
                 }
             }
-            else if (Config.curGameId == (int)GAMEID.LUCKY_89 || Config.curGameId == (int)GAMEID.GAOGEA)
+            else if (Config.curGameId == (int)GAMEID.LUCKY_89)
             {
                 vecPos.x = vecPosThis.x < 0 ? 100 : -100;
                 vecPos.y = -60;
@@ -368,9 +368,7 @@ public class PlayerView : MonoBehaviour
         if (
             Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_JOKER ||
             Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS ||
-            Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS11 ||
             Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS_OLD
-
         )
         {
             bkgThanhBar.transform.localPosition = new Vector2(-120, 5);
@@ -526,33 +524,14 @@ public class PlayerView : MonoBehaviour
         {
             height = 50;
         }
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.BANDAR_QQ || Globals.Config.curGameId == (int)Globals.GAMEID.PUSOY)
+        if (Globals.Config.curGameId == (int)Globals.GAMEID.PUSOY)
         {
             lbChipWinLose.transform.localPosition = new Vector2(0, -30);
             height = 50;
-        }
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.RONGHO)
-        {
-            //lbChipWinLose.transform.localPosition = new Vector2(0, );
-            height = 50;
-        }
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.BLACKJACK)
-        {
-            //lbChipWinLose.transform.localPosition = new Vector2(0, );
-            height = 60;
         }
         if (Globals.Config.curGameId == (int)Globals.GAMEID.BACCARAT)
         {
             height = 60;
-        }
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.KARTU_QIU)
-        {
-            height = 60;
-        }
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.DOMINO)
-        {
-            lbChipWinLose.transform.localPosition = new Vector2(0, -30);
-            height = 50;
         }
         if (Globals.Config.curGameId == (int)Globals.GAMEID.LUCKY9)
         {
@@ -578,15 +557,6 @@ public class PlayerView : MonoBehaviour
         if (!isShow) return;
         float posx = isLeft == true ? -60 : 60;
         float posy = isUp == true ? 25 : -25;
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.GAOGEA)
-        {
-            posy = -82;
-            posx = isLeft == true ? -82 : 82;
-        }
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.KARTU_QIU)
-        {
-            posx = isLeft == true ? -47 : 47;
-        }
         if (Globals.Config.curGameId == (int)Globals.GAMEID.LUCKY9)
         {
             posx = isLeft == true ? -85 : 85;

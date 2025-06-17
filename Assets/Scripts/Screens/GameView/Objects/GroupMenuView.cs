@@ -38,19 +38,11 @@ public class GroupMenuView : BaseView
         GroupMenuView.instance = this;
         base.Start();
         var curGameId = Globals.Config.curGameId;
-        if (curGameId == (int)Globals.GAMEID.KEANG || curGameId == (int)Globals.GAMEID.DUMMY)
-        {
-            btnSetting.gameObject.SetActive(false);
-        }
         if (curGameId == (int)Globals.GAMEID.SLOT20FRUIT || curGameId == (int)Globals.GAMEID.SLOTNOEL || (curGameId == (int)Globals.GAMEID.SLOTTARZAN) || (curGameId == (int)Globals.GAMEID.SLOT_JUICY_GARDEN) || (curGameId == (int)Globals.GAMEID.SLOT_SIXIANG) || (curGameId == (int)Globals.GAMEID.SLOT_INCA))
         {
             btnChangeTable.gameObject.SetActive(false);
         }
-        if (curGameId == (int)Globals.GAMEID.RONGHO)
-        {
-            btnRule.gameObject.SetActive(false);
-        }
-        if (curGameId == (int)Globals.GAMEID.TONGITS || curGameId == (int)Globals.GAMEID.TONGITS_OLD || curGameId == (int)Globals.GAMEID.TONGITS11 || curGameId == (int)Globals.GAMEID.TONGITS_JOKER)
+        if (curGameId == (int)Globals.GAMEID.TONGITS || curGameId == (int)Globals.GAMEID.TONGITS_OLD || curGameId == (int)Globals.GAMEID.TONGITS_JOKER)
         {
             btnFightTongits.transform.Find("on").GetComponent<Image>().sprite = TongitsView.IsFight ? listCheck[0] : listCheck[1];
             btnSetting.gameObject.SetActive(false);
@@ -78,7 +70,7 @@ public class GroupMenuView : BaseView
         var language = "thai";
         urlRule = urlRule.Replace("%language%", language);
         // https://conf.topbangkokclub.com/rule/index.html?gameid=%gameid%&language=%language%&list=true
-        List<int> listGameOther = new List<int> { (int)Globals.GAMEID.SLOT20FRUIT, (int)Globals.GAMEID.SLOT_SIXIANG, (int)Globals.GAMEID.SLOT_INCA, (int)Globals.GAMEID.SLOTNOEL, (int)Globals.GAMEID.SLOTTARZAN, (int)Globals.GAMEID.LUCKY9, (int)Globals.GAMEID.SICBO, (int)Globals.GAMEID.SABONG, (int)Globals.GAMEID.SLOT_INCA, (int)Globals.GAMEID.GAOGEA, (int)Globals.GAMEID.SLOT_JUICY_GARDEN, (int)Globals.GAMEID.BANDAR_QQ, (int)Globals.GAMEID.LUCKY9 };
+        List<int> listGameOther = new List<int> { (int)Globals.GAMEID.SLOT20FRUIT, (int)Globals.GAMEID.SLOT_SIXIANG, (int)Globals.GAMEID.SLOT_INCA, (int)Globals.GAMEID.SLOTNOEL, (int)Globals.GAMEID.SLOTTARZAN, (int)Globals.GAMEID.LUCKY9, (int)Globals.GAMEID.SICBO, (int)Globals.GAMEID.SABONG, (int)Globals.GAMEID.SLOT_INCA, (int)Globals.GAMEID.SLOT_JUICY_GARDEN, (int)Globals.GAMEID.LUCKY9 };
         if (listGameOther.Contains(curGameId))
         {
             UIManager.instance.gameView.onClickRule();

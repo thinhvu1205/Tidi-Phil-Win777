@@ -84,10 +84,6 @@ public class HandleGame
             case "ltable":
                 //{ "errorCode":-2,"evt":"ltable","Name":"tictctoe123"}
                 var data = jData;
-                if (Globals.Config.curGameId == (int)Globals.GAMEID.BLACKJACK)
-                {
-                    data = JObject.Parse((string)jData["data"]);//JSON.parse(dataJson.data);
-                }
 
                 var tableId = Globals.Config.tableId;
                 var namePl = "";
@@ -141,11 +137,6 @@ public class HandleGame
         }
         switch (Globals.Config.curGameId)
         {
-            case (int)Globals.GAMEID.DUMMY:
-                {
-                    HandleDummy.processData(jData);
-                    break;
-                }
             case (int)Globals.GAMEID.SLOTNOEL:
                 {
                     HandleSlotNoelView.processData(jData);
@@ -171,34 +162,9 @@ public class HandleGame
                     HandleSlotFruit.processData(jData);
                     break;
                 }
-            case (int)Globals.GAMEID.KARTU_QIU:
-                {
-                    HandleBorKDengView.processData(jData);
-                    break;
-                }
-            case (int)Globals.GAMEID.KEANG:
-                {
-                    HandleKeangView.processData(jData);
-                    break;
-                }
-            case (int)Globals.GAMEID.GAOGEA:
-                {
-                    HandleGaoGea.processData(jData);
-                    break;
-                }
             case (int)Globals.GAMEID.SICBO:
                 {
                     HandleSicboView.processData(jData);
-                    break;
-                }
-            case (int)Globals.GAMEID.BANDAR_QQ:
-                {
-                    HandleBandarQQ.processData(jData);
-                    break;
-                }
-            case (int)Globals.GAMEID.RONGHO:
-                {
-                    HandleDragonTiger.processData(jData);
                     break;
                 }
             case (int)Globals.GAMEID.PUSOY:
@@ -206,19 +172,9 @@ public class HandleGame
                     ((BinhGameView)gameView).ProcessResponseData(jData);
                     break;
                 }
-            case (int)Globals.GAMEID.DOMINO:
-                {
-                    HandleDomino.processData(jData);
-                    break;
-                }
             case (int)Globals.GAMEID.BACCARAT:
                 {
                     HandleBaccarat.processData(jData);
-                    break;
-                }
-            case (int)Globals.GAMEID.BLACKJACK:
-                {
-                    HandleBlackJack.processData(jData);
                     break;
                 }
             case (int)Globals.GAMEID.TONGITS_OLD:

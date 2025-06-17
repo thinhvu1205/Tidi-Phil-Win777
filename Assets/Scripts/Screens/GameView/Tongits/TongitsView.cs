@@ -742,7 +742,7 @@ public class TongitsView : GameView
                 cardTemp.turnHighlightYellow(false);
                 setCardTouch(cardTemp);
                 if (arr[i] == idCardEat && idCardEat != 0) cardTemp.showBorder(true);
-                if (dId == 1 && Config.curGameId != (int)GAMEID.TONGITS11) cardTemp.transform.SetSiblingIndex(z--);
+                if (dId == 1) cardTemp.transform.SetSiblingIndex(z--);
                 else cardTemp.transform.SetSiblingIndex(i);
                 temp.Add(cardTemp);
             }
@@ -795,7 +795,7 @@ public class TongitsView : GameView
                 dropedCardCs[i].transform.DOLocalMove(destination, 0.3f).SetDelay(0.05f + i * 0.1f);
                 dropedCardCs[i].turnBorderBlue(false);
                 dropedCardCs[i].turnHighlightYellow(false);
-                if (dId == 1 && Config.curGameId != (int)GAMEID.TONGITS11) dropedCardCs[i].transform.SetSiblingIndex(z--);
+                if (dId == 1) dropedCardCs[i].transform.SetSiblingIndex(z--);
                 else dropedCardCs[i].transform.SetSiblingIndex(i);
                 await Task.Delay(100);
             }
@@ -910,21 +910,12 @@ public class TongitsView : GameView
                 Vector3 pos = setDropedCardPosition(plS._indexDynamic, stack[i].IndexOf(card), i);
                 card.transform.DOLocalMove(pos, 0.3f);
                 card.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-                if (plS._indexDynamic == 1 && Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS11)
+                if (plS._indexDynamic == 1)
                 {
                     card.transform.SetSiblingIndex(z);
                     z--;
                 }
-                else
-                {
-                    if (plS._indexDynamic == 1)
-                    {
-                        card.transform.SetSiblingIndex(z);
-                        z--;
-                    }
-                    else
-                        card.transform.SetSiblingIndex(stack[i].IndexOf(card));
-                }
+                else card.transform.SetSiblingIndex(stack[i].IndexOf(card));
             }
         }
         Invoke("callNextEvt", 0.1f);
@@ -1155,13 +1146,6 @@ public class TongitsView : GameView
         turnOffTouch();
         _TouchedCardCs.Clear();
         checkAutoExit();
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS11)
-        {
-            Transform other = transform.Find("playerScoreOther");
-            if (other != null) other.GetChild(0).gameObject.SetActive(false);
-            Transform title = transform.Find("cardOnHand");
-            if (title != null) title.gameObject.SetActive(false);
-        }
         _CanFight = false;
         enableFight(_CanFight);
         if (_GroupBannerSGB.Count > 0)
@@ -2329,38 +2313,22 @@ public class TongitsView : GameView
     }
     void showOtherScore(JArray data)
     {
-        if (Globals.Config.curGameId != (int)Globals.GAMEID.TONGITS11)
+        for (int i = 0; i < data.Count; i++)
         {
-            for (int i = 0; i < data.Count; i++)
+            Player player = getPlayerWithID((int)data[i]["pid"]);
+            if (player != thisPlayer)
             {
-                Player player = getPlayerWithID((int)data[i]["pid"]);
-                if (player != thisPlayer)
+                if (player._indexDynamic == 1)
                 {
-                    if (player._indexDynamic == 1)
-                    {
-                        GameObject score = m_OtherScores[0].transform.Find("score").gameObject;
-                        m_OtherScores[0].SetActive(true);
-                        score.GetComponent<TextMeshProUGUI>().text = "score: " + (int)data[i]["Score"];
-                    }
-                    if (player._indexDynamic == 2)
-                    {
-                        GameObject score = m_OtherScores[1].transform.Find("score").gameObject;
-                        m_OtherScores[1].SetActive(true);
-                        score.GetComponent<TextMeshProUGUI>().text = "score: " + (int)data[i]["Score"];
-                    }
+                    GameObject score = m_OtherScores[0].transform.Find("score").gameObject;
+                    m_OtherScores[0].SetActive(true);
+                    score.GetComponent<TextMeshProUGUI>().text = "score: " + (int)data[i]["Score"];
                 }
-            }
-        }
-        else
-        {
-            for (int i = 0; i < data.Count; i++)
-            {
-                Player player = getPlayerWithID((int)data[i]["pid"]);
-                if (player != thisPlayer)
+                if (player._indexDynamic == 2)
                 {
-                    GameObject other = transform.Find("playerScoreOther").gameObject;
-                    other.transform.GetChild(0).gameObject.SetActive(true);
-                    other.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = data[i]["Score"].ToString();
+                    GameObject score = m_OtherScores[1].transform.Find("score").gameObject;
+                    m_OtherScores[1].SetActive(true);
+                    score.GetComponent<TextMeshProUGUI>().text = "score: " + (int)data[i]["Score"];
                 }
             }
         }
@@ -2396,7 +2364,7 @@ public class TongitsView : GameView
                     Vector2 pos = setDropedCardPosition(player._indexDynamic, j, len, true, uperLimit);
                     cardTemp.transform.DOLocalMove(pos, 0.4f);
                     temp.Add(cardTemp);
-                    if (player._indexDynamic == 1 && Globals.Config.curGameId != (int)Globals.GAMEID.TONGITS11)
+                    if (player._indexDynamic == 1)
                     {
                         cardTemp.transform.SetSiblingIndex(z);
                         z--;
@@ -3066,27 +3034,14 @@ public class TongitsView : GameView
     }
     Vector2 getHandPosition(int indexD)
     {
-        if (Globals.Config.curGameId != (int)Globals.GAMEID.TONGITS11)
+        switch (indexD)
         {
-            switch (indexD)
-            {
-                case 0:
-                    return new Vector2(0f, -280f);
-                case 1:
-                    return new Vector2(470f, 100f);
-                case 2:
-                    return new Vector2(-470f, 100f);
-            }
-        }
-        else
-        {
-            switch (indexD)
-            {
-                case 0:
-                    return new Vector2(0f, -280f);
-                case 1:
-                    return new Vector2(-50f, 220f);
-            }
+            case 0:
+                return new Vector2(0f, -280f);
+            case 1:
+                return new Vector2(470f, 100f);
+            case 2:
+                return new Vector2(-470f, 100f);
         }
         return Vector2.zero;
     }
@@ -3098,12 +3053,6 @@ public class TongitsView : GameView
             offset = getOffsetLower(indexD, uperLimit);
         }
         Vector2 orgPos = getPlayersGroupPosition(indexD);
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS11 && indexD != 0)
-        {
-            isLower = true;
-            offset = 0;
-            orgPos = getPlayersGroupPosition(2);
-        }
         if (stackID == 0 && !isLower)
         {
             if (indexD == 1)
@@ -3119,7 +3068,7 @@ public class TongitsView : GameView
             {
                 id += _CardsInDeck[indexD][i].Count;
             }
-            if (indexD == 1 && Globals.Config.curGameId != (int)Globals.GAMEID.TONGITS11)
+            if (indexD == 1)
             {
                 if (isLower)
                 {

@@ -92,8 +92,6 @@ public class ShowResultScore : MonoBehaviour
         else
         {
             listAniWinLost[1].gameObject.SetActive(true);
-            if (Globals.Config.curGameId == (int)Globals.GAMEID.KEANG)
-                listAniWinLost[1].transform.DOLocalMoveY(25, 0);
             funcEnd = () =>
             {
                 listAniWinLost[1].gameObject.SetActive(false);
@@ -103,14 +101,14 @@ public class ShowResultScore : MonoBehaviour
 
         //actionNode.stopAllActions();
         int time = 3;
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.KEANG) time = 2;
         DOTween.Sequence()
             .AppendInterval(time)
             .AppendCallback(funcEnd);
     }
     public void setResult(int score, int rate)
     {
-        try {
+        try
+        {
 
             if (score < 0)
             {
@@ -121,7 +119,7 @@ public class ShowResultScore : MonoBehaviour
             if (aniType != null && rate < 5)
             {
                 aniType.gameObject.SetActive(true);
-                txt_type_card.sprite = listTypeCard[rate+5];// listTypeCard[cc.sys.localStorage.getItem("language_client") == LANGUAGE_TEXT_CONFIG.LANG_EN ? rate : rate + 5];
+                txt_type_card.sprite = listTypeCard[rate + 5];// listTypeCard[cc.sys.localStorage.getItem("language_client") == LANGUAGE_TEXT_CONFIG.LANG_EN ? rate : rate + 5];
                 bg_score.gameObject.SetActive(false);
                 txt_type_card.SetNativeSize();
             }
@@ -132,7 +130,7 @@ public class ShowResultScore : MonoBehaviour
             if (lb_score != null) lb_score.text = score + " " + Globals.Config.getTextConfig("diem");// require('GameManager').getInstance().getTextConfig('diem');
             changeSize();
         }
-        catch(System.SystemException e)
+        catch (System.SystemException e)
         {
             Globals.Logging.Log("errr--set result:" + e);
         }

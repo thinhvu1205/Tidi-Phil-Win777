@@ -85,9 +85,9 @@ public class FightScene : MonoBehaviour
     {
         challengerSolo = player;
         time_turn = 12;
-        challenger_left.transform.position = Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS11 ? new Vector2(-850f, -150f) : new Vector2(-850f, -200f);
+        challenger_left.transform.position = new Vector2(-850f, -200f);
         challenger_left.SetActive(false);
-        challenger_right.transform.position = Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS11 ? new Vector2(850f, -150f) : new Vector2(850f, -200f);
+        challenger_right.transform.position = new Vector2(850f, -200f);
         challenger_right.SetActive(false);
 
         string aniStr = "eng";
@@ -128,46 +128,29 @@ public class FightScene : MonoBehaviour
 
     public void playerFight(Player player, int type)
     {
-        if (Globals.Config.curGameId == (int)Globals.GAMEID.TONGITS11)
+        Debug.Log("currentFighterDIndex = " + currentFighterDIndex);
+        if (currentFighterDIndex == 0)
         {
-            if (challengerSolo != null)
+            if (player._indexDynamic == 1)
             {
-                setLeftChallenger(challengerSolo, 3);
-                fight_ani.gameObject.SetActive(false);
-                challenger_left.SetActive(false);
-                //solo_ani.SetActive(true);
-                //solo_ani.GetComponent<SkeletonAnimation>().AnimationName = "animation";
-            }
-            imgTime.gameObject.SetActive(false);
-            time_turn_cur = time_turn;
-            setRightChallenger(player, type);
-        }
-        else
-        {
-            Debug.Log("currentFighterDIndex = " + currentFighterDIndex);
-            if (currentFighterDIndex == 0)
-            {
-                if (player._indexDynamic == 1)
-                {
-                    setRightChallenger(player, type);
-                }
-                else
-                {
-                    setLeftChallenger(player, type);
-                }
+                setRightChallenger(player, type);
             }
             else
             {
-                if (player._indexDynamic == 0)
-                {
-                    setLeftChallenger(player, type);
-                    fight_buttons.SetActive(false);
-                    imgTime.gameObject.SetActive(false);
-                }
-                else
-                {
-                    setRightChallenger(player, type);
-                }
+                setLeftChallenger(player, type);
+            }
+        }
+        else
+        {
+            if (player._indexDynamic == 0)
+            {
+                setLeftChallenger(player, type);
+                fight_buttons.SetActive(false);
+                imgTime.gameObject.SetActive(false);
+            }
+            else
+            {
+                setRightChallenger(player, type);
             }
         }
 
