@@ -1,0 +1,51 @@
+ManifestFileVersion: 0
+CRC: 3806088014
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cf3d06d794045a587ae750c6e516cb3f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0d0b4c284cc7e207abf3d7e9b9962155
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 22afece2869f2e36f944a91ac011ce56
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+Assets:
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder (2)/skeleton.png
+- Assets/Resources/GameView/Baucua/animations/xucxac/New folder (2)/skeleton_Material.mat
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder (2)/skeleton.atlas.txt
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder (2)/skeleton_Atlas.asset
+- Assets/Resources/GameView/Baucua/animations/xucxac/New folder (2)/skeleton.atlas.txt
+- Assets/Resources/GameView/Baucua/animations/xucxac/New folder (2)/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Baucua/animations/xucxac/New folder (2)/skeleton.json
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder (2)/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Baucua/animations/xucxac/New folder (2)/skeleton_Atlas.asset
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton.atlas.txt
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder (2)/skeleton_Material.mat
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton_Atlas.asset
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Baucua/animations/win 2/New folder (2)/skeleton.json
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton.png
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton_Material.mat
+- Assets/Resources/GameView/Baucua/animations/xucxac/New folder (2)/skeleton.png
+- Assets/Resources/GameView/Baucua/animations/lose/skeleton.json
+Dependencies: []
