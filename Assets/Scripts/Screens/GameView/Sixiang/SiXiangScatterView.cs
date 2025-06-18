@@ -67,8 +67,7 @@ public class SiXiangScatterView : MonoBehaviour
     private void Awake()
     {
         BundleLoader[] loaderBLs = FindObjectsByType<BundleLoader>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        foreach (BundleLoader aBL in loaderBLs)
-            if (aBL.Type == BundleLoader.TYPE_ASSET.SKELETON_GRAPHIC) aBL.RefreshUI();
+        foreach (BundleLoader aBL in loaderBLs) aBL.PrepareData();
     }
     void Start()
     {

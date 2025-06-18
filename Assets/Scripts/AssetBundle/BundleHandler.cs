@@ -76,9 +76,7 @@ public class BundleHandler
     private static void _PrepareLoadersIfNeeded(GameObject parent)
     {
         BundleLoader[] itemBLs = parent.GetComponentsInChildren<BundleLoader>(true);
-        foreach (BundleLoader itemBL in itemBLs)
-            if (itemBL.Type == BundleLoader.TYPE_ASSET.SKELETON_GRAPHIC)
-                itemBL.RefreshUI();
+        foreach (BundleLoader itemBL in itemBLs) itemBL.PrepareData();
     }
     #region Load Assets
     public static T Instantiate<T>(T prefab, Transform parentTf) where T : Object
@@ -125,14 +123,14 @@ public class BundleHandler
     // Sprite[]
     public static Sprite[] LoadMultipleSprites(string path) { return _GetAssetWithSubAssets<Sprite>(path, _IMAGE_TAILS); }
     #endregion
-    public static bool SetDataForASkeletonGraphic(SkeletonGraphic targetSG, string path, string animName, bool loop)
+    public static bool SetDataForASkeletonGraphic(SkeletonGraphic targetSG, string path, string animName = "", bool loop = true)
     {
         if (targetSG == null) return false;
         SkeletonDataAsset skeDataSDA = LoadSkeletonDataAsset(path);
         if (skeDataSDA == null) return false;
         targetSG.skeletonDataAsset = skeDataSDA;
         targetSG.Initialize(true);
-        targetSG.AnimationState.SetAnimation(0, animName, loop);
+        if (!animName.Equals("")) targetSG.AnimationState.SetAnimation(0, animName, loop);
         return true;
     }
 }

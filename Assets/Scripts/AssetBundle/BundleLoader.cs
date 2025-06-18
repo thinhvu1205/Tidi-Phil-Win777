@@ -40,6 +40,19 @@ public class BundleLoader : MonoBehaviour
                 }
         }
     }
+    public void PrepareData()
+    {
+        switch (Type)
+        {
+            case TYPE_ASSET.SKELETON_GRAPHIC:
+                {
+                    if (ThisSG == null) ThisSG = GetComponent<SkeletonGraphic>();
+                    if (ThisSG == null || !ThisSG.enabled) return;
+                    BundleHandler.SetDataForASkeletonGraphic(ThisSG, AssetName, "", ThisSG.startingLoop);
+                    break;
+                }
+        }
+    }
     public void RemoveOnEnableCbListeners() => m_OnEnableUE.RemoveAllListeners();
     public void AddOnEnableCb(UnityAction eventUE) => m_OnEnableUE.AddListener(eventUE);
 
