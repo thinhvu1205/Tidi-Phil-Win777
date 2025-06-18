@@ -37,6 +37,7 @@ public class WebSocketManager : MonoBehaviour
             UIManager.instance.hideWatting();
             return;
         }
+        UserLogout = true;
         _OnConnectCb = callback;
         Config.isErrorNet = false;
         stop();
@@ -91,7 +92,6 @@ public class WebSocketManager : MonoBehaviour
     private void _HandleOnOpenWebSocket()
     {
         connectionStatus = ConnectionStatus.CONNECTED;
-        UserLogout = true;
         _OnConnectCb?.Invoke();
         Logging.Log("OnOpen ");
         while (jobsResend.Count > 0)

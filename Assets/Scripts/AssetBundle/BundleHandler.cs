@@ -73,18 +73,25 @@ public class BundleHandler
         }
         return Resources.LoadAll<T>(path.Replace(RESOURCES, ""));
     }
+    private static void _PrepareLoadersIfNeeded(GameObject parent)
+    {
+        BundleLoader[] itemBLs = parent.GetComponentsInChildren<BundleLoader>(true);
+        foreach (BundleLoader itemBL in itemBLs)
+            if (itemBL.Type == BundleLoader.TYPE_ASSET.SKELETON_GRAPHIC)
+                itemBL.RefreshUI();
+    }
     #region Load Assets
+    public static T Instantiate<T>(T prefab, Transform parentTf) where T : Object
+    {
+        T output = GameObject.Instantiate(prefab, parentTf);
+        _PrepareLoadersIfNeeded(output.GameObject());
+        return output;
+    }
     // GameObject
     public static GameObject LoadGameObject(string path)
     {
         GameObject output = _GetAsset<GameObject>(path, _PREFAB_TAILS);
-        if (output != null)
-        {
-            BundleLoader[] itemBLs = output.GetComponentsInChildren<BundleLoader>(true);
-            foreach (BundleLoader itemBL in itemBLs)
-                if (itemBL.Type == BundleLoader.TYPE_ASSET.SKELETON_GRAPHIC)
-                    itemBL.RefreshUI();
-        }
+        if (output != null) _PrepareLoadersIfNeeded(output);
         return output;
     }
     // TextAsset

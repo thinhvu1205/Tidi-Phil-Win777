@@ -139,7 +139,7 @@ public class ThreePokerCardGameView : GameView
         if (go == null)
         {
             // Nếu không có chip nào khả dụng, tạo mới
-            go = Instantiate(m_PrepabChip, layerChip);
+            go = BundleHandler.Instantiate(m_PrepabChip, layerChip);
             chipBetPool.Add(go); // Thêm chip mới vào pool
         }
 
@@ -237,7 +237,7 @@ public class ThreePokerCardGameView : GameView
         }
         else
         {
-            GameObject item = Instantiate(m_FrameChip, m_ContainerLabel);
+            GameObject item = BundleHandler.Instantiate(m_FrameChip, m_ContainerLabel);
             listFrameChip.Add(item);
             item.transform.localPosition = newPosition;
             FrameChipView frameChipView = item.GetComponent<FrameChipView>();
@@ -249,7 +249,7 @@ public class ThreePokerCardGameView : GameView
 
     private IEnumerator AnimateMoneyChange(long value, GameObject gate)
     {
-        GameObject effectChange = Instantiate(m_TextBetChangeMoneyBet, m_ContainerChipBet);
+        GameObject effectChange = BundleHandler.Instantiate(m_TextBetChangeMoneyBet, m_ContainerChipBet);
         TextMeshProUGUI effectText = effectChange.GetComponentInChildren<TextMeshProUGUI>();
         effectText.text = "+ " + Globals.Config.FormatMoney2(value, true);
         effectChange.transform.SetParent(gate.transform);
@@ -1536,7 +1536,7 @@ public class ThreePokerCardGameView : GameView
             yield break; // Dừng Coroutine nếu không có bài
         }
         string value = getTextLabel(cardList);
-        GameObject item = Instantiate(m_Label, m_ContainerLabel);
+        GameObject item = BundleHandler.Instantiate(m_Label, m_ContainerLabel);
         listLabel.Add(item);
         LabelGameView labelGameView = item.GetComponent<LabelGameView>();
         item.transform.localPosition = new Vector2(listPos[1].x, listPos[1].y - offset);
@@ -1558,7 +1558,7 @@ public class ThreePokerCardGameView : GameView
         if (player == null) return;
 
         // Instantiate prefab
-        GameObject animNode = Instantiate(m_AnimPlayFold, player.playerView.transform);
+        GameObject animNode = BundleHandler.Instantiate(m_AnimPlayFold, player.playerView.transform);
         animNode.SetActive(true);
 
         // Lấy component Animator (hoặc nếu dùng SkeletonAnimation thì thay bằng component thích hợp)

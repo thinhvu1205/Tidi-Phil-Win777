@@ -14855,7 +14855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: 1ff7854dea7418c44807cc601c0b90f1, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 1b318abd3f3854643bb683d26a04cbc9, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
