@@ -727,7 +727,7 @@ public class UIManager : MonoBehaviour
         destroyAllChildren(parentPopups);
         lobbyView.show();
         lobbyView.updateInfo();
-        SocketSend.getFarmInfo();
+        // SocketSend.getFarmInfo();
         if (gameView != null)
             Destroy(gameView.gameObject);
     }
