@@ -1031,6 +1031,11 @@ public class UIManager : MonoBehaviour
         mailDetailView.transform.localScale = Vector3.one;
         MailDetailView.instance.setInfo(data);
     }
+    public void openSupport()
+    {
+        var support = Instantiate(loadPrefabPopup("PopupSupport"), parentPopups).GetComponent<PopupSupport>();
+        support.transform.localScale = Vector3.one;
+    }
 
     public void openInputPass(int tableID)
     {

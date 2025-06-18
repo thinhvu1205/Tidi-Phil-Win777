@@ -11647,7 +11647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1df825a2e6b5f454ebece9e3f4dc7ff3, type: 3}
+  m_Sprite: {fileID: -8392404212986688218, guid: 5f7a22869a0dbdd46bd9ae07fd0c2fd8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15815,7 +15815,7 @@ MonoBehaviour:
   - {x: 320, y: 291}
   playerViewPrefab: {fileID: 3455089045826342884, guid: 02e914785d49a7742a7b314470fa5e45, type: 3}
   lbInfo: {fileID: 3069941761986847982}
-  invitePrefab: {fileID: 6102869659049712693, guid: 01efeb2df26d84146ba0a7a000bb76e7, type: 3}
+  invitePrefab: {fileID: 6102869659049712693, guid: f22d0bb199ccd9f428782f04a84a8535, type: 3}
   inviteContainer: {fileID: 2748296184452086106}
   playerContainer: {fileID: 4572641885645055575}
   txtGameName: {fileID: 0}
@@ -19165,7 +19165,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 488145eb567b942e99c0472853f2c135, type: 3}
+  m_Sprite: {fileID: 2182422569004065498, guid: bb2be7db3f285a7449cb01463ffb2543, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -530,6 +530,8 @@ public class LoadConfig : MonoBehaviour
             UIManager.instance.refreshUIFromConfig();
         }
         if (jConfig.ContainsKey("url_cdn")) BundleHandler.MAIN.BundleUrl = (string)jConfig["url_cdn"];
+        if (jConfig.ContainsKey("supportgroup"))
+            Config.chat_tele_support_link = (string)jConfig["supportgroup"];
         PlayerPrefs.Save();
         _isConfigLoaded = true;
     }

@@ -672,7 +672,7 @@ public class LobbyView : BaseView
     {
         SoundManager.instance.soundClick();
         if (!Config.fanpageID.Equals("") && Config.is_bl_fb)
-            Application.OpenURL("https://" + Config.u_chat_fb);
+            UIManager.instance.openSupport();
         else UIManager.instance.openFeedback();
     }
     //bool isHideBot = false;

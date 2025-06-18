@@ -68,6 +68,7 @@ public class RouLetteView : GameView
     public static RouLetteView instance = null;
     public bool isBetTime = false;
 
+
     [Serializable]
     public class BetData
     {
@@ -117,6 +118,7 @@ public class RouLetteView : GameView
         base.Awake();
         stateGame = STATE_GAME.VIEWING;
         instance = this;
+
     }
 
     public void ProcessResponseData(JObject jData)
@@ -126,6 +128,7 @@ public class RouLetteView : GameView
         {
             case "timeToStart":
                 HandleStartGame(jData);
+                Debug.Log($"Tinh_Evt_DataStart: {jData}");
                 break;
             case "stable":
                 handleSTable(jData.ToString());
@@ -148,6 +151,7 @@ public class RouLetteView : GameView
             case "autoExit":
                 handleAutoExit(jData);
                 break;
+
             case "spin":
                 HandleSpin(jData);
                 break;
@@ -157,11 +161,6 @@ public class RouLetteView : GameView
             case "finish":
                 HandleFinishGame(jData);
                 break;
-            default:
-                {
-                    break;
-                }
-
         }
     }
 
@@ -178,6 +177,7 @@ public class RouLetteView : GameView
     public override void handleCTable(string strData)
     {
         base.handleCTable(strData);
+        // Debug.Log($"Tinh_Evt_ctable: {strData}---agTable: {agTable}");
         thisPlayer.playerView.transform.localScale = Vector3.one;
     }
 
@@ -393,7 +393,6 @@ public class RouLetteView : GameView
     public void HandleFinishGame(JObject data)
     {
         isBetTime = false;
-        HandleData.DelayHandleLeave = 6f;
         int result = data["result"]?.Value<int>() ?? 0;
         this.result = result;
         listResultHistory.Insert(0, result);
@@ -441,6 +440,7 @@ public class RouLetteView : GameView
 
         textPercentRed.text = $"{percentRed * 100:0}%";
         textPercentBlack.text = $"{percentBlack:0}%";
+
     }
 
     public void HandleMakeBet(JObject data)
@@ -487,6 +487,8 @@ public class RouLetteView : GameView
 
     private void ReStartGame()
     {
+        thisPlayer.setAg();
+        UpdateButtonBet(thisPlayer.ag);
         buttonRebet.interactable = true;
         newDataBetDeal.Clear();
         listDataBet.Clear();
@@ -495,8 +497,6 @@ public class RouLetteView : GameView
         textFrameCoin_1.text = $"{0}";
         textFrameCoin_2.text = $"{0}";
         thisPlayer.ag = agPlayer;
-        thisPlayer.setAg();
-        UpdateButtonBet(thisPlayer.ag);
         buttonDouble.interactable = false;
         Debug.Log(listBetOptions.Count + "xóa sạch bàn chơi");
         for (int i = 0; i < listBetOptions.Count; i++)
@@ -531,6 +531,7 @@ public class RouLetteView : GameView
                 }
             }
         }
+        HandleData.DelayHandleLeave = 0f;
     }
 
     private void ClearChip(Transform chipTransform)
@@ -583,6 +584,7 @@ public class RouLetteView : GameView
 
     private void ClickButtonDeal()
     {
+        HandleData.DelayHandleLeave = 10f;
         playSound(SOUND_GAME.CLICK);
 
         buttonDeal.interactable = false;
@@ -855,7 +857,6 @@ public class RouLetteView : GameView
         buttonDeal.interactable = totalBetValue > 0;
         buttonClear.interactable = totalBetValue > 0;
         buttonDouble.interactable = (totalBetValue * 2 <= tienConLai);
-        Debug.Log("xem là có vào đây ko");
     }
 
     private void showNoti(int type, string context = null)
@@ -1073,7 +1074,6 @@ public class RouLetteView : GameView
 
     private async void _OnStartGame()
     {
-        Debug.Log("xem là count bao nhiêu" + listBetOptions.Count);
         for (int i = 0; i < listBetOptions.Count; i++)
         {
             listBetOptions[i].id = i;
@@ -1399,10 +1399,12 @@ public class RouLetteView : GameView
         // Delay 2s rồi mới gọi ShowAnimSo
         DOVirtual.DelayedCall(5f, () =>
         {
+            HandleData.DelayHandleLeave = 1.5f;
+
             ShowAnimSo();
 
             // Delay tiếp 3s sau khi show animation mới restart game
-            DOVirtual.DelayedCall(2f, () =>
+            DOVirtual.DelayedCall(1f, () =>
             {
                 ReStartGame();
                 playSound(SOUND_GAME.THROW_CHIP);

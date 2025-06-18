@@ -567,6 +567,7 @@ namespace Globals
         public static string password_normal = "";
         public static string chat_support_link = "https://m.me/100087270858966";
         //public static string IP = "app1.topbangkokclub.com";
+        public static string chat_tele_support_link;
         public const string PORT = "443";
         public static bool isSound = false;
         public static bool isMusic = false;
