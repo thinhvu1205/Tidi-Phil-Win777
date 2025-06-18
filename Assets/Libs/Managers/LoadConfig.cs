@@ -26,7 +26,7 @@ public class LoadConfig : MonoBehaviour
     private bool _isConfigLoaded = false;
     void Awake()
     {
-        Config.publisher = "ruby_tongits_war777_com_pro";
+        Config.publisher = "unity_lucky777_tongitswar_1_0";
         if (instance == null) instance = this;
         else
         {
