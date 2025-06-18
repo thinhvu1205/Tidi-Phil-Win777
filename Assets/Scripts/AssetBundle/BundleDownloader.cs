@@ -20,7 +20,7 @@ public class BundleDownloader : MonoBehaviour
     private Action _OnFailCb, _OnCompleteCb;
     private int _TotalBundles, _CachedBundles;
 
-    public void CheckAndDownloadAssets(string url, Action onFailCb = null, Action onCompleteCb = null)
+    public void CheckAndDownloadAssets(string url, float delay = 0, Action onFailCb = null, Action onCompleteCb = null)
     {
         if (url.Equals(""))
         {
@@ -40,12 +40,13 @@ public class BundleDownloader : MonoBehaviour
         if (!url.Contains("://")) url = "file:///" + url;
         _OnFailCb = onFailCb;
         _OnCompleteCb = onCompleteCb;
-        StartCoroutine(_GetAssetBundles(url));
+        StartCoroutine(_GetAssetBundles(url, delay));
     }
     public void SetProgressValue(float value) => m_ProgressImg.fillAmount = (_CachedBundles + value) / _TotalBundles;
     public void SetProgressText(string content) => m_ProgressTMPUI.text = content;
-    private IEnumerator _GetAssetBundles(string url)
+    private IEnumerator _GetAssetBundles(string url, float delay)
     {
+        if (delay > 0) yield return new WaitForSeconds(delay);
         using UnityWebRequest aUWR = UnityWebRequest.Get(url + BundleHandler.CATEGORY); // get new category content from server
         yield return aUWR.SendWebRequest();
 
@@ -148,7 +149,8 @@ public class BundleDownloader : MonoBehaviour
     private void _SetProgressUI(float value)
     {
         SetProgressValue(value);
-        SetProgressText((value >= 1 ? _TotalBundles : _CachedBundles) + "/" + _TotalBundles);
+        // SetProgressText((value >= 1 ? _TotalBundles : _CachedBundles) + "/" + _TotalBundles);
+        SetProgressText(value >= 1 ? "100%" : (m_ProgressImg.fillAmount * 100).ToString("F0") + "%");
     }
     private void _CompleteLoadingAssets()
     {

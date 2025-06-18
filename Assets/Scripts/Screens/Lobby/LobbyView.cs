@@ -671,7 +671,7 @@ public class LobbyView : BaseView
     public void onClickSupport()
     {
         SoundManager.instance.soundClick();
-        if (!Config.fanpageID.Equals("") && Config.is_bl_fb)
+        if (!Config.fanpageID.Equals("") && Config.is_bl_fb || !Config.chat_tele_support_link.Equals(""))
             UIManager.instance.openSupport();
         else UIManager.instance.openFeedback();
     }

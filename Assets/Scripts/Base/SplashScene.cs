@@ -15,7 +15,7 @@ public class SplashScene : MonoBehaviour
         // https://storage.googleapis.com/tongitswar/AssetBundles;
         string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "");
         // storedUrl = "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
-        m_BundleBD.CheckAndDownloadAssets(storedUrl,
+        m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,
             () =>
             {
                 m_BundleBD.SetProgressText("Retrying ...");
@@ -30,7 +30,7 @@ public class SplashScene : MonoBehaviour
         {
             while (BundleHandler.MAIN.BundleUrl == null || BundleHandler.MAIN.BundleUrl.Equals(""))
                 yield return new WaitForSeconds(1f);
-            m_BundleBD.CheckAndDownloadAssets(BundleHandler.MAIN.BundleUrl,
+            m_BundleBD.CheckAndDownloadAssets(BundleHandler.MAIN.BundleUrl, 0,
                 () =>
                 {
                     m_BundleBD.SetProgressText("Fail to get assets!");
