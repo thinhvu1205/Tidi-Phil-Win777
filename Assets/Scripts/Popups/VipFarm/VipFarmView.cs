@@ -21,8 +21,6 @@ public class VipFarmView : BaseView
     {
         base.Awake();
         instance = this;
-        BundleLoader[] itemBLs = GetComponentsInChildren<BundleLoader>(true);
-        foreach (BundleLoader itemBL in itemBLs) itemBL.PrepareData();
     }
 
     protected override void OnEnable()

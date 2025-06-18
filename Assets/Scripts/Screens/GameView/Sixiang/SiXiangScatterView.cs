@@ -64,21 +64,7 @@ public class SiXiangScatterView : MonoBehaviour
     [HideInInspector]
     SiXiangView gameView;
     List<int> rateGold = new List<int> { 3, 6, 10, 15 };
-    private void Awake()
-    {
-        BundleLoader[] loaderBLs = FindObjectsByType<BundleLoader>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        foreach (BundleLoader aBL in loaderBLs) aBL.PrepareData();
-    }
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnEnable()
     {
