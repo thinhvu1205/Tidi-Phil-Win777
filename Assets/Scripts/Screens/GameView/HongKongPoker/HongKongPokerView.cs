@@ -284,7 +284,7 @@ public class HongKongPokerView : GameView
 
                 DOTween.Sequence().AppendInterval(0.5f).AppendCallback(() =>
                 {
-                    if (gameObject == null) return;
+                    if (this == null) return;
                     lbChangeCard.SetActive(true);
                     bgArrowSwap.gameObject.SetActive(true);
                     StartCoroutine(AnimateArrowSwapLoop(10));
@@ -438,7 +438,7 @@ public class HongKongPokerView : GameView
                     var durationTime = item.SetInfo(vtemp, listPosView[indexDynamic], timeDelay, (int)chipReturn[z]);
                     AsyncDelayedAction(durationTime, () =>
                     {
-                        if (gameObject == null) return;
+                        if (this == null) return;
                         player.playerView.effectFlyMoney(chipRt);
                         player.ag += (int)chipRt;
                         player.setAg();
@@ -487,12 +487,12 @@ public class HongKongPokerView : GameView
         // await UniTask.Delay(2000);
         // HandleWinnerCard(data);
         await UniTask.Delay(2500);
-        if (gameObject != null)
+        if (this != null)
             potHkPoker.setValue(0, 0.2f);
 
         await UniTask.Delay((5 + timeDelay) * 1000 - 2500);
 
-        if (gameObject != null)
+        if (this != null)
         {
             isCheckAddWinListCard = false;
             stateGame = STATE_GAME.WAITING;
