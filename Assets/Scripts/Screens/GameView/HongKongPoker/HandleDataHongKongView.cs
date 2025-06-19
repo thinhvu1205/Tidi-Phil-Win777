@@ -10,27 +10,9 @@ public class HandleDataHongKongView
         var gameView = (HongKongPokerView)UIManager.instance.gameView;
         if (gameView == null) return;
         string evt = (string)jData["evt"];
-
+        Debug.Log(") =3 " + evt + " / " + jData.ToString());
         switch (evt)
         {
-            case "ctable":
-                gameView.handleCTable((string)jData["data"]);
-                break;
-            case "cctable":
-                gameView.handleCCTable(jData);
-                break;
-            case "stable":
-                gameView.handleSTable((string)jData["data"]);
-                break;
-            case "vtable":
-                gameView.handleVTable((string)jData["data"]);
-                break;
-            case "rjtable":
-                gameView.handleRJTable((string)jData["data"]);
-                break;
-            case "jtable":
-                gameView.handleJTable((string)jData["data"]);
-                break;
             case "timeToStart":
                 gameView.HandleTimeToStart(jData);
                 break;
@@ -52,20 +34,11 @@ public class HandleDataHongKongView
             case "bc":
                 gameView.HandleBc(jData);
                 break;
-            case "ltable":
-                gameView.handleLTable(jData);
-                break;
             case "finish":
                 gameView.HandleFinish(jData);
                 break;
-            case "chattable":
-                gameView.handleChatTable(jData);
-                break;
             case "tip":
                 gameView.HandlerTip(jData);
-                break;
-            case "autoExit":
-                gameView.handleAutoExit(jData);
                 break;
         }
     }

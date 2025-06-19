@@ -22,7 +22,7 @@ public class ToggleCheckHkPoker : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI textToggleCallAny;
-    
+
     public void setInfo(int chipForCall, int chipBoxBet = 0, long chipPlayer = 0)
     {
         gameObject.SetActive(chipPlayer > 0);
@@ -36,7 +36,8 @@ public class ToggleCheckHkPoker : MonoBehaviour
         {
             textToggleFold.text = Globals.Config.getTextConfig("show_lb_fold");
             textToggleCall.text = Globals.Config.formatStr("%s(%s)", Globals.Config.getTextConfig("show_lb_call"), Globals.Config.FormatMoney(chipForCall - temp));
-        };
+        }
+        ;
         textToggleCallAny.text = Globals.Config.getTextConfig("show_lb_call_any").Replace('\n', ' ');
         if (chipForCall >= chipPlayer + temp)
         {
@@ -48,7 +49,7 @@ public class ToggleCheckHkPoker : MonoBehaviour
             listToggle[1].gameObject.SetActive(true);
         }
     }
-    
+
     public bool readInfoToggle()
     {
         for (int i = 0; i < listToggle.Count; i++)
@@ -79,20 +80,20 @@ public class ToggleCheckHkPoker : MonoBehaviour
         gameObject.SetActive(false);
         return false;
     }
-    
+
     public void onClickToggleShow()
     {
         SocketSend.sendMakeBetShow("show");
         toggleShow.gameObject.SetActive(false);
         SoundManager.instance.soundClick();
     }
-    
+
     public void onClickToggleFold()
     {
         SoundManager.instance.soundClick();
         SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickToggleFold_%s", CURRENT_VIEW.getCurrentSceneName()));
     }
-    
+
     public void onClickToggleCall()
     {
         SoundManager.instance.soundClick();
@@ -104,5 +105,5 @@ public class ToggleCheckHkPoker : MonoBehaviour
         SoundManager.instance.soundClick();
         SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickToggleCallAny%s", CURRENT_VIEW.getCurrentSceneName()));
     }
-    
+
 }

@@ -254,7 +254,7 @@ namespace Globals
         TONGITS_OLD = 8091,
         TONGITS = 8090,
         TONGITS_JOKER = 8088,
-        SHOW = 8808,
+        HONGKONG_POKER = 8808,
         BAUCUA = 8803,
         LUCKY_89 = 8802,
         PUSOY = 8044,

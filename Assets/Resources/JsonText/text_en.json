@@ -638,7 +638,7 @@
 		"change_table": "Swicth table",
 		"show_lb_bet": "Bet",
 		"show_lb_call": "Call",
-		"show_lb_callany": "Call Any",
+		"show_lb_call_any": "Call Any",
 		"show_lb_raise": "Raise",
 		"show_lb_check": "Check",
 		"show_lb_fold": "Fold",

@@ -150,7 +150,7 @@ public class BundleDownloader : MonoBehaviour
     {
         SetProgressValue(value);
         // SetProgressText((value >= 1 ? _TotalBundles : _CachedBundles) + "/" + _TotalBundles);
-        SetProgressText(value >= 1 ? "100%" : (m_ProgressImg.fillAmount * 100).ToString("F0") + "%");
+        SetProgressText("Loading " + (value >= 1 ? "100%" : (m_ProgressImg.fillAmount * 100).ToString("F0") + "%"));
     }
     private void _CompleteLoadingAssets()
     {

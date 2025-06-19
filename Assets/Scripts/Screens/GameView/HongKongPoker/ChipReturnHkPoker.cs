@@ -44,11 +44,11 @@ public class ChipReturnHkPoker : ChipBet
         float duration = seq.Duration();
         return duration;
     }
-    
+
     private IEnumerator PlaySoundWithDelay(float delay = 1f)
     {
         yield return new WaitForSeconds(delay);
         SoundManager.instance.playEffectFromPath(SOUND_GAME.THROW_CHIP);
     }
-    
+
 }

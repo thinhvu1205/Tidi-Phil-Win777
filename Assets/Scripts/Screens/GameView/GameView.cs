@@ -758,12 +758,17 @@ public class GameView : BaseView
     protected virtual void updatePositionPlayerView()
     {
         bool isTongits = Config.curGameId == (int)GAMEID.TONGITS || Config.curGameId == (int)GAMEID.TONGITS_OLD || Config.curGameId == (int)GAMEID.TONGITS_JOKER;
+        bool isHkPoker = Config.curGameId == (int)GAMEID.HONGKONG_POKER;
         for (var i = 0; i < players.Count; i++)
         {
             var idPos = getDynamicIndex(getIndexOf(players[i]));
             players[i].playerView.transform.localPosition = listPosView[idPos];
             players[i]._indexDynamic = idPos;
             players[i].updateItemVip(players[i].vip, idPos);
+            if (isHkPoker && idPos is 1 or 4)
+            {
+                players[i].playerView.transform.SetAsLastSibling();
+            }
         }
         if (isTongits) thisPlayer.playerView.setPosThanhBarThisPlayer();
     }

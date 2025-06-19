@@ -609,7 +609,7 @@ public class UIManager : MonoBehaviour
                     gameView = Instantiate(loadPrefabGame("RouLetteView"), parentGame).GetComponent<RouLetteView>();
                     break;
                 }
-            case (int)Globals.GAMEID.SHOW:
+            case (int)Globals.GAMEID.HONGKONG_POKER:
                 {
                     Globals.Logging.Log("showGame Hong Kong Poker");
                     gameView = Instantiate(loadPrefabGame("HongKongPokerView"), parentGame).GetComponent<HongKongPokerView>();

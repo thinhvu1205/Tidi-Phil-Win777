@@ -628,7 +628,7 @@
 		"change_table": "Magpalit ng mesa",
 		"show_lb_bet": "Pusta",
 		"show_lb_call": "Tawag",
-		"show_lb_callany": "Mag-okay sa lahat",
+		"show_lb_call_any": "Mag-okay sa lahat",
 		"show_lb_raise": "Itaas",
 		"show_lb_check": "Tsek",
 		"show_lb_fold": "Sumuko",

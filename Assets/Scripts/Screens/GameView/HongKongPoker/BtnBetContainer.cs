@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class BtnBetContainer : MonoBehaviour
 {
-   [SerializeField]
+    [SerializeField]
     GameObject btn_Fold;
 
     [SerializeField]
@@ -52,7 +52,7 @@ public class BtnBetContainer : MonoBehaviour
     private float timeCountDow = 0;
     private bool isClickRaise = false, isCountDow = false;
     const double EPSILON = 1e-4;
- 
+
     void Start()
     {
         handleSlider.onValueChanged.AddListener((vl) =>
@@ -60,7 +60,7 @@ public class BtnBetContainer : MonoBehaviour
             CallBackSilder();
         });
     }
-    
+
     private void Update()
     {
         if (isCountDow)
@@ -69,25 +69,25 @@ public class BtnBetContainer : MonoBehaviour
             if (timeCountDow < 0.5 && isClickRaise)
             {
                 btn_Raise.gameObject.SetActive(true);
-                SocketSend.sendMakeBetShow("pRaise", (int) valueTableAg);
+                SocketSend.sendMakeBetShow("pRaise", (int)valueTableAg);
                 isCountDow = false;
                 isClickRaise = false;
                 gameObject.SetActive(false);
             }
         }
     }
-    
+
     private void OnDisable()
     {
         handleSlider.transform.parent.gameObject.SetActive(false);
 
     }
-    
+
     public void update_slider(long value)
     {
         valueThisPlayer = value;
     }
-    
+
     public void CallBackSilder()
     {
         float valueMoney = 0;
@@ -111,7 +111,7 @@ public class BtnBetContainer : MonoBehaviour
                 handleSlider.value = 1;
             }
         }
-        
+
         lb_max.SetActive(Mathf.Approximately(handleSlider.value, 1));
         thanhKeo.fillAmount = handleSlider.value;
         if (valueMoney <= valueTableAg)
@@ -131,8 +131,8 @@ public class BtnBetContainer : MonoBehaviour
         valueBet = valueMoney;
 
     }
-    
-    public void setValueInfo(long valueAgPlayer , int valueTableAgg, int valuePott)
+
+    public void setValueInfo(long valueAgPlayer, int valueTableAgg, int valuePott)
     {
         valueThisPlayer = valueAgPlayer;
         valueTableAg = valueTableAgg;
@@ -153,24 +153,27 @@ public class BtnBetContainer : MonoBehaviour
         }
 
     }
-    
+
     public void setInfoBtn(string btn_1, string btn_2, string btn_3, int amount = 0)
     {
         if (btn_3 == "Bet")
         {
             textBtn_Raise.text = Globals.Config.getTextConfig("show_lb_bet");
-        } else
+        }
+        else
         {
             textBtn_Raise.text = Globals.Config.getTextConfig("show_lb_raise");
         }
-        
+
         if (btn_2 == "Call")
         {
             if (amount > 0)
             {
                 string str = Globals.Config.FormatMoney(amount);
                 textBtn_Call.text = Globals.Config.getTextConfig("show_lb_call") + "(" + str + ")";
-            } else {
+            }
+            else
+            {
                 textBtn_Call.text = Globals.Config.getTextConfig("show_lb_call");
             }
         }
@@ -180,7 +183,7 @@ public class BtnBetContainer : MonoBehaviour
         }
 
     }
-    
+
     public void onClickRaise()
     {
         btn_Raise.gameObject.SetActive(false);
@@ -190,7 +193,7 @@ public class BtnBetContainer : MonoBehaviour
         resetSlider();
         SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickBet_%s", CURRENT_VIEW.getCurrentSceneName()));
     }
-    
+
     public void offRaise()
     {
         btn_Raise.gameObject.SetActive(true);
@@ -198,7 +201,7 @@ public class BtnBetContainer : MonoBehaviour
         handleSlider.transform.parent.gameObject.SetActive(false);
         resetSlider();
     }
-    
+
     public void onClickComfirm()
     {
         SoundManager.instance.soundClick();
@@ -207,7 +210,7 @@ public class BtnBetContainer : MonoBehaviour
         gameObject.SetActive(false);
         SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickConfirm_%s", CURRENT_VIEW.getCurrentSceneName()));
     }
-    
+
     public void onClickFold()
     {
         SoundManager.instance.soundClick();
@@ -215,7 +218,7 @@ public class BtnBetContainer : MonoBehaviour
         SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickFold_%s", CURRENT_VIEW.getCurrentSceneName()));
         gameObject.SetActive(false);
     }
-    
+
     public void onClickCall()
     {
         SoundManager.instance.soundClick();
@@ -232,7 +235,7 @@ public class BtnBetContainer : MonoBehaviour
         }
         gameObject.SetActive(false);
     }
-    
+
     public void onClickBtnAllIn()
     {
         SoundManager.instance.soundClick();
@@ -241,14 +244,14 @@ public class BtnBetContainer : MonoBehaviour
         SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickBetAllin_%s", CURRENT_VIEW.getCurrentSceneName()));
         gameObject.SetActive(false);
     }
-    
+
     private void resetSlider()
     {
         handleSlider.value = valueTableAg / valueThisPlayer / 0.7f >= 1 ? 1 : valueTableAg / valueThisPlayer / 0.7f;
         thanhKeo.fillAmount = handleSlider.value;
         textBet.text = Config.FormatMoney((int)valueTableAg);
     }
-    
+
     public void onClickBtnAllinForCall()
     {
         SoundManager.instance.soundClick();
@@ -256,20 +259,20 @@ public class BtnBetContainer : MonoBehaviour
         SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickCall_%s", CURRENT_VIEW.getCurrentSceneName()));
         gameObject.SetActive(false);
     }
-    
+
     public void AutoBetIfClickRaise(int time)
     {
         timeCountDow = time;
         isCountDow = true;
     }
-    
+
     public void SetFalseIsCountDown()
     {
         timeCountDow = 0;
         isCountDow = false;
         isClickRaise = false;
     }
-    
+
     public void On1per2Click()
     {
         SoundManager.instance.soundClick();
@@ -291,7 +294,7 @@ public class BtnBetContainer : MonoBehaviour
         SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickBet1Per2_%s", CURRENT_VIEW.getCurrentSceneName()));
         gameObject.SetActive(false);
     }
-    
+
     public void On1per4Click()
     {
         SoundManager.instance.soundClick();
@@ -313,7 +316,7 @@ public class BtnBetContainer : MonoBehaviour
         SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickBet1Per4_%s", CURRENT_VIEW.getCurrentSceneName()));
         gameObject.SetActive(false);
     }
-    
+
     public void On1per8Click()
     {
         SoundManager.instance.soundClick();
@@ -335,5 +338,5 @@ public class BtnBetContainer : MonoBehaviour
         SocketIOManager.getInstance().emitSIOCCCNew(Config.formatStr("ClickBet1Per8_%s", CURRENT_VIEW.getCurrentSceneName()));
         gameObject.SetActive(false);
     }
-    
+
 }

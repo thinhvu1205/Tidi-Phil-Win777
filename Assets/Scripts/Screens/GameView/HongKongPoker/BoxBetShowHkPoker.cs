@@ -18,7 +18,7 @@ public class BoxBetShowHkPoker : MonoBehaviour
 
     public int chip = 0, theFirst = 0;
     public string status = "";
-    
+
     public void setInfo(string statusStr, int indexDynamic, int chipBet = 0)
     {
         chip = chipBet;
@@ -37,7 +37,7 @@ public class BoxBetShowHkPoker : MonoBehaviour
             {
                 GetComponent<Image>().enabled = true;
             }
-            lbChip.text = Config.FormatMoney2(chipBet,true);
+            lbChip.text = Config.FormatMoney2(chipBet, true);
         }
         switch (status)
         {

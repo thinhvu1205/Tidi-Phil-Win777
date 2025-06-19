@@ -229,7 +229,7 @@ public class HandleGame
                     ((RouLetteView)gameView).ProcessResponseData(jData);
                     break;
                 }
-            case (int)Globals.GAMEID.SHOW:
+            case (int)Globals.GAMEID.HONGKONG_POKER:
                 {
                     HandleDataHongKongView.processData(jData);
                     break;

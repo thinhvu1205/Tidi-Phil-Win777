@@ -744,13 +744,13 @@ public class SocketSend
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
 
     }
-     public static void sendHistoryBaucua()
+    public static void sendHistoryBaucua()
     {
         JObject data = new JObject();
         data["evt"] = "history";
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
-     public static void sendPokerBet(long ag, int gate)
+    public static void sendPokerBet(long ag, int gate)
     {
         //  {"evt":"bet","ag":20,"betType":"0"}
         //{"evt":"bet","ag":20,"betType":"0"}
@@ -761,19 +761,19 @@ public class SocketSend
         Debug.Log("check tiền gửi lên" + data.ToString(Newtonsoft.Json.Formatting.None));
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
-     public static void sendPokerRaise()
+    public static void sendPokerRaise()
     {
         JObject data = new JObject();
         data["evt"] = "raise";
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
-     public static void sendPokerFold()
+    public static void sendPokerFold()
     {
         JObject data = new JObject();
         data["evt"] = "fold";
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
-    
+
     public static void sendDummyKnock(JObject data)
     {
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
@@ -880,32 +880,32 @@ public class SocketSend
         string evtName = "";
         switch (_data)
         {
-            case "call":
-                evtName = "call";
+            case "pCall":
+                evtName = "pCall";
                 break;
-            case "check":
-                evtName = "check";
+            case "pCheck":
+                evtName = "pCheck";
                 break;
-            case "fold":
-                evtName = "fold";
+            case "pFold":
+                evtName = "pFold";
                 break;
-            case "raise":
-                evtName = "raise";
+            case "pRaise":
+                evtName = "pRaise";
                 break;
-            case "allin":
-                evtName = "allin";
+            case "pAllin":
+                evtName = "pAllin";
                 break;
-            case "show":
-                evtName = "show";
+            case "pShow":
+                evtName = "pShow";
                 break;
             default:
                 Globals.Logging.Log("Ban da gui sai Data");
                 break;
         }
-
+        Debug.Log(") =333 " + evtName + " / " + amount);
         JObject data = new JObject();
         data["evt"] = evtName;
-        data["ag"] = amount;
+        data["chip"] = amount;
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
     public static void sendChangeCard(bool _data)

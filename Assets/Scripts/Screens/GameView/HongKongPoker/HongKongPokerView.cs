@@ -10,7 +10,7 @@ using NUnit.Framework;
 using Socket.WebSocket4Net.System.Linq;
 using Spine.Unity;
 using TMPro;
-// using UnityEditor.Timeline.Actions;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -336,8 +336,8 @@ public class HongKongPokerView : GameView
             if (arrC != null)
             {
                 var delay = 0;
-                int count = arrC.Count(); 
-                int playerCardCount = player.vectorCardP1.Count; 
+                int count = arrC.Count();
+                int playerCardCount = player.vectorCardP1.Count;
 
                 for (int v = 0; v < count; v++)
                 {
@@ -348,13 +348,13 @@ public class HongKongPokerView : GameView
                     }
                     else
                     {
-                        var card = player.vectorCardP1[v]; 
+                        var card = player.vectorCardP1[v];
                         card.setTextureWithCode((int)arrC[v]);
                         card.transform.DOScale(0.5f, 0.3f)
                             .OnComplete(() => card.transform.DOScale(0.45f, 0.3f));
                     }
                 }
-                
+
                 if (textCard == "Pair") typeWin = 0;
                 if (textCard == "TwoPair") typeWin = 1;
                 if (textCard == "HighCard") typeWin = 2;

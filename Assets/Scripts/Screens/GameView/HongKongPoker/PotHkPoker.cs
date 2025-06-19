@@ -9,7 +9,7 @@ public class PotHkPoker : MonoBehaviour
     [SerializeField]
     List<TextMeshProUGUI> listNum;
     private int value = 0, valueChange = 0, potValue = 0;
-    
+
     void Start()
     {
         for (int i = 0; i < listNum.Count; i++)
@@ -17,7 +17,7 @@ public class PotHkPoker : MonoBehaviour
             listNum[i].text = "0";
         }
     }
-    
+
     public void setValue(int valueNew, float delayTime = 0)
     {
         valueChange = valueNew - value;
@@ -32,12 +32,12 @@ public class PotHkPoker : MonoBehaviour
                 //value = valueNew;
             });
     }
-    
+
     public int getValue()
     {
         return potValue;
     }
-    
+
     public int getValueChange()
     {
         return valueChange;
@@ -70,5 +70,5 @@ public class PotHkPoker : MonoBehaviour
             })
             .SetEase(Ease.OutSine);
     }
-    
+
 }
