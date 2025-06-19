@@ -882,8 +882,15 @@ public class BaucuaGameView : GameView
     }
     public void handleFinish(JObject data)
     {
-        HandleData.DelayHandleLeave = 8f;
-
+        JArray dataArray = JArray.Parse(data["data"].ToString());
+        foreach (JToken item in dataArray)
+        {
+            if (item["N"].ToString().Equals(thisPlayer.namePl) && (long)item["M"] != 0)
+            {
+                HandleData.DelayHandleLeave = 8f;
+                break;
+            }
+        }
         try
         {
             // 1. Initial Reset and Disable
