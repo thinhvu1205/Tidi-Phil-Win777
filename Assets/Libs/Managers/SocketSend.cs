@@ -902,7 +902,6 @@ public class SocketSend
                 Globals.Logging.Log("Ban da gui sai Data");
                 break;
         }
-        Debug.Log(") =333 " + evtName + " / " + amount);
         JObject data = new JObject();
         data["evt"] = evtName;
         data["chip"] = amount;

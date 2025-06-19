@@ -10,7 +10,6 @@ public class HandleDataHongKongView
         var gameView = (HongKongPokerView)UIManager.instance.gameView;
         if (gameView == null) return;
         string evt = (string)jData["evt"];
-        Debug.Log(") =3 " + evt + " / " + jData.ToString());
         switch (evt)
         {
             case "timeToStart":
