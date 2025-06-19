@@ -3873,7 +3873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b67ef80a22aebf84e912135777fdcf16, type: 3}
+  m_Sprite: {fileID: 2182422569004065498, guid: bb2be7db3f285a7449cb01463ffb2543, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4982,9 +4982,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Lucky89View, Assembly-CSharp
-        m_MethodName: DoClickTip
+      - m_Target: {fileID: 6265168749238271583}
+        m_TargetAssemblyTypeName: HongKongPokerView, Assembly-CSharp
+        m_MethodName: OnClickTip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6599,14 +6599,14 @@ MonoBehaviour:
   isSetParentNull: 0
   isPlaySoundOpen: 1
   listPosView:
-  - {x: -117, y: -210}
-  - {x: -500, y: -49}
-  - {x: -450, y: 162}
-  - {x: 450, y: 162}
-  - {x: 500, y: -49}
+  - {x: -120, y: -210}
+  - {x: -500, y: -100}
+  - {x: -450, y: 165}
+  - {x: 450, y: 165}
+  - {x: 500, y: -100}
   playerViewPrefab: {fileID: 7390060662597155685, guid: b1417c756ac90c44abad703e123962d7, type: 3}
   lbInfo: {fileID: 8299257354533101931}
-  invitePrefab: {fileID: 6102869659049712693, guid: 01efeb2df26d84146ba0a7a000bb76e7, type: 3}
+  invitePrefab: {fileID: 6102869659049712693, guid: f22d0bb199ccd9f428782f04a84a8535, type: 3}
   inviteContainer: {fileID: 5134814060711992350}
   playerContainer: {fileID: 6111792474886174865}
   txtGameName: {fileID: 0}
@@ -6641,6 +6641,8 @@ MonoBehaviour:
   - {fileID: -4629936664174672552, guid: a4447fb64d3a8d244bd97530088bbfff, type: 3}
   - {fileID: -3852783538318918559, guid: fb2e5221385ea3c4e813cded4a6dfc0e, type: 3}
   - {fileID: 4734326544471507696, guid: fd8b5da8b868f824594e722e478e330f, type: 3}
+  m_TipChipsTMP: {fileID: 4685616762775220527}
+  m_TipThanksTMP: {fileID: 2801030590331117093}
 --- !u!1 &5215012005508829390
 GameObject:
   m_ObjectHideFlags: 0
@@ -6706,7 +6708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7759f0fdc006b6d4ea651511bb8ee9dc, type: 3}
+  m_Sprite: {fileID: -8392404212986688218, guid: 5f7a22869a0dbdd46bd9ae07fd0c2fd8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -32,6 +32,7 @@ public class HongKongPokerView : GameView
     [SerializeField] private SkeletonGraphic animStart;
     [SerializeField] private Sprite spriteFrameMask;
     [SerializeField] private List<Sprite> listImgWinlose;
+    [SerializeField] private TextMeshProUGUI m_TipChipsTMP, m_TipThanksTMP;
     private List<GameObject> boxBetPool = new List<GameObject>();
     private List<GameObject> chipBetPool = new List<GameObject>();
 
@@ -520,11 +521,12 @@ public class HongKongPokerView : GameView
                 //     this.players[i].ag,
                 //     this.players[i]._playerView.lbAg
                 // );
-                players[i].ag -= (long)data["AGTip"];
+                long chips = (long)data["AGTip"];
+                players[i].ag -= chips;
                 players[i].setAg();
                 if (players[i].displayName == thisPlayer.displayName)
                 {
-                    User.userMain.AG -= (long)data["AGTip"];
+                    User.userMain.AG -= chips;
                 }
 
                 for (var j = 0; j < 2; j++)
@@ -565,13 +567,18 @@ public class HongKongPokerView : GameView
                         });
 
                 }
-
-                DOTween.Sequence().AppendInterval(2f).AppendCallback(() =>
-                {
-                    // dealerHkPoker.showDealer();
-                });
-
+                StartCoroutine(showThanksDialog(chips));
             }
+        }
+        IEnumerator showThanksDialog(long chips)
+        {
+            GameObject parentObject = m_TipChipsTMP.transform.parent.gameObject;
+            m_TipChipsTMP.text = Config.FormatNumber(chips);
+            string playerName = (string)data["N"];
+            m_TipThanksTMP.text = (playerName.Length >= 7 ? ((string)data["N"]).Substring(0, 7) + "..., " : playerName + ", ") + Globals.Config.getTextConfig("tip_thanks_1");
+            parentObject.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            parentObject.SetActive(false);
         }
     }
 
@@ -1305,5 +1312,9 @@ public class HongKongPokerView : GameView
         bgArrowSwap.transform.DOKill();
         SocketIOManager.getInstance()
             .emitSIOCCCNew(Config.formatStr("ClickNotSwapCard_%s", CURRENT_VIEW.getCurrentSceneName()));
+    }
+    public void OnClickTip()
+    {
+        SocketSend.sendTip();
     }
 }
