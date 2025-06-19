@@ -9,35 +9,32 @@ public class HandlePokerCard
         string evt = (string)jData["evt"];
         switch (evt)
         {
-            case "cctable":
-                gameView.handleCCTable(jData);
-                break;
             case "finish":
-                  gameView.handleFinish(jData);
+                gameView.handleFinish(jData);
                 break;
             case "chattable":
-                   gameView.handleChatTable(jData);
+                gameView.handleChatTable(jData);
                 break;
             case "lc":
-                  gameView.handleLc(jData);
+                gameView.handleLc(jData);
                 break;
             case "raise":
-                  gameView.handlePlayerRaise(jData);
+                gameView.handlePlayerRaise(jData);
                 break;
             case "fold":
-                  gameView.handlePlayerFold(jData);
+                gameView.handlePlayerFold(jData);
                 break;
             case "bet":
-                  gameView.handleBet(jData);
+                gameView.handleBet(jData);
                 break;
             case "startBet":
                 gameView.handleStartBet(jData);
                 break;
             case "autoExit":
-                 gameView.handleAutoExit(jData);
+                gameView.handleAutoExit(jData);
                 break;
             case "showCard":
-                  gameView.handleShowCard(jData);
+                gameView.handleShowCard(jData);
                 break;
         }
     }

@@ -245,7 +245,7 @@ public class BaucuaGameView : GameView
             .AppendInterval(1f)
              .AppendCallback(effectAniClock);
     }
-    public void handleSTable(string data)
+    public override void handleSTable(string data)
     {
         base.handleSTable(data);
         stateGame = STATE_GAME.WAITING;
@@ -317,7 +317,7 @@ public class BaucuaGameView : GameView
         // Sử dụng effectMoveChip để di chuyển chip đến các ô cược
         effectMoveChip(gate, betAmount, player);
     }
-    public void handleCTable(string data)
+    public override void handleCTable(string data)
     {
         interactableButton(false);
         base.handleCTable(data);
@@ -484,7 +484,6 @@ public class BaucuaGameView : GameView
                 else
                 {
                     //aniClock.node.stopAction();
-                    m_AniClock.gameObject.SetActive(false);
                     m_AniClock.gameObject.SetActive(false);
                 }
             };

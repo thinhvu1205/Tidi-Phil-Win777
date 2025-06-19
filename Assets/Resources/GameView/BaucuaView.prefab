@@ -14859,7 +14859,7 @@ MonoBehaviour:
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: lac
+  startingAnimation: khong lac
   startingLoop: 0
   timeScale: 1
   freeze: 0
@@ -19458,7 +19458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5206991680383389766
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19514,7 +19514,7 @@ MonoBehaviour:
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
-  startingAnimation: startgame
+  startingAnimation: 
   startingLoop: 0
   timeScale: 1
   freeze: 0
