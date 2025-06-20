@@ -645,8 +645,7 @@ public class ThreePokerCardGameView : GameView
                 player.ag -= totalBet;
             }
             JArray Arr = getJArray(jPlayer, "Arr");
-            DealCardPlayer(player);
-            RevealCard(player, Arr.ToObject<List<int>>());
+            if (Arr.Count > 0) DealCardPlayer(player, Arr.ToObject<List<int>>());
             if (player != thisPlayer)
             {
                 createFrameChip(player, getInt(jPlayer, "totalBet"));
