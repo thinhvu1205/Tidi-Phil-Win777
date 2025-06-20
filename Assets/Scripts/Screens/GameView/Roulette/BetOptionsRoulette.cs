@@ -34,7 +34,7 @@ public class BetOptionsRoulette : MonoBehaviour
     public void PointerUP()
     {
         if (!RouLetteView.instance.isBetTime) return;
-        
+
         isHolding = false;
         if (turnOffCoroutine != null)
         {
@@ -46,7 +46,7 @@ public class BetOptionsRoulette : MonoBehaviour
     public void PointerDown()
     {
         if (!RouLetteView.instance.isBetTime) return;
-        
+
         isHolding = true;
         if (turnOffCoroutine != null)
         {
@@ -56,7 +56,7 @@ public class BetOptionsRoulette : MonoBehaviour
 
         if (imageChoosing != null)
         {
-            foreach(var item in imageChoosing)
+            foreach (var item in imageChoosing)
             {
                 if (item != null)
                     item.gameObject.SetActive(true);
@@ -99,10 +99,10 @@ public class BetOptionsRoulette : MonoBehaviour
         if (!isHolding)
         {
             yield return new WaitForSeconds(0.1f);
-            
+
             if (!isHolding && imageChoosing != null) // Check again in case user pressed during wait
             {
-                foreach(var item in imageChoosing)
+                foreach (var item in imageChoosing)
                 {
                     if (item != null)
                         item.gameObject.SetActive(false);
@@ -111,5 +111,5 @@ public class BetOptionsRoulette : MonoBehaviour
         }
     }
 
-   
+
 }
