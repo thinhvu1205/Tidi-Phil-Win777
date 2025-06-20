@@ -558,12 +558,26 @@ public class RouLetteView : GameView
         playSound(SOUND_GAME.CLICK);
         Debug.Log(totalBetValue + " xem chỗnayf");
         Debug.Log(listDataBetForRebetTemp.Sum(bet => bet.BetAmount) + " " + listDataBetForRebetTemp.Count);
-        totalBetValue = listDataBetForRebetTemp.Sum(bet => bet.BetAmount) + totalBetValue;
+        totalBetValue += listDataBetForRebetTemp.Sum(bet => bet.BetAmount);
+        Debug.Log($"totalBetValue: {totalBetValue}// listDataBetForRebetTemp: {listDataBetForRebetTemp.Sum(bet => bet.BetAmount)}");
         textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
         textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
         buttonDeal.interactable = true;
         buttonClear.interactable = true;
         buttonDouble.interactable = true;
+        if (totalBetValue + listDataBetForRebetTemp.Sum(bet => bet.BetAmount) > agTable * 100)
+        {
+            buttonRebet.interactable = false;
+            buttonDouble.interactable = false;
+        }
+        if (totalBetValue * 2 > agTable * 100)
+        {
+            buttonDouble.interactable = false;
+        }
+        else
+        {
+            buttonDouble.interactable = true;
+        }
 
         listDataBet.AddRange(listDataBetForRebetTemp);
 
@@ -637,6 +651,7 @@ public class RouLetteView : GameView
                 }
             }
         }
+        Debug.Log($"jsonString: {jsonDataBet}");
         SocketSend.sendBetRoulette(jsonDataBet);
         DOVirtual.DelayedCall(0.5f, () =>
         {
@@ -648,7 +663,6 @@ public class RouLetteView : GameView
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver()
             });
-            Debug.Log($"jsonString: {jsonDataBet}");
         });
     }
 
@@ -723,6 +737,14 @@ public class RouLetteView : GameView
         textFrameCoin_1.text = textFrameCoin_2.text = "0";
 
         UpdateButtonBet(thisPlayer.ag);
+        if (listDataBetForRebetTemp.Sum(bet => bet.BetAmount) != 0)
+        {
+            buttonRebet.interactable = true;
+        }
+        else
+        {
+            buttonRebet.interactable = false;
+        }
     }
 
     public void ClickButtonDouble()
@@ -759,7 +781,8 @@ public class RouLetteView : GameView
         List<BetData> clonedBets = new List<BetData>();
         foreach (var bet in listDataBet)
         {
-            clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount));
+            bet.BetAmount *= 2;
+            clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount / 2));
         }
         if (totalBetValue == 0)
         {
@@ -774,7 +797,6 @@ public class RouLetteView : GameView
             textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
             textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
         }
-
         foreach (var bet in clonedBets)
         {
             if (specialBets.TryGetValue(bet.NumArr, out int betOption))
@@ -812,7 +834,8 @@ public class RouLetteView : GameView
 
     private void UpdateButtonBet(long agRemaining)
     {
-        long tienConLai = agRemaining - totalBetValue;
+        // long tienConLai = agRemaining - totalBetValue;
+        long tienConLai = agTable * 100 - (totalBetDeal + totalBetValue);
 
         Debug.Log($"Update Button Bet: Money Left={tienConLai}");
 
@@ -907,7 +930,6 @@ public class RouLetteView : GameView
             (idBetOption >= 123 && idBetOption <= 134) ? 2 :
             (idBetOption >= 121 && idBetOption <= 122) ? 1 :
             (idBetOption >= 135 && idBetOption <= 156) ? 1 : -1;
-
         List<int> numArr = new List<int>();
         switch (idBetOption)
         {
@@ -1363,6 +1385,8 @@ public class RouLetteView : GameView
                 textNumLose.gameObject.SetActive(false);
                 textNumWin.text = $"+{FormatNumber(agWin)}";
                 playSound(SOUND_GAME.WIN);
+                thisPlayer.ag = agPlayer;
+                thisPlayer.setAg();
             }
             else
             {

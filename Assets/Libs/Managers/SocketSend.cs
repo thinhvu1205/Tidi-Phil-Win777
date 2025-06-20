@@ -732,6 +732,7 @@ public class SocketSend
             ["evt"] = "make_bet",
             ["data"] = $"{strData}"
         };
+        Debug.Log($"DataSend: {strData}");
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
     public static void sendBetBaucua(string value, string index)
