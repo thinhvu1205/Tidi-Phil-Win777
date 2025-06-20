@@ -119,6 +119,10 @@ public class ThreePokerCardGameView : GameView
         SetValueInchip();
         ChooseChip(m_ChipBet[0]);
         m_ContainerChipBet.gameObject.SetActive(true);
+        m_ContainerChipBet.transform.DOScale(new Vector3(1.05f, 1.05f, 1.05f), .3f).OnComplete(() =>
+        {
+            m_ContainerChipBet.transform.DOScale(Vector2.one, .3f);
+        });
         // float y = -Screen.height / 2 + 50; // Tọa độ y cách đáy màn hình 120 đơn vị
         // Vector2 targetPosition = new Vector2(0, y);
         // Debug.Log($"Target position for m_ContainerChipBet: {targetPosition}");
@@ -164,9 +168,12 @@ public class ThreePokerCardGameView : GameView
         int gate = (int)getInt(jData, "typeBet");
         long value = (long)getLong(jData, "ag");
         long money = player.ag - value;
-        MoneyAllInGate[gate] += value;
         TextMeshProUGUI text = m_ListGate[gate].transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-        text.gameObject.SetActive(true);
+        if (player == thisPlayer)
+        {
+            MoneyAllInGate[gate] += value;
+            text.gameObject.SetActive(true);
+        }
         text.text = Globals.Config.FormatMoney2(MoneyAllInGate[gate], true);
         player.ag = money;
         player.setAg();
@@ -936,9 +943,12 @@ public class ThreePokerCardGameView : GameView
         long money = player.ag - value;
         player.ag = money;
         player.setAg();
-        MoneyAllInGate[gate] += value;
         TextMeshProUGUI text = m_ListGate[gate].transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-        text.gameObject.SetActive(true);
+        if (player == thisPlayer)
+        {
+            MoneyAllInGate[gate] += value;
+            text.gameObject.SetActive(true);
+        }
         text.text = Globals.Config.FormatMoney2(MoneyAllInGate[gate], true);
         ThreePokerChipManager go = createChip(value);
         Vector2 startPos = player.playerView.transform.position;
