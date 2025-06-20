@@ -637,6 +637,7 @@ public class RouLetteView : GameView
                 }
             }
         }
+        Debug.Log($"jsonString: {jsonDataBet}");
         SocketSend.sendBetRoulette(jsonDataBet);
         DOVirtual.DelayedCall(0.5f, () =>
         {
@@ -648,7 +649,6 @@ public class RouLetteView : GameView
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver()
             });
-            Debug.Log($"jsonString: {jsonDataBet}");
         });
     }
 
@@ -895,15 +895,18 @@ public class RouLetteView : GameView
         buttonClear.interactable = true;
         buttonDouble.interactable = true;
         playSound(SOUND_ROULETTE.coinAdd);
-        List<int> betOne = new List<int> { 121, 122, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156 };
-        List<int> betFour = new List<int> { 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120 };
-        List<int> betThree = new List<int> { 85, 97, 109, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134 };
         int betType = (idBetOption >= 0 && idBetOption <= 36) ? 0 :
-            betFour.Contains(idBetOption) ? 4 :
             (idBetOption >= 37 && idBetOption <= 42) ? 5 :
             (idBetOption >= 43 && idBetOption <= 48) ? 6 :
-            betThree.Contains(idBetOption) ? 2 :
-            ((idBetOption >= 49 && idBetOption <= 84) || betOne.Contains(idBetOption)) ? 1 : -1;
+            (idBetOption >= 49 && idBetOption <= 84) ? 1 :
+            idBetOption == 85 ? 2 :
+            (idBetOption >= 86 && idBetOption <= 96) ? 3 :
+            idBetOption == 97 ? 2 :
+            (idBetOption >= 98 && idBetOption <= 109) ? 3 :
+            (idBetOption >= 110 && idBetOption <= 120) ? 4 :
+            (idBetOption >= 123 && idBetOption <= 134) ? 2 :
+            (idBetOption >= 121 && idBetOption <= 122) ? 1 :
+            (idBetOption >= 135 && idBetOption <= 156) ? 1 : -1;
         List<int> numArr = new List<int>();
         switch (idBetOption)
         {
