@@ -89,7 +89,7 @@ public class BetOptionsRoulette : MonoBehaviour
     private void ClickButtonBetOption()
     {
         if (!RouLetteView.instance.isBetTime) return;
-        if (RouLetteView.instance.agRemaining < RouLetteView.instance.agTable) return;
+        if ((RouLetteView.instance.totalBetDeal + RouLetteView.instance.totalBetValue) >= RouLetteView.instance.agTable * 100) return;
 
         RouLetteView.instance.ClickButtonSendBet(id);
     }
