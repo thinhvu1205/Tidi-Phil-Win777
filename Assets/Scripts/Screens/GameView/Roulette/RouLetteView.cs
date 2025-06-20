@@ -61,9 +61,9 @@ public class RouLetteView : GameView
     // private List<(int betType, int[] numArr, long betAmount)> listBetValue;
     private int result = 1;
     private int currenIdBet;
-    private long totalBetValue;
+    public long totalBetValue;
     private bool isClickRebet = false;
-    private long totalBetDeal, agWin, agPlayer;
+    public long totalBetDeal, agWin, agPlayer;
     public long agRemaining;
     public static RouLetteView instance = null;
     public bool isBetTime = false;
