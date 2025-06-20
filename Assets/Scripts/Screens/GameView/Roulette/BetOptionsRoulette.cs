@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Globals;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -89,7 +90,11 @@ public class BetOptionsRoulette : MonoBehaviour
     private void ClickButtonBetOption()
     {
         if (!RouLetteView.instance.isBetTime) return;
-        if ((RouLetteView.instance.totalBetDeal + RouLetteView.instance.totalBetValue) >= RouLetteView.instance.agTable * 100) return;
+        if ((RouLetteView.instance.totalBetDeal + RouLetteView.instance.totalBetValue) >= RouLetteView.instance.agTable * 100)
+        {
+            UIManager.instance.showToast("Exceed max bet");
+            return;
+        }
 
         RouLetteView.instance.ClickButtonSendBet(id);
     }
