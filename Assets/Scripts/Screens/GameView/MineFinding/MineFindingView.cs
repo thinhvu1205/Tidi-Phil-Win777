@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using Globals;
 using Newtonsoft.Json.Linq;
+using Spine.Unity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,9 +19,11 @@ public class MineFindingView : GameView
     [SerializeField] private List<BetBonusButton> m_BetBBBs = new();
     [SerializeField]
     private GameObject m_BgModeNormal, m_BgModeAuto, m_StartNormal, m_PanelSetting, m_PanelRule, m_Withdraw, m_StopAuto, m_PrefabHistory,
-        m_ClosePanels, m_SoundOn, m_SoundOff, m_MusicOn, m_MusicOff, m_TopRight;
+        m_ClosePanels, m_SoundOn, m_SoundOff, m_MusicOn, m_MusicOff, m_TopRight, m_BlockOnLose;
+    [SerializeField] private Transform m_LeftTf, m_RightTf;
     [SerializeField] private Button m_StartAutoBtn, m_RandomBtn, m_NormalModeBtn, m_AutoModeBtn, m_PrefabBaseBetBtn, m_MinusBetBtn, m_PlusBetBtn, m_BaseBetBtn;
-    [SerializeField] private TextMeshProUGUI m_WithdrawTMP, m_StopAutoTMP, m_BetTMP;
+    [SerializeField] private TextMeshProUGUI m_WithdrawTMP, m_StopAutoTMP, m_BetTMP, m_CongratulationTMP;
+    [SerializeField] private SkeletonGraphic m_CongratulationSG;
     [SerializeField] private ScrollRect m_BaseBetsSR, m_HistorySR, m_BetsSR;
     [SerializeField] private TMP_InputField m_TurnsIF, m_WinIF, m_LoseIF;
     [SerializeField] private TMP_Dropdown m_BombsDd;
@@ -135,6 +140,15 @@ public class MineFindingView : GameView
         m_PanelSetting.transform.DOLocalMove(new Vector2(2000, 155), .2f).SetEase(Ease.OutQuad);
         m_PanelRule.transform.DOLocalMove(new Vector2(0, 2000), .2f).SetEase(Ease.OutQuad);
     }
+    public void DoClickCloseCongratulationPanel()
+    {
+        m_CongratulationSG.transform.parent.gameObject.SetActive(false);
+        if (_IsBackOnPlaying)
+        {
+            _IsBackOnPlaying = false;
+            SocketSend.sendExitGame();
+        }
+    }
     #endregion
 
     public void ProcessResponseData(JObject data)
@@ -243,26 +257,35 @@ public class MineFindingView : GameView
             ms.TurnUnchosable(false).TurnChosable(false).TurnChosenGold(!isBomb && isSelected).TurnUnchosenGold(!isBomb && !isSelected)
                 .TurnUnchosenBomb(isBomb && !isSelected).TurnChosenBomb(isBomb && isSelected).transform.localScale = Vector3.one;
         }
-        bool isWin = (bool)data["isWin"];
-        if (!isWin)
+        long chipsNow = (long)data["agBalance"];
+        if ((bool)data["isWin"])
+        {
+            playSound(SOUND_GAME.WIN);
+            m_CongratulationSG.transform.parent.gameObject.SetActive(true);
+            m_CongratulationSG.AnimationState.SetAnimation(0, "win2", false);
+            m_CongratulationTMP.text = "Win " + Config.FormatMoney3(chipsNow - User.userMain.AG) + " chips.";
+        }
+        else
         {
             playSound(SOUND_GAME.EXPLODE);
             playSound(SOUND_GAME.LOSE);
+            m_BlockOnLose.SetActive(true);
+            long lostChips = _BaseBet;
+            DOTween.Sequence().AppendInterval(3f).AppendCallback(() =>
+                UIManager.instance.showDialog("Lose " + Config.FormatMoney3(lostChips) + " chips.", "OK",
+                    () =>
+                    {
+                        m_BlockOnLose.SetActive(false);
+                        if (chipsNow <= 0 || _IsBackOnPlaying)
+                        {
+                            _IsBackOnPlaying = false;
+                            SocketSend.sendExitGame();
+                        }
+                    }
+                )
+            );
         }
-        else playSound(SOUND_GAME.WIN);
-        long chipsNow = (long)data["agBalance"];
-        UIManager.instance.showDialog(
-            (isWin ? "Win " : "Lose ") + Config.FormatMoney3(isWin ? chipsNow - User.userMain.AG : _BaseBet) + " chips.", "OK",
-            () =>
-            {
-                stateGame = STATE_GAME.VIEWING;
-                if (chipsNow <= 0 || _IsBackOnPlaying)
-                {
-                    _IsBackOnPlaying = false;
-                    SocketSend.sendExitGame();
-                }
-            }
-        );
+        stateGame = STATE_GAME.VIEWING;
         User.userMain.AG = chipsNow;
         m_ChipsTNC.setValue(User.userMain.AG, true);
         _RecalculateBaseBet(chipsNow)._EnableBaseBets(true)._EnableAdjustBets(true)._EnableModes(true)._Enable(m_BombsDd, true)
@@ -325,17 +348,33 @@ public class MineFindingView : GameView
         {
             foreach (BetBonusButton bbb in m_BetBBBs) bbb.TurnUnselect(true);
             bool hasProfit = _FinalChangedChips >= 0;
-            UIManager.instance.showDialog((hasProfit ? "Win " : "Lose ") + Config.FormatMoney3((long)Mathf.Abs(_FinalChangedChips)) + " chips.", "OK",
-                () =>
-                {
-                    stateGame = STATE_GAME.VIEWING;
-                    if (chipsNow <= 0 || _IsBackOnPlaying)
-                    {
-                        _IsBackOnPlaying = false;
-                        SocketSend.sendExitGame();
-                    }
-                }
-            );
+            long changedChips = _FinalChangedChips;
+            if (hasProfit)
+            {
+                playSound(SOUND_GAME.WIN);
+                m_CongratulationSG.transform.parent.gameObject.SetActive(true);
+                m_CongratulationSG.AnimationState.SetAnimation(0, "win2", false);
+                m_CongratulationTMP.text = "Win " + Config.FormatMoney3((long)Mathf.Abs(changedChips)) + " chips.";
+            }
+            else
+            {
+                playSound(SOUND_GAME.LOSE);
+                m_BlockOnLose.SetActive(true);
+                DOTween.Sequence().AppendInterval(3f).AppendCallback(() =>
+                    UIManager.instance.showDialog("Lose " + Config.FormatMoney3((long)Mathf.Abs(changedChips)) + " chips.", "OK",
+                        () =>
+                        {
+                            m_BlockOnLose.SetActive(false);
+                            if (chipsNow <= 0 || _IsBackOnPlaying)
+                            {
+                                _IsBackOnPlaying = false;
+                                SocketSend.sendExitGame();
+                            }
+                        }
+                    )
+                );
+            }
+            stateGame = STATE_GAME.VIEWING;
             _RecalculateBaseBet(chipsNow)._EnableBaseBets(true)._EnableAdjustBets(true)._EnableModes(true)._Enable(m_BombsDd, true)
                 ._Enable(m_StartAutoBtn, true)._Enable(m_TurnsIF, true)._Enable(m_WinIF, true)._Enable(m_LoseIF, true)._Turn(m_StopAuto, false);
             _UpdateAutoInputs(_GetMaxTurn().ToString());
@@ -383,7 +422,7 @@ public class MineFindingView : GameView
         _ElapsedAfkTime = 0; // tránh bị check afk lúc đang chơi auto
         MysteriousSlot ms = m_SlotMSs.Find(x => x.GetId() == cellId);
         ms.TurnUnchosable(false).TurnChosable(false).TurnChosenBomb(false).TurnUnchosenBomb(false).TurnChosenGold(true).TurnUnchosenGold(false)
-            .transform.DOScaleX(-1f, .25f).SetEase(Ease.Linear);
+            .transform.DOScaleX(-1f, .25f).SetEase(Ease.InOutCirc);
         _ChosenSlotIds.Add(ms.GetId());
         _BetBonus = _RatesByBomb[_CountBombs - 1][_ChosenSlotIds.Count - 1];
         for (int i = 0; i < m_BetBBBs.Count; i++)
@@ -479,6 +518,12 @@ public class MineFindingView : GameView
     protected override void Awake()
     {
         base.Awake();
+        m_CongratulationSG.Initialize(true);
+        m_CongratulationSG.AnimationState.Complete += x => m_CongratulationSG.AnimationState.SetAnimation(0, "win2_freeze", true);
+        m_LeftTf.DOLocalMoveX(-255f, .35f).SetEase(Ease.OutQuint).OnComplete(() =>
+        {
+            m_RightTf.DOLocalMoveY(-25f, .35f).SetEase(Ease.OutQuint);
+        });
         _TurnButtonSetting(m_MusicOn, m_MusicOff, Config.isMusic)._TurnButtonSetting(m_SoundOn, m_SoundOff, Config.isSound);
         setUpMysteriousSlots();
         setUpCountBombDropdown();
