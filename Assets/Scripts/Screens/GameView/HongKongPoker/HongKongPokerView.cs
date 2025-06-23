@@ -856,17 +856,12 @@ public class HongKongPokerView : GameView
 
         if (currentPlayer == thisPlayer)
         {
-            Debug.Log(") =3 " + preNextStack + " / " + (int)data["chipStack"] + " / " + User.userMain.AG);
-            // if (preNextStack <= 0) User.userMain.AG = (int)data["chipStack"];
-            // else User.userMain.AG += (int)data["chipStack"] - preNextStack;
             User.userMain.AG += (int)data["chipStack"] - preNextStack;
-            // if (preNextStack > 0) User.userMain.AG += (int)data["chipStack"] - preNextStack;
-            currentPlayer.ag = User.userMain.AG;
         }
-        else
-        {
-            currentPlayer.ag = (int)data["chipStack"];
-        }
+
+        // EffectMoneyChange((int)data["chipStack"] - this.preNextStack, this.preNextStack,
+        //     currentPlayer.playerView.LbAg);
+        currentPlayer.ag = (int)data["chipStack"];
         currentPlayer.setAg();
 
     }
