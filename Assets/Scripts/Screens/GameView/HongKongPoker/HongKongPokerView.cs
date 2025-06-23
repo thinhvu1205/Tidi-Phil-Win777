@@ -111,23 +111,19 @@ public class HongKongPokerView : GameView
 
         for (var i = 0; i < listPlayer?.Count(); i++)
         {
-            if ((string)listPlayer[i]["N"] == User.userMain.Username)
+            JToken dataPlayer = listPlayer[i];
+            if (dataPlayer["N"].ToString().Equals(User.userMain.Username))
             {
-                myChipCur = (int)data["AG"];
-                myChipStack = (int)data["chipStack"];
-                // Debug.Log("chay vao day rjtable ", listPlayer[i]["playerStatus"]);
-                if ((string)listPlayer[i]["playerStatus"] == "Play")
+                myChipCur = (int)dataPlayer["AG"];
+                myChipStack = preNextStack = (int)dataPlayer["chipStack"];
+                if (dataPlayer["playerStatus"].ToString().Equals("Play"))
                 {
                     var player = getPlayer((string)data["CN"]);
                     player.playerView.setTurn(true, (float)data["CT"]);
                     if (player == thisPlayer)
                     {
+                        btnBetContainer.gameObject.SetActive(true);
                         continue;
-                        // btnBetContainer.gameObject.SetActive(true);
-                        // btnBetContainer.update_slider(player.ag);
-                        // btnBetContainer.setInfoBtn("Fold", "Check", "Bet");
-                        // await UniTask.Delay((int) data["data.CT"] * 1000);
-                        // btnBetContainer.gameObject.SetActive(false);
                     }
                     else
                     {
@@ -860,12 +856,17 @@ public class HongKongPokerView : GameView
 
         if (currentPlayer == thisPlayer)
         {
+            Debug.Log(") =3 " + preNextStack + " / " + (int)data["chipStack"] + " / " + User.userMain.AG);
+            // if (preNextStack <= 0) User.userMain.AG = (int)data["chipStack"];
+            // else User.userMain.AG += (int)data["chipStack"] - preNextStack;
             User.userMain.AG += (int)data["chipStack"] - preNextStack;
+            // if (preNextStack > 0) User.userMain.AG += (int)data["chipStack"] - preNextStack;
+            currentPlayer.ag = User.userMain.AG;
         }
-
-        // EffectMoneyChange((int)data["chipStack"] - this.preNextStack, this.preNextStack,
-        //     currentPlayer.playerView.LbAg);
-        currentPlayer.ag = (int)data["chipStack"];
+        else
+        {
+            currentPlayer.ag = (int)data["chipStack"];
+        }
         currentPlayer.setAg();
 
     }
