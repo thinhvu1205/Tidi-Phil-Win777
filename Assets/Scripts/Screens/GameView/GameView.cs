@@ -407,6 +407,8 @@ public class GameView : BaseView
             if (player.id == User.userMain.Userid)
             {
                 thisPlayer = player;
+                JToken dataPlayer = listPlayer[i];
+                player.ag = (int)dataPlayer["chipStack"];
             }
             player.updatePlayerView();
             player.is_ready = true;
