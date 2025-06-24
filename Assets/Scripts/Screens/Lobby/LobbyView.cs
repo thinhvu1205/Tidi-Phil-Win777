@@ -671,8 +671,13 @@ public class LobbyView : BaseView
     public void onClickSupport()
     {
         SoundManager.instance.soundClick();
-        if (!Config.fanpageID.Equals("") && Config.is_bl_fb || !Config.chat_tele_support_link.Equals(""))
+        // if (!Config.fanpageID.Equals("") && Config.is_bl_fb || !Config.chat_tele_support_link.Equals(""))
+        //     UIManager.instance.openSupport();
+        // else UIManager.instance.openFeedback();
+        if (Config.is_bl_fb == true)
+        {
             UIManager.instance.openSupport();
+        }
         else UIManager.instance.openFeedback();
     }
     //bool isHideBot = false;
