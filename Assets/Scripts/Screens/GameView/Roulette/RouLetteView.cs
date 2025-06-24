@@ -558,18 +558,21 @@ public class RouLetteView : GameView
         playSound(SOUND_GAME.CLICK);
         Debug.Log(totalBetValue + " xem chỗnayf");
         Debug.Log(listDataBetForRebetTemp.Sum(bet => bet.BetAmount) + " " + listDataBetForRebetTemp.Count);
-        totalBetValue += listDataBetForRebetTemp.Sum(bet => bet.BetAmount);
+
         Debug.Log($"totalBetValue: {totalBetValue}// listDataBetForRebetTemp: {listDataBetForRebetTemp.Sum(bet => bet.BetAmount)}");
         textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
         textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
         buttonDeal.interactable = true;
         buttonClear.interactable = true;
         buttonDouble.interactable = true;
-        if (totalBetValue + listDataBetForRebetTemp.Sum(bet => bet.BetAmount) > agTable * 100)
+        if (totalBetValue + listDataBetForRebetTemp.Sum(bet => bet.BetAmount) > agTable * 100 || totalBetValue + listDataBetForRebetTemp.Sum(bet => bet.BetAmount) > thisPlayer.ag || agRemaining < listDataBetForRebetTemp.Sum(bet => bet.BetAmount))
         {
+            showNoti(3); // Không có cược để nhân đôi
             buttonRebet.interactable = false;
             buttonDouble.interactable = false;
+            return;
         }
+        totalBetValue += listDataBetForRebetTemp.Sum(bet => bet.BetAmount);
         if (totalBetValue * 2 > agTable * 100)
         {
             buttonDouble.interactable = false;
@@ -770,6 +773,7 @@ public class RouLetteView : GameView
         // Check đủ tiền
         if (totalBetValue * 2 > agRemaining)
         {
+            // buttonRebet.interactable = false;
             showNoti(2);
             return;
         }
@@ -834,9 +838,16 @@ public class RouLetteView : GameView
 
     private void UpdateButtonBet(long agRemaining)
     {
-        // long tienConLai = agRemaining - totalBetValue;
-        long tienConLai = agTable * 100 - (totalBetDeal + totalBetValue);
+        long tienConLai;
 
+        if (thisPlayer.ag < agTable * 100)
+        {
+            tienConLai = agRemaining - totalBetValue;
+        }
+        else
+        {
+            tienConLai = agTable * 100 - (totalBetDeal + totalBetValue);
+        }
         Debug.Log($"Update Button Bet: Money Left={tienConLai}");
 
         List<int> coefficients = new() { 1, 5, 10, 50, 100 };
