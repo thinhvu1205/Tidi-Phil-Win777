@@ -293,9 +293,9 @@ public class RouLetteView : GameView
         }
 
         foreach (Player player in players)
-        foreach (Tuple<int, Dictionary<int, List<Transform>>> item in tempList)
-            if (player.id == item.Item1)
-                player.sabongBetChips = item.Item2;
+            foreach (Tuple<int, Dictionary<int, List<Transform>>> item in tempList)
+                if (player.id == item.Item1)
+                    player.sabongBetChips = item.Item2;
         thisPlayer.playerView.transform.localScale = Vector3.one;
         updatePositionPlayerView();
     }
@@ -777,9 +777,9 @@ public class RouLetteView : GameView
         long afterDoubleBet = (totalBetDeal + totalBetValue) * 2;
 
         // Check max bet
-        if (afterDoubleBet > agTable * 200)
+        if (afterDoubleBet > agTable * 100)
         {
-            showNoti(1, $"{agTable * 200}");
+            showNoti(1, $"{agTable * 100}");
             return;
         }
 
@@ -909,7 +909,7 @@ public class RouLetteView : GameView
         SelectButtonBet(currenIdBet);
         buttonDeal.interactable = totalBetValue > 0;
         buttonClear.interactable = totalBetValue > 0;
-        buttonDouble.interactable = (totalBetValue * 2 <= tienConLai);
+        buttonDouble.interactable = (tienConLai - (totalBetDeal + totalBetValue)) >= 0 ? true : false;
     }
 
     private void showNoti(int type, string context = null)
