@@ -355,6 +355,7 @@ public class UIManager : MonoBehaviour
             Globals.Logging.Log("-=-=OnApplicationPause ");
             //timeOnPause = DateTime.Now.Millisecond;
             pushLocalNotiOff();
+            WebSocketManager.getInstance().UserLogout = true;
         }
         else
         {
@@ -364,6 +365,14 @@ public class UIManager : MonoBehaviour
                 WebSocketManager.getInstance().UserLogout = true;
                 showLoginScreen(true);
             }
+            StartCoroutine(delayTurnOffUserLogout());
+        }
+
+        IEnumerator delayTurnOffUserLogout()
+        {
+            yield return new WaitForSeconds(.5f);
+            if (instance.lobbyView.gameObject.activeSelf)
+                WebSocketManager.getInstance().UserLogout = false;
         }
     }
     public bool isLoginShow()
@@ -489,6 +498,15 @@ public class UIManager : MonoBehaviour
         gameView = null;
         switch (curGameId)
         {
+            case (int)Globals.GAMEID.DUMMY:
+                {
+                    Globals.Logging.Log("Di vao day RUMMY");
+                    gameView = Instantiate(loadPrefabGame("DummyView"), parentGame).GetComponent<DummyView>();
+                    //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
+                    Globals.Logging.Log("showGame RUMMY 2   " + (gameView != null));
+                    break;
+                }
+
             case (int)Globals.GAMEID.SLOTNOEL:
                 {
                     Globals.Logging.Log("showGame SLOTNOEL");
@@ -532,10 +550,46 @@ public class UIManager : MonoBehaviour
                     gameView = Instantiate(loadPrefabGame("Lucky89View"), parentGame).GetComponent<Lucky89View>();
                     break;
                 }
+            case (int)Globals.GAMEID.KEANG:
+                {
+                    Globals.Logging.Log("showGame KEANG");
+                    gameView = Instantiate(loadPrefabGame("KeangView"), parentGame).GetComponent<KeangView>();
+                    //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
+                    break;
+                }
+            case (int)Globals.GAMEID.GAOGEA:
+                {
+                    Globals.Logging.Log("showGame GAOGEA");
+                    gameView = Instantiate(loadPrefabGame("GaoGeaView"), parentGame).GetComponent<GaoGeaView>();
+                    //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
+                    break;
+                }
             case (int)Globals.GAMEID.SICBO:
                 {
                     Globals.Logging.Log("showGame SICBO");
                     gameView = Instantiate(loadPrefabGame("SicboView"), parentGame).GetComponent<SicboView>();
+                    //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
+                    break;
+                }
+            case (int)Globals.GAMEID.BANDAR_QQ:
+                {
+                    Globals.Logging.Log("showGame Bandar");
+                    gameView = Instantiate(loadPrefabGame("BandarQQView"), parentGame).GetComponent<BandarQQView>();
+                    //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
+                    break;
+                }
+
+            case (int)Globals.GAMEID.RONGHO:
+                {
+                    Globals.Logging.Log("showGame RONGHO");
+                    gameView = Instantiate(loadPrefabGame("DragonTigerView"), parentGame).GetComponent<DragonTigerView>();
+                    //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
+                    break;
+                }
+            case (int)Globals.GAMEID.DOMINO:
+                {
+                    Globals.Logging.Log("showGame DOMINO");
+                    gameView = Instantiate(loadPrefabGame("DominoGaple"), parentGame).GetComponent<DominoGapleView>();
                     //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
                     break;
                 }
@@ -553,6 +607,20 @@ public class UIManager : MonoBehaviour
                     gameView = Instantiate(loadPrefabGame("BinhView"), parentGame).GetComponent<BinhGameView>();
                     //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
                     Debug.Log("Set Game View Binh:" + gameView);
+                    break;
+                }
+            case (int)Globals.GAMEID.KARTU_QIU:
+                {
+                    Globals.Logging.Log("showGame KARTU_QIU");
+                    gameView = Instantiate(loadPrefabGame("BorkKdengView"), parentGame).GetComponent<BorkKDengView>();
+                    //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
+                    break;
+                }
+            case (int)Globals.GAMEID.BLACKJACK:
+                {
+                    Globals.Logging.Log("showGame BLACKJACK");
+                    gameView = Instantiate(loadPrefabGame("BlackJackView"), parentGame).GetComponent<BlackJackView>();
+                    //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
                     break;
                 }
             case (int)Globals.GAMEID.TONGITS_OLD:
@@ -970,7 +1038,11 @@ public class UIManager : MonoBehaviour
         var friendInfoView = Instantiate(loadPrefabPopup("PopupFriendInfo"), parentPopups).GetComponent<FriendInfoView>();
         friendInfoView.transform.localScale = Vector3.one;
     }
-
+    public void openSupport()
+    {
+        var support = Instantiate(loadPrefabPopup("PopupSupport"), parentPopups).GetComponent<PopupSupport>();
+        support.transform.localScale = Vector3.one;
+    }
     public void openEx()
     {
         var exchangeView = Instantiate(loadPrefabPopup("PopupExchange"), parentPopups).GetComponent<ExchangeView>();
@@ -1030,11 +1102,6 @@ public class UIManager : MonoBehaviour
         var mailDetailView = Instantiate(loadPrefabPopup("PopupMailDetail"), parentPopups).GetComponent<MailDetailView>();
         mailDetailView.transform.localScale = Vector3.one;
         MailDetailView.instance.setInfo(data);
-    }
-    public void openSupport()
-    {
-        var support = Instantiate(loadPrefabPopup("PopupSupport"), parentPopups).GetComponent<PopupSupport>();
-        support.transform.localScale = Vector3.one;
     }
 
     public void openInputPass(int tableID)
