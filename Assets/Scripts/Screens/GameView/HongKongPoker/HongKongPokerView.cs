@@ -10,7 +10,6 @@ using NUnit.Framework;
 using Socket.WebSocket4Net.System.Linq;
 using Spine.Unity;
 using TMPro;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -79,10 +78,40 @@ public class HongKongPokerView : GameView
 
     public override void handleSTable(string strData)
     {
-        base.handleSTable(strData);
-        thisPlayer.is_ready = true;
-        JObject data = JObject.Parse(strData);
+        var data = JObject.Parse(strData);
+        setGameInfo((int)data["M"], (int)data["Id"], data.ContainsKey("maxBet") ? (int)data["maxBet"] : 0);
+        for (int i = 0; i < players.Count; i++)
+            if (players[i].playerView != null)
+                Destroy(players[i].playerView.gameObject);
+
+        stateGame = STATE_GAME.WAITING;
         JArray listPlayer = (JArray)data["ArrP"];
+        players.Clear();
+        for (var i = 0; i < listPlayer.Count; i++)
+        {
+            var player = new Player();
+            players.Add(player);
+            player.playerView = createPlayerView();
+            readDataPlayer(player, (JObject)listPlayer[i]);
+
+            if (i == 0) player.setHost(true);
+
+            if (player.id == User.userMain.Userid || player.id == 8240)
+            { //che do test
+                thisPlayer = player;
+                player.playerView.transform.localScale = Vector2.one;
+            }
+            player.ag = (int)listPlayer[i]["chipStack"];
+            player.updatePlayerView();
+            player.is_ready = true;
+            player.playerView.setDark(false);
+        }
+        //if (thisPlayer != null)
+        //	addChatJoin(thisPlayer.displayName);
+
+        updatePositionPlayerView();
+        thisPlayer.is_ready = true;
+
         for (var i = 0; i < listPlayer?.Count(); i++)
         {
             if ((string)data["N"] == User.userMain.Username)
@@ -104,30 +133,55 @@ public class HongKongPokerView : GameView
 
     public override void handleRJTable(string strData)
     {
-        base.handleRJTable(strData);
-        JObject data = JObject.Parse(strData);
-        JArray listPlayer = (JArray)data["ArrP"];
+        stateGame = STATE_GAME.PLAYING;
+
+        var data = JObject.Parse(strData);
+        if (data.ContainsKey("maxBet"))
+            setGameInfo((int)data["M"], (int)data["Id"], (int)data["maxBet"]);
+        else
+        {
+            setGameInfo((int)data["M"], (int)data["Id"]);
+        }
+        var listPlayer = (JArray)data["ArrP"];
+        players.Clear();
+
+        for (var i = 0; i < listPlayer.Count; i++)
+        {
+            var player = new Player();
+            players.Add(player);
+            player.playerView = createPlayerView();
+            readDataPlayer(player, (JObject)listPlayer[i]);
+            if (i == 0)
+            {
+                player.setHost(true);
+            }
+            if (player.id == User.userMain.Userid)
+            {
+                thisPlayer = player;
+                JToken dataPlayer = listPlayer[i];
+                player.ag = (int)dataPlayer["chipStack"];
+            }
+            player.updatePlayerView();
+            player.is_ready = true;
+        }
+        updatePositionPlayerView();
         ViewIng(listPlayer, data);
 
         for (var i = 0; i < listPlayer?.Count(); i++)
         {
-            if ((string)listPlayer[i]["N"] == User.userMain.Username)
+            JToken dataPlayer = listPlayer[i];
+            if (dataPlayer["N"].ToString().Equals(User.userMain.Username))
             {
-                myChipCur = (int)data["AG"];
-                myChipStack = (int)data["chipStack"];
-                // Debug.Log("chay vao day rjtable ", listPlayer[i]["playerStatus"]);
-                if ((string)listPlayer[i]["playerStatus"] == "Play")
+                myChipCur = (int)dataPlayer["AG"];
+                myChipStack = preNextStack = (int)dataPlayer["chipStack"];
+                if (dataPlayer["playerStatus"].ToString().Equals("Play"))
                 {
                     var player = getPlayer((string)data["CN"]);
                     player.playerView.setTurn(true, (float)data["CT"]);
                     if (player == thisPlayer)
                     {
+                        btnBetContainer.gameObject.SetActive(true);
                         continue;
-                        // btnBetContainer.gameObject.SetActive(true);
-                        // btnBetContainer.update_slider(player.ag);
-                        // btnBetContainer.setInfoBtn("Fold", "Check", "Bet");
-                        // await UniTask.Delay((int) data["data.CT"] * 1000);
-                        // btnBetContainer.gameObject.SetActive(false);
                     }
                     else
                     {
@@ -310,6 +364,7 @@ public class HongKongPokerView : GameView
 
     public async UniTask HandleFinish(JObject data)
     {
+
         var countReturnChip = 0;
         btnBetContainer.gameObject.SetActive(false);
         var dataListPlayer = data["declarePacketsTrans"];
@@ -370,6 +425,7 @@ public class HongKongPokerView : GameView
                     InstantiateResultText(getIndexOfPlayer(player), typeWin);
                 });
             }
+
         }
 
         SocketIOManager.getInstance().emitUpdateInfo();

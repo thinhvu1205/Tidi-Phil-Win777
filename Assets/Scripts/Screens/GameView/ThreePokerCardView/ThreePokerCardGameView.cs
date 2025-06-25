@@ -118,18 +118,23 @@ public class ThreePokerCardGameView : GameView
         PositionChipbet = 0;
         SetValueInchip();
         ChooseChip(m_ChipBet[0]);
-        float y = -Screen.height / 2 + 50; // Tọa độ y cách đáy màn hình 120 đơn vị
-        Vector2 targetPosition = new Vector2(0, y);
-        Debug.Log($"Target position for m_ContainerChipBet: {targetPosition}");
-        RectTransform containerRect = m_ContainerChipBet.GetComponent<RectTransform>();
-        if (containerRect != null)
+        m_ContainerChipBet.gameObject.SetActive(true);
+        m_ContainerChipBet.transform.DOScale(new Vector3(1.05f, 1.05f, 1.05f), .3f).OnComplete(() =>
         {
-            containerRect.DOAnchorPos(targetPosition, 0.4f).SetEase(Ease.OutCubic);
-        }
-        else
-        {
-            Debug.LogError("m_ContainerChipBet is not a RectTransform.");
-        }
+            m_ContainerChipBet.transform.DOScale(Vector2.one, .3f);
+        });
+        // float y = -Screen.height / 2 + 50; // Tọa độ y cách đáy màn hình 120 đơn vị
+        // Vector2 targetPosition = new Vector2(0, y);
+        // Debug.Log($"Target position for m_ContainerChipBet: {targetPosition}");
+        // RectTransform containerRect = m_ContainerChipBet.GetComponent<RectTransform>();
+        // if (containerRect != null)
+        // {
+        //     containerRect.DOAnchorPos(targetPosition, 0.4f).SetEase(Ease.OutCubic);
+        // }
+        // else
+        // {
+        //     Debug.LogError("m_ContainerChipBet is not a RectTransform.");
+        // }
     }
     public ThreePokerChipManager createChip(long valueChip)
     {
@@ -163,9 +168,12 @@ public class ThreePokerCardGameView : GameView
         int gate = (int)getInt(jData, "typeBet");
         long value = (long)getLong(jData, "ag");
         long money = player.ag - value;
-        MoneyAllInGate[gate] += value;
         TextMeshProUGUI text = m_ListGate[gate].transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-        text.gameObject.SetActive(true);
+        if (player == thisPlayer)
+        {
+            MoneyAllInGate[gate] += value;
+            text.gameObject.SetActive(true);
+        }
         text.text = Globals.Config.FormatMoney2(MoneyAllInGate[gate], true);
         player.ag = money;
         player.setAg();
@@ -310,17 +318,18 @@ public class ThreePokerCardGameView : GameView
         PositionChipbet = 0;
         SetValueInchip();
         ChooseChip(m_ChipBet[0]);
-        float y = -Screen.height / 2 - 120;
-        Vector2 targetPosition = new Vector2(0, y);
-        RectTransform containerRect = m_ContainerChipBet.GetComponent<RectTransform>();
-        if (containerRect != null)
-        {
-            containerRect.DOAnchorPos(targetPosition, 0.4f).SetEase(Ease.OutCubic);
-        }
-        else
-        {
-            Debug.LogError("m_ContainerChipBet is not a RectTransform.");
-        }
+        m_ContainerChipBet.gameObject.SetActive(false);
+        // float y = -Screen.height / 2 - 120;
+        // Vector2 targetPosition = new Vector2(0, y);
+        // RectTransform containerRect = m_ContainerChipBet.GetComponent<RectTransform>();
+        // if (containerRect != null)
+        // {
+        //     containerRect.DOAnchorPos(targetPosition, 0.4f).SetEase(Ease.OutCubic);
+        // }
+        // else
+        // {
+        //     Debug.LogError("m_ContainerChipBet is not a RectTransform.");
+        // }
     }
     public void ShowRule()
     {
@@ -636,8 +645,7 @@ public class ThreePokerCardGameView : GameView
                 player.ag -= totalBet;
             }
             JArray Arr = getJArray(jPlayer, "Arr");
-            DealCardPlayer(player);
-            RevealCard(player, Arr.ToObject<List<int>>());
+            if (Arr.Count > 0) DealCardPlayer(player, Arr.ToObject<List<int>>());
             if (player != thisPlayer)
             {
                 createFrameChip(player, getInt(jPlayer, "totalBet"));
@@ -722,6 +730,8 @@ public class ThreePokerCardGameView : GameView
         JObject jData = JObject.Parse(data);
         agTable = getInt(jData, "M");
         ListValueChip = new List<int> { agTable, agTable * 5, agTable * 10, agTable * 50, agTable * 100 };
+        SetValueInchip();
+        ThreePokerChipManager.SetListValueChip(ListValueChip);
         setDataView(data);
         if (getString(jData, "gameStatus") == "FINISHED")
         {
@@ -884,6 +894,7 @@ public class ThreePokerCardGameView : GameView
             entryExit.callback.AddListener((eventData) => { OnMouseExitGate(gate); });
             trigger.triggers.Add(entryExit);
         }
+
     }
     public void SendPlay()
     {
@@ -931,9 +942,12 @@ public class ThreePokerCardGameView : GameView
         long money = player.ag - value;
         player.ag = money;
         player.setAg();
-        MoneyAllInGate[gate] += value;
         TextMeshProUGUI text = m_ListGate[gate].transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-        text.gameObject.SetActive(true);
+        if (player == thisPlayer)
+        {
+            MoneyAllInGate[gate] += value;
+            text.gameObject.SetActive(true);
+        }
         text.text = Globals.Config.FormatMoney2(MoneyAllInGate[gate], true);
         ThreePokerChipManager go = createChip(value);
         Vector2 startPos = player.playerView.transform.position;

@@ -355,6 +355,7 @@ public class UIManager : MonoBehaviour
             Globals.Logging.Log("-=-=OnApplicationPause ");
             //timeOnPause = DateTime.Now.Millisecond;
             pushLocalNotiOff();
+            WebSocketManager.getInstance().UserLogout = true;
         }
         else
         {
@@ -364,6 +365,14 @@ public class UIManager : MonoBehaviour
                 WebSocketManager.getInstance().UserLogout = true;
                 showLoginScreen(true);
             }
+            StartCoroutine(delayTurnOffUserLogout());
+        }
+
+        IEnumerator delayTurnOffUserLogout()
+        {
+            yield return new WaitForSeconds(.5f);
+            if (instance.lobbyView.gameObject.activeSelf)
+                WebSocketManager.getInstance().UserLogout = false;
         }
     }
     public bool isLoginShow()

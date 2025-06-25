@@ -52,7 +52,7 @@ public class GroupMenuView : BaseView
             btnSound.transform.Find("on").GetComponent<Image>().sprite = Globals.Config.isSound ? listCheck[0] : listCheck[1];
             btnMusic.transform.Find("on").GetComponent<Image>().sprite = Globals.Config.isMusic ? listCheck[0] : listCheck[1];
         }
-
+        if (curGameId == (int)GAMEID.THREE_CARD_POKER) btnRule.gameObject.SetActive(false);
         background.GetComponent<LayoutSizeControl>().updateSizeContent();
         var sizee2 = background.GetComponent<RectTransform>().sizeDelta;
         setOriginPosition(-transform.parent.GetComponent<RectTransform>().rect.width * .5f + sizee2.x * .5f + 10f, 720.0f * .5f - sizee2.y * .5f - 30f);

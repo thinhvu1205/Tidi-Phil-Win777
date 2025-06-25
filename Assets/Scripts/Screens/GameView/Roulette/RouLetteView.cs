@@ -575,18 +575,14 @@ public class RouLetteView : GameView
         buttonDeal.interactable = true;
         buttonClear.interactable = true;
         buttonDouble.interactable = true;
-        if (totalBetValue + listDataBetForRebetTemp.Sum(bet => bet.BetAmount) > agTable * 100
-            || totalBetValue + listDataBetForRebetTemp.Sum(bet => bet.BetAmount) > thisPlayer.ag
-            || agRemaining < listDataBetForRebetTemp.Sum(bet => bet.BetAmount))
+        if (totalBetValue + listDataBetForRebetTemp.Sum(bet => bet.BetAmount) > agTable * 100 || totalBetValue + listDataBetForRebetTemp.Sum(bet => bet.BetAmount) > thisPlayer.ag || agRemaining < listDataBetForRebetTemp.Sum(bet => bet.BetAmount))
         {
-            showNoti(3);
+            showNoti(3); // Không có cược để nhân đôi
             buttonRebet.interactable = false;
             buttonDouble.interactable = false;
             return;
         }
-
         totalBetValue += listDataBetForRebetTemp.Sum(bet => bet.BetAmount);
-
         if (totalBetValue * 2 > agTable * 100)
         {
             buttonDouble.interactable = false;
@@ -790,6 +786,7 @@ public class RouLetteView : GameView
         // Check đủ tiền
         if (totalBetValue * 2 > agRemaining)
         {
+            // buttonRebet.interactable = false;
             showNoti(2);
             return;
         }
@@ -865,9 +862,8 @@ public class RouLetteView : GameView
         }
         else
         {
-            tienConLai = agTable * 100 - (totalBetValue);
+            tienConLai = agTable * 100 - totalBetValue;
         }
-
         Debug.Log($"Update Button Bet: Money Left={tienConLai}");
 
         List<int> coefficients = new() { 1, 5, 10, 50, 100 };
