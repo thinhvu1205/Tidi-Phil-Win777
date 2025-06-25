@@ -92,7 +92,7 @@ public class BetOptionsRoulette : MonoBehaviour
         if (!RouLetteView.instance.isBetTime) return;
         if ((RouLetteView.instance.totalBetDeal + RouLetteView.instance.totalBetValue) >= RouLetteView.instance.agTable * 100)
         {
-            UIManager.instance.showToast("Exceed max bet");
+            UIManager.instance.showToast($"Exceed max bet: {RouLetteView.instance.agTable * 100}");
             return;
         }
 
