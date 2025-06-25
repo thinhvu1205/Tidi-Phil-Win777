@@ -429,6 +429,7 @@ public class GameView : BaseView
 
     public virtual void handleSTable(string strData)
     {
+        Debug.Log("handleSTable: " + strData); 
         var data = JObject.Parse(strData);
         setGameInfo((int)data["M"], (int)data["Id"], data.ContainsKey("maxBet") ? (int)data["maxBet"] : 0);
         for (int i = 0; i < players.Count; i++)
