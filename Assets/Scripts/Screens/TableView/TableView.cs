@@ -229,6 +229,7 @@ public class TableView : BaseView
             //objButton.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Config.FormatMoney(isMark);
             objButton.GetComponent<ItemTabBet>().setInfo(isMark, 0);
             int tabBet = indexRun;
+
             objButton.GetComponent<Button>().onClick.RemoveAllListeners();
             objButton.GetComponent<Button>().onClick.AddListener(() =>
             {
@@ -240,6 +241,20 @@ public class TableView : BaseView
         for (var i = indexRun; i < scrTabBet.content.childCount; i++)
         {
             scrTabBet.content.GetChild(i).gameObject.SetActive(false);
+        }
+        List<JObject> validRooms = room_vip_list
+                     .OfType<JObject>()
+                     .OrderByDescending(it => (int)it["mark"])
+                     .Where(objDataItem => User.userMain.AG >= (int)objDataItem["minAgCon"])
+                     .GroupBy(objDataItem => (int)objDataItem["mark"])
+                     .Select(g => g.First())
+                     .ToList();
+        if (validRooms.Count == 0)
+        {
+            // Ẩn hết các item table
+            for (int j = 0; j < scrTable.content.childCount; j++)
+                scrTable.content.GetChild(j).gameObject.SetActive(false);
+            return;
         }
         if (room_vip_list.Count > 0 && scrTabBet.content.childCount > 0)
         {
