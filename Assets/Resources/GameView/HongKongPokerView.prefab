@@ -6632,9 +6632,9 @@ MonoBehaviour:
   spriteFrameMask: {fileID: 0}
   listImgWinlose:
   - {fileID: 7736954175446867279, guid: 4c836558bfeb40048ad9544e3f3ee191, type: 3}
-  - {fileID: 4180682131504607964, guid: 2fb18dcdceafc5d45a25e6408d647b3f, type: 3}
-  - {fileID: -3239298575241356576, guid: 69e43f7cb5fe03c4784de8d94cdf47dd, type: 3}
-  - {fileID: 1487736399984482114, guid: 641be0c7512dd104f9a9d490a063b89c, type: 3}
+  - {fileID: 21300000, guid: 2fb18dcdceafc5d45a25e6408d647b3f, type: 3}
+  - {fileID: 21300000, guid: 69e43f7cb5fe03c4784de8d94cdf47dd, type: 3}
+  - {fileID: 21300000, guid: 641be0c7512dd104f9a9d490a063b89c, type: 3}
   - {fileID: -3586398990135508845, guid: 0e1a635832ce7804699941acdcdf5ac3, type: 3}
   - {fileID: -1450562369403550687, guid: 0259d4dbbfb72424f90f424be8cc8aa0, type: 3}
   - {fileID: 3305309957530848544, guid: 6294d1c4707202a4baccd7836eac47e1, type: 3}
