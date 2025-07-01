@@ -480,9 +480,12 @@ public class RouLetteView : GameView
         _rectTransformButtonMenu.DOAnchorPosX(240, 0.5f);
         transformTabResult.DOAnchorPosX(-232, 0.75f).SetEase(Ease.InOutQuad);
         SocketSend.sendSpinRoulette();
-        listDataBetForRebetTemp.Clear();
-        listDataBetForRebetTemp.AddRange(listDataBetForRebet);
-        listDataBetForRebet.Clear();
+        if (listDataBetForRebet.Count != 0)
+        {
+            listDataBetForRebetTemp.Clear();
+            listDataBetForRebetTemp.AddRange(listDataBetForRebet);
+            listDataBetForRebet.Clear();
+        }
         // listDataBet.Clear();
     }
 
@@ -561,8 +564,6 @@ public class RouLetteView : GameView
         Debug.Log(listDataBetForRebetTemp.Sum(bet => bet.BetAmount) + " " + listDataBetForRebetTemp.Count);
 
         Debug.Log($"totalBetValue: {totalBetValue}// listDataBetForRebetTemp: {listDataBetForRebetTemp.Sum(bet => bet.BetAmount)}");
-        textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
-        textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
         buttonDeal.interactable = true;
         buttonClear.interactable = true;
         buttonDouble.interactable = true;
@@ -574,6 +575,8 @@ public class RouLetteView : GameView
             return;
         }
         totalBetValue += listDataBetForRebetTemp.Sum(bet => bet.BetAmount);
+        textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
+        textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
         if (totalBetValue * 2 > agTable * 100)
         {
             buttonDouble.interactable = false;
