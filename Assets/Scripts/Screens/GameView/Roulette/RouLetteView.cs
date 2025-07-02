@@ -30,6 +30,7 @@ public class RouLetteView : GameView
     [SerializeField] private TextMeshProUGUI textFrameCoin_1, textFrameCoin_2, textFrameCoin, textNumMoney, textNumDeal;
     [SerializeField] private Transform transformResult;
     [SerializeField] private RectTransform transformTabResult, _rectTransformButtonMenu, table_1, table_2;
+    private bool isClickDeal = false;
 
     HashSet<int> redNumbers = new HashSet<int>
         { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 };
@@ -37,7 +38,7 @@ public class RouLetteView : GameView
     private int[] arrWin;
     private long currentBet = 10000;
     private ChipBetRouLette chip;
-    private List<BetData> listDataBet = new List<BetData>();
+    public List<BetData> listDataBet = new List<BetData>();
     private Dictionary<List<int>, int> specialBets = new Dictionary<List<int>, int>(new ListComparer())
     {
         { new List<int> { 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 }, 37 },
@@ -464,6 +465,7 @@ public class RouLetteView : GameView
 
     private void clickButtonSpin()
     {
+        ClickButtonClear();
         playSound(SOUND_GAME.CLICK);
         for (int i = 0; i < listBetOptions.Count; i++)
         {
@@ -607,7 +609,7 @@ public class RouLetteView : GameView
     {
         HandleData.DelayHandleLeave = 10f;
         playSound(SOUND_GAME.CLICK);
-
+        isClickDeal = true;
         buttonDeal.interactable = false;
         buttonClear.interactable = false;
         totalBetDeal += totalBetValue;
@@ -660,8 +662,8 @@ public class RouLetteView : GameView
         }
         Debug.Log($"jsonString: {jsonDataBet}");
         SocketSend.sendBetRoulette(jsonDataBet);
-        jsonDataBet = "";
-        listDataBet = new();
+        // jsonDataBet = "";
+        // listDataBet = new();
         DOVirtual.DelayedCall(0.5f, () =>
         {
             thisPlayer.ag -= totalBetValue;
@@ -773,9 +775,9 @@ public class RouLetteView : GameView
         long afterDoubleBet = (totalBetDeal + totalBetValue) * 2;
 
         // Check max bet
-        if (afterDoubleBet > agTable * 200)
+        if (afterDoubleBet > agTable * 100)
         {
-            showNoti(1, $"{agTable * 200}");
+            showNoti(1, $"{agTable * 100}");
             return;
         }
 
@@ -799,7 +801,7 @@ public class RouLetteView : GameView
         }
         if (totalBetValue == 0)
         {
-            totalBetValue = totalBetDeal;
+            totalBetValue = totalBetDeal * 2;
             textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
             textFrameCoin.text = Globals.Config.FormatMoney(totalBetDeal * 2, true);
         }
@@ -855,7 +857,7 @@ public class RouLetteView : GameView
         }
         else
         {
-            tienConLai = agTable * 100 - (totalBetDeal + totalBetValue);
+            tienConLai = agTable * 100 - totalBetValue;
         }
         Debug.Log($"Update Button Bet: Money Left={tienConLai}");
 
@@ -899,7 +901,7 @@ public class RouLetteView : GameView
         SelectButtonBet(currenIdBet);
         buttonDeal.interactable = totalBetValue > 0;
         buttonClear.interactable = totalBetValue > 0;
-        buttonDouble.interactable = (totalBetValue * 2 <= tienConLai);
+        buttonDouble.interactable = totalBetValue <= tienConLai;
     }
 
     private void showNoti(int type, string context = null)
@@ -907,16 +909,16 @@ public class RouLetteView : GameView
         switch (type)
         {
             case 0:
-                UIManager.instance.showToast("ឈីបមិនគ្រប់គ្រាន់សម្រាប់ភ្នាល់ទេ"); // Không đủ chip để đặt cược
+                UIManager.instance.showToast("Ang chip ang hindi sapat para pumusta"); // Not enough chips to bet
                 break;
             case 1:
-                UIManager.instance.showToast($"ដល់កម្រិតភ្នាល់ខ្ពស់បំផុត: {context}"); // Giới hạn cược tối đa
+                UIManager.instance.showToast($"Pinakamataas ng pagtaya: {context}"); // Maximum bet limit
                 break;
             case 2:
-                UIManager.instance.showToast("ឈីបរបស់អ្នកមិនគ្រប់គ្រាន់ទេ!!!"); // Chip của bạn không đủ
+                UIManager.instance.showToast("Hindi sapat ang iyong chips!!!"); // Your chips are not enough
                 break;
             case 3:
-                UIManager.instance.showToast("មិនមានភ្នាល់ណាដើម្បីទ្វេគុណទេ"); // Không có cược nào để nhân đôi
+                UIManager.instance.showToast("Walang taya na dodoblehin"); // No bet to double
                 break;
         }
     }
@@ -933,6 +935,11 @@ public class RouLetteView : GameView
         {
             showNoti(0);
             return;
+        }
+        if (isClickDeal)
+        {
+            isClickDeal = false;
+            listDataBet = new();
         }
         long totalBetAfter = totalBetDeal + totalBetValue + chipValue;
         buttonDeal.interactable = true;
