@@ -19823,6 +19823,7 @@ MonoBehaviour:
   _rectTransformButtonMenu: {fileID: 5215012004262557764}
   table_1: {fileID: 7735491908912206879}
   table_2: {fileID: 252273727070748158}
+  listDataBet: []
   listResultHistory: 
   listPosBallEnd:
   - {x: -112, y: 152}
@@ -19867,7 +19868,7 @@ MonoBehaviour:
   agWin: 0
   agPlayer: 0
   agRemaining: 0
-  isBetTime: 0
+  isBetTime: 1
 --- !u!1 &5215012005464988131
 GameObject:
   m_ObjectHideFlags: 0
