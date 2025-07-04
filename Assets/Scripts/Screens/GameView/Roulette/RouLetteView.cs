@@ -31,6 +31,7 @@ public class RouLetteView : GameView
     [SerializeField] private Transform transformResult;
     [SerializeField] private RectTransform transformTabResult, _rectTransformButtonMenu, table_1, table_2;
     private bool isClickDeal = false;
+    long numFrameCoin = 0;
 
     HashSet<int> redNumbers = new HashSet<int>
         { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 };
@@ -494,6 +495,7 @@ public class RouLetteView : GameView
 
     private void ReStartGame()
     {
+        numFrameCoin = 0;
         buttonSpine.interactable = true;
         isBetTime = true;
         thisPlayer.setAg();
@@ -726,6 +728,7 @@ public class RouLetteView : GameView
 
     private void ClickButtonClear()
     {
+        numFrameCoin = 0;
         playSound(SOUND_GAME.CLICK);
         buttonDeal.interactable = false;
         buttonClear.interactable = false;
@@ -813,30 +816,29 @@ public class RouLetteView : GameView
         //     bet.BetAmount *= 2;
         //     clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount / 2));
         // }
+
         if (totalBetValue == 0)
         {
             totalBetValue = totalBetDeal;
-            textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetDeal, true);
-            textFrameCoin.text = Globals.Config.FormatMoney(totalBetDeal * 2, true);
             foreach (var bet in listDataBet)
             {
-                int count = listDataBet.Count;
-                bet.BetAmount = totalBetDeal / count;
+                bet.BetAmount *= 1;
                 clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount));
             }
+            textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
+            textFrameCoin.text = Globals.Config.FormatMoney(totalBetDeal + totalBetValue, true);
         }
         else
         {
-            Debug.Log(" có chạy vào đây");
             totalBetValue *= 2;
-            textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
-            textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
+            Debug.Log(" có chạy vào đây");
             foreach (var bet in listDataBet)
             {
-                int count = listDataBet.Count;
-                bet.BetAmount = totalBetValue / count;
+                bet.BetAmount *= 2;
                 clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount));
             }
+            textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
+            textFrameCoin.text = Globals.Config.FormatMoney(totalBetDeal + totalBetValue, true);
         }
         foreach (var bet in clonedBets)
         {
