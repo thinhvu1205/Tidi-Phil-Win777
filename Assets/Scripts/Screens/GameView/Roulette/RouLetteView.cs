@@ -498,7 +498,14 @@ public class RouLetteView : GameView
         isBetTime = true;
         thisPlayer.setAg();
         UpdateButtonBet(thisPlayer.ag);
-        buttonRebet.interactable = true;
+        if (listDataBetForRebetTemp.Sum(bet => bet.BetAmount) != 0)
+        {
+            buttonRebet.interactable = true;
+        }
+        else
+        {
+            buttonRebet.interactable = false;
+        }
         newDataBetDeal.Clear();
         listDataBet.Clear();
         totalBetDeal = 0;
@@ -684,7 +691,9 @@ public class RouLetteView : GameView
     {
         textNumDeal.transform.localPosition = new Vector3(32, 0, 0);
         textNumDeal.gameObject.SetActive(true);
+
         textNumDeal.text = $"{-totalBetValue}";
+
         textNumDeal.transform.DOLocalMoveY(140, 2f)
             .SetEase(Ease.Linear)
             .OnComplete(() => { textNumDeal.gameObject.SetActive(false); });
@@ -745,6 +754,8 @@ public class RouLetteView : GameView
         // Clear listDataBet và chỉ giữ lại những cược đã deal
         listDataBet.Clear();
         listDataBet.AddRange(dealtBets);
+        // listDataBetForRebetTemp.Clear();
+        // listDataBetForRebetTemp.AddRange(dealtBets);
 
         // Reset totalBetValue về 0 vì những cược chưa deal đã bị xóa
         totalBetValue = 0;
@@ -797,16 +808,22 @@ public class RouLetteView : GameView
         buttonDeal.interactable = true;
 
         List<BetData> clonedBets = new List<BetData>();
-        foreach (var bet in listDataBet)
-        {
-            bet.BetAmount *= 2;
-            clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount / 2));
-        }
+        // foreach (var bet in listDataBet)
+        // {
+        //     bet.BetAmount *= 2;
+        //     clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount / 2));
+        // }
         if (totalBetValue == 0)
         {
-            totalBetValue = totalBetDeal * 2;
-            textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
+            totalBetValue = totalBetDeal;
+            textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetDeal, true);
             textFrameCoin.text = Globals.Config.FormatMoney(totalBetDeal * 2, true);
+            foreach (var bet in listDataBet)
+            {
+                int count = listDataBet.Count;
+                bet.BetAmount = totalBetDeal / count;
+                clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount));
+            }
         }
         else
         {
@@ -814,6 +831,12 @@ public class RouLetteView : GameView
             totalBetValue *= 2;
             textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
             textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
+            foreach (var bet in listDataBet)
+            {
+                int count = listDataBet.Count;
+                bet.BetAmount = totalBetValue / count;
+                clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount));
+            }
         }
         foreach (var bet in clonedBets)
         {
@@ -1412,7 +1435,7 @@ public class RouLetteView : GameView
             if (agWin > 0)
             {
                 animShowSo.gameObject.SetActive(true);
-                animShowSo.AnimationState.SetAnimation(0, "win", false);
+                animShowSo.AnimationState.SetAnimation(0, "win", true);
                 textNumWin.gameObject.SetActive(true);
                 textNumLose.gameObject.SetActive(false);
                 textNumWin.text = $"+{FormatNumber(agWin)}";
