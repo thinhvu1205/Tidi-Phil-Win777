@@ -67,7 +67,7 @@ public class RouLetteView : GameView
     public long totalBetDeal, agWin, agPlayer;
     public long agRemaining;
     public static RouLetteView instance = null;
-    public bool isBetTime = false;
+    public bool isBetTime = true;
 
 
     [Serializable]
@@ -457,7 +457,7 @@ public class RouLetteView : GameView
 
     public void HandleStartGame(JObject data)
     {
-        isBetTime = true;
+        // isBetTime = true;
         playSound(SOUND_GAME.START_GAME);
         stateGame = STATE_GAME.WAITING;
         _OnStartGame();
@@ -465,6 +465,7 @@ public class RouLetteView : GameView
 
     private void clickButtonSpin()
     {
+        buttonSpine.interactable = false;
         ClickButtonClear();
         playSound(SOUND_GAME.CLICK);
         for (int i = 0; i < listBetOptions.Count; i++)
@@ -493,6 +494,8 @@ public class RouLetteView : GameView
 
     private void ReStartGame()
     {
+        buttonSpine.interactable = true;
+        isBetTime = true;
         thisPlayer.setAg();
         UpdateButtonBet(thisPlayer.ag);
         buttonRebet.interactable = true;
@@ -1409,7 +1412,7 @@ public class RouLetteView : GameView
             if (agWin > 0)
             {
                 animShowSo.gameObject.SetActive(true);
-                animShowSo.AnimationState.SetAnimation(0, "win", true);
+                animShowSo.AnimationState.SetAnimation(0, "win", false);
                 textNumWin.gameObject.SetActive(true);
                 textNumLose.gameObject.SetActive(false);
                 textNumWin.text = $"+{FormatNumber(agWin)}";
@@ -1431,6 +1434,7 @@ public class RouLetteView : GameView
         }
         else
         {
+            isBetTime = true;
             animShowSo.gameObject.SetActive(false);
         }
         // if (thisPlayer.ag < agTable)
