@@ -67,6 +67,7 @@ public class ProfileView : BaseView
         updateStateChangeName();
         btnConfirmRef.gameObject.SetActive(User.userMain.canInputInvite);
         Debug.Log(" uidInvite:" + User.userMain.uidInvite);
+  
         if (User.userMain.timeInputInvite > 0)
         {
 
@@ -85,9 +86,23 @@ public class ProfileView : BaseView
             else
             {
                 refContainer.SetActive(false);
+                    scrListAvatar.transform.localPosition = new Vector3(
+                    scrListAvatar.transform.localPosition.x,
+                    -30f,
+                    scrListAvatar.transform.localPosition.z
+                );
             }
             lbTimeRemainRef.text = "";
             DOTween.Kill(DOTWEEN_TAG.PROFILE_COUNTTIME);
+        }
+        if (Config.typeLogin == LOGIN_TYPE.PLAYNOW && User.userMain.Username.ToUpper().Contains("TE."))
+        {
+            refContainer.SetActive(false);
+            scrListAvatar.transform.localPosition = new Vector3(
+                scrListAvatar.transform.localPosition.x,
+                -30f,
+                scrListAvatar.transform.localPosition.z
+            );
         }
         SocketSend.getWalletInfo();
         SocketSend.checkUpdateWallet();
@@ -104,6 +119,11 @@ public class ProfileView : BaseView
                 {
                     DOTween.Kill(DOTWEEN_TAG.PROFILE_COUNTTIME);
                     refContainer.SetActive(false);
+                    scrListAvatar.transform.localPosition = new Vector3(
+                        scrListAvatar.transform.localPosition.x,
+                        -30f,
+                        scrListAvatar.transform.localPosition.z
+                    );
                 }
             })
             .AppendInterval(1.0f)
