@@ -572,7 +572,7 @@ public class RouLetteView : GameView
     private void ClickButtonRebet()
     {
         isClickRebet = true;
-
+        isClickDeal = false;
         playSound(SOUND_GAME.CLICK);
         Debug.Log(totalBetValue + " xem chỗnayf");
         Debug.Log(listDataBetForRebetTemp.Sum(bet => bet.BetAmount) + " " + listDataBetForRebetTemp.Count);
@@ -599,6 +599,7 @@ public class RouLetteView : GameView
         {
             buttonDouble.interactable = true;
         }
+
 
         listDataBet.AddRange(listDataBetForRebetTemp);
 
@@ -1124,7 +1125,6 @@ public class RouLetteView : GameView
         {
             listDataBet.Add(new BetData(idBetOption, betType, numArr, chipValue));
         }
-
         totalBetValue += chipValue;
         textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
         textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
