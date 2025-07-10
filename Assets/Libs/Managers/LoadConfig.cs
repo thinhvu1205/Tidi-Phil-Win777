@@ -441,7 +441,11 @@ public class LoadConfig : MonoBehaviour
         }
         else Config.listRankGame.Clear();
         if (jConfig.ContainsKey("u_chat_fb"))
-            Config.u_chat_fb = (string)jConfig["u_chat_fb"];
+        {
+            string link = (string)jConfig["u_chat_fb"];
+            if (!link.StartsWith("https://")) link = "https://" + link;
+            Config.u_chat_fb = link;
+        }
         else Config.u_chat_fb = "";
         if (jConfig.ContainsKey("infoChip"))
         {
