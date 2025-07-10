@@ -18,7 +18,7 @@ public class PopupSupport : BaseView
 
     public void OnclickMess()
     {
-        Application.OpenURL(Config.chat_support_link);
+        Application.OpenURL(Config.u_chat_fb);
     }
     public void OnclickClose()
     {
