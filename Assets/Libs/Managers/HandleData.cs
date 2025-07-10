@@ -123,6 +123,26 @@ public class HandleData
             SocketIOManager.getInstance().emitUpdateInfo();
             Dictionary<string, object> tags = new Dictionary<string, object>();
             if (UIManager.instance.gameView == null) UIManager.instance.showLobbyScreen(true);
+            new Thread(new ThreadStart(() =>
+            {
+                SocketSend.sendSelectG2(Config.curGameId);
+                Thread.Sleep(100);
+                SocketSend.getInfoSafe();
+                Thread.Sleep(100);
+                SocketSend.sendPromotion();
+                Thread.Sleep(100);
+                SocketSend.getMessList();
+                Thread.Sleep(100);
+                SocketSend.getMail(10);
+                Thread.Sleep(100);
+                SocketSend.getMail(12);
+                // Thread.Sleep(100);
+                // SocketSend.getChatWorld();
+                // Thread.Sleep(100);
+                // SocketSend.getFarmInfo();
+                Thread.Sleep(100);
+                SocketSend.sendRef();
+            })).Start();
 
             tags.Add("deviceid", Config.deviceId);
             tags.Add("publisher", Config.publisher);
@@ -147,27 +167,6 @@ public class HandleData
             tags.Add("avg7", User.userMain.AVG7.ToString());
             tags.Add("group", User.userMain.Group.ToString());
             OneSignalSDK.OneSignal.Default.SendTags(tags);
-
-            new Thread(new ThreadStart(() =>
-            {
-                SocketSend.sendSelectG2(Config.curGameId);
-                Thread.Sleep(100);
-                SocketSend.getInfoSafe();
-                Thread.Sleep(100);
-                SocketSend.sendPromotion();
-                Thread.Sleep(100);
-                SocketSend.getMessList();
-                Thread.Sleep(100);
-                SocketSend.getMail(10);
-                Thread.Sleep(100);
-                SocketSend.getMail(12);
-                // Thread.Sleep(100);
-                // SocketSend.getChatWorld();
-                // Thread.Sleep(100);
-                // SocketSend.getFarmInfo();
-                Thread.Sleep(100);
-                SocketSend.sendRef();
-            })).Start();
         }
         else
         {
