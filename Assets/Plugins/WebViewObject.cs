@@ -30,7 +30,12 @@ using UnityEngine.Networking;
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
 using System.IO;
 using System.Text.RegularExpressions;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
+#endif
+#if UNITY_ANDROID
+using UnityEngine.Android;
 #endif
 
 using Callback = System.Action<string>;
@@ -55,6 +60,8 @@ public class WebViewObject : MonoBehaviour
     Callback onStarted;
     Callback onLoaded;
     Callback onHooked;
+    Callback onCookies;
+    bool paused;
     bool visibility;
     bool alertDialogEnabled;
     bool scrollBounceEnabled;
@@ -69,13 +76,13 @@ public class WebViewObject : MonoBehaviour
     float mMarginBottomComputed;
     bool mMarginRelativeComputed;
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+    public GameObject canvas;
+    Image bg;
     IntPtr webView;
     Rect rect;
     Texture2D texture;
     byte[] textureDataBuffer;
     string inputString = "";
-    // string keyChars0 = "";
-    // ushort keyCode0 = 0;
     bool hasFocus;
 #elif UNITY_IPHONE
     IntPtr webView;
@@ -83,30 +90,75 @@ public class WebViewObject : MonoBehaviour
     AndroidJavaObject webView;
     
     bool mVisibility;
-    bool mIsKeyboardVisible;
-    int mWindowVisibleDisplayFrameHeight;
+    int mKeyboardVisibleHeight;
     float mResumedTimestamp;
+    int mLastScreenHeight;
+#if UNITYWEBVIEW_ANDROID_ENABLE_NAVIGATOR_ONLINE
+    float androidNetworkReachabilityCheckT0 = -1.0f;
+    NetworkReachability? androidNetworkReachability0 = null;
+#endif
     
     void OnApplicationPause(bool paused)
     {
+        this.paused = paused;
         if (webView == null)
             return;
-        if (!paused && mIsKeyboardVisible)
-        {
-            webView.Call("SetVisibility", false);
-            mResumedTimestamp = Time.realtimeSinceStartup;
-        }
+        // if (!paused && mKeyboardVisibleHeight > 0)
+        // {
+        //     webView.Call("SetVisibility", false);
+        //     mResumedTimestamp = Time.realtimeSinceStartup;
+        // }
         webView.Call("OnApplicationPause", paused);
     }
 
     void Update()
     {
+        // NOTE:
+        //
+        // When OnApplicationPause(true) is called and the app is in closing, webView.Call(...)
+        // after that could cause crashes because underlying java instances were closed.
+        //
+        // This has not been cleary confirmed yet. However, as Update() is called once after
+        // OnApplicationPause(true), it is likely correct.
+        //
+        // Base on this assumption, we do nothing here if the app is paused.
+        //
+        // cf. https://github.com/gree/unity-webview/issues/991#issuecomment-1776628648
+        // cf. https://docs.unity3d.com/2020.3/Documentation/Manual/ExecutionOrder.html
+        //
+        // In between frames
+        //
+        // * OnApplicationPause: This is called at the end of the frame where the pause is detected,
+        //   effectively between the normal frame updates. One extra frame will be issued after
+        //   OnApplicationPause is called to allow the game to show graphics that indicate the
+        //   paused state.
+        //
+        if (paused)
+            return;
         if (webView == null)
             return;
+#if UNITYWEBVIEW_ANDROID_ENABLE_NAVIGATOR_ONLINE
+        var t = Time.time;
+        if (t - 1.0f >= androidNetworkReachabilityCheckT0)
+        {
+            androidNetworkReachabilityCheckT0 = t;
+            var androidNetworkReachability = Application.internetReachability;
+            if (androidNetworkReachability0 != androidNetworkReachability)
+            {
+                androidNetworkReachability0 = androidNetworkReachability;
+                webView.Call("SetNetworkAvailable", androidNetworkReachability != NetworkReachability.NotReachable);
+            }
+        }
+#endif
         if (mResumedTimestamp != 0.0f && Time.realtimeSinceStartup - mResumedTimestamp > 0.5f)
         {
             mResumedTimestamp = 0.0f;
             webView.Call("SetVisibility", mVisibility);
+        }
+        if (Screen.height != mLastScreenHeight)
+        {
+            mLastScreenHeight = Screen.height;
+            webView.Call("EvaluateJS", "(function() {var e = document.activeElement; if (e != null && e.tagName.toLowerCase() != 'body') {e.blur(); e.focus();}})()");
         }
         for (;;) {
             if (webView == null)
@@ -136,48 +188,220 @@ public class WebViewObject : MonoBehaviour
             case "CallOnHooked":
                 CallOnHooked(s.Substring(i + 1));
                 break;
+            case "CallOnCookies":
+                CallOnCookies(s.Substring(i + 1));
+                break;
             case "SetKeyboardVisible":
                 SetKeyboardVisible(s.Substring(i + 1));
+                break;
+            case "RequestFileChooserPermissions":
+                RequestFileChooserPermissions();
                 break;
             }
         }
     }
 
     /// Called from Java native plugin to set when the keyboard is opened
-    public void SetKeyboardVisible(string pIsVisible)
+    public void SetKeyboardVisible(string keyboardVisibleHeight)
     {
-        bool isKeyboardVisible0 = mIsKeyboardVisible;
-        mIsKeyboardVisible = (pIsVisible == "true");
-        if (!Screen.fullScreen)
+        if (BottomAdjustmentDisabled())
         {
             return;
         }
-        if (mIsKeyboardVisible != isKeyboardVisible0 || mIsKeyboardVisible)
+        var keyboardVisibleHeight0 = mKeyboardVisibleHeight;
+        var keyboardVisibleHeight1 = Int32.Parse(keyboardVisibleHeight);
+        if (keyboardVisibleHeight0 != keyboardVisibleHeight1)
         {
+            mKeyboardVisibleHeight = keyboardVisibleHeight1;
             SetMargins(mMarginLeft, mMarginTop, mMarginRight, mMarginBottom, mMarginRelative);
+            EvaluateJS("setTimeout(function(){if(document&&document.activeElement){document.activeElement.scrollIntoView();}}, 200);");
         }
     }
     
+    /// Called from Java native plugin to request permissions for the file chooser.
+    public void RequestFileChooserPermissions()
+    {
+        var permissions = new List<string>();
+        using (var version = new AndroidJavaClass("android.os.Build$VERSION"))
+        {
+            if (version.GetStatic<int>("SDK_INT") >= 33)
+            {
+                if (!Permission.HasUserAuthorizedPermission("android.permission.READ_MEDIA_IMAGES"))
+                {
+                    permissions.Add("android.permission.READ_MEDIA_IMAGES");
+                }
+                if (!Permission.HasUserAuthorizedPermission("android.permission.READ_MEDIA_VIDEO"))
+                {
+                    permissions.Add("android.permission.READ_MEDIA_VIDEO");
+                }
+                if (!Permission.HasUserAuthorizedPermission("android.permission.READ_MEDIA_AUDIO"))
+                {
+                    permissions.Add("android.permission.READ_MEDIA_AUDIO");
+                }
+            }
+            else
+            {
+                if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageRead))
+                {
+                    permissions.Add(Permission.ExternalStorageRead);
+                }
+                if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite))
+                {
+                    permissions.Add(Permission.ExternalStorageWrite);
+                }
+            }
+        }
+        if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
+        {
+            permissions.Add(Permission.Camera);
+        }
+        if (permissions.Count > 0)
+        {
+#if UNITY_2020_2_OR_NEWER
+            var grantedCount = 0;
+            var deniedCount = 0;
+            var callbacks = new PermissionCallbacks();
+            callbacks.PermissionGranted += (permission) =>
+            {
+                grantedCount++;
+                if (grantedCount + deniedCount == permissions.Count)
+                {
+                    StartCoroutine(CallOnRequestFileChooserPermissionsResult(grantedCount == permissions.Count));
+                }
+            };
+            callbacks.PermissionDenied += (permission) =>
+            {
+                deniedCount++;
+                if (grantedCount + deniedCount == permissions.Count)
+                {
+                    StartCoroutine(CallOnRequestFileChooserPermissionsResult(grantedCount == permissions.Count));
+                }
+            };
+            callbacks.PermissionDeniedAndDontAskAgain += (permission) =>
+            {
+                deniedCount++;
+                if (grantedCount + deniedCount == permissions.Count)
+                {
+                    StartCoroutine(CallOnRequestFileChooserPermissionsResult(grantedCount == permissions.Count));
+                }
+            };
+            Permission.RequestUserPermissions(permissions.ToArray(), callbacks);
+#else
+            StartCoroutine(RequestFileChooserPermissionsCoroutine(permissions.ToArray()));
+#endif
+        }
+        else
+        {
+            StartCoroutine(CallOnRequestFileChooserPermissionsResult(true));
+        }
+    }
+
+#if UNITY_2020_2_OR_NEWER
+#else
+    int mRequestPermissionPhase;
+
+    IEnumerator RequestFileChooserPermissionsCoroutine(string[] permissions)
+    {
+        foreach (var permission in permissions)
+        {
+            mRequestPermissionPhase = 0;
+            Permission.RequestUserPermission(permission);
+            // waiting permission dialog that may not be opened.
+            for (var i = 0; i < 8 && mRequestPermissionPhase == 0; i++)
+            {
+                yield return new WaitForSeconds(0.25f);
+            }
+            if (mRequestPermissionPhase == 0)
+            {
+                // permission dialog was not opened.
+                continue;
+            }
+            while (mRequestPermissionPhase == 1)
+            {
+                yield return new WaitForSeconds(0.3f);
+            }
+        }
+        yield return new WaitForSeconds(0.3f);
+        var granted = 0;
+        foreach (var permission in permissions)
+        {
+            if (Permission.HasUserAuthorizedPermission(permission))
+            {
+                granted++;
+            }
+        }
+        StartCoroutine(CallOnRequestFileChooserPermissionsResult(granted == permissions.Length));
+    }
+
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus)
+        {
+            if (mRequestPermissionPhase == 1)
+            {
+                mRequestPermissionPhase = 2;
+            }
+        }
+        else
+        {
+            if (mRequestPermissionPhase == 0)
+            {
+                mRequestPermissionPhase = 1;
+            }
+        }
+    }
+#endif
+
+    private IEnumerator CallOnRequestFileChooserPermissionsResult(bool granted)
+    {
+        for (var i = 0; i < 3; i++)
+        {
+            yield return null;
+        }
+        webView.Call("OnRequestFileChooserPermissionsResult", granted);
+    }
+
     public int AdjustBottomMargin(int bottom)
     {
-        if (!mIsKeyboardVisible || !Screen.fullScreen)
+        if (BottomAdjustmentDisabled())
+        {
+            return bottom;
+        }
+        else if (mKeyboardVisibleHeight <= 0)
         {
             return bottom;
         }
         else
         {
             int keyboardHeight = 0;
-            using(AndroidJavaClass UnityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+            using (var unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+            using (var activity = unityClass.GetStatic<AndroidJavaObject>("currentActivity"))
+            using (var player = activity.Get<AndroidJavaObject>("mUnityPlayer"))
+            using (var view = player.Call<AndroidJavaObject>("getView"))
+            using (var rect = new AndroidJavaObject("android.graphics.Rect"))
             {
-                AndroidJavaObject View = UnityClass.GetStatic<AndroidJavaObject>("currentActivity").Get<AndroidJavaObject>("mUnityPlayer").Call<AndroidJavaObject>("getView");
-                using(AndroidJavaObject Rct = new AndroidJavaObject("android.graphics.Rect"))
+                if (view.Call<bool>("getGlobalVisibleRect", rect))
                 {
-                    View.Call("getWindowVisibleDisplayFrame", Rct);
-                    keyboardHeight = mWindowVisibleDisplayFrameHeight - Rct.Call<int>("height");
+                    int h0 = rect.Get<int>("bottom");
+                    view.Call("getWindowVisibleDisplayFrame", rect);
+                    int h1 = rect.Get<int>("bottom");
+                    keyboardHeight = h0 - h1;
                 }
             }
             return (bottom > keyboardHeight) ? bottom : keyboardHeight;
         }
+    }
+
+    private bool BottomAdjustmentDisabled()
+    {
+#if UNITYWEBVIEW_ANDROID_FORCE_MARGIN_ADJUSTMENT_FOR_KEYBOARD
+        return false;
+#else
+        return
+            !Screen.fullScreen
+            || ((Screen.autorotateToLandscapeLeft || Screen.autorotateToLandscapeRight)
+                && (Screen.autorotateToPortrait || Screen.autorotateToPortraitUpsideDown));
+#endif
     }
 #else
     IntPtr webView;
@@ -187,15 +411,10 @@ public class WebViewObject : MonoBehaviour
     {
         alertDialogEnabled = true;
         scrollBounceEnabled = true;
-        //mMarginLeftComputed = -9999;
-        //mMarginTopComputed = -9999;
-        //mMarginRightComputed = -9999;
-        //mMarginBottomComputed = -9999;
-
-        mMarginLeftComputed = 9999;
-        mMarginTopComputed = 9999;
-        mMarginRightComputed = 9999;
-        mMarginBottomComputed = 9999;
+        mMarginLeftComputed = -9999;
+        mMarginTopComputed = -9999;
+        mMarginRightComputed = -9999;
+        mMarginBottomComputed = -9999;
     }
 
     public bool IsKeyboardVisible
@@ -203,7 +422,7 @@ public class WebViewObject : MonoBehaviour
         get
         {
 #if !UNITY_EDITOR && UNITY_ANDROID
-            return mIsKeyboardVisible;
+            return mKeyboardVisibleHeight > 0;
 #elif !UNITY_EDITOR && UNITY_IPHONE
             return TouchScreenKeyboard.visible;
 #else
@@ -218,6 +437,9 @@ public class WebViewObject : MonoBehaviour
     [DllImport("WebView")]
     private static extern IntPtr _CWebViewPlugin_InitStatic(
         bool inEditor, bool useMetal);
+    [DllImport("WebView")]
+    private static extern bool _CWebViewPlugin_IsInitialized(
+        IntPtr instance);
     [DllImport("WebView")]
     private static extern IntPtr _CWebViewPlugin_Init(
         string gameObject, bool transparent, bool zoom, int width, int height, string ua, bool separated);
@@ -264,7 +486,7 @@ public class WebViewObject : MonoBehaviour
     [DllImport("WebView")]
     private static extern void _CWebViewPlugin_SendKeyEvent(IntPtr instance, int x, int y, string keyChars, ushort keyCode, int keyState);
     [DllImport("WebView")]
-    private static extern void _CWebViewPlugin_Update(IntPtr instance, bool refreshBitmap);
+    private static extern void _CWebViewPlugin_Update(IntPtr instance, bool refreshBitmap, int devicePixelRatio);
     [DllImport("WebView")]
     private static extern int _CWebViewPlugin_BitmapWidth(IntPtr instance);
     [DllImport("WebView")]
@@ -280,16 +502,19 @@ public class WebViewObject : MonoBehaviour
     [DllImport("WebView")]
     private static extern void _CWebViewPlugin_ClearCustomHeader(IntPtr instance);
     [DllImport("WebView")]
-    private static extern void   _CWebViewPlugin_ClearCookies();
+    private static extern void _CWebViewPlugin_ClearCookies();
     [DllImport("WebView")]
-    private static extern void   _CWebViewPlugin_SaveCookies();
+    private static extern void _CWebViewPlugin_SaveCookies();
     [DllImport("WebView")]
-    private static extern string _CWebViewPlugin_GetCookies(string url);
+    private static extern void _CWebViewPlugin_GetCookies(IntPtr instance, string url);
     [DllImport("WebView")]
     private static extern string _CWebViewPlugin_GetMessage(IntPtr instance);
 #elif UNITY_IPHONE
     [DllImport("__Internal")]
-    private static extern IntPtr _CWebViewPlugin_Init(string gameObject, bool transparent, bool zoom, string ua, bool enableWKWebView, int wkContentMode, bool wkAllowsLinkPreview);
+    private static extern bool _CWebViewPlugin_IsInitialized(
+        IntPtr instance);
+    [DllImport("__Internal")]
+    private static extern IntPtr _CWebViewPlugin_Init(string gameObject, bool transparent, bool zoom, string ua, bool enableWKWebView, int wkContentMode, bool wkAllowsLinkPreview, bool wkAllowsBackForwardNavigationGestures, int radius);
     [DllImport("__Internal")]
     private static extern int _CWebViewPlugin_Destroy(IntPtr instance);
     [DllImport("__Internal")]
@@ -341,23 +566,25 @@ public class WebViewObject : MonoBehaviour
     private static extern void _CWebViewPlugin_Reload(
         IntPtr instance);
     [DllImport("__Internal")]
-    private static extern void   _CWebViewPlugin_AddCustomHeader(IntPtr instance, string headerKey, string headerValue);
+    private static extern void _CWebViewPlugin_AddCustomHeader(IntPtr instance, string headerKey, string headerValue);
     [DllImport("__Internal")]
     private static extern string _CWebViewPlugin_GetCustomHeaderValue(IntPtr instance, string headerKey);
     [DllImport("__Internal")]
-    private static extern void   _CWebViewPlugin_RemoveCustomHeader(IntPtr instance, string headerKey);
+    private static extern void _CWebViewPlugin_RemoveCustomHeader(IntPtr instance, string headerKey);
     [DllImport("__Internal")]
-    private static extern void   _CWebViewPlugin_ClearCustomHeader(IntPtr instance);
+    private static extern void _CWebViewPlugin_ClearCustomHeader(IntPtr instance);
     [DllImport("__Internal")]
-    private static extern void   _CWebViewPlugin_ClearCookies();
+    private static extern void _CWebViewPlugin_ClearCookies();
     [DllImport("__Internal")]
-    private static extern void   _CWebViewPlugin_SaveCookies();
+    private static extern void _CWebViewPlugin_SaveCookies();
     [DllImport("__Internal")]
-    private static extern string _CWebViewPlugin_GetCookies(string url);
+    private static extern void _CWebViewPlugin_GetCookies(IntPtr instance, string url);
     [DllImport("__Internal")]
-    private static extern void   _CWebViewPlugin_SetBasicAuthInfo(IntPtr instance, string userName, string password);
+    private static extern void _CWebViewPlugin_SetBasicAuthInfo(IntPtr instance, string userName, string password);
     [DllImport("__Internal")]
-    private static extern void   _CWebViewPlugin_ClearCache(IntPtr instance, bool includeDiskFiles);
+    private static extern void _CWebViewPlugin_ClearCache(IntPtr instance, bool includeDiskFiles);
+    [DllImport("__Internal")]
+    private static extern void _CWebViewPlugin_SetSuspended(IntPtr instance, bool suspended);
 #elif UNITY_WEBGL
     [DllImport("__Internal")]
     private static extern void _gree_unity_webview_init(string name);
@@ -376,9 +603,31 @@ public class WebViewObject : MonoBehaviour
     public static bool IsWebViewAvailable()
     {
 #if !UNITY_EDITOR && UNITY_ANDROID
-        return (new AndroidJavaObject("net.gree.unitywebview.CWebViewPlugin")).CallStatic<bool>("IsWebViewAvailable");
+        using (var plugin = new AndroidJavaObject("net.gree.unitywebview.CWebViewPlugin"))
+        {
+            return plugin.CallStatic<bool>("IsWebViewAvailable");
+        }
 #else
         return true;
+#endif
+    }
+
+    public bool IsInitialized()
+    {
+#if UNITY_WEBPLAYER || UNITY_WEBGL
+        //TODO: UNSUPPORTED
+        return true;
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
+        //TODO: UNSUPPORTED
+        return true;
+#elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
+        if (webView == IntPtr.Zero)
+            return false;
+        return _CWebViewPlugin_IsInitialized(webView);
+#elif UNITY_ANDROID
+        if (webView == null)
+            return false;
+        return webView.Call<bool>("IsInitialized");
 #endif
     }
 
@@ -389,15 +638,18 @@ public class WebViewObject : MonoBehaviour
         Callback ld = null,
         Callback started = null,
         Callback hooked = null,
+        Callback cookies = null,
         bool transparent = false,
         bool zoom = true,
         string ua = "",
+        int radius = 0,
         // android
         int androidForceDarkMode = 0,  // 0: follow system setting, 1: force dark off, 2: force dark on
         // ios
         bool enableWKWebView = true,
         int  wkContentMode = 0,  // 0: recommended, 1: mobile, 2: desktop
         bool wkAllowsLinkPreview = true,
+        bool wkAllowsBackForwardNavigationGestures = true,
         // editor
         bool separated = false)
     {
@@ -412,13 +664,14 @@ public class WebViewObject : MonoBehaviour
         onStarted = started;
         onLoaded = ld;
         onHooked = hooked;
+        onCookies = cookies;
 #if UNITY_WEBGL
 #if !UNITY_EDITOR
         _gree_unity_webview_init(name);
 #endif
 #elif UNITY_WEBPLAYER
         Application.ExternalCall("unityWebView.init", name);
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
         Debug.LogError("Webview is not supported on this platform.");
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
@@ -448,35 +701,15 @@ public class WebViewObject : MonoBehaviour
             , false
 #endif
             );
-        // define pseudo requestAnimationFrame.
-        EvaluateJS(@"(function() {
-            var vsync = 1000 / 60;
-            var t0 = window.performance.now();
-            window.requestAnimationFrame = function(callback, element) {
-                var t1 = window.performance.now();
-                var duration = t1 - t0;
-                var d = vsync - ((duration > vsync) ? duration % vsync : duration);
-                var id = window.setTimeout(function() {t0 = window.performance.now(); callback(t1 + d);}, d);
-                return id;
-            };
-        })()");
         rect = new Rect(0, 0, Screen.width, Screen.height);
-        OnApplicationFocus(true);
 #elif UNITY_IPHONE
-        webView = _CWebViewPlugin_Init(name, transparent, zoom, ua, enableWKWebView, wkContentMode, wkAllowsLinkPreview);
+        webView = _CWebViewPlugin_Init(name, transparent, zoom, ua, enableWKWebView, wkContentMode, wkAllowsLinkPreview, wkAllowsBackForwardNavigationGestures, radius);
 #elif UNITY_ANDROID
         webView = new AndroidJavaObject("net.gree.unitywebview.CWebViewPlugin");
-        webView.Call("Init", name, transparent, zoom, androidForceDarkMode, ua);
-
-        using(AndroidJavaClass UnityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
-        {
-            AndroidJavaObject View = UnityClass.GetStatic<AndroidJavaObject>("currentActivity").Get<AndroidJavaObject>("mUnityPlayer").Call<AndroidJavaObject>("getView");
-            using(AndroidJavaObject Rct = new AndroidJavaObject("android.graphics.Rect"))
-            {
-                View.Call("getWindowVisibleDisplayFrame", Rct);
-                mWindowVisibleDisplayFrameHeight = Rct.Call<int>("height");
-            }
-        }
+#if UNITY_2021_1_OR_NEWER
+        webView.SetStatic<bool>("forceBringToFront", true);
+#endif
+        webView.Call("Init", name, transparent, zoom, androidForceDarkMode, ua, radius);
 #else
         Debug.LogError("Webview is not supported on this platform.");
 #endif
@@ -490,9 +723,12 @@ public class WebViewObject : MonoBehaviour
 #endif
 #elif UNITY_WEBPLAYER
         Application.ExternalCall("unityWebView.destroy", name);
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+        if (bg != null) {
+            Destroy(bg.gameObject);
+        }
         if (webView == IntPtr.Zero)
             return;
         _CWebViewPlugin_Destroy(webView);
@@ -507,6 +743,7 @@ public class WebViewObject : MonoBehaviour
         if (webView == null)
             return;
         webView.Call("Destroy");
+        webView.Dispose();
         webView = null;
 #endif
     }
@@ -515,12 +752,15 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
         //TODO: UNSUPPORTED
 #elif UNITY_IPHONE
-        //TODO: UNSUPPORTED
+        // NOTE: this suspends media playback only.
+        if (webView == null)
+            return;
+        _CWebViewPlugin_SetSuspended(webView, true);
 #elif UNITY_ANDROID
         if (webView == null)
             return;
@@ -532,12 +772,13 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
         //TODO: UNSUPPORTED
 #elif UNITY_IPHONE
-        //TODO: UNSUPPORTED
+        // NOTE: this resumes media playback only.
+        _CWebViewPlugin_SetSuspended(webView, false);
 #elif UNITY_ANDROID
         if (webView == null)
             return;
@@ -551,7 +792,7 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #else
         float left = (Screen.width - scale.x) / 2.0f + center.x;
@@ -564,7 +805,7 @@ public class WebViewObject : MonoBehaviour
 
     public void SetMargins(int left, int top, int right, int bottom, bool relative = false)
     {
-#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
         return;
 #elif UNITY_WEBPLAYER || UNITY_WEBGL
@@ -585,7 +826,7 @@ public class WebViewObject : MonoBehaviour
         mMarginBottom = bottom;
         mMarginRelative = relative;
         float ml, mt, mr, mb;
-#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_WEBPLAYER || UNITY_WEBGL
         ml = left;
@@ -619,8 +860,21 @@ public class WebViewObject : MonoBehaviour
         {
             float w = (float)Screen.width;
             float h = (float)Screen.height;
-            int iw = Screen.currentResolution.width;
-            int ih = Screen.currentResolution.height;
+            int iw = Display.main.systemWidth;
+            int ih = Display.main.systemHeight;
+            if (!Screen.fullScreen)
+            {
+                using (var unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+                using (var activity = unityClass.GetStatic<AndroidJavaObject>("currentActivity"))
+                using (var player = activity.Get<AndroidJavaObject>("mUnityPlayer"))
+                using (var view = player.Call<AndroidJavaObject>("getView"))
+                using (var rect = new AndroidJavaObject("android.graphics.Rect"))
+                {
+                    view.Call("getDrawingRect", rect);
+                    iw = rect.Call<int>("width");
+                    ih = rect.Call<int>("height");
+                }
+            }
             ml = left / w * iw;
             mt = top / h * ih;
             mr = right / w * iw;
@@ -650,7 +904,7 @@ public class WebViewObject : MonoBehaviour
         mMarginBottomComputed = mb;
         mMarginRelativeComputed = r;
 
-#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_WEBPLAYER
         Application.ExternalCall("unityWebView.setMargins", name, (int)ml, (int)mt, (int)mr, (int)mb);
@@ -661,6 +915,7 @@ public class WebViewObject : MonoBehaviour
         int height = (int)(Screen.height - (mb + mt));
         _CWebViewPlugin_SetRect(webView, width, height);
         rect = new Rect(left, bottom, width, height);
+        UpdateBGTransform();
 #elif UNITY_IPHONE
         _CWebViewPlugin_SetMargins(webView, ml, mt, mr, mb, r);
 #elif UNITY_ANDROID
@@ -670,13 +925,23 @@ public class WebViewObject : MonoBehaviour
 
     public void SetVisibility(bool v)
     {
+#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+        if (bg != null)
+        {
+            bg.gameObject.active = v;
+        }
+#endif
+        if (GetVisibility() && !v)
+        {
+            EvaluateJS("if (document && document.activeElement) document.activeElement.blur();");
+        }
 #if UNITY_WEBGL
 #if !UNITY_EDITOR
         _gree_unity_webview_setVisibility(name, v);
 #endif
 #elif UNITY_WEBPLAYER
         Application.ExternalCall("unityWebView.setVisibility", name, v);
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
         if (webView == IntPtr.Zero)
@@ -813,7 +1078,7 @@ public class WebViewObject : MonoBehaviour
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
         return false;
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
         return false;
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
@@ -829,7 +1094,6 @@ public class WebViewObject : MonoBehaviour
 
     public void LoadURL(string url)
     {
-        Debug.Log("LoadURL:" + url);
         if (string.IsNullOrEmpty(url))
             return;
 #if UNITY_WEBGL
@@ -838,7 +1102,7 @@ public class WebViewObject : MonoBehaviour
 #endif
 #elif UNITY_WEBPLAYER
         Application.ExternalCall("unityWebView.loadURL", name, url);
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
@@ -859,7 +1123,7 @@ public class WebViewObject : MonoBehaviour
             baseUrl = "";
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
@@ -880,7 +1144,7 @@ public class WebViewObject : MonoBehaviour
 #endif
 #elif UNITY_WEBPLAYER
         Application.ExternalCall("unityWebView.evaluateJS", name, js);
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
@@ -898,7 +1162,7 @@ public class WebViewObject : MonoBehaviour
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
         return 0;
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
         return 0;
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
@@ -917,7 +1181,7 @@ public class WebViewObject : MonoBehaviour
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
         return false;
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
         return false;
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
@@ -936,7 +1200,7 @@ public class WebViewObject : MonoBehaviour
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
         return false;
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
         return false;
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
@@ -954,7 +1218,7 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
@@ -971,7 +1235,7 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
@@ -988,7 +1252,7 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
@@ -1063,12 +1327,19 @@ public class WebViewObject : MonoBehaviour
         }
     }
 
+    public void CallOnCookies(string cookies)
+    {
+        if (onCookies != null)
+        {
+            onCookies(cookies);
+        }
+    }
 
     public void AddCustomHeader(string headerKey, string headerValue)
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
@@ -1086,7 +1357,7 @@ public class WebViewObject : MonoBehaviour
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
         return null;
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
         return null;
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
@@ -1103,7 +1374,7 @@ public class WebViewObject : MonoBehaviour
     public void RemoveCustomHeader(string headerKey)
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
             return;
@@ -1119,7 +1390,7 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
@@ -1136,7 +1407,7 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
@@ -1154,7 +1425,7 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
@@ -1168,25 +1439,22 @@ public class WebViewObject : MonoBehaviour
     }
 
 
-    public string GetCookies(string url)
+    public void GetCookies(string url)
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-        return "";
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
-        return "";
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IPHONE
         if (webView == IntPtr.Zero)
-            return "";
-        return _CWebViewPlugin_GetCookies(url);
+            return;
+        _CWebViewPlugin_GetCookies(webView, url);
 #elif UNITY_ANDROID && !UNITY_EDITOR
         if (webView == null)
-            return "";
-        return webView.Call<string>("GetCookies", url);
+            return;
+        webView.Call("GetCookies", url);
 #else
         //TODO: UNSUPPORTED
-        return "";
 #endif
     }
 
@@ -1194,7 +1462,7 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
         //TODO: UNSUPPORTED
@@ -1213,7 +1481,7 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_IPHONE && !UNITY_EDITOR
         if (webView == IntPtr.Zero)
@@ -1231,7 +1499,7 @@ public class WebViewObject : MonoBehaviour
     {
 #if UNITY_WEBPLAYER || UNITY_WEBGL
         //TODO: UNSUPPORTED
-#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
         //TODO: UNSUPPORTED
 #elif UNITY_IPHONE && !UNITY_EDITOR
         //TODO: UNSUPPORTED
@@ -1239,6 +1507,21 @@ public class WebViewObject : MonoBehaviour
         if (webView == null)
             return;
         webView.Call("SetTextZoom", textZoom);
+#endif
+    }
+
+    public void SetMixedContentMode(int mode)  // 0: MIXED_CONTENT_ALWAYS_ALLOW, 1: MIXED_CONTENT_NEVER_ALLOW, 2: MIXED_CONTENT_COMPATIBILITY_MODE
+    {
+#if UNITY_WEBPLAYER || UNITY_WEBGL
+        //TODO: UNSUPPORTED
+#elif UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX || UNITY_SERVER
+        //TODO: UNSUPPORTED
+#elif UNITY_IPHONE && !UNITY_EDITOR
+        //TODO: UNSUPPORTED
+#elif UNITY_ANDROID && !UNITY_EDITOR
+        if (webView == null)
+            return;
+        webView.Call("SetMixedContentMode", mode);
 #endif
     }
 
@@ -1251,8 +1534,22 @@ public class WebViewObject : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        if (canvas != null)
+        {
+            var g = new GameObject(gameObject.name + "BG");
+            g.transform.parent = canvas.transform;
+            bg = g.AddComponent<Image>();
+            UpdateBGTransform();
+        }
+    }
+
     void Update()
     {
+        if (bg != null) {
+            bg.transform.SetAsLastSibling();
+        }
         if (hasFocus) {
             inputString += Input.inputString;
         }
@@ -1262,34 +1559,44 @@ public class WebViewObject : MonoBehaviour
             string s = _CWebViewPlugin_GetMessage(webView);
             if (s == null)
                 break;
-            switch (s[0]) {
-            case 'E':
-                CallOnError(s.Substring(1));
+            var i = s.IndexOf(':', 0);
+            if (i == -1)
+                continue;
+            switch (s.Substring(0, i)) {
+            case "CallFromJS":
+                CallFromJS(s.Substring(i + 1));
                 break;
-            case 'S':
-                CallOnStarted(s.Substring(1));
+            case "CallOnError":
+                CallOnError(s.Substring(i + 1));
                 break;
-            case 'L':
-                CallOnLoaded(s.Substring(1));
+            case "CallOnHttpError":
+                CallOnHttpError(s.Substring(i + 1));
                 break;
-            case 'J':
-                CallFromJS(s.Substring(1));
+            case "CallOnLoaded":
+                CallOnLoaded(s.Substring(i + 1));
                 break;
-            case 'H':
-                CallOnHooked(s.Substring(1));
+            case "CallOnStarted":
+                CallOnStarted(s.Substring(i + 1));
+                break;
+            case "CallOnHooked":
+                CallOnHooked(s.Substring(i + 1));
+                break;
+            case "CallOnCookies":
+                CallOnCookies(s.Substring(i + 1));
                 break;
             }
         }
         if (webView == IntPtr.Zero || !visibility)
             return;
         bool refreshBitmap = (Time.frameCount % bitmapRefreshCycle == 0);
-        _CWebViewPlugin_Update(webView, refreshBitmap);
+        _CWebViewPlugin_Update(webView, refreshBitmap, devicePixelRatio);
         if (refreshBitmap) {
             {
                 var w = _CWebViewPlugin_BitmapWidth(webView);
                 var h = _CWebViewPlugin_BitmapHeight(webView);
                 if (texture == null || texture.width != w || texture.height != h) {
-                    texture = new Texture2D(w, h, TextureFormat.RGBA32, false, true);
+                    bool isLinearSpace = QualitySettings.activeColorSpace == ColorSpace.Linear;
+                    texture = new Texture2D(w, h, TextureFormat.RGBA32, false, !isLinearSpace);
                     texture.filterMode = FilterMode.Bilinear;
                     texture.wrapMode = TextureWrapMode.Clamp;
                     textureDataBuffer = new byte[w * h * 4];
@@ -1305,82 +1612,67 @@ public class WebViewObject : MonoBehaviour
         }
     }
 
+    void UpdateBGTransform()
+    {
+        if (bg != null) {
+            bg.rectTransform.anchorMin = Vector2.zero;
+            bg.rectTransform.anchorMax = Vector2.zero;
+            bg.rectTransform.pivot = Vector2.zero;
+            bg.rectTransform.position = rect.min;
+            bg.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, rect.size.x);
+            bg.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, rect.size.y);
+        }
+    }
+
     public int bitmapRefreshCycle = 1;
+    public int devicePixelRatio = 1;
 
     void OnGUI()
     {
         if (webView == IntPtr.Zero || !visibility)
             return;
-
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
-        {
-            hasFocus = rect.Contains(Input.mousePosition);
-        }
         switch (Event.current.type) {
         case EventType.MouseDown:
         case EventType.MouseUp:
-        case EventType.MouseMove:
-        case EventType.MouseDrag:
-        case EventType.ScrollWheel:
-            {
-                if (hasFocus)
-                {
-                    Vector3 p;
-                    p.x = Input.mousePosition.x - rect.x;
-                    p.y = Input.mousePosition.y - rect.y;
-                    {
-                        int mouseState = 0;
-                        if (Input.GetButtonDown("Fire1")) {
-                            mouseState = 1;
-                        } else if (Input.GetButtonUp("Fire1")) {
-                            mouseState = 3;
-                        } else if (Input.GetButton("Fire1")) {
-                            mouseState = 2;
-                        }
-                        _CWebViewPlugin_SendMouseEvent(webView, (int)p.x, (int)p.y, Input.GetAxis("Mouse ScrollWheel"), mouseState);
-                    }
-                }
-            }
+            hasFocus = rect.Contains(Input.mousePosition);
             break;
-        case EventType.KeyDown:
-        case EventType.KeyUp:
-            {
-                string keyChars = "";
-                ushort keyCode = 0;
-                if (!string.IsNullOrEmpty(inputString)) {
-                    keyChars = inputString.Substring(0, 1);
-                    keyCode = (ushort)inputString[0];
-                        inputString = inputString.Substring(1);
-                }
-                if (!string.IsNullOrEmpty(keyChars) || keyCode != 0) {
-                    if (hasFocus)
-                    {
-                        Vector3 p;
-                        p.x = Input.mousePosition.x - rect.x;
-                        p.y = Input.mousePosition.y - rect.y;
-                        _CWebViewPlugin_SendKeyEvent(webView, (int)p.x, (int)p.y, keyChars, keyCode, 1);
+        }
+        switch (Event.current.type) {
+        case EventType.MouseMove:
+        case EventType.MouseDown:
+        case EventType.MouseDrag:
+        case EventType.MouseUp:
+        case EventType.ScrollWheel:
+            if (hasFocus) {
+                Vector3 p;
+                p.x = Input.mousePosition.x - rect.x;
+                p.y = Input.mousePosition.y - rect.y;
+                {
+                    int mouseState = 0;
+                    if (Input.GetButtonDown("Fire1")) {
+                        mouseState = 1;
+                    } else if (Input.GetButton("Fire1")) {
+                        mouseState = 2;
+                    } else if (Input.GetButtonUp("Fire1")) {
+                        mouseState = 3;
                     }
+                    //_CWebViewPlugin_SendMouseEvent(webView, (int)p.x, (int)p.y, Input.GetAxis("Mouse ScrollWheel"), mouseState);
+                    _CWebViewPlugin_SendMouseEvent(webView, (int)p.x, (int)p.y, Input.mouseScrollDelta.y, mouseState);
                 }
-                // if (keyChars != keyChars0) {
-                //     if (!string.IsNullOrEmpty(keyChars0)) {
-                //         Debug.Log("XX1 " + (short)keyChars0[0]);
-                //         _CWebViewPlugin_SendKeyEvent(webView, (int)p.x, (int)p.y, keyChars0, keyCode0, 3);
-                //     }
-                //     if (!string.IsNullOrEmpty(keyChars)) {
-                //         Debug.Log("XX2 " + (short)keyChars[0]);
-                //         _CWebViewPlugin_SendKeyEvent(webView, (int)p.x, (int)p.y, keyChars, keyCode, 1);
-                //     }
-                // } else {
-                //     if (!string.IsNullOrEmpty(keyChars)) {
-                //         Debug.Log("XX3");
-                //         _CWebViewPlugin_SendKeyEvent(webView, (int)p.x, (int)p.y, keyChars, keyCode, 2);
-                //     }
-                // }
-                // keyChars0 = keyChars;
-                // keyCode0 = keyCode;
             }
             break;
         case EventType.Repaint:
+            while (!string.IsNullOrEmpty(inputString)) {
+                var keyChars = inputString.Substring(0, 1);
+                var keyCode = (ushort)inputString[0];
+                inputString = inputString.Substring(1);
+                if (!string.IsNullOrEmpty(keyChars) || keyCode != 0) {
+                    Vector3 p;
+                    p.x = Input.mousePosition.x - rect.x;
+                    p.y = Input.mousePosition.y - rect.y;
+                    _CWebViewPlugin_SendKeyEvent(webView, (int)p.x, (int)p.y, keyChars, keyCode, 1);
+                }
+            }
             if (texture != null) {
                 Matrix4x4 m = GUI.matrix;
                 GUI.matrix
@@ -1388,7 +1680,7 @@ public class WebViewObject : MonoBehaviour
                         new Vector3(0, Screen.height, 0),
                         Quaternion.identity,
                         new Vector3(1, -1, 1));
-                GUI.DrawTexture(rect, texture);
+                Graphics.DrawTexture(rect, texture);
                 GUI.matrix = m;
             }
             break;
