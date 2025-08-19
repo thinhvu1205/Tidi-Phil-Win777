@@ -27,6 +27,14 @@ public class HandleService
                     //Global.MainView.lbTimeOnline.node.stopAllActions();
                     //Global.MainView.setTimeGetMoney();
                     //
+                    CheckinBonusData bonusData = CheckinBonusData.FromJson(jsonData);
+                    CheckInBonusModel.Promotion.Current = bonusData;
+                    UnityEngine.Debug.Log(
+       $"[Promotion] OC={CheckInBonusModel.Promotion.Current.OC}/{CheckInBonusModel.Promotion.Current.OM}, " +
+       $"T={CheckInBonusModel.Promotion.Current.T} ({CheckInBonusModel.Promotion.Current.GetTimeRemainFormatted()}), " +
+       $"NextBonus={CheckInBonusModel.Promotion.Current.GetNextBonus()}, " +
+       $"NextWait={CheckInBonusModel.Promotion.Current.GetNextWaitingTime()}"
+   );
                     Globals.Promotion.setPromotionInfo(jsonData);
                     UIManager.instance.updateMailAndMessageNoti();
                     UIManager.instance.setTimeOnline();
