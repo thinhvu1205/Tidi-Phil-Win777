@@ -725,6 +725,20 @@ public class SocketSend
         data["evt"] = "spin";
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
+    public static void sendReceiveDailyBonus()
+    {
+        JObject data = new JObject();
+        data["event"] = "dp";
+        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendReceivePromotion(int valueReceive)
+    {
+        JObject data = new JObject();
+        data["evt"] = "promotion";
+        data["T"] = 3;
+        data["G"] = valueReceive;
+        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
     public static void sendBetRoulette(string strData)
     {
         JObject data = new()

@@ -6,8 +6,19 @@ using UnityEngine.UI;
 
 public class Day : MonoBehaviour
 {
-    public TextMeshProUGUI textDay, textChipBonus;
-    public Image imageCoin, imageTick;
+    public TextMeshProUGUI textDay, textChipBonus, textButtonReceive;
+    public Image imageCoin, imageTick, imageBoxChip;
     public Image imageFrame;
-    public Image imageButtonReceive;
+    public Button buttonReceive;
+    public int IdDay;
+    void Start()
+    {
+        buttonReceive.onClick.AddListener(ClickButtonReceive);
+    }
+    private void ClickButtonReceive()
+    {
+        SocketSend.sendReceiveDailyBonus();
+        CheckinBonus.instance.SetDayReceived(IdDay);
+        UIManager.instance.updateAG();
+    }
 }

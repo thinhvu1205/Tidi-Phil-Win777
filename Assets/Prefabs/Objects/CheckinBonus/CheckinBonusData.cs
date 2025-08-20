@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -8,6 +9,38 @@ public class OnlinePolicyData
 {
     public List<int> timeWaiting;
     public List<int> chipBonus;
+}
+public class WeeklyBonusData
+{
+    public List<int> listDP;
+    public int OD;
+
+    public static WeeklyBonusData FromJson(JObject json)
+    {
+        var weekly = new WeeklyBonusData
+        {
+            listDP = new List<int>(),
+            OD = json["OD"]?.ToObject<int>() ?? 0
+        };
+
+        string listDPString = json["ListDP"]?.ToString();
+        if (!string.IsNullOrEmpty(listDPString))
+        {
+            var parts = listDPString.Split(';')
+                .Where(p => !string.IsNullOrEmpty(p));
+
+            foreach (var part in parts)
+            {
+                var valueStr = part.Split('_')[0];
+                if (int.TryParse(valueStr, out int value))
+                {
+                    weekly.listDP.Add(value);
+                }
+            }
+        }
+
+        return weekly;
+    }
 }
 
 [Serializable]
@@ -54,11 +87,16 @@ public class CheckinBonusData
     }
 
     // Lấy thời gian chờ lần kế tiếp
-    public int GetNextWaitingTime()
+    public string GetNextWaitingTimeString()
     {
-        if (OnlinePolicy?.timeWaiting == null) return 0;
+        if (OnlinePolicy?.timeWaiting == null) return "00:00:00";
         if (OC < OnlinePolicy.timeWaiting.Count)
-            return OnlinePolicy.timeWaiting[OC];
-        return 0;
+        {
+            int minutes = OnlinePolicy.timeWaiting[OC];
+            TimeSpan t = TimeSpan.FromMinutes(minutes);
+            return t.ToString(@"hh\:mm\:ss");
+        }
+        return "00:00:00";
     }
+
 }

@@ -43,6 +43,7 @@ public class UIManager : MonoBehaviour
 
     public LoginView loginView;
     public LobbyView lobbyView;
+    [SerializeField] private CheckinBonus popupCheckinBonus;
 
     [SerializeField] TextMeshProUGUI testFont;
 
@@ -1420,5 +1421,9 @@ public class UIManager : MonoBehaviour
     {
         return;
         //StartCoroutine(sendLog(str, isDel));
+    }
+    public void ShowPopupCheckinBonus()
+    {
+        Instantiate(popupCheckinBonus, transform);
     }
 }

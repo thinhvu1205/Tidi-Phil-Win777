@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
-  m_Name: chip_Big
+  m_Name: chipYellow
   m_EditorClassIdentifier: 
   hashCode: 3534546
   material: {fileID: -5502452591280078703}
@@ -85,8 +85,8 @@ MonoBehaviour:
     m_Unicode: 65534
     m_GlyphIndex: 0
     m_Scale: 1
-    m_Name: chip_0
-    m_HashCode: -445844771
+    m_Name: chipYellow
+    m_HashCode: -447447050
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -105,4 +105,7 @@ MonoBehaviour:
     m_ClassDefinitionType: 0
     sprite: {fileID: -285346849858095890, guid: ea37d866e245a394c8f3a6aeb2314c12, type: 3}
   spriteInfoList: []
-  fallbackSpriteAssets: []
+  fallbackSpriteAssets:
+  - {fileID: 11400000, guid: 35452bb408d34ba4792bf9fff421b448, type: 2}
+  - {fileID: 11400000}
+  - {fileID: 11400000, guid: fc5180b3e73f6df4f8bebaa56d05fb19, type: 2}

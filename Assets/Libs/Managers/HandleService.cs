@@ -23,18 +23,22 @@ public class HandleService
                     //// "evt":"promotion_info","P":0,"A":0,"UV":0,"O":80,"V":0,"C":0,"T":0,"VC":0,"VM":3,"OC":0,"OM":6,"NV":3000,"NO":80,"NIV":10000,"InviteMark":500,"InviteNum":40,"OnlinePolicy":"{\"numberP\":6,\"timeWaiting\":[60,60,60,60,60,60],\"chipBonus\":[80,80,160,80,80,80]}"
                     //cc.NGWlog("jsondata.p: " + jsonData.P);
                     ////cc.NGWlog("GM.pro: ", GameManager.getInstance().promotionInfo);
-                    //GameManager.getInstance().setPromotionInfo(jsonData);
-                    //Global.MainView.lbTimeOnline.node.stopAllActions();
-                    //Global.MainView.setTimeGetMoney();
+                    // GameManager.getInstance().setPromotionInfo(jsonData);
+                    // Global.MainView.lbTimeOnline.node.stopAllActions();
+                    // Global.MainView.setTimeGetMoney();
                     //
                     CheckinBonusData bonusData = CheckinBonusData.FromJson(jsonData);
-                    CheckInBonusModel.Promotion.Current = bonusData;
-                    UnityEngine.Debug.Log(
-       $"[Promotion] OC={CheckInBonusModel.Promotion.Current.OC}/{CheckInBonusModel.Promotion.Current.OM}, " +
-       $"T={CheckInBonusModel.Promotion.Current.T} ({CheckInBonusModel.Promotion.Current.GetTimeRemainFormatted()}), " +
-       $"NextBonus={CheckInBonusModel.Promotion.Current.GetNextBonus()}, " +
-       $"NextWait={CheckInBonusModel.Promotion.Current.GetNextWaitingTime()}"
-   );
+                    CheckInBonusModel.Promotion.CurrentDaily = bonusData;
+                    Debug.Log(
+                        $"[Promotion] OC={CheckInBonusModel.Promotion.CurrentDaily.OC}/{CheckInBonusModel.Promotion.CurrentDaily.OM}, " +
+                        $"T={CheckInBonusModel.Promotion.CurrentDaily.T} ({CheckInBonusModel.Promotion.CurrentDaily.GetTimeRemainFormatted()}), " +
+                        $"NextBonus={CheckInBonusModel.Promotion.CurrentDaily.GetNextBonus()}, " +
+                        $"NextWait={CheckInBonusModel.Promotion.CurrentDaily.GetNextWaitingTimeString()}"
+                    );
+                    if (CheckInBonusModel.Promotion.CurrentDaily.T <= 0)
+                    {
+                        UIManager.instance.ShowPopupCheckinBonus();
+                    }
                     Globals.Promotion.setPromotionInfo(jsonData);
                     UIManager.instance.updateMailAndMessageNoti();
                     UIManager.instance.setTimeOnline();

@@ -4,6 +4,7 @@ public static class CheckInBonusModel
 {
     public static class Promotion
     {
-        public static CheckinBonusData Current;
+        public static CheckinBonusData CurrentDaily;
+        public static WeeklyBonusData CurrentWeekly;
     }
 }
