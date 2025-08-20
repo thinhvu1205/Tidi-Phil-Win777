@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Globals;
 using Spine.Unity;
 using TMPro;
 using UnityEngine;

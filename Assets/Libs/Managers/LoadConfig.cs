@@ -26,7 +26,8 @@ public class LoadConfig : MonoBehaviour
     private bool _isConfigLoaded = false;
     void Awake()
     {
-        Config.publisher = "Luckypusoy_apk_pro";
+        // Config.publisher = "Luckypusoy_apk_pro";
+        Config.publisher = "unity_lucky777_tongitswar_1_0";
         if (instance == null) instance = this;
         else
         {
