@@ -3807,6 +3807,7 @@ MonoBehaviour:
   imageBoxChip: {fileID: 2090466334532089710}
   imageFrame: {fileID: 6065335708739750519}
   buttonReceive: {fileID: 5618846271747258154}
+  IdDay: 0
 --- !u!1 &5356772812818237449
 GameObject:
   m_ObjectHideFlags: 0
@@ -4269,6 +4270,7 @@ MonoBehaviour:
   - {fileID: 1465600965898145418}
   - {fileID: 4372907355972395515}
   imageCurrentChipBonusDaily: {fileID: 2592002566496773949}
+  imageBoxChip: {fileID: 1916617712887606841}
   listSpriteCurrentChipBonus:
   - {fileID: -855298285791758126, guid: 10d3ba07f1b78fc40925d60cefadbd83, type: 3}
   - {fileID: 6937817954938267909, guid: 547fc3d751d8e9b4685aeb0b798b1449, type: 3}
