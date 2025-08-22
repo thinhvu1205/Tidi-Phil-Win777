@@ -35,9 +35,10 @@ public class HandleService
                         $"NextBonus={CheckInBonusModel.Promotion.CurrentDaily.GetNextBonus()}, " +
                         $"NextWait={CheckInBonusModel.Promotion.CurrentDaily.GetNextWaitingTimeString()}"
                     );
+                    UIManager.instance.ShowPopupCheckinBonus();
                     if (CheckInBonusModel.Promotion.CurrentDaily.T <= 0)
                     {
-                        UIManager.instance.ShowPopupCheckinBonus();
+                        SocketSend.sendCheckTime();
                     }
                     Globals.Promotion.setPromotionInfo(jsonData);
                     UIManager.instance.updateMailAndMessageNoti();

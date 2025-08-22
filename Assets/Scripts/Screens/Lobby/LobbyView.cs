@@ -26,7 +26,7 @@ public class LobbyView : BaseView
     [SerializeField] ButtonVipFarm m_VipFarmBVF;
     [SerializeField] PageSlider m_BannersPS;
     [SerializeField] Material materialDefault;
-
+    [SerializeField] Button buttonCheckinBonus;
     private List<ItemGame> _AllGameIGs = new List<ItemGame>();
     private List<string> listShowPopupNoti = new();
     private Coroutine _GetInfoPusoyJackPotC;
@@ -53,6 +53,11 @@ public class LobbyView : BaseView
                 OnClickTab(btn);
             });
         }
+        buttonCheckinBonus.onClick.AddListener(ClickButtonCheckinBonus);
+    }
+    private void ClickButtonCheckinBonus()
+    {
+        SocketSend.sendPromotion();
     }
     public void setQuickPlayGame(int gameID)
     {

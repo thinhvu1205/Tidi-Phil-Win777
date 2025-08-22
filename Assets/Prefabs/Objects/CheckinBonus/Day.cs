@@ -11,6 +11,10 @@ public class Day : MonoBehaviour
     public Image imageFrame;
     public Button buttonReceive;
     public int IdDay;
+    void OnEnable()
+    {
+        textDay.text = $"Day {IdDay + 1}";
+    }
     void Start()
     {
         buttonReceive.onClick.AddListener(ClickButtonReceive);
@@ -19,6 +23,6 @@ public class Day : MonoBehaviour
     {
         SocketSend.sendReceiveDailyBonus();
         CheckinBonus.instance.SetDayReceived(IdDay);
-        UIManager.instance.updateAG();
+        SocketSend.sendUAG();
     }
 }

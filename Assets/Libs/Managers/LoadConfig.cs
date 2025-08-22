@@ -523,6 +523,7 @@ public class LoadConfig : MonoBehaviour
         if (jConfig.ContainsKey("publisher"))
         {
             Config.publisher = (string)jConfig["publisher"];
+            Debug.Log($"Tinh=)): {Config.publisher}");
         }
 
         if (jConfig.ContainsKey("newest_versionUrl"))

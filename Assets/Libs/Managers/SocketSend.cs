@@ -284,7 +284,8 @@ public class SocketSend
     {
         JObject data = new JObject();
         data["evt"] = "ref";
-        data["data"] = Globals.Config.publisher;
+        // data["data"] = Globals.Config.publisher;
+        data["data"] = "unity_lucky777_tongitswar_1_0";
         data["email"] = "";
         data["version"] = Globals.Config.versionGame;
         WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
@@ -729,7 +730,13 @@ public class SocketSend
     {
         JObject data = new JObject();
         data["event"] = "dp";
-        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendCheckTime()
+    {
+        JObject data = new JObject();
+        data["evt"] = "promotion_online";
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
     public static void sendReceivePromotion(int valueReceive)
     {
@@ -737,7 +744,10 @@ public class SocketSend
         data["evt"] = "promotion";
         data["T"] = 3;
         data["G"] = valueReceive;
-        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+        string json = data.ToString(Newtonsoft.Json.Formatting.None);
+
+        Debug.Log($"[sendReceivePromotion]: {json}");
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
     public static void sendBetRoulette(string strData)
     {

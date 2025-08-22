@@ -43,6 +43,10 @@ public class HandleData
                     Debug.Log($"[Weekly] OD={CheckInBonusModel.Promotion.CurrentWeekly.OD}, " +
                         $"ListDP={string.Join(",", CheckInBonusModel.Promotion.CurrentWeekly.listDP)}");
                     // xử lý tiếp
+                    // if (CheckInBonusModel.Promotion.CurrentWeekly.OD < 15)
+                    // {
+                    //     UIManager.instance.ShowPopupCheckinBonus();
+                    // }
                 }
                 else
                 {
