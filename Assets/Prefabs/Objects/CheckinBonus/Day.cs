@@ -21,7 +21,7 @@ public class Day : MonoBehaviour
     }
     private void ClickButtonReceive()
     {
-        SocketSend.sendReceiveDailyBonus();
+        SocketSend.sendReceiveDailyBonus(IdDay + 1);
         CheckinBonus.instance.SetDayReceived(IdDay);
         SocketSend.sendUAG();
     }

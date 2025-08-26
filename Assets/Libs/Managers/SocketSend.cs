@@ -284,8 +284,7 @@ public class SocketSend
     {
         JObject data = new JObject();
         data["evt"] = "ref";
-        // data["data"] = Globals.Config.publisher;
-        data["data"] = "unity_lucky777_tongitswar_1_0";
+        data["data"] = Globals.Config.publisher;
         data["email"] = "";
         data["version"] = Globals.Config.versionGame;
         WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
@@ -726,10 +725,14 @@ public class SocketSend
         data["evt"] = "spin";
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
-    public static void sendReceiveDailyBonus()
+    public static void sendReceiveDailyBonus(int day)
     {
         JObject data = new JObject();
-        data["event"] = "dp";
+        data["evt"] = "dp";
+        data["day"] = day;
+        string json = data.ToString(Newtonsoft.Json.Formatting.None);
+
+        Debug.Log($"[sendReceiveDailyBonus]: {json}");
         WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
     public static void sendCheckTime()

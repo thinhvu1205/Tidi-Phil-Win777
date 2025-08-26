@@ -1424,6 +1424,13 @@ public class UIManager : MonoBehaviour
     }
     public void ShowPopupCheckinBonus()
     {
+        var existingPopup = transform.Find(popupCheckinBonus.name + "(Clone)");
+        if (existingPopup != null)
+        {
+            existingPopup.gameObject.SetActive(true);
+            return;
+        }
         Instantiate(popupCheckinBonus, transform);
     }
+
 }

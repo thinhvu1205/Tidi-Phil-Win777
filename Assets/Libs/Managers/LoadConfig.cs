@@ -215,6 +215,7 @@ public class LoadConfig : MonoBehaviour
         {
             wWForm["vip"] = User.userMain.VIP + "";
         }
+        Debug.Log($"[createBodyJsonNormal] Body Json: {wWForm.ToString(Newtonsoft.Json.Formatting.None)}");
         return wWForm;
     }
 

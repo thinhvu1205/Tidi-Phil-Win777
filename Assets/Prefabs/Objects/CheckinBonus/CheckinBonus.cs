@@ -265,8 +265,10 @@ public class CheckinBonus : MonoBehaviour
     {
         int index = CheckInBonusModel.Promotion.CurrentDaily.OC;
         SocketSend.sendReceivePromotion(CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[index]);
+        buttonReceiveDaily.interactable = false;
         listAnimGiftDaily[index].AnimationState.SetAnimation(0, "click_receive", false).Complete += (entry) =>
         {
+            buttonReceiveDaily.interactable = true;
             textCurrentChipBonusDaily.color = Color.white;
             imageCurrentChipBonusDaily.sprite = listSpriteChipBonusGray[index];
             imageBoxChip.sprite = spriteBoxChipGray;
