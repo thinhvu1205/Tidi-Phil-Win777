@@ -71,9 +71,9 @@ public class CheckinBonusData
     }
 
     // Đổi T sang hh:mm:ss
-    public string GetTimeRemainFormatted()
+    public string GetTimeRemainFormatted(int time)
     {
-        TimeSpan ts = TimeSpan.FromSeconds(T);
+        TimeSpan ts = TimeSpan.FromSeconds(time);
         return $"{ts.Hours:D2}:{ts.Minutes:D2}:{ts.Seconds:D2}";
     }
 
@@ -92,7 +92,7 @@ public class CheckinBonusData
         if (OnlinePolicy?.timeWaiting == null) return "00:00:00";
         if (OC < OnlinePolicy.timeWaiting.Count)
         {
-            int minutes = OnlinePolicy.timeWaiting[OC];
+            int minutes = OnlinePolicy.timeWaiting[OC + 1];
             TimeSpan t = TimeSpan.FromMinutes(minutes);
             return t.ToString(@"hh\:mm\:ss");
         }

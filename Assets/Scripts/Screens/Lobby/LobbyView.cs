@@ -58,6 +58,7 @@ public class LobbyView : BaseView
     private void ClickButtonCheckinBonus()
     {
         SocketSend.sendPromotion();
+        UIManager.instance.canShowPopupCheckinBonus = true;
     }
     public void setQuickPlayGame(int gameID)
     {

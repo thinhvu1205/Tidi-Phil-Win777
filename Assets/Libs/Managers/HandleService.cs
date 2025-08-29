@@ -31,11 +31,15 @@ public class HandleService
                     CheckInBonusModel.Promotion.CurrentDaily = bonusData;
                     Debug.Log(
                         $"[Promotion] OC={CheckInBonusModel.Promotion.CurrentDaily.OC}/{CheckInBonusModel.Promotion.CurrentDaily.OM}, " +
-                        $"T={CheckInBonusModel.Promotion.CurrentDaily.T} ({CheckInBonusModel.Promotion.CurrentDaily.GetTimeRemainFormatted()}), " +
+                        $"T={CheckInBonusModel.Promotion.CurrentDaily.T} ({CheckInBonusModel.Promotion.CurrentDaily.GetTimeRemainFormatted(CheckInBonusModel.Promotion.CurrentDaily.T)}), " +
                         $"NextBonus={CheckInBonusModel.Promotion.CurrentDaily.GetNextBonus()}, " +
                         $"NextWait={CheckInBonusModel.Promotion.CurrentDaily.GetNextWaitingTimeString()}"
                     );
-                    UIManager.instance.ShowPopupCheckinBonus();
+                    if (UIManager.instance.canShowPopupCheckinBonus)
+                    {
+                        UIManager.instance.ShowPopupCheckinBonus();
+                    }
+
                     if (CheckInBonusModel.Promotion.CurrentDaily.T <= 0)
                     {
                         SocketSend.sendCheckTime();

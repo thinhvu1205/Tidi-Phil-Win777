@@ -31,7 +31,7 @@ using System.Threading;
 
 public class UIManager : MonoBehaviour
 {
-
+    public bool canShowPopupCheckinBonus = true;
     public static UIManager instance = null;
     [SerializeField] Sprite sf_toast = null;
     [SerializeField] GameObject nodeLoad;
