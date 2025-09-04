@@ -231,7 +231,6 @@ public class CheckinBonus : MonoBehaviour
                 {
                     listImageFrameTime[i].gameObject.SetActive(true);
                     listTextTimeCountDown[i].gameObject.SetActive(true);
-                    // listTextTimeCountDown[i].text = CheckInBonusModel.Promotion.CurrentDaily.GetTimeRemainFormatted();
                     StartCoroutine(CountDownTextTime(i));
                     listAnimGiftDaily[i].AnimationState.SetAnimation(0, "not_receive", true);
                     listTextChipBonusDaily[i].color = Color.yellow;
@@ -296,19 +295,20 @@ public class CheckinBonus : MonoBehaviour
         }
         DOVirtual.DelayedCall(2f, () =>
         {
-            // SocketSend.sendCheckTime();
-            // SocketSend.sendPromotion();
+            SocketSend.sendCheckTime();
+            SocketSend.sendPromotion();
             if (!activeButtonReceive) return;
             SetCanReceivePromotionOnline(CheckInBonusModel.Promotion.CurrentDaily.OC);
         });
     }
     private void ClickButtonReceiveDaily()
     {
-        UpdateSlider(CheckInBonusModel.Promotion.CurrentDaily.OC);
-        StartCoroutine(CountDownTextTime(CheckInBonusModel.Promotion.CurrentDaily.OC + 1, false));
         int index = CheckInBonusModel.Promotion.CurrentDaily.OC;
         SocketSend.sendReceivePromotion(CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[index]);
         SocketSend.sendPromotion();
+        UpdateSlider(CheckInBonusModel.Promotion.CurrentDaily.OC + 1);
+        Debug.Log($"OC: {CheckInBonusModel.Promotion.CurrentDaily.OC}");
+        StartCoroutine(CountDownTextTime(CheckInBonusModel.Promotion.CurrentDaily.OC + 1, false));
         // buttonReceiveDaily.interactable = false;
         listAnimGiftDaily[index].AnimationState.SetAnimation(0, "click_receive", false).Complete += (entry) =>
         {
@@ -329,7 +329,7 @@ public class CheckinBonus : MonoBehaviour
     }
     private void UpdateSlider(int value)
     {
-        value = Mathf.Clamp(value, 1, 6);
+        value = Mathf.Clamp(value, 0, 6);
         float normalizedValue = (float)value / 6f;
         sliderDaily.value = normalizedValue;
     }
