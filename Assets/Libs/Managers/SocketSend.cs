@@ -120,28 +120,6 @@ public class SocketSend
         instance.sendService(data.ToString(Newtonsoft.Json.Formatting.None));
         instance.stop();
     }
-    public static void getChatWorld()
-    {
-        JObject data = new JObject();
-        data["evt"] = "getChatWorld";
-        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
-    }
-    public static void sendChatWorld(string msg, int type)
-    {
-        string user = Globals.User.userMain.displayName;
-        JObject data = new JObject();
-
-        data["evt"] = 16;
-        data["T"] = type;
-        data["N"] = user;
-        data["D"] = msg;
-        if (type == 2)
-        {
-            data["GameId"] = 8044;
-        }
-        Globals.Logging.Log("Send Chat:" + data.ToString(Newtonsoft.Json.Formatting.None));
-        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
-    }
     public static void getMessList()
     {
         JObject data = new JObject();
@@ -615,7 +593,7 @@ public class SocketSend
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
 
-    public static void sendChat(string username, string text)
+    public static void sendChat(string username, string text, int idMultipleSend = 0, int totalMultipleSend = 0, long timeSendMultiple = -1, bool isAudio = false)
     {
         JObject data = new JObject();
         data["evt"] = "chattable";
@@ -624,7 +602,45 @@ public class SocketSend
         data["Data"] = text;
         data["Time"] = DateTime.Now;
         data["T"] = "";
+        data["IsAudio"] = isAudio;
+        data["TotalMultipleSend"] = totalMultipleSend;
+        data["IdMultiple"] = idMultipleSend;
+        data["TimeSendMultiple"] = timeSendMultiple;
+        Debug.Log("xem phần gửi lên" + data.ToString(Newtonsoft.Json.Formatting.None));
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendGetChatWorld()
+    {
+        JObject data = new JObject();
+        data["evt"] = "getChatWorld";
+        Debug.Log("xem cái chat world:" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendChatW(string name, string content)
+    {
+        JObject data = new JObject();
+        data["evt"] = "sendChatWorld";
+        data["T"] = 1;
+        data["N"] = name;
+        data["D"] = content;
+        Debug.Log("xem data sendChatw" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendChatWorld(string msg, int type)
+    {
+        string user = Globals.User.userMain.displayName;
+        JObject data = new JObject();
+
+        data["evt"] = 16;
+        data["T"] = type;
+        data["N"] = user;
+        data["D"] = msg;
+        if (type == 2)
+        {
+            data["GameId"] = 8044;
+        }
+        Globals.Logging.Log("Send Chat:" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
     public static void sendUpdateItemVip(int id)
     {
@@ -724,6 +740,33 @@ public class SocketSend
         JObject data = new JObject();
         data["evt"] = "spin";
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendReceiveDailyBonus(int day)
+    {
+        JObject data = new JObject();
+        data["evt"] = "dp";
+        data["day"] = day;
+        string json = data.ToString(Newtonsoft.Json.Formatting.None);
+
+        Debug.Log($"[sendReceiveDailyBonus]: {json}");
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendCheckTime()
+    {
+        JObject data = new JObject();
+        data["evt"] = "promotion_online";
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendReceivePromotion(int valueReceive)
+    {
+        JObject data = new JObject();
+        data["evt"] = "promotion";
+        data["T"] = 3;
+        data["G"] = valueReceive;
+        string json = data.ToString(Newtonsoft.Json.Formatting.None);
+
+        Debug.Log($"[sendReceivePromotion]: {json}");
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
     public static void sendBetRoulette(string strData)
     {

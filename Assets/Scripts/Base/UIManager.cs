@@ -31,7 +31,7 @@ using System.Threading;
 
 public class UIManager : MonoBehaviour
 {
-
+    public bool canShowPopupCheckinBonus = true;
     public static UIManager instance = null;
     [SerializeField] Sprite sf_toast = null;
     [SerializeField] GameObject nodeLoad;
@@ -43,6 +43,7 @@ public class UIManager : MonoBehaviour
 
     public LoginView loginView;
     public LobbyView lobbyView;
+    [SerializeField] private CheckinBonus popupCheckinBonus;
 
     [SerializeField] TextMeshProUGUI testFont;
 
@@ -222,7 +223,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void onClickChatLobby()
+    {
+        var chatWorldView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("Chat/MainChatLobby"), parentPopups).GetComponent<MainChatLobby>();
+        chatWorldView.transform.localScale = Vector3.one;
 
+    }
     public void pushLocalNotiOff()
     {
         return;
@@ -1421,4 +1427,15 @@ public class UIManager : MonoBehaviour
         return;
         //StartCoroutine(sendLog(str, isDel));
     }
+    public void ShowPopupCheckinBonus()
+    {
+        var existingPopup = transform.Find(popupCheckinBonus.name + "(Clone)");
+        if (existingPopup != null)
+        {
+            existingPopup.gameObject.SetActive(true);
+            return;
+        }
+        Instantiate(popupCheckinBonus, transform);
+    }
+
 }

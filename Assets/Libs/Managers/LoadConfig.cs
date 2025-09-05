@@ -26,7 +26,8 @@ public class LoadConfig : MonoBehaviour
     private bool _isConfigLoaded = false;
     void Awake()
     {
-        Config.publisher = "Luckypusoy_apk_pro";
+        // Config.publisher = "Luckypusoy_apk_pro";
+        Config.publisher = "unity_lucky777_tongitswar_1_0";
         if (instance == null) instance = this;
         else
         {
@@ -214,6 +215,7 @@ public class LoadConfig : MonoBehaviour
         {
             wWForm["vip"] = User.userMain.VIP + "";
         }
+        Debug.Log($"[createBodyJsonNormal] Body Json: {wWForm.ToString(Newtonsoft.Json.Formatting.None)}");
         return wWForm;
     }
 
@@ -522,6 +524,7 @@ public class LoadConfig : MonoBehaviour
         if (jConfig.ContainsKey("publisher"))
         {
             Config.publisher = (string)jConfig["publisher"];
+            Debug.Log($"Tinh=)): {Config.publisher}");
         }
 
         if (jConfig.ContainsKey("newest_versionUrl"))
@@ -562,7 +565,7 @@ public class LoadConfig : MonoBehaviour
 
         if (jConfig.ContainsKey("disID"))
             Config.disID = (int)jConfig["disID"];
-
+        Config.is_show_chat = jConfig.ContainsKey("is_show_chat") ? (bool)jConfig["is_show_chat"] : false;
         Config.ketPhe = jConfig.ContainsKey("ketPhe") ? (int)jConfig["ketPhe"] : 10;
         Config.is_dt = jConfig.ContainsKey("is_dt") ? (bool)jConfig["is_dt"] : false;
         Config.ketT = jConfig.ContainsKey("ketT") ? (bool)jConfig["ketT"] : false;

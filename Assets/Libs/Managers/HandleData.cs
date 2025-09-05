@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Threading;
 using Globals;
+using System.Linq;
 
 public class HandleData
 {
@@ -29,6 +30,34 @@ public class HandleData
 
             string data = Config.Base64Decode(packet.credentials);
             Logging.LogWarning("-=- =dang nhap thanh cong:  " + data);
+            JObject root = JObject.Parse(data);
+
+            if (root.ContainsKey("data"))
+            {
+                string innerJson = root["data"]?.ToString();
+
+                if (!string.IsNullOrEmpty(innerJson) && innerJson.StartsWith("{"))
+                {
+                    JObject json = JObject.Parse(innerJson);
+                    CheckInBonusModel.Promotion.CurrentWeekly = WeeklyBonusData.FromJson(json);
+                    Debug.Log($"[Weekly] OD={CheckInBonusModel.Promotion.CurrentWeekly.OD}, " +
+                        $"ListDP={string.Join(",", CheckInBonusModel.Promotion.CurrentWeekly.listDP)}");
+                    // xử lý tiếp
+                    // if (CheckInBonusModel.Promotion.CurrentWeekly.OD < 15)
+                    // {
+                    //     UIManager.instance.ShowPopupCheckinBonus();
+                    // }
+                }
+                else
+                {
+                    Debug.LogWarning("HandleLoginResponse: 'data' không phải JSON hợp lệ");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("HandleLoginResponse: không có field 'data' trong gói tin");
+            }
+
             //data = data.Replace("\"VIP\":2", "\"VIP\":0");
             //Logging.LogWarning("-=- =dang nhap thanh cong2:  " + data);
             JObject obj = JObject.Parse(data);
