@@ -79,7 +79,7 @@ public class BundleHandler
         foreach (BundleLoader itemBL in itemBLs) itemBL.PrepareData();
     }
     #region Load Assets
-    public static T Instantiate<T>(T prefab, Transform parentTf) where T : Object
+    public static T Instantiate<T>(T prefab, Transform parentTf = null) where T : Object
     {
         T output = GameObject.Instantiate(prefab, parentTf);
         _PrepareLoadersIfNeeded(output.GameObject());

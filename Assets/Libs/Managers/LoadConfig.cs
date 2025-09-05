@@ -26,7 +26,7 @@ public class LoadConfig : MonoBehaviour
     private bool _isConfigLoaded = false;
     void Awake()
     {
-        Config.publisher = "unity_lucky777_tongitswar_1_0";
+        Config.publisher = "Luckypusoy_apk_pro";
         if (instance == null) instance = this;
         else
         {
@@ -206,7 +206,7 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        wWForm["bundleID"] = "unity.lucky777.tongitswar";
+        wWForm["bundleID"] = "unity.lucky777.tongitswar.onconfig";
         wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
@@ -367,8 +367,11 @@ public class LoadConfig : MonoBehaviour
         {
             Config.u_SIO = (string)jConfig["u_SIO"];
             Logging.LogWarning("-=-=-u_SIO  " + Config.u_SIO);
-            SocketIOManager.getInstance().initSml();
-            SocketIOManager.getInstance().startSIO();
+            if (UIManager.instance != null)
+            {
+                SocketIOManager.getInstance().initSml();
+                SocketIOManager.getInstance().startSIO();
+            }
         }
         else
         {
@@ -441,7 +444,11 @@ public class LoadConfig : MonoBehaviour
         }
         else Config.listRankGame.Clear();
         if (jConfig.ContainsKey("u_chat_fb"))
-            Config.u_chat_fb = (string)jConfig["u_chat_fb"];
+        {
+            string link = (string)jConfig["u_chat_fb"];
+            if (!link.StartsWith("https://")) link = "https://" + link;
+            Config.u_chat_fb = link;
+        }
         else Config.u_chat_fb = "";
         if (jConfig.ContainsKey("infoChip"))
         {

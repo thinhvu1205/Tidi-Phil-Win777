@@ -31,6 +31,7 @@ public class RouLetteView : GameView
     [SerializeField] private Transform transformResult;
     [SerializeField] private RectTransform transformTabResult, _rectTransformButtonMenu, table_1, table_2;
     private bool isClickDeal = false;
+    long numFrameCoin = 0;
 
     HashSet<int> redNumbers = new HashSet<int>
         { 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 };
@@ -67,7 +68,7 @@ public class RouLetteView : GameView
     public long totalBetDeal, agWin, agPlayer;
     public long agRemaining;
     public static RouLetteView instance = null;
-    public bool isBetTime = false;
+    public bool isBetTime = true;
 
 
     [Serializable]
@@ -457,7 +458,7 @@ public class RouLetteView : GameView
 
     public void HandleStartGame(JObject data)
     {
-        isBetTime = true;
+        // isBetTime = true;
         playSound(SOUND_GAME.START_GAME);
         stateGame = STATE_GAME.WAITING;
         _OnStartGame();
@@ -465,6 +466,7 @@ public class RouLetteView : GameView
 
     private void clickButtonSpin()
     {
+        buttonSpine.interactable = false;
         ClickButtonClear();
         playSound(SOUND_GAME.CLICK);
         for (int i = 0; i < listBetOptions.Count; i++)
@@ -493,9 +495,19 @@ public class RouLetteView : GameView
 
     private void ReStartGame()
     {
+        numFrameCoin = 0;
+        buttonSpine.interactable = true;
+        isBetTime = true;
         thisPlayer.setAg();
         UpdateButtonBet(thisPlayer.ag);
-        buttonRebet.interactable = true;
+        if (listDataBetForRebetTemp.Sum(bet => bet.BetAmount) != 0)
+        {
+            buttonRebet.interactable = true;
+        }
+        else
+        {
+            buttonRebet.interactable = false;
+        }
         newDataBetDeal.Clear();
         listDataBet.Clear();
         totalBetDeal = 0;
@@ -560,7 +572,7 @@ public class RouLetteView : GameView
     private void ClickButtonRebet()
     {
         isClickRebet = true;
-
+        isClickDeal = false;
         playSound(SOUND_GAME.CLICK);
         Debug.Log(totalBetValue + " xem chỗnayf");
         Debug.Log(listDataBetForRebetTemp.Sum(bet => bet.BetAmount) + " " + listDataBetForRebetTemp.Count);
@@ -587,6 +599,7 @@ public class RouLetteView : GameView
         {
             buttonDouble.interactable = true;
         }
+
 
         listDataBet.AddRange(listDataBetForRebetTemp);
 
@@ -681,7 +694,9 @@ public class RouLetteView : GameView
     {
         textNumDeal.transform.localPosition = new Vector3(32, 0, 0);
         textNumDeal.gameObject.SetActive(true);
+
         textNumDeal.text = $"{-totalBetValue}";
+
         textNumDeal.transform.DOLocalMoveY(140, 2f)
             .SetEase(Ease.Linear)
             .OnComplete(() => { textNumDeal.gameObject.SetActive(false); });
@@ -714,6 +729,7 @@ public class RouLetteView : GameView
 
     private void ClickButtonClear()
     {
+        numFrameCoin = 0;
         playSound(SOUND_GAME.CLICK);
         buttonDeal.interactable = false;
         buttonClear.interactable = false;
@@ -742,6 +758,8 @@ public class RouLetteView : GameView
         // Clear listDataBet và chỉ giữ lại những cược đã deal
         listDataBet.Clear();
         listDataBet.AddRange(dealtBets);
+        // listDataBetForRebetTemp.Clear();
+        // listDataBetForRebetTemp.AddRange(dealtBets);
 
         // Reset totalBetValue về 0 vì những cược chưa deal đã bị xóa
         totalBetValue = 0;
@@ -794,23 +812,34 @@ public class RouLetteView : GameView
         buttonDeal.interactable = true;
 
         List<BetData> clonedBets = new List<BetData>();
-        foreach (var bet in listDataBet)
-        {
-            bet.BetAmount *= 2;
-            clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount / 2));
-        }
+        // foreach (var bet in listDataBet)
+        // {
+        //     bet.BetAmount *= 2;
+        //     clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount / 2));
+        // }
+
         if (totalBetValue == 0)
         {
-            totalBetValue = totalBetDeal * 2;
+            totalBetValue = totalBetDeal;
+            foreach (var bet in listDataBet)
+            {
+                bet.BetAmount *= 1;
+                clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount));
+            }
             textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
-            textFrameCoin.text = Globals.Config.FormatMoney(totalBetDeal * 2, true);
+            textFrameCoin.text = Globals.Config.FormatMoney(totalBetDeal + totalBetValue, true);
         }
         else
         {
-            Debug.Log(" có chạy vào đây");
             totalBetValue *= 2;
+            Debug.Log(" có chạy vào đây");
+            foreach (var bet in listDataBet)
+            {
+                bet.BetAmount *= 2;
+                clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount));
+            }
             textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
-            textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
+            textFrameCoin.text = Globals.Config.FormatMoney(totalBetDeal + totalBetValue, true);
         }
         foreach (var bet in clonedBets)
         {
@@ -1096,7 +1125,6 @@ public class RouLetteView : GameView
         {
             listDataBet.Add(new BetData(idBetOption, betType, numArr, chipValue));
         }
-
         totalBetValue += chipValue;
         textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
         textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
@@ -1431,6 +1459,7 @@ public class RouLetteView : GameView
         }
         else
         {
+            isBetTime = true;
             animShowSo.gameObject.SetActive(false);
         }
         // if (thisPlayer.ag < agTable)

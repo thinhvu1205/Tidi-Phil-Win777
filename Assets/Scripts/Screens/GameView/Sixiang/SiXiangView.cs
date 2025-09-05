@@ -926,13 +926,13 @@ public class SiXiangView : BaseSlotView
     protected async Task showSpineAnimalBuy(string pathAnim, string animName = "animation")
     {
         spineSpecialWinTask = new Task(() => { });
+        if (pathAnim == PATH_ANIM_BACHHO)
+        {
+            animName = "3";
+        }
         Action<SkeletonDataAsset> cb = async (skeData) =>
         {
             SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SHOW_ANIMAL);
-            if (pathAnim == PATH_ANIM_BACHHO)
-            {
-                animName = "3";
-            }
             Debug.Log("showSpineAnimalBuy:" + animName + " / " + pathAnim);
             animAnimal.skeletonDataAsset = skeData;
             await Task.Delay(TimeSpan.FromSeconds(0.1f));

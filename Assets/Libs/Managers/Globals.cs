@@ -565,8 +565,6 @@ namespace Globals
         public static string user_pass_temp = "";
         public static string username_normal = "";
         public static string password_normal = "";
-        public static string chat_support_link = "https://m.me/100087270858966";
-        //public static string IP = "app1.topbangkokclub.com";
         public static string chat_tele_support_link;
         public const string PORT = "443";
         public static bool isSound = false;
@@ -634,7 +632,7 @@ namespace Globals
         [Tooltip("id - gameid, ip - ip sv, ip_dm - ip domain sv, agSvipMin - ag min, v_tb")]
         public static JArray listGame = new JArray();//array
         public static JArray listRankGame = new JArray();//array
-        public static string u_chat_fb = "";
+        public static string u_chat_fb = "https://m.me/100087270858966";
         public static string infoChip = "";
         public static string infoDT = "";
         public static string infoBNF = "";
