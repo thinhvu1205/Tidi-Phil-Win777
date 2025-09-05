@@ -223,7 +223,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void onClickChatLobby()
+    {
+        var chatWorldView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("Chat/MainChatLobby"), parentPopups).GetComponent<MainChatLobby>();
+        chatWorldView.transform.localScale = Vector3.one;
 
+    }
     public void pushLocalNotiOff()
     {
         return;

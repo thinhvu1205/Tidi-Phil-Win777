@@ -565,7 +565,7 @@ public class LoadConfig : MonoBehaviour
 
         if (jConfig.ContainsKey("disID"))
             Config.disID = (int)jConfig["disID"];
-
+        Config.is_show_chat = jConfig.ContainsKey("is_show_chat") ? (bool)jConfig["is_show_chat"] : false;
         Config.ketPhe = jConfig.ContainsKey("ketPhe") ? (int)jConfig["ketPhe"] : 10;
         Config.is_dt = jConfig.ContainsKey("is_dt") ? (bool)jConfig["is_dt"] : false;
         Config.ketT = jConfig.ContainsKey("ketT") ? (bool)jConfig["ketT"] : false;

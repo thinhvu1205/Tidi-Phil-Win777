@@ -470,19 +470,6 @@ public class HandleService
 
                     break;
 
-                case "getChatWorld":
-                    {
-                        //// get ListChat
-                        ///
-                        if (MainChatWorld.instance)
-                        {
-                            MainChatWorld.instance.setInfo(jsonData);
-                        }
-
-                        Globals.COMMON_DATA.ListChatWorld = JArray.Parse((string)jsonData["data"]);
-                        break;
-                    }
-
                 case "getChatGame":
                     //// get data chat game
                     //Global.LobbyView.receiveDataChatGame(jsonData)
@@ -1074,6 +1061,41 @@ public class HandleService
                         // GameManager.getInstance().onShowConfirmDialog("false");
                     }
                     break;
+                case "sendChatWorld":
+                    Debug.Log("sendChatWorld: " + jsonData.ToString());
+                    if (!Config.is_show_chat || Globals.User.userMain.VIP < 2)
+                    {
+                        return;
+                    }
+                    Debug.Log("xem là đang ở đâu" + Globals.CURRENT_VIEW.getCurrentSceneName());
+                    if (MainChatLobby.instance && Globals.CURRENT_VIEW.getCurrentSceneName() == "CHATVIEW")
+                    {
+                        Debug.Log("hahâhah");
+                        MainChatLobby.instance.setInfo(null, true, jsonData);
+                    }
+                    Debug.Log("xem naof" + Globals.CURRENT_VIEW.getCurrentSceneName() == "LOBBYVIEW");
+                    if (LobbyView.instance != null)
+                    {
+                        LobbyView.instance.showChatOnLobby((int)jsonData["V"], (string)jsonData["N"], (string)jsonData["D"]);
+                    }
+                    break;
+
+                case "getChatWorld":
+                    {
+                        if (!Config.is_show_chat || Globals.User.userMain.VIP < 2)
+                        {
+                            return;
+                        }
+                        Debug.Log("getChatWorld: " + jsonData.ToString());
+
+                        Debug.Log("xem là đang ở đâu" + Globals.CURRENT_VIEW.getCurrentSceneName());
+                        if (MainChatLobby.instance && Globals.CURRENT_VIEW.getCurrentSceneName() == "CHATVIEW")
+                        {
+                            MainChatLobby.instance.setInfo(jsonData, false, null);
+                        }
+                        Globals.COMMON_DATA.ListChatWorld = JArray.Parse((string)jsonData["data"]);
+                        break;
+                    }
             }
         }
         else if (jsonData.ContainsKey("idevt"))

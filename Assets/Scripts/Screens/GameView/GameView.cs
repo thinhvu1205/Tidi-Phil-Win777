@@ -187,6 +187,21 @@ public class GameView : BaseView
         {
             return;
         }
+        if (ChatWorldInGame.instance != null && ChatWorldInGame.instance.gameObject.activeSelf && datNName.Equals("") && !datType.StartsWith("*"))
+        {
+            Player playerChat = getPlayer((string)data["Name"]);
+            ChatWorldInGame.instance.setInfo(data, playerChat.vip, playerChat.avatar_id);
+            return;
+        }
+        if (datNName.Equals("") && !datType.StartsWith("*"))
+        {
+            Debug.Log("có vào đây ko");
+            _setDataChatInGame(data);
+            if ((bool)data["IsAudio"])
+            {
+                return;
+            }
+        }
         var player = getPlayer(datName);
         if (player != null)
         {
@@ -222,6 +237,86 @@ public class GameView : BaseView
             }
         }
 
+    }
+    public void onClickChatWordInGame()
+    {
+        SoundManager.instance.soundClick();
+        if (stateGame == STATE_GAME.VIEWING) return;
+        var subView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("Chat/ChatWorldInGame"), transform).GetComponent<ChatWorldInGame>();
+        subView.transform.localScale = Vector3.one;
+        subView.transform.SetAsLastSibling();
+    }
+    void _setDataChatInGame(JObject data)
+    {
+        string timeStr = DateTime.Now.ToString("HH:mm");
+        string name = (string)data["Name"];
+        int totalSentData = (int)data["TotalMultipleSend"];
+
+        if (totalSentData <= 1)
+        {
+            // Single part
+            Player playerChat = getPlayer(name);
+            ChatWorldLobbyData chatData = new ChatWorldLobbyData
+            {
+                Name = name,
+                Content = (string)data["Data"],
+                Vip = playerChat.vip,
+                Avatar = playerChat.avatar_id,
+                Time = timeStr,
+                IsAudio = (bool)data["IsAudio"]
+            };
+            Globals.COMMON_DATA.ListDataChatInGame.Add(chatData);
+        }
+        else
+        {
+            // Multi-part
+            if (!COMMON_DATA.MultiSendChatDataD.ContainsKey(name))
+            {
+                COMMON_DATA.MultiSendChatDataD.Add(name, new() { data });
+                return;
+            }
+
+            COMMON_DATA.MultiSendChatDataD.TryGetValue(name, out List<JObject> chunksData);
+            chunksData.Add(data);
+
+            List<JObject> sameTimeSentData = new();
+            long timeSent = (long)data["TimeSendMultiple"];
+            foreach (JObject item in chunksData)
+            {
+                if ((long)item["TimeSendMultiple"] == timeSent)
+                    sameTimeSentData.Add(item);
+            }
+
+            if (sameTimeSentData.Count >= totalSentData)
+            {
+                Player playerChat = getPlayer(name);
+                ChatWorldLobbyData chatData = new()
+                {
+                    Name = name,
+                    Vip = playerChat.vip,
+                    Avatar = playerChat.avatar_id,
+                    Time = timeStr,
+                    IsAudio = (bool)data["IsAudio"],
+                };
+
+                for (int i = 1; i <= totalSentData; i++)
+                {
+                    foreach (JObject item in sameTimeSentData)
+                    {
+                        if ((int)item["IdMultiple"] == i)
+                        {
+                            chatData.Content += item["Data"];
+                            break;
+                        }
+                    }
+                }
+
+                Globals.COMMON_DATA.ListDataChatInGame.Add(chatData);
+                for (int i = 0; i < chunksData.Count; i++)
+                    if (sameTimeSentData.Contains(chunksData[i]))
+                        chunksData.RemoveAt(i--);
+            }
+        }
     }
 
     public virtual void handleCCTable(JObject data)
@@ -429,7 +524,7 @@ public class GameView : BaseView
 
     public virtual void handleSTable(string strData)
     {
-        Debug.Log("handleSTable: " + strData); 
+        Debug.Log("handleSTable: " + strData);
         var data = JObject.Parse(strData);
         setGameInfo((int)data["M"], (int)data["Id"], data.ContainsKey("maxBet") ? (int)data["maxBet"] : 0);
         for (int i = 0; i < players.Count; i++)

@@ -14,13 +14,14 @@ public class LobbyView : BaseView
 {
     [SerializeField] List<Button> listTabs = new();
     [SerializeField]
-    GameObject objDot, btnEx, gameItemObject, modelLobby, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
+    GameObject objDot, btnEx, btnChatLobby, gameItemObject, modelLobby, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
         icNotiMail, icNotiFree, icNotiMessage, bannerTemp, btnBannerNews, m_Lottery;
     [SerializeField] RectTransform tfBot, CenterNode;
     [SerializeField] TextMeshProUGUI lb_name, lb_id, lb_ag, lb_safe, lbTimeOnline, lbQuickGame;
     [SerializeField] Transform m_MiniGameIconTf, m_OnlySloticonTf;
     [SerializeField] Button m_NextBtn, m_PrevBtn;
     [SerializeField] SkeletonGraphic animQuickPlay;
+    [SerializeField] private GameObject m_ChatInLObby;
     [SerializeField] ScrollRect m_GamesSR;
     [SerializeField] Avatar avatar;
     [SerializeField] ButtonVipFarm m_VipFarmBVF;
@@ -32,10 +33,11 @@ public class LobbyView : BaseView
     private Coroutine _GetInfoPusoyJackPotC;
     private int TabGame = 0;
     private bool blockSpamTabGame, isHideBtnScroll, isRunStart;
-
+    public static LobbyView instance = null;
 
     protected override void Awake()
     {
+        instance = this;
         base.Awake();
         resetLogout();
     }
@@ -98,6 +100,52 @@ public class LobbyView : BaseView
                 blockSpamTabGame = false;
             }).SetId("blockSpamTabGame");
         }
+    }
+    private IEnumerator CreateChatLobby(int vip, string name, string content)
+    {
+        GameObject effectChange = BundleHandler.Instantiate(m_ChatInLObby);
+
+        // gắn vào parent = this
+        effectChange.transform.SetParent(btnChatLobby.transform, false);
+        effectChange.transform.SetAsLastSibling(); // luôn nằm trên cùng
+
+        // lấy text
+        TextMeshProUGUI info = effectChange.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI context = effectChange.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        info.text = "[" + vip + "] " + name;
+        context.text = content;
+
+        // đặt vị trí ban đầu trùng với nút chat (dùng localPosition)
+        effectChange.transform.localPosition = new Vector2(-20, 0);
+
+        // animation bay lên
+        float elapsedTime = 0f;
+        float moveDuration = 2f; // bay trong 2 giây
+        Vector2 startPosition = new Vector2(60, 0);
+        Vector2 targetPosition = startPosition + new Vector2(0, 40);
+
+        while (elapsedTime < moveDuration)
+        {
+            float t = elapsedTime / moveDuration;
+            effectChange.transform.localPosition = Vector3.Lerp(startPosition, targetPosition, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        effectChange.transform.localPosition = targetPosition;
+
+        // giữ thêm 1 giây trước khi xoá
+        float stayTime = 1f;
+        yield return new WaitForSeconds(stayTime);
+
+        Destroy(effectChange);
+    }
+
+
+
+
+    public void showChatOnLobby(int vip, string name, string content)
+    {
+        StartCoroutine(CreateChatLobby(vip, name, content));
     }
     private void _ChangeTabGameProversion(bool resetPos = false)
     {
@@ -652,6 +700,9 @@ public class LobbyView : BaseView
 
     public void refreshUIFromConfig(bool isStart = false)
     {
+        btnChatLobby.SetActive(true);
+        //  Config.is_show_chat && Globals.User.userMain.VIP >= 2
+        // );
         btnEx.SetActive(Config.is_dt);
         var issket = Config.ket;
         if (User.userMain != null && User.userMain.VIP == 0)
@@ -673,6 +724,11 @@ public class LobbyView : BaseView
         }
         if (!isStart) _ReloadListGames();
         //setDefaultPosBtnMore();
+    }
+    public void onClickChatLobby()
+    {
+        UIManager.instance.onClickChatLobby();
+
     }
     public void onClickSupport()
     {

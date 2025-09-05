@@ -26,7 +26,9 @@ namespace Globals
 
     public class CURRENT_VIEW
     {
+        public static bool isInChatVoice = false;
         public const string LOGIN_VIEW = "LOGIN_VIEW",
+        CHAT = "CHAT",
     LOBBY = "LOBBY",
     PAYMENT = "PAYMENT",
     MAIL = "MAIL",
@@ -555,6 +557,7 @@ namespace Globals
     }
     public class Config
     {
+        public static bool is_show_chat = false;
         public const int CODE_JOKER_BLACK = 60;
         public const int CODE_JOKER_RED = 61;
         public static bool isSvTest = false;
@@ -1957,7 +1960,10 @@ namespace Globals
 
     public class COMMON_DATA
     {
-        public static JArray ListChatWorld = new JArray();
+        public static int IndexItemChatChoose = -1;
+        public static JArray ListChatWorld = new();
+        public static List<ChatWorldLobbyData> ListDataChatInGame = new();
+        public static Dictionary<string, List<JObject>> MultiSendChatDataD = new();
     }
 
     public class NativeCall
