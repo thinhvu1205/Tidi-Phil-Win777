@@ -218,10 +218,10 @@ public class ItemChat : MonoBehaviour
         Debug.Log(index + "check xem index item" + (Globals.COMMON_DATA.IndexItemChatChoose != indexItem));
 
         _isPlaying = Globals.COMMON_DATA.IndexItemChatChoose == indexItem;
-        if (_isPlaying)
-        {
-            return;
-        }
+        // if (_isPlaying)
+        // {
+        //     return;
+        // }
         if (m_GroupLineL != null)
         {
             for (int i = 0; i < m_GroupLineL.transform.childCount; i++)

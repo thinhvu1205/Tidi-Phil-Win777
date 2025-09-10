@@ -47,6 +47,11 @@ public class HandleData
                     // {
                     //     UIManager.instance.ShowPopupCheckinBonus();
                     // }
+                    if (CheckInBonusModel.Promotion.CurrentWeekly.OD < 15)
+                    {
+                        UIManager.instance.iconNotiCheckinBonus.gameObject.SetActive(true);
+                        UIManager.instance.hasWeeklyBonus = true;
+                    }
                 }
                 else
                 {

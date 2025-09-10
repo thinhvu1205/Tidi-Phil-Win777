@@ -303,6 +303,7 @@ public class CheckinBonus : MonoBehaviour
     }
     private void ClickButtonReceiveDaily()
     {
+        UIManager.instance.hasDailyBonus = false;
         int index = CheckInBonusModel.Promotion.CurrentDaily.OC;
         SocketSend.sendReceivePromotion(CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[index]);
         SocketSend.sendPromotion();
@@ -363,6 +364,7 @@ public class CheckinBonus : MonoBehaviour
                 gameObject.SetActive(false);
                 popupCheckinBonus.transform.localScale = originalScale;
             });
+        UIManager.instance.SetStateIconNotiCheckinBonus();
     }
     public void SetDayReceived(int idDay)
     {

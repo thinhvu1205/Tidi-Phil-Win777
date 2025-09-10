@@ -700,7 +700,7 @@ public class LobbyView : BaseView
 
     public void refreshUIFromConfig(bool isStart = false)
     {
-        btnChatLobby.SetActive(true);
+        // btnChatLobby.SetActive(true);
         //  Config.is_show_chat && Globals.User.userMain.VIP >= 2
         // );
         btnEx.SetActive(Config.is_dt);

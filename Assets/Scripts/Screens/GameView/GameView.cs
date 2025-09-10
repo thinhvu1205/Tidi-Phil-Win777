@@ -54,6 +54,7 @@ public class GameView : BaseView
         base.Awake();
         Config.isBackGame = false;
         HandleGame.listDelayEvt.Clear();
+        Globals.COMMON_DATA.ListDataChatInGame.Clear();
     }
     protected override void Start()
     {
@@ -191,9 +192,9 @@ public class GameView : BaseView
         {
             Player playerChat = getPlayer((string)data["Name"]);
             ChatWorldInGame.instance.setInfo(data, playerChat.vip, playerChat.avatar_id);
-            return;
+            //  return;
         }
-        if (datNName.Equals("") && !datType.StartsWith("*"))
+        if (ChatWorldInGame.instance == null && datNName.Equals("") && !datType.StartsWith("*"))
         {
             Debug.Log("có vào đây ko");
             _setDataChatInGame(data);

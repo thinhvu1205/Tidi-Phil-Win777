@@ -86,6 +86,11 @@ public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUp
     private Stopwatch testSW = new Stopwatch();
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (!IsDeviceHasMicro())
+        {
+            _MicDevice = Microphone.devices[0];
+            return;
+        }
         testSW.Reset();
         testSW.Start();
         _StartTime = Time.realtimeSinceStartup;
@@ -113,7 +118,7 @@ public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUp
         _MicAC.GetData(samples, 0);
         _AudioBytes = new byte[samples.Length * 4];
         Buffer.BlockCopy(samples, 0, _AudioBytes, 0, _AudioBytes.Length);
-        UnityEngine.Debug.Log("xem frequence may" + _MicAC.frequency+"  "+AudioSettings.outputSampleRate);
+        UnityEngine.Debug.Log("xem frequence may" + _MicAC.frequency + "  " + AudioSettings.outputSampleRate);
         AudioClip trimmedAC = AudioClip.Create(_MicAC.name, samplesLength, _MicAC.channels, _SAMPLE_RATE, false);
         trimmedAC.SetData(samples, 0);
         return trimmedAC;
@@ -148,4 +153,5 @@ public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUp
     {
         if (IsDeviceHasMicro()) _MicDevice = Microphone.devices[0];
     }
+    
 }

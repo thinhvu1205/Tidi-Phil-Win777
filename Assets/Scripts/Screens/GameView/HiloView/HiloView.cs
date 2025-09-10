@@ -200,7 +200,7 @@ public class HiloView : GameView
     {
         base.handleSTable(objData);
         Logging.Log("handleStable:" + objData);
-        stateGame = STATE_GAME.VIEWING;
+        stateGame = STATE_GAME.WAITING;
         JObject data = JObject.Parse(objData);
         if (thisPlayer != null && thisPlayer.playerView != null) thisPlayer.playerView.setPosThanhBarThisPlayer();
 
