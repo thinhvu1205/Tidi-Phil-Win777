@@ -24,5 +24,6 @@ public class Day : MonoBehaviour
         SocketSend.sendReceiveDailyBonus(IdDay + 1);
         CheckinBonus.instance.SetDayReceived(IdDay);
         SocketSend.sendUAG();
+        UIManager.instance.hasWeeklyBonus = false;
     }
 }

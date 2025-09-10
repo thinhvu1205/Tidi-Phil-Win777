@@ -2562,7 +2562,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -23.875183, y: 50}
-  m_SizeDelta: {x: 672.1504, y: 190}
+  m_SizeDelta: {x: 672.1504, y: 238.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952506106868534291
 MonoBehaviour:
@@ -2595,6 +2595,7 @@ MonoBehaviour:
   m_ButtonAudioL: {fileID: 6119046667998193977}
   m_ButtonAudioR: {fileID: 7777860579140721797}
   isLobby: 0
+  indexItem: -1
 --- !u!1 &5928699732643731156
 GameObject:
   m_ObjectHideFlags: 0

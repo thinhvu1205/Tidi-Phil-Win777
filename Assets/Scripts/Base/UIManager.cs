@@ -34,6 +34,9 @@ public class UIManager : MonoBehaviour
     public bool canShowPopupCheckinBonus = true;
     public static UIManager instance = null;
     [SerializeField] Sprite sf_toast = null;
+    public Image iconNotiCheckinBonus;
+    public bool hasDailyBonus = false;
+    public bool hasWeeklyBonus = false;
     [SerializeField] GameObject nodeLoad;
 
     [SerializeField] public Transform parentPopups, parentGame, parentBanner;
@@ -1437,5 +1440,15 @@ public class UIManager : MonoBehaviour
         }
         Instantiate(popupCheckinBonus, transform);
     }
-
+    public void SetStateIconNotiCheckinBonus()
+    {
+        if (!hasDailyBonus && !hasWeeklyBonus)
+        {
+            iconNotiCheckinBonus.gameObject.SetActive(false);
+        }
+        else
+        {
+            iconNotiCheckinBonus.gameObject.SetActive(true);
+        }
+    }
 }

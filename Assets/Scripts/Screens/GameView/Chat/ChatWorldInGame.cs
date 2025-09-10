@@ -29,6 +29,7 @@ public class ChatWorldInGame : BaseView
     protected override void Awake()
     {
         base.Awake();
+        Globals.CURRENT_VIEW.isInChatVoice = true;
         instance = this;
         m_ChatTableVPG.SetCellDataCallback<ChatWorldLobbyData>((go, data, index) =>
         {
@@ -56,7 +57,7 @@ public class ChatWorldInGame : BaseView
         }
         if (COMMON_DATA.ListDataChatInGame.Count > 0)
         {
-            _PoolDataCWLDs.Clear(); // Clear list hiện tại
+            _PoolDataCWLDs.Clear(); 
             _PoolDataCWLDs.AddRange(COMMON_DATA.ListDataChatInGame); // Add tất cả items từ list gốc
             m_ChatTableVPG.SetAdapter(_PoolDataCWLDs);
             m_ChatTableVPG.ScrollToLast(0);
@@ -105,7 +106,7 @@ public class ChatWorldInGame : BaseView
             return;
         }
 
-        int maxLength = 190;
+        int maxLength = 120;
         if (mess.Length >= maxLength)
         {
             UIManager.instance.showToast($"Message too long! Max {maxLength} characters allowed.");
@@ -124,7 +125,7 @@ public class ChatWorldInGame : BaseView
     {
         string name = (string)dataChat["Name"];
         int totalSentData = (int)dataChat["TotalMultipleSend"];
-        string timeStr = DateTime.Now.ToString("HH:mm");
+        string timeStr = DateTime.Now.ToString("HH:mm:ss");
         if (totalSentData <= 1)
         {
             ChatWorldLobbyData chatData = new()
@@ -184,5 +185,10 @@ public class ChatWorldInGame : BaseView
             }
         }
     }
+    public override void onClickClose(bool isDestroy = true)
+    {
+        Globals.CURRENT_VIEW.isInChatVoice = false;
+        base.onClickClose(isDestroy);
 
+    }
 }

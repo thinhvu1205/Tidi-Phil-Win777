@@ -39,6 +39,11 @@ public class HandleService
                     {
                         UIManager.instance.ShowPopupCheckinBonus();
                     }
+                    if (CheckInBonusModel.Promotion.CurrentDaily.T == 0)
+                    {
+                        UIManager.instance.iconNotiCheckinBonus.gameObject.SetActive(true);
+                        UIManager.instance.hasDailyBonus = true;
+                    }
 
                     if (CheckInBonusModel.Promotion.CurrentDaily.T <= 0)
                     {
