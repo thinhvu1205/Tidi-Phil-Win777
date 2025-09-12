@@ -1360,8 +1360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 165, y: 81}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 277, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3719954989134036650
 CanvasRenderer:
@@ -1391,7 +1391,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 320218474723957359, guid: 92dfc0dcbaeea504db8b685e5df91730, type: 3}
+  m_Sprite: {fileID: -7263773835969287849, guid: f3ce16fe06bb8334d9214aaf322e2269, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1416,7 +1416,7 @@ MonoBehaviour:
   type: 1
   key: 
   sprites:
-  - {fileID: 320218474723957359, guid: 92dfc0dcbaeea504db8b685e5df91730, type: 3}
+  - {fileID: -7263773835969287849, guid: f3ce16fe06bb8334d9214aaf322e2269, type: 3}
   - {fileID: -7263773835969287849, guid: f3ce16fe06bb8334d9214aaf322e2269, type: 3}
   animName: []
   isUpper: 0
@@ -3638,7 +3638,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 280}
-  m_SizeDelta: {x: 431, y: 111}
+  m_SizeDelta: {x: 396, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3454944991531141374
 CanvasRenderer:
@@ -5383,7 +5383,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -80}
-  m_SizeDelta: {x: 431, y: 111}
+  m_SizeDelta: {x: 396, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3034995588729604946
 CanvasRenderer:
@@ -7900,7 +7900,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -10, y: -20}
-  m_SizeDelta: {x: 59, y: 65}
+  m_SizeDelta: {x: 63, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6124375082282671841
 CanvasRenderer:
@@ -8032,7 +8032,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 324, y: 82}
+  m_SizeDelta: {x: 302, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6803937242755114168
 CanvasRenderer:
@@ -8062,7 +8062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85366f83a2239d1468a194eca6a49694, type: 3}
+  m_Sprite: {fileID: 2294547015732945619, guid: 7d9823a3aff5b3b46b282f4b8cf2eccf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8087,7 +8087,7 @@ MonoBehaviour:
   type: 1
   key: 
   sprites:
-  - {fileID: 21300000, guid: 85366f83a2239d1468a194eca6a49694, type: 3}
+  - {fileID: 2294547015732945619, guid: 7d9823a3aff5b3b46b282f4b8cf2eccf, type: 3}
   - {fileID: 2294547015732945619, guid: 7d9823a3aff5b3b46b282f4b8cf2eccf, type: 3}
   animName: []
   isUpper: 0
@@ -10757,8 +10757,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: 298, y: 74}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 295, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7067717232697597042
 CanvasRenderer:
@@ -11212,7 +11212,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 280}
-  m_SizeDelta: {x: 431, y: 111}
+  m_SizeDelta: {x: 396, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7916609506736029499
 CanvasRenderer:
@@ -12613,8 +12613,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 109, y: 78}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 264, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4382467519479524662
 CanvasRenderer:
@@ -12644,7 +12644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6577364651476037202, guid: ef5e7cc5fe66f944a9e34dac5a2499e6, type: 3}
+  m_Sprite: {fileID: 340932112532073275, guid: 84a22ced6defbe04c89b4a748269654e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12669,7 +12669,7 @@ MonoBehaviour:
   type: 1
   key: 
   sprites:
-  - {fileID: 6577364651476037202, guid: ef5e7cc5fe66f944a9e34dac5a2499e6, type: 3}
+  - {fileID: 340932112532073275, guid: 84a22ced6defbe04c89b4a748269654e, type: 3}
   - {fileID: 340932112532073275, guid: 84a22ced6defbe04c89b4a748269654e, type: 3}
   animName: []
   isUpper: 0
@@ -12746,7 +12746,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -10, y: -20}
-  m_SizeDelta: {x: 59, y: 65}
+  m_SizeDelta: {x: 63, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3417977348353913431
 CanvasRenderer:

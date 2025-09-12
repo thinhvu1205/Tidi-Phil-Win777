@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "cM9PrN22Ukr30QWFr8JL4IE4J6k",
+	"hash": "LbLRWtDhdsiokAcMPUiW5TgAQ+8",
 	"spine": "3.8.99",
-	"x": -96.72,
-	"y": -91.37,
-	"width": 204.36,
-	"height": 181,
+	"x": -115.96,
+	"y": -103.4,
+	"width": 233.24,
+	"height": 202.53,
 	"images": "./images/",
 	"audio": "G:/game/phil/Pusoy Win/anim/icon_game/tongits"
 },
@@ -13,25 +13,12 @@
 	{ "name": "root" },
 	{ "name": "tong", "parent": "root", "x": -13.63, "y": -181.71 },
 	{ "name": "chip", "parent": "tong", "x": 32.16, "y": 179.45 },
-	{
-		"name": "labai",
-		"parent": "tong",
-		"length": 52.69,
-		"rotation": 108.75,
-		"x": 10.32,
-		"y": 170.98,
-		"scaleX": 0.7923,
-		"scaleY": 0.7923
-	},
 	{ "name": "tongits", "parent": "tong", "x": 16.18, "y": 138.71 },
-	{ "name": "ef2", "parent": "chip", "x": 46.91, "y": -7.47, "scaleX": 0.6, "scaleY": 0.6 },
-	{ "name": "ef", "parent": "labai", "x": 37.08, "y": 41.76, "scaleX": 0.8, "scaleY": 0.8 }
+	{ "name": "ef2", "parent": "chip", "x": 46.91, "y": -7.47, "scaleX": 0.6, "scaleY": 0.6 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "tong", "attachment": "bg" },
-	{ "name": "labai", "bone": "labai", "attachment": "labai" },
 	{ "name": "chip", "bone": "chip", "attachment": "chip" },
-	{ "name": "ef", "bone": "ef", "attachment": "ef", "blend": "additive" },
 	{ "name": "tongits", "bone": "tongits", "attachment": "tongits" },
 	{ "name": "ef2", "bone": "ef2", "attachment": "ef2", "blend": "additive" },
 	{ "name": "butasan_jk", "bone": "tongits", "attachment": "butasan_jk" }
@@ -41,25 +28,19 @@
 		"name": "default",
 		"attachments": {
 			"bg": {
-				"bg": { "x": 14.41, "y": 180.85, "width": 195, "height": 181 }
+				"bg": { "x": 14.41, "y": 180.85, "width": 233, "height": 200 }
 			},
 			"butasan_jk": {
-				"butasan_jk": { "x": -46.79, "y": 83.52, "width": 98, "height": 95 }
+				"butasan_jk": { "x": 72.78, "y": 103.66, "width": 76, "height": 76 }
 			},
 			"chip": {
-				"chip": { "y": 20.96, "width": 95, "height": 115 }
-			},
-			"ef": {
-				"ef": { "x": -0.26, "y": -0.55, "rotation": -108.75, "width": 140, "height": 140 }
+				"chip": { "x": -19.49, "y": -3.13, "width": 230, "height": 196 }
 			},
 			"ef2": {
 				"ef2": { "x": 0.33, "y": -0.7, "width": 140, "height": 140 }
 			},
-			"labai": {
-				"labai": { "x": 27.18, "y": 6.03, "rotation": -108.75, "width": 121, "height": 100 }
-			},
 			"tongits": {
-				"tongits": { "x": -1.05, "y": -0.37, "width": 107, "height": 60 }
+				"tongits": { "x": -1.05, "y": -11.75, "width": 142, "height": 64 }
 			}
 		}
 	}
@@ -67,15 +48,6 @@
 "animations": {
 	"animation": {
 		"slots": {
-			"ef": {
-				"color": [
-					{ "color": "ffffffff" },
-					{ "time": 0.4, "color": "ffffff00" },
-					{ "time": 0.8333, "color": "ffffffff" },
-					{ "time": 1.2333, "color": "ffffff00" },
-					{ "time": 1.6667, "color": "ffffffff" }
-				]
-			},
 			"ef2": {
 				"color": [
 					{ "color": "ffffff00" },
@@ -112,35 +84,6 @@
 					{ "time": 1.1333, "angle": -120 },
 					{ "time": 1.4, "angle": 120 },
 					{ "time": 1.6667 }
-				]
-			},
-			"labai": {
-				"rotate": [
-					{ "angle": -5.71, "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.8333, "angle": 14.48, "curve": 0.25, "c3": 0.75 },
-					{ "time": 1.6667, "angle": -5.71 }
-				],
-				"translate": [
-					{ "curve": 0.25, "c3": 0.75 },
-					{ "time": 0.8333, "x": -10.55, "curve": 0.25, "c3": 0.75 },
-					{ "time": 1.6667 }
-				],
-				"scale": [
-					{ "curve": "stepped" },
-					{ "time": 1.6667 }
-				]
-			},
-			"ef": {
-				"rotate": [
-					{ "angle": 69.54 },
-					{ "time": 0.1333, "angle": 3.17 },
-					{ "time": 0.4, "angle": -103.04 },
-					{ "time": 0.7, "angle": 121.16 },
-					{ "time": 0.8333, "angle": 69.54 },
-					{ "time": 0.9667, "angle": 3.17 },
-					{ "time": 1.2333, "angle": -103.04 },
-					{ "time": 1.5333, "angle": 121.16 },
-					{ "time": 1.6667, "angle": 69.54 }
 				]
 			}
 		}

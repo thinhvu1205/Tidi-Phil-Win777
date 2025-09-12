@@ -20,60 +20,6 @@ TextureImporter:
   - first:
       213: -8664327905045170009
     second: skeleton_5
-  - first:
-      213: -7423335518844729702
-    second: skeleton_6
-  - first:
-      213: 7269522917121967659
-    second: skeleton_7
-  - first:
-      213: 7901955918156383551
-    second: skeleton_8
-  - first:
-      213: -1242360182464875364
-    second: skeleton_9
-  - first:
-      213: 3372163455729612445
-    second: skeleton_10
-  - first:
-      213: 8555756170139209410
-    second: skeleton_11
-  - first:
-      213: 8832801181025377327
-    second: skeleton_12
-  - first:
-      213: 7505759885031975168
-    second: skeleton_13
-  - first:
-      213: -2150753145709587267
-    second: skeleton_14
-  - first:
-      213: 5456910102184981033
-    second: skeleton_15
-  - first:
-      213: 1588906343046635383
-    second: skeleton_16
-  - first:
-      213: 297061580493148339
-    second: skeleton_17
-  - first:
-      213: 5311655696396966444
-    second: skeleton_18
-  - first:
-      213: 1968703191191527569
-    second: skeleton_19
-  - first:
-      213: -3039514967756492387
-    second: skeleton_20
-  - first:
-      213: -7870290827472346260
-    second: skeleton_21
-  - first:
-      213: 5585826539395855827
-    second: skeleton_22
-  - first:
-      213: 9023424851208666732
-    second: skeleton_23
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -144,13 +90,13 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 100
-    crunchedCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -162,19 +108,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
@@ -186,7 +120,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
@@ -198,7 +132,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites: []

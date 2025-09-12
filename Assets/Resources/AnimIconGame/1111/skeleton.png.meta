@@ -20,6 +20,18 @@ TextureImporter:
   - first:
       213: -8664327905045170009
     second: skeleton_5
+  - first:
+      213: -7423335518844729702
+    second: skeleton_6
+  - first:
+      213: 7269522917121967659
+    second: skeleton_7
+  - first:
+      213: 7901955918156383551
+    second: skeleton_8
+  - first:
+      213: -1242360182464875364
+    second: skeleton_9
   externalObjects: {}
   serializedVersion: 12
   mipmaps:

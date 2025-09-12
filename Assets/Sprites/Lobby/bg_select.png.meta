@@ -139,11 +139,11 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 81
+        width: 148
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 78, y: 39, z: 78, w: 39}
+      border: {x: 86, y: 30, z: 53, w: 21}
       outline: []
       physicsShape: []
       tessellationDetail: -1

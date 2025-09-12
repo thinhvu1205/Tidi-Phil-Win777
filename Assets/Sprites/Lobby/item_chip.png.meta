@@ -137,12 +137,12 @@ TextureImporter:
       name: item_chip_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 0
         y: 0
-        width: 47
-        height: 83
+        width: 77
+        height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,7 +157,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 612eb724f3506cd479aa893143a2e46c
     internalID: 0
     vertices: []
     indices: 

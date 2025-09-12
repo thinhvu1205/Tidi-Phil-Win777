@@ -1,54 +1,61 @@
 
 skeleton.png
-size: 286,286
+size: 398,398
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-Fruit Slot
+Fruit
   rotate: false
-  xy: 64, 5
-  size: 168, 50
-  orig: 168, 50
+  xy: 2, 151
+  size: 203, 43
+  orig: 203, 43
   offset: 0, 0
   index: -1
 bg
   rotate: false
-  xy: 2, 103
-  size: 195, 181
-  orig: 195, 181
+  xy: 2, 196
+  size: 233, 200
+  orig: 233, 200
   offset: 0, 0
   index: -1
 diamond
-  rotate: true
-  xy: 2, 6
-  size: 95, 60
-  orig: 95, 60
-  offset: 0, 0
+  rotate: false
+  xy: 207, 44
+  size: 119, 117
+  orig: 120, 117
+  offset: 1, 0
   index: -1
 dua
-  rotate: false
-  xy: 199, 118
+  rotate: true
+  xy: 119, 72
   size: 77, 76
-  orig: 77, 76
-  offset: 0, 0
+  orig: 78, 76
+  offset: 1, 0
   index: -1
 dua hau
   rotate: false
-  xy: 199, 196
-  size: 85, 88
-  orig: 85, 88
-  offset: 0, 0
+  xy: 2, 36
+  size: 115, 113
+  orig: 115, 114
+  offset: 0, 1
   index: -1
 ef
-  rotate: false
-  xy: 199, 57
+  rotate: true
+  xy: 328, 95
   size: 66, 59
   orig: 129, 65
   offset: 55, 1
   index: -1
+ef2
+  rotate: true
+  xy: 237, 163
+  size: 233, 159
+  orig: 238, 164
+  offset: 3, 3
+  index: -1
 light
-  rotate: false
-  xy: 64, 65
+  rotate: true
+  xy: 119, 47
   size: 23, 36
   orig: 29, 46
   offset: 3, 5

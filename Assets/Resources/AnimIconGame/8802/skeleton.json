@@ -1,17 +1,17 @@
 {
 "skeleton": {
-	"hash": "wdPw7uOTm829InLtJ5h94g4NIxo",
+	"hash": "wIQygreH6LYQP1poVsGvnkEfS2s",
 	"spine": "3.8.99",
-	"x": -104.74,
-	"y": -90.5,
-	"width": 212.48,
-	"height": 185.67,
+	"x": -116.5,
+	"y": -100,
+	"width": 247.1,
+	"height": 200,
 	"images": "./Image/",
 	"audio": ""
 },
 "bones": [
 	{ "name": "root" },
-	{ "name": "K", "parent": "root", "length": 81.91, "rotation": 66.61, "x": 14.88, "y": -13.87 },
+	{ "name": "K", "parent": "root", "length": 81.91, "rotation": 66.61, "x": 37.85, "y": -20.39 },
 	{
 		"name": "1l6",
 		"parent": "K",
@@ -59,16 +59,12 @@
 		"scaleY": 0.4133
 	},
 	{ "name": "iiii", "parent": "root", "x": 4.38, "y": -42.31 },
-	{ "name": "9", "parent": "root", "length": 66.51, "rotation": 112.45, "x": -11.92, "y": -4.96 },
-	{ "name": "may", "parent": "root", "length": 61.6, "rotation": 90, "x": -38.95, "y": -55.36 },
-	{ "name": "poker", "parent": "may", "length": 29.75, "rotation": -1.24, "x": 56.72, "y": -40.1 }
+	{ "name": "9", "parent": "root", "length": 66.51, "rotation": 112.45, "x": -39.06, "y": -11.23 },
+	{ "name": "poker", "parent": "root", "length": 29.75, "rotation": 88.76, "x": 14.98, "y": -2.56 }
 ],
 "slots": [
 	{ "name": "rec", "bone": "root", "attachment": "rec" },
-	{ "name": "may", "bone": "may", "attachment": "may" },
 	{ "name": "9", "bone": "9", "attachment": "9" },
-	{ "name": "K", "bone": "K", "attachment": "K" },
-	{ "name": "txt", "bone": "root", "attachment": "txt" },
 	{ "name": "1l11", "bone": "1l11", "attachment": "1l", "blend": "additive" },
 	{ "name": "1l6", "bone": "1l6", "attachment": "1l", "blend": "additive" },
 	{ "name": "1l14", "bone": "1l14", "attachment": "1l", "blend": "additive" },
@@ -76,7 +72,9 @@
 	{ "name": "1l13", "bone": "1l13", "attachment": "1l", "blend": "additive" },
 	{ "name": "1l15", "bone": "1l15", "attachment": "1l", "blend": "additive" },
 	{ "name": "iiii", "bone": "iiii", "attachment": "iiii", "blend": "additive" },
-	{ "name": "poker", "bone": "poker", "attachment": "poker" }
+	{ "name": "poker", "bone": "poker", "attachment": "poker" },
+	{ "name": "K", "bone": "K", "attachment": "K" },
+	{ "name": "txt", "bone": "root", "attachment": "txt" }
 ],
 "skins": [
 	{
@@ -101,25 +99,22 @@
 				"1l": { "x": -0.37, "y": -0.42, "width": 127, "height": 130 }
 			},
 			"9": {
-				"9": { "x": 40.6, "y": -5.51, "rotation": -112.45, "width": 85, "height": 79 }
+				"9": { "x": 40.6, "y": -5.51, "rotation": -112.45, "width": 74, "height": 98 }
 			},
 			"K": {
-				"K": { "x": 45.13, "y": -0.69, "rotation": -66.61, "width": 77, "height": 75 }
+				"K": { "x": 45.13, "y": -0.69, "rotation": -66.61, "width": 92, "height": 109 }
 			},
 			"iiii": {
 				"iiii": { "x": -2.88, "y": 36.27, "rotation": 0.62, "width": 211, "height": 139 }
 			},
-			"may": {
-				"may": { "x": 48.83, "y": -41.47, "scaleX": 0.9523, "rotation": -90, "width": 118, "height": 62 }
-			},
 			"poker": {
-				"poker": { "x": 11.62, "y": -2.96, "rotation": -88.76, "width": 74, "height": 75 }
+				"poker": { "x": 11.62, "y": -2.96, "rotation": -88.76, "width": 136, "height": 143 }
 			},
 			"rec": {
-				"rec": { "width": 195, "height": 181 }
+				"rec": { "width": 233, "height": 200 }
 			},
 			"txt": {
-				"txt": { "x": 2.66, "y": -44.26, "width": 148, "height": 60 }
+				"txt": { "x": 2.66, "y": -56.26, "width": 159, "height": 44 }
 			}
 		}
 	}
@@ -252,14 +247,6 @@
 					{ "time": 0.7333, "x": -1.8, "y": -4.16, "curve": 0.25, "c3": 0.75 },
 					{ "time": 2.1, "x": 2.15, "y": 4.98, "curve": 0.25, "c3": 0.625, "c4": 0.5 },
 					{ "time": 2.8333, "x": 0.18, "y": 0.41 }
-				]
-			},
-			"may": {
-				"translate": [
-					{ "y": 3.2, "curve": 0.382, "c2": 0.55, "c3": 0.741 },
-					{ "time": 0.5333, "y": 4.96, "curve": 0.25, "c3": 0.75 },
-					{ "time": 2, "curve": 0.25, "c3": 0.75 },
-					{ "time": 2.8333, "y": 3.2 }
 				]
 			},
 			"poker": {

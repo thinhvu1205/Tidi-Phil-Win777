@@ -33,7 +33,7 @@ public class SplashScene : MonoBehaviour
             m_BundleBD.CheckAndDownloadAssets(BundleHandler.MAIN.BundleUrl, 0,
                 () =>
                 {
-                    m_BundleBD.SetProgressText("Fail to get assets!");
+                    StartCoroutine(retry());
                 },
                 () =>
                 {

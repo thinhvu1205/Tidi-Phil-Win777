@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "90sIu1lRr91jMi7/lAz3uzO3cCw",
+	"hash": "li2A3c0h+AE3EaE0DgqHJH5OaaU",
 	"spine": "3.8.99",
-	"x": -104.31,
-	"y": -90.69,
-	"width": 212.48,
-	"height": 181,
+	"x": -116.07,
+	"y": -100.19,
+	"width": 233,
+	"height": 200,
 	"images": "./Image/",
 	"audio": ""
 },
@@ -58,7 +58,7 @@
 	{ "name": "1l11", "bone": "1l11", "attachment": "1l", "blend": "additive" },
 	{ "name": "1l12", "bone": "1l12", "attachment": "1l", "blend": "additive" },
 	{ "name": "1l15", "bone": "1l15", "attachment": "1l", "blend": "additive" },
-	{ "name": "iiii", "bone": "iiii", "attachment": "iiii", "blend": "additive" }
+	{ "name": "iiii", "bone": "iiii", "color": "ff1fdfff", "attachment": "iiii", "blend": "additive" }
 ],
 "skins": [
 	{
@@ -74,28 +74,36 @@
 				"1l": { "x": -0.37, "y": -0.42, "width": 127, "height": 130 }
 			},
 			"dia": {
-				"dia": { "y": -15.11, "width": 140, "height": 64 }
+				"dia": { "y": -26.61, "scaleX": 1.1931, "scaleY": 1.1996, "width": 158, "height": 57 }
 			},
 			"dice1": {
-				"dice1": { "x": -3.56, "y": 4.41, "width": 26, "height": 28 }
+				"dice1": { "x": -3.56, "y": 4.41, "width": 43, "height": 40 }
 			},
 			"dice2": {
-				"dice2": { "x": -0.4, "y": 4.06, "width": 41, "height": 36 }
+				"dice2": { "x": -0.4, "y": 4.06, "width": 53, "height": 54 }
 			},
 			"dice3": {
-				"dice3": { "x": 2.55, "y": 1.36, "width": 49, "height": 56 }
+				"dice3": { "x": 2.55, "y": 1.36, "width": 70, "height": 76 }
 			},
 			"iiii": {
 				"iiii": { "x": -2.88, "y": 36.27, "rotation": 0.62, "width": 211, "height": 139 }
 			},
 			"nap": {
-				"nap": { "x": 53.16, "y": -1.71, "rotation": 89.79, "width": 77, "height": 96 }
+				"nap": {
+					"x": 53.16,
+					"y": -1.71,
+					"scaleX": 1.0036,
+					"scaleY": 1.2481,
+					"rotation": 89.79,
+					"width": 83,
+					"height": 102
+				}
 			},
 			"rec": {
-				"rec": { "x": 0.32, "y": 106.2, "width": 195, "height": 181 }
+				"rec": { "x": 0.32, "y": 106.2, "width": 233, "height": 200 }
 			},
 			"txt": {
-				"txt": { "x": 1.42, "y": 64.88, "width": 99, "height": 53 }
+				"txt": { "x": 1.42, "y": 49.91, "width": 100, "height": 35 }
 			}
 		}
 	}
@@ -129,10 +137,10 @@
 			},
 			"iiii": {
 				"color": [
-					{ "color": "ffffffff" },
+					{ "color": "ff42f5ff" },
 					{ "time": 1.3667, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.6, "color": "ffffff00" },
-					{ "time": 2.8, "color": "ffffffff" }
+					{ "time": 2.8, "color": "ff42f5ff" }
 				]
 			},
 			"txt": {

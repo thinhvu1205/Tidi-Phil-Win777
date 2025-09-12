@@ -1,41 +1,62 @@
 
 skeleton.png
-size: 335,335
+size: 372,372
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-Layer 407
+Fruit
   rotate: true
-  xy: 2, 30
-  size: 120, 99
-  orig: 120, 100
+  xy: 237, 49
+  size: 215, 39
+  orig: 215, 39
   offset: 0, 0
-  index: -1
-Layer 408
-  rotate: true
-  xy: 103, 87
-  size: 63, 67
-  orig: 63, 68
-  offset: 0, 1
   index: -1
 bg
   rotate: false
-  xy: 2, 152
-  size: 195, 181
-  orig: 195, 181
+  xy: 2, 170
+  size: 233, 200
+  orig: 233, 200
   offset: 0, 0
   index: -1
-iiii
+diamond
   rotate: true
-  xy: 199, 122
-  size: 211, 134
-  orig: 211, 139
-  offset: 0, 5
-  index: -1
-txt
-  rotate: false
-  xy: 103, 25
-  size: 186, 60
-  orig: 186, 60
+  xy: 278, 63
+  size: 112, 84
+  orig: 112, 84
   offset: 0, 0
+  index: -1
+dua
+  rotate: false
+  xy: 278, 177
+  size: 86, 87
+  orig: 86, 87
+  offset: 0, 0
+  index: -1
+dua hau
+  rotate: true
+  xy: 237, 266
+  size: 104, 101
+  orig: 104, 101
+  offset: 0, 0
+  index: -1
+ef
+  rotate: false
+  xy: 278, 2
+  size: 66, 59
+  orig: 129, 65
+  offset: 55, 1
+  index: -1
+ef2
+  rotate: false
+  xy: 2, 9
+  size: 233, 159
+  orig: 238, 164
+  offset: 3, 3
+  index: -1
+light
+  rotate: false
+  xy: 340, 334
+  size: 23, 36
+  orig: 29, 46
+  offset: 3, 5
   index: -1

@@ -1,125 +1,111 @@
 
 skeleton.png
-size: 485,485
+size: 324,948
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 1l
-  rotate: true
-  xy: 380, 356
-  size: 127, 87
+  rotate: false
+  xy: 147, 203
+  size: 127, 130
   orig: 127, 130
-  offset: 0, 19
+  offset: 0, 0
   index: -1
 3light
-  rotate: false
-  xy: 200, 84
-  size: 97, 115
+  rotate: true
+  xy: 131, 5
+  size: 100, 116
   orig: 100, 116
-  offset: 1, 0
+  offset: 0, 0
   index: -1
 4light
-  rotate: true
-  xy: 249, 206
-  size: 142, 112
+  rotate: false
+  xy: 2, 190
+  size: 143, 143
   orig: 143, 143
-  offset: 1, 15
+  offset: 0, 0
   index: -1
 A bích
   rotate: true
-  xy: 299, 4
-  size: 88, 93
-  orig: 88, 93
+  xy: 147, 107
+  size: 94, 129
+  orig: 94, 129
   offset: 0, 0
   index: -1
 A bích copy
   rotate: false
-  xy: 363, 218
-  size: 120, 130
-  orig: 123, 132
-  offset: 1, 1
+  xy: 196, 335
+  size: 105, 134
+  orig: 105, 134
+  offset: 0, 0
   index: -1
 A bích copy 2
-  rotate: false
-  xy: 299, 94
-  size: 105, 110
-  orig: 105, 110
+  rotate: true
+  xy: 2, 96
+  size: 92, 128
+  orig: 92, 128
   offset: 0, 0
   index: -1
 A bích copy 3
-  rotate: false
-  xy: 249, 350
-  size: 129, 133
-  orig: 131, 135
-  offset: 1, 1
+  rotate: true
+  xy: 2, 2
+  size: 92, 125
+  orig: 92, 125
+  offset: 0, 0
   index: -1
 Layer 11
-  rotate: true
-  xy: 242, 51
-  size: 31, 42
+  rotate: false
+  xy: 249, 63
+  size: 32, 42
   orig: 32, 42
   offset: 0, 0
   index: -1
 Tongits
-  rotate: false
-  xy: 2, 18
-  size: 144, 82
-  orig: 145, 82
+  rotate: true
+  xy: 265, 471
+  size: 229, 57
+  orig: 229, 57
   offset: 0, 0
   index: -1
 bich
   rotate: false
-  xy: 406, 182
+  xy: 285, 27
   size: 30, 34
   orig: 30, 34
   offset: 0, 0
   index: -1
 co
   rotate: false
-  xy: 189, 14
+  xy: 249, 27
   size: 33, 34
   orig: 33, 34
   offset: 0, 0
   index: -1
-ewvs
-  rotate: false
-  xy: 189, 50
-  size: 51, 32
-  orig: 51, 32
-  offset: 0, 0
-  index: -1
-laup
-  rotate: true
-  xy: 148, 40
-  size: 60, 39
-  orig: 60, 39
-  offset: 0, 0
-  index: -1
 rec
   rotate: false
-  xy: 2, 102
-  size: 196, 381
-  orig: 201, 385
-  offset: 2, 4
+  xy: 2, 521
+  size: 261, 425
+  orig: 261, 425
+  offset: 0, 0
   index: -1
 ro
-  rotate: true
-  xy: 148, 11
+  rotate: false
+  xy: 285, 63
   size: 27, 39
   orig: 27, 39
   offset: 0, 0
   index: -1
-runLight
-  rotate: false
-  xy: 200, 201
-  size: 47, 282
-  orig: 47, 282
-  offset: 0, 0
-  index: -1
 tep
   rotate: false
-  xy: 406, 150
+  xy: 284, 104
   size: 28, 30
   orig: 28, 30
+  offset: 0, 0
+  index: -1
+vuongmien
+  rotate: false
+  xy: 2, 335
+  size: 192, 184
+  orig: 192, 184
   offset: 0, 0
   index: -1

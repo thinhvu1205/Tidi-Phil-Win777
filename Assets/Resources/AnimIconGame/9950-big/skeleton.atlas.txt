@@ -1,97 +1,41 @@
 
 skeleton.png
-size: 585,585
+size: 629,629
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-bg
+1l
   rotate: false
-  xy: 2, 206
-  size: 195, 377
-  orig: 195, 377
-  offset: 0, 0
+  xy: 213, 64
+  size: 127, 87
+  orig: 127, 130
+  offset: 0, 19
   index: -1
-bg2
-  rotate: true
-  xy: 199, 394
-  size: 189, 168
-  orig: 189, 168
-  offset: 0, 0
-  index: -1
-body
-  rotate: true
-  xy: 2, 10
-  size: 194, 257
-  orig: 194, 257
-  offset: 0, 0
-  index: -1
-eye_close_left
+iiii
   rotate: false
-  xy: 314, 301
-  size: 24, 18
-  orig: 24, 18
-  offset: 0, 0
+  xy: 367, 66
+  size: 211, 134
+  orig: 211, 139
+  offset: 0, 5
   index: -1
-eye_close_right
+mayslot
   rotate: false
-  xy: 199, 375
-  size: 17, 17
-  orig: 17, 17
-  offset: 0, 0
+  xy: 2, 153
+  size: 363, 474
+  orig: 365, 495
+  offset: 1, 21
   index: -1
-la_sau
-  rotate: true
-  xy: 350, 115
-  size: 114, 89
-  orig: 114, 97
-  offset: 0, 0
-  index: -1
-lâcy3
+rec
   rotate: false
-  xy: 310, 257
-  size: 34, 42
-  orig: 34, 42
+  xy: 367, 202
+  size: 260, 425
+  orig: 260, 425
   offset: 0, 0
   index: -1
-mai
+txt
   rotate: false
-  xy: 383, 395
-  size: 55, 101
-  orig: 55, 103
-  offset: 0, 2
-  index: -1
-musau
-  rotate: false
-  xy: 261, 3
-  size: 155, 79
-  orig: 155, 79
+  xy: 2, 61
+  size: 209, 90
+  orig: 209, 90
   offset: 0, 0
-  index: -1
-mutren
-  rotate: true
-  xy: 261, 84
-  size: 155, 87
-  orig: 155, 87
-  offset: 0, 0
-  index: -1
-text
-  rotate: true
-  xy: 350, 230
-  size: 162, 60
-  orig: 162, 60
-  offset: 0, 0
-  index: -1
-tocsau
-  rotate: false
-  xy: 199, 228
-  size: 126, 164
-  orig: 126, 165
-  offset: 0, 0
-  index: -1
-toctruoc
-  rotate: false
-  xy: 369, 423
-  size: 57, 161
-  orig: 63, 165
-  offset: 0, 1
   index: -1

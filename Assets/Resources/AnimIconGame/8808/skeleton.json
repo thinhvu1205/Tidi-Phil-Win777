@@ -1,18 +1,18 @@
 {
 "skeleton": {
-	"hash": "YNszsug3+AI+uhYz1pOGmxtB6fE",
+	"hash": "Tz9pCUYj7Zk1MOQJDTCQP5A3nOo",
 	"spine": "3.8.99",
 	"x": -122.78,
-	"y": -99.88,
+	"y": -100,
 	"width": 243.15,
-	"height": 197.37,
+	"height": 200,
 	"images": "./Image/",
 	"audio": ""
 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "CARRD", "parent": "root", "x": -20.92, "y": 15.77, "scaleX": 1.0682, "scaleY": 1.0682 },
-	{ "name": "10", "parent": "CARRD", "length": 67.32, "rotation": 117.55, "x": -8.37, "y": -27.14 },
+	{ "name": "10", "parent": "CARRD", "length": 67.32, "rotation": 117.55, "x": -23.38, "y": -40.06 },
 	{
 		"name": "1l4",
 		"parent": "root",
@@ -40,12 +40,11 @@
 		"scaleX": 0.7132,
 		"scaleY": 0.7132
 	},
-	{ "name": "a", "parent": "CARRD", "length": 83.41, "rotation": 69.99, "x": 4.02, "y": -43.14 },
+	{ "name": "a", "parent": "CARRD", "length": 83.41, "rotation": 69.99, "x": 55.7, "y": -32.32 },
 	{ "name": "aaaa", "parent": "root", "scaleX": 0.9, "scaleY": 0.9 },
-	{ "name": "j", "parent": "CARRD", "length": 80.41, "rotation": 101.16, "x": -6.72, "y": -20.17 },
-	{ "name": "k", "parent": "CARRD", "length": 83.41, "rotation": 77.09, "x": -0.49, "y": -23.79 },
-	{ "name": "q", "parent": "CARRD", "length": 85.6, "rotation": 92.34, "x": -2, "y": -22.64 },
-	{ "name": "o", "parent": "root", "x": -12.51, "y": -12.2 }
+	{ "name": "j", "parent": "CARRD", "length": 80.41, "rotation": 101.16, "x": -9.52, "y": -23.67 },
+	{ "name": "k", "parent": "CARRD", "length": 83.41, "rotation": 77.09, "x": 27.79, "y": -29.02 },
+	{ "name": "q", "parent": "CARRD", "length": 85.6, "rotation": 92.34, "x": 11.62, "y": -26.83 }
 ],
 "slots": [
 	{ "name": "rec", "bone": "root", "attachment": "rec" },
@@ -55,7 +54,6 @@
 	{ "name": "q", "bone": "q", "attachment": "qco" },
 	{ "name": "k", "bone": "k", "attachment": "kco" },
 	{ "name": "a3", "bone": "a", "attachment": "a" },
-	{ "name": "o", "bone": "o", "attachment": "o" },
 	{ "name": "txt", "bone": "root", "attachment": "txt" },
 	{ "name": "1l7", "bone": "1l7", "attachment": "1l", "blend": "additive" },
 	{ "name": "1l10", "bone": "1l10", "attachment": "1l", "blend": "additive" },
@@ -75,31 +73,28 @@
 				"1l": { "x": -0.37, "y": -0.42, "width": 127, "height": 130 }
 			},
 			"10": {
-				"10co": { "x": 37.71, "y": -17.25, "rotation": -117.55, "width": 66, "height": 71 }
+				"10co": { "x": 37.71, "y": -17.25, "rotation": -117.55, "width": 107, "height": 92 }
 			},
 			"a3": {
-				"a": { "x": 50.94, "y": -28.33, "rotation": -66.91, "width": 89, "height": 94 }
+				"a": { "x": 34.4, "y": 2.81, "rotation": -66.91, "width": 104, "height": 126 }
 			},
 			"aa": {
 				"aa": { "x": 2.03, "y": 0.15, "width": 211, "height": 139 }
 			},
 			"j": {
-				"jco": { "x": 39.31, "y": -18.34, "rotation": -101.16, "width": 58, "height": 79 }
+				"jco": { "x": 40.12, "y": -14.23, "rotation": -101.16, "width": 127, "height": 116 }
 			},
 			"k": {
-				"kco": { "x": 44.07, "y": -21.41, "rotation": -77.09, "width": 75, "height": 92 }
-			},
-			"o": {
-				"o": { "x": 3.1, "y": 12.69, "width": 77, "height": 82 }
+				"kco": { "x": 40.32, "y": -5.08, "rotation": -77.09, "width": 86, "height": 113 }
 			},
 			"q": {
-				"qco": { "x": 43.05, "y": -21.24, "rotation": -92.34, "width": 66, "height": 86 }
+				"qco": { "x": 43.35, "y": -13.91, "rotation": -92.34, "width": 115, "height": 113 }
 			},
 			"rec": {
-				"rec": { "width": 195, "height": 181 }
+				"rec": { "width": 233, "height": 200 }
 			},
 			"txt": {
-				"txt": { "x": -3.68, "y": -44.28, "width": 149, "height": 69 }
+				"txt": { "x": 0.8, "y": -53.98, "width": 196, "height": 66 }
 			}
 		}
 	}
@@ -254,18 +249,6 @@
 				"translate": [
 					{ "y": -38.93 },
 					{ "time": 1.7333, "y": 47.81 }
-				]
-			},
-			"o": {
-				"translate": [
-					{ "curve": 0.25, "c3": 0.75 },
-					{ "time": 1.3333, "y": 6.77, "curve": 0.25, "c3": 0.75 },
-					{ "time": 2.6667 }
-				],
-				"scale": [
-					{ "curve": 0.25, "c3": 0.75 },
-					{ "time": 1.3333, "x": 1.09, "y": 1.09, "curve": 0.25, "c3": 0.75 },
-					{ "time": 2.6667 }
 				]
 			}
 		}

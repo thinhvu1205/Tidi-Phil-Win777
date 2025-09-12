@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "3ZeJLzo47xpnTO1QIq5Qfx9MWaU",
+	"hash": "x0Q3/CCHMVz4Ot36bxaExBISTmo",
 	"spine": "3.8.99",
-	"x": -104.74,
-	"y": -90.5,
-	"width": 212.48,
-	"height": 181,
+	"x": -116.5,
+	"y": -100,
+	"width": 233,
+	"height": 200,
 	"images": "./Image/",
 	"audio": ""
 },
@@ -80,19 +80,19 @@
 				"1l": { "x": -0.37, "y": -0.42, "width": 127, "height": 130 }
 			},
 			"K": {
-				"K": { "x": 56.76, "y": 0.31, "rotation": -111.72, "width": 90, "height": 88 }
+				"K": { "x": 56.76, "y": 0.31, "rotation": -111.72, "width": 111, "height": 116 }
 			},
 			"be": {
-				"be": { "x": 36.75, "y": -1.66, "rotation": -133.67, "width": 71, "height": 70 }
+				"be": { "x": 36.75, "y": -1.66, "rotation": -133.67, "width": 89, "height": 93 }
 			},
 			"iiii": {
 				"iiii": { "x": -2.88, "y": 36.27, "rotation": 0.62, "width": 211, "height": 139 }
 			},
 			"rec": {
-				"rec": { "width": 195, "height": 181 }
+				"rec": { "width": 233, "height": 200 }
 			},
 			"txt": {
-				"txt": { "x": 0.32, "y": -43.61, "scaleX": 0.9418, "width": 187, "height": 60 }
+				"txt": { "x": 0.32, "y": -59.01, "scaleX": 0.9418, "width": 209, "height": 36 }
 			}
 		}
 	}

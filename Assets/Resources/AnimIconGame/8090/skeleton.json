@@ -1,21 +1,21 @@
 {
 "skeleton": {
-	"hash": "3pyHi7fEd5V5wkAi7J4pnDo6vQc",
+	"hash": "ZcUjABFN12vAbJjcCytV9eE95kk",
 	"spine": "3.8.99",
-	"x": -96.72,
-	"y": -91.37,
-	"width": 195,
-	"height": 181,
+	"x": -115.72,
+	"y": -100.87,
+	"width": 233,
+	"height": 200,
 	"images": "./images/",
 	"audio": "G:/game/phil/Pusoy Win/anim/icon_game/tongits"
 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "tong", "parent": "root", "x": -13.63, "y": -181.71 },
-	{ "name": "tongits", "parent": "tong", "x": -4.97, "y": 137.04 },
-	{ "name": "abich", "parent": "root", "length": 67.43, "rotation": 66.3, "x": -24.53, "y": -28.23 },
-	{ "name": "atep", "parent": "root", "length": 57.86, "rotation": 45.35, "x": 8.85, "y": -31.49 },
-	{ "name": "aco", "parent": "root", "length": 59.72, "rotation": 84.94, "x": -43.58, "y": -13.35 }
+	{ "name": "tongits", "parent": "tong", "x": -4.97, "y": 123.97 },
+	{ "name": "abich", "parent": "root", "length": 67.43, "rotation": 66.3, "x": -24.53, "y": -35.52 },
+	{ "name": "atep", "parent": "root", "length": 57.86, "rotation": 45.35, "x": 3.55, "y": -17.13 },
+	{ "name": "aco", "parent": "root", "length": 59.72, "rotation": 84.94, "x": -44.02, "y": -31.69 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "tong", "attachment": "bg" },
@@ -31,22 +31,22 @@
 		"name": "default",
 		"attachments": {
 			"abich": {
-				"abich": { "x": 49.4, "y": -6.48, "rotation": -66.3, "width": 102, "height": 113 }
+				"abich": { "x": 49.4, "y": -6.48, "rotation": -66.3, "width": 99, "height": 146 }
 			},
 			"aco": {
-				"aco": { "x": 37.98, "y": -5.99, "rotation": -84.94, "width": 53, "height": 81 }
+				"aco": { "x": 41.01, "y": -5.06, "rotation": -84.94, "width": 87, "height": 96 }
 			},
 			"atep": {
-				"atep": { "x": 39.11, "y": -0.11, "rotation": -45.35, "width": 74, "height": 75 }
+				"atep": { "x": 39.11, "y": -0.11, "rotation": -45.35, "width": 99, "height": 117 }
 			},
 			"bg": {
-				"bg": { "x": 14.41, "y": 180.85, "width": 195, "height": 181 }
+				"bg": { "x": 14.41, "y": 180.85, "width": 233, "height": 200 }
 			},
 			"butasan": {
-				"butasan": { "x": -57.12, "y": 53.57, "width": 74, "height": 71 }
+				"butasan": { "x": 75.92, "y": 60.2, "width": 76, "height": 76 }
 			},
 			"tongits": {
-				"tongits": { "x": 14.96, "y": -0.37, "width": 107, "height": 60 }
+				"tongits": { "x": 14.96, "y": -0.37, "width": 142, "height": 37 }
 			}
 		}
 	}

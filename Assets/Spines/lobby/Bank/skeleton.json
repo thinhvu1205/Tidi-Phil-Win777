@@ -1,0 +1,56 @@
+{
+"skeleton": {
+	"hash": "LiKGS5ahbTTONJ3inAdbd7mjVfs",
+	"spine": "3.8.99",
+	"x": -59.51,
+	"y": -4.97,
+	"width": 113.88,
+	"height": 97.99,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root", "x": 11.72, "y": -50.77 },
+	{ "name": "gift", "parent": "bone", "x": -34.12, "y": 85.84 },
+	{ "name": "ef", "parent": "root", "x": -3.09, "y": 49.86, "scaleX": 0.8828, "scaleY": 0.8828 }
+],
+"slots": [
+	{ "name": "ef", "bone": "ef", "attachment": "ef" },
+	{ "name": "gift", "bone": "gift", "attachment": "gift" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"ef": {
+				"ef": { "x": 0.59, "y": -6.61, "width": 129, "height": 111 }
+			},
+			"gift": {
+				"gift": { "x": 14.76, "y": 10.22, "width": 75, "height": 62 }
+			}
+		}
+	}
+],
+"animations": {
+	"normal": {
+		"bones": {
+			"ef": {
+				"rotate": [
+					{},
+					{ "time": 3.6667, "angle": 180 },
+					{ "time": 7.3667 }
+				]
+			},
+			"gift": {
+				"translate": [
+					{ "y": 2.22, "curve": 0.363, "c2": 0.44, "c3": 0.755 },
+					{ "time": 0.2, "y": 4.39, "curve": 0.354, "c2": 0.4, "c3": 0.734, "c4": 0.9 },
+					{ "time": 0.5, "y": 0.91, "curve": 0.351, "c2": 0.65, "c3": 0.685 },
+					{ "time": 0.6667, "y": 2.22 }
+				]
+			}
+		}
+	}
+}
+}

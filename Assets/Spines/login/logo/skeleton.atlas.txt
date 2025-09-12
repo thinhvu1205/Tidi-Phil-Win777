@@ -1,62 +1,69 @@
 
 skeleton.png
-size: 796,400
+size: 572,572
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-1l
+Group 4
   rotate: false
-  xy: 582, 24
-  size: 127, 87
-  orig: 127, 130
-  offset: 0, 19
+  xy: 2, 68
+  size: 357, 217
+  orig: 364, 225
+  offset: 4, 4
   index: -1
-3light
+Tongits
   rotate: true
-  xy: 698, 113
-  size: 97, 96
-  orig: 98, 100
-  offset: 1, 3
+  xy: 444, 203
+  size: 367, 100
+  orig: 368, 100
+  offset: 0, 0
   index: -1
-crow
-  rotate: true
-  xy: 504, 113
-  size: 282, 192
-  orig: 282, 193
+bigwinn
+  rotate: false
+  xy: 2, 2
+  size: 115, 64
+  orig: 116, 65
   offset: 0, 1
   index: -1
-light ngang
+cham
   rotate: false
-  xy: 2, 7
-  size: 225, 41
-  orig: 225, 46
-  offset: 0, 3
+  xy: 2, 287
+  size: 440, 283
+  orig: 443, 286
+  offset: 1, 2
   index: -1
-rec
-  rotate: false
-  xy: 353, 59
-  size: 227, 52
-  orig: 227, 52
-  offset: 0, 0
+light tron
+  rotate: true
+  xy: 119, 4
+  size: 62, 98
+  orig: 72, 112
+  offset: 5, 7
   index: -1
-text
+star1
   rotate: false
-  xy: 2, 50
-  size: 349, 85
-  orig: 349, 85
-  offset: 0, 0
+  xy: 361, 213
+  size: 34, 34
+  orig: 35, 36
+  offset: 0, 1
   index: -1
-text_1
+star2
   rotate: false
-  xy: 353, 2
-  size: 179, 55
-  orig: 179, 55
-  offset: 0, 0
+  xy: 361, 249
+  size: 37, 36
+  orig: 37, 38
+  offset: 0, 1
   index: -1
-www
+star3
   rotate: false
-  xy: 2, 137
-  size: 500, 258
-  orig: 500, 258
-  offset: 0, 0
+  xy: 219, 30
+  size: 37, 36
+  orig: 38, 36
+  offset: 1, 0
+  index: -1
+xoay
+  rotate: false
+  xy: 361, 53
+  size: 148, 148
+  orig: 152, 152
+  offset: 2, 2
   index: -1

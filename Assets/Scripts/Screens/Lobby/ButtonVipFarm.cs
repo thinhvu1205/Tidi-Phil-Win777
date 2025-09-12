@@ -12,7 +12,7 @@ public class ButtonVipFarm : MonoBehaviour
     [SerializeField] private List<Sprite> listFG = new List<Sprite>();
     [SerializeField] private TextMeshProUGUI txtPercentVipFarm;
     [SerializeField] private Image imgFG;
-    [SerializeField] private SkeletonGraphic animBar, animScore;
+    [SerializeField] private SkeletonGraphic animBar;
     private float _farmPercent;
 
     #region Button
@@ -26,17 +26,14 @@ public class ButtonVipFarm : MonoBehaviour
     {
         _farmPercent = farmPercent;
         txtPercentVipFarm.text = farmPercent + "%";
-
-        animBar.AnimationState.SetAnimation(0, "bar_run", true);
-        animScore.AnimationState.SetAnimation(0, farmPercent >= 100f ? "box_fullscore" : "box_normal", true);
-        imgFG.sprite = listFG[farmPercent >= 100f ? 1 : 0];
-        //imgFG.fillAmount = farmPercent;
-        imgFG.DOFillAmount(farmPercent / 100, 0.3f);
-
-        var pos = animBar.transform.localPosition;
-        var sizeW = imgFG.rectTransform.rect.width;
-        pos.x = farmPercent / 100 * sizeW - sizeW / 2;
-        animBar.transform.localPosition = pos;
+        bool isFull = _farmPercent >= 100;
+        animBar.gameObject.SetActive(isFull);
+        imgFG.gameObject.SetActive(!isFull);
+        if (!isFull)
+        {
+            imgFG.sprite = listFG[farmPercent >= 100f ? 1 : 0];
+            imgFG.DOFillAmount(farmPercent / 100, 0.3f);
+        }
     }
     public float GetFarmPercent()
     {

@@ -15,9 +15,9 @@ public class LobbyView : BaseView
     [SerializeField] List<Button> listTabs = new();
     [SerializeField]
     GameObject objDot, btnEx, btnChatLobby, gameItemObject, modelLobby, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
-        icNotiMail, icNotiFree, icNotiMessage, bannerTemp, btnBannerNews, m_Lottery;
+        icNotiMail, icNotiFree, bannerTemp, btnBannerNews, m_Lottery;
     [SerializeField] RectTransform tfBot, CenterNode;
-    [SerializeField] TextMeshProUGUI lb_name, lb_id, lb_ag, lb_safe, lbTimeOnline, lbQuickGame;
+    [SerializeField] TextMeshProUGUI lb_name, lb_id, lb_ag, lb_safe, lbQuickGame;
     [SerializeField] Transform m_MiniGameIconTf, m_OnlySloticonTf;
     [SerializeField] Button m_NextBtn, m_PrevBtn;
     [SerializeField] SkeletonGraphic animQuickPlay;
@@ -67,7 +67,6 @@ public class LobbyView : BaseView
         lbQuickGame.gameObject.SetActive(true);
         lbQuickGame.text = Config.getTextConfig(gameID.ToString()).ToUpper();
         animQuickPlay.Initialize(true);
-        animQuickPlay.AnimationState.SetAnimation(0, "coTag", true);
     }
 
     List<GAMEID> listSlot = new List<GAMEID>() { GAMEID.SLOT_SIXIANG, GAMEID.SLOTTARZAN, GAMEID.SLOT20FRUIT, GAMEID.SLOT_JUICY_GARDEN, GAMEID.SLOT_INCA, GAMEID.SLOTNOEL, GAMEID.SLOT_SIXIANG };
@@ -666,14 +665,15 @@ public class LobbyView : BaseView
 
     public void setTimeGetMoney()
     {
+        return;
         if (Promotion.time <= 0)
         {
-            lbTimeOnline.text = Config.getTextConfig("click_to_spin");
+            // lbTimeOnline.text = Config.getTextConfig("click_to_spin");
             SocketSend.sendPromotion();
         }
         else
         {
-            lbTimeOnline.text = Config.convertTimeToString(Promotion.time);
+            // lbTimeOnline.text = Config.convertTimeToString(Promotion.time);
             Promotion.time--;
             DOTween.Sequence().AppendInterval(1).AppendCallback(() =>
             {
@@ -684,7 +684,7 @@ public class LobbyView : BaseView
     public void updateMailandMessageNoti()
     {
         icNotiMail.SetActive(User.userMain.mailUnRead > 0);
-        icNotiMessage.SetActive(User.userMain.messageUnRead > 0);
+        // icNotiMessage.SetActive(User.userMain.messageUnRead > 0);
         icNotiFree.SetActive(User.userMain.nmAg > 0 || Promotion.countMailAg > 0);
     }
     public void UpdateJackpotPusoy()
@@ -695,7 +695,7 @@ public class LobbyView : BaseView
     }
     public void setNotiMessage(bool state)
     {
-        icNotiMessage.gameObject.SetActive(state);
+        // icNotiMessage.gameObject.SetActive(state);
     }
 
     public void refreshUIFromConfig(bool isStart = false)

@@ -1,55 +1,62 @@
 
 skeleton.png
-size: 200,1116
+size: 553,553
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-a
-  rotate: true
-  xy: 2, 503
-  size: 231, 167
-  orig: 231, 167
+Fruit
+  rotate: false
+  xy: 2, 35
+  size: 178, 89
+  orig: 178, 89
   offset: 0, 0
   index: -1
 bg
   rotate: false
-  xy: 2, 736
-  size: 195, 377
-  orig: 195, 377
+  xy: 2, 126
+  size: 260, 425
+  orig: 261, 425
   offset: 0, 0
   index: -1
-dau tay
+diamond
   rotate: true
-  xy: 2, 242
-  size: 118, 163
-  orig: 121, 164
-  offset: 1, 1
+  xy: 425, 383
+  size: 168, 126
+  orig: 168, 127
+  offset: 0, 1
   index: -1
 dua
   rotate: true
-  xy: 2, 142
-  size: 98, 144
-  orig: 101, 145
-  offset: 1, 1
+  xy: 264, 175
+  size: 141, 144
+  orig: 142, 144
+  offset: 0, 0
   index: -1
 dua hau
-  rotate: true
-  xy: 2, 362
-  size: 139, 196
-  orig: 143, 198
-  offset: 1, 1
-  index: -1
-mang cut
-  rotate: true
-  xy: 2, 2
-  size: 76, 105
-  orig: 78, 106
-  offset: 1, 1
-  index: -1
-txt2
   rotate: false
-  xy: 2, 80
-  size: 186, 60
-  orig: 186, 60
+  xy: 288, 34
+  size: 143, 139
+  orig: 143, 139
   offset: 0, 0
+  index: -1
+ef
+  rotate: false
+  xy: 182, 65
+  size: 66, 59
+  orig: 129, 65
+  offset: 55, 1
+  index: -1
+ef2
+  rotate: true
+  xy: 264, 318
+  size: 233, 159
+  orig: 238, 164
+  offset: 3, 3
+  index: -1
+light
+  rotate: true
+  xy: 250, 101
+  size: 23, 36
+  orig: 29, 46
+  offset: 3, 5
   index: -1

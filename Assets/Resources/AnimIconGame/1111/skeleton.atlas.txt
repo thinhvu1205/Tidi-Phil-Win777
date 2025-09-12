@@ -1,47 +1,47 @@
 
 skeleton.png
-size: 508,508
+size: 368,316
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 1l
-  rotate: true
-  xy: 199, 327
-  size: 68, 70
+  rotate: false
+  xy: 237, 183
+  size: 127, 130
   orig: 127, 130
-  offset: 28, 29
+  offset: 0, 0
   index: -1
 bg
   rotate: false
-  xy: 2, 325
-  size: 195, 181
-  orig: 195, 181
+  xy: 2, 113
+  size: 233, 200
+  orig: 233, 200
   offset: 0, 0
   index: -1
 icon1
   rotate: false
-  xy: 199, 397
+  xy: 2, 2
   size: 140, 109
   orig: 140, 109
   offset: 0, 0
   index: -1
 icon2
   rotate: false
-  xy: 341, 321
+  xy: 237, 53
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 text
   rotate: false
-  xy: 341, 451
-  size: 129, 55
-  orig: 129, 56
+  xy: 144, 14
+  size: 165, 37
+  orig: 165, 37
   offset: 0, 0
   index: -1
 tru
-  rotate: true
-  xy: 472, 488
+  rotate: false
+  xy: 144, 77
   size: 18, 34
   orig: 18, 34
   offset: 0, 0
