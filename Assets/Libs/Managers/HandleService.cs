@@ -1068,7 +1068,7 @@ public class HandleService
                     break;
                 case "sendChatWorld":
                     Debug.Log("sendChatWorld: " + jsonData.ToString());
-                    if (!Config.is_show_chat || Globals.User.userMain.VIP < 2)
+                    if (!Config.is_show_chat /*|| Globals.User.userMain.VIP < 2*/)
                     {
                         return;
                     }
@@ -1087,7 +1087,7 @@ public class HandleService
 
                 case "getChatWorld":
                     {
-                        if (!Config.is_show_chat || Globals.User.userMain.VIP < 2)
+                        if (!Config.is_show_chat /*|| Globals.User.userMain.VIP < 2*/)
                         {
                             return;
                         }

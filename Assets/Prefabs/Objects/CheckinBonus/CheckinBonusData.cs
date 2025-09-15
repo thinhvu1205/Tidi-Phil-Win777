@@ -89,14 +89,19 @@ public class CheckinBonusData
     // Lấy thời gian chờ lần kế tiếp
     public string GetNextWaitingTimeString()
     {
-        if (OnlinePolicy?.timeWaiting == null) return "00:00:00";
-        if (OC < OnlinePolicy.timeWaiting.Count)
+        if (OnlinePolicy?.timeWaiting == null || OnlinePolicy.timeWaiting.Count == 0)
+            return "00:00:00";
+
+        int nextIndex = OC + 1;
+        if (nextIndex < OnlinePolicy.timeWaiting.Count)
         {
-            int minutes = OnlinePolicy.timeWaiting[OC + 1];
+            int minutes = OnlinePolicy.timeWaiting[nextIndex];
             TimeSpan t = TimeSpan.FromMinutes(minutes);
             return t.ToString(@"hh\:mm\:ss");
         }
+
         return "00:00:00";
     }
+
 
 }

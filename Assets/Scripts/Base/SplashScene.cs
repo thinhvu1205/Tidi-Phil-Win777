@@ -11,6 +11,7 @@ public class SplashScene : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
+        // SceneManager.LoadScene("MainScene");
         // "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
         // https://storage.googleapis.com/tongitswar/AssetBundles;
         string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "");
@@ -33,7 +34,7 @@ public class SplashScene : MonoBehaviour
             m_BundleBD.CheckAndDownloadAssets(BundleHandler.MAIN.BundleUrl, 0,
                 () =>
                 {
-                    m_BundleBD.SetProgressText("Fail to get assets!");
+                    StartCoroutine(retry());
                 },
                 () =>
                 {

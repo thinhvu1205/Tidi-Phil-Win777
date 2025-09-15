@@ -1,7 +1,14 @@
 fileFormatVersion: 2
-guid: 8d1e3e18e18c54a8ca0437f4f46e307a
+guid: dbe1f855295914d67b1625b1647c3f1b
 TextScriptImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193316
+  packageName: OneSignal SDK
+  packageVersion: 5.1.14
+  assetPath: Assets/OneSignal/link.xml
+  uploadId: 785824

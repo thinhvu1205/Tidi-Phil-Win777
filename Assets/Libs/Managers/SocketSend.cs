@@ -303,7 +303,9 @@ public class SocketSend
                 //Debug.Log("listGame=" + itemGa.ToString());
                 if (gameId == (int)itemGa["id"])
                 {
+                    //TODO: sua ServerIp
                     severIp = (string)itemGa["ip_dm"];
+                    // severIp = "test.app.1707casino.com";
                     break;
                 }
             }

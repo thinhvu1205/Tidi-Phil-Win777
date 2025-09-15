@@ -5,6 +5,7 @@ using Spine.Unity;
 using System.Linq;
 using System;
 using DG.Tweening;
+using System.Collections;
 
 public class ItemChatInGame : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class ItemChatInGame : MonoBehaviour
 
     [SerializeField]
     SkeletonGraphic anim;
+    [SerializeField] GameObject m_Speaker;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,48 @@ public class ItemChatInGame : MonoBehaviour
     {
 
     }
+    public void setSpeak(PlayerView playerView)
+    {
+        StartCoroutine(SpeakRoutine(playerView));
+    }
+
+    private IEnumerator SpeakRoutine(PlayerView playerView)
+    {
+        // Ẩn các phần không cần
+        bkg.gameObject.SetActive(false);
+        txtMsg.gameObject.SetActive(false);
+        anim.gameObject.SetActive(false);
+
+        // Lấy thông tin vị trí nhân vật
+        var pos = playerView.transform.localPosition;
+        var sizePl = playerView.GetComponent<RectTransform>().sizeDelta.x;
+        var scale = playerView.transform.localScale;
+        float bubbleWidth = 50f;
+        Vector3 finalPos = pos;
+        finalPos.x += sizePl * 0.5f * scale.x + bubbleWidth * 0.5f + 10 + (pos.x < 0 ? 0 : -170);
+        finalPos.y += 50;
+        m_Speaker.transform.localPosition = finalPos;
+        float scaleFactor = 0.5f;
+        m_Speaker.transform.localScale = new Vector3((pos.x < 0 ? 1 : -1) * scaleFactor, scaleFactor, 1);
+        m_Speaker.SetActive(true);
+        m_Speaker.transform.DOShakePosition(
+            duration: 2f,
+            strength: new Vector3(5, 5, 0),
+            vibrato: 10,
+            randomness: 90f,
+            snapping: false,
+            fadeOut: true
+        );
+        yield return new WaitForSeconds(2f);
+        m_Speaker.SetActive(false);
+        DOVirtual.DelayedCall(0.1f, () =>
+        {
+            Destroy(gameObject);
+        });
+    }
+
+
+
 
     public void setMsg(string msg, string type, PlayerView playerView)
     {
