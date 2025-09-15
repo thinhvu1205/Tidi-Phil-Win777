@@ -91,7 +91,7 @@ public class LobbyView : BaseView
                 }
             }
             TabGame = indexTab;
-            _ChangeTabGameProversion(true);
+            _ChangeTabGame(true);
             blockSpamTabGame = true;
             DOTween.Kill("blockSpamTabGame");
             DOTween.Sequence().AppendInterval(1.0f).AppendCallback(() =>
@@ -146,7 +146,7 @@ public class LobbyView : BaseView
     {
         StartCoroutine(CreateChatLobby(vip, name, content));
     }
-    private void _ChangeTabGameProversion(bool resetPos = false)
+    private void _ChangeTabGame(bool resetPos = false)
     {
         ContentSizeFitter gameTabsCSF = m_GamesSR.content.GetComponent<ContentSizeFitter>();
         gameTabsCSF.enabled = true;
@@ -529,7 +529,7 @@ public class LobbyView : BaseView
             bigSlotIconIG.gameObject.SetActive(true);
             bigSlotIconIG.setInfo(ig.GameId, bigSlotGameSDA, materialDefault, () => onClickGame(bigSlotIconIG), false);
         }
-        _ChangeTabGameProversion();
+        _ChangeTabGame();
     }
     private IEnumerator _GetJackpotPusoy()
     {
