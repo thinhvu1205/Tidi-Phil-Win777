@@ -227,12 +227,12 @@ public class LobbyView : BaseView
     }
     private void _SetPosWhenBannerActive()
     {
-        RectTransform gamesRT = m_GamesSR.GetComponent<RectTransform>();
-        if (m_BannersPS.gameObject.activeSelf)
-        {
-            gamesRT.offsetMin = new Vector2(370, gamesRT.offsetMin.y);
-            gamesRT.offsetMax = new Vector2(-70, gamesRT.offsetMax.y);
-        }
+        // RectTransform gamesRT = m_GamesSR.GetComponent<RectTransform>();
+        // if (m_BannersPS.gameObject.activeSelf)
+        // {
+        //     gamesRT.offsetMin = new Vector2(370, gamesRT.offsetMin.y);
+        //     gamesRT.offsetMax = new Vector2(-70, gamesRT.offsetMax.y);
+        // }
     }
 
     //Sequence seqLoopBanner;
@@ -510,7 +510,7 @@ public class LobbyView : BaseView
             }
             item.name = gameId.ToString();
             item.transform.localScale = Vector3.one;
-            item.transform.position = Vector3.zero;
+            item.transform.localPosition = Vector3.zero;
             item.gameObject.SetActive(true);
             item.setInfo(gameId, skeAsset, materialDefault, () => onClickGame(item), true);
             if (gameId == (int)GAMEID.PUSOY && UIManager.instance.PusoyJackPot > 0) item.UpdateJackpot(UIManager.instance.PusoyJackPot);
@@ -525,7 +525,7 @@ public class LobbyView : BaseView
 
             bigSlotIconIG.name = ig.GameId.ToString();
             bigSlotIconIG.transform.localScale = Vector3.one;
-            bigSlotIconIG.transform.position = Vector3.zero;
+            bigSlotIconIG.transform.localPosition = Vector3.zero;
             bigSlotIconIG.gameObject.SetActive(true);
             bigSlotIconIG.setInfo(ig.GameId, bigSlotGameSDA, materialDefault, () => onClickGame(bigSlotIconIG), false);
         }

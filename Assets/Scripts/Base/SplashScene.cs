@@ -7,7 +7,6 @@ public class SplashScene : MonoBehaviour
 {
     //https://console.cloud.google.com/storage/browser/tongitswar;tab=objects?inv=1&invt=Abzosg&project=philippines-253209&prefix=&forceOnObjectsSortingFiltering=false
     [SerializeField] private BundleDownloader m_BundleBD;
-
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -15,10 +14,12 @@ public class SplashScene : MonoBehaviour
         // https://storage.googleapis.com/tongitswar/AssetBundles;
         string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "");
         // storedUrl = "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
+
+        SceneManager.LoadScene("MainScene");
+        return;
         m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,
             () =>
             {
-                m_BundleBD.SetProgressText("Retrying ...");
                 StartCoroutine(retry());
             },
             () =>
@@ -33,6 +34,7 @@ public class SplashScene : MonoBehaviour
             m_BundleBD.CheckAndDownloadAssets(BundleHandler.MAIN.BundleUrl, 0,
                 () =>
                 {
+                    m_BundleBD.SetProgressText("Retrying ...");
                     StartCoroutine(retry());
                 },
                 () =>
