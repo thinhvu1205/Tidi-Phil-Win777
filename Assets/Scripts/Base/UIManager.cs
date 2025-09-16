@@ -167,7 +167,6 @@ public class UIManager : MonoBehaviour
     {
         lobbyView.hide(false);
         videoPlayer.Prepare();
-        OneSignal.Default.Initialize("def6e8d4-8348-439e-8294-760cb99e4864");
 #if UNITY_ANDROID
         //if (Permission.HasUserAuthorizedPermission(Permission.))
         //{

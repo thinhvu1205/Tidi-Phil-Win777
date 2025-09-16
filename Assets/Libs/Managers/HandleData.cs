@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Globals;
 using System.Linq;
+using OneSignalSDK;
 
 public class HandleData
 {
@@ -155,7 +156,7 @@ public class HandleData
             if (Config.typeLogin == LOGIN_TYPE.NORMAL) Config.saveLoginAccount();
             //Logging.Log("emit update info o day nua");
             SocketIOManager.getInstance().emitUpdateInfo();
-            Dictionary<string, object> tags = new Dictionary<string, object>();
+            Dictionary<string, string> tags = new Dictionary<string, string>();
             if (UIManager.instance.gameView == null) UIManager.instance.showLobbyScreen(true);
             new Thread(new ThreadStart(() =>
             {
@@ -200,7 +201,7 @@ public class HandleData
             tags.Add("blq7", User.userMain.BLQ7.ToString());
             tags.Add("avg7", User.userMain.AVG7.ToString());
             tags.Add("group", User.userMain.Group.ToString());
-            OneSignalSDK.OneSignal.Default.SendTags(tags);
+            OneSignal.User.AddTags(tags);
         }
         else
         {

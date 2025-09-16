@@ -34,6 +34,7 @@ public class CheckinBonus : MonoBehaviour
     {
 
         popupCheckinBonus.transform.localScale = originalScale;
+        int index = CheckInBonusModel.Promotion.CurrentWeekly.OD - 1;
         for (int i = 0; i < listDayWeekly.Count; i++)
         {
             listDayWeekly[i].IdDay = i;
@@ -43,9 +44,9 @@ public class CheckinBonus : MonoBehaviour
             listDayWeekly[i].imageCoin.SetNativeSize();
             if (CheckInBonusModel.Promotion.CurrentWeekly.OD < 15)
             {
-                int index = CheckInBonusModel.Promotion.CurrentWeekly.OD - 1;
                 if (i < index)
                 {
+                    listDayWeekly[i].textButtonReceive.text = $"Received";
                     listDayWeekly[i].imageFrame.sprite = spriteBoxGray;
                     listDayWeekly[i].imageFrame.SetNativeSize();
                     listDayWeekly[i].imageTick.gameObject.SetActive(true);
@@ -65,10 +66,12 @@ public class CheckinBonus : MonoBehaviour
                     {
                         listDayWeekly[i].imageFrame.sprite = spriteBoxYellowDay7;
                     }
+                    listDayWeekly[i].textButtonReceive.text = $"Receive";
                     listDayWeekly[i].imageFrame.SetNativeSize();
                     listDayWeekly[i].imageTick.gameObject.SetActive(false);
                     listDayWeekly[i].buttonReceive.interactable = true;
                     listDayWeekly[i].buttonReceive.image.sprite = spriteButtonReceiveGreen;
+                    listDayWeekly[i].buttonReceive.gameObject.SetActive(true);
                     listDayWeekly[i].buttonReceive.image.SetNativeSize();
                     listDayWeekly[i].imageCoin.sprite = listSpriteCurrentChipBonus[i];
                     listDayWeekly[i].textChipBonus.color = Color.yellow;
@@ -122,11 +125,13 @@ public class CheckinBonus : MonoBehaviour
             {
                 if (i < CheckInBonusModel.Promotion.CurrentWeekly.OD - 15)
                 {
+                    listDayWeekly[i].textButtonReceive.text = $"Received";
                     listDayWeekly[i].imageFrame.sprite = spriteBoxGray;
                     listDayWeekly[i].imageFrame.SetNativeSize();
                     listDayWeekly[i].imageTick.gameObject.SetActive(true);
                     listDayWeekly[i].buttonReceive.interactable = false;
                     listDayWeekly[i].buttonReceive.image.sprite = spriteButtonReceiveGray;
+                    listDayWeekly[i].buttonReceive.gameObject.SetActive(true);
                     listDayWeekly[i].buttonReceive.image.SetNativeSize();
                     listDayWeekly[i].imageCoin.sprite = listSpriteChipBonusGray[i];
                     listDayWeekly[i].textChipBonus.color = Color.white;
@@ -145,7 +150,7 @@ public class CheckinBonus : MonoBehaviour
                     listDayWeekly[i].imageCoin.sprite = listSpriteCurrentChipBonus[i];
                     listDayWeekly[i].textChipBonus.color = Color.yellow;
                     listDayWeekly[i].textChipBonus.text = $"{CheckInBonusModel.Promotion.CurrentWeekly.listDP[i]} <sprite name=chipYellow>";
-                    listDayWeekly[i].buttonReceive.image.gameObject.SetActive(true);
+                    listDayWeekly[i].buttonReceive.gameObject.SetActive(true);
                     listDayWeekly[i].textButtonReceive.text = $"Next Day";
                     listDayWeekly[i].imageBoxChip.sprite = spriteBoxChipRed;
                     listDayWeekly[i].imageBoxChip.SetNativeSize();
@@ -160,7 +165,7 @@ public class CheckinBonus : MonoBehaviour
                     listDayWeekly[i].imageFrame.SetNativeSize();
                     listDayWeekly[i].imageTick.gameObject.SetActive(false);
                     listDayWeekly[i].buttonReceive.interactable = false;
-                    listDayWeekly[i].buttonReceive.image.gameObject.SetActive(false);
+                    listDayWeekly[i].buttonReceive.gameObject.SetActive(false);
                     listDayWeekly[i].buttonReceive.image.SetNativeSize();
                     listDayWeekly[i].imageCoin.sprite = listSpriteCurrentChipBonus[i];
                     listDayWeekly[i].textChipBonus.color = Color.yellow;
@@ -170,18 +175,18 @@ public class CheckinBonus : MonoBehaviour
                 }
                 if (CheckInBonusModel.Promotion.CurrentWeekly.OD - 15 == 7)
                 {
-                    int index = 6;
-                    listDayWeekly[index].imageFrame.sprite = spriteBoxGrayDay7;
-                    listDayWeekly[index].imageFrame.SetNativeSize();
-                    listDayWeekly[index].imageTick.gameObject.SetActive(true);
-                    listDayWeekly[index].buttonReceive.interactable = false;
-                    listDayWeekly[index].buttonReceive.image.sprite = spriteButtonReceiveGray;
-                    listDayWeekly[index].buttonReceive.image.SetNativeSize();
-                    listDayWeekly[index].imageCoin.sprite = listSpriteChipBonusGray[index];
-                    listDayWeekly[index].textChipBonus.color = Color.white;
-                    listDayWeekly[index].textChipBonus.text = $"{CheckInBonusModel.Promotion.CurrentWeekly.listDP[index]} <sprite name=chipGray>";
-                    listDayWeekly[index].imageBoxChip.sprite = spriteBoxChipGray;
-                    listDayWeekly[index].imageBoxChip.SetNativeSize();
+                    int indexSpecial = 6;
+                    listDayWeekly[indexSpecial].imageFrame.sprite = spriteBoxGrayDay7;
+                    listDayWeekly[indexSpecial].imageFrame.SetNativeSize();
+                    listDayWeekly[indexSpecial].imageTick.gameObject.SetActive(true);
+                    listDayWeekly[indexSpecial].buttonReceive.interactable = false;
+                    listDayWeekly[indexSpecial].buttonReceive.image.sprite = spriteButtonReceiveGray;
+                    listDayWeekly[indexSpecial].buttonReceive.image.SetNativeSize();
+                    listDayWeekly[indexSpecial].imageCoin.sprite = listSpriteChipBonusGray[indexSpecial];
+                    listDayWeekly[indexSpecial].textChipBonus.color = Color.white;
+                    listDayWeekly[indexSpecial].textChipBonus.text = $"{CheckInBonusModel.Promotion.CurrentWeekly.listDP[indexSpecial]} <sprite name=chipGray>";
+                    listDayWeekly[indexSpecial].imageBoxChip.sprite = spriteBoxChipGray;
+                    listDayWeekly[indexSpecial].imageBoxChip.SetNativeSize();
                 }
             }
         }
@@ -212,14 +217,28 @@ public class CheckinBonus : MonoBehaviour
         textCurrentChipBonusDaily.text = $"{chipBonus} <sprite index=0>";
         for (int i = 0; i < listTextChipBonusDaily.Count; i++)
         {
-            listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] / 1000}k <sprite index=0>";
+            if (CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] <= 1000)
+            {
+                listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i]} <sprite index=0>";
+            }
+            else
+            {
+                listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] / 1000}k <sprite index=0>";
+            }
             if (i < CheckInBonusModel.Promotion.CurrentDaily.OC)
             {
                 listImageFrameTime[i].gameObject.SetActive(false);
                 listTextTimeCountDown[i].gameObject.SetActive(false);
                 listAnimGiftDaily[i].AnimationState.SetAnimation(0, "received", true);
                 listTextChipBonusDaily[i].color = Color.white;
-                listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] / 1000}k <sprite name=chipGraySmall>";
+                if (CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] <= 1000)
+                {
+                    listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i]} <sprite name=chipGraySmall>";
+                }
+                else
+                {
+                    listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] / 1000}k <sprite name=chipGraySmall>";
+                }
             }
             else if (i == CheckInBonusModel.Promotion.CurrentDaily.OC)
             {
@@ -234,7 +253,14 @@ public class CheckinBonus : MonoBehaviour
                     StartCoroutine(CountDownTextTime(i));
                     listAnimGiftDaily[i].AnimationState.SetAnimation(0, "not_receive", true);
                     listTextChipBonusDaily[i].color = Color.yellow;
-                    listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] / 1000}k <sprite name=chipYellowSmall>";
+                    if (CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] <= 1000)
+                    {
+                        listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i]} <sprite name=chipYellowSmall>";
+                    }
+                    else
+                    {
+                        listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] / 1000}k <sprite name=chipYellowSmall>";
+                    }
                     buttonReceiveDaily.interactable = false;
                     imageBoxChip.sprite = spriteBoxChipRed;
                     imageBoxChip.SetNativeSize();
@@ -248,16 +274,23 @@ public class CheckinBonus : MonoBehaviour
             else
             {
                 listTextChipBonusDaily[i].color = Color.yellow;
-                listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] / 1000}k <sprite name=chipYellowSmall>";
+                if (CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] <= 1000)
+                {
+                    listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i]} <sprite name=chipYellowSmall>";
+                }
+                else
+                {
+                    listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] / 1000}k <sprite name=chipYellowSmall>";
+                }
                 listImageFrameTime[i].gameObject.SetActive(false);
                 listTextTimeCountDown[i].gameObject.SetActive(false);
                 listAnimGiftDaily[i].AnimationState.SetAnimation(0, "not_receive", true);
-                if (/*CheckInBonusModel.Promotion.CurrentDaily.T == 0 &&*/ i == CheckInBonusModel.Promotion.CurrentDaily.OC + 1)
-                {
-                    listImageFrameTime[i].gameObject.SetActive(true);
-                    listTextTimeCountDown[i].gameObject.SetActive(true);
-                    listTextTimeCountDown[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.GetNextWaitingTimeString()}";
-                }
+                // if (/*CheckInBonusModel.Promotion.CurrentDaily.T == 0 &&*/ i == CheckInBonusModel.Promotion.CurrentDaily.OC + 1)
+                // {
+                //     listImageFrameTime[i].gameObject.SetActive(true);
+                //     listTextTimeCountDown[i].gameObject.SetActive(true);
+                //     listTextTimeCountDown[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.GetNextWaitingTimeString()}";
+                // }
             }
         }
     }
@@ -267,7 +300,14 @@ public class CheckinBonus : MonoBehaviour
         listTextTimeCountDown[i].gameObject.SetActive(false);
         listAnimGiftDaily[i].AnimationState.SetAnimation(0, "receive", true);
         listTextChipBonusDaily[i].color = Color.yellow;
-        listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] / 1000}k <sprite name=chipYellowSmall>";
+        if (CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] <= 1000)
+        {
+            listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i]} <sprite name=chipYellowSmall>";
+        }
+        else
+        {
+            listTextChipBonusDaily[i].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[i] / 1000}k <sprite name=chipYellowSmall>";
+        }
         buttonReceiveDaily.interactable = true;
         imageBoxChip.sprite = spriteBoxChipRed;
         imageBoxChip.SetNativeSize();
@@ -280,6 +320,8 @@ public class CheckinBonus : MonoBehaviour
     private IEnumerator CountDownTextTime(int index, bool activeButtonReceive = true)
     {
         int counter = 0;
+        listImageFrameTime[index].gameObject.SetActive(true);
+        listTextTimeCountDown[index].gameObject.SetActive(true);
         while (CheckInBonusModel.Promotion.CurrentDaily.T >= 0)
         {
             counter++;
@@ -309,7 +351,7 @@ public class CheckinBonus : MonoBehaviour
         SocketSend.sendPromotion();
         UpdateSlider(CheckInBonusModel.Promotion.CurrentDaily.OC + 1);
         Debug.Log($"OC: {CheckInBonusModel.Promotion.CurrentDaily.OC}");
-        StartCoroutine(CountDownTextTime(CheckInBonusModel.Promotion.CurrentDaily.OC + 1, false));
+        StartCoroutine(CountDownTextTime(CheckInBonusModel.Promotion.CurrentDaily.OC + 1));
         // buttonReceiveDaily.interactable = false;
         listAnimGiftDaily[index].AnimationState.SetAnimation(0, "click_receive", false).Complete += (entry) =>
         {
@@ -322,7 +364,14 @@ public class CheckinBonus : MonoBehaviour
             SocketSend.sendUAG();
             listAnimGiftDaily[index].AnimationState.SetAnimation(0, "received", true);
             listTextChipBonusDaily[index].color = Color.white;
-            listTextChipBonusDaily[index].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[index] / 1000}k <sprite name=chipGraySmall>";
+            if (CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[index] <= 1000)
+            {
+                listTextChipBonusDaily[index].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[index]} <sprite name=chipGraySmall>";
+            }
+            else
+            {
+                listTextChipBonusDaily[index].text = $"{CheckInBonusModel.Promotion.CurrentDaily.OnlinePolicy.chipBonus[index] / 1000}k <sprite name=chipGraySmall>";
+            }
         };
         buttonReceiveDaily.interactable = false;
         buttonReceiveDaily.image.sprite = spriteButtonReceiveGray;
@@ -376,6 +425,7 @@ public class CheckinBonus : MonoBehaviour
         {
             listDayWeekly[idDay].imageFrame.sprite = spriteBoxGray;
         }
+        listDayWeekly[idDay].textButtonReceive.text = $"Received";
         listDayWeekly[idDay].imageFrame.SetNativeSize();
         listDayWeekly[idDay].imageTick.gameObject.SetActive(true);
         listDayWeekly[idDay].buttonReceive.interactable = false;

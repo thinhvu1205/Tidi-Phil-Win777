@@ -558,6 +558,8 @@ namespace Globals
     public class Config
     {
         public static bool is_show_chat = false;
+        public static int vip_block_chat = 0;
+        public static int text_chat_gold_by_vip = 0;
         public const int CODE_JOKER_BLACK = 60;
         public const int CODE_JOKER_RED = 61;
         public static bool isSvTest = false;

@@ -33,6 +33,8 @@ public class LobbyView : BaseView
     private Coroutine _GetInfoPusoyJackPotC;
     private int TabGame = 0;
     private bool blockSpamTabGame, isHideBtnScroll, isRunStart;
+    private Queue<(int vip, string name, string content)> chatQueue = new Queue<(int, string, string)>();
+    private bool isChatRunning = false;
     public static LobbyView instance = null;
 
     protected override void Awake()
@@ -100,28 +102,47 @@ public class LobbyView : BaseView
             }).SetId("blockSpamTabGame");
         }
     }
+    public void showChatOnLobby(int vip, string name, string content)
+    {
+        chatQueue.Enqueue((vip, name, content));
+        if (!isChatRunning)
+        {
+            Debug.Log("xem là ở chỗ này có bao nhiêu " + chatQueue.Count);
+            StartCoroutine(ProcessChatQueue());
+        }
+    }
+
+    private IEnumerator ProcessChatQueue()
+    {
+        isChatRunning = true;
+        while (chatQueue.Count > 0)
+        {
+            var (vip, name, content) = chatQueue.Dequeue();
+            yield return StartCoroutine(CreateChatLobby(vip, name, content));
+        }
+        isChatRunning = false;
+    }
     private IEnumerator CreateChatLobby(int vip, string name, string content)
     {
+        Debug.Log("xem gọi ra mấy lần");
         GameObject effectChange = BundleHandler.Instantiate(m_ChatInLObby);
-
-        // gắn vào parent = this
+        DOVirtual.DelayedCall(4f, () =>
+        {
+            if (effectChange != null)
+                Destroy(effectChange);
+        });
         effectChange.transform.SetParent(btnChatLobby.transform, false);
-        effectChange.transform.SetAsLastSibling(); // luôn nằm trên cùng
-
-        // lấy text
+        effectChange.transform.SetAsLastSibling();
         TextMeshProUGUI info = effectChange.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI context = effectChange.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        info.text = "[" + vip + "] " + name;
+        info.text = "[" + vip + "] " + name + ":";
         context.text = content;
-
-        // đặt vị trí ban đầu trùng với nút chat (dùng localPosition)
-        effectChange.transform.localPosition = new Vector2(-20, 0);
-
-        // animation bay lên
+        context.color = vip >= Config.text_chat_gold_by_vip ? Color.yellow : Color.white;
+        effectChange.transform.localPosition = new Vector2(40, 0);
         float elapsedTime = 0f;
-        float moveDuration = 2f; // bay trong 2 giây
-        Vector2 startPosition = new Vector2(60, 0);
-        Vector2 targetPosition = startPosition + new Vector2(0, 40);
+        float moveDuration = 3f;
+        Vector2 startPosition = new Vector2(-30, 0);
+        Vector2 targetPosition = startPosition + new Vector2(0, 55);
 
         while (elapsedTime < moveDuration)
         {
@@ -131,20 +152,8 @@ public class LobbyView : BaseView
             yield return null;
         }
         effectChange.transform.localPosition = targetPosition;
-
-        // giữ thêm 1 giây trước khi xoá
         float stayTime = 1f;
         yield return new WaitForSeconds(stayTime);
-
-        Destroy(effectChange);
-    }
-
-
-
-
-    public void showChatOnLobby(int vip, string name, string content)
-    {
-        StartCoroutine(CreateChatLobby(vip, name, content));
     }
     private void _ChangeTabGame(bool resetPos = false)
     {
