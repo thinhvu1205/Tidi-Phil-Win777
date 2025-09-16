@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 63bdcbe59995225f3ba3ad7a1708a27d
+  - 529e659dbeac5845de3e8547ecb9e068
   appIds:
-  - 268336592429518
+  - 1172198494584338
   appLabels:
-  - wait
+  - bigwin
   cookie: 1
   logging: 1
   status: 1
   xfbml: 0
   frictionlessRequests: 1
-  androidKeystorePath: ruby777.keystore
+  androidKeystorePath: bigwin.keystore
   iosURLSuffix: 
   appLinkSchemes:
   - list: []

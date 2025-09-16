@@ -28,7 +28,7 @@ public class LoadConfig : MonoBehaviour
     void Awake()
     {
         // Config.publisher = "Luckypusoy_apk_pro";
-        Config.publisher = "unity_lucky777_tongitswar_1_0";
+        Config.publisher = "unity_bigwin_club_01";
         if (instance == null) instance = this;
         else
         {
@@ -81,7 +81,7 @@ public class LoadConfig : MonoBehaviour
     }
     void Start()
     {
-        OneSignal.Default.Initialize("5f370dfa-dbf5-4c98-a8f4-fad7cb985092");
+        OneSignal.Default.Initialize("6ee335ec-f6ca-48e3-888e-e302cebee1ae");
         // OneSignal.Default.PromptForPushNotificationsWithUserResponse();
         OneSignal.Notifications.RequestPermissionAsync(true);
     }
@@ -213,7 +213,7 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        wWForm["bundleID"] = "unity.lucky777.tongitswar.onconfig";
+        wWForm["bundleID"] = "unity.bigwin.club";
         wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
