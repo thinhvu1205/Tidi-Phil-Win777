@@ -603,7 +603,6 @@ public class LoadConfig : MonoBehaviour
     void updateConfigUmode(int umode, string uop1, string uop2, string utar, string umsg)
     {
         //// let umode = 0; /*FIXED CHANGE WHEN RELEASE*/
-        umode = 0;//dev de test
         switch (umode)
         {
             case 0: // mode == 0, vao thang ko can hoi
