@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      game_8044_0: 6387082107853525420
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

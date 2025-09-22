@@ -116,6 +116,9 @@ public class HandleGame
             case "chattable":
                 gameView.handleChatTable(jData);
                 break;
+            case "voicechat":
+                gameView.handleChatVoiceTable(jData);
+                break;
             case "autoExit":
                 gameView.handleAutoExit(jData);
                 break;
