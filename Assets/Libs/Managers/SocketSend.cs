@@ -582,7 +582,22 @@ public class SocketSend
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
 
-
+    public static void sendChatVoice(string username, string text, int idMultipleSend = 0, int totalMultipleSend = 0, long timeSendMultiple = -1, bool isAudio = false)
+    {
+        JObject data = new JObject();
+        data["evt"] = "voicechat";
+        data["Name"] = username;
+        data["NName"] = "";
+        data["Data"] = text;
+        data["Time"] = DateTime.Now;
+        data["T"] = "";
+        data["IsAudio"] = isAudio;
+        data["TotalMultipleSend"] = totalMultipleSend;
+        data["IdMultiple"] = idMultipleSend;
+        data["TimeSendMultiple"] = timeSendMultiple;
+        Debug.Log("xem phần gửi lên" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
     public static void sendChatEmo(string nameSe, string nameRe, int type, string emoId, bool ping = true)
     {
         JObject data = new JObject();

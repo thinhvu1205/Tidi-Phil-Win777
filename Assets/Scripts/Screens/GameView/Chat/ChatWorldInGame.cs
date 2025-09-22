@@ -83,11 +83,11 @@ public class ChatWorldInGame : BaseView
             List<string> splitBytes = new();
             for (int i = 0; i < base64.Length; i += 350000) splitBytes.Add(base64.Substring(i, Mathf.Min(350000, base64.Length - i)));
 
-            if (splitBytes.Count <= 1) SocketSend.sendChat(User.userMain.displayName, splitBytes[0], isAudio: true);
+            if (splitBytes.Count <= 1) SocketSend.sendChatVoice(User.userMain.displayName, splitBytes[0], isAudio: true);
             else
             {
                 for (int i = 0; i < splitBytes.Count; i++)
-                    SocketSend.sendChat(User.userMain.displayName, splitBytes[i], i + 1, splitBytes.Count, timeNowInSeconds, true);
+                    SocketSend.sendChatVoice(User.userMain.displayName, splitBytes[i], i + 1, splitBytes.Count, timeNowInSeconds, true);
             }
             m_ThisMR.DoClickClose();
         });
