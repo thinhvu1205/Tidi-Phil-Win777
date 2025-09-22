@@ -319,14 +319,25 @@ public class CheckinBonus : MonoBehaviour
     }
     private IEnumerator CountDownTextTime(int index, bool activeButtonReceive = true)
     {
+        if (index < 0
+            || index >= listImageFrameTime.Count
+            || index >= listTextTimeCountDown.Count)
+        {
+            yield break;
+        }
+
         int counter = 0;
-        listImageFrameTime[index].gameObject.SetActive(true);
-        listTextTimeCountDown[index].gameObject.SetActive(true);
+        var frameObj = listImageFrameTime[index].gameObject;
+        var textObj = listTextTimeCountDown[index];
+
+        frameObj.SetActive(true);
+        textObj.gameObject.SetActive(true);
+
         while (CheckInBonusModel.Promotion.CurrentDaily.T >= 0)
         {
             counter++;
-            listTextTimeCountDown[index].text =
-                CheckInBonusModel.Promotion.CurrentDaily.GetTimeRemainFormatted(CheckInBonusModel.Promotion.CurrentDaily.T);
+            textObj.text = CheckInBonusModel.Promotion.CurrentDaily
+                .GetTimeRemainFormatted(CheckInBonusModel.Promotion.CurrentDaily.T);
 
             if (counter % 5 == 0)
             {
@@ -335,6 +346,7 @@ public class CheckinBonus : MonoBehaviour
             yield return new WaitForSeconds(1);
             CheckInBonusModel.Promotion.CurrentDaily.T--;
         }
+
         DOVirtual.DelayedCall(2f, () =>
         {
             SocketSend.sendCheckTime();
@@ -343,6 +355,7 @@ public class CheckinBonus : MonoBehaviour
             SetCanReceivePromotionOnline(CheckInBonusModel.Promotion.CurrentDaily.OC);
         });
     }
+
     private void ClickButtonReceiveDaily()
     {
         UIManager.instance.hasDailyBonus = false;

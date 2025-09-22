@@ -177,9 +177,8 @@ public class GameView : BaseView
     }
     /*Handle Game*/
 
-    public void handleChatTable(JObject data)
+    public void handleChatVoiceTable(JObject data)
     {
-        //cc.NGWlog('-=-=--=-=->1 chattable', data);
         var datName = (string)data["Name"];
         var datNName = (string)data["NName"];
         var datMSG = data.ContainsKey("Data")
@@ -227,7 +226,32 @@ public class GameView : BaseView
             iteChat.setSpeak(player.playerView);
             return;
         }
-
+    }
+    public void handleChatTable(JObject data)
+    {
+        //cc.NGWlog('-=-=--=-=->1 chattable', data);
+        var datName = (string)data["Name"];
+        var datNName = (string)data["NName"];
+        var datMSG = data.ContainsKey("Data")
+            ? ((string)data["Data"]).Trim()
+            : null;
+        var datType = (string)data["T"];
+        if (datMSG == null || (datMSG.Trim().Equals("") && datType.Equals("")))
+        {
+            return;
+        }
+        if (ChatWorldInGame.instance != null && ChatWorldInGame.instance.gameObject.activeSelf && datNName.Equals("") && !datType.StartsWith("*"))
+        {
+            Player playerChat = getPlayer((string)data["Name"]);
+            ChatWorldInGame.instance.setInfo(data, playerChat.vip, playerChat.avatar_id);
+            //  return;
+        }
+        if (ChatWorldInGame.instance == null && datNName.Equals("") && !datType.StartsWith("*"))
+        {
+            Debug.Log("có vào đây ko");
+            _setDataChatInGame(data);
+        }
+        var player = getPlayer(datName);
         if (player != null)
         {
             if (datType.Contains("*f") && !datNName.Equals(""))
