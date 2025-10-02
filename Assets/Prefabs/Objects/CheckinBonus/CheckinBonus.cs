@@ -50,6 +50,7 @@ public class CheckinBonus : MonoBehaviour
                     listDayWeekly[i].imageFrame.sprite = spriteBoxGray;
                     listDayWeekly[i].imageFrame.SetNativeSize();
                     listDayWeekly[i].imageTick.gameObject.SetActive(true);
+                    listDayWeekly[i].buttonReceive.gameObject.SetActive(true);
                     listDayWeekly[i].buttonReceive.image.sprite = spriteButtonReceiveGray;
                     listDayWeekly[i].buttonReceive.interactable = false;
                     listDayWeekly[i].buttonReceive.image.SetNativeSize();
