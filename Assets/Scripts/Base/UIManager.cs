@@ -370,8 +370,11 @@ public class UIManager : MonoBehaviour
             Globals.Logging.Log("-=-=!OnApplicationResume " + (gameView != null));
             if (gameView != null)
             {
-                WebSocketManager.getInstance().UserLogout = true;
-                showLoginScreen(true);
+                if (!Globals.CURRENT_VIEW.isInChatVoice)
+                {
+                    WebSocketManager.getInstance().UserLogout = true;
+                    showLoginScreen(true);
+                }
             }
             StartCoroutine(delayTurnOffUserLogout());
         }
@@ -945,10 +948,10 @@ public class UIManager : MonoBehaviour
         script.transform.localScale = Vector3.one;
         return script;
     }
-    public void openRuleJPBork()
+    public void openRuleJPThreeCard()
     {
         Debug.Log("openRuleJPBork:");
-        var ruleView = Instantiate(loadPrefab("GameView/Bork/JackpotRuleBork"), parentPopups).GetComponent<BaseView>();
+        var ruleView = Instantiate(loadPrefab("GameView/ThreePoker/JackpotRuleThreeCard"), parentPopups).GetComponent<BaseView>();
         ruleView.transform.localScale = Vector3.one;
     }
     public void openRuleJPBinh()
