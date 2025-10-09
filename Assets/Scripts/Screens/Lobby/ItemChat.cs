@@ -222,6 +222,8 @@ public class ItemChat : MonoBehaviour
         // {
         //     return;
         // }
+
+
         if (m_GroupLineL != null)
         {
             for (int i = 0; i < m_GroupLineL.transform.childCount; i++)
@@ -296,6 +298,14 @@ public class ItemChat : MonoBehaviour
             {
                 m_MessageL.text = dataCWLD.Content;
                 AdjustFrameContent(m_FrameContentL, m_MessageL, dataCWLD.Content);
+                if (isLobby && dataCWLD.Vip >= Config.text_chat_gold_by_vip)
+                {
+                    m_MessageL.color = Color.yellow;
+                }
+                else
+                {
+                      m_MessageL.color = Color.white;
+                }
             }
             m_TimeL.text = dataCWLD.Time;
         }
@@ -323,6 +333,14 @@ public class ItemChat : MonoBehaviour
             {
                 m_MessageR.text = dataCWLD.Content;
                 AdjustFrameContent(m_FrameContentR, m_MessageR, dataCWLD.Content);
+                if (isLobby && dataCWLD.Vip >= Config.text_chat_gold_by_vip)
+                {
+                    m_MessageR.color = Color.yellow;
+                }
+                else
+                {
+                       m_MessageR.color = Color.white;
+                }
             }
             m_TimeR.text = dataCWLD.Time;
         }

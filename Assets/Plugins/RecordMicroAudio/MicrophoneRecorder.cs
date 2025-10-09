@@ -6,13 +6,15 @@ using System.IO.Compression;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
-public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class MicrophoneRecorder : MonoBehaviour
 {
     [SerializeField] private GameObject m_Root;
     [SerializeField] private AudioSource m_DataAS;
-    [SerializeField] private TextMeshProUGUI m_RecordingTimeTMPUI, m_InstructionTMPUI;
+    [SerializeField] private TextMeshProUGUI m_RecordingTimeTMPUI;
+    [SerializeField] private GameObject m_GroupLine;
     private byte[] _AudioBytes;
     private const int _SAMPLE_RATE = 16000;
     private AudioClip _MicAC;
@@ -26,6 +28,7 @@ public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUp
     #region Button
     public void DoClickClose()
     {
+        ResetRecordingState();
         m_Root.SetActive(false);
     }
     #endregion
@@ -73,7 +76,7 @@ public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUp
         _OnStartRecordingCb = onStartCb;
         _OnRecordingCb = onRecordingCb;
         _OnEndRecordingCb = onEndCb;
-        m_InstructionTMPUI.text = "Tap and hold for up to " + _RecordingDuration + "s to record.";
+
     }
     public bool IsDeviceHasMicro() { return Microphone.devices.Length > 0; }
     public byte[] GetBytes() { return _AudioBytes; }
@@ -84,7 +87,7 @@ public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUp
         m_DataAS.Play();
     }
     private Stopwatch testSW = new Stopwatch();
-    public void OnPointerDown(PointerEventData eventData)
+    public void StartRecording()
     {
         if (!IsDeviceHasMicro())
         {
@@ -96,7 +99,7 @@ public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUp
         _StartTime = Time.realtimeSinceStartup;
         _RecordingC = StartCoroutine(_Recording());
     }
-    public void OnPointerUp(PointerEventData eventData)
+    public void StopRedcording()
     {
         if (!_IsRecording) return;
         _EndRecording();
@@ -109,6 +112,42 @@ public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUp
         _MicAC = _TrimAudioClip();
         m_RecordingTimeTMPUI.gameObject.SetActive(false);
 
+    }
+    public void ResetRecordingState()
+    {
+        // Dừng mọi ghi âm đang diễn ra
+        if (_IsRecording || Microphone.IsRecording(_MicDevice))
+        {
+            Microphone.End(_MicDevice);
+        }
+
+        // Dừng coroutine nếu đang chạy
+        if (_RecordingC != null)
+        {
+            StopCoroutine(_RecordingC);
+            _RecordingC = null;
+        }
+        // _MicAC = null;
+        _AudioBytes = null;
+        _IsRecording = false;
+        _StartTime = 0f;
+        if (m_RecordingTimeTMPUI != null)
+        {
+            m_RecordingTimeTMPUI.text = "00:00:00";
+            m_RecordingTimeTMPUI.gameObject.SetActive(false);
+        }
+        if (m_DataAS != null)
+        {
+            m_DataAS.Stop();
+            m_DataAS.clip = null;
+        }
+        // _OnStartRecordingCb = null;
+        //  _OnRecordingCb = null;
+        //  _OnEndRecordingCb = null;
+        if (testSW != null)
+        {
+            testSW.Reset();
+        }
     }
     private AudioClip _TrimAudioClip()
     {
@@ -128,7 +167,6 @@ public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUp
     {
         _IsRecording = true;
         _MicAC = Microphone.Start(_MicDevice, false, _RecordingDuration, _SAMPLE_RATE);
-        // m_InstructionTMPUI.gameObject.SetActive(false);
         m_RecordingTimeTMPUI.gameObject.SetActive(true);
         m_RecordingTimeTMPUI.text = "00:00:00";
         _OnStartRecordingCb?.Invoke();
@@ -153,5 +191,57 @@ public class MicrophoneRecorder : MonoBehaviour, IPointerDownHandler, IPointerUp
     {
         if (IsDeviceHasMicro()) _MicDevice = Microphone.devices[0];
     }
-    
+    private void Update()
+    {
+        if (_IsRecording)
+        {
+            DrawLiveWaveform();
+        }
+    }
+    private void DrawLiveWaveform()
+    {
+        if (_MicAC == null || m_GroupLine == null) return;
+
+        int micPos = Microphone.GetPosition(_MicDevice);
+        if (micPos < 1024) return;
+
+        const int sampleLength = 1024;
+        float[] samples = new float[sampleLength];
+
+        int startPos = micPos - sampleLength;
+        if (startPos < 0) return;
+
+        _MicAC.GetData(samples, startPos);
+
+        int barCount = m_GroupLine.transform.childCount;
+        int segmentLength = sampleLength / barCount;
+
+        for (int i = 0; i < barCount; i++)
+        {
+            float max = 0f;
+
+            for (int j = 0; j < segmentLength; j++)
+            {
+                int idx = i * segmentLength + j;
+                if (idx >= samples.Length) break;
+                max = Mathf.Max(max, Mathf.Abs(samples[idx]));
+            }
+
+            float normalized = Mathf.Clamp01(max * 20f); // khuếch đại
+            float scaleY = Mathf.Lerp(0.1f, 1f, normalized); // đảm bảo vạch tối thiểu
+
+            Transform bar = m_GroupLine.transform.GetChild(i);
+            if (bar != null)
+            {
+                bar.localScale = new Vector3(1f, scaleY, 1f);
+
+                Image img = bar.GetComponent<Image>();
+                if (img != null)
+                {
+                    img.color = Color.green;
+                }
+            }
+        }
+    }
+
 }

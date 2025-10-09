@@ -196,42 +196,51 @@ public class TongitsView : GameView
     protected override void updatePositionPlayerView()
     {
         thisPlayer.playerView.setPosThanhBarThisPlayer();
-        int? currentDimondIndex = null;
-        string currentDimonHolder = null;
-        for (int i = 0; i < 3; i++)
+        int activeIconIndex = -1;
+        for (int i = 0; i < m_DiamondIcons.Count; i++)
         {
-            if (m_DiamondIcons[i].activeSelf)
+            if (m_DiamondIcons[i] != null && m_DiamondIcons[i].activeSelf)
             {
-                currentDimondIndex = i;
+                activeIconIndex = i;
                 m_DiamondIcons[i].SetActive(false);
                 break;
             }
         }
-        if (currentDimondIndex != null)
+        Player diamondHolder = null;
+        if (activeIconIndex != -1)
         {
             for (int i = 0; i < players.Count; i++)
             {
-                if (players[i]._indexDynamic == currentDimondIndex)
+                if (players[i]._indexDynamic == activeIconIndex)
                 {
-                    currentDimonHolder = players[i].displayName;
+                    diamondHolder = players[i];
+                    break;
                 }
             }
         }
+
         base.updatePositionPlayerView();
         for (int i = 0; i < players.Count; i++)
         {
-            int index = getDynamicIndex(getIndexOf(players[i]));
-            players[i].playerView.transform.localPosition = listPosView[index];
-            players[i]._indexDynamic = index;
+            int newIndex = getDynamicIndex(getIndexOf(players[i]));
+            players[i].playerView.transform.localPosition = listPosView[newIndex];
+            players[i]._indexDynamic = newIndex;
         }
-        for (int i = 0; i < players.Count; i++)
+        if (diamondHolder != null)
         {
-            if (players[i].displayName == currentDimonHolder)
+            int finalIndex = diamondHolder._indexDynamic;
+            if (finalIndex >= 0 && finalIndex < m_DiamondIcons.Count && m_DiamondIcons[finalIndex] != null)
             {
-                m_DiamondIcons[players[i]._indexDynamic].SetActive(true);
+                m_DiamondIcons[finalIndex].SetActive(true);
+                Debug.Log($"Diamond Index: {finalIndex}, Holder: {diamondHolder.displayName}");
+            }
+            else
+            {
+                Debug.LogWarning("Diamond finalIndex out of range or null.");
             }
         }
     }
+
     public override void handleCTable(string data)
     {
         base.handleCTable(data);
@@ -281,18 +290,29 @@ public class TongitsView : GameView
     {
         string name = getString(data, "Name");
         Player player = getPlayer(name);
-        if (player == null)
-            return;
-        if (m_DiamondIcons[player._indexDynamic].activeSelf)
+
+        if (player != null)
         {
-            GameObject dimon = m_HitPotSG.transform.Find("dimond").gameObject;
-            dimon.SetActive(false);
+            if (player._indexDynamic >= 0 && player._indexDynamic < m_DiamondIcons.Count)
+            {
+                if (m_DiamondIcons[player._indexDynamic].activeSelf)
+                {
+                    GameObject dimon = m_HitPotSG.transform.Find("dimond")?.gameObject;
+                    if (dimon != null)
+                        dimon.SetActive(false);
+                }
+                m_DiamondIcons[player._indexDynamic].SetActive(false);
+            }
         }
-        m_DiamondIcons[player._indexDynamic].SetActive(false);
+        else
+        {
+            Debug.LogWarning($"handleLTable: player {name} not found, may have already left table");
+        }
         base.handleLTable(data);
         cleanTable();
         clearNumbOfCard();
     }
+
     public override void handleVTable(string objData)
     {
         base.handleVTable(objData);
@@ -2924,6 +2944,7 @@ public class TongitsView : GameView
         if (id == null)
             return;
         m_DiamondIcons[id].gameObject.SetActive(true);
+        Debug.Log($"Diamond Id: {id}");
         if (m_HitPotSG.transform.Find("dimond") == null)
             return;
         m_HitPotSG.transform.Find("dimond").gameObject.SetActive(true);

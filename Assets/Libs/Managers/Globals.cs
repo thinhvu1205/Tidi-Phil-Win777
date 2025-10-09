@@ -558,6 +558,8 @@ namespace Globals
     public class Config
     {
         public static bool is_show_chat = false;
+        public static int vip_block_chat = 0;
+        public static int text_chat_gold_by_vip = 0;
         public const int CODE_JOKER_BLACK = 60;
         public const int CODE_JOKER_RED = 61;
         public static bool isSvTest = false;
@@ -578,8 +580,10 @@ namespace Globals
         public static string language = "THAI";
         public static bool isReconnect = false;
         public static LOGIN_TYPE typeLogin = LOGIN_TYPE.NORMAL;
+        //TODO: sua ServerIp
 
         public static string curServerIp = "app1.davaogames.com";
+        // public static string curServerIp = "test.app.1707casino.com";
         public static int curGameId = 0;
         public static bool isBackGame = false;
 

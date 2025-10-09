@@ -19,16 +19,21 @@ public class ChatWorldInGame : BaseView
 
     [SerializeField] private GameObject ItemChat, m_PanelRecording;
     [SerializeField] private TMP_InputField m_Message;
-    [SerializeField] private ScrollRect scrListWorld;
+    // [SerializeField] private ScrollRect scrListWorld;
     [SerializeField] private VerticalPoolGroup m_ChatTableVPG;
     [SerializeField] private MicrophoneRecorder m_ThisMR;
     [SerializeField] private AudioSource m_ThisAS;
     private List<ChatWorldLobbyData> _PoolDataCWLDs = new();
+    [SerializeField] private GameObject m_Mic_on, m_Mic_off;
+
+
 
 
     protected override void Awake()
     {
         base.Awake();
+        m_Mic_off.SetActive(true);
+        m_Mic_on.SetActive(false);
         Globals.CURRENT_VIEW.isInChatVoice = true;
         instance = this;
         m_ChatTableVPG.SetCellDataCallback<ChatWorldLobbyData>((go, data, index) =>
@@ -36,28 +41,28 @@ public class ChatWorldInGame : BaseView
             ItemChat aIC = go.GetComponent<ItemChat>();
             aIC.SetInfo(data, m_ThisAS, index);
         });
-        for (var i = 1; i <= 10; i++)
-        {
-            string msg = Config.getTextConfig($"chat_text_{i}");
+        // for (var i = 1; i <= 10; i++)
+        // {
+        //     string msg = Config.getTextConfig($"chat_text_{i}");
 
-            var item = Instantiate(ItemChat, scrListWorld.content);
-            var txt = item.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        //     var item = Instantiate(ItemChat, scrListWorld.content);
+        //     var txt = item.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
-            txt.text = msg;
+        //     txt.text = msg;
 
-            // force rebuild để text tính lại chiều cao
-            LayoutRebuilder.ForceRebuildLayoutImmediate(item.GetComponent<RectTransform>());
+        //     // force rebuild để text tính lại chiều cao
+        //     LayoutRebuilder.ForceRebuildLayoutImmediate(item.GetComponent<RectTransform>());
 
-            item.transform.localScale = Vector3.one;
+        //     item.transform.localScale = Vector3.one;
 
-            item.GetComponent<Button>().onClick.AddListener(() =>
-            {
-                onClickChatText(msg);
-            });
-        }
+        //     item.GetComponent<Button>().onClick.AddListener(() =>
+        //     {
+        //         onClickChatText(msg);
+        //     });
+        // }
         if (COMMON_DATA.ListDataChatInGame.Count > 0)
         {
-            _PoolDataCWLDs.Clear(); 
+            _PoolDataCWLDs.Clear(); // Clear list hiện tại
             _PoolDataCWLDs.AddRange(COMMON_DATA.ListDataChatInGame); // Add tất cả items từ list gốc
             m_ChatTableVPG.SetAdapter(_PoolDataCWLDs);
             m_ChatTableVPG.ScrollToLast(0);
@@ -78,18 +83,24 @@ public class ChatWorldInGame : BaseView
             List<string> splitBytes = new();
             for (int i = 0; i < base64.Length; i += 350000) splitBytes.Add(base64.Substring(i, Mathf.Min(350000, base64.Length - i)));
 
-            if (splitBytes.Count <= 1) SocketSend.sendChat(User.userMain.displayName, splitBytes[0], isAudio: true);
+            if (splitBytes.Count <= 1) SocketSend.sendChatVoice(User.userMain.displayName, splitBytes[0], isAudio: true);
             else
             {
                 for (int i = 0; i < splitBytes.Count; i++)
-                    SocketSend.sendChat(User.userMain.displayName, splitBytes[i], i + 1, splitBytes.Count, timeNowInSeconds, true);
+                    SocketSend.sendChatVoice(User.userMain.displayName, splitBytes[i], i + 1, splitBytes.Count, timeNowInSeconds, true);
             }
             m_ThisMR.DoClickClose();
         });
     }
     private void OnEnable()
     {
-
+        m_Mic_off.SetActive(true);
+        m_Mic_on.SetActive(false);
+    }
+    public void SetUIMicON(bool isMicOn)
+    {
+        m_Mic_off.SetActive(!isMicOn);
+        m_Mic_on.SetActive(isMicOn);
     }
 
     void onClickChatText(string msg)
@@ -191,4 +202,27 @@ public class ChatWorldInGame : BaseView
         base.onClickClose(isDestroy);
 
     }
+    private void Update()
+    {
+        if (m_Mic_off.activeSelf)
+        {
+            if (m_Message.text.Trim().Length > 0)
+            {
+                m_Mic_off.transform.GetChild(1).gameObject.SetActive(false);
+                m_Mic_off.transform.GetChild(2).gameObject.SetActive(true);
+                Debug.Log("Có chữ trong TMP_InputField, thực hiện hành động!");
+            }
+            else
+            {
+                m_Mic_off.transform.GetChild(1).gameObject.SetActive(true);
+                m_Mic_off.transform.GetChild(2).gameObject.SetActive(false);
+            }
+
+        }
+        if (!m_Mic_on.activeSelf)
+        {
+            m_Mic_off.SetActive(true);
+        }
+    }
+
 }

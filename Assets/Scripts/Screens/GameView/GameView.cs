@@ -176,15 +176,16 @@ public class GameView : BaseView
         }
     }
     /*Handle Game*/
-    public void handleChatTable(JObject data)
+
+    public void handleChatVoiceTable(JObject data)
     {
-        //cc.NGWlog('-=-=--=-=->1 chattable', data);
         var datName = (string)data["Name"];
         var datNName = (string)data["NName"];
-        var datMSG = ((string)data["Data"]).Trim();
+        var datMSG = data.ContainsKey("Data")
+            ? ((string)data["Data"]).Trim()
+            : null;
         var datType = (string)data["T"];
-        //// client sua chattable
-        if (datMSG.Trim().Equals("") && datType.Equals(""))
+        if (datMSG == null || (datMSG.Trim().Equals("") && datType.Equals("")))
         {
             return;
         }
@@ -198,10 +199,57 @@ public class GameView : BaseView
         {
             Debug.Log("có vào đây ko");
             _setDataChatInGame(data);
-            if ((bool)data["IsAudio"])
+        }
+        var player = getPlayer(datName);
+        if (data.ContainsKey("IsAudio") && (bool)data["IsAudio"])
+        {
+            var iteChat = BundleHandler.Instantiate(
+      BundleHandler.LoadGameObject("GameView/Objects/ItemChat") as GameObject,
+      transform
+  ).GetComponent<ItemChatInGame>();
+            Transform parent = iteChat.transform.parent;
+            int targetIndex = -1;
+
+            for (int i = 0; i < parent.childCount; i++)
             {
-                return;
+                if (parent.GetChild(i).name == "ChatWorldInGame(Clone)")
+                {
+                    targetIndex = i;
+                    break;
+                }
             }
+
+            if (targetIndex != -1)
+            {
+                iteChat.transform.SetSiblingIndex(Mathf.Max(0, targetIndex - 1));
+            }
+            iteChat.setSpeak(player.playerView);
+            return;
+        }
+    }
+    public void handleChatTable(JObject data)
+    {
+        //cc.NGWlog('-=-=--=-=->1 chattable', data);
+        var datName = (string)data["Name"];
+        var datNName = (string)data["NName"];
+        var datMSG = data.ContainsKey("Data")
+            ? ((string)data["Data"]).Trim()
+            : null;
+        var datType = (string)data["T"];
+        if (datMSG == null || (datMSG.Trim().Equals("") && datType.Equals("")))
+        {
+            return;
+        }
+        if (ChatWorldInGame.instance != null && ChatWorldInGame.instance.gameObject.activeSelf && datNName.Equals("") && !datType.StartsWith("*"))
+        {
+            Player playerChat = getPlayer((string)data["Name"]);
+            ChatWorldInGame.instance.setInfo(data, playerChat.vip, playerChat.avatar_id);
+            //  return;
+        }
+        if (ChatWorldInGame.instance == null && datNName.Equals("") && !datType.StartsWith("*"))
+        {
+            Debug.Log("có vào đây ko");
+            _setDataChatInGame(data);
         }
         var player = getPlayer(datName);
         if (player != null)
@@ -213,7 +261,7 @@ public class GameView : BaseView
                 {
                     if (player.playerView == null && m_HiddenPlayersTf == null) return;
                     var idAnimation = int.Parse(string.Join("", datType.ToCharArray().Where(Char.IsDigit)));
-                    var iteChat = Instantiate(BundleHandler.LoadGameObject("GameView/Objects/ItemChatAction") as GameObject, transform).GetComponent<ItemChatAction>();
+                    var iteChat = BundleHandler.Instantiate(BundleHandler.LoadGameObject("GameView/Objects/ItemChatAction") as GameObject, transform).GetComponent<ItemChatAction>();
                     if (player.playerView != null) iteChat.transform.position = player.playerView.transform.position;
                     else iteChat.transform.position = m_HiddenPlayersTf.position;
                     if (npl.playerView != null)
@@ -225,7 +273,7 @@ public class GameView : BaseView
                     if (UIManager.instance.SendChatEmoToHiddenPlayers && m_HiddenPlayersTf != null)
                     {
                         UIManager.instance.SendChatEmoToHiddenPlayers = false;
-                        iteChat = Instantiate(BundleHandler.LoadGameObject("GameView/Objects/ItemChatAction") as GameObject, transform).GetComponent<ItemChatAction>();
+                        iteChat = BundleHandler.Instantiate(BundleHandler.LoadGameObject("GameView/Objects/ItemChatAction") as GameObject, transform).GetComponent<ItemChatAction>();
                         iteChat.transform.position = player.playerView.transform.position;
                         StartCoroutine(iteChat.setData(idAnimation, m_HiddenPlayersTf.position));
                     }
@@ -233,12 +281,32 @@ public class GameView : BaseView
             }
             else
             {
-                var iteChat = Instantiate(BundleHandler.LoadGameObject("GameView/Objects/ItemChat") as GameObject, transform).GetComponent<ItemChatInGame>();
+                var iteChat = BundleHandler.Instantiate(
+         BundleHandler.LoadGameObject("GameView/Objects/ItemChat") as GameObject,
+         transform
+     ).GetComponent<ItemChatInGame>();
+                Transform parent = iteChat.transform.parent;
+                int targetIndex = -1;
+
+                for (int i = 0; i < parent.childCount; i++)
+                {
+                    if (parent.GetChild(i).name == "ChatWorldInGame(Clone)")
+                    {
+                        targetIndex = i;
+                        break;
+                    }
+                }
+
+                if (targetIndex != -1)
+                {
+                    iteChat.transform.SetSiblingIndex(Mathf.Max(0, targetIndex - 1));
+                }
                 iteChat.setMsg(datMSG, datType, player.playerView);
             }
         }
 
     }
+
     public void onClickChatWordInGame()
     {
         SoundManager.instance.soundClick();
@@ -249,7 +317,7 @@ public class GameView : BaseView
     }
     void _setDataChatInGame(JObject data)
     {
-        string timeStr = DateTime.Now.ToString("HH:mm");
+        string timeStr = DateTime.Now.ToString("HH:mm:ss");
         string name = (string)data["Name"];
         int totalSentData = (int)data["TotalMultipleSend"];
 

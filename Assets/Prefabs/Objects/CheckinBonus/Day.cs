@@ -25,5 +25,6 @@ public class Day : MonoBehaviour
         CheckinBonus.instance.SetDayReceived(IdDay);
         SocketSend.sendUAG();
         UIManager.instance.hasWeeklyBonus = false;
+        CheckInBonusModel.Promotion.CurrentWeekly.OD += 15;
     }
 }

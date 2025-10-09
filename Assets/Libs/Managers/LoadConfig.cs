@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Globals;
 using Newtonsoft.Json.Linq;
+using OneSignalSDK;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -78,7 +79,12 @@ public class LoadConfig : MonoBehaviour
             while (!_isConfigLoaded);
         }
     }
-
+    void Start()
+    {
+        OneSignal.Default.Initialize("5f370dfa-dbf5-4c98-a8f4-fad7cb985092");
+        // OneSignal.Default.PromptForPushNotificationsWithUserResponse();
+        OneSignal.Notifications.RequestPermissionAsync(true);
+    }
     void init()
     {
         Config.deviceId = SystemInfo.deviceUniqueIdentifier;
@@ -435,7 +441,9 @@ public class LoadConfig : MonoBehaviour
             }
             sortedListGameJA.AddRange(tempListGameJA);
             Config.listGame.AddRange(sortedListGameJA);
+            //TODO: sua ServerIp
             Config.curServerIp = (string)Config.listGame[0]["ip_dm"];
+            // Config.curServerIp = "test.app.1707casino.com";
             PlayerPrefs.SetString("curServerIp", Config.curServerIp);
         }
         Debug.Log("=-=-=-=-=-=-=-=-=- list agam");
@@ -566,6 +574,8 @@ public class LoadConfig : MonoBehaviour
         if (jConfig.ContainsKey("disID"))
             Config.disID = (int)jConfig["disID"];
         Config.is_show_chat = jConfig.ContainsKey("is_show_chat") ? (bool)jConfig["is_show_chat"] : false;
+        Config.vip_block_chat = jConfig.ContainsKey("vip_block_chat") ? (int)jConfig["vip_block_chat"] : 0;
+        Config.text_chat_gold_by_vip = jConfig.ContainsKey("text_chat_gold_by_vip") ? (int)jConfig["text_chat_gold_by_vip"] : 0;
         Config.ketPhe = jConfig.ContainsKey("ketPhe") ? (int)jConfig["ketPhe"] : 10;
         Config.is_dt = jConfig.ContainsKey("is_dt") ? (bool)jConfig["is_dt"] : false;
         Config.ketT = jConfig.ContainsKey("ketT") ? (bool)jConfig["ketT"] : false;
