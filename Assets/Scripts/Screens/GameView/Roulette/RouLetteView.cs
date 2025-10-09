@@ -497,7 +497,10 @@ public class RouLetteView : GameView
     {
         numFrameCoin = 0;
         buttonSpine.interactable = true;
-        isBetTime = true;
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            isBetTime = true;
+        });
         thisPlayer.setAg();
         UpdateButtonBet(thisPlayer.ag);
         if (listDataBetForRebetTemp.Sum(bet => bet.BetAmount) != 0)
