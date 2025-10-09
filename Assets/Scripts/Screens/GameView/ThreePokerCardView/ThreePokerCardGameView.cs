@@ -42,6 +42,8 @@ public class ThreePokerCardGameView : GameView
     private List<Vector2> listPositionCardDealer = new List<Vector2> { new Vector2(-90f, 215f), new Vector2(0f, 215f), new Vector2(90f, 215f) };
     private List<GameObject> listFrameChip = new List<GameObject>();
     private List<GameObject> listLabel = new List<GameObject>();
+    [SerializeField] List<TextMeshProUGUI> txtJackpot;
+    [SerializeField] private Animation m_JackpotAnimA;
     protected override void updatePositionPlayerView()
     {
         players.Remove(thisPlayer);
@@ -57,6 +59,48 @@ public class ThreePokerCardGameView : GameView
                 players[i].updateItemVip(players[i].vip);
             }
         }
+    }
+
+    public void handleUpdateJackpot(JObject jsonData)
+    {
+        var curJackPotBinh = "0";
+        if (jsonData != null && jsonData.ContainsKey("M"))
+        {
+            curJackPotBinh = (long)jsonData["M"] + "";
+        }
+        var indexRun = curJackPotBinh.Length - 1;
+        for (var i = txtJackpot.Count - 1; i >= 0; i--)
+        {
+            if (indexRun >= 0)
+            {
+                txtJackpot[i].text = curJackPotBinh[indexRun] + "";
+            }
+            else
+            {
+                txtJackpot[i].text = "0";
+            }
+            indexRun--;
+            StartCoroutine(animateJackPot(txtJackpot[i].gameObject));
+        }
+    }
+    private IEnumerator animateJackPot(GameObject node)
+    {
+        float duration = 0.15f, time = 0;
+        Vector3 initialScale = node.transform.localScale, targetScale = initialScale * 1.2f;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            node.transform.localScale = Vector3.Lerp(initialScale, targetScale, time / duration);
+            yield return null;
+        }
+        time = 0;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            node.transform.localScale = Vector3.Lerp(targetScale, initialScale, time / duration);
+            yield return null;
+        }
+        node.transform.localScale = initialScale;
     }
 
     public override void handleCTable(string data)
@@ -1413,6 +1457,17 @@ public class ThreePokerCardGameView : GameView
     {
         base.Awake();
         agTable = 0;
+        if (TableView.instance != null)
+        {
+            handleUpdateJackpot(TableView.instance.currentJackpot);
+        }
+        DOTween.Sequence().AppendCallback(() =>
+   {
+       SocketSend.sendUpdateJackpot(Globals.Config.curGameId);
+   }).AppendInterval(5.0f).SetLoops(-1).SetId("updateJackpotInGame");
+        m_JackpotAnimA.Stop();
+        m_JackpotAnimA.gameObject.SetActive(true);
+        m_JackpotAnimA.Play();
         RectTransform parentRect = m_Rule.transform.parent.GetComponent<RectTransform>();
         m_Rule.transform.localPosition = new Vector2(parentRect.rect.width, 0);
         m_GroupBtnBet.gameObject.SetActive(false);
@@ -1438,6 +1493,15 @@ public class ThreePokerCardGameView : GameView
             }
         }
 
+    }
+    public void onClickRuleJP()
+    {
+        UIManager.instance.openRuleJPThreeCard();
+    }
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+        DOTween.Kill("updateJackpotInGame");
     }
     public bool CheckPokerPair(List<Card> listCard)
     {

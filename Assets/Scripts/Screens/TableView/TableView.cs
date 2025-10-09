@@ -129,6 +129,10 @@ public class TableView : BaseView
         {
             UIManager.instance.openRuleJPBinh();
         }
+        if (Config.curGameId == (int)GAMEID.THREE_CARD_POKER)
+        {
+            UIManager.instance.openRuleJPThreeCard();
+        }
     }
     void updateInfo()
     {
