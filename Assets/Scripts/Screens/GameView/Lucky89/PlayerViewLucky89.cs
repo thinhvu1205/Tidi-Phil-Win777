@@ -99,13 +99,41 @@ public class PlayerViewLucky89 : PlayerView
         _BetValue = betValue;
         RectTransform rt = m_BetTMP.transform.parent.GetComponent<RectTransform>();
         rt.gameObject.SetActive(show);
-        if (_BetInfoBIP == BetInfoPosition.ABOVE) rt.anchoredPosition = new Vector2(5, 70);
-        else if (_BetInfoBIP == BetInfoPosition.RIGHT) rt.anchoredPosition = new Vector2(130, -5);
-        else if (_BetInfoBIP == BetInfoPosition.BELLOW) rt.anchoredPosition = new Vector2(5, -130);
-        else if (_BetInfoBIP == BetInfoPosition.LEFT) rt.anchoredPosition = new Vector2(-130, -5);
-        else rt.anchoredPosition = Vector2.zero;
-        if (_BetValue > 0) m_BetTMP.text = Config.FormatMoney(_BetValue, true).ToString();
+
+        if (!show)
+            return this;
+
+        // Chờ 1 frame để UI khởi tạo xong rồi set vị trí
+        StartCoroutine(DelaySetBetPosition(rt));
+
+        if (_BetValue > 0)
+            m_BetTMP.text = Config.FormatMoney(_BetValue, true).ToString();
+
         return this;
     }
+
+    private IEnumerator DelaySetBetPosition(RectTransform rt)
+    {
+        yield return null; // chờ 1 frame
+        switch (_BetInfoBIP)
+        {
+            case BetInfoPosition.ABOVE:
+                rt.anchoredPosition = new Vector2(5, 70);
+                break;
+            case BetInfoPosition.RIGHT:
+                rt.anchoredPosition = new Vector2(130, -5);
+                break;
+            case BetInfoPosition.BELLOW:
+                rt.anchoredPosition = new Vector2(5, -130);
+                break;
+            case BetInfoPosition.LEFT:
+                rt.anchoredPosition = new Vector2(-130, -5);
+                break;
+            default:
+                rt.anchoredPosition = Vector2.zero;
+                break;
+        }
+    }
+
     public int GetBetValue() { return _BetValue; }
 }

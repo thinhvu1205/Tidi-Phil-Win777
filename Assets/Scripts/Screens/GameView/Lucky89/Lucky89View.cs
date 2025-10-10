@@ -99,6 +99,8 @@ public class Lucky89View : GameView
         {
             players[i].playerView.transform.localPosition = listPosView[i];
             players[i].updateItemVip(players[i].vip);
+            PlayerViewLucky89 pv = (PlayerViewLucky89)players[i].playerView;
+            pv.SetBetPosition(i);
         }
     }
     public override void handleCTable(string strData)
