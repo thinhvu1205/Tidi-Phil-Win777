@@ -68,6 +68,7 @@ public class WebSocketManager : MonoBehaviour
         // ⚠️ Nếu chỉ test nội bộ, bỏ validate SSL (đừng dùng cho production)
         ws.SslConfiguration.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
 
+        ws.ConnectAsync();
         ws.EmitOnPing = true;
         ws.WaitTime = TimeSpan.FromSeconds(10);
 
@@ -95,7 +96,6 @@ public class WebSocketManager : MonoBehaviour
             _HandleOnCloseWebSocket();
         };
 
-        ws.ConnectAsync();
     }
 
 
