@@ -346,15 +346,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.textmeshpro": {
-      "version": "https://github.com/rutcreate/TextMesh-Pro-Thai.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0"
-      },
-      "hash": "6bb141b7883e0af586388542d9102367e92b7b7c"
-    },
     "com.unity.timeline": {
       "version": "1.8.7",
       "depth": 0,

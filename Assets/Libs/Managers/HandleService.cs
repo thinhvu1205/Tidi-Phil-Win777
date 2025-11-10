@@ -35,10 +35,10 @@ public class HandleService
                         $"NextBonus={CheckInBonusModel.Promotion.CurrentDaily.GetNextBonus()}, " +
                         $"NextWait={CheckInBonusModel.Promotion.CurrentDaily.GetNextWaitingTimeString()}"
                     );
-                    if (UIManager.instance.canShowPopupCheckinBonus)
-                    {
-                        UIManager.instance.ShowPopupCheckinBonus();
-                    }
+                    // if (UIManager.instance.canShowPopupCheckinBonus)
+                    // {
+                    //     UIManager.instance.ShowPopupCheckinBonus();
+                    // }
                     if (CheckInBonusModel.Promotion.CurrentDaily.T == 0)
                     {
                         UIManager.instance.iconNotiCheckinBonus.gameObject.SetActive(true);

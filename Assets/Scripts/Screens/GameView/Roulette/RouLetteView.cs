@@ -634,16 +634,13 @@ public class RouLetteView : GameView
         ShowTextNumDeal();
         foreach (var betData in listDataBet)
         {
-            foreach (var id in betData.NumArr)
+            if (newDataBetDeal.ContainsKey(betData.IdBet))
             {
-                if (newDataBetDeal.ContainsKey(id))
-                {
-                    newDataBetDeal[id] += betData.BetAmount;
-                }
-                else
-                {
-                    newDataBetDeal[id] = betData.BetAmount;
-                }
+                newDataBetDeal[betData.IdBet] += betData.BetAmount;
+            }
+            else
+            {
+                newDataBetDeal[betData.IdBet] = betData.BetAmount;
             }
         }
         string jsonDataBet = JsonConvert.SerializeObject(listDataBet, Formatting.Indented,
@@ -780,6 +777,7 @@ public class RouLetteView : GameView
         {
             buttonRebet.interactable = false;
         }
+        buttonDouble.interactable = listDataBet.Count > 0;
     }
 
     public void ClickButtonDouble()

@@ -74,7 +74,12 @@ public class VerticalPool : BasePool
         foreach (PoolObj aPO in _DataPOs)
         {
             if (aPO.IsUnused) continue;
+
             PoolInfo aPI = GetInfo(aPO.Id);
+            if (aPI != null)
+            {
+                if (aPI.LocalYBot >= topViewportY || aPI.LocalYTop <= bottomViewportY) aPO.PutBackToPool();
+            }
             if (aPI.LocalYBot >= topViewportY || aPI.LocalYTop <= bottomViewportY) aPO.PutBackToPool();
         }
         int countPoolInfo = _ControlPIs.Count;

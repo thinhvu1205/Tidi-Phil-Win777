@@ -92,7 +92,7 @@ public class BaucuaGameView : GameView
             return;
         }
 
-        long gold = thisPlayer.ag;
+        long gold = (thisPlayer.ag >= agTable * 100) ? agTable * 100 : thisPlayer.ag;
 
         // Tìm index phù hợp trong mảng TEMP_VALUE_GOLD_COINS
         int x = 4;  // Bắt đầu từ index 4

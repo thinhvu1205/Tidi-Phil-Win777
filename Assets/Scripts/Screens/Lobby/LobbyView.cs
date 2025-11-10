@@ -12,6 +12,7 @@ using System.Collections;
 
 public class LobbyView : BaseView
 {
+    [SerializeField] private Image imagePanelDark;
     [SerializeField] List<Button> listTabs = new();
     [SerializeField]
     GameObject objDot, btnEx, btnChatLobby, gameItemObject, modelLobby, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
@@ -186,6 +187,14 @@ public class LobbyView : BaseView
 
     protected override void OnEnable()
     {
+        imagePanelDark.gameObject.SetActive(true);
+        float targetAlpha = imagePanelDark.color.a;
+        targetAlpha = 1f;
+        imagePanelDark.DOFade(0, 0.65f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+           imagePanelDark.gameObject.SetActive(false); 
+        });
+
         WebSocketManager.getInstance().UserLogout = false;
         LoadConfig.instance.getConfigInfo();
         CURRENT_VIEW.setCurView(CURRENT_VIEW.GAMELIST_VIEW);
