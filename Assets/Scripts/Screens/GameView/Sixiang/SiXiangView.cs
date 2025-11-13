@@ -940,18 +940,21 @@ public class SiXiangView : BaseSlotView
             spineBgMoney.gameObject.SetActive(false);
             animAnimal.gameObject.SetActive(true);
             animAnimal.Initialize(true);
-            animAnimal.AnimationState.SetAnimation(0, animName, false);
-            //animAnimal.transform.Find("btnConfirm").gameObject.SetActive(false);
             animAnimal.transform.parent.gameObject.SetActive(true);
-            //lbSpecicalWin.gameObject.SetActive(false);
-            await Task.Delay((int)animAnimal.Skeleton.Data.FindAnimation(animName).Duration * 1000);
-            animAnimal.AnimationState.Complete += delegate
+            animAnimal.AnimationState.SetAnimation(0, animName, false).Complete += (entry) =>
             {
-                spineSpecialWinTask.Start();
-                animAnimal.transform.parent.gameObject.SetActive(false);
-                animAnimal.gameObject.SetActive(false);
-                effectContainer.SetActive(false);
+
+                animAnimal.AnimationState.Complete += delegate
+                {
+                    spineSpecialWinTask.Start();
+                    animAnimal.transform.parent.gameObject.SetActive(false);
+                    animAnimal.gameObject.SetActive(false);
+                    effectContainer.SetActive(false);
+                };
             };
+            //animAnimal.transform.Find("btnConfirm").gameObject.SetActive(false);
+            //lbSpecicalWin.gameObject.SetActive(false);
+            // await Task.Delay((int)animAnimal.Skeleton.Data.FindAnimation(animName).Duration * 2000);
 
         };
         UnityMainThread.instance.AddJob(() =>

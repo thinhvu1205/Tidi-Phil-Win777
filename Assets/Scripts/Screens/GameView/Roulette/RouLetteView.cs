@@ -634,17 +634,16 @@ public class RouLetteView : GameView
         ShowTextNumDeal();
         foreach (var betData in listDataBet)
         {
-            foreach (var id in betData.NumArr)
+
+            if (newDataBetDeal.ContainsKey(betData.IdBet))
             {
-                if (newDataBetDeal.ContainsKey(id))
-                {
-                    newDataBetDeal[id] += betData.BetAmount;
-                }
-                else
-                {
-                    newDataBetDeal[id] = betData.BetAmount;
-                }
+                newDataBetDeal[betData.IdBet] += betData.BetAmount;
             }
+            else
+            {
+                newDataBetDeal[betData.IdBet] = betData.BetAmount;
+            }
+
         }
         string jsonDataBet = JsonConvert.SerializeObject(listDataBet, Formatting.Indented,
           new JsonSerializerSettings
@@ -761,6 +760,7 @@ public class RouLetteView : GameView
         // Clear listDataBet và chỉ giữ lại những cược đã deal
         listDataBet.Clear();
         listDataBet.AddRange(dealtBets);
+
         // listDataBetForRebetTemp.Clear();
         // listDataBetForRebetTemp.AddRange(dealtBets);
 
@@ -780,6 +780,8 @@ public class RouLetteView : GameView
         {
             buttonRebet.interactable = false;
         }
+        Debug.Log("xem là có true ko" + (listDataBet.Count > 0));
+        buttonDouble.interactable = listDataBet.Count > 0;
     }
 
     public void ClickButtonDouble()
@@ -1131,7 +1133,11 @@ public class RouLetteView : GameView
         totalBetValue += chipValue;
         textFrameCoin.text = Globals.Config.FormatMoney(totalBetValue + totalBetDeal, true);
         textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);
-        long totalBetAtOption = listDataBet.FirstOrDefault(t => t.NumArr.SequenceEqual(numArr))?.BetAmount ?? 0;
+        long totalBetAtOption = listDataBet.FirstOrDefault(t => t.IdBet == idBetOption)?.BetAmount ?? 0;
+        if (newDataBetDeal.Count > idBetOption)
+        {
+            Debug.Log("Tổng cược tại ô " + idBetOption + " là: " + totalBetAtOption + " " + numArr.Sum() + " " + newDataBetDeal[idBetOption]);
+        }
         if (newDataBetDeal.ContainsKey(idBetOption))
         {
             totalBetAtOption += newDataBetDeal[idBetOption];
