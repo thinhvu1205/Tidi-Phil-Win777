@@ -190,7 +190,7 @@ public class LobbyView : BaseView
         imagePanelDark.gameObject.SetActive(true);
         float targetAlpha = imagePanelDark.color.a;
         targetAlpha = 1f;
-        imagePanelDark.DOFade(0, 0.65f).SetEase(Ease.Linear).OnComplete(() =>
+        imagePanelDark.DOFade(0, 0.85f).SetEase(Ease.Linear).OnComplete(() =>
         {
            imagePanelDark.gameObject.SetActive(false); 
         });
