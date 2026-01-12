@@ -34,7 +34,6 @@ public class ExchangeView : BaseView
     [SerializeField] private VerticalPool m_ChatTableVPGAgency;
     private List<PoolInfo> _ControlPIsAgency = new();
     private bool isHistory = false;
-    private bool isAgency = false;
 
     #region Button
     public void onConfirmCashOut()
@@ -88,7 +87,13 @@ public class ExchangeView : BaseView
           dt["m"] = aCWLD.m;
           item.setInfo(dt, () => onChooseCashOut(aCWLD.ag, aCWLD.m));
       }, true);
+        // m_ChatTableVPGAgency.SetApplyDataCb((go, data, index) =>
+        // {
 
+        //     ItemAgency item = go.GetComponent<ItemAgency>();
+        //     JObject aCWLD = (JObject)data.Data;
+        //     item.setInfo(aCWLD);
+        // }, true);
     }
     public void setCallBackListHistory()
     {
@@ -111,19 +116,7 @@ public class ExchangeView : BaseView
            }, true);
         }
     }
-    public void setCallBackListAgency()
-    {
-        if (!isAgency)
-        {
-            isAgency = true;
-            m_ChatTableVPGAgency.SetApplyDataCb((go, data, index) =>
-            {
-                ItemAgency item = go.GetComponent<ItemAgency>();
-                JObject aCWLD = (JObject)data.Data;
-                item.setInfo(aCWLD);
-            }, true);
-        }
-    }
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -408,7 +401,6 @@ public class ExchangeView : BaseView
 
     void DoClickButton(GameObject obj, JObject objDataItem)
     {
-
         SoundManager.instance.soundClick();
         GameObject rewardGo = m_RewardTMP.transform.parent.gameObject;
         GameObject historyGo = m_HistoryTMP.transform.parent.gameObject;
@@ -428,12 +420,10 @@ public class ExchangeView : BaseView
             scrContentRedeem.transform.parent.gameObject.SetActive(false);
             scrContentAgency.transform.parent.gameObject.SetActive(true);
             scrContentHistory.transform.parent.gameObject.SetActive(false);
-            setCallBackListAgency();
             reloadListItem(objDataItem);
         }
         else
         {
-            Debug.Log("có chạy vào nhé ae");
             typeNet = (string)curDataTabNap["TypeName"];
             scrContentRedeem.transform.parent.gameObject.SetActive(true);
             scrContentAgency.transform.parent.gameObject.SetActive(false);
@@ -542,11 +532,7 @@ public class ExchangeView : BaseView
         //         objItem.GetComponent<ItemHistoryEx>().setInfo(listDataHis[i], (int)listDataHis[i]["CashValue"]);
         //     }
         _ControlPIsHistory.Clear();
-        for (int i = 0; i < scrContentHistory.content.childCount; i++)
-        {
-            Debug.Log("xem nó gọi mấy lần");
-            scrContentHistory.content.GetChild(i).gameObject.SetActive(false);
-        }
+
         for (var i = 0; i < listDataHis.Count; i++)
         {
             string typeNameItem = (string)listDataHis[i]["typeName"];
@@ -562,32 +548,12 @@ public class ExchangeView : BaseView
                 _ControlPIsHistory.Add(new PoolInfo { Data = info });
             }
         }
-        Debug.Log("xem là có bao nhiêu phần tử" + _ControlPIsHistory.Count);
-        if (_ControlPIsHistory.Count > 0)
+        m_ChatTableVPGHistory.SetControlInfo(_ControlPIsHistory, 0);
+        for (int i = 0; i < scrContentHistory.content.childCount; i++)
         {
-            m_ChatTableVPGHistory.SetControlInfo(_ControlPIsHistory, 0);
+            Debug.Log("xem nó gọi mấy lần");
+            scrContentHistory.content.GetChild(i).gameObject.SetActive(true);
         }
-        if (_ControlPIsHistory.Count >= scrContentHistory.content.childCount)
-        {
-            for (int i = 0; i < scrContentHistory.content.childCount; i++)
-            {
-                Debug.Log("xem nó gọi mấy lần");
-                scrContentHistory.content.GetChild(i).gameObject.SetActive(true);
-            }
-        }
-        else
-        {
-            Debug.Log("xem nó gọi mấy lần 2222" + _ControlPIsHistory.Count);
-            for (int i = 0; i < _ControlPIsHistory.Count; i++)
-            {
-                if (i < scrContentHistory.content.childCount)
-                {
-                    scrContentHistory.content.GetChild(i).gameObject.SetActive(true);
-                }
-
-            }
-        }
-
     }
 
 
@@ -617,8 +583,9 @@ public class ExchangeView : BaseView
 
         valueCO = value;
     }
-    public void clear()
+    public override void onClickClose(bool isDestroy = true)
     {
+        base.onClickClose(isDestroy);
         m_PhoneIF.text = "";
         m_ConfirmPhoneIF.text = "";
 
