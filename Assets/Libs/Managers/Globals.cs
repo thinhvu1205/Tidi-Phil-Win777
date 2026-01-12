@@ -637,7 +637,7 @@ namespace Globals
         [Tooltip("id - gameid, ip - ip sv, ip_dm - ip domain sv, agSvipMin - ag min, v_tb")]
         public static JArray listGame = new JArray();//array
         public static JArray listRankGame = new JArray();//array
-        public static string u_chat_fb = "https://m.me/100087270858966";
+        public static string u_chat_fb = "https://m.me/1034503528845773";
         public static string infoChip = "";
         public static string infoDT = "";
         public static string infoBNF = "";
@@ -667,7 +667,7 @@ namespace Globals
         public static bool enableLottery = false;
 
         public static JArray arrOnlistTrue = new JArray();
-        public static JArray arrBannerLobby = new JArray();
+        public static JArray    arrBannerLobby = new JArray();
 
         public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.ROULETTE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.MINE_FINDING, (int)GAMEID.BAUCUA };
         public static List<int> listGameSlot = new List<int>() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL };

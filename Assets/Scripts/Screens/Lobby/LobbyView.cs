@@ -43,6 +43,7 @@ public class LobbyView : BaseView
         instance = this;
         base.Awake();
         resetLogout();
+
     }
     protected override void Start()
     {
@@ -59,6 +60,7 @@ public class LobbyView : BaseView
             });
         }
         buttonCheckinBonus.onClick.AddListener(ClickButtonCheckinBonus);
+
     }
     private void ClickButtonCheckinBonus()
     {
@@ -188,11 +190,13 @@ public class LobbyView : BaseView
     protected override void OnEnable()
     {
         imagePanelDark.gameObject.SetActive(true);
-        float targetAlpha = imagePanelDark.color.a;
-        targetAlpha = 1f;
-        imagePanelDark.DOFade(0, 0.85f).SetEase(Ease.Linear).OnComplete(() =>
+        Color c = imagePanelDark.color;
+        c.a = 0.5f;
+        imagePanelDark.color = c;
+        imagePanelDark.DOFade(0, 0.1f).SetEase(Ease.InOutCirc).OnComplete(() =>
         {
-           imagePanelDark.gameObject.SetActive(false); 
+            Debug.Log("có chạy vào đây mà");
+            imagePanelDark.gameObject.SetActive(false);
         });
 
         WebSocketManager.getInstance().UserLogout = false;
@@ -260,6 +264,7 @@ public class LobbyView : BaseView
         m_BannersPS.currentPage = 0;
         Debug.Log("Config.arrBannerLobby.Count==" + Config.arrBannerLobby.Count);
         bool isShow = Config.arrBannerLobby.Count > 0;
+        modelLobby.SetActive(!isShow);
         bool updatePos = false;
         m_BannersPS.gameObject.SetActive(isShow);
         if (!isShow) return;
@@ -274,6 +279,7 @@ public class LobbyView : BaseView
             var nodeBanner = Instantiate(bannerTemp).GetComponent<BannerView>();
 
             nodeBanner.isBannerType9 = true;
+
             nodeBanner.gameObject.SetActive(true);
             m_BannersPS.AddPage(nodeBanner.GetComponent<RectTransform>());
             nodeBanner.setInfo(dataBanner, false);

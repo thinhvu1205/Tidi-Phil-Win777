@@ -18415,7 +18415,7 @@ MonoBehaviour:
   btnEx: {fileID: 1279092597}
   btnChatLobby: {fileID: 1591600191}
   gameItemObject: {fileID: 954529121502032563, guid: 206ae8bfa1f504f9b91f84ffd862b262, type: 3}
-  modelLobby: {fileID: 0}
+  modelLobby: {fileID: 305709904}
   iconSafe: {fileID: 1843073502}
   btnSafe: {fileID: 784243841}
   btnGiftCode: {fileID: 605256719}

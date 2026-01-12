@@ -408,7 +408,7 @@ public class TableView : BaseView
     public void onClickClose()
     {
         SoundManager.instance.soundClick();
-        DOVirtual.DelayedCall(0.65f, () =>
+        DOVirtual.DelayedCall(0.9f, () =>
         {
             hide(true);
         });

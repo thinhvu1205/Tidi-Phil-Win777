@@ -40,6 +40,13 @@ public class ShopView : BaseView
     {
         Logging.Log("updateInfo shop   " + strData);
         JArray arrayData = JArray.Parse(strData);
+        ///bản laropay
+        var item = arrayData.FirstOrDefault(x => (string)x["title"] == "iap");
+        if (item != null)
+        {
+            arrayData.Remove(item);
+        }
+
         if (strData == "" || arrayData.Count <= 0)
         {
             updateInfo(dataDefault);

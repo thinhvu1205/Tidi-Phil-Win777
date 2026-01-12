@@ -363,7 +363,10 @@ public class UIManager : MonoBehaviour
             Globals.Logging.Log("-=-=OnApplicationPause ");
             //timeOnPause = DateTime.Now.Millisecond;
             pushLocalNotiOff();
-            WebSocketManager.getInstance().UserLogout = true;
+            if (gameView != null && !Globals.CURRENT_VIEW.isInChatVoice)
+            {
+                WebSocketManager.getInstance().UserLogout = true;
+            }
         }
         else
         {
@@ -744,7 +747,6 @@ public class UIManager : MonoBehaviour
     {
         Globals.Logging.Log("showLobbyScreen  ");
         loginView.hide(false);
-        destroyAllChildren(parentPopups);
         lobbyView.show();
         lobbyView.updateInfo();
         // SocketSend.getFarmInfo();

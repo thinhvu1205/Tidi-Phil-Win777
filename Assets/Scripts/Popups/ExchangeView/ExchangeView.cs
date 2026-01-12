@@ -396,9 +396,43 @@ public class ExchangeView : BaseView
         {
             scrContentHistory.content.GetChild(i).gameObject.SetActive(false);
         }
-        for (var i = 0; i < listDataHis.Count; i++)
+        List<JObject> original = listItem;
+
+        List<JObject> fixedList = new List<JObject>(); // giữ nguyên vị trí
+        List<JObject> sortList = new List<JObject>();  // sẽ sort
+
+        foreach (var item in original)
         {
-            string typeNameItem = (string)listDataHis[i]["typeName"];
+            if ((int)item["status"] == 0)
+                fixedList.Add(item);
+            else
+                sortList.Add(item);
+        }
+        sortList.Sort((a, b) =>
+        {
+            long timeA = (long)a["CreateTime"];
+            long timeB = (long)b["CreateTime"];
+            return timeB.CompareTo(timeA);
+        });
+
+        List<JObject> finalList = new List<JObject>();
+        int sortIndex = 0;
+
+        foreach (var item in original)
+        {
+            if ((int)item["status"] == 0)
+            {
+                finalList.Add(item);
+            }
+            else
+            {
+                finalList.Add(sortList[sortIndex]);
+                sortIndex++;
+            }
+        }
+        for (var i = 0; i < finalList.Count; i++)
+        {
+            string typeNameItem = (string)finalList[i]["typeName"];
             if (typeNameItem.Equals(typeTabHistory))
             {
                 GameObject objItem;
@@ -415,11 +449,20 @@ public class ExchangeView : BaseView
                 objItem.transform.SetParent(scrContentHistory.content);
                 objItem.transform.localScale = Vector3.one;
 
-                objItem.GetComponent<ItemHistoryEx>().setInfo(listDataHis[i], (int)listDataHis[i]["CashValue"]);
+                objItem.GetComponent<ItemHistoryEx>().setInfo(finalList[i], (int)finalList[i]["CashValue"]);
             }
         }
     }
+    public void clear()
+    {
+        m_PhoneIF.text = "";
+        m_ConfirmPhoneIF.text = "";
 
+    }
+    public void updateFreeChip()
+    {
+        UIManager.instance.updateMailAndMessageNoti();
+    }
     int valueCO;
     string typeNet;
     void onChooseCashOut(int ag, int value)

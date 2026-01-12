@@ -299,7 +299,7 @@ public class HongKongPokerView : GameView
             myChipCur = (int)data["ag"];
             myChipStack = (int)data["chip"];
         }
-        player.ag = (int)data["chip"] + player.ag;
+        player.ag = (int)data["chip"];
         player.setAg();
     }
 

@@ -681,10 +681,20 @@ public class GameView : BaseView
     //        UIManager.instance.showLobbyScreen(false);
     //    }
     //}
-
+        public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.ROULETTE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.MINE_FINDING, (int)GAMEID.BAUCUA };
     public void destroyThis()
     {
-        DestroyImmediate(gameObject);
+    //     if (listGamePlaynow.Contains(Config.curGameId))
+    //     {
+    //         DOVirtual.DelayedCall(1f, () =>
+    //    {
+    //        DestroyImmediate(gameObject);
+    //    });
+    //     }
+    //     else
+    //     {
+            DestroyImmediate(gameObject);
+        // }
     }
 
     public virtual void onLeave()

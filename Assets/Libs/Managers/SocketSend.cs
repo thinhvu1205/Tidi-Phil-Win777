@@ -117,6 +117,7 @@ public class SocketSend
         data["evt"] = "logout";
         WebSocketManager instance = WebSocketManager.getInstance();
         instance.UserLogout = true;
+
         instance.sendService(data.ToString(Newtonsoft.Json.Formatting.None));
         instance.stop();
     }
@@ -150,6 +151,7 @@ public class SocketSend
         data["Id"] = id;
         WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
+    
     public static void sendMessage(int idFr, string msg, string name)
     {
         try
@@ -319,7 +321,9 @@ public class SocketSend
                 //Debug.Log("listGame=" + itemGa.ToString());
                 if (gameId == (int)itemGa["id"])
                 {
-                    severIp = (string)itemGa["ip_dm"];
+                    severIp =
+                //"test.app.1707casino.com";
+                (string)itemGa["ip_dm"];
                     break;
                 }
             }
@@ -365,7 +369,6 @@ public class SocketSend
         JObject data = new JObject();
         data["evt"] = "updatejackpot";
         data["gameId"] = gameID;
-        Globals.Logging.Log("sendUpdateJackpot  " + data.ToString(Newtonsoft.Json.Formatting.None));
         WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
 
@@ -1013,12 +1016,13 @@ public class SocketSend
     }
     public static void sendPackageSlotSixiang(string action, int bet)
     {
-        Debug.Log("sendPackageSlotSixiang");
+        //        Debug.Log("sendPackageSlotSixiang");
         JObject data = new JObject();
 
         data["evt"] = "slotsixiang";
         data["action"] = action;
         data["bet"] = bet;
+        Debug.Log("xem data gửi lên" + data.ToString(Newtonsoft.Json.Formatting.None));
         WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
     public static void sendGoldPickSlotSixiang(string action)
@@ -1221,7 +1225,7 @@ public class SocketSend
         data["betAG"] = chipValue;
         data["side"] = sideBet;
         //Debug.Log("chipValue === " + chipValue);
-        //Debug.Log("sideBet  ==== " + sideBet);
+        Debug.Log("sideBet  ==== " + sideBet + " " + chipValue);
         WebSocketManager.getInstance().sendDataGame(data.ToString(Newtonsoft.Json.Formatting.None));
     }
     //====================End Baccarat======================

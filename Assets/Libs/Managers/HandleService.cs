@@ -934,10 +934,10 @@ public class HandleService
                         {
 
 
-                            UIManager.instance.showWaiting();
+                           // UIManager.instance.showWaiting();
                             DOTween.Sequence().AppendInterval(2.5f).AppendCallback(() =>
                             {
-                                SocketSend.getMail(12);
+                              //  
                                 SocketSend.sendDTHistory();
                                 if ((string)jsonData["msg"] != "")
                                     UIManager.instance.showMessageBox((string)jsonData["msg"]);
