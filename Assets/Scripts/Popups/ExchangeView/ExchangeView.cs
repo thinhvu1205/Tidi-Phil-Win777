@@ -6,7 +6,6 @@ using TMPro;
 using System.Threading.Tasks;
 using System;
 using Globals;
-using Unity.VisualScripting;
 
 public class ExchangeView : BaseView
 {
@@ -25,15 +24,6 @@ public class ExchangeView : BaseView
     private string typeTabHistory = "";
     private int indexTabHis = 0, indexTabNap = 1;
     private float _contentHeight = 0;
-    [SerializeField] private VerticalPool m_ChatTableVPG;
-    private List<PoolInfo> _ControlPIs = new();
-    [SerializeField] private VerticalPool m_ChatTableVPGHistory;
-    private List<PoolInfo> _ControlPIsHistory = new();
-    [SerializeField] private VerticalPool m_ChatTableVPGRedeem;
-    private List<PoolInfo> _ControlPIsRedeem = new();
-    [SerializeField] private VerticalPool m_ChatTableVPGAgency;
-    private List<PoolInfo> _ControlPIsAgency = new();
-    private bool isHistory = false;
 
     #region Button
     public void onConfirmCashOut()
@@ -64,57 +54,6 @@ public class ExchangeView : BaseView
         base.Awake();
         instance = this;
         SocketSend.SendGiftsHistory();
-        m_ChatTableVPG.SetApplyDataCb((go, data, index) =>
-       {
-
-           Transform tf = go;
-           go.gameObject.SetActive(true);
-           DataInfoHistoryTf aCWLD = (DataInfoHistoryTf)data.Data;
-           tf.gameObject.SetActive(true);
-           tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds(aCWLD.time).DateTime.ToString("dd/MM/yyyy hh:mm:ss tt");
-           tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = (string)aCWLD.content;
-
-       }, true);
-
-        m_ChatTableVPGRedeem.SetApplyDataCb((go, data, index) =>
-      {
-
-          ItemEx item = go.GetComponent<ItemEx>();
-          go.gameObject.SetActive(true);
-          DataInfoRedeem aCWLD = (DataInfoRedeem)data.Data;
-          JObject dt = new JObject();
-          dt["ag"] = aCWLD.ag;
-          dt["m"] = aCWLD.m;
-          item.setInfo(dt, () => onChooseCashOut(aCWLD.ag, aCWLD.m));
-      }, true);
-        // m_ChatTableVPGAgency.SetApplyDataCb((go, data, index) =>
-        // {
-
-        //     ItemAgency item = go.GetComponent<ItemAgency>();
-        //     JObject aCWLD = (JObject)data.Data;
-        //     item.setInfo(aCWLD);
-        // }, true);
-    }
-    public void setCallBackListHistory()
-    {
-        if (!isHistory)
-        {
-            isHistory = true;
-            m_ChatTableVPGHistory.SetApplyDataCb((go, data, index) =>
-           {
-               go.gameObject.SetActive(true);
-               ItemHistoryEx item = go.GetComponent<ItemHistoryEx>();
-               DataHistory aCWLD = (DataHistory)data.Data;
-               JObject dt = new JObject();
-               dt["id"] = aCWLD.id;
-               dt["CashValue"] = aCWLD.CashValue;
-               dt["GcashId"] = aCWLD.GcashId;
-               dt["CreateTime"] = aCWLD.CreateTime;
-               dt["status"] = aCWLD.status;
-               dt["typeName"] = aCWLD.typeName;
-               item.setInfo(dt, aCWLD.CashValue);
-           }, true);
-        }
     }
 
     // Start is called before the first frame update
@@ -127,44 +66,33 @@ public class ExchangeView : BaseView
         LoadConfig.instance.getInfoEX(updateInfo);
         lbChips.text = Globals.Config.FormatNumber(Globals.User.userMain.AG);
     }
-
     public async void HandleGiftHistory(JObject data)
     {
         JArray content = (JArray)data["content"];
-        // foreach (Transform tf in m_HistoryTf) Destroy(tf.gameObject);
-        _ControlPIs.Clear();
+        foreach (Transform tf in m_HistoryTf) Destroy(tf.gameObject);
         for (int i = 0; i < content.Count; i++)
         {
-            // Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
-            // tf.gameObject.SetActive(true);
-            // tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds((long)content[i]["time"]).DateTime.ToString("dd/MM/yyyy hh:mm:ss tt");
-            // tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = (string)content[i]["content"];
-            DataInfoHistoryTf info = new DataInfoHistoryTf();
-            info.time = (long)content[i]["time"];
-            info.content = (string)content[i]["content"];
-            _ControlPIs.Add(new PoolInfo { Data = info });
-        }
-        m_ChatTableVPG.SetControlInfo(_ControlPIs, _ControlPIs.Count - 1);
-        await ScrollHistory();
+            Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
+            tf.gameObject.SetActive(true);
+            tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds((long)content[i]["time"]).DateTime.ToString("dd/MM/yyyy hh:mm:ss tt");
+            tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = (string)content[i]["content"];
 
+        }
+        await ScrollHistory();
         async Awaitable ScrollHistory()
         {
             try
             {
-                //await Awaitable.NextFrameAsync();
-                //await Awaitable.NextFrameAsync();
+                await Awaitable.NextFrameAsync();
+                await Awaitable.NextFrameAsync();
                 _contentHeight = m_HistoryTf.GetComponent<RectTransform>().rect.height;
                 float viewportheight = m_HistoryTf.parent.GetComponent<RectTransform>().rect.height;
-                float scrollSpeed = 100f;
-                float offset = 0f;
                 while (true)
                 {
-                    offset += Time.fixedDeltaTime * scrollSpeed;
-                    offset = Mathf.Repeat(offset, _contentHeight - viewportheight);
-                    m_HistoryTf.localPosition = new Vector3(0, offset, 0);
+                    if (m_HistoryTf.localPosition.y > (_contentHeight - viewportheight)) m_HistoryTf.localPosition = Vector3.zero;
                     await Awaitable.FixedUpdateAsync();
+                    m_HistoryTf.localPosition += Time.fixedDeltaTime * new Vector3(0, 100, 0);
                 }
-
             }
             catch
             {
@@ -174,16 +102,11 @@ public class ExchangeView : BaseView
     }
     public void HandleUpdateHistory(JObject data)
     {
-        //Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
-        //tf.gameObject.SetActive(true);
-        DataInfoHistoryTf info = new DataInfoHistoryTf();
-        info.time = (long)data["time"];
-        info.content = (string)data["content"];
-        _ControlPIs.Add(new PoolInfo { Data = info });
-        m_ChatTableVPG.SetControlInfo(_ControlPIs, 0);
-        // tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds((long)data["time"]).DateTime.ToString();
-        // tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = (string)data["content"];
-        // _contentHeight += tf.GetComponent<RectTransform>().rect.height;
+        Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
+        tf.gameObject.SetActive(true);
+        tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds((long)data["time"]).DateTime.ToString();
+        tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = (string)data["content"];
+        _contentHeight += tf.GetComponent<RectTransform>().rect.height;
 
     }
     public void UpdateAg()
@@ -355,7 +278,6 @@ public class ExchangeView : BaseView
     }
     void onClickTabHis(GameObject evv, JObject dataItem)
     {
-        setCallBackListHistory();
         SoundManager.instance.soundClick();
         for (var i = 0; i < scrTabsHis.content.childCount; i++)
         {
@@ -432,10 +354,8 @@ public class ExchangeView : BaseView
         }
     }
 
-    void
-    reloadListItem(JObject objDataItem)
+    void reloadListItem(JObject objDataItem)
     {
-        Debug.Log("xem data chỗ list này" + objDataItem.ToString());
         if (objDataItem != null)
         {
             //[{ "title":"Truemoney","type":"phil","child":[{ "title":"truemoney","TypeName":"truemoney","title_img":"https://storage.googleapis.com/cdn.topbangkokclub.com/shop/Truemoney.png?v=1","textBox":[{ "key_placeHolder":"txt_enter_text_gc"},{ "key_placeHolder":"txt_conf_text_gc"}]}],"items":[{ "ag":1000000,"m":50},{ "ag":2000000,"m":100},{ "ag":4000000,"m":200},{ "ag":10000000,"m":500},{ "ag":20000000,"m":1000},{ "ag":40000000,"m":2000},{ "ag":100000000,"m":5000},{ "ag":200000000,"m":10000}]},{ "type":"agency","title":"agency","items":[{ "id":"1862315","name":"Agency Jason","tel":"09396196724","msg_fb":"http://bit.ly/jason-agency"}]}]
@@ -455,107 +375,50 @@ public class ExchangeView : BaseView
             if (items == null || items.Count <= 0) return;
             Debug.Log("-=-= itemss  " + items.ToString());
 
-            // for (var i = 0; i < items.Count; i++)
-            // {
-            //     JObject dt = (JObject)items[i];
-            //     GameObject item = i < parent.childCount ? parent.GetChild(i).gameObject : Instantiate(isAgency ? itemAgency : itemEx, parent);
-            //     if (isAgency) item.GetComponent<ItemAgency>().setInfo(dt);
-            //     else item.GetComponent<ItemEx>().setInfo(dt, () => onChooseCashOut((int)dt["ag"], (int)dt["m"]));
-            //     item.SetActive(true);
-            //     item.transform.SetParent(parent);
-            //     item.transform.localScale = Vector3.one;
-            // }
-            // for (var i = items.Count; i < parent.childCount; i++) parent.GetChild(i).gameObject.SetActive(false);
-            _ControlPIsRedeem.Clear();
-            _ControlPIsAgency.Clear();
-            Debug.Log("xem là gì  " + items.Count);
-
             for (var i = 0; i < items.Count; i++)
             {
-                if (!isAgency)
-                {
-                    DataInfoRedeem infoRedeem = new DataInfoRedeem();
-                    infoRedeem.ag = (int)((JObject)items[i])["ag"];
-                    infoRedeem.m = (int)((JObject)items[i])["m"];
-                    _ControlPIsRedeem.Add(new PoolInfo { Data = infoRedeem });
-                }
-                else
-                {
-                    JObject dt = (JObject)items[i];
-                    _ControlPIsAgency.Add(new PoolInfo { Data = dt });
-                }
+                JObject dt = (JObject)items[i];
+                GameObject item = i < parent.childCount ? parent.GetChild(i).gameObject : Instantiate(isAgency ? itemAgency : itemEx, parent);
+                if (isAgency) item.GetComponent<ItemAgency>().setInfo(dt);
+                else item.GetComponent<ItemEx>().setInfo(dt, () => onChooseCashOut((int)dt["ag"], (int)dt["m"]));
+                item.SetActive(true);
+                item.transform.SetParent(parent);
+                item.transform.localScale = Vector3.one;
             }
-
-            if (!isAgency)
-            {
-                m_ChatTableVPGRedeem.SetControlInfo(_ControlPIsRedeem, 0);
-            }
-            else
-            {
-                m_ChatTableVPGAgency.SetControlInfo(_ControlPIsAgency, 0);
-            }
-            for (int i = 0; i < scrContentRedeem.content.childCount; i++)
-            {
-                Debug.Log("xem nào");
-                scrContentRedeem.content.GetChild(i).gameObject.SetActive(true);
-                scrContentRedeem.verticalNormalizedPosition = 1f;
-            }
+            for (var i = items.Count; i < parent.childCount; i++) parent.GetChild(i).gameObject.SetActive(false);
         }
     }
 
     public void reloadListItemHistory(List<JObject> listItem)
     {
         listDataHis = listItem;
-        // for (int i = 0; i < scrContentHistory.content.childCount; i++)
-        // {
-        //     scrContentHistory.content.GetChild(i).gameObject.SetActive(false);
-        // }
-        // for (var i = 0; i < listDataHis.Count; i++)
-        // {
-        //     string typeNameItem = (string)listDataHis[i]["typeName"];
-        //     if (typeNameItem.Equals(typeTabHistory))
-        //     {
-        //         GameObject objItem;
-        //         if (i < scrContentHistory.content.childCount)
-        //         {
-        //             objItem = scrContentHistory.content.GetChild(i).gameObject;
-        //         }
-        //         else
-        //         {
-        //             objItem = Instantiate(itemHistory, scrContentHistory.content);
-
-        //         }
-        //         objItem.SetActive(true);
-        //         objItem.transform.SetParent(scrContentHistory.content);
-        //         objItem.transform.localScale = Vector3.one;
-
-        //         objItem.GetComponent<ItemHistoryEx>().setInfo(listDataHis[i], (int)listDataHis[i]["CashValue"]);
-        //     }
-        _ControlPIsHistory.Clear();
-
+        for (int i = 0; i < scrContentHistory.content.childCount; i++)
+        {
+            scrContentHistory.content.GetChild(i).gameObject.SetActive(false);
+        }
         for (var i = 0; i < listDataHis.Count; i++)
         {
             string typeNameItem = (string)listDataHis[i]["typeName"];
             if (typeNameItem.Equals(typeTabHistory))
             {
-                DataHistory info = new DataHistory();
-                info.id = (int)listDataHis[i]["id"];
-                info.status = (int)listDataHis[i]["status"];
-                info.GcashId = (string)listDataHis[i]["GcashId"];
-                info.CashValue = (int)listDataHis[i]["CashValue"];
-                info.CreateTime = (double)listDataHis[i]["CreateTime"];
-                info.typeName = (string)listDataHis[i]["typeName"];
-                _ControlPIsHistory.Add(new PoolInfo { Data = info });
+                GameObject objItem;
+                if (i < scrContentHistory.content.childCount)
+                {
+                    objItem = scrContentHistory.content.GetChild(i).gameObject;
+                }
+                else
+                {
+                    objItem = Instantiate(itemHistory, scrContentHistory.content);
+
+                }
+                objItem.SetActive(true);
+                objItem.transform.SetParent(scrContentHistory.content);
+                objItem.transform.localScale = Vector3.one;
+
+                objItem.GetComponent<ItemHistoryEx>().setInfo(listDataHis[i], (int)listDataHis[i]["CashValue"]);
             }
         }
-        m_ChatTableVPGHistory.SetControlInfo(_ControlPIsHistory, 0);
-        for (int i = 0; i < scrContentHistory.content.childCount; i++)
-        {
-            Debug.Log("xem nó gọi mấy lần");
-            scrContentHistory.content.GetChild(i).gameObject.SetActive(true);
-        }
     }
-
 
     int valueCO;
     string typeNet;
@@ -583,13 +446,6 @@ public class ExchangeView : BaseView
 
         valueCO = value;
     }
-    public override void onClickClose(bool isDestroy = true)
-    {
-        base.onClickClose(isDestroy);
-        m_PhoneIF.text = "";
-        m_ConfirmPhoneIF.text = "";
-
-    }
     public void cashOutReturn(JObject data)
     {
         Globals.Logging.Log("-=-=-=-=cashOutReturn  " + data.ToString());
@@ -604,24 +460,4 @@ public class ExchangeView : BaseView
 
         }
     }
-}
-public class DataInfoHistoryTf
-{
-    public long time { get; set; }
-    public string content { get; set; }
-}
-public class DataInfoRedeem
-{
-    public int ag { get; set; }
-    public int m { get; set; }
-}
-public class DataHistory
-{
-    public double CreateTime { get; set; }
-    public int CashValue { get; set; }
-    public string GcashId { get; set; }
-    public int status { get; set; }
-    public int id { get; set; }
-    public string typeName { get; set; }
-
 }

@@ -23,30 +23,6 @@ public class ShopView : BaseView
     private bool isTab = false;
     private string dataDefault = "[{\"type\":\"iap\",\"title\":\"iap\",\"bestDeal\":[\"0.99 USD\",\"0.99 USD\",\"4.99 USD\",\"4.99 USD\",\"9.99 USD\",\"9.99 USD\",\"49.99 USD\",\"49.99 USD\",\"49.99 USD\",\"99.99 USD\",\"99.99 USD\"],\"focus\":false,\"title_img\":\"https://storage.googleapis.com/cdn.davaogames.com/img/shop/IAPAND.png?v=1\",\"items\":[{\"url\":\"unity.lucky777.tongitswar.1\",\"txtPromo\":\"1USD = 7,576 Chips\",\"txtChip\":\"7,500 Chips\",\"txtBuy\":\"0.990000 USD\",\"txtBonus\":\"0%\",\"cost\":1},{\"url\":\"unity.lucky777.tongitswar.2\",\"txtPromo\":\"1USD = 7,538 Chips\",\"txtChip\":\"15,000 Chips\",\"txtBuy\":\"1.990000 USD\",\"txtBonus\":\"0%\",\"cost\":2},{\"url\":\"unity.lucky777.tongitswar.5\",\"txtPromo\":\"1USD = 7,515 Chips\",\"txtChip\":\"37,500 Chips\",\"txtBuy\":\"4.990000 USD\",\"txtBonus\":\"0%\",\"cost\":5},{\"url\":\"unity.lucky777.tongitswar.10\",\"txtPromo\":\"1USD = 9,009 Chips\",\"txtChip\":\"90,000 Chips\",\"txtBuy\":\"9.990000 USD\",\"txtBonus\":\"0%\",\"cost\":10},{\"url\":\"unity.lucky777.tongitswar.20\",\"txtPromo\":\"1USD = 9,005 Chips\",\"txtChip\":\"180,000 Chips\",\"txtBuy\":\"19.990000 USD\",\"txtBonus\":\"0%\",\"cost\":20},{\"url\":\"unity.lucky777.tongitswar.50\",\"txtPromo\":\"1USD = 9,002 Chips\",\"txtChip\":\"450,000 Chips\",\"txtBuy\":\"49.990000 USD\",\"txtBonus\":\"0%\",\"cost\":50},{\"url\":\"unity.lucky777.tongitswar.100\",\"txtPromo\":\"1USD = 9,001 Chips\",\"txtChip\":\"900,000 Chips\",\"txtBuy\":\"99.990000 USD\",\"txtBonus\":\"0%\",\"cost\":100}]}]";
     private string _TabNameFocusOnBannerShowType9;
-    [SerializeField] private VerticalPool m_ChatTableVPGListRedeem;
-    private List<PoolInfo> _ControlPIsListRedeem = new();
-    private JArray jArray = new JArray();
-    public void Awake()
-    {
-        instance = this;
-        m_ChatTableVPGListRedeem.SetApplyDataCb((go, data, index) =>
-    {
-
-        ItemShop itemShop = go.GetComponent<ItemShop>();
-        DataInShop aCWLD = (DataInShop)data.Data;
-        JObject dtItem = new JObject();
-        dtItem["txtChip"] = aCWLD.txtChip;
-        dtItem["txtPromo"] = aCWLD.txtPromo;
-        dtItem["txtBonus"] = aCWLD.txtBonus;
-        dtItem["txtBuy"] = aCWLD.txtBuy;
-        dtItem["url"] = aCWLD.url;
-        dtItem["type"] = aCWLD.type;
-        itemShop.setInfo(dtItem, aCWLD.id, () =>
-            {
-                onBuy(dtItem);
-            }, aCWLD.id >= jArray.Count - 1);
-    }, true);
-    }
     public void init(string tabNameFocus = "")
     {
         _TabNameFocusOnBannerShowType9 = tabNameFocus;
@@ -73,7 +49,7 @@ public class ShopView : BaseView
         if (strData == dataDefault) rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 460f);
         else rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 395f);
         UIManager.instance.destroyAllChildren(scrTabs.content.transform);
-        // UIManager.instance.destroyAllChildren(scrContent.content.transform);
+        UIManager.instance.destroyAllChildren(scrContent.content.transform);
         if (arrayData.Count == 1)
         {
             iapManager = new IAPManager((JObject)arrayData[0]);
@@ -493,7 +469,6 @@ public class ShopView : BaseView
             bkg.gameObject.SetActive(evv == scrTabsChannel.content.GetChild(i).gameObject);
             if (evv == scrTabsChannel.content.GetChild(i).gameObject)
             {
-                Debug.Log("xem như nào" + dataItem.ToString());
                 reloadListContent((JArray)dataItem["items"], (string)dataItem["type"], (string)dataItem["title"]);
             }
         }
@@ -506,53 +481,35 @@ public class ShopView : BaseView
     {
         itemBest = null;
         getBest(listItem, partner, title);
-        // for (var i = 0; i < listItem.Count; i++)
-        // {
-        //     JObject dtItem = (JObject)listItem[i];
-        //     dtItem["type"] = partner;
-
-        //     GameObject itemS = null;
-        //     if (i < scrContent.content.childCount)
-        //     {
-        //         itemS = scrContent.content.GetChild(i).gameObject;
-        //     }
-        //     else
-        //     {
-        //         itemS = Instantiate(itemShop, scrContent.content);
-        //     }
-
-        //     itemS.SetActive(true);
-        //     itemS.transform.SetParent(scrContent.content);
-        //     itemS.transform.SetSiblingIndex(i);
-        //     itemS.transform.localScale = Vector3.one;
-        //     itemS.GetComponent<ItemShop>().setInfo(dtItem, i, () =>
-        //     {
-        //         onBuy(dtItem);
-        //     }, i >= listItem.Count - 1);
-        // }
-        // for (var i = listItem.Count; i < scrContent.content.childCount; i++)
-        // {
-        //     scrContent.content.GetChild(i).gameObject.SetActive(false);
-        // }
-        _ControlPIsListRedeem.Clear();
-        jArray = new JArray(listItem);
         for (var i = 0; i < listItem.Count; i++)
         {
             JObject dtItem = (JObject)listItem[i];
             dtItem["type"] = partner;
-            DataInShop dataInShop = new DataInShop();
-            dataInShop.type = (string)dtItem["type"];
-            dataInShop.txtBonus = (string)dtItem["txtBonus"];
-            dataInShop.txtBuy = (string)dtItem["txtBuy"];
-            dataInShop.txtChip = (string)dtItem["txtChip"];
-            dataInShop.txtPromo = (string)dtItem["txtPromo"];
-            dataInShop.url = (string)dtItem["url"];
-            dataInShop.id = i;
-            PoolInfo pi = new PoolInfo();
-            pi.Data = dataInShop;
-            _ControlPIsListRedeem.Add(pi);
+
+            GameObject itemS = null;
+            if (i < scrContent.content.childCount)
+            {
+                itemS = scrContent.content.GetChild(i).gameObject;
+            }
+            else
+            {
+                itemS = Instantiate(itemShop, scrContent.content);
+            }
+
+            itemS.SetActive(true);
+            itemS.transform.SetParent(scrContent.content);
+            itemS.transform.SetSiblingIndex(i);
+            itemS.transform.localScale = Vector3.one;
+            itemS.GetComponent<ItemShop>().setInfo(dtItem, i, () =>
+            {
+                onBuy(dtItem);
+            }, i >= listItem.Count - 1);
         }
-        m_ChatTableVPGListRedeem.SetControlInfo(_ControlPIsListRedeem, 0);
+        for (var i = listItem.Count; i < scrContent.content.childCount; i++)
+        {
+            scrContent.content.GetChild(i).gameObject.SetActive(false);
+        }
+
     }
     public void onClickBest()
     {
@@ -663,16 +620,5 @@ public class ShopView : BaseView
         }
 
     }
-
-}
-public class DataInShop
-{
-    public string txtChip { get; set; }
-    public string txtBonus { get; set; }
-    public string txtPromo { get; set; }
-    public string txtBuy { get; set; }
-    public string url { get; set; }
-    public int id { get; set; }
-    public string type { get; set; }
 
 }
