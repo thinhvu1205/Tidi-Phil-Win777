@@ -1088,7 +1088,6 @@ public class HandleService
                         LobbyView.instance.showChatOnLobby((int)jsonData["V"], (string)jsonData["N"], (string)jsonData["D"]);
                     }
                     break;
-
                 case "getChatWorld":
                     {
                         if (!Config.is_show_chat /*|| Globals.User.userMain.VIP < 2*/)
@@ -1105,6 +1104,79 @@ public class HandleService
                         Globals.COMMON_DATA.ListChatWorld = JArray.Parse((string)jsonData["data"]);
                         break;
                     }
+                case "friend_list":
+                    Globals.COMMON_DATA.JsonDataFriend = jsonData;
+                    Globals.COMMON_DATA.IdFriend.Clear();
+                    JArray rawList = (JArray)jsonData["listFriend"];
+                    JArray ListInvited = (JArray)jsonData["listInvite"];
+                    JArray ListRequest = (JArray)jsonData["listRequest"];
+                    foreach (var item in ListRequest)
+                    {
+                        long userId = (long)item["userid"];
+                        if (!Globals.COMMON_DATA.IdFriend.Contains(userId))
+                        {
+                            Globals.COMMON_DATA.IdFriend.Add(userId);
+                        }
+                    }
+                    foreach (var item in ListInvited)
+                    {
+                        long userId = (int)item["userid"];
+                        if (!Globals.COMMON_DATA.IdFriend.Contains(userId))
+                        {
+                            Globals.COMMON_DATA.IdFriend.Add(userId);
+                        }
+                    }
+                    foreach (var item in rawList)
+                    {
+                        long userId = (long)item["userId"];
+                        if (!Globals.COMMON_DATA.IdFriend.Contains(userId))
+                        {
+                            Globals.COMMON_DATA.IdFriend.Add(userId);
+                        }
+                    }
+                    if (ScreenFriendView.instance != null && ScreenFriendView.instance.gameObject.activeSelf)
+                    {
+                        ScreenFriendView.instance.reloadListFriend();
+                    }
+                    break;
+                case "friend_list_chat":
+                    Globals.COMMON_DATA.JsonDataListChatFriend = (JArray)jsonData["data"];
+                    break;
+                case "friend_chat":
+                    if (ChatFriend.Instance != null && ChatFriend.Instance.gameObject.activeSelf)
+                    {
+                        ChatFriend.Instance.setInfo(null, true, jsonData);
+                    }
+                    break;
+                case "upgrade_Friend":
+                    SocketSend.getListFriend();
+                    UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    break;
+                case "Friend_Delete":
+                    SocketSend.getListFriend();
+                    UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    break;
+                case "friend_chat_detail":
+                    if (ChatFriend.Instance != null && ChatFriend.Instance.gameObject.activeSelf)
+                    {
+                        ChatFriend.Instance.setInfo(jsonData, false, null);
+                    }
+                    break;
+                case "make_Friend_delete":
+                    SocketSend.getListFriend();
+                    if ((bool)jsonData["status"])
+                    {
+                        UIManager.instance.showMessageBox("Delete Friend success");
+                    }
+                    else
+                    {
+                        UIManager.instance.showMessageBox("Delete Friend failure");
+                    }
+                    break;
+                case "make_Friend_Response":
+                    SocketSend.getListFriend();
+                    UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    break;
             }
         }
         else if (jsonData.ContainsKey("idevt"))

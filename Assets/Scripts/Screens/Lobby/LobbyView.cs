@@ -742,6 +742,10 @@ public class LobbyView : BaseView
         UIManager.instance.onClickChatLobby();
 
     }
+    public void showMenuFriend()
+    {
+        UIManager.instance.showMenuFriend();
+    }
     public void onClickSupport()
     {
         SoundManager.instance.soundClick();

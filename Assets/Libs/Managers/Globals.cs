@@ -557,6 +557,7 @@ namespace Globals
     }
     public class Config
     {
+        public static string linkRuleFriend = "";
         public static bool is_show_chat = false;
         public static int vip_block_chat = 0;
         public static int text_chat_gold_by_vip = 0;
@@ -1968,6 +1969,9 @@ namespace Globals
         public static JArray ListChatWorld = new();
         public static List<ChatWorldLobbyData> ListDataChatInGame = new();
         public static Dictionary<string, List<JObject>> MultiSendChatDataD = new();
+        public static JObject JsonDataFriend = new();
+        public static List<long> IdFriend = new();
+        public static JArray JsonDataListChatFriend = new();
     }
 
     public class NativeCall

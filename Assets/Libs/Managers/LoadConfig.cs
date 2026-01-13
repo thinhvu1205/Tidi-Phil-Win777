@@ -512,6 +512,12 @@ public class LoadConfig : MonoBehaviour
 
             });
         }
+        if (jConfig.ContainsKey("ruleReferral"))
+        {
+            string link = (string)jConfig["ruleReferral"];
+            if (!link.StartsWith("https://")) link = "https://" + link;
+            Config.linkRuleFriend = link;
+        }
         if (jConfig.ContainsKey("url_rule_js_new"))
             Config.url_rule = (string)jConfig["url_rule_js_new"];
         else

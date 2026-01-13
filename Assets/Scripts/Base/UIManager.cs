@@ -224,7 +224,39 @@ public class UIManager : MonoBehaviour
             // An error occurred during initialization.
         }
     }
-
+    public void showMenuFriend()
+    {
+        var friend = Instantiate(loadPrefab("GameView/Friends/prefab/MenuFriend"), parentPopups).GetComponent<MenuFriend>();
+        friend.transform.localScale = Vector3.one;
+    }
+    public void showComingsoon()
+    {
+        var friend = Instantiate(loadPrefab("GameView/Friends/prefab/CommingSoon"), parentPopups);
+        friend.transform.localScale = Vector3.one;
+        friend.transform.SetAsLastSibling();
+    }
+    public void showListFriendView()
+    {
+        var listFriend = Instantiate(loadPrefab("GameView/Friends/prefab/ScreenFriend"), parentPopups).GetComponent<ScreenFriendView>();
+        listFriend.transform.localScale = Vector3.one;
+    }
+    public void showListChatFriend(DataFriend dataFriend)
+    {
+        ChatFriend listFriend = Instantiate(loadPrefab("GameView/Friends/prefab/group_chat/Chat"), parentPopups).GetComponent<ChatFriend>();
+        listFriend.transform.localScale = Vector3.one;
+        listFriend.OpenNewChat(dataFriend);
+    }
+    public void showInviteListFriend()
+    {
+        ScreenInvite listFriend = Instantiate(loadPrefab("GameView/Friends/prefab/Invite"), parentPopups).GetComponent<ScreenInvite>();
+        listFriend.transform.localScale = Vector3.one;
+        listFriend.transform.SetAsLastSibling();
+    }
+    public void showRefaral()
+    {
+        var refalral = Instantiate(loadPrefab("GameView/Friends/prefab/refaral"), parentPopups).GetComponent<BaseView>();
+        refalral.transform.localScale = Vector3.one;
+    }
     public void onClickChatLobby()
     {
         var chatWorldView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("Chat/MainChatLobby"), parentPopups).GetComponent<MainChatLobby>();

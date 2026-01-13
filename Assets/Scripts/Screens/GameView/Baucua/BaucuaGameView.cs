@@ -447,7 +447,7 @@ public class BaucuaGameView : GameView
         TextMeshProUGUI textLabelGate = spBet.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         textLabelGate.text = Globals.Config.FormatMoney(DictionMeBetInGateLast[numberGate], true);
         m_Chipdeal.text = Globals.Config.FormatMoney(DictionMeBetInGate.Sum(), true);
-        UpdateButtonBet();
+     
     }
     private void FadeImageAlpha(Image image)
     {
@@ -529,6 +529,45 @@ public class BaucuaGameView : GameView
             player.setAg();
             effectMoveChip(positionGates[i], betAmount, player);
         }
+        UpdateButtonBet();
+    }
+ private void UpdateButtonBet()
+    {
+        int intChipSet = -1;
+        for (int i = 0; i < ListValueChip.Count; i++)
+        {
+            long betAmount = ListValueChip[i];
+            Debug.Log("xem nào" + DictionMeBetInGateLast.Sum() + " " + betAmount + " " + agTable * 100 + " và" + thisPlayer.ag);
+            if (
+                  (DictionMeBetInGateLast.Sum() + betAmount > agTable * 100) ||
+                 thisPlayer.ag < betAmount)
+            {
+                PositionChipbet = intChipSet = i == 0 ? 0 : i - 1;
+                ChooseChip(m_ChipBet[PositionChipbet].gameObject);
+                break;
+            }
+        }
+
+        if (intChipSet != -1)
+        {
+            for (int i = 0; i < m_ChipBet.Count; i++)
+            {
+                Debug.Log("có mà bạn");
+                m_ChipBet[i].transform.GetChild(0).gameObject.SetActive(false);
+                m_ChipBet[i].interactable = i <= intChipSet;
+            }
+            m_ChipBet[intChipSet].transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else
+        {
+            for (int i = 0; i < m_ChipBet.Count; i++)
+            {
+                m_ChipBet[i].transform.GetChild(0).gameObject.SetActive(false);
+                m_ChipBet[i].interactable = true;
+            }
+            m_ChipBet[PositionChipbet].transform.GetChild(0).gameObject.SetActive(true);
+        }
+
     }
 
 
@@ -704,49 +743,14 @@ public class BaucuaGameView : GameView
         ResetBetValuesAfterDeal();
 
     }
-    private void UpdateButtonBet()
-    {
-        int intChipSet = -1;
-        for (int i = 0; i < ListValueChip.Count; i++)
-        {
-            long betAmount = ListValueChip[i];
-            Debug.Log("xem nào" + (DictionMeBetInGate.Sum() + betAmount) + " " + agTable * 100);
-            if ((DictionMeBetInGate.Sum() + betAmount > agTable * 100)||(thisPlayer.ag - DictionMeBetInGate.Sum() < betAmount))
-            {
-                PositionChipbet = intChipSet = i == 0 ? 0 : i - 1;
-                ChooseChip(m_ChipBet[PositionChipbet].gameObject);
-                break;
-            }
-        }
-
-        if (intChipSet != -1)
-        {
-            for (int i = 0; i < m_ChipBet.Count; i++)
-            {
-                Debug.Log("có mà bạn");
-                m_ChipBet[i].transform.GetChild(0).gameObject.SetActive(false);
-                m_ChipBet[i].interactable = i <= intChipSet;
-            }
-            m_ChipBet[intChipSet].transform.GetChild(0).gameObject.SetActive(true);
-        }
-        else
-        {
-            for (int i = 0; i < m_ChipBet.Count; i++)
-            {
-                m_ChipBet[i].transform.GetChild(0).gameObject.SetActive(false);
-                m_ChipBet[i].interactable = true;
-            }
-            m_ChipBet[PositionChipbet].transform.GetChild(0).gameObject.SetActive(true);
-        }
-
-    }
+   
 
     public void ClickCancel()
     {
         SoundManager.instance.soundClick();
         cancelValueBet();
         ResetBetValuesAfterDeal();
-        UpdateButtonBet();
+      
     }
     private void cancelValueBet()
     {
