@@ -64,6 +64,7 @@
 		"reply": "Tugon",
 		"fanpage": "Fanpage",
 		"roulette": "Ruleta",
+		"error_not_friend":"Maaari ka lamang magpadala ng chip sa iyong mga kaibigan. I-upgrade ang antas ng pagkakaibigan ngayon!",
 		"has_mail_out_of_money": "Ang iyong mga chips ay hindi sapat upang pumusta, mangyaring magdagdag ng higit pang mga chips upangmagkapaglaro sa susunod na oras!",
 		"msg_warrning_send": "Hindi sapat ang iyong chips!",
 		"enter_id": "I-type and iyong ID",

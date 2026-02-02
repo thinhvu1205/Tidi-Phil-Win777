@@ -53,7 +53,8 @@ public class InfoPlayerInGame : BaseView
         vipContainer.setVip(player.vip);
         avatar.setVip(player.vip);
         Debug.Log("xem là có cái id đó ko " + Globals.COMMON_DATA.IdFriend.Contains(player.id));
-        m_AddFriend.SetActive(player.id != Globals.User.userMain.Userid && player.vip >= 2 && !Globals.COMMON_DATA.IdFriend.Contains(player.id));
+        m_AddFriend.SetActive(player.id != Globals.User.userMain.Userid && player.vip >= 2 && !Globals.COMMON_DATA.IdFriend.Contains(player.id) && !Globals.COMMON_DATA.IdRequestFriend.Contains(player.id) && !Globals.COMMON_DATA.IdInviteFriend.Contains(player.id));
+        Debug.Log("check var, checker var"+(player.id != Globals.User.userMain.Userid) +" " +(player.vip >= 2)+" "+ (!Globals.COMMON_DATA.IdFriend.Contains(player.id))+" "+( !Globals.COMMON_DATA.IdRequestFriend.Contains(player.id))+" "+ (!Globals.COMMON_DATA.IdInviteFriend.Contains(player.id)));
     }
     public void onClickRequestAddFriend()
     {

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -14,8 +15,13 @@ public class ChatFriend : BaseView
     [SerializeField] private TMP_InputField m_Message;
     [SerializeField] private VerticalPool m_ChatTableVPG;
     [SerializeField] private ScrollRect m_ScrollChat;
+    [SerializeField] private GameObject m_IconChat;
     private List<PoolInfo> _ControlPIs = new();
     public Dictionary<long, JObject> dictionary = new();
+    private Queue<string> chatQueue = new Queue<string>();
+    List<TabFriendChat> ListTabFriendChat = new List<TabFriendChat>();
+    private bool isChatRunning = false;
+    [SerializeField] private GameObject m_ChatInFriend;
 
     public long id_friends;
     void Awake()
@@ -52,6 +58,7 @@ public class ChatFriend : BaseView
                 itemTab = Instantiate(m_ItemTabChatFriend, m_TabChatFriends.transform).GetComponent<TabFriendChat>();
             }
             itemTab.SetInfo((string)Globals.COMMON_DATA.JsonDataListChatFriend[i]["userName"], (int)Globals.COMMON_DATA.JsonDataListChatFriend[i]["userId"], (int)Globals.COMMON_DATA.JsonDataListChatFriend[i]["avatar"], index, false);
+            ListTabFriendChat.Add(itemTab);
         }
 
     }
@@ -82,9 +89,6 @@ public class ChatFriend : BaseView
             itemTab.SetInfo(dataFriend.userName, dataFriend.userid, dataFriend.avatar, -1, true);
             itemTab.OnClickChooseFriendChat();
         }
-
-
-
     }
     public void setInfo(JObject data = null, bool isAdd = false, JObject dataChat = null)
     {
@@ -137,7 +141,13 @@ public class ChatFriend : BaseView
                 _ControlPIs.Add(new PoolInfo { Data = chatData });
             }
             // dictionary.Add((int)(item["userId"] ?? 0),)
+            m_ChatTableVPG.SetControlInfo(_ControlPIs, _ControlPIs.Count - 1);
 
+            DOVirtual.DelayedCall(0.5f, () =>
+           {
+               m_ScrollChat.content.anchoredPosition += new Vector2(0, -0.2f);
+
+           });
         }
         else
         {
@@ -155,9 +165,7 @@ public class ChatFriend : BaseView
                 ["createTime"] = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
                 ["username"] = dataChat["username"]?.Value<string>() ?? ""
             };
-
-
-            if (dictionary.ContainsKey(id_friends))
+            if (dictionary.ContainsKey((long)dataChat["uid"]))
             {
                 JObject friendData = dictionary[id_friends];
                 var dataRaw = JObject.Parse(friendData["data"]?.ToString() ?? "{}");
@@ -195,24 +203,40 @@ public class ChatFriend : BaseView
                 };
                 JObject newFriendData = new JObject
                 {
-                    ["idFriend"] = id_friends,
+                    ["idFriend"] = (long)dataChat["uid"],
                     ["data"] = dataRaw.ToString() // LƯU DẠNG STRING
                 };
 
-                dictionary.Add(id_friends, newFriendData);
+                dictionary.Add((long)dataChat["uid"], newFriendData);
+
             }
             // Parse data
+            if (id_friends != (long)dataChat["uid"]&&(long)dataChat["uid"]!=Globals.User.userMain.Userid)
+            {
+                showNotiChat((string)(dataChat["username"] ?? ""));
+                ListTabFriendChat.ForEach(tab =>
+                {
+                    if (tab.idFriend == (long)dataChat["uid"])
+                    {
+                        tab.setOnNoti(true);
+                    }
+                });
+            }
+            else
+            {
+                _ControlPIs.Add(new PoolInfo { Data = chatData });
+                m_ChatTableVPG.SetControlInfo(_ControlPIs, _ControlPIs.Count - 1);
+
+                DOVirtual.DelayedCall(0.5f, () =>
+               {
+                   m_ScrollChat.content.anchoredPosition += new Vector2(0, -0.2f);
+
+               });
+            }
 
 
-            _ControlPIs.Add(new PoolInfo { Data = chatData });
         }
-        m_ChatTableVPG.SetControlInfo(_ControlPIs, _ControlPIs.Count - 1);
 
-        DOVirtual.DelayedCall(0.5f, () =>
-       {
-           m_ScrollChat.content.anchoredPosition += new Vector2(0, -0.2f);
-
-       });
     }
     public void SendChat()
     {
@@ -231,6 +255,57 @@ public class ChatFriend : BaseView
 
         SocketSend.sendChatFriends(id_friends, mess);
         m_Message.text = "";
+    }
+    public void showNotiChat(string name)
+    {
+        chatQueue.Enqueue(name);
+        if (!isChatRunning)
+        {
+            Debug.Log("xem là ở chỗ này có bao nhiêu " + chatQueue.Count);
+            StartCoroutine(ProcessChatQueue());
+        }
+    }
+
+    private IEnumerator ProcessChatQueue()
+    {
+        isChatRunning = true;
+        while (chatQueue.Count > 0)
+        {
+            var name = chatQueue.Dequeue();
+            yield return StartCoroutine(CreateChatLobby(name));
+        }
+        isChatRunning = false;
+    }
+
+    private IEnumerator CreateChatLobby(string name)
+    {
+        Debug.Log("xem gọi ra mấy lần");
+        GameObject effectChange = BundleHandler.Instantiate(m_ChatInFriend);
+        DOVirtual.DelayedCall(4f, () =>
+        {
+            if (effectChange != null)
+                Destroy(effectChange);
+        });
+        effectChange.transform.SetParent(m_IconChat.transform, false);
+        effectChange.transform.SetAsLastSibling();
+        TextMeshProUGUI info = effectChange.GetComponent<TextMeshProUGUI>();
+        info.text = name + " sent you a message";
+        effectChange.transform.localPosition = new Vector2(0, 0);
+        float elapsedTime = 0f;
+        float moveDuration = 3f;
+        Vector2 startPosition = new Vector2(0, 50);
+        Vector2 targetPosition = startPosition + new Vector2(0, 55);
+
+        while (elapsedTime < moveDuration)
+        {
+            float t = elapsedTime / moveDuration;
+            effectChange.transform.localPosition = Vector3.Lerp(startPosition, targetPosition, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        effectChange.transform.localPosition = targetPosition;
+        float stayTime = 1f;
+        yield return new WaitForSeconds(stayTime);
     }
 
 }

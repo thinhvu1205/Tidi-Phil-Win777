@@ -11,7 +11,7 @@ public class ScreenInvite : BaseView
     public void Awake()
     {
         instance = this;
-        SocketSend.getListFriend();
+       
     }
 
 }

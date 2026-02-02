@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+
 public class ItemFriendScreenListFriend : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI m_NameFriends, m_Id, m_Vip, m_Point;
@@ -13,11 +14,12 @@ public class ItemFriendScreenListFriend : MonoBehaviour
     [SerializeField] private GameObject m_Tick;
     [SerializeField] private GameObject m_Off;
     [SerializeField] private GameObject m_InfoRequest;
+    [SerializeField] private GameObject m_Noti;
     private DataFriend dataFriend;
     public void setInfo(DataFriend data)
     {
         Delete.onClick.RemoveAllListeners();
-        m_Tick.gameObject.SetActive(false);
+
         dataFriend = data;
         m_NameFriends.text = data.userName;
         m_Id.text = "ID: " + data.userid.ToString();
@@ -32,7 +34,7 @@ public class ItemFriendScreenListFriend : MonoBehaviour
         }
         if (data.isTab == 4)
         {
-            m_InfoRequest.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Friend";
+            m_InfoRequest.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = data.requestLevel;
             m_InfoRequest.SetActive(true);
             m_Off.SetActive(false);
             m_HeartYellow.SetActive(true);
@@ -47,7 +49,7 @@ public class ItemFriendScreenListFriend : MonoBehaviour
         }
         else if (data.isTab == 5)
         {
-            m_InfoRequest.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Friend";
+            m_InfoRequest.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = data.requestLevel;
             m_InfoRequest.SetActive(true);
             m_Off.SetActive(false);
             m_HeartYellow.SetActive(true);
@@ -83,26 +85,66 @@ public class ItemFriendScreenListFriend : MonoBehaviour
             m_GroupBtn_Invi_requets.SetActive(false);
             m_Tick.transform.parent.gameObject.SetActive(true);
             m_GroupBtn_Friends.SetActive(true);
+            if (data.isTab == 0)
+            {
+                m_Tick.gameObject.SetActive(ScreenFriendView.instance.listFrienDelete.Contains(dataFriend.id));
+            }
+            else
+            {
+                m_Tick.gameObject.SetActive(ScreenFriendView.instance.listFrienDelete.Contains(dataFriend.userid));
+            }
+
         }
     }
     public void OnClickFriendChat()
     {
+
         UIManager.instance.showListChatFriend(dataFriend);
+        SocketSend.sendGetDetailChatFriend(dataFriend.userid);
+    }
+    public void OnClickSendChip()
+    {
+        SocketSend.sendCheckLastCount(dataFriend.userid, dataFriend.friendLevel);
+        UIManager.instance.showSendChips(dataFriend.userName, dataFriend.userid, dataFriend.friendLevel);
     }
     public void onClickTick()
     {
-        m_Tick.gameObject.SetActive(!m_Tick.activeSelf);
-        if (m_Tick.activeSelf)
+        if (ScreenFriendView.instance.isTab == 0)
         {
-            if (!ScreenFriendView.instance.listFrienDelete.Contains(dataFriend.id))
+            m_Tick.gameObject.SetActive(!m_Tick.activeSelf);
+            if (m_Tick.activeSelf)
             {
-                ScreenFriendView.instance.listFrienDelete.Add(dataFriend.id);
+                if (!ScreenFriendView.instance.listFrienDelete.Contains(dataFriend.id))
+                {
+                    ScreenFriendView.instance.listFrienDelete.Add(dataFriend.id);
+                }
+
+            }
+            else
+            {
+                ScreenFriendView.instance.listFrienDelete.Remove(dataFriend.id);
             }
 
         }
         else
         {
-            ScreenFriendView.instance.listFrienDelete.Remove(dataFriend.id);
+            bool isOn = m_Tick.activeSelf;
+            Debug.Log("xem có bao nhiêu item " + ScreenFriendView.instance.m_ChatTableVPG.transform.childCount);
+            foreach (Transform item in ScreenFriendView.instance.m_ChatTableVPG.transform)
+            {
+                var itemFriend = item.GetComponentInChildren<ItemFriendScreenListFriend>(true);
+                if (itemFriend != null && itemFriend.m_Tick != null)
+                {
+                    itemFriend.m_Tick.SetActive(false);
+                }
+            }
+            ScreenFriendView.instance.listFrienDelete.Clear();
+            if (!isOn)
+            {
+                m_Tick.gameObject.SetActive(true);
+                ScreenFriendView.instance.listFrienDelete.Add(dataFriend.userid);
+            }
+
         }
         ScreenFriendView.instance.setButtonDelete(ScreenFriendView.instance.listFrienDelete.Count > 0);
     }
@@ -112,8 +154,16 @@ public class ItemFriendScreenListFriend : MonoBehaviour
     }
     public void ApproveInvite()
     {
-        Debug.Log("hả");
         SocketSend.sendApproveReject(new List<long> { dataFriend.userid }, true);
+    }
+    public void showGiftShop()
+    {
+        UIManager.instance.showGiftShop(dataFriend.userName, dataFriend.userid);
+    }
+    public void onClickInviteGame()
+    {
+        UIManager.instance.showListChatFriend(dataFriend);
+        SocketSend.sendChatFriends(dataFriend.userid, "Halika na, sabay tayo maglaro sa game!");
     }
     public void CancelRequest()
     {

@@ -558,6 +558,7 @@ namespace Globals
     public class Config
     {
         public static string linkRuleFriend = "";
+        public static string RuleFortuneGift = "";
         public static bool is_show_chat = false;
         public static int vip_block_chat = 0;
         public static int text_chat_gold_by_vip = 0;
@@ -1971,7 +1972,15 @@ namespace Globals
         public static Dictionary<string, List<JObject>> MultiSendChatDataD = new();
         public static JObject JsonDataFriend = new();
         public static List<long> IdFriend = new();
+        public static List<long> IdRequestFriend = new();
+        public static List<long> IdInviteFriend = new();
+        public static List<long> CloseFriend = new();
+        public static List<long> BestFriend = new();
+        public static List<long> Soulmate = new();
+        public static List<long> Friend = new();
         public static JArray JsonDataListChatFriend = new();
+        public static List<JObject> ListDataNotiFriend = new();
+        public static List<JObject> ListDataNotiFriendUnread = new();
     }
 
     public class NativeCall

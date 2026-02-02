@@ -1800,11 +1800,11 @@ MonoBehaviour:
   isAlawayTop: 0
   isSetParentNull: 0
   isPlaySoundOpen: 1
-  m_ListBtnLeft: []
-  m_ListTextBtnLeft: []
   m_ItemTabChatFriend: {fileID: 2432395705763303499, guid: dbec921afddbe9c47b7ffe2b35ef68f3, type: 3}
   m_TabChatFriends: {fileID: 1586148786138878486}
   m_Message: {fileID: 6870182552141310689}
   m_ChatTableVPG: {fileID: 6364119993230945182}
   m_ScrollChat: {fileID: 1722065918118688844}
+  m_IconChat: {fileID: 5261486511145310087}
+  m_ChatInFriend: {fileID: 3172732992619124160, guid: e57cda11cca04814bb04de0bac985116, type: 3}
   id_friends: 0

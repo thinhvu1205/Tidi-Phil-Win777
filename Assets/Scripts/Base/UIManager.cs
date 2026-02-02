@@ -224,10 +224,33 @@ public class UIManager : MonoBehaviour
             // An error occurred during initialization.
         }
     }
+    public void showGiftShop(string name, long id)
+    {
+        SocketSend.sendGiftShop();
+        ListGift friend = Instantiate(loadPrefab("GameView/Friends/prefab/SendGift"), parentPopups).GetComponent<ListGift>();
+        friend.transform.localScale = Vector3.one;
+        friend.setInfoText(name, id);
+        friend.transform.SetAsLastSibling();
+    }
+    public void showConfirm(string NameGift, long id, int index, string name, long ip, long money)
+    {
+        SocketSend.sendGiftShop();
+        ConfirmSendGift friend = Instantiate(loadPrefab("GameView/Friends/prefab/Confirmation_sendGift"), parentPopups).GetComponent<ConfirmSendGift>();
+        friend.transform.localScale = Vector3.one;
+        friend.SetInfoConfirm(NameGift, id, index, name, ip, money);
+        friend.transform.SetAsLastSibling();
+    }
     public void showMenuFriend()
     {
         var friend = Instantiate(loadPrefab("GameView/Friends/prefab/MenuFriend"), parentPopups).GetComponent<MenuFriend>();
         friend.transform.localScale = Vector3.one;
+        friend.transform.SetAsLastSibling();
+    }
+    public void showFortuneGift()
+    {
+        var friend = Instantiate(loadPrefab("GameView/Friends/prefab/SendFoturneGift"), parentPopups);
+        friend.transform.localScale = Vector3.one;
+        friend.transform.SetAsLastSibling();
     }
     public void showComingsoon()
     {
@@ -246,16 +269,23 @@ public class UIManager : MonoBehaviour
         listFriend.transform.localScale = Vector3.one;
         listFriend.OpenNewChat(dataFriend);
     }
-    public void showInviteListFriend()
+    public void showSendChips(string name, long id,string level)
     {
-        ScreenInvite listFriend = Instantiate(loadPrefab("GameView/Friends/prefab/Invite"), parentPopups).GetComponent<ScreenInvite>();
+        SendChip listFriend = Instantiate(loadPrefab("GameView/Friends/prefab/SendChip"), parentPopups).GetComponent<SendChip>();
         listFriend.transform.localScale = Vector3.one;
-        listFriend.transform.SetAsLastSibling();
+        listFriend.setInfoText(name, id,level);
     }
     public void showRefaral()
     {
         var refalral = Instantiate(loadPrefab("GameView/Friends/prefab/refaral"), parentPopups).GetComponent<BaseView>();
         refalral.transform.localScale = Vector3.one;
+    }
+    public void showDetailNoti(string content)
+    {
+        var detailNoti = Instantiate(loadPrefab("GameView/Friends/prefab/DetailNotification"), parentPopups).GetComponent<DetailItem>();
+        detailNoti.transform.localScale = Vector3.one;
+        detailNoti.transform.SetAsLastSibling();
+        detailNoti.setContentDetail(content);
     }
     public void onClickChatLobby()
     {
@@ -523,6 +553,9 @@ public class UIManager : MonoBehaviour
         {
             loginView.reconnect();
         }
+        Globals.COMMON_DATA.IdFriend.Clear();
+        Globals.COMMON_DATA.IdInviteFriend.Clear();
+        Globals.COMMON_DATA.IdRequestFriend.Clear();
     }
 
     public void showGame()
@@ -1383,6 +1416,10 @@ public class UIManager : MonoBehaviour
     }
     public void checkAlertMail(bool isEvt22 = true)
     {
+        if (ExchangeView.instance != null && ExchangeView.instance.gameObject.activeSelf)
+        {
+            return;
+        }
         lobbyView.checkAlertMail(isEvt22);
     }
 

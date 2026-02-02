@@ -8,9 +8,14 @@ public class TabFriendChat : MonoBehaviour
     [SerializeField] GameObject m_FrameUp;
     [SerializeField] GameObject m_Avatar;
     [SerializeField] TextMeshProUGUI m_NameU, m_Id;
-    private long idFriend;
+    [SerializeField] private GameObject m_Noti;
+    public long idFriend;
     private int indexPosition;
     private bool isChoose = false;
+    public void Start()
+    {
+        m_Noti.SetActive(false);
+    }
     public void SetInfo(string name, long id, int avatar, int postion, bool isChoose = false)
     {
         indexPosition = postion;
@@ -28,13 +33,18 @@ public class TabFriendChat : MonoBehaviour
     }
     public void setOffTab()
     {
+        m_NameU.color = Color.white;
         isChoose = false;
         m_FrameUp.SetActive(false);
         m_FrameCenter.SetActive(false);
     }
+    public void setOnNoti(bool isOn)
+    {
+        m_Noti.SetActive(isOn);
+    }
     public void OnClickChooseFriendChat()
     {
-
+        setOnNoti(false);
         this.transform.SetAsFirstSibling();
         if (!isChoose && !m_FrameUp.activeSelf)
         {
@@ -53,6 +63,6 @@ public class TabFriendChat : MonoBehaviour
         isChoose = true;
         ChatFriend.Instance.setOffAllTab();
         m_FrameUp.SetActive(true);
-
+        m_NameU.color = Color.yellow;
     }
 }

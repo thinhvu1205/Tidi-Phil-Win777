@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+﻿
 using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -6,6 +6,8 @@ using DG.Tweening.Core.Easing;
 using Globals;
 using Socket.Quobject.EngineIoClientDotNet.Modules;
 using System;
+using Newtonsoft.Json.Linq;
+
 
 public class HandleService
 {
@@ -27,39 +29,39 @@ public class HandleService
                     // Global.MainView.lbTimeOnline.node.stopAllActions();
                     // Global.MainView.setTimeGetMoney();
                     //
-                    CheckinBonusData bonusData = CheckinBonusData.FromJson(jsonData);
-                    CheckInBonusModel.Promotion.CurrentDaily = bonusData;
-                    Debug.Log(
-                        $"[Promotion] OC={CheckInBonusModel.Promotion.CurrentDaily.OC}/{CheckInBonusModel.Promotion.CurrentDaily.OM}, " +
-                        $"T={CheckInBonusModel.Promotion.CurrentDaily.T} ({CheckInBonusModel.Promotion.CurrentDaily.GetTimeRemainFormatted(CheckInBonusModel.Promotion.CurrentDaily.T)}), " +
-                        $"NextBonus={CheckInBonusModel.Promotion.CurrentDaily.GetNextBonus()}, " +
-                        $"NextWait={CheckInBonusModel.Promotion.CurrentDaily.GetNextWaitingTimeString()}"
-                    );
-                    if (UIManager.instance.canShowPopupCheckinBonus)
-                    {
-                        UIManager.instance.ShowPopupCheckinBonus();
-                    }
-                    if (CheckInBonusModel.Promotion.CurrentDaily.T == 0)
-                    {
-                        UIManager.instance.iconNotiCheckinBonus.gameObject.SetActive(true);
-                        UIManager.instance.hasDailyBonus = true;
-                    }
+                    // CheckinBonusData bonusData = CheckinBonusData.FromJson(jsonData);
+                    // CheckInBonusModel.Promotion.CurrentDaily = bonusData;
+                    // Debug.Log(
+                    //     $"[Promotion] OC={CheckInBonusModel.Promotion.CurrentDaily.OC}/{CheckInBonusModel.Promotion.CurrentDaily.OM}, " +
+                    //     $"T={CheckInBonusModel.Promotion.CurrentDaily.T} ({CheckInBonusModel.Promotion.CurrentDaily.GetTimeRemainFormatted(CheckInBonusModel.Promotion.CurrentDaily.T)}), " +
+                    //     $"NextBonus={CheckInBonusModel.Promotion.CurrentDaily.GetNextBonus()}, " +
+                    //     $"NextWait={CheckInBonusModel.Promotion.CurrentDaily.GetNextWaitingTimeString()}"
+                    // );
+                    // if (UIManager.instance.canShowPopupCheckinBonus)
+                    // {
+                    //     UIManager.instance.ShowPopupCheckinBonus();
+                    // }
+                    // if (CheckInBonusModel.Promotion.CurrentDaily.T == 0)
+                    // {
+                    //     UIManager.instance.iconNotiCheckinBonus.gameObject.SetActive(true);
+                    //     UIManager.instance.hasDailyBonus = true;
+                    // }
 
-                    if (CheckInBonusModel.Promotion.CurrentDaily.T <= 0)
-                    {
-                        SocketSend.sendCheckTime();
-                    }
-                    Globals.Promotion.setPromotionInfo(jsonData);
-                    UIManager.instance.updateMailAndMessageNoti();
-                    UIManager.instance.setTimeOnline();
-                    if (DailyBonusView.instance != null)
-                    {
-                        DailyBonusView.instance.setInfo();
-                    }
-                    if (FreeChipView.instance != null)
-                    {
-                        FreeChipView.instance.loadFreeChip();
-                    }
+                    // if (CheckInBonusModel.Promotion.CurrentDaily.T <= 0)
+                    // {
+                    //     SocketSend.sendCheckTime();
+                    // }
+                    // Globals.Promotion.setPromotionInfo(jsonData);
+                    // UIManager.instance.updateMailAndMessageNoti();
+                    // UIManager.instance.setTimeOnline();
+                    // if (DailyBonusView.instance != null)
+                    // {
+                    //     DailyBonusView.instance.setInfo();
+                    // }
+                    // if (FreeChipView.instance != null)
+                    // {
+                    //     FreeChipView.instance.loadFreeChip();
+                    // }
                     break;
                 case "promotion_online":
 
@@ -935,12 +937,15 @@ public class HandleService
 
 
                             UIManager.instance.showWaiting();
+
                             DOTween.Sequence().AppendInterval(2.5f).AppendCallback(() =>
                             {
-                                SocketSend.getMail(12);
                                 SocketSend.sendDTHistory();
                                 if ((string)jsonData["msg"] != "")
-                                    UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                                    UIManager.instance.showMessageBox((string)jsonData["msg"], () =>
+                                    {
+                                        SocketSend.getMail(12);
+                                    });
                             });
                         }
 
@@ -1106,24 +1111,31 @@ public class HandleService
                     }
                 case "friend_list":
                     Globals.COMMON_DATA.JsonDataFriend = jsonData;
+                    Globals.COMMON_DATA.CloseFriend.Clear();
+                    Globals.COMMON_DATA.BestFriend.Clear();
+                    Globals.COMMON_DATA.Soulmate.Clear();
+                    Globals.COMMON_DATA.Friend.Clear();
                     Globals.COMMON_DATA.IdFriend.Clear();
+                    Globals.COMMON_DATA.IdInviteFriend.Clear();
+                    Globals.COMMON_DATA.IdRequestFriend.Clear();
                     JArray rawList = (JArray)jsonData["listFriend"];
                     JArray ListInvited = (JArray)jsonData["listInvite"];
                     JArray ListRequest = (JArray)jsonData["listRequest"];
                     foreach (var item in ListRequest)
                     {
                         long userId = (long)item["userid"];
-                        if (!Globals.COMMON_DATA.IdFriend.Contains(userId))
+                        if (!Globals.COMMON_DATA.IdRequestFriend.Contains(userId))
                         {
-                            Globals.COMMON_DATA.IdFriend.Add(userId);
+                            Globals.COMMON_DATA.IdRequestFriend.Add(userId);
                         }
+
                     }
                     foreach (var item in ListInvited)
                     {
                         long userId = (int)item["userid"];
-                        if (!Globals.COMMON_DATA.IdFriend.Contains(userId))
+                        if (!Globals.COMMON_DATA.IdInviteFriend.Contains(userId))
                         {
-                            Globals.COMMON_DATA.IdFriend.Add(userId);
+                            Globals.COMMON_DATA.IdInviteFriend.Add(userId);
                         }
                     }
                     foreach (var item in rawList)
@@ -1133,11 +1145,48 @@ public class HandleService
                         {
                             Globals.COMMON_DATA.IdFriend.Add(userId);
                         }
+                        string friendLevel = (string)item["friendLevel"];
+                        switch (friendLevel)
+                        {
+                            case "Friend":
+                                if (!Globals.COMMON_DATA.Friend.Contains(userId))
+                                {
+                                    Globals.COMMON_DATA.Friend.Add(userId);
+                                }
+
+                                break;
+                            case "CloseFriend":
+                                if (!Globals.COMMON_DATA.CloseFriend.Contains(userId))
+                                {
+                                    Globals.COMMON_DATA.CloseFriend.Add(userId);
+                                }
+
+                                break;
+                            case "BestFriend":
+                                if (!Globals.COMMON_DATA.BestFriend.Contains(userId))
+                                {
+                                    Globals.COMMON_DATA.BestFriend.Add(userId);
+                                }
+
+                                break;
+                            case "SoulMate":
+                                if (!Globals.COMMON_DATA.Soulmate.Contains(userId))
+                                {
+                                    Globals.COMMON_DATA.Soulmate.Add(userId);
+                                }
+
+                                break;
+                        }
                     }
                     if (ScreenFriendView.instance != null && ScreenFriendView.instance.gameObject.activeSelf)
                     {
                         ScreenFriendView.instance.reloadListFriend();
+                        if (ScreenFriendView.instance.m_PopupInviteFriend.activeSelf)
+                        {
+                            ScreenFriendView.instance.setDataAddMore();
+                        }
                     }
+
                     break;
                 case "friend_list_chat":
                     Globals.COMMON_DATA.JsonDataListChatFriend = (JArray)jsonData["data"];
@@ -1177,6 +1226,75 @@ public class HandleService
                     SocketSend.getListFriend();
                     UIManager.instance.showMessageBox((string)jsonData["msg"]);
                     break;
+                case "Gift_shop":
+                    if (ListGift.instance != null && ListGift.instance.gameObject.activeSelf)
+                    {
+                        ListGift.instance.SetInfoListData((JArray)jsonData["data"]);
+                    }
+                    break;
+                case "Gift_Item":
+                    if (jsonData.ContainsKey("msg"))
+                    {
+                        SocketSend.SendFriendNotification();
+                        SocketSend.getListFriend();
+                        SocketSend.sendUAG();
+                        UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    }
+                    break;
+                case "Gift_Chip":
+                    if (jsonData.ContainsKey("msg"))
+                    {
+                        UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    }
+                    break;
+                case "downgrade_Friend":
+                    SocketSend.getListFriend();
+                    if (jsonData.ContainsKey("msg"))
+                    {
+                        UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    }
+                    break;
+                case "friend_notification":
+                    JArray Noti = (JArray)jsonData["data"];
+                    Globals.COMMON_DATA.ListDataNotiFriend.Clear();
+                    Globals.COMMON_DATA.ListDataNotiFriendUnread.Clear();
+                    for (int i = 0; i < Noti.Count; i++)
+                    {
+                        Globals.COMMON_DATA.ListDataNotiFriend.Add((JObject)Noti[i]);
+                        if (!(bool)((JObject)Noti[i])["S"])
+                        {
+                            Globals.COMMON_DATA.ListDataNotiFriendUnread.Add((JObject)Noti[i]);
+                        }
+                    }
+                    if (ScreenFriendView.instance != null && ScreenFriendView.instance.gameObject.activeSelf)
+                    {
+                        ScreenFriendView.instance.setOnNoti();
+                    }
+                    if (Notification.instance != null && Notification.instance.gameObject.activeSelf)
+                    {
+                        Notification.instance.setListNoti();
+                    }
+                    break;
+                case "Transfer_Info":
+
+                    if (jsonData.ContainsKey("chip"))
+                    {
+                        if (SendChip.instance != null && SendChip.instance.gameObject.activeSelf)
+                        {
+                            SendChip.instance.setLastCount((int)jsonData["times"], (long)jsonData["chip"]);
+                        }
+                    }
+                    break;
+                case "ServiceTransportPacket":
+
+                    if (jsonData.ContainsKey("msg"))
+                    {
+                        SocketSend.sendUAG();
+                        UIManager.instance.showMessageBox((string)jsonData["msg"]);
+                    }
+
+                    break;
+
             }
         }
         else if (jsonData.ContainsKey("idevt"))
@@ -1237,24 +1355,24 @@ public class HandleService
                     break;
 
                 case 303://{"idevt":303,"status":true,"msg":"Send gift to your friend successfully!","chipbank":10999801,"chipuser":645000}
-                    //if (jsonData.status)
-                    //{
-                    //    GameManager.getInstance().user.agSafe = jsonData.chipbank;
-                    //    GameManager.getInstance().user.ag = jsonData.chipuser
-                    //    Global.KetView.lbAgSafe.string = GameManager.getInstance().formatNumber(
-                    //        GameManager.getInstance().user.agSafe
-                    //    );
-                    //    Global.KetView.lbAg.string = GameManager.getInstance().formatNumber(
-                    //        GameManager.getInstance().user.ag
-                    //    );
-                    //    Global.KetView.lbAgSafe.string = GameManager.getInstance().formatNumber(
-                    //        GameManager.getInstance().user.agSafe
-                    //    );
-                    //    require('NetworkManager').getInstance().sendUAG();
-                    //    GameManager.getInstance().onShowConfirmDialog(jsonData.msg);
-                    //}
-                    //else
-                    //    GameManager.getInstance().onShowConfirmDialog(jsonData.msg);
+                         //if (jsonData.status)
+                         //{
+                         //    GameManager.getInstance().user.agSafe = jsonData.chipbank;
+                         //    GameManager.getInstance().user.ag = jsonData.chipuser
+                         //    Global.KetView.lbAgSafe.string = GameManager.getInstance().formatNumber(
+                         //        GameManager.getInstance().user.agSafe
+                         //    );
+                         //    Global.KetView.lbAg.string = GameManager.getInstance().formatNumber(
+                         //        GameManager.getInstance().user.ag
+                         //    );
+                         //    Global.KetView.lbAgSafe.string = GameManager.getInstance().formatNumber(
+                         //        GameManager.getInstance().user.agSafe
+                         //    );
+                         //    require('NetworkManager').getInstance().sendUAG();
+                         //    GameManager.getInstance().onShowConfirmDialog(jsonData.msg);
+                         //}
+                         //else
+                         //    GameManager.getInstance().onShowConfirmDialog(jsonData.msg);
                     break;
 
                 case 304:
@@ -1266,29 +1384,29 @@ public class HandleService
                     break;
 
                 case 500://get his safe
-                    //cc.NGWlog("=======> history safe");
-                    //GameManager.getInstance().list_data_history_safe = [];
-                    //if (!jsonData.data) return;
-                    //var data = JSON.parse(jsonData.data);
-                    //for (var i = 0; i < data.length; i++)
-                    //{
-                    //    var item = new HistorySafeData();
-                    //    item.timeday = data[i].timeday;
-                    //    item.timehour = data[i].timehour;
-                    //    item.content = data[i].msg;
-                    //    item.chipchange = data[i].chipchange;
-                    //    item.chip = data[i].chip;
-                    //    GameManager.getInstance().list_data_history_safe.push(item);
-                    //}
-                    //cc.NGWlog('-hihihihi------->' + GameManager.getInstance().list_data_history_safe.length);
-                    //if (Global.GiftView.node.getParent() !== null)
-                    //{
-                    //    Global.GiftView.reloadHistory();
-                    //}
-                    //if (Global.KetView.node.getParent() !== null)
-                    //{
-                    //    Global.KetView.reloadHistory();
-                    //}
+                         //cc.NGWlog("=======> history safe");
+                         //GameManager.getInstance().list_data_history_safe = [];
+                         //if (!jsonData.data) return;
+                         //var data = JSON.parse(jsonData.data);
+                         //for (var i = 0; i < data.length; i++)
+                         //{
+                         //    var item = new HistorySafeData();
+                         //    item.timeday = data[i].timeday;
+                         //    item.timehour = data[i].timehour;
+                         //    item.content = data[i].msg;
+                         //    item.chipchange = data[i].chipchange;
+                         //    item.chip = data[i].chip;
+                         //    GameManager.getInstance().list_data_history_safe.push(item);
+                         //}
+                         //cc.NGWlog('-hihihihi------->' + GameManager.getInstance().list_data_history_safe.length);
+                         //if (Global.GiftView.node.getParent() !== null)
+                         //{
+                         //    Global.GiftView.reloadHistory();
+                         //}
+                         //if (Global.KetView.node.getParent() !== null)
+                         //{
+                         //    Global.KetView.reloadHistory();
+                         //}
                     UIManager.instance.hideWatting();
                     if (SendGiftView.instance != null && SendGiftView.instance.gameObject.activeSelf)
                     {

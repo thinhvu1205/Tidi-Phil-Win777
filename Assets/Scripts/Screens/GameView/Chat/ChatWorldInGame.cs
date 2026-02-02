@@ -219,9 +219,9 @@ public class ChatWorldInGame : BaseView
     }
     public override void onClickClose(bool isDestroy = true)
     {
+        Debug.Log("xem là như nào");
+        Destroy(gameObject);
         Globals.CURRENT_VIEW.isInChatVoice = false;
-        base.onClickClose(isDestroy);
-
     }
     private void Update()
     {

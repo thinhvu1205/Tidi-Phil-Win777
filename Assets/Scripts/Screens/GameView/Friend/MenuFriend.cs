@@ -12,7 +12,7 @@ public class MenuFriend : BaseView
     {
         // SocketSend.sendChatFriends(11770614, "hello đại ca");
         // SocketSend.deleteFriend(new List<int> { });
-        // SocketSend.sendRequestAddFriend(11770575);
+       // SocketSend.sendRequestAddFriend(8352532);
     }
 
     public void OpenListFriendView()

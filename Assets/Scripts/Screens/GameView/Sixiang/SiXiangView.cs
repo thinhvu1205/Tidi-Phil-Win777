@@ -188,6 +188,17 @@ public class SiXiangView : BaseSlotView
         freeSpinleft = getInt(data, "totalSpins");
         isGrandJackpot = getBool(data, "isGrandJackpot");
         spinReelView.Clear();
+        if (data.ContainsKey("numberOfBonusSpins"))
+        {
+            int numberOfBonusSpins = getInt(data, "numberOfBonusSpins");
+            if (numberOfBonusSpins <= 1)
+            {
+                DOVirtual.DelayedCall(1.5f, () =>
+                {
+                    infoBar.setDPSpinLeft(freeSpinleft);
+                });
+            }
+        }
         for (int i = 0; i < 5; i++)
         {
             List<int> listFakeID = new() { Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10) };

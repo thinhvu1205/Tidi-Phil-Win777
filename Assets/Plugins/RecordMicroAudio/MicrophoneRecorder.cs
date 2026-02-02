@@ -5,16 +5,16 @@ using System.IO;
 using System.IO.Compression;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
 public class MicrophoneRecorder : MonoBehaviour
 {
-    [SerializeField] private GameObject m_Root;
+    [SerializeField] private GameObject m_Root, m_GroupLine;
     [SerializeField] private AudioSource m_DataAS;
     [SerializeField] private TextMeshProUGUI m_RecordingTimeTMPUI;
-    [SerializeField] private GameObject m_GroupLine;
     private byte[] _AudioBytes;
     private const int _SAMPLE_RATE = 16000;
     private AudioClip _MicAC;
@@ -89,16 +89,39 @@ public class MicrophoneRecorder : MonoBehaviour
     private Stopwatch testSW = new Stopwatch();
     public void StartRecording()
     {
-        if (!IsDeviceHasMicro())
+#if UNITY_ANDROID
+        if (!HasMicPermission())
         {
-            _MicDevice = Microphone.devices[0];
+            Permission.RequestUserPermission(Permission.Microphone);
             return;
         }
+#endif
+        if (!HasMicPermission())
+            return;
+
+        var devices = Microphone.devices;
+        if (devices == null || devices.Length == 0)
+            return;
+
+        _MicDevice = devices[0];
+
+        // Reset & Start Stopwatch
         testSW.Reset();
         testSW.Start();
+
+        // Lưu thời điểm bắt đầu
         _StartTime = Time.realtimeSinceStartup;
+
+        // Bắt đầu Coroutine
+        if (_RecordingC != null)
+            StopCoroutine(_RecordingC);
+
         _RecordingC = StartCoroutine(_Recording());
     }
+
+
+
+
     public void StopRedcording()
     {
         if (!_IsRecording) return;
@@ -109,47 +132,60 @@ public class MicrophoneRecorder : MonoBehaviour
     private void _EndRecording()
     {
         Microphone.End(_MicDevice);
+
+        if (testSW.IsRunning)
+            testSW.Stop();
+
         _MicAC = _TrimAudioClip();
         m_RecordingTimeTMPUI.gameObject.SetActive(false);
-
     }
+
     public void ResetRecordingState()
     {
-        // Dừng mọi ghi âm đang diễn ra
-        if (_IsRecording || Microphone.IsRecording(_MicDevice))
+#if UNITY_ANDROID
+        if (!HasMicPermission())
         {
-            Microphone.End(_MicDevice);
-        }
-
-        // Dừng coroutine nếu đang chạy
-        if (_RecordingC != null)
-        {
-            StopCoroutine(_RecordingC);
+            if (_RecordingC != null) StopCoroutine(_RecordingC);
             _RecordingC = null;
+
+            _IsRecording = false;
+            _MicAC = null;
+            _AudioBytes = null;
+            return;
         }
-        // _MicAC = null;
-        _AudioBytes = null;
+#endif
+
+        // Ngừng ghi âm
+        if (Microphone.IsRecording(_MicDevice))
+            Microphone.End(_MicDevice);
+
+        if (_RecordingC != null)
+            StopCoroutine(_RecordingC);
+        _RecordingC = null;
         _IsRecording = false;
+        _MicAC = null;
+        _AudioBytes = null;
         _StartTime = 0f;
+
         if (m_RecordingTimeTMPUI != null)
         {
             m_RecordingTimeTMPUI.text = "00:00:00";
             m_RecordingTimeTMPUI.gameObject.SetActive(false);
         }
+
         if (m_DataAS != null)
         {
             m_DataAS.Stop();
             m_DataAS.clip = null;
         }
-        // _OnStartRecordingCb = null;
-        //  _OnRecordingCb = null;
-        //  _OnEndRecordingCb = null;
+
         if (testSW != null)
         {
             testSW.Reset();
         }
+
     }
-    private AudioClip _TrimAudioClip()
+   private AudioClip _TrimAudioClip()
     {
         float recordedLength = Time.realtimeSinceStartup - _StartTime;
         int samplesLength = (int)(_MicAC.frequency * recordedLength);
@@ -187,17 +223,41 @@ public class MicrophoneRecorder : MonoBehaviour
         _IsRecording = false;
     }
 
+
     private void Start()
     {
-        if (IsDeviceHasMicro()) _MicDevice = Microphone.devices[0];
+#if UNITY_ANDROID
+        if (!HasMicPermission())
+        {
+            _MicDevice = null;   // Không động vào microphone
+            return;
+        }
+#endif
+
+        if (IsDeviceHasMicro())
+            _MicDevice = Microphone.devices[0];
     }
+
     private void Update()
     {
-        if (_IsRecording)
-        {
-            DrawLiveWaveform();
-        }
+        if (!_IsRecording) return;
+
+#if UNITY_ANDROID
+        if (!HasMicPermission()) return;
+#endif
+
+        DrawLiveWaveform();
     }
+
+    private bool HasMicPermission()
+    {
+#if UNITY_ANDROID
+        return Permission.HasUserAuthorizedPermission(Permission.Microphone);
+#else
+    return true;
+#endif
+    }
+
     private void DrawLiveWaveform()
     {
         if (_MicAC == null || m_GroupLine == null) return;

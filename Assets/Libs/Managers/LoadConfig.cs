@@ -28,7 +28,7 @@ public class LoadConfig : MonoBehaviour
     void Awake()
     {
         // Config.publisher = "Luckypusoy_apk_pro";
-        Config.publisher = "unity_lucky777_tongitswar_1_0";
+        Config.publisher = "unity_tongit_1_0";
         if (instance == null) instance = this;
         else
         {
@@ -213,7 +213,7 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        wWForm["bundleID"] = "unity.lucky777.tongitswar";
+        wWForm["bundleID"] = "unity.tongit.online.com";
         wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
@@ -442,7 +442,9 @@ public class LoadConfig : MonoBehaviour
             sortedListGameJA.AddRange(tempListGameJA);
             Config.listGame.AddRange(sortedListGameJA);
             //TODO: sua ServerIp
-            Config.curServerIp = (string)Config.listGame[0]["ip_dm"];
+            Config.curServerIp =
+            //"app3.davaogames.com";
+            (string)Config.listGame[0]["ip_dm"];
             // Config.curServerIp = "test.app.1707casino.com";
             PlayerPrefs.SetString("curServerIp", Config.curServerIp);
         }
@@ -517,6 +519,12 @@ public class LoadConfig : MonoBehaviour
             string link = (string)jConfig["ruleReferral"];
             if (!link.StartsWith("https://")) link = "https://" + link;
             Config.linkRuleFriend = link;
+        }
+        if (jConfig.ContainsKey("RuleFortuneGift"))
+        {
+            string link = (string)jConfig["RuleFortuneGift"];
+            if (!link.StartsWith("https://")) link = "https://" + link;
+            Config.RuleFortuneGift = link;
         }
         if (jConfig.ContainsKey("url_rule_js_new"))
             Config.url_rule = (string)jConfig["url_rule_js_new"];

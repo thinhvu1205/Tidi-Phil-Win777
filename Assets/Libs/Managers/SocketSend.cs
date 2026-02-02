@@ -159,7 +159,7 @@ public class SocketSend
         Debug.Log("xem data sendChatFriends" + data.ToString(Newtonsoft.Json.Formatting.None));
         WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
-    public static void sendRequestAddFriend(int idFriend)
+    public static void sendRequestAddFriend(long idFriend)
     {
         JObject data = new JObject();
         data["evt"] = "upgrade_Friend";
@@ -180,6 +180,22 @@ public class SocketSend
         JObject data = new JObject();
         data["evt"] = "friend_chat_detail";
         data["friendId"] = idUser;
+        Debug.Log("xem là cái evt nó gửi lên như nào" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void SendFriendNotification()
+    {
+        JObject data = new JObject();
+        data["evt"] = "friend_notification";
+        Debug.Log("xem là cái evt nó gửi lên như nào" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+
+    public static void SendFriendReadNotification(List<long> ids)
+    {
+        JObject data = new JObject();
+        data["evt"] = "friend_read_noti";
+        data["IDs"] = JArray.FromObject(ids);
         Debug.Log("xem là cái evt nó gửi lên như nào" + data.ToString(Newtonsoft.Json.Formatting.None));
         WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
@@ -212,6 +228,14 @@ public class SocketSend
         JObject data = new JObject();
         data["evt"] = "Friend_Delete";
         data["ids"] = JArray.FromObject(deleteFriend.ToArray());
+        Debug.Log("xem là log deleteFriend" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void downgrade_Friend(long idFriend)
+    {
+        JObject data = new JObject();
+        data["evt"] = "downgrade_Friend";
+        data["requestId"] = idFriend;
         Debug.Log("xem là log deleteFriend" + data.ToString(Newtonsoft.Json.Formatting.None));
         WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
@@ -369,7 +393,9 @@ public class SocketSend
                 if (gameId == (int)itemGa["id"])
                 {
                     //TODO: sua ServerIp
-                    severIp = (string)itemGa["ip_dm"];
+                    severIp =
+                    // "app3.davaogames.com";
+                    (string)itemGa["ip_dm"];
                     // severIp = "test.app.1707casino.com";
                     break;
                 }
@@ -397,6 +423,47 @@ public class SocketSend
             Globals.Config.curGameId = gameId;
         }
 
+    }
+    public static void sendGiftShop()
+    {
+        JObject data = new JObject();
+        data["evt"] = "Gift_shop";
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendChipFriend(long userId, int chip, string level)
+    {
+        JObject data = new JObject();
+        data["evt"] = "Transfer_Chip";
+        data["friendId"] = userId;
+        data["friendlevel"] = level;
+        data["ag"] = chip;
+        Debug.Log("xem evt" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendCheckLastCount(long userId, string level)
+    {
+        JObject data = new JObject();
+        data["evt"] = "Transfer_Info";
+        data["friendId"] = userId;
+        data["friendlevel"] = level;
+        Debug.Log("xem evt" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendGiftItem(string NameGift, long id)
+    {
+        JObject data = new JObject();
+        data["evt"] = "Gift_Item";
+        data["gift"] = NameGift;
+        data["friendId"] = id;
+        Debug.Log("sendGiftItem:" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
+    }
+    public static void sendGiftFortune()
+    {
+        JObject data = new JObject();
+        data["evt"] = "Gift_Chip";
+        Debug.Log("Gift_Chip:" + data.ToString(Newtonsoft.Json.Formatting.None));
+        WebSocketManager.getInstance().sendService(data.ToString(Newtonsoft.Json.Formatting.None));
     }
 
     public static void sendSelectG2(int gameId)

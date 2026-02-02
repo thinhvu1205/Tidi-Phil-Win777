@@ -125,7 +125,6 @@ public class ExchangeView : BaseView
     async void SetDataButtons()
     {
         if (dataCO.Count <= 0) return;
-        if (dataCO.Count <= 0) return;
         JObject objData = (JObject)dataCO[0];
         m_RewardTMP.text = ((string)objData["title"]).ToUpper();
         GameObject go = m_RewardTMP.transform.parent.gameObject;

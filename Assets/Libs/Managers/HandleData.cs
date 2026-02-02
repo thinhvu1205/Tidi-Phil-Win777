@@ -171,6 +171,8 @@ public class HandleData
                 SocketSend.getMail(10);
                 Thread.Sleep(100);
                 SocketSend.getMail(12);
+                Thread.Sleep(100);
+                SocketSend.getListFriend();
                 // Thread.Sleep(100);
                 // SocketSend.getChatWorld();
                 // Thread.Sleep(100);

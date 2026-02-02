@@ -12,7 +12,10 @@ public class ScreenFriendView : MonoBehaviour
     [SerializeField] private GameObject m_ItemTabScreenFrien;
     [SerializeField] private Transform m_ParentListTab;
     [SerializeField] private ScrollRect m_ScrollContentFriend;
-    [SerializeField] private GameObject m_BtnCancel;
+    [SerializeField] private Button buttonDelete;
+    [SerializeField] private GameObject confirmation;
+    [SerializeField] private TextMeshProUGUI textContentDeleteFriend;
+    [SerializeField] private Button buttonConfirm, buttonCancel, buttonCloseConfirmation;
 
     private JObject FriendData = new JObject();
     private JArray ListTabFriend = new JArray();
@@ -20,22 +23,36 @@ public class ScreenFriendView : MonoBehaviour
     private JArray CloseFriend = new JArray();
     private JArray BestFriend = new JArray();
     private JArray SoulMate = new JArray();
+    private List<JObject> listFriendOk = new List<JObject>();
+    private List<JObject> listCloseFriendOk = new List<JObject>();
+    private List<JObject> listBestFriendOk = new List<JObject>();
     private JArray ListInvited = new JArray();
     private JArray ListRequest = new JArray();
     private List<GameObject> listTabFriend = new();
-    [SerializeField] private VerticalPool m_ChatTableVPG;
+    public VerticalPool m_ChatTableVPG;
     private List<PoolInfo> _ControlPIs = new();
     public List<long> listFrienDelete = new();
     [SerializeField] private GameObject m_ButtonAddMore;
     [SerializeField] private TMP_Dropdown m_Sort;
-    private int isTab = 0;
+    public GameObject m_PopupInviteFriend;
+
+    [SerializeField] private Transform m_ContenListFriendUpgrade;
+    [SerializeField] private GameObject m_PrefabItemFriendUpgrade;
+    [SerializeField] private GameObject m_IconNotiToNoti;
+    [SerializeField] private TextMeshProUGUI m_countNoti;
+    [SerializeField] private List<Sprite> m_ListTitle;
+    [SerializeField] private Image m_Title;
+    [SerializeField] private Notification m_Notification;
+    public int isTab = 0;
     public void Awake()
     {
         instance = this;
         SocketSend.sendListFriendChat();
         SocketSend.getListFriend();
+        SocketSend.SendFriendNotification();
+        //SocketSend.downgrade_Friend(8509775);
         ListTabFriend = new JArray
-{
+    {
     new JObject
     {
         ["name"] = "Friend",
@@ -81,10 +98,77 @@ public class ScreenFriendView : MonoBehaviour
         ReloadListTabFriend();
         m_Sort.onValueChanged.AddListener(OnSelectOption);
         Sort(0);
+        buttonDelete.onClick.AddListener(ClickButtonDeleteFriend);
+        buttonCancel.onClick.AddListener(ClickButtonCancelDeleteFriend);
+        buttonCloseConfirmation.onClick.AddListener(ClickButtonCancelDeleteFriend);
         //0:point
         //1:vip
         //2:status
     }
+    private void ClickButtonCancelDeleteFriend()
+    {
+        confirmation.SetActive(false);
+    }
+    private void ClickButtonDeleteFriend()
+    {
+        FriendData = Globals.COMMON_DATA.JsonDataFriend;
+        JArray rawList = (JArray)FriendData["listFriend"];
+        long friendId = listFrienDelete[0];
+        string friendName = friendId.ToString();
+        long userId = 0;
+
+        if (rawList != null)
+        {
+            foreach (JObject friend in rawList)
+            {
+                long id = (long)friend["id"];
+
+                if (id == friendId)
+                {
+                    friendName = (string)friend["userName"];
+                    userId = (long)friend["userId"];
+                    break;
+                }
+            }
+        }
+        confirmation.SetActive(true);
+        if (listFrienDelete.Count <= 1)
+        {
+            textContentDeleteFriend.text = $"You are deleting {friendName} ID: {userId} from your Friend List. Please check and confirm your action.";
+        }
+        else
+        {
+            textContentDeleteFriend.text = $"You are deleting {listFrienDelete.Count} Friends from your Friend List.";
+        }
+        if (isTab > 0)
+        {
+            textContentDeleteFriend.text = $"You are Downgrading. Please check and confirm your action.";
+        }
+    }
+    public void OnClickOpenNoti()
+    {
+        m_Notification.gameObject.SetActive(true);
+    }
+    public void OnClose()
+    {
+        m_Notification.gameObject.SetActive(false);
+    }
+    public void setOnNoti()
+    {
+
+        if (Globals.COMMON_DATA.ListDataNotiFriendUnread.Count > 0)
+        {
+            m_IconNotiToNoti.gameObject.SetActive(true);
+            int countNoti = Globals.COMMON_DATA.ListDataNotiFriendUnread.Count;
+            m_countNoti.text = countNoti.ToString();
+        }
+        else
+        {
+            m_IconNotiToNoti.gameObject.SetActive(false);
+        }
+
+    }
+
     void OnSelectOption(int index)
     {
         string selectedText = m_Sort.options[index].text;
@@ -121,7 +205,7 @@ public class ScreenFriendView : MonoBehaviour
                       DataFriend da = (DataFriend)a.Data;
                       DataFriend db = (DataFriend)b.Data;
 
-                      return db.status.CompareTo(da.status);
+                      return db.isOnline.CompareTo(da.isOnline);
                   });
         }
         m_ChatTableVPG.SetControlInfo(_ControlPIs, 0);
@@ -154,10 +238,15 @@ public class ScreenFriendView : MonoBehaviour
             listTabFriend.Add(itemTab);
         }
     }
+    public void close()
+    {
+        m_PopupInviteFriend.SetActive(false);
+    }
+
     void OnClickTabFriend(int index)
     {
         listFrienDelete.Clear();
-        m_BtnCancel.SetActive(false);
+        buttonDelete.gameObject.SetActive(false);
         foreach (GameObject itemTab in listTabFriend)
         {
             itemTab.transform.GetChild(1).gameObject.SetActive(false);
@@ -166,31 +255,38 @@ public class ScreenFriendView : MonoBehaviour
         switch (index)
         {
             case 0:
+
+                listFrienDelete.Clear();
                 isTab = 0;
-                m_ButtonAddMore.SetActive(true);
+                m_ButtonAddMore.SetActive(false);
                 reloadFriend(ListFriend, 0);
                 break;
             case 1:
+                listFrienDelete.Clear();
                 isTab = 1;
                 m_ButtonAddMore.SetActive(true);
                 reloadFriend(CloseFriend, 1);
                 break;
             case 2:
+                listFrienDelete.Clear();
                 isTab = 2;
                 m_ButtonAddMore.SetActive(true);
                 reloadFriend(BestFriend, 2);
                 break;
             case 3:
+                listFrienDelete.Clear();
                 isTab = 3;
                 m_ButtonAddMore.SetActive(true);
                 reloadFriend(SoulMate, 3);
                 break;
             case 4:
+                listFrienDelete.Clear();
                 isTab = 4;
                 m_ButtonAddMore.SetActive(false);
                 ReloadListInviteRequest(ListRequest, 4);
                 break;
             case 5:
+                listFrienDelete.Clear();
                 isTab = 5;
                 m_ButtonAddMore.SetActive(false);
                 ReloadListInviteRequest(ListInvited, 5);
@@ -204,18 +300,86 @@ public class ScreenFriendView : MonoBehaviour
 
                });
     }
+
     public void AddMore()
     {
-        UIManager.instance.showInviteListFriend();
+        m_PopupInviteFriend.SetActive(!m_PopupInviteFriend.activeSelf);
+        setDataAddMore();
+    }
+    public void setDataAddMore()
+    {
+        if (m_PopupInviteFriend.activeSelf)
+        {
+            switch (isTab)
+            {
+                case 1:
+                    m_Title.sprite = m_ListTitle[0];
+                    setContentListFriendUpgrade(listFriendOk);
+                    break;
+                case 2:
+                    m_Title.sprite = m_ListTitle[1];
+                    setContentListFriendUpgrade(listCloseFriendOk);
+                    break;
+                case 3:
+                    m_Title.sprite = m_ListTitle[2];
+                    setContentListFriendUpgrade(listBestFriendOk);
+                    break;
+            }
+        }
+    }
+    void setContentListFriendUpgrade(List<JObject> listData)
+    {
+        foreach (Transform child in m_ContenListFriendUpgrade)
+        {
+            Destroy(child.gameObject);
+        }
+        for (int i = 0; i < listData.Count; i++)
+        {
+            int index = i;
+            ItemFriendUpgrade item = Instantiate(m_PrefabItemFriendUpgrade, m_ContenListFriendUpgrade).GetComponent<ItemFriendUpgrade>();
+            item.setInfo(listData[index]);
+        }
+
     }
     public void setButtonDelete(bool isTrue)
     {
-        m_BtnCancel.SetActive(isTrue);
+        buttonDelete.gameObject.SetActive(isTrue);
+        if (isTrue)
+        {
+            setListenerButtonDelete();
+        }
+
+    }
+    public void setListenerButtonDelete()
+    {
+
+        buttonConfirm.GetComponent<Button>().onClick.RemoveAllListeners();
+        buttonConfirm.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            if (isTab == 0)
+            {
+                onClickDelete();
+            }
+            else
+            {
+                DowgradeFriend();
+            }
+        });
+
     }
     public void onClickDelete()
     {
         SocketSend.deleteFriend(listFrienDelete);
-
+        confirmation.SetActive(false);
+    }
+    public void DowgradeFriend()
+    {
+        SocketSend.downgrade_Friend(listFrienDelete[0]);
+        confirmation.SetActive(false);
+    }
+    public void showFortuneGift()
+    {
+        UIManager.instance.showFortuneGift();
     }
     void ReloadListInviteRequest(JArray data, int isTab)
     {
@@ -236,18 +400,20 @@ public class ScreenFriendView : MonoBehaviour
             dataFriend.fbid = (long)((JObject)data[i])["fbid"];
             dataFriend.vip = (int)((JObject)data[i])["vip"];
             dataFriend.point = (int)((JObject)data[i])["point"];
+            dataFriend.requestLevel = (string)((JObject)data[i])["requestLevel"];
             dataFriend.isTab = isTab;
             _ControlPIs.Add(new PoolInfo { Data = dataFriend });
         }
         Debug.Log("xem sau lúc list kia có bao nhiêu" + _ControlPIs.Count);
         m_ChatTableVPG.SetControlInfo(_ControlPIs, 0);
-    
+
 
 
 
     }
     public void reloadFriend(JArray data, int isTab)
     {
+        setListenerButtonDelete();
         _ControlPIs.Clear();
         for (int i = 0; i < m_ScrollContentFriend.content.childCount; i++)
         {
@@ -275,7 +441,7 @@ public class ScreenFriendView : MonoBehaviour
         }
         Debug.Log("xem sau lúc list kia có bao nhiêu" + _ControlPIs.Count);
         m_ChatTableVPG.SetControlInfo(_ControlPIs, 0);
-   
+
 
 
     }
@@ -302,6 +468,20 @@ public class ScreenFriendView : MonoBehaviour
       );
         ListInvited = (JArray)FriendData["listInvite"];
         ListRequest = (JArray)FriendData["listRequest"];
+        listBestFriendOk = BestFriend
+      .Where(item => (item["canUpgrade"]?.Value<bool>() == true) && validateUserId((long)item["userId"]))
+     .Select(item => (JObject)item)
+     .ToList();
+
+        listCloseFriendOk = CloseFriend
+      .Where(item => (item["canUpgrade"]?.Value<bool>() == true) && validateUserId((long)item["userId"]))
+    .Select(item => (JObject)item)
+    .ToList();
+
+        listFriendOk = ListFriend
+     .Where(item => (item["canUpgrade"]?.Value<bool>() == true) && validateUserId((long)item["userId"]))
+    .Select(item => (JObject)item)
+    .ToList();
         List<int> friendCountTab = new List<int> { ListFriend.Count, CloseFriend.Count, BestFriend.Count, SoulMate.Count, ListRequest.Count, ListInvited.Count };
         for (int i = 0; i < listTabFriend.Count; i++)
         {
@@ -309,6 +489,14 @@ public class ScreenFriendView : MonoBehaviour
         }
         OnClickTabFriend(isTab);
 
+    }
+    private bool validateUserId(long userId)
+    {
+        if (Globals.COMMON_DATA.IdRequestFriend.Contains(userId) || Globals.COMMON_DATA.IdInviteFriend.Contains(userId))
+        {
+            return false;
+        }
+        return true;
     }
     public void OnDestroy()
     {
@@ -334,6 +522,7 @@ public class DataFriend
     public string friendLevel { get; set; }
     public long reactionTime { get; set; }
     public string status { get; set; }
+    public string requestLevel { get; set; }
 
     //0: friend;
     // 1:closeFriend;

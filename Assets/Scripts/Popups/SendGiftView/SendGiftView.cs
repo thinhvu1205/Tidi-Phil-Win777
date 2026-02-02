@@ -69,6 +69,7 @@ public class SendGiftView : BaseView
             return;
         }
         UIManager.instance.showWaiting();
+
         SocketSend.sendGift(int.Parse(friendID), chipSend);
     }
     public void onClickTabSendGift(bool isOn)
