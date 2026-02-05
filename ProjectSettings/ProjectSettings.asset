@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: TIDI
-  productName: Lucky Pusoy Color Game
+  productName: Casino Plus - Tongits Online
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: -4054111720429725101, guid: 9b214f8c68924f044851eade40a95270, type: 3}
+  - logo: {fileID: -4054111720429725101, guid: ebaaa97bff87bea469e9df42ca3411c3, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
@@ -142,8 +142,10 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 1.02
-  preloadedAssets: []
+  bundleVersion: 1.01
+  preloadedAssets:
+  - {fileID: 11400000, guid: d3ac7e341b3a84041add48f16d6e0a53, type: 2}
+  - {fileID: -9070300826939726230, guid: ab73c7fa070e142579c0642fa09d6940, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -165,7 +167,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   androidMinAspectRatio: 1
   applicationIdentifier:
-    Android: unity.lucky777.tongitswar
+    Android: unity.tongit.online.com
     Lumin: com.DefaultCompany.com.unity.template.mobile2D
     Standalone: com.DefaultCompany.com.unity.template.mobile2D
     iPhone: com.DefaultCompany.com.unity.template.mobile2D
@@ -176,7 +178,7 @@ PlayerSettings:
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 36
   AndroidPreferredInstallLocation: 0
@@ -299,7 +301,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 9b214f8c68924f044851eade40a95270, type: 3}
+      m_Icon: {fileID: 2800000, guid: ebaaa97bff87bea469e9df42ca3411c3, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -829,6 +831,7 @@ PlayerSettings:
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
+    Standalone: 1
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   il2cppStacktraceInformation: {}

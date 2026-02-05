@@ -6,6 +6,7 @@ using TMPro;
 using System.Threading.Tasks;
 using System;
 using Globals;
+using System.Linq;
 
 public class ExchangeView : BaseView
 {
@@ -390,7 +391,21 @@ public class ExchangeView : BaseView
 
     public void reloadListItemHistory(List<JObject> listItem)
     {
-        listDataHis = listItem;
+        listDataHis = listItem
+        .OrderByDescending(x =>
+        {
+            var token = x["CreateTime"];
+            if (token == null) return DateTime.MinValue;
+
+            // Nếu là số (timestamp)
+            if (token.Type == JTokenType.Integer || token.Type == JTokenType.Float)
+                return DateTimeOffset.FromUnixTimeMilliseconds(token.Value<long>()).DateTime;
+
+            // Nếu là string (ISO / datetime)
+            DateTime.TryParse(token.ToString(), out var dt);
+            return dt;
+        })
+        .ToList();
         for (int i = 0; i < scrContentHistory.content.childCount; i++)
         {
             scrContentHistory.content.GetChild(i).gameObject.SetActive(false);

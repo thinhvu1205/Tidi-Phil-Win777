@@ -75,7 +75,7 @@ public class SettingView : BaseView
         if (!Config.fanpageID.Equals("") && Config.is_bl_fb)
         {
             SoundManager.instance.soundClick();
-            Application.OpenURL("https://" + Config.u_chat_fb);
+            Application.OpenURL(Config.u_chat_fb);
         }
         else
         {
@@ -84,6 +84,7 @@ public class SettingView : BaseView
     }
     public void onClickPolicy()
     {
+        Debug.Log("xem link policy" + Config.url_privacy_policy);
         Application.OpenURL(Config.url_privacy_policy); //Config.url_privacy_policy
     }
     public void onClickGroup()

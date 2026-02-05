@@ -1177,6 +1177,7 @@ public class HiloView : GameView
     }
     private void resetGameView()
     {
+        HandleData.DelayHandleLeave = 0f;
         stateGame = STATE_GAME.WAITING;
         curChipBet = 0;
         totalBet = 0;
@@ -1258,7 +1259,7 @@ public class HiloView : GameView
             PlayerViewSicbo playerV = getPlayerView(player);
             if (player == thisPlayer)
             {
-                nodeAniWinLose.transform.parent.SetSiblingIndex(transform.childCount - 2);
+                nodeAniWinLose.transform.parent.SetSiblingIndex(layerPopup.transform.GetSiblingIndex() - 1);
                 if (playerV.agWin > 0)
                 {
                     playSound(SOUND_HILO.WIN);

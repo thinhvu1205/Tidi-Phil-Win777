@@ -119,6 +119,7 @@ public class LoadConfig : MonoBehaviour
 
     async void ProgressHandle(string url, string json, Action<string> callback, Action callbackError = null)
     {
+        Debug.Log("xem url" + url);
         UnityWebRequest www = new UnityWebRequest(url, "POST");
 
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
@@ -443,7 +444,7 @@ public class LoadConfig : MonoBehaviour
             Config.listGame.AddRange(sortedListGameJA);
             //TODO: sua ServerIp
             Config.curServerIp =
-            //"app3.davaogames.com";
+            // "app3.davaogames.com";
             (string)Config.listGame[0]["ip_dm"];
             // Config.curServerIp = "test.app.1707casino.com";
             PlayerPrefs.SetString("curServerIp", Config.curServerIp);

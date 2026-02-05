@@ -172,11 +172,11 @@ namespace Socket.Newtonsoft.Json.Serialization {
       get {
         if (!JsonTypeReflector._dynamicCodeGeneration.HasValue) {
           try {
-            new ReflectionPermission(ReflectionPermissionFlag.MemberAccess).Demand();
-            new ReflectionPermission(ReflectionPermissionFlag.RestrictedMemberAccess).Demand();
-            new SecurityPermission(SecurityPermissionFlag.SkipVerification).Demand();
-            new SecurityPermission(SecurityPermissionFlag.UnmanagedCode).Demand();
-            new SecurityPermission(PermissionState.Unrestricted).Demand();
+            // new ReflectionPermission(ReflectionPermissionFlag.MemberAccess).Demand();
+            // new ReflectionPermission(ReflectionPermissionFlag.RestrictedMemberAccess).Demand();
+            // new SecurityPermission(SecurityPermissionFlag.SkipVerification).Demand();
+            // new SecurityPermission(SecurityPermissionFlag.UnmanagedCode).Demand();
+            // new SecurityPermission(PermissionState.Unrestricted).Demand();
             JsonTypeReflector._dynamicCodeGeneration = new bool?(true);
           } catch (Exception ex) {
             JsonTypeReflector._dynamicCodeGeneration = new bool?(false);
@@ -191,7 +191,7 @@ namespace Socket.Newtonsoft.Json.Serialization {
       get {
         if (!JsonTypeReflector._fullyTrusted.HasValue) {
           try {
-            new SecurityPermission(PermissionState.Unrestricted).Demand();
+           // new SecurityPermission(PermissionState.Unrestricted).Demand();
             JsonTypeReflector._fullyTrusted = new bool?(true);
           } catch (Exception ex) {
             JsonTypeReflector._fullyTrusted = new bool?(false);

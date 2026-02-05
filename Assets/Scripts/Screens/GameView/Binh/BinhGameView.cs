@@ -53,6 +53,8 @@ public class BinhGameView : GameView
     private int[] _StateButtonIds = new int[5];
     private float _ScreenLeftClamp, _ScreenRightClamp, _ScreenBotClamp, _ScreenTopClamp;
     private bool _IsExit, _IsFinish, _CanClear = true, _CanSortCard;
+    [SerializeField] private GameObject m_BgJackpot;
+    [SerializeField] private SkeletonGraphic m_JackpotSG;
 
     #region Button
     public void onClickRuleJP()
@@ -360,11 +362,11 @@ public class BinhGameView : GameView
                 ["ArrWin"] = getJArray(jpl, "ArrWin")
             };
             _DataResultJOs.Add(playerData);
-            int jackPot = (int)jpl["jackPot"];
+            long jackPot = (long)jpl["jackPot"];
             if (jackPot > 0 && playerP == thisPlayer)
             {
                 playerP.playerView.chipJackpot = jackPot;
-                StartCoroutine(ShowJackpotWin(jackPot));
+                ShowJackpotWin(jackPot);
             }
         }
         int num = 0;
@@ -1323,15 +1325,27 @@ public class BinhGameView : GameView
             }
         }
     }
-    IEnumerator ShowJackpotWin(int chip)
+    public void ShowJackpotWin(long chip)
     {
-        Transform parentTf = m_JackPotNumTMP.transform.parent;
-        parentTf.gameObject.SetActive(true);
-        parentTf.GetChild(0).GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, "animation", false);
-        m_JackPotNumTMP.text = chip.ToString();
-        yield return new WaitForSeconds(4f);
-        parentTf.gameObject.SetActive(false);
+        m_BgJackpot.SetActive(true);
+        m_BgJackpot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Globals.Config.FormatMoney(chip, true);
+
+        m_JackpotSG.gameObject.SetActive(true);
+        m_JackpotSG.Initialize(true);
+        m_JackpotSG.AnimationState.SetAnimation(0, "animation", false);
+
+        thisPlayer.ag += chip;
+        thisPlayer.setAg();
+
+        StartCoroutine(HideJackpotAfterDelay(3f)); // chạy coroutine sau 3 giây
     }
+    private IEnumerator HideJackpotAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        m_JackpotSG.gameObject.SetActive(false);
+        m_BgJackpot.SetActive(false);
+    }
+
     public void initPlayerCard()
     {
         for (int i = 0; i < players.Count; i++)

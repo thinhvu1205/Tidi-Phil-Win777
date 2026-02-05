@@ -37,18 +37,11 @@ public class WebSocketManager : MonoBehaviour
             UIManager.instance.hideWatting();
             return;
         }
-
         UserLogout = true;
         _OnConnectCb = callback;
         Config.isErrorNet = false;
         stop();
         jobsResend.Clear();
-
-        if (ws != null)
-        {
-            try { ws.Close(); ws = null; }
-            catch { }
-        }
         //Config.isSvTest = true;
         //Config.curServerIp = "app.test.topbangkokclub.com";
         //Config.curServerIp = "app1.jakartagames.net";
@@ -57,47 +50,22 @@ public class WebSocketManager : MonoBehaviour
         //Config.curServerIp = "app-002.ngwcasino.com";
         Debug.Log(" Config.curServerI=" + Config.curServerIp);
         Debug.Log(" Config.PORT=" + Config.PORT);
-        string url = $"wss://{Config.curServerIp}:{Config.PORT}/";
-        Debug.Log("Try connect to: " + url);
-
-        ws = new WebSocket(url);
-
-        // ⚡️ BẮT BUỘC CHO UNITY 6: ép TLS 1.2
-        ws.SslConfiguration.EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12;
-
-        // ⚠️ Nếu chỉ test nội bộ, bỏ validate SSL (đừng dùng cho production)
-        ws.SslConfiguration.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
-
+        ws = new WebSocket("wss://" + Config.curServerIp);
+        //ws = new WebSocket("ws://" + Config.curServerIp + ":80" );
+        Logging.Log("IP CONNECT:" + Config.curServerIp);
+        connectionStatus = ConnectionStatus.CONNECTING;
         ws.ConnectAsync();
+        //ws.Connect();
+
         ws.EmitOnPing = true;
-        ws.WaitTime = TimeSpan.FromSeconds(10);
-
-        ws.OnOpen += (sender, e) =>
-        {
-            Debug.Log("WebSocket OPEN");
-            _HandleOnOpenWebSocket();
-        };
-
-        ws.OnMessage += (sender, e) =>
-        {
-            Debug.Log("WebSocket MSG: " + e.Data);
-            _HandleOnMessageWebSocket(e.Data);
-        };
-
-        ws.OnError += (sender, e) =>
-        {
-            Debug.LogError("WebSocket ERROR: " + e.Message);
-            _HandleOnErrorWebSocket();
-        };
-
-        ws.OnClose += (sender, e) =>
-        {
-            Debug.LogWarning($"WebSocket CLOSED. Code={e.Code}, Reason={e.Reason}");
-            _HandleOnCloseWebSocket();
-        };
-
+        ws.WaitTime = TimeSpan.FromSeconds(10); 
+        ws.SslConfiguration.EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12;
+        ws.SslConfiguration.CheckCertificateRevocation = false;
+        ws.OnError += (sender, e) => _HandleOnErrorWebSocket();
+        ws.OnClose += (sender, e) => _HandleOnCloseWebSocket();
+        ws.OnOpen += (sender, e) => _HandleOnOpenWebSocket();
+        ws.OnMessage += (sender, e) => _HandleOnMessageWebSocket(e.Data);
     }
-
 
     private void _HandleOnErrorWebSocket()
     {

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 63bdcbe59995225f3ba3ad7a1708a27d
+  - f467b733128925b86c741c106e54d58f
   appIds:
-  - 268336592429518
+  - 2075254929993239
   appLabels:
-  - wait
+  - Casino Plus - Tongits Online
   cookie: 1
   logging: 1
   status: 1
