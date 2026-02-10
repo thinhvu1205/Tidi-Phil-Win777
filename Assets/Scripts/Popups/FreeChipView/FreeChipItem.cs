@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Newtonsoft.Json.Linq;
 using TMPro;
 using DG.Tweening;
+using System;
 
 public class FreeChipItem : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class FreeChipItem : MonoBehaviour
     [SerializeField] Button btnReceive;
     [SerializeField] List<Sprite> listIconType = new List<Sprite>();
     Sequence seqCountTime;
-    private int type = 0, type_receive = 0, index_arr = 0;
+    private int type = 0, type_receive = 0;
     public int chip = 0;
     private FreeChipData dataItem;
     enum TYPE_FREECHIP
@@ -55,17 +56,16 @@ public class FreeChipItem : MonoBehaviour
         var _time = ho + ":" + mi + ":" + se;
         lb_time.text = _time;
     }
-    public void init(int typeItem, string message, int numChip, int receiveType, int index, FreeChipData data)
+    public void init(int typeItem, string message, int numChip, int receiveType, FreeChipData data, Action<float> height)
     {
         type = typeItem;
         type_receive = receiveType;
-        index_arr = index;
         chip = numChip;
         dataItem = data;
         freechipIcon.sprite = listIconType[type];
         lbMessage.text = message;
         lbChip.text = Globals.Config.FormatNumber(numChip);
-     
+
         if (receiveType == 69 && type == 3)
         {
             btnReceive.gameObject.SetActive(false);
@@ -85,6 +85,16 @@ public class FreeChipItem : MonoBehaviour
         {
             lbMessage.fontSize = 20;
         }
+        Canvas.ForceUpdateCanvases();
+
+        float textHeight = lbMessage.preferredHeight;
+
+        // 2 dòng = 140
+
+        float baseHeight = 140f;
+        float finalHeight = Mathf.Max(baseHeight, textHeight + 58f); // + padding
+        Debug.Log(textHeight + "xem chiều cao dòng" + finalHeight);
+        height?.Invoke(finalHeight);
     }
     public void onClickReceive()
     {
@@ -95,10 +105,6 @@ public class FreeChipItem : MonoBehaviour
         if (type < 6)
         {
             SocketSend.sendPromotinGold(type_receive, chip);
-            if (FreeChipView.instance.transform.parent != null)
-            {
-                FreeChipView.instance.dataFreeChip.RemoveAt(index_arr);
-            }
         }
         else if (type == 7 || type == 8)
         {
@@ -110,8 +116,8 @@ public class FreeChipItem : MonoBehaviour
                 FreeChipView.instance.dataFreeChipAdmin.Remove(dataItem);
             }
         }
-       
-        Debug.Log("Item Chip=" + chip+"--Item:"+transform.name);
+
+        Debug.Log("Item Chip=" + chip + "--Item:" + transform.name);
         string msg = Globals.Config.getTextConfig("nhan_ag_tu_ngan_hang");
         UIManager.instance.showMessageBox(Globals.Config.formatStr(msg, Globals.Config.FormatNumber(chip)));
         FreeChipView.instance.reloadList();
@@ -126,6 +132,6 @@ public class FreeChipItem : MonoBehaviour
         {
             //Global.MainView.skeletonFreeChip.setAnimation(0, "animation1", true);
         }
-
+        SocketSend.getMail(12);
     }
 }

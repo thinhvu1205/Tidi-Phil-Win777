@@ -18,6 +18,8 @@ public class FreeChipView : BaseView
     public List<FreeChipData> dataFreeChip = new List<FreeChipData>();
     public List<FreeChipData> dataFreeChipAdmin = new List<FreeChipData>();
     private List<GameObject> freeChipPool = new List<GameObject>();
+    [SerializeField] private VerticalPool m_ChatTableVPG;
+    private List<PoolInfo> _ControlPIs = new();
     protected override void Start()
     {
         base.Start();
@@ -26,11 +28,21 @@ public class FreeChipView : BaseView
         dataFreeChip.Clear();
         SocketSend.getMail(12);
         UIManager.instance.lobbyView.removePopupNoti("FREE_CHIP");
+        m_ChatTableVPG.SetApplyDataCb((go, data, index) =>
+      {
+          FreeChipItem aIC = go.GetComponent<FreeChipItem>();
+          FreeChipData aCWLD = (FreeChipData)data.Data;
+          aIC.init(aCWLD.type, aCWLD.message, aCWLD.chips, aCWLD.receiveType, aCWLD, (cellH) =>
+              {
+                  data.SetCellHeight(cellH);
+              });
+      }, true);
     }
     protected override void Awake()
     {
         base.Awake();
         instance = this;
+
     }
     // Update is called once per frame
     public void loadFreeChip()
@@ -139,85 +151,27 @@ public class FreeChipView : BaseView
         //{
         //    putFreeChip(item);
         //}
+        _ControlPIs.Clear();
+        for (int i = 0; i < m_ChatTableVPG.transform.childCount; i++)
+        {
+            m_ChatTableVPG.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        m_ChatTableVPG.SetControlInfo(_ControlPIs, 0);
         for (var i = 0; i < dataSize; i++)
         {
-            FreeChipItem item;
-            if (i < list_view.content.childCount)
-            {
-                GameObject ScrCtItem = list_view.content.GetChild(i).gameObject;
-                item = ScrCtItem.GetComponent<FreeChipItem>();
-            }
-            else
-            {
-                item = getFreeChipPool().GetComponent<FreeChipItem>();
-                item.transform.SetParent(list_view.content);
-                item.transform.localScale = Vector2.one;
-            }
-            //item.GetComponent<Image>().enabled = (i % 2) == 0;
-            item.gameObject.SetActive(true);
-            item.init(
-              listData[i].type,
-              listData[i].message,
-              listData[i].chips,
-              listData[i].receiveType,
-              i,
-              listData[i]
-
-            );
+            FreeChipData freeChipData = new();
+            freeChipData.type = listData[i].type;
+            freeChipData.message = listData[i].message;
+            freeChipData.chips = listData[i].chips;
+            freeChipData.receiveType = listData[i].receiveType;
+            _ControlPIs.Add(new PoolInfo { Data = freeChipData });
         }
-        for (int i = dataSize; i < list_view.content.childCount; i++)
-        {
-            putFreeChip(list_view.content.transform.GetChild(i).gameObject);
-        }
-        //dataSize = dataFreeChipAdmin.Count;
-        //for (int i = 0, l = dataSize; i < l; i++)
-        //{
-        //    FreeChipItem item;
-        //    if (i < list_view.content.childCount)
-        //    {
-        //        GameObject ScrCtItem = list_view.content.GetChild(i + index).gameObject;
-        //        item = ScrCtItem.GetComponent<FreeChipItem>();
-        //    }
-        //    else
-        //    {
-        //        item = getFreeChipPool().GetComponent<FreeChipItem>();
-        //        item.transform.SetParent(list_view.content);
-        //        item.transform.localScale = Vector2.one;
-        //    }
-        //    item.gameObject.SetActive(true);
-        //    item.init(
-        //      dataFreeChipAdmin[i].type,
-        //     dataFreeChipAdmin[i].message,
-        //     dataFreeChipAdmin[i].chips,
-        //      dataFreeChipAdmin[i].receiveType,
-        //      i
-        //    );
-        //}
+        m_ChatTableVPG.SetControlInfo(_ControlPIs, 0);
 
     }
-    private GameObject getFreeChipPool()
-    {
-        GameObject item;
-        if (freeChipPool.Count < 1)
-        {
-            GameObject go = Instantiate(item_free, list_view.content);
-            freeChipPool.Add(go);
-        }
-        item = freeChipPool[0];
-        freeChipPool.RemoveAt(0);
-        return item;
-    }
-    public void putFreeChip(GameObject item)
-    {
-        item.transform.SetParent(null);
-        item.SetActive(false);
-        freeChipPool.Add(item);
-    }
 
-    public void loadDataFreeChip(JArray listData)
-    {
-        //scrFreeChip.setDataList(setDataItem, listData);
-    }
+
+
     public void pushMailAdmin(int type, string mess, int chip, int rec_type)
     {
         var free = new FreeChipData();

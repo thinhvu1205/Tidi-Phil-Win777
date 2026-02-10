@@ -1,29 +1,56 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Globals;
 using Newtonsoft.Json.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System.Threading.Tasks;
-using System;
-using Globals;
-using System.Linq;
 
 public class ExchangeView : BaseView
 {
     public static ExchangeView instance;
-    [SerializeField] List<Sprite> spTab;
-    [SerializeField] GameObject tabTop, itemEx, itemAgency, itemHistory;
-    [SerializeField] Transform m_PrefabHistoryTf, m_HistoryTf;
-    [SerializeField] TextMeshProUGUI lbChips, m_RewardTMP, m_HistoryTMP;
-    [SerializeField] BaseView popupInput;
-    [SerializeField] ScrollRect scrContentRedeem, scrContentAgency, scrContentHistory, scrTabs, scrTabsHis;
-    [SerializeField] private InputField m_PhoneIF, m_ConfirmPhoneIF;
+
+    [SerializeField]
+    List<Sprite> spTab;
+
+    [SerializeField]
+    GameObject tabTop,
+        itemEx,
+        itemAgency,
+        itemHistory;
+
+    [SerializeField]
+    Transform m_PrefabHistoryTf,
+        m_HistoryTf;
+
+    [SerializeField]
+    TextMeshProUGUI lbChips,
+        m_RewardTMP,
+        m_HistoryTMP;
+
+    [SerializeField]
+    BaseView popupInput;
+
+    [SerializeField]
+    ScrollRect scrContentRedeem,
+        scrContentAgency,
+        scrContentHistory,
+        scrTabs,
+        scrTabsHis;
+
+    [SerializeField]
+    private InputField m_PhoneIF,
+        m_ConfirmPhoneIF;
 
     private List<JObject> listDataHis = new List<JObject>();
-    private JObject firstTabHistItem, curDataTabNap;
+    private JObject firstTabHistItem,
+        curDataTabNap;
     private JArray dataCO;
     private string typeTabHistory = "";
-    private int indexTabHis = 0, indexTabNap = 1;
+    private int indexTabHis = 0,
+        indexTabNap = 1;
     private float _contentHeight = 0;
 
     #region Button
@@ -37,9 +64,24 @@ public class ExchangeView : BaseView
         var phoneNumberRetype = m_ConfirmPhoneIF.text;
 
         if (phoneNumber.Equals("") || phoneNumberRetype.Equals(""))
-            UIManager.instance.showMessageBox(Globals.Config.formatStr(Globals.Config.getTextConfig("txt_notEmty"), typeNet.Equals("Mobile") ? Globals.Config.getTextConfig("txt_phone_numnber") : (string)rewardData["TypeName"], ""));
+            UIManager.instance.showMessageBox(
+                Globals.Config.formatStr(
+                    Globals.Config.getTextConfig("txt_notEmty"),
+                    typeNet.Equals("Mobile")
+                        ? Globals.Config.getTextConfig("txt_phone_numnber")
+                        : (string)rewardData["TypeName"],
+                    ""
+                )
+            );
         else if (!phoneNumber.Equals(phoneNumberRetype))
-            UIManager.instance.showMessageBox(Globals.Config.formatStr(Globals.Config.getTextConfig("txt_notSame"), typeNet.Equals("Mobile") ? Globals.Config.getTextConfig("txt_phone_numnber") : (string)rewardData["TypeName"]));
+            UIManager.instance.showMessageBox(
+                Globals.Config.formatStr(
+                    Globals.Config.getTextConfig("txt_notSame"),
+                    typeNet.Equals("Mobile")
+                        ? Globals.Config.getTextConfig("txt_phone_numnber")
+                        : (string)rewardData["TypeName"]
+                )
+            );
         else
         {
             m_PhoneIF.text = "";
@@ -61,23 +103,33 @@ public class ExchangeView : BaseView
     protected override void Start()
     {
         base.Start();
-        SocketIOManager.getInstance().emitSIOCCCNew(Globals.Config.formatStr("ClickShowExchange_%s", Globals.CURRENT_VIEW.getCurrentSceneName()));
+        SocketIOManager
+            .getInstance()
+            .emitSIOCCCNew(
+                Globals.Config.formatStr(
+                    "ClickShowExchange_%s",
+                    Globals.CURRENT_VIEW.getCurrentSceneName()
+                )
+            );
         Globals.CURRENT_VIEW.setCurView(Globals.CURRENT_VIEW.DT_VIEW);
         Debug.Log("-==infoDT  " + Globals.Config.infoDT);
         LoadConfig.instance.getInfoEX(updateInfo);
         lbChips.text = Globals.Config.FormatNumber(Globals.User.userMain.AG);
     }
+
     public async void HandleGiftHistory(JObject data)
     {
         JArray content = (JArray)data["content"];
-        foreach (Transform tf in m_HistoryTf) Destroy(tf.gameObject);
+        foreach (Transform tf in m_HistoryTf)
+            Destroy(tf.gameObject);
         for (int i = 0; i < content.Count; i++)
         {
             Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
             tf.gameObject.SetActive(true);
-            tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds((long)content[i]["time"]).DateTime.ToString("dd/MM/yyyy hh:mm:ss tt");
+            tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset
+                .FromUnixTimeMilliseconds((long)content[i]["time"])
+                .DateTime.ToString("dd/MM/yyyy hh:mm:ss tt");
             tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = (string)content[i]["content"];
-
         }
         await ScrollHistory();
         async Awaitable ScrollHistory()
@@ -90,30 +142,32 @@ public class ExchangeView : BaseView
                 float viewportheight = m_HistoryTf.parent.GetComponent<RectTransform>().rect.height;
                 while (true)
                 {
-                    if (m_HistoryTf.localPosition.y > (_contentHeight - viewportheight)) m_HistoryTf.localPosition = Vector3.zero;
+                    if (m_HistoryTf.localPosition.y > (_contentHeight - viewportheight))
+                        m_HistoryTf.localPosition = Vector3.zero;
                     await Awaitable.FixedUpdateAsync();
                     m_HistoryTf.localPosition += Time.fixedDeltaTime * new Vector3(0, 100, 0);
                 }
             }
-            catch
-            {
-
-            }
+            catch { }
         }
     }
+
     public void HandleUpdateHistory(JObject data)
     {
         Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
         tf.gameObject.SetActive(true);
-        tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds((long)data["time"]).DateTime.ToString();
+        tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset
+            .FromUnixTimeMilliseconds((long)data["time"])
+            .DateTime.ToString();
         tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = (string)data["content"];
         _contentHeight += tf.GetComponent<RectTransform>().rect.height;
-
     }
+
     public void UpdateAg()
     {
         lbChips.text = Globals.Config.FormatNumber(Globals.User.userMain.AG);
     }
+
     void updateInfo(string strData)
     {
         Globals.Logging.Log("updateInfo EX   " + strData);
@@ -125,7 +179,8 @@ public class ExchangeView : BaseView
 
     async void SetDataButtons()
     {
-        if (dataCO.Count <= 0) return;
+        if (dataCO.Count <= 0)
+            return;
         JObject objData = (JObject)dataCO[0];
         m_RewardTMP.text = ((string)objData["title"]).ToUpper();
         GameObject go = m_RewardTMP.transform.parent.gameObject;
@@ -134,9 +189,12 @@ public class ExchangeView : BaseView
         {
             m_HistoryTMP.text = Globals.Config.getTextConfig("history").ToUpper();
             GameObject historyObj = m_HistoryTMP.transform.parent.gameObject;
-            historyObj.GetComponent<Button>().onClick.AddListener(() => DoClickButton(historyObj, null));
+            historyObj
+                .GetComponent<Button>()
+                .onClick.AddListener(() => DoClickButton(historyObj, null));
         }
-        if (((string)objData["title"]).Equals("reward")) await genTabTop((JArray)objData["child"]);
+        if (((string)objData["title"]).Equals("reward"))
+            await genTabTop((JArray)objData["child"]);
         DoClickButton(go, objData);
     }
 
@@ -149,7 +207,11 @@ public class ExchangeView : BaseView
         {
             JObject obItem = (JObject)arrayData[i];
 
-            if (i == 0) { item0 = obItem; indSelect = i; }
+            if (i == 0)
+            {
+                item0 = obItem;
+                indSelect = i;
+            }
             Globals.Logging.Log(obItem);
             string title = (string)obItem["TypeName"];
             string title_img = (string)obItem["title_img"];
@@ -188,14 +250,13 @@ public class ExchangeView : BaseView
                         txt.text = title.ToUpper();
                     }
                 }
-
             }
             btn.transform.localScale = Vector3.one;
-            btn.GetComponent<Button>().onClick.AddListener(() =>
-            {
-                onClickTab(btn.gameObject, obItem);
-            });
-
+            btn.GetComponent<Button>()
+                .onClick.AddListener(() =>
+                {
+                    onClickTab(btn.gameObject, obItem);
+                });
         }
 
         if (item0 == null && arrayData.Count > 0)
@@ -211,6 +272,7 @@ public class ExchangeView : BaseView
         }
         genTabHis(arrayData);
     }
+
     private async void genTabHis(JArray arrayData)
     {
         scrTabsHis.enabled = arrayData.Count > 4;
@@ -220,13 +282,16 @@ public class ExchangeView : BaseView
         {
             JObject obItem = (JObject)arrayData[i];
 
-            if (i == 0) { item0 = obItem; indexTabHis = i; }
+            if (i == 0)
+            {
+                item0 = obItem;
+                indexTabHis = i;
+            }
             Globals.Logging.Log(obItem);
             string title = (string)obItem["TypeName"];
             string title_img = (string)obItem["title_img"];
 
             GameObject btn = Instantiate(tabTop, scrTabsHis.content);
-
 
             var bkg = btn.transform.Find("Bkg").GetComponent<Image>();
             bkg.sprite = spTab[(i == 0 || i >= arrayData.Count - 1) ? 0 : 1];
@@ -260,14 +325,14 @@ public class ExchangeView : BaseView
                         txt.text = title.ToUpper();
                     }
                 }
-
             }
             btn.transform.localScale = Vector3.one;
 
-            btn.GetComponent<Button>().onClick.AddListener(() =>
-            {
-                onClickTabHis(btn.gameObject, obItem);
-            });
+            btn.GetComponent<Button>()
+                .onClick.AddListener(() =>
+                {
+                    onClickTabHis(btn.gameObject, obItem);
+                });
 
             if (typeTabHistory == (string)obItem["TypeName"])
             {
@@ -276,6 +341,7 @@ public class ExchangeView : BaseView
             }
         }
     }
+
     void onClickTabHis(GameObject evv, JObject dataItem)
     {
         SoundManager.instance.soundClick();
@@ -288,7 +354,8 @@ public class ExchangeView : BaseView
                 indexTabNap = i;
             }
         }
-        if (dataItem["TypeName"] != null) typeTabHistory = (string)dataItem["TypeName"];
+        if (dataItem["TypeName"] != null)
+            typeTabHistory = (string)dataItem["TypeName"];
         else
         {
             JArray tabNamesJA = (JArray)dataItem["child"];
@@ -302,6 +369,7 @@ public class ExchangeView : BaseView
     }
 
     JObject rewardData = null;
+
     void onClickTab(GameObject evv, JObject dataItem)
     {
         SoundManager.instance.soundClick();
@@ -350,7 +418,8 @@ public class ExchangeView : BaseView
             scrContentRedeem.transform.parent.gameObject.SetActive(true);
             scrContentAgency.transform.parent.gameObject.SetActive(false);
             scrContentHistory.transform.parent.gameObject.SetActive(false);
-            if (indexTabNap != -1) onClickTab(scrTabs.content.GetChild(indexTabNap).gameObject, objDataItem);
+            if (indexTabNap != -1)
+                onClickTab(scrTabs.content.GetChild(indexTabNap).gameObject, objDataItem);
         }
     }
 
@@ -359,53 +428,79 @@ public class ExchangeView : BaseView
         if (objDataItem != null)
         {
             //[{ "title":"Truemoney","type":"phil","child":[{ "title":"truemoney","TypeName":"truemoney","title_img":"https://storage.googleapis.com/cdn.topbangkokclub.com/shop/Truemoney.png?v=1","textBox":[{ "key_placeHolder":"txt_enter_text_gc"},{ "key_placeHolder":"txt_conf_text_gc"}]}],"items":[{ "ag":1000000,"m":50},{ "ag":2000000,"m":100},{ "ag":4000000,"m":200},{ "ag":10000000,"m":500},{ "ag":20000000,"m":1000},{ "ag":40000000,"m":2000},{ "ag":100000000,"m":5000},{ "ag":200000000,"m":10000}]},{ "type":"agency","title":"agency","items":[{ "id":"1862315","name":"Agency Jason","tel":"09396196724","msg_fb":"http://bit.ly/jason-agency"}]}]
-            JArray items = new JArray(); ;
+            JArray items = new JArray();
+            ;
             Transform parent;
             Globals.Logging.Log("type  " + objDataItem["typeName"]);
             Debug.Log("-=-= " + objDataItem.ToString());
-            if (objDataItem["TypeName"] != null) typeNet = (string)objDataItem["TypeName"];
+            if (objDataItem["TypeName"] != null)
+                typeNet = (string)objDataItem["TypeName"];
             else
             {
                 JArray tabNamesJA = (JArray)objDataItem["child"];
                 typeNet = (string)tabNamesJA[indexTabNap]["TypeName"];
             }
-            bool isAgency = objDataItem.ContainsKey("type") && ((string)objDataItem["type"]).Equals("agency");
+            bool isAgency =
+                objDataItem.ContainsKey("type") && ((string)objDataItem["type"]).Equals("agency");
             items = (JArray)objDataItem["items"];
             parent = isAgency ? scrContentAgency.content : scrContentRedeem.content;
-            if (items == null || items.Count <= 0) return;
+            if (items == null || items.Count <= 0)
+                return;
             Debug.Log("-=-= itemss  " + items.ToString());
 
             for (var i = 0; i < items.Count; i++)
             {
                 JObject dt = (JObject)items[i];
-                GameObject item = i < parent.childCount ? parent.GetChild(i).gameObject : Instantiate(isAgency ? itemAgency : itemEx, parent);
-                if (isAgency) item.GetComponent<ItemAgency>().setInfo(dt);
-                else item.GetComponent<ItemEx>().setInfo(dt, () => onChooseCashOut((int)dt["ag"], (int)dt["m"]));
+                GameObject item =
+                    i < parent.childCount
+                        ? parent.GetChild(i).gameObject
+                        : Instantiate(isAgency ? itemAgency : itemEx, parent);
+                if (isAgency)
+                    item.GetComponent<ItemAgency>().setInfo(dt);
+                else
+                    item.GetComponent<ItemEx>()
+                        .setInfo(dt, () => onChooseCashOut((int)dt["ag"], (int)dt["m"]));
                 item.SetActive(true);
                 item.transform.SetParent(parent);
                 item.transform.localScale = Vector3.one;
             }
-            for (var i = items.Count; i < parent.childCount; i++) parent.GetChild(i).gameObject.SetActive(false);
+            for (var i = items.Count; i < parent.childCount; i++)
+                parent.GetChild(i).gameObject.SetActive(false);
         }
     }
 
     public void reloadListItemHistory(List<JObject> listItem)
     {
         listDataHis = listItem
-        .OrderByDescending(x =>
-        {
-            var token = x["CreateTime"];
-            if (token == null) return DateTime.MinValue;
-
-            // Nếu là số (timestamp)
-            if (token.Type == JTokenType.Integer || token.Type == JTokenType.Float)
-                return DateTimeOffset.FromUnixTimeMilliseconds(token.Value<long>()).DateTime;
-
-            // Nếu là string (ISO / datetime)
-            DateTime.TryParse(token.ToString(), out var dt);
-            return dt;
-        })
-        .ToList();
+            .OrderBy(x =>
+            {
+                var statusToken = x["status"];
+                int status = statusToken != null ? statusToken.Value<int>() : 2;
+                if (status == 4)
+                {
+                    status = 1;
+                }
+                else if (status == 0)
+                {
+                    status = 0;
+                }
+                else
+                {
+                    status = 2;
+                }
+                return status;
+            })
+            .ThenByDescending(x =>
+            {
+                var token = x["CreateTime"];
+                if (token == null)
+                    return DateTime.MinValue;
+                if (token.Type == JTokenType.Integer || token.Type == JTokenType.Float)
+                    return DateTimeOffset.FromUnixTimeMilliseconds(token.Value<long>()).DateTime;
+                DateTime.TryParse(token.ToString(), out var dt);
+                return dt;
+            })
+            .ToList();
         for (int i = 0; i < scrContentHistory.content.childCount; i++)
         {
             scrContentHistory.content.GetChild(i).gameObject.SetActive(false);
@@ -423,19 +518,21 @@ public class ExchangeView : BaseView
                 else
                 {
                     objItem = Instantiate(itemHistory, scrContentHistory.content);
-
                 }
                 objItem.SetActive(true);
                 objItem.transform.SetParent(scrContentHistory.content);
                 objItem.transform.localScale = Vector3.one;
 
-                objItem.GetComponent<ItemHistoryEx>().setInfo(listDataHis[i], (int)listDataHis[i]["CashValue"]);
+                objItem
+                    .GetComponent<ItemHistoryEx>()
+                    .setInfo(listDataHis[i], (int)listDataHis[i]["CashValue"]);
             }
         }
     }
 
     int valueCO;
     string typeNet;
+
     void onChooseCashOut(int ag, int value)
     {
         SoundManager.instance.soundClick();
@@ -451,15 +548,22 @@ public class ExchangeView : BaseView
             if (rewardData != null)
             {
                 JArray textBox = null;
-                if (rewardData["textBox"] != null) textBox = (JArray)rewardData["textBox"];
-                else textBox = (JArray)rewardData["child"][indexTabNap]["textBox"];
-                m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig((string)textBox[0]["key_placeHolder"]);
-                m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig((string)textBox[1]["key_placeHolder"]);
+                if (rewardData["textBox"] != null)
+                    textBox = (JArray)rewardData["textBox"];
+                else
+                    textBox = (JArray)rewardData["child"][indexTabNap]["textBox"];
+                m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(
+                    (string)textBox[0]["key_placeHolder"]
+                );
+                m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(
+                    (string)textBox[1]["key_placeHolder"]
+                );
             }
         }
 
         valueCO = value;
     }
+
     public void cashOutReturn(JObject data)
     {
         Globals.Logging.Log("-=-=-=-=cashOutReturn  " + data.ToString());
@@ -471,7 +575,6 @@ public class ExchangeView : BaseView
             SocketSend.sendUAG();
             popupInput.hide(false);
             DoClickButton(m_HistoryTMP.transform.parent.gameObject, null);
-
         }
     }
 }
