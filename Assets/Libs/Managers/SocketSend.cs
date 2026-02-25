@@ -394,8 +394,8 @@ public class SocketSend
                 {
                     //TODO: sua ServerIp
                     severIp =
-                    // "app3.davaogames.com";
-                    (string)itemGa["ip_dm"];
+                   //"app3.davaogames.com";
+                   (string)itemGa["ip_dm"];
                     // severIp = "test.app.1707casino.com";
                     break;
                 }

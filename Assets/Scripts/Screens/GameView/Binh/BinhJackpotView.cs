@@ -6,6 +6,7 @@ using TMPro;
 using System;
 using Newtonsoft.Json.Linq;
 using Globals;
+using System.Linq;
 
 public class BinhJackpotView : BaseView
 {
@@ -76,7 +77,7 @@ public class BinhJackpotView : BaseView
         Debug.Log("SetInfo Jackpot Binh----" + data.ToString());
         JObject dataJP = JObject.Parse((string)data["data"]);
         List<JObject> lswin = dataJP["lswin"].ToObject<List<JObject>>();
-
+        lswin = lswin.OrderByDescending(x => (long)x["timeWin"]).ToList();
         for (var i = 0; i < lswin.Count; i++)
         {
             JObject dataPl = (JObject)lswin[i];

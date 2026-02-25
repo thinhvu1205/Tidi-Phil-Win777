@@ -1198,7 +1198,10 @@ public class HandleService
                     }
                     break;
                 case "upgrade_Friend":
-                    SocketSend.getListFriend();
+                    DOVirtual.DelayedCall(1f, () =>
+                    {
+                        SocketSend.getListFriend();
+                    });
                     UIManager.instance.showMessageBox((string)jsonData["msg"]);
                     break;
                 case "Friend_Delete":

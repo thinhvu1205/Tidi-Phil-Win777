@@ -840,7 +840,6 @@ public class RouLetteView : GameView
             Debug.Log(" có chạy vào đây");
             foreach (var bet in listDataBet)
             {
-                bet.BetAmount *= 2;
                 clonedBets.Add(new BetData(bet.IdBet, bet.BetType, bet.NumArr, bet.BetAmount));
             }
             textFrameCoin_1.text = textFrameCoin_2.text = Globals.Config.FormatMoney(totalBetValue, true);

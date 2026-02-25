@@ -16,6 +16,7 @@ public class MainChatLobby : MonoBehaviour
     [SerializeField] private VerticalPool m_ChatTableVPG;
     private List<PoolInfo> _ControlPIs = new();
     [SerializeField] private TextMeshProUGUI m_Test;
+    
 
     void Awake()
     {

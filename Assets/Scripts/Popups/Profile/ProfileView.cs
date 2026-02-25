@@ -67,7 +67,7 @@ public class ProfileView : BaseView
         updateStateChangeName();
         btnConfirmRef.gameObject.SetActive(User.userMain.canInputInvite);
         Debug.Log(" uidInvite:" + User.userMain.uidInvite);
-  
+
         if (User.userMain.timeInputInvite > 0)
         {
 
@@ -86,11 +86,11 @@ public class ProfileView : BaseView
             else
             {
                 refContainer.SetActive(false);
-                    scrListAvatar.transform.localPosition = new Vector3(
-                    scrListAvatar.transform.localPosition.x,
-                    -30f,
-                    scrListAvatar.transform.localPosition.z
-                );
+                scrListAvatar.transform.localPosition = new Vector3(
+                scrListAvatar.transform.localPosition.x,
+                -30f,
+                scrListAvatar.transform.localPosition.z
+            );
             }
             lbTimeRemainRef.text = "";
             DOTween.Kill(DOTWEEN_TAG.PROFILE_COUNTTIME);
@@ -253,12 +253,14 @@ public class ProfileView : BaseView
     {
         SoundManager.instance.soundClick();
         UIManager.instance.openChangePass();
+        this.onClickClose();
     }
 
     public void onClickChangeName()
     {
         SoundManager.instance.soundClick();
         UIManager.instance.openChangePass();
+        this.onClickClose();
     }
     public void onClickSendGift()
     {

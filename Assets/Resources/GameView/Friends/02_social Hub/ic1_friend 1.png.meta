@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 67dd1fd6ffc20814eb5867fdeb07a4a8
+guid: 91b16fa61f66e0942a2110b8e0b64c0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8271515297956110701
-    second: ic1_Referrals_0
+      213: -1119769130319197196
+    second: ic1_friend 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +123,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ic1_Referrals_0
+      name: ic1_friend 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 317
-        height: 489
+        width: 302
+        height: 475
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39edd1f29aca53d80800000000000000
-      internalID: -8271515297956110701
+      spriteID: 4fb40e4a8e7c570f0800000000000000
+      internalID: -1119769130319197196
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ic1_Referrals_0: -8271515297956110701
+      ic1_friend 1_0: -1119769130319197196
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
