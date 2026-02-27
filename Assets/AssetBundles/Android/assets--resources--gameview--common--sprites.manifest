@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3827228943
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4562058f6e3ad00a21e9f8dd82cac126
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: b0039ae8fe2a262031853412079d7cd4
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/Common/Sprites/table1.png
+- Assets/Resources/GameView/Common/Sprites/bg rule.png
+- Assets/Resources/GameView/Common/Sprites/box_large.png
+- Assets/Resources/GameView/Common/Sprites/bg.jpg
+- Assets/Resources/GameView/Common/Sprites/bgInGame.jpg
+- Assets/Resources/GameView/Common/Sprites/table.png
+- Assets/Resources/GameView/Common/Sprites/bg_sabong.jpg
+Dependencies: []

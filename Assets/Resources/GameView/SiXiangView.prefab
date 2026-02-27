@@ -133,7 +133,6 @@ MonoBehaviour:
   m_text: "\u221E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -174,15 +173,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -211,6 +212,7 @@ GameObject:
   - component: {fileID: 1513796080684345077}
   - component: {fileID: 4839943381775573327}
   - component: {fileID: 6203665290219186831}
+  - component: {fileID: 9138392658578729990}
   m_Layer: 0
   m_Name: bgWin
   m_TagString: Untagged
@@ -291,6 +293,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &9138392658578729990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243872928772209015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/BgRectItem/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &332245888854113939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1198,7 @@ GameObject:
   - component: {fileID: 2247232384999584022}
   - component: {fileID: 1987247634008203717}
   - component: {fileID: 6352929101340067465}
+  - component: {fileID: 5586502249422545257}
   m_Layer: 5
   m_Name: lbChip
   m_TagString: Untagged
@@ -1232,7 +1256,6 @@ MonoBehaviour:
   m_text: Minor
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: 0745538ed83de4945ac1fbb020425b30, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1273,15 +1296,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1299,6 +1324,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5586502249422545257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118829644682735622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6352929101340067465}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1146951714443267523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,15 +1450,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5348249832474300982}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/NearFreeSpin/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--anims
+  AssetName: Assets/Resources/GameView/Common/Anims/NearFreeSpin/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1337519335489217365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,6 +1635,7 @@ GameObject:
   - component: {fileID: 966884356427001470}
   - component: {fileID: 4065290264919640406}
   - component: {fileID: 5790761887145093738}
+  - component: {fileID: 4329690796730482328}
   m_Layer: 0
   m_Name: animSpin
   m_TagString: Untagged
@@ -1672,6 +1718,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &4329690796730482328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374758364639833563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/btnSpin/skeleton_SkeletonData.asset
+  AnimName: spin
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1414075250814146033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2037,6 +2104,7 @@ GameObject:
   - component: {fileID: 4975389450899508464}
   - component: {fileID: 6088923135023207802}
   - component: {fileID: 796499653415600491}
+  - component: {fileID: 6349878335484786441}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2094,7 +2162,6 @@ MonoBehaviour:
   m_text: 50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2135,15 +2202,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2161,6 +2230,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6349878335484786441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558568021391069214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 796499653415600491}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1593163830636385288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,6 +2459,7 @@ GameObject:
   - component: {fileID: 4625449338806133560}
   - component: {fileID: 246825845739849258}
   - component: {fileID: 5723863071605462741}
+  - component: {fileID: 316508633549753022}
   m_Layer: 5
   m_Name: lbTotalLine
   m_TagString: Untagged
@@ -2426,7 +2517,6 @@ MonoBehaviour:
   m_text: 25
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2467,15 +2557,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2493,6 +2585,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &316508633549753022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766723796532198073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5723863071605462741}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1804333779137093830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,6 +2883,7 @@ GameObject:
   - component: {fileID: 7631090706165401113}
   - component: {fileID: 1967299767061082823}
   - component: {fileID: 6336746159600797478}
+  - component: {fileID: 163596664857279358}
   m_Layer: 0
   m_Name: spineDragon
   m_TagString: Untagged
@@ -2858,6 +2972,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &163596664857279358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823086182446846746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/BgDragon/skeleton_SkeletonData.asset
+  AnimName: normal
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1824570268876919337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,6 +3069,7 @@ GameObject:
   - component: {fileID: 2194939076527748489}
   - component: {fileID: 1546325560981011762}
   - component: {fileID: 1787615958008753811}
+  - component: {fileID: 1686585571013284352}
   m_Layer: 0
   m_Name: bgWin
   m_TagString: Untagged
@@ -3014,6 +3150,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &1686585571013284352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895728696873083210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/BgRectItem/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1962052767010197304
 GameObject:
   m_ObjectHideFlags: 0
@@ -3105,6 +3262,7 @@ GameObject:
   - component: {fileID: 3038035079958547177}
   - component: {fileID: 936601632634318699}
   - component: {fileID: 1825932294201860094}
+  - component: {fileID: 6581564311436416308}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3162,7 +3320,6 @@ MonoBehaviour:
   m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3203,15 +3360,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3229,6 +3388,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6581564311436416308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963963700171974202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1825932294201860094}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1964604106361997232
 GameObject:
   m_ObjectHideFlags: 0
@@ -3513,6 +3693,7 @@ GameObject:
   - component: {fileID: 4943609716293209046}
   - component: {fileID: 1340745875625235217}
   - component: {fileID: 3451695090072834420}
+  - component: {fileID: 1719468336974413330}
   m_Layer: 0
   m_Name: bgWin
   m_TagString: Untagged
@@ -3593,6 +3774,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &1719468336974413330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064664311915189634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/BgRectItem/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2187252551517062466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,6 +3806,7 @@ GameObject:
   - component: {fileID: 2697213119643950660}
   - component: {fileID: 8936215153244708162}
   - component: {fileID: 2579780585150645829}
+  - component: {fileID: 4845177073196707459}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3661,7 +3864,6 @@ MonoBehaviour:
   m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3702,15 +3904,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3728,6 +3932,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4845177073196707459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187252551517062466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 2579780585150645829}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2239416919122060204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,6 +3965,7 @@ GameObject:
   - component: {fileID: 642379970780019676}
   - component: {fileID: 7700807509648341474}
   - component: {fileID: 8691552708200394802}
+  - component: {fileID: 7144270730800046043}
   m_Layer: 5
   m_Name: lbSpinInfo
   m_TagString: Untagged
@@ -3761,10 +3987,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8765382178854434309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 110.5525, y: 0}
-  m_SizeDelta: {x: 0, y: 28}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110.5525, y: -14}
+  m_SizeDelta: {x: 402.21, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &642379970780019676
 CanvasRenderer:
@@ -3797,7 +4023,6 @@ MonoBehaviour:
   m_text: PRESS SPIN TO PLAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3838,15 +4063,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3878,6 +4105,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!114 &7144270730800046043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2239416919122060204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7700807509648341474}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2332475438237123814
 GameObject:
   m_ObjectHideFlags: 0
@@ -3933,6 +4181,7 @@ GameObject:
   - component: {fileID: 5360499166964274490}
   - component: {fileID: 8696198418523737427}
   - component: {fileID: 5254513431763206914}
+  - component: {fileID: 4673373682825642040}
   m_Layer: 0
   m_Name: SkeletonGraphic (skeleton)
   m_TagString: Untagged
@@ -4013,6 +4262,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &4673373682825642040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341911423061023985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/Buy/skeleton_SkeletonData.asset
+  AnimName: buy
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2403816827355058021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4171,9 +4441,6 @@ MonoBehaviour:
   lbChipFSP: {fileID: 9134996937292324034}
   BgItem: {fileID: 6921033515422535739}
   SpineItem: {fileID: 4566345678367958848}
-  materialText:
-  - {fileID: 2100000, guid: a46a7ca2baf79884ba49a89effa43406, type: 2}
-  - {fileID: 2100000, guid: 0745538ed83de4945ac1fbb020425b30, type: 2}
 --- !u!1 &2424504624034954283
 GameObject:
   m_ObjectHideFlags: 0
@@ -4355,6 +4622,7 @@ GameObject:
   - component: {fileID: 7783420962463430085}
   - component: {fileID: 173587345561373490}
   - component: {fileID: 3124133512680470099}
+  - component: {fileID: 13079445432428867}
   m_Layer: 0
   m_Name: bgWin
   m_TagString: Untagged
@@ -4435,6 +4703,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &13079445432428867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527840553014165610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/BgRectItem/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2538930015265372507
 GameObject:
   m_ObjectHideFlags: 0
@@ -4596,7 +4885,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4637,15 +4925,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -5043,6 +5333,7 @@ GameObject:
   - component: {fileID: 7909386288107268571}
   - component: {fileID: 8142747863552383720}
   - component: {fileID: 6731601060912676216}
+  - component: {fileID: 7795583879479052464}
   m_Layer: 0
   m_Name: SkeletonGraphic (skeleton)
   m_TagString: Untagged
@@ -5123,6 +5414,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &7795583879479052464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2999589492130526607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/Buy/skeleton_SkeletonData.asset
+  AnimName: buy
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3037761497256358481
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,6 +5577,7 @@ GameObject:
   - component: {fileID: 1707505825738781780}
   - component: {fileID: 510631098592774333}
   - component: {fileID: 1475876639331954976}
+  - component: {fileID: 353445013160918191}
   m_Layer: 5
   m_Name: lbJPGrand
   m_TagString: Untagged
@@ -5322,7 +5635,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5363,15 +5675,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -5405,6 +5719,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &353445013160918191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090181955861730900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 510631098592774333}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3117804650261599101
 GameObject:
   m_ObjectHideFlags: 0
@@ -5757,6 +6092,7 @@ GameObject:
   - component: {fileID: 7444263662063065167}
   - component: {fileID: 1350413207850208645}
   - component: {fileID: 8937448906318610883}
+  - component: {fileID: 5496353787585437537}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5814,7 +6150,6 @@ MonoBehaviour:
   m_text: 30
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5855,15 +6190,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -5881,6 +6218,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5496353787585437537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389321514576201762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8937448906318610883}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3510443496187205706
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,6 +6251,7 @@ GameObject:
   - component: {fileID: 3576051300468912640}
   - component: {fileID: 7205854468380863826}
   - component: {fileID: 9040228466994775819}
+  - component: {fileID: 5861474615092610271}
   m_Layer: 5
   m_Name: lbJPMajor
   m_TagString: Untagged
@@ -5950,7 +6309,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5991,15 +6349,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -6033,6 +6393,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &5861474615092610271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510443496187205706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7205854468380863826}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3533989435799101791
 GameObject:
   m_ObjectHideFlags: 0
@@ -6357,6 +6738,7 @@ GameObject:
   - component: {fileID: 7052667122670274535}
   - component: {fileID: 4366621545570889135}
   - component: {fileID: 7893618654073556926}
+  - component: {fileID: 3566705347632891696}
   m_Layer: 0
   m_Name: spineGameName
   m_TagString: Untagged
@@ -6437,6 +6819,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &3566705347632891696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721466887045032284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/GameName/skeletion_SkeletonData.asset
+  AnimName: sixiang
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3730795072351622790
 GameObject:
   m_ObjectHideFlags: 0
@@ -7578,9 +7981,9 @@ RectTransform:
   - {fileID: 3289267664951894077}
   m_Father: {fileID: 8765382178854434309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -14}
   m_SizeDelta: {x: 0, y: 32.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5025981106611783618
@@ -8090,6 +8493,7 @@ GameObject:
   - component: {fileID: 7743002822108931294}
   - component: {fileID: 6663608511061883301}
   - component: {fileID: 9134996937292324034}
+  - component: {fileID: 2620028776770605058}
   m_Layer: 5
   m_Name: lbFSP
   m_TagString: Untagged
@@ -8147,7 +8551,6 @@ MonoBehaviour:
   m_text: Minor
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: 0745538ed83de4945ac1fbb020425b30, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8188,15 +8591,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -8214,6 +8619,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2620028776770605058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958276089780709143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 9134996937292324034}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4982446778662143211
 GameObject:
   m_ObjectHideFlags: 0
@@ -8426,7 +8852,7 @@ GameObject:
   - component: {fileID: 4973718964419748345}
   - component: {fileID: 3581133293210138702}
   - component: {fileID: 6879134414166911347}
-  - component: {fileID: 5399127474429907918}
+  - component: {fileID: 2698212909864746505}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -8484,7 +8910,6 @@ MonoBehaviour:
   m_text: Button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8525,15 +8950,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -8551,7 +8978,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5399127474429907918
+--- !u!114 &2698212909864746505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8560,14 +8987,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5076735095839366879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_ok
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 6879134414166911347}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: txt_ok
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5105204465745674393
 GameObject:
   m_ObjectHideFlags: 0
@@ -8720,6 +9151,7 @@ GameObject:
   - component: {fileID: 323917695542890829}
   - component: {fileID: 3881164056177287548}
   - component: {fileID: 8960696380128418323}
+  - component: {fileID: 5868749629480260755}
   m_Layer: 5
   m_Name: lbBalance
   m_TagString: Untagged
@@ -8777,7 +9209,6 @@ MonoBehaviour:
   m_text: 123.456
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8818,15 +9249,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -8860,6 +9293,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &5868749629480260755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215179864882488666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3881164056177287548}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5281425871743341461
 GameObject:
   m_ObjectHideFlags: 0
@@ -8949,6 +9403,7 @@ GameObject:
   - component: {fileID: 520735296549085896}
   - component: {fileID: 5379343862309622312}
   - component: {fileID: 3631711748389801137}
+  - component: {fileID: 9160713551401478480}
   m_Layer: 0
   m_Name: lbJackpotWin
   m_TagString: Untagged
@@ -9006,7 +9461,6 @@ MonoBehaviour:
   m_text: 123.456M
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: 7cc0ceefe506f69458a7c1003b817372, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9047,15 +9501,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -9089,6 +9545,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &9160713551401478480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294489493886056095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5379343862309622312}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_Gradient.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5436042007473048149
 GameObject:
   m_ObjectHideFlags: 0
@@ -9827,7 +10304,7 @@ GameObject:
   - component: {fileID: 6978605188416506288}
   - component: {fileID: 4950919691868409401}
   - component: {fileID: 3337677589108015718}
-  - component: {fileID: 887492308441262712}
+  - component: {fileID: 1688884733381662676}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -9885,7 +10362,6 @@ MonoBehaviour:
   m_text: Button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9926,15 +10402,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -9952,7 +10430,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &887492308441262712
+--- !u!114 &1688884733381662676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9961,14 +10439,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5884191659192035349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_ok
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 3337677589108015718}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: txt_ok
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6011177111154007306
 GameObject:
   m_ObjectHideFlags: 0
@@ -10113,7 +10595,6 @@ MonoBehaviour:
   m_text: Choose the game and enjoy the <color=#FF0000>4X</color> reward
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10154,15 +10635,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -10493,6 +10976,7 @@ GameObject:
   - component: {fileID: 2685883681886129873}
   - component: {fileID: 6539891751139419423}
   - component: {fileID: 2377113611459924468}
+  - component: {fileID: 1722410790093508756}
   m_Layer: 5
   m_Name: lbJpMinor
   m_TagString: Untagged
@@ -10550,7 +11034,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10591,15 +11074,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -10633,6 +11118,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &1722410790093508756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391175396171142319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6539891751139419423}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6505023379214983848
 GameObject:
   m_ObjectHideFlags: 0
@@ -10952,6 +11458,7 @@ GameObject:
   - component: {fileID: 2806750047480468046}
   - component: {fileID: 8651476562392955244}
   - component: {fileID: 8854265393965220370}
+  - component: {fileID: 7585353262616445284}
   m_Layer: 0
   m_Name: lbMoneyBigMega
   m_TagString: Untagged
@@ -11009,7 +11516,6 @@ MonoBehaviour:
   m_text: 123.456M
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: 7cc0ceefe506f69458a7c1003b817372, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11050,15 +11556,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -11092,6 +11600,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &7585353262616445284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640266673355101320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8651476562392955244}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_Gradient.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6807976371666471460
 GameObject:
   m_ObjectHideFlags: 0
@@ -11235,6 +11764,7 @@ GameObject:
   - component: {fileID: 3120784075596273915}
   - component: {fileID: 8312153323887347803}
   - component: {fileID: 6771719192560335550}
+  - component: {fileID: 2405947842863618698}
   m_Layer: 0
   m_Name: SkeletonGraphic (skeleton)
   m_TagString: Untagged
@@ -11315,6 +11845,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &2405947842863618698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6878501691421486059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/Buy/skeleton_SkeletonData.asset
+  AnimName: buy
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6900195339463670736
 GameObject:
   m_ObjectHideFlags: 0
@@ -11837,6 +12388,7 @@ GameObject:
   - component: {fileID: 5381430156656154765}
   - component: {fileID: 13162776532094585}
   - component: {fileID: 5447352574273661489}
+  - component: {fileID: 2847298173775980744}
   m_Layer: 5
   m_Name: lbTotalWin
   m_TagString: Untagged
@@ -11894,7 +12446,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11935,15 +12486,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -11977,6 +12530,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &2847298173775980744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337201377417356435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 13162776532094585}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7380144141590227015
 GameObject:
   m_ObjectHideFlags: 0
@@ -12823,6 +13397,7 @@ GameObject:
   - component: {fileID: 337621055910904632}
   - component: {fileID: 6138569439357122658}
   - component: {fileID: 5973820753167500788}
+  - component: {fileID: 7453669326438880007}
   m_Layer: 0
   m_Name: lbMoneyWinResult
   m_TagString: Untagged
@@ -12880,7 +13455,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: 7cc0ceefe506f69458a7c1003b817372, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -12921,15 +13495,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -12947,6 +13523,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7453669326438880007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7656044026005708088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5973820753167500788}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_Gradient.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7659083171546912839
 GameObject:
   m_ObjectHideFlags: 0
@@ -12993,6 +13590,7 @@ GameObject:
   - component: {fileID: 4469279481163997684}
   - component: {fileID: 90415313683778863}
   - component: {fileID: 2375662973135679049}
+  - component: {fileID: 2075008039887715370}
   m_Layer: 0
   m_Name: SkeletonGraphic (skeleton)
   m_TagString: Untagged
@@ -13073,6 +13671,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &2075008039887715370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680296738679563011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/Buy/skeleton_SkeletonData.asset
+  AnimName: buy
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7689241238381809544
 GameObject:
   m_ObjectHideFlags: 0
@@ -13421,15 +14040,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5578956257289322967}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/BgMiniGame/skeleton_SkeletonData.asset
   AnimName: spin
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8118362079785703580
 GameObject:
   m_ObjectHideFlags: 0
@@ -13442,6 +14060,7 @@ GameObject:
   - component: {fileID: 1536850964978508737}
   - component: {fileID: 4931094038482724687}
   - component: {fileID: 8542369788832704516}
+  - component: {fileID: 3830353340069222708}
   m_Layer: 5
   m_Name: lbJPMega
   m_TagString: Untagged
@@ -13499,7 +14118,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13540,15 +14158,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -13582,6 +14202,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &3830353340069222708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118362079785703580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4931094038482724687}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8191633127044179164
 GameObject:
   m_ObjectHideFlags: 0
@@ -13687,15 +14328,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 7168008539888612133}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets,resources,gameview,sixiang,spine
   AssetName: Assets/Resources/GameView/SiXiang/Spine/BonusChooseGamePopup/skeleton_SkeletonData.asset
   AnimName: eng
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8226084125577171671
 GameObject:
   m_ObjectHideFlags: 0
@@ -14228,6 +14868,7 @@ GameObject:
   - component: {fileID: 1078375359798908902}
   - component: {fileID: 1769837929049268926}
   - component: {fileID: 1872184131208251250}
+  - component: {fileID: 8715573250989521306}
   m_Layer: 5
   m_Name: lbTotalBet
   m_TagString: Untagged
@@ -14285,7 +14926,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 6795141060960944527, guid: 03b33d827d591844da74a5b96c48eb52, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14326,15 +14966,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -14352,6 +14994,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8715573250989521306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804449081308288091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1872184131208251250}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8813706230026055812
 GameObject:
   m_ObjectHideFlags: 0
@@ -14675,6 +15338,7 @@ GameObject:
   - component: {fileID: 4978684170856986982}
   - component: {fileID: 2809688270045751123}
   - component: {fileID: 4182752470411921628}
+  - component: {fileID: 3089416199040448627}
   m_Layer: 5
   m_Name: bgMiniGameGoldPick
   m_TagString: Untagged
@@ -14740,6 +15404,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3089416199040448627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8992222281835001394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--sprites
+  AssetName: Assets/Resources/GameView/SiXiang/Sprites/bg.jpg
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &9011097841736848639
 GameObject:
   m_ObjectHideFlags: 0
@@ -15239,7 +15924,6 @@ GameObject:
   - component: {fileID: 9158675469440060404}
   - component: {fileID: 9158675469440060407}
   - component: {fileID: 2799109186998425622}
-  - component: {fileID: 4749084903813330952}
   m_Layer: 5
   m_Name: SiXiangView
   m_TagString: Untagged
@@ -15409,33 +16093,10 @@ MonoBehaviour:
   bgGame: {fileID: 9158675470543685110}
   animNameGame: {fileID: 7893618654073556926}
   animAnimal: {fileID: 5029282601577538407}
-  animBgNormal: {fileID: 11400000, guid: 7cc472ef71d05a948b2accff8a9977e8, type: 2}
   DragonPearlView: {fileID: 1051064743550939235}
   ChooseGameBonus: {fileID: 923107843582243361}
   isBonusMiniGame: 0
   isBonusGame: 0
---- !u!114 &4749084903813330952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9158675469440060401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521a1a33ff24d154aa650470ab1e2c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  getFreespin: 
-  scatterSpin: '{"reward":0,"winAmount":0,"userAmount":389417,"numberOfDragonPearlSpins":3,"dragonPearls":[{"item":4,"luckyMoney":0,"multiplier":0.4,"winAmount":4000,"jackpot":0,"row":1,"col":2,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":4,"luckyMoney":0,"multiplier":0.337,"winAmount":3370,"jackpot":0,"row":2,"col":4,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":6,"luckyMoney":0,"multiplier":2.684,"winAmount":26840,"jackpot":0,"row":0,"col":3,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":2,"luckyMoney":0,"multiplier":0.044,"winAmount":439,"jackpot":0,"row":0,"col":4,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":2,"luckyMoney":0,"multiplier":0.044999998,"winAmount":449,"jackpot":0,"row":1,"col":3,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":5,"luckyMoney":0,"multiplier":1.044,"winAmount":10440,"jackpot":0,"row":1,"col":0,"isBonusSpin":false,"isJackpot":false,"isDoubled":false}],"dragonPearlWinPot":45539,"numberOfGoldPicks":0}'
-  getInfoDragonPearl: '{"minor":10,"major":20,"mega":30,"grand":150,"payTable":[[0,0,0.5,2.5,5],[0,0,0.5,2.5,5],[0,0,0.5,2.5,5],[0,0,0.5,2.5,5],[0,0,0.5,2.5,5],[0,0,2,10,20],[0,0,1.5,7.5,15],[0,0,1.2,6,12],[0,0,1,5,10],[0,0,0,0,0],[0,0,0,0,0]],"betLevels":[1,5,50,500,1000,2500,5000,10000,25000,50000,100000],"bet":50,"userAmount":338061,"gameType":2,"isBonusGame":false,"bonusGameMultiplier":4,"winAmount":769,"pearls":[{"item":5,"luckyMoney":0,"multiplier":3.342,"winAmount":167,"jackpot":0,"row":0,"col":0,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":3,"luckyMoney":0,"multiplier":0.225,"winAmount":11,"jackpot":0,"row":0,"col":1,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":3,"luckyMoney":0,"multiplier":0.268,"winAmount":13,"jackpot":0,"row":0,"col":2,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":2,"luckyMoney":0,"multiplier":0.114,"winAmount":5,"jackpot":0,"row":0,"col":3,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":2,"luckyMoney":0,"multiplier":0.116,"winAmount":5,"jackpot":0,"row":0,"col":4,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":1,"luckyMoney":4,"multiplier":10,"winAmount":500,"jackpot":1,"row":1,"col":1,"isBonusSpin":false,"isJackpot":true,"isDoubled":false},{"item":4,"luckyMoney":0,"multiplier":0.365,"winAmount":18,"jackpot":0,"row":1,"col":4,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":2,"luckyMoney":0,"multiplier":0.088,"winAmount":4,"jackpot":0,"row":2,"col":0,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":4,"luckyMoney":0,"multiplier":0.794,"winAmount":39,"jackpot":0,"row":2,"col":2,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":2,"luckyMoney":0,"multiplier":0.067999996,"winAmount":3,"jackpot":0,"row":2,"col":3,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":1,"luckyMoney":2,"multiplier":0,"winAmount":0,"jackpot":0,"row":2,"col":4,"isBonusSpin":false,"isJackpot":false,"isDoubled":false}],"numberOfDragonPearlSpins":2,"numberOfPick":0,"cards":[],"rewards":[]}'
-  getBachHoDragonPearl: '{"pearls":[{"item":1,"luckyMoney":2,"multiplier":0,"winAmount":0,"jackpot":0,"row":2,"col":2,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":4,"luckyMoney":0,"multiplier":1.074,"winAmount":53,"jackpot":0,"row":0,"col":0,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":2,"luckyMoney":0,"multiplier":0.106,"winAmount":5,"jackpot":0,"row":0,"col":1,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":6,"luckyMoney":0,"multiplier":5.87,"winAmount":293,"jackpot":0,"row":0,"col":2,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":3,"luckyMoney":0,"multiplier":0.414,"winAmount":20,"jackpot":0,"row":1,"col":0,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":5,"luckyMoney":0,"multiplier":3.254,"winAmount":162,"jackpot":0,"row":1,"col":2,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":2,"luckyMoney":0,"multiplier":0.063999996,"winAmount":3,"jackpot":0,"row":1,"col":3,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":3,"luckyMoney":0,"multiplier":0.34,"winAmount":17,"jackpot":0,"row":1,"col":4,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":3,"luckyMoney":0,"multiplier":0.39200002,"winAmount":19,"jackpot":0,"row":2,"col":1,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":4,"luckyMoney":0,"multiplier":0.702,"winAmount":35,"jackpot":0,"row":2,"col":3,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":2,"luckyMoney":0,"multiplier":0.062,"winAmount":3,"jackpot":0,"row":2,"col":4,"isBonusSpin":false,"isJackpot":false,"isDoubled":true}],"numberOfBonusSpins":1,"totalSpins":3,"isGrandJackpot":false,"isFinished":false,"winAmount":1113,"userAmount":347206,"isSelectBonusGame":false}'
-  getChuTuocDP: '{"pearls":[{"item":1,"luckyMoney":3,"multiplier":0,"winAmount":0,"jackpot":0,"row":1,"col":0,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":6,"luckyMoney":0,"multiplier":2.579,"winAmount":128,"jackpot":0,"row":1,"col":2,"isBonusSpin":true,"isJackpot":false,"isDoubled":false},{"item":5,"luckyMoney":0,"multiplier":1.767,"winAmount":88,"jackpot":0,"row":1,"col":3,"isBonusSpin":true,"isJackpot":false,"isDoubled":false}],"numberOfBonusSpins":1,"totalSpins":2,"isGrandJackpot":true,"isFinished":true,"winAmount":8495,"userAmount":346556,"isSelectBonusGame":false}'
-  HuyenVuDragonPearl: '{"pearls":[{"item":1,"luckyMoney":1,"multiplier":0,"winAmount":0,"jackpot":0,"row":2,"col":2,"isBonusSpin":false,"isJackpot":false,"isDoubled":false}],"numberOfBonusSpins":4,"totalSpins":4,"isGrandJackpot":false,"isFinished":false,"winAmount":196,"userAmount":344349,"isSelectBonusGame":false}'
-  GrandJackpotNormalSpin: '{"winAmount":74500,"userAmount":2146689,"isGrandJackpot":true,"isBonusMiniGame":false,"payLines":[],"reels":[[9,4,1],[1,9,8],[6,2,9],[9,1,9],[4,8,9]],"isSelectBonusGame":false}'
-  DragonPearlSpinBug1: '{"pearls":[{"item":1,"luckyMoney":3,"multiplier":0.0,"winAmount":0,"jackpot":0,"row":2,"col":4,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":2,"luckyMoney":0,"multiplier":0.035,"winAmount":17,"jackpot":0,"row":0,"col":1,"isBonusSpin":true,"isJackpot":false,"isDoubled":false},{"item":3,"luckyMoney":0,"multiplier":0.185,"winAmount":92,"jackpot":0,"row":0,"col":2,"isBonusSpin":true,"isJackpot":false,"isDoubled":false},{"item":3,"luckyMoney":0,"multiplier":0.105000004,"winAmount":52,"jackpot":0,"row":0,"col":4,"isBonusSpin":true,"isJackpot":false,"isDoubled":false},{"item":1,"luckyMoney":2,"multiplier":0.0,"winAmount":0,"jackpot":0,"row":1,"col":4,"isBonusSpin":false,"isJackpot":false,"isDoubled":false},{"item":2,"luckyMoney":0,"multiplier":0.085999995,"winAmount":42,"jackpot":0,"row":0,"col":0,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":2,"luckyMoney":0,"multiplier":0.07,"winAmount":35,"jackpot":0,"row":0,"col":1,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":3,"luckyMoney":0,"multiplier":0.37,"winAmount":185,"jackpot":0,"row":0,"col":2,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":2,"luckyMoney":0,"multiplier":0.088,"winAmount":43,"jackpot":0,"row":0,"col":3,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":3,"luckyMoney":0,"multiplier":0.21000001,"winAmount":105,"jackpot":0,"row":0,"col":4,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":5,"luckyMoney":0,"multiplier":3.7,"winAmount":1850,"jackpot":0,"row":1,"col":0,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":3,"luckyMoney":0,"multiplier":0.228,"winAmount":114,"jackpot":0,"row":1,"col":2,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":4,"luckyMoney":0,"multiplier":0.93000007,"winAmount":465,"jackpot":0,"row":2,"col":0,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":6,"luckyMoney":0,"multiplier":5.554,"winAmount":2776,"jackpot":0,"row":2,"col":2,"isBonusSpin":false,"isJackpot":false,"isDoubled":true},{"item":5,"luckyMoney":0,"multiplier":3.2680001,"winAmount":1634,"jackpot":0,"row":2,"col":3,"isBonusSpin":false,"isJackpot":false,"isDoubled":true}],"numberOfBonusSpins":1,"totalSpins":3,"isGrandJackpot":false,"isFinished":false,"winAmount":7251,"userAmount":1206312,"isSelectBonusGame":false}'
-  megaWinNormal: '{"winAmount":1860,"userAmount":256326,"isGrandJackpot":false,"isBonusMiniGame":false,"payLines":[{"winAmount":50,"line":[0,9,2,3,4],"lineNumber":0,"symbol":2,"numberOfSymbols":4},{"winAmount":50,"line":[9,7,2,3,3],"lineNumber":1,"symbol":2,"numberOfSymbols":4},{"winAmount":120,"line":[7,3,7,9,8],"lineNumber":2,"symbol":7,"numberOfSymbols":4},{"winAmount":120,"line":[9,9,7,3,3],"lineNumber":3,"symbol":7,"numberOfSymbols":4},{"winAmount":50,"line":[7,9,2,3,8],"lineNumber":4,"symbol":2,"numberOfSymbols":4},{"winAmount":50,"line":[0,7,2,3,4],"lineNumber":5,"symbol":2,"numberOfSymbols":4},{"winAmount":120,"line":[0,3,7,9,4],"lineNumber":6,"symbol":7,"numberOfSymbols":4},{"winAmount":50,"line":[9,7,2,9,8],"lineNumber":7,"symbol":2,"numberOfSymbols":4},{"winAmount":50,"line":[7,3,2,3,3],"lineNumber":8,"symbol":2,"numberOfSymbols":4},{"winAmount":50,"line":[0,3,2,3,4],"lineNumber":9,"symbol":2,"numberOfSymbols":4},{"winAmount":50,"line":[0,7,2,9,4],"lineNumber":10,"symbol":2,"numberOfSymbols":4},{"winAmount":50,"line":[9,9,2,3,3],"lineNumber":11,"symbol":2,"numberOfSymbols":4},{"winAmount":50,"line":[7,9,2,3,8],"lineNumber":12,"symbol":2,"numberOfSymbols":4},{"winAmount":50,"line":[9,9,2,3,3],"lineNumber":13,"symbol":2,"numberOfSymbols":4},{"winAmount":120,"line":[7,9,7,3,8],"lineNumber":14,"symbol":7,"numberOfSymbols":4},{"winAmount":50,"line":[0,9,2,3,4],"lineNumber":15,"symbol":2,"numberOfSymbols":4},{"winAmount":120,"line":[0,9,7,3,4],"lineNumber":16,"symbol":7,"numberOfSymbols":4},{"winAmount":120,"line":[9,7,7,3,3],"lineNumber":17,"symbol":7,"numberOfSymbols":4},{"winAmount":50,"line":[7,3,2,9,8],"lineNumber":18,"symbol":2,"numberOfSymbols":4},{"winAmount":120,"line":[9,3,7,9,3],"lineNumber":19,"symbol":7,"numberOfSymbols":4},{"winAmount":50,"line":[7,7,2,3,8],"lineNumber":20,"symbol":2,"numberOfSymbols":4},{"winAmount":50,"line":[0,3,2,9,4],"lineNumber":21,"symbol":2,"numberOfSymbols":4},{"winAmount":120,"line":[0,7,7,3,4],"lineNumber":22,"symbol":7,"numberOfSymbols":4},{"winAmount":50,"line":[9,3,2,9,3],"lineNumber":23,"symbol":2,"numberOfSymbols":4},{"winAmount":120,"line":[7,7,7,3,8],"lineNumber":24,"symbol":7,"numberOfSymbols":4}],"reels":[[9,0,7],[7,9,3],[2,2,7],[3,3,9],[3,4,8]],"isSelectBonusGame":false}'
-  bugSpin: '{"winAmount":62000,"userAmount":2428592,"isGrandJackpot":false,"isBonusMiniGame":true,"payLines":[{"winAmount":12000,"line":[9,7,7,8,0],"lineNumber":2,"symbol":7,"numberOfSymbols":3},{"winAmount":12000,"line":[10,7,7,2,10],"lineNumber":3,"symbol":7,"numberOfSymbols":3},{"winAmount":12000,"line":[2,7,7,8,4],"lineNumber":6,"symbol":7,"numberOfSymbols":3},{"winAmount":12000,"line":[9,7,7,2,0],"lineNumber":14,"symbol":7,"numberOfSymbols":3},{"winAmount":12000,"line":[2,7,7,2,4],"lineNumber":16,"symbol":7,"numberOfSymbols":3},{"winAmount":12000,"line":[10,7,7,8,10],"lineNumber":19,"symbol":7,"numberOfSymbols":3}],"reels":[[10,2,9],[2,7,7],[10,1,7],[4,2,8],[10,4,0]],"isSelectBonusGame":false}'
 --- !u!1 &9158675469752053206
 GameObject:
   m_ObjectHideFlags: 0
@@ -15530,6 +16191,7 @@ GameObject:
   - component: {fileID: 9158675470543685105}
   - component: {fileID: 9158675470543685111}
   - component: {fileID: 9158675470543685110}
+  - component: {fileID: 8862222201701143836}
   m_Layer: 0
   m_Name: spineBG
   m_TagString: Untagged
@@ -15610,6 +16272,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &8862222201701143836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9158675470543685104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--spine
+  AssetName: Assets/Resources/GameView/SiXiang/Spine/BgGame/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &9174462103559328755
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3851218396352170009}
   - component: {fileID: 330563822883942214}
   - component: {fileID: 2165105924284234318}
+  - component: {fileID: 3204677350945524497}
   m_Layer: 0
   m_Name: Anim Selected Bomb
   m_TagString: Untagged
@@ -91,6 +92,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &3204677350945524497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112922256456911285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--minefinding--anims
+  AssetName: Assets/Resources/GameView/MineFinding/Anims/Bomb/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &393632373693852325
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +200,7 @@ GameObject:
   - component: {fileID: 704653658327769845}
   - component: {fileID: 8416845207297086594}
   - component: {fileID: 1470337060607831671}
+  - component: {fileID: 7190965915172178432}
   m_Layer: 0
   m_Name: Anim Unselected Bomb
   m_TagString: Untagged
@@ -258,6 +281,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &7190965915172178432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555124012213605890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--minefinding--anims
+  AssetName: Assets/Resources/GameView/MineFinding/Anims/Bomb/skeleton_SkeletonData.asset
+  AnimName: normal
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3613849415719413597
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +596,7 @@ GameObject:
   - component: {fileID: 8674289786233638017}
   - component: {fileID: 2696221845635724500}
   - component: {fileID: 3635598702953912905}
+  - component: {fileID: 4666276774572460017}
   m_Layer: 0
   m_Name: Anim Explode
   m_TagString: Untagged
@@ -632,6 +677,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &4666276774572460017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663973955073377225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--kaeng--anims
+  AssetName: Assets/Resources/GameView/Kaeng/Anims/fire/skeleton_SkeletonData.asset
+  AnimName: fire3
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5519226890716004133
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,15 +977,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5635906443282193799}
+  ThisTMPUGUI: {fileID: 0}
   BundleLabel: assets--resources--gameview--threepoker--animation
   AssetName: Assets/Resources/GameView/ThreePoker/animation/point/skeleton_SkeletonData.asset
   AnimName: point
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6899247454645019499
 GameObject:
   m_ObjectHideFlags: 0

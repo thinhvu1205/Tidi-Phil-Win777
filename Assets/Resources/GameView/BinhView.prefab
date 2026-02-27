@@ -282,8 +282,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Full House
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 18992008195024ea2ae4461bd7508c92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1462,8 +1462,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Show Cards
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 18992008195024ea2ae4461bd7508c92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1867,8 +1867,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Straight Flush
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 18992008195024ea2ae4461bd7508c92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1914,7 +1914,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1999,14 +1999,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 667311c19a55a4ac68b6b372c2cb8af0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2431,8 +2431,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 59a76639c5ce7b74c973579941f136f6, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: 59a76639c5ce7b74c973579941f136f6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2511,6 +2511,7 @@ GameObject:
   - component: {fileID: 2493147516284232765}
   - component: {fileID: 9183236795265354081}
   - component: {fileID: 3991693433438185434}
+  - component: {fileID: 950447891019331350}
   m_Layer: 5
   m_Name: animBomb
   m_TagString: Untagged
@@ -2591,6 +2592,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &950447891019331350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203553161781879043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/bom/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1215321312306269738
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,14 +2883,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 667311c19a55a4ac68b6b372c2cb8af0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3146,8 +3168,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 59a76639c5ce7b74c973579941f136f6, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: 59a76639c5ce7b74c973579941f136f6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3774,6 +3796,7 @@ GameObject:
   - component: {fileID: 8645209075622185726}
   - component: {fileID: 531008013694008290}
   - component: {fileID: 2720935737879030943}
+  - component: {fileID: 5056371889242380649}
   m_Layer: 5
   m_Name: animFInish
   m_TagString: Untagged
@@ -3860,6 +3883,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &5056371889242380649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590056564611286726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/startgame/skeleton_SkeletonData.asset
+  AnimName: compare
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1654157147467623214
 GameObject:
   m_ObjectHideFlags: 0
@@ -3933,14 +3977,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 667311c19a55a4ac68b6b372c2cb8af0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3961,6 +4005,7 @@ GameObject:
   - component: {fileID: 5563847450445404726}
   - component: {fileID: 4446280333587792040}
   - component: {fileID: 1481011922120501170}
+  - component: {fileID: 8674088959640578332}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -4017,8 +4062,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 419f69f069be7b34d8011681c745aa5b, type: 2}
-  m_sharedMaterial: {fileID: -3778855014367556274, guid: 419f69f069be7b34d8011681c745aa5b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
+  m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4064,7 +4109,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4086,6 +4131,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8674088959640578332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659518200938132442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1481011922120501170}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1785586897825017255
 GameObject:
   m_ObjectHideFlags: 0
@@ -4514,8 +4580,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Four of a kind
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 18992008195024ea2ae4461bd7508c92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4561,7 +4627,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4725,8 +4791,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 59a76639c5ce7b74c973579941f136f6, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: 59a76639c5ce7b74c973579941f136f6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5640,6 +5706,7 @@ GameObject:
   - component: {fileID: 6947921586119947116}
   - component: {fileID: 8687678011264558079}
   - component: {fileID: 7008593370022140101}
+  - component: {fileID: 3020999744632505276}
   m_Layer: 5
   m_Name: animSapLang
   m_TagString: Untagged
@@ -5720,6 +5787,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &3020999744632505276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900484625634967361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/sap_ca_lang/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2976206827000919264
 GameObject:
   m_ObjectHideFlags: 0
@@ -6156,8 +6244,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 30
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5f19153d53ec4414e8c66f984c0987c9, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: 5f19153d53ec4414e8c66f984c0987c9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6203,7 +6291,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6656,7 +6744,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6820,8 +6908,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Flush
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 18992008195024ea2ae4461bd7508c92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6867,7 +6955,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -6900,6 +6988,7 @@ GameObject:
   - component: {fileID: 867903336860954414}
   - component: {fileID: 8329959117452469672}
   - component: {fileID: 4237942179824527838}
+  - component: {fileID: 741481371406065924}
   m_Layer: 5
   m_Name: aniJackPot
   m_TagString: Untagged
@@ -6996,6 +7085,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &741481371406065924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709150574683690683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/Jackpot/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3850524231202179153
 GameObject:
   m_ObjectHideFlags: 0
@@ -7689,6 +7799,7 @@ GameObject:
   - component: {fileID: 5970440126012368935}
   - component: {fileID: 3218317703982567597}
   - component: {fileID: 4366781263521527836}
+  - component: {fileID: 7264673405010814669}
   m_Layer: 5
   m_Name: aniSpecial
   m_TagString: Untagged
@@ -7785,6 +7896,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &7264673405010814669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4788218880159632984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/special/skeleton_SkeletonData.asset
+  AnimName: samecolour
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4800457075277312118
 GameObject:
   m_ObjectHideFlags: 0
@@ -8511,6 +8643,7 @@ GameObject:
   - component: {fileID: 2013230412418317341}
   - component: {fileID: 9072977801184658650}
   - component: {fileID: 5898568739351076108}
+  - component: {fileID: 5496161007355622958}
   m_Layer: 5
   m_Name: ani_chaybai2
   m_TagString: Untagged
@@ -8591,6 +8724,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &5496161007355622958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332541539741954575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/chaybai/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5455229941013523999
 GameObject:
   m_ObjectHideFlags: 0
@@ -8667,6 +8821,7 @@ GameObject:
   - component: {fileID: 1775697161710887569}
   - component: {fileID: 643631494584409532}
   - component: {fileID: 2794596180323096899}
+  - component: {fileID: 7672317647767374019}
   m_Layer: 5
   m_Name: ani_chaybai3
   m_TagString: Untagged
@@ -8747,6 +8902,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &7672317647767374019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581536482166448663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/chaybai/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5649966626038680958
 GameObject:
   m_ObjectHideFlags: 0
@@ -9107,6 +9283,7 @@ GameObject:
   - component: {fileID: 9042395248929870711}
   - component: {fileID: 3956452552171835380}
   - component: {fileID: 3002294860974412092}
+  - component: {fileID: 8020255870573711357}
   m_Layer: 5
   m_Name: eff
   m_TagString: Untagged
@@ -9193,6 +9370,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &8020255870573711357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5912576806456471188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/startgame/skeleton_SkeletonData.asset
+  AnimName: start
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5959823008549576102
 GameObject:
   m_ObjectHideFlags: 0
@@ -9621,14 +9819,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 667311c19a55a4ac68b6b372c2cb8af0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9714,6 +9912,7 @@ GameObject:
   - component: {fileID: 6986759165133551269}
   - component: {fileID: 1718821091633433879}
   - component: {fileID: 8240543512366157283}
+  - component: {fileID: 2928286885780487160}
   m_Layer: 5
   m_Name: ani_chaybai4
   m_TagString: Untagged
@@ -9794,6 +9993,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &2928286885780487160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6720569931121930369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/chaybai/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6732748242145392302
 GameObject:
   m_ObjectHideFlags: 0
@@ -10022,8 +10242,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Straight
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 18992008195024ea2ae4461bd7508c92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10069,7 +10289,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -11079,6 +11299,7 @@ GameObject:
   - component: {fileID: 7917685384944145089}
   - component: {fileID: 1277526164393968482}
   - component: {fileID: 4181491741208550300}
+  - component: {fileID: 4065935926109310083}
   m_Layer: 5
   m_Name: animTank
   m_TagString: Untagged
@@ -11159,6 +11380,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &4065935926109310083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7357812867549321335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/xetank/tank_SkeletonData.asset
+  AnimName: A1
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7469308604859305034
 GameObject:
   m_ObjectHideFlags: 0
@@ -11273,7 +11515,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -12508,6 +12750,7 @@ GameObject:
   - component: {fileID: 3323121059156546037}
   - component: {fileID: 3282530218114947738}
   - component: {fileID: 6037086421443402233}
+  - component: {fileID: 5300770598634491297}
   m_Layer: 5
   m_Name: Bg
   m_TagString: Untagged
@@ -12585,6 +12828,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5300770598634491297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489794370984487268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--sprites
+  AssetName: Assets/Resources/GameView/Common/Sprites/bgInGame.jpg
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8535351500257506642
 GameObject:
   m_ObjectHideFlags: 0
@@ -13173,6 +13437,7 @@ GameObject:
   - component: {fileID: 2148007994614125098}
   - component: {fileID: 8504080208438915364}
   - component: {fileID: 4463643707118582799}
+  - component: {fileID: 3022513745327110883}
   m_Layer: 5
   m_Name: ani_chaybai1
   m_TagString: Untagged
@@ -13253,6 +13518,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &3022513745327110883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8831528437427004468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/chaybai/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8896633812546266174
 GameObject:
   m_ObjectHideFlags: 0

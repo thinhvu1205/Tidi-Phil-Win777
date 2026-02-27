@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 9220095067032668606}
   - component: {fileID: 8374437402837361896}
   - component: {fileID: 4746282378020668784}
+  - component: {fileID: 6085817389319337859}
   m_Layer: 5
   m_Name: anim_hitpot
   m_TagString: Untagged
@@ -600,6 +601,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &6085817389319337859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584246677307852462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--tongits--anims
+  AssetName: Assets/Resources/GameView/Tongits/Anims/ruong/skeleton_SkeletonData.asset
+  AnimName: stay
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1638724279669012365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2983,6 +3005,7 @@ GameObject:
   - component: {fileID: 2068973806941962092}
   - component: {fileID: 9164497811343745274}
   - component: {fileID: 1781317011849824365}
+  - component: {fileID: 2201008901047476221}
   m_Layer: 0
   m_Name: score
   m_TagString: Untagged
@@ -3039,8 +3062,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
-  m_sharedMaterial: {fileID: -3778855014367556274, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
+  m_sharedMaterial: {fileID: -3778855014367556274, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3108,6 +3131,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2201008901047476221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4497247292245090883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1781317011849824365}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/font player.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4565752676190020651
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,6 +4211,7 @@ GameObject:
   - component: {fileID: 8811250157810183382}
   - component: {fileID: 7359590079332717975}
   - component: {fileID: 8598620529311328816}
+  - component: {fileID: 5541810397946936239}
   m_Layer: 5
   m_Name: money
   m_TagString: Untagged
@@ -4223,8 +4268,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
-  m_sharedMaterial: {fileID: -3778855014367556274, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
+  m_sharedMaterial: {fileID: -3778855014367556274, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4292,6 +4337,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5541810397946936239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589251841353461515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8598620529311328816}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/font player.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5656215648494171782
 GameObject:
   m_ObjectHideFlags: 0
@@ -5648,6 +5714,7 @@ GameObject:
   - component: {fileID: 4518580081359557469}
   - component: {fileID: 2963332758519577583}
   - component: {fileID: 2066236593796499135}
+  - component: {fileID: 8796807424443415956}
   m_Layer: 5
   m_Name: eff
   m_TagString: Untagged
@@ -5734,6 +5801,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &8796807424443415956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570111320611994191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/startgame/skeleton_SkeletonData.asset
+  AnimName: start
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7679073021039190381
 GameObject:
   m_ObjectHideFlags: 0
@@ -6335,6 +6423,7 @@ GameObject:
   - component: {fileID: 1302265436791911980}
   - component: {fileID: 7633503323637851763}
   - component: {fileID: 2785223930427221494}
+  - component: {fileID: 6960839503096346930}
   m_Layer: 5
   m_Name: Bg
   m_TagString: Untagged
@@ -6406,6 +6495,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6960839503096346930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473877426745198907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--sprites
+  AssetName: Assets/Resources/GameView/Common/Sprites/bgInGame.jpg
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8535021975612427891
 GameObject:
   m_ObjectHideFlags: 0
@@ -6874,6 +6984,7 @@ GameObject:
   - component: {fileID: 7245708461596812547}
   - component: {fileID: 5243106951645804721}
   - component: {fileID: 5555543459081419031}
+  - component: {fileID: 1715084023316405951}
   m_Layer: 5
   m_Name: skeleton
   m_TagString: Untagged
@@ -6954,6 +7065,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &1715084023316405951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9118261967144388689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--tongits--anims
+  AssetName: Assets/Resources/GameView/Tongits/Anims/receive chip dailybonus/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1001 &7512821700834791891
 PrefabInstance:
   m_ObjectHideFlags: 0

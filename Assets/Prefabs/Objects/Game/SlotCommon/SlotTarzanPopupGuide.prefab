@@ -1131,14 +1131,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 667311c19a55a4ac68b6b372c2cb8af0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1181,6 +1181,7 @@ GameObject:
   - component: {fileID: 6525115873614123707}
   - component: {fileID: 2819151755131783652}
   - component: {fileID: 56222955987646802}
+  - component: {fileID: 7857129590128940143}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1245,6 +1246,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7857129590128940143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5356191814119448108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--sprites
+  AssetName: Assets/Resources/GameView/SlotTarzan/Sprites/3.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5763440741473643670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,6 +1410,7 @@ GameObject:
   - component: {fileID: 7568970005748257472}
   - component: {fileID: 8144959839214384254}
   - component: {fileID: 1665107355242156956}
+  - component: {fileID: 3221198035208777397}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -1457,6 +1480,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3221198035208777397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756163122748528525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--sprites
+  AssetName: Assets/Resources/GameView/SlotTarzan/Sprites/popup.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7175805513592328363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1562,7 @@ GameObject:
   - component: {fileID: 5714096543220685108}
   - component: {fileID: 1524901432154409402}
   - component: {fileID: 6813861985967078595}
+  - component: {fileID: 756592370495156143}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1582,6 +1627,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &756592370495156143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349829755090239309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--sprites
+  AssetName: Assets/Resources/GameView/SlotTarzan/Sprites/2.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &9068766079042220014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,6 +1659,7 @@ GameObject:
   - component: {fileID: 5642560887152084755}
   - component: {fileID: 2202731103665894247}
   - component: {fileID: 1513049861303528774}
+  - component: {fileID: 803173357924546971}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1657,3 +1724,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &803173357924546971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068766079042220014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--sprites
+  AssetName: Assets/Resources/GameView/SlotTarzan/Sprites/1.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0

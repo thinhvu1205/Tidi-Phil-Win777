@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7863410715362807753, guid: 3ad14d4ae4d04434f9f00607b9ed6a3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ad14d4ae4d04434f9f00607b9ed6a3f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 3078482252937051677}
   - component: {fileID: 4648632213105608484}
   - component: {fileID: 6713378130159221437}
+  - component: {fileID: 4136076791925569931}
   m_Layer: 5
   m_Name: refaral
   m_TagString: Untagged
@@ -458,3 +459,24 @@ MonoBehaviour:
   isAlawayTop: 0
   isSetParentNull: 0
   isPlaySoundOpen: 1
+--- !u!114 &4136076791925569931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595230665116185501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--lucky 9--sprites
+  AssetName: Assets/Resources/GameView/Lucky 9/Sprites/bg_friend.jpg
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0

@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 2970748176319365634}
   - component: {fileID: 459976070773801044}
   - component: {fileID: 7446829518076447430}
+  - component: {fileID: 8179478617430267928}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -371,6 +372,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8179478617430267928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644895236013522209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotnoel--sprites
+  AssetName: Assets/Resources/GameView/SlotNoel/Sprites/03.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2681065695033731013
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +537,7 @@ GameObject:
   - component: {fileID: 7377265879825358267}
   - component: {fileID: 3108572640825259547}
   - component: {fileID: 2517309283929125591}
+  - component: {fileID: 1474794487528840406}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -579,6 +602,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1474794487528840406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3469425448636031103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotnoel--sprites
+  AssetName: Assets/Resources/GameView/SlotNoel/Sprites/01.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4072483022177154603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,14 +1173,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 667311c19a55a4ac68b6b372c2cb8af0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1229,6 +1273,7 @@ GameObject:
   - component: {fileID: 4614552474069313983}
   - component: {fileID: 6343593619140185857}
   - component: {fileID: 4475429356916861155}
+  - component: {fileID: 4975575717029504264}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -1296,6 +1341,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4975575717029504264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8413563615591673074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotnoel--sprites
+  AssetName: Assets/Resources/GameView/SlotNoel/Sprites/popup.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8522305877114161838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,6 +1373,7 @@ GameObject:
   - component: {fileID: 259161270354437355}
   - component: {fileID: 4546996808541440182}
   - component: {fileID: 6440741564820655919}
+  - component: {fileID: 5155902699786356346}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1371,3 +1438,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5155902699786356346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522305877114161838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotnoel--sprites
+  AssetName: Assets/Resources/GameView/SlotNoel/Sprites/02.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0

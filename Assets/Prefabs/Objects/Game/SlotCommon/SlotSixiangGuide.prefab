@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 3586210866961090447}
   - component: {fileID: 3806547196066873276}
   - component: {fileID: 6142446696142229358}
+  - component: {fileID: 9156041638525007444}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -183,6 +184,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9156041638525007444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601466826986687866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--sprites
+  AssetName: Assets/Resources/GameView/SiXiang/Sprites/1_phil.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1828985945473387001
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +274,7 @@ GameObject:
   - component: {fileID: 2257230154816722831}
   - component: {fileID: 527375332150522161}
   - component: {fileID: 7008320730677499603}
+  - component: {fileID: 9068917355015838389}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -318,6 +341,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9068917355015838389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3142279246187434690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--sprites
+  AssetName: Assets/Resources/GameView/SiXiang/Sprites/popup.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3877342445578300687
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,14 +422,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 667311c19a55a4ac68b6b372c2cb8af0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -908,6 +952,7 @@ GameObject:
   - component: {fileID: 4017539748204309649}
   - component: {fileID: 2044880765674104409}
   - component: {fileID: 6967041437705453990}
+  - component: {fileID: 8904512588395882634}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -972,6 +1017,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8904512588395882634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982670646240542466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--sprites
+  AssetName: Assets/Resources/GameView/SiXiang/Sprites/2_cam.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6179134247175054675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1247,7 @@ GameObject:
   - component: {fileID: 4135847076812963082}
   - component: {fileID: 4795650051802006614}
   - component: {fileID: 6778422916544234271}
+  - component: {fileID: 1651559345594336965}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1245,6 +1312,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1651559345594336965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6642117620229608292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--sprites
+  AssetName: Assets/Resources/GameView/SiXiang/Sprites/5_phil.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7616966390885058180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1344,7 @@ GameObject:
   - component: {fileID: 7062546110087735042}
   - component: {fileID: 7734454470969100692}
   - component: {fileID: 3625720912739902474}
+  - component: {fileID: 8420883992657026191}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1320,6 +1409,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8420883992657026191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7616966390885058180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--sprites
+  AssetName: Assets/Resources/GameView/SiXiang/Sprites/3_phil.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7889885498236776224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,6 +1499,7 @@ GameObject:
   - component: {fileID: 5358933358621846103}
   - component: {fileID: 7795475240804688622}
   - component: {fileID: 6588012369427725488}
+  - component: {fileID: 7484857643210790918}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1453,6 +1564,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7484857643210790918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432649450096490638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--sixiang--sprites
+  AssetName: Assets/Resources/GameView/SiXiang/Sprites/4_phil.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8450659721873174170
 GameObject:
   m_ObjectHideFlags: 0

@@ -65,6 +65,7 @@ GameObject:
   - component: {fileID: 943001532799114542}
   - component: {fileID: 6418870831167118340}
   - component: {fileID: 6892938705496671053}
+  - component: {fileID: 260396603385962034}
   m_Layer: 5
   m_Name: cardStack
   m_TagString: Untagged
@@ -121,9 +122,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
-  m_fixThaiVowel: 1
-  m_sharedMaterial: {fileID: -3778855014367556274, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
+  m_sharedMaterial: {fileID: -3778855014367556274, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -163,15 +163,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -189,6 +191,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &260396603385962034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637302880946810578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6892938705496671053}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/font player.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5392222419572303423
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +223,7 @@ GameObject:
   - component: {fileID: 6437956404240291477}
   - component: {fileID: 3778934841951864434}
   - component: {fileID: 1314012186942266939}
+  - component: {fileID: 903347855838789951}
   m_Layer: 5
   m_Name: player1
   m_TagString: Untagged
@@ -256,9 +280,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
-  m_fixThaiVowel: 1
-  m_sharedMaterial: {fileID: -3778855014367556274, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
+  m_sharedMaterial: {fileID: -3778855014367556274, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -298,15 +321,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -324,6 +349,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &903347855838789951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392222419572303423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1314012186942266939}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/font player.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8533258264170879801
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +381,7 @@ GameObject:
   - component: {fileID: 5581209395493922809}
   - component: {fileID: 5155340666179120212}
   - component: {fileID: 3470667921524141436}
+  - component: {fileID: 4375437181409915016}
   m_Layer: 5
   m_Name: player2
   m_TagString: Untagged
@@ -391,9 +438,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
-  m_fixThaiVowel: 1
-  m_sharedMaterial: {fileID: -3778855014367556274, guid: 8477b59508a79df48bce32ed62bd9675, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
+  m_sharedMaterial: {fileID: -3778855014367556274, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -433,15 +479,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -459,3 +507,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4375437181409915016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533258264170879801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3470667921524141436}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/font player.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0

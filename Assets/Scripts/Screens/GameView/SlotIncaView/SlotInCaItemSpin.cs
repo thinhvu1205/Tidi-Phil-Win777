@@ -10,7 +10,7 @@ public class SlotInCaItemSpin : ItemSpinController
     protected override void Start()
     {
         base.Start();
-        ICON_ANIMPATH = "GameView/SlotSpine/InCa/SpineIcon/%id/skeleton_SkeletonData";
+        ICON_ANIMPATH = "GameView/SlotInca/Anims/SpineIcon/%id/skeleton_SkeletonData";
         //CollumSpinCtrl = (SlotTarzanCollumController)CollumSpinCtrl;
     }
     public override void setItemData(List<int> arrId)
@@ -25,7 +25,7 @@ public class SlotInCaItemSpin : ItemSpinController
             {
                 case 0:
                 case 2:
-                 
+
                     break;
                 case 11:
                 case 12:

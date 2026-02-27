@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 1166284015
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 51e1fe0a5bc1f521e338ef259979fd0f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 200c7d09c30c78188cd74509a4bab85d
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/Lucky 9/Sprites/bg.jpg
+- Assets/Resources/GameView/Lucky 9/Sprites/bg_friend.jpg
+- Assets/Resources/GameView/Lucky 9/Sprites/hitpot_to.png
+- Assets/Resources/GameView/Lucky 9/Sprites/table.png
+- Assets/Resources/GameView/Lucky 9/Sprites/eng.png
+- Assets/Resources/GameView/Lucky 9/Sprites/bg_popup_slide.png
+Dependencies: []

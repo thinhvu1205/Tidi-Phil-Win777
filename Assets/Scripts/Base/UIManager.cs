@@ -51,8 +51,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI testFont;
 
     float timeShowLoad = 0;
-
-    public SpriteAtlas avatarAtlas, cardAtlas;
+    public List<Sprite> avatarAtlas = new();
+    public SpriteAtlas cardAtlas;
     [SerializeField] Sprite avtDefault;
     [SerializeField] Canvas canvasGame;
     [HideInInspector] public GameView gameView;
@@ -269,11 +269,11 @@ public class UIManager : MonoBehaviour
         listFriend.transform.localScale = Vector3.one;
         listFriend.OpenNewChat(dataFriend);
     }
-    public void showSendChips(string name, long id,string level)
+    public void showSendChips(string name, long id, string level)
     {
         SendChip listFriend = Instantiate(loadPrefab("GameView/Friends/prefab/SendChip"), parentPopups).GetComponent<SendChip>();
         listFriend.transform.localScale = Vector3.one;
-        listFriend.setInfoText(name, id,level);
+        listFriend.setInfoText(name, id, level);
     }
     public void showRefaral()
     {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6071777615710576637}
   - component: {fileID: 5618624319363564374}
   - component: {fileID: 8379090439739460639}
+  - component: {fileID: 5295979913301893456}
   m_Layer: 0
   m_Name: lbMultiplierNum
   m_TagString: Untagged
@@ -68,7 +69,6 @@ MonoBehaviour:
   m_text: x10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -109,15 +109,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -135,6 +137,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5295979913301893456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37675057761270005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8379090439739460639}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &108894437953618263
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,15 +328,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 973238810940353273}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &161854054083774659
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +347,7 @@ GameObject:
   - component: {fileID: 2314473354910747066}
   - component: {fileID: 856245581718775742}
   - component: {fileID: 4600856980760054612}
+  - component: {fileID: 3660342655687434243}
   m_Layer: 0
   m_Name: lbFreeSpinTurn
   m_TagString: Untagged
@@ -382,7 +405,6 @@ MonoBehaviour:
   m_text: 25
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -423,15 +445,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -449,6 +473,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3660342655687434243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161854054083774659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4600856980760054612}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &172207095601029572
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,15 +599,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 37491710057736492}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &185357756122164524
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +619,7 @@ GameObject:
   - component: {fileID: 5881260676401858430}
   - component: {fileID: 2944568805503454212}
   - component: {fileID: 7421139371151496870}
+  - component: {fileID: 1858615177687576607}
   m_Layer: 0
   m_Name: btnOk
   m_TagString: Untagged
@@ -711,6 +756,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1858615177687576607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185357756122164524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/ButtonConfirm/skeleton_SkeletonData.asset
+  AnimName: backtogame
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &458568127980031625
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +941,7 @@ GameObject:
   - component: {fileID: 3813283425057633484}
   - component: {fileID: 5220616634070511319}
   - component: {fileID: 7356056572436176240}
+  - component: {fileID: 5313691056907724572}
   m_Layer: 5
   m_Name: lbCurrentChips
   m_TagString: Untagged
@@ -946,7 +1013,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9498c25ba4c992b48bcea7d7fa8abfd1, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -5096783720975700005, guid: 9498c25ba4c992b48bcea7d7fa8abfd1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -987,15 +1053,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1029,6 +1097,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &5313691056907724572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472713693100323485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5220616634070511319}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/green_noel.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &487858620305843119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1194,7 @@ GameObject:
   - component: {fileID: 806121006281643220}
   - component: {fileID: 2957054684106299630}
   - component: {fileID: 2234426419451978429}
+  - component: {fileID: 5335415580836736490}
   m_Layer: 5
   m_Name: lbPickLeft
   m_TagString: Untagged
@@ -1162,7 +1252,6 @@ MonoBehaviour:
   m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1203,15 +1292,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1229,6 +1320,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5335415580836736490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490286738410072070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 2234426419451978429}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &528211089981809875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,6 +1502,7 @@ GameObject:
   - component: {fileID: 2627939204714665223}
   - component: {fileID: 2376540177092402662}
   - component: {fileID: 8940120798049500631}
+  - component: {fileID: 3759122483077624291}
   m_Layer: 0
   m_Name: lbFreeSpinWin
   m_TagString: Untagged
@@ -1447,7 +1560,6 @@ MonoBehaviour:
   m_text: 123.45
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1488,15 +1600,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1514,6 +1628,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3759122483077624291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573205756096226145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8940120798049500631}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &602040654635939150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,6 +1735,7 @@ GameObject:
   - component: {fileID: 7524517931329373290}
   - component: {fileID: 2667047779888154818}
   - component: {fileID: 3779777830285092761}
+  - component: {fileID: 5103410976043304614}
   m_Layer: 0
   m_Name: animPopupGetFreeSpin
   m_TagString: Untagged
@@ -1687,6 +1823,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &5103410976043304614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617534742792230559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/PopupFreespin/skeleton_SkeletonData.asset
+  AnimName: yahoo
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &631460812696402268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,6 +1855,7 @@ GameObject:
   - component: {fileID: 2822625011887226914}
   - component: {fileID: 4169313802974326517}
   - component: {fileID: 5368062429095690352}
+  - component: {fileID: 2848329889739969601}
   m_Layer: 0
   m_Name: anim
   m_TagString: Untagged
@@ -1780,6 +1938,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &2848329889739969601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631460812696402268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/Spin/skeleton_SkeletonData.asset
+  AnimName: Spin
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &772430778688001522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,6 +1970,7 @@ GameObject:
   - component: {fileID: 4312140094817644476}
   - component: {fileID: 463274847017066110}
   - component: {fileID: 6081464309334886510}
+  - component: {fileID: 7616663658898987127}
   m_Layer: 0
   m_Name: lbReward
   m_TagString: Untagged
@@ -1848,7 +2028,6 @@ MonoBehaviour:
   m_text: 10.2M
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1889,15 +2068,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1915,6 +2096,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7616663658898987127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772430778688001522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6081464309334886510}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &810796690098953624
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,6 +2390,7 @@ GameObject:
   - component: {fileID: 3319073984879773275}
   - component: {fileID: 2458938882841100102}
   - component: {fileID: 2287389829777240156}
+  - component: {fileID: 4925212335375021215}
   m_Layer: 5
   m_Name: bg
   m_TagString: Untagged
@@ -2252,6 +2455,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4925212335375021215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243300372045481577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--sprites
+  AssetName: Assets/Resources/GameView/SlotTarzan/Sprites/rec.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1302952848446166600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2487,7 @@ GameObject:
   - component: {fileID: 1096681047262491414}
   - component: {fileID: 2842181118735856603}
   - component: {fileID: 1110399622432018218}
+  - component: {fileID: 5085979887337900990}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -2320,7 +2545,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2361,15 +2585,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2387,6 +2613,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5085979887337900990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302952848446166600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1110399622432018218}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1591613442585032180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,6 +2818,7 @@ GameObject:
   - component: {fileID: 3971185120785181162}
   - component: {fileID: 956958810845495763}
   - component: {fileID: 3870418126953671522}
+  - component: {fileID: 7562765456738756646}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -2628,7 +2876,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2669,15 +2916,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2695,6 +2944,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7562765456738756646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699258495913123723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 3870418126953671522}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1773912562357520910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2763,7 +3033,6 @@ MonoBehaviour:
   m_text: PICK YOUR STONE!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: 72e8b5eeedb6f4953b2d51becb22b1af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2804,15 +3073,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2935,15 +3206,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 5168984401738939584}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1797390300851426502
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,7 +3282,6 @@ MonoBehaviour:
   m_text: Random bonus multiplier       times
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3053,15 +3322,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3416,15 +3687,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 820937988567070325}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2255559012561468570
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,6 +3707,7 @@ GameObject:
   - component: {fileID: 4614607047347048032}
   - component: {fileID: 3254327315754973899}
   - component: {fileID: 6217307430584153727}
+  - component: {fileID: 1640019664594705137}
   m_Layer: 5
   m_Name: lbBigWin
   m_TagString: Untagged
@@ -3508,7 +3779,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3549,15 +3819,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3575,6 +3847,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1640019664594705137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255559012561468570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6217307430584153727}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2281472657098038318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,10 +4371,10 @@ RectTransform:
   - {fileID: 1243678367472130359}
   m_Father: {fileID: 4091392726482859735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 123.95001, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 123.95001, y: -20}
+  m_SizeDelta: {x: 247.90002, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2464756070086839804
 MonoBehaviour:
@@ -4277,6 +4570,7 @@ GameObject:
   - component: {fileID: 8794285071532023912}
   - component: {fileID: 1875932828768051797}
   - component: {fileID: 6847389143194621709}
+  - component: {fileID: 5106482770396730866}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -4334,7 +4628,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4375,15 +4668,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4401,6 +4696,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5106482770396730866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2923839025029055145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 6847389143194621709}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3016843290770531152
 GameObject:
   m_ObjectHideFlags: 0
@@ -4487,6 +4803,7 @@ GameObject:
   - component: {fileID: 2942847209079351469}
   - component: {fileID: 4545027605926869625}
   - component: {fileID: 8783585133647390325}
+  - component: {fileID: 1716523673862581003}
   m_Layer: 0
   m_Name: lbReward
   m_TagString: Untagged
@@ -4544,7 +4861,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4585,15 +4901,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4611,6 +4929,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1716523673862581003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3105566773680847638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8783585133647390325}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3223148064193445118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4622,7 +4961,7 @@ GameObject:
   - component: {fileID: 6786942986154064}
   - component: {fileID: 3921931191547145884}
   - component: {fileID: 8182013056627796375}
-  - component: {fileID: 442924164221279928}
+  - component: {fileID: 3408246435189616194}
   m_Layer: 5
   m_Name: lbTotalWin
   m_TagString: Untagged
@@ -4680,7 +5019,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4721,15 +5059,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -4747,23 +5087,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &442924164221279928
+--- !u!114 &3408246435189616194
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3223148064193445118}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_totalwin
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 8182013056627796375}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3234443086142352137
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,6 +5119,7 @@ GameObject:
   - component: {fileID: 1169625985979028849}
   - component: {fileID: 1326820984485626368}
   - component: {fileID: 2231646293777288137}
+  - component: {fileID: 7125005943317476356}
   m_Layer: 0
   m_Name: animLightBar
   m_TagString: Untagged
@@ -4855,6 +5200,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &7125005943317476356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3234443086142352137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/lightBar/skeleton_SkeletonData.asset
+  AnimName: normal
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3392437761545817783
 GameObject:
   m_ObjectHideFlags: 0
@@ -5016,6 +5382,7 @@ GameObject:
   - component: {fileID: 3543736368007191537}
   - component: {fileID: 6601934765742510182}
   - component: {fileID: 7341029446024001}
+  - component: {fileID: 8145636628701740605}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -5073,7 +5440,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5114,15 +5480,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -5140,6 +5508,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8145636628701740605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3629097979613250271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7341029446024001}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3659079426794097953
 GameObject:
   m_ObjectHideFlags: 0
@@ -5514,15 +5903,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 8480389471935735693}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3959144520911480215
 GameObject:
   m_ObjectHideFlags: 0
@@ -5628,15 +6016,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 7392897268258835454}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4054059971282468269
 GameObject:
   m_ObjectHideFlags: 0
@@ -5649,6 +6036,7 @@ GameObject:
   - component: {fileID: 2231489801455454400}
   - component: {fileID: 4370610626577987530}
   - component: {fileID: 8659474388049173278}
+  - component: {fileID: 678644554202572532}
   m_Layer: 0
   m_Name: btnOk
   m_TagString: Untagged
@@ -5785,6 +6173,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &678644554202572532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4054059971282468269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/ButtonConfirm/skeleton_SkeletonData.asset
+  AnimName: backtogame
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4108824156046615911
 GameObject:
   m_ObjectHideFlags: 0
@@ -5871,6 +6280,7 @@ GameObject:
   - component: {fileID: 6412976098692179232}
   - component: {fileID: 2237491660787891850}
   - component: {fileID: 3335858701382114844}
+  - component: {fileID: 3620072591638368851}
   m_Layer: 0
   m_Name: SkeletonGraphic (skeleton)
   m_TagString: Untagged
@@ -5951,6 +6361,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &3620072591638368851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4111145778561063317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/btnbuy/skeleton_SkeletonData.asset
+  AnimName: eng
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4167121281744017099
 GameObject:
   m_ObjectHideFlags: 0
@@ -6012,14 +6443,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.49803922}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 667311c19a55a4ac68b6b372c2cb8af0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6111,6 +6542,7 @@ GameObject:
   - component: {fileID: 873656083222048856}
   - component: {fileID: 7588595584127389596}
   - component: {fileID: 4225340109922719373}
+  - component: {fileID: 7583904666907564658}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -6168,7 +6600,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6209,15 +6640,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -6235,6 +6668,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7583904666907564658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4187339676801079910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4225340109922719373}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4195093815123258326
 GameObject:
   m_ObjectHideFlags: 0
@@ -6246,6 +6700,7 @@ GameObject:
   - component: {fileID: 1977286460302477412}
   - component: {fileID: 4038175749478311230}
   - component: {fileID: 7994474806868059688}
+  - component: {fileID: 5042436088604858917}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -6303,7 +6758,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6344,15 +6798,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -6370,6 +6826,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5042436088604858917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4195093815123258326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4270468786722508916
 GameObject:
   m_ObjectHideFlags: 0
@@ -6798,15 +7275,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1416854839008788898}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4662380802261794254
 GameObject:
   m_ObjectHideFlags: 0
@@ -6893,6 +7369,7 @@ GameObject:
   - component: {fileID: 3043889892964456053}
   - component: {fileID: 6954042547371658175}
   - component: {fileID: 1685243896063582978}
+  - component: {fileID: 9011906541610940920}
   m_Layer: 0
   m_Name: SkeletonGraphic (skeleton)
   m_TagString: Untagged
@@ -6973,6 +7450,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &9011906541610940920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709526607502457132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/bgMiniGame/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4802047988729283355
 GameObject:
   m_ObjectHideFlags: 0
@@ -7078,15 +7576,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6406834600020289498}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4828009314304449414
 GameObject:
   m_ObjectHideFlags: 0
@@ -7098,6 +7595,7 @@ GameObject:
   - component: {fileID: 1022932597829998767}
   - component: {fileID: 7877907053828291710}
   - component: {fileID: 7181543971515896459}
+  - component: {fileID: 1950446456356235783}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -7155,7 +7653,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7196,15 +7693,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7222,6 +7721,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1950446456356235783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828009314304449414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 7181543971515896459}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4849046095973137491
 GameObject:
   m_ObjectHideFlags: 0
@@ -7478,15 +7998,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6024199431555017255}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5088237717206340620
 GameObject:
   m_ObjectHideFlags: 0
@@ -7498,6 +8017,7 @@ GameObject:
   - component: {fileID: 1874655383455881538}
   - component: {fileID: 2410342124456592690}
   - component: {fileID: 8769253362422251589}
+  - component: {fileID: 8309986218902852138}
   m_Layer: 0
   m_Name: lbMultplier
   m_TagString: Untagged
@@ -7555,7 +8075,6 @@ MonoBehaviour:
   m_text: X9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7596,15 +8115,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7622,6 +8143,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8309986218902852138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5088237717206340620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8769253362422251589}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5101965655961495607
 GameObject:
   m_ObjectHideFlags: 0
@@ -7633,6 +8175,7 @@ GameObject:
   - component: {fileID: 5060217216477497719}
   - component: {fileID: 2487476317941632191}
   - component: {fileID: 2606965962463856376}
+  - component: {fileID: 1311988180080500104}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -7690,7 +8233,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7731,15 +8273,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7757,6 +8301,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1311988180080500104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101965655961495607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5219852948529899822
 GameObject:
   m_ObjectHideFlags: 0
@@ -7986,6 +8551,7 @@ GameObject:
   - component: {fileID: 7002495478462865257}
   - component: {fileID: 5026003257610993159}
   - component: {fileID: 8547176929570181132}
+  - component: {fileID: 5683853299584302035}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -8043,7 +8609,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8084,15 +8649,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -8110,6 +8677,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5683853299584302035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5335642850504838440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5367955247823477157
 GameObject:
   m_ObjectHideFlags: 0
@@ -8197,6 +8785,7 @@ GameObject:
   - component: {fileID: 3340941014372449611}
   - component: {fileID: 268849545789175355}
   - component: {fileID: 1121584447605425664}
+  - component: {fileID: 699311459382848929}
   m_Layer: 0
   m_Name: btnOk
   m_TagString: Untagged
@@ -8333,6 +8922,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &699311459382848929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371112443583983919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/ButtonConfirm/skeleton_SkeletonData.asset
+  AnimName: start
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5417816985954383309
 GameObject:
   m_ObjectHideFlags: 0
@@ -8439,6 +9049,7 @@ GameObject:
   - component: {fileID: 1493503907545592052}
   - component: {fileID: 8762364672128566367}
   - component: {fileID: 2803166672783951867}
+  - component: {fileID: 6915740714151478815}
   m_Layer: 5
   m_Name: lbFreespinNum
   m_TagString: Untagged
@@ -8510,7 +9121,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8551,15 +9161,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -8577,6 +9189,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6915740714151478815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476033780041056782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 2803166672783951867}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5635652980964745270
 GameObject:
   m_ObjectHideFlags: 0
@@ -8682,15 +9315,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1812957568577952835}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5638691647642896210
 GameObject:
   m_ObjectHideFlags: 0
@@ -8702,6 +9334,7 @@ GameObject:
   - component: {fileID: 4390421150799384915}
   - component: {fileID: 4073680436920189842}
   - component: {fileID: 8714031994503691113}
+  - component: {fileID: 1493960183396927096}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -8759,7 +9392,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8800,15 +9432,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -8826,6 +9460,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1493960183396927096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638691647642896210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8714031994503691113}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5649776934667498821
 GameObject:
   m_ObjectHideFlags: 0
@@ -8872,6 +9527,7 @@ GameObject:
   - component: {fileID: 612442540963181583}
   - component: {fileID: 5539561964712347446}
   - component: {fileID: 4310267664637705251}
+  - component: {fileID: 1972740735508381498}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -8929,7 +9585,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8970,15 +9625,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -8996,6 +9653,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1972740735508381498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692562794897099871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4310267664637705251}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5698473692051269739
 GameObject:
   m_ObjectHideFlags: 0
@@ -9483,15 +10161,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 9215603398204476022}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/NearFreeSpin/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--anims
+  AssetName: Assets/Resources/GameView/Common/Anims/NearFreeSpin/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6027603784866731214
 GameObject:
   m_ObjectHideFlags: 0
@@ -9896,6 +10573,7 @@ GameObject:
   - component: {fileID: 2307966805912891826}
   - component: {fileID: 6344465146602254133}
   - component: {fileID: 2690206611642442897}
+  - component: {fileID: 7221380773965311527}
   m_Layer: 5
   m_Name: lbChipBonus
   m_TagString: Untagged
@@ -9967,7 +10645,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10008,15 +10685,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -10034,6 +10713,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7221380773965311527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330731866734263832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 2690206611642442897}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6477033119417207382
 GameObject:
   m_ObjectHideFlags: 0
@@ -10139,15 +10839,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 4012986534033541156}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6544519908691667537
 GameObject:
   m_ObjectHideFlags: 0
@@ -10461,6 +11160,7 @@ GameObject:
   - component: {fileID: 3763320227002949970}
   - component: {fileID: 8360378106256109872}
   - component: {fileID: 5829184151755276389}
+  - component: {fileID: 1311747810451479513}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -10518,7 +11218,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10559,15 +11258,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -10585,6 +11286,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1311747810451479513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729069300235128847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6813697638361251648
 GameObject:
   m_ObjectHideFlags: 0
@@ -10974,7 +11696,6 @@ MonoBehaviour:
   m_text: pays 20.000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11015,15 +11736,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
+  m_ActiveFontFeatures: 
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -11448,15 +12171,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6841395872793377761}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7244151725849365603
 GameObject:
   m_ObjectHideFlags: 0
@@ -11468,6 +12190,7 @@ GameObject:
   - component: {fileID: 8956000747061822526}
   - component: {fileID: 2829383403300722281}
   - component: {fileID: 4836676320173264405}
+  - component: {fileID: 1718905310531338731}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -11525,7 +12248,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11566,15 +12288,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -11592,6 +12316,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1718905310531338731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7244151725849365603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7288039262635176442
 GameObject:
   m_ObjectHideFlags: 0
@@ -11660,7 +12405,6 @@ MonoBehaviour:
   m_text: Keep playing for the big prize!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11701,15 +12445,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -11983,15 +12729,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1504498985482843920}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7364823192740378596
 GameObject:
   m_ObjectHideFlags: 0
@@ -12218,6 +12963,7 @@ GameObject:
   - component: {fileID: 4094469424957122696}
   - component: {fileID: 4445336806619736766}
   - component: {fileID: 6530629793801586374}
+  - component: {fileID: 7776212589253381310}
   m_Layer: 0
   m_Name: bgLeaf
   m_TagString: Untagged
@@ -12298,6 +13044,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &7776212589253381310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7750304158450625366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/bgLeaf/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7790903286073046930
 GameObject:
   m_ObjectHideFlags: 0
@@ -12473,6 +13240,7 @@ GameObject:
   - component: {fileID: 8212017167838818724}
   - component: {fileID: 4249502978057676527}
   - component: {fileID: 5888439149209327542}
+  - component: {fileID: 1269989625659955454}
   m_Layer: 0
   m_Name: btnOk
   m_TagString: Untagged
@@ -12609,6 +13377,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1269989625659955454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855041963926360409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/ButtonConfirm/skeleton_SkeletonData.asset
+  AnimName: backtogame
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7882128209734473052
 GameObject:
   m_ObjectHideFlags: 0
@@ -12714,15 +13503,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 1499256642752885057}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7947603645905693368
 GameObject:
   m_ObjectHideFlags: 0
@@ -12884,6 +13672,7 @@ GameObject:
   - component: {fileID: 5239037064141840331}
   - component: {fileID: 245013919024640960}
   - component: {fileID: 1604688741010805548}
+  - component: {fileID: 5087746206115805607}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -12941,7 +13730,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -12982,15 +13770,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -13008,6 +13798,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5087746206115805607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8112916049064418693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 1604688741010805548}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8178623610576278979
 GameObject:
   m_ObjectHideFlags: 0
@@ -13306,6 +14117,7 @@ GameObject:
   - component: {fileID: 7070969040074391401}
   - component: {fileID: 4254013189906330137}
   - component: {fileID: 8465772378728603310}
+  - component: {fileID: 5895450044549437737}
   m_Layer: 0
   m_Name: animPopupResultFreeSpin
   m_TagString: Untagged
@@ -13400,6 +14212,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &5895450044549437737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368396321585384127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/PopupFreespin/skeleton_SkeletonData.asset
+  AnimName: wonderful
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8376655900752300040
 GameObject:
   m_ObjectHideFlags: 0
@@ -13477,6 +14310,7 @@ GameObject:
   - component: {fileID: 522526898365419747}
   - component: {fileID: 2573399948361790801}
   - component: {fileID: 6900454383272340192}
+  - component: {fileID: 8304981122940659215}
   m_Layer: 0
   m_Name: btnOk
   m_TagString: Untagged
@@ -13613,6 +14447,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8304981122940659215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458698932645291559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/ButtonConfirm/skeleton_SkeletonData.asset
+  AnimName: start
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8683406145599977527
 GameObject:
   m_ObjectHideFlags: 0
@@ -13624,6 +14479,7 @@ GameObject:
   - component: {fileID: 8948147826774798162}
   - component: {fileID: 8202038501105061634}
   - component: {fileID: 8176887532221309025}
+  - component: {fileID: 8504605119654569260}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -13681,7 +14537,6 @@ MonoBehaviour:
   m_text: '?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13722,15 +14577,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -13748,6 +14605,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8504605119654569260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8683406145599977527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 8176887532221309025}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8739014396576639132
 GameObject:
   m_ObjectHideFlags: 0
@@ -13853,15 +14731,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 4576956583734920580}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/Tarzan/MiniGame/cuaso/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--anims
+  AssetName: Assets/Resources/GameView/SlotTarzan/Anims/MiniGame/cuaso/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8753862966779158462
 GameObject:
   m_ObjectHideFlags: 0
@@ -13873,6 +14750,7 @@ GameObject:
   - component: {fileID: 8753862966779158463}
   - component: {fileID: 8753862966779158081}
   - component: {fileID: 8753862966779158080}
+  - component: {fileID: 7123747732863521084}
   m_Layer: 5
   m_Name: bgTable
   m_TagString: Untagged
@@ -13945,6 +14823,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7123747732863521084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8753862966779158462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--sprites
+  AssetName: Assets/Resources/GameView/SlotTarzan/Sprites/bg slot.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8753862967020105312
 GameObject:
   m_ObjectHideFlags: 0
@@ -13957,6 +14856,7 @@ GameObject:
   - component: {fileID: 8753862967020105316}
   - component: {fileID: 8753862967020105314}
   - component: {fileID: 463271363982801230}
+  - component: {fileID: 2856749151696120263}
   m_Layer: 5
   m_Name: lbCurrentBet
   m_TagString: Untagged
@@ -14028,7 +14928,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14069,15 +14968,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -14095,6 +14996,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2856749151696120263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8753862967020105312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 463271363982801230}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8753862967166101967
 GameObject:
   m_ObjectHideFlags: 0
@@ -14402,6 +15324,7 @@ GameObject:
   - component: {fileID: 8753862967406686118}
   - component: {fileID: 5085785196253921534}
   - component: {fileID: 4703212225401516787}
+  - component: {fileID: 4771618055747464767}
   m_Layer: 5
   m_Name: lbChipWin
   m_TagString: Untagged
@@ -14473,7 +15396,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14514,15 +15436,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -14556,6 +15480,27 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
+--- !u!114 &4771618055747464767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8753862967406686116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5085785196253921534}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8753862967449670188
 GameObject:
   m_ObjectHideFlags: 0
@@ -14640,7 +15585,6 @@ MonoBehaviour:
   m_text: "\u0E01\u0E14 \u0E2B\u0E21\u0E38\u0E19 \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E40\u0E25\u0E48\u0E19"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: 90d6d9d1ea02a4720bf1df977d059d92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14681,15 +15625,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -15870,7 +16816,6 @@ MonoBehaviour:
   m_text: BET
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 7800525795003925199, guid: b7708e67653374c60af5f1595e949403, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15911,15 +16856,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
+  m_ActiveFontFeatures: 
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -16081,7 +17028,7 @@ GameObject:
   - component: {fileID: 8753862968189356552}
   - component: {fileID: 8753862968189356551}
   - component: {fileID: 4477751165722684877}
-  - component: {fileID: 1080416635342324287}
+  - component: {fileID: 2552250877919904687}
   m_Layer: 5
   m_Name: SlotTarzanView
   m_TagString: Untagged
@@ -16279,13 +17226,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cfcbd5a9810d1354dbdd4d9476f7ea6e, type: 3}
   - {fileID: 21300000, guid: c10964dfc8d68544d85c96e34c55ec90, type: 3}
   - {fileID: 21300000, guid: f81e9a8f4e49a7a4fa9b79aca30b8aab, type: 3}
-  animDiamond: {fileID: 11400000, guid: 9e3631c748bfac04a89272d2e2193084, type: 2}
   diamondPot: {fileID: 7947603645905693368}
   lbDiamondNum: {fileID: 4655842825149194602}
   miniGameView: {fileID: 1113011597721775799}
   listDiamondPos: []
   isPlayingMiniGame: 0
---- !u!114 &1080416635342324287
+--- !u!114 &2552250877919904687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16294,10 +17240,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8753862968189356549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4ac67e72bf357843902faaa0e83b06e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataCtableLastCharacter: '{"N":"Poker[1197]","M":10,"ArrP":[{"id":5919686,"N":"anhhihi99","Url":"","AG":250935867,"LQ":0,"VIP":3,"isStart":true,"IK":0,"sIP":"10.148.0.4","Av":12,"FId":0,"GId":0,"UserType":1,"TotalAG":0,"timeToStart":0,"currentExp":0,"currentLevel":0,"expNextLevel":0,"CO":0.0,"CO0":0.0}],"Id":1197,"V":0,"S":1,"issd":true,"views":[[{"id":1,"value":0,"symbolAdd":-1,"wildFake":false},{"id":2,"value":0,"symbolAdd":-1,"wildFake":false},{"id":3,"value":0,"symbolAdd":-1,"wildFake":false}],[{"id":1,"value":0,"symbolAdd":-1,"wildFake":false},{"id":2,"value":0,"symbolAdd":-1,"wildFake":false},{"id":4,"value":0,"symbolAdd":-1,"wildFake":false}],[{"id":3,"value":0,"symbolAdd":-1,"wildFake":false},{"id":2,"value":0,"symbolAdd":-1,"wildFake":false},{"id":12,"value":0,"symbolAdd":-1,"wildFake":false}],[{"id":5,"value":0,"symbolAdd":-1,"wildFake":false},{"id":2,"value":0,"symbolAdd":-1,"wildFake":false},{"id":12,"value":0,"symbolAdd":-1,"wildFake":false}],[{"id":1,"value":0,"symbolAdd":-1,"wildFake":false},{"id":2,"value":0,"symbolAdd":-1,"wildFake":false},{"id":12,"value":0,"symbolAdd":-1,"wildFake":false}]],"payLine":[[1,1,1,1,1],[0,0,0,0,0],[2,2,2,2,2],[0,1,2,1,0],[2,1,0,1,2],[1,0,0,0,1],[1,2,2,2,1],[0,0,1,2,2],[2,2,1,0,0],[1,2,1,0,1],[1,0,1,2,1],[0,1,1,1,0],[2,1,1,1,2],[0,1,0,1,0],[2,1,2,1,2],[1,1,0,1,1],[1,1,2,1,1],[0,0,2,0,0],[2,2,0,2,2],[0,2,2,2,0],[2,0,0,0,2],[1,2,0,2,1],[1,0,2,0,1],[0,2,0,2,0],[2,0,2,0,2],[2,0,1,2,0],[0,2,1,0,2],[0,2,1,2,0],[2,0,1,0,2],[2,1,0,0,1],[0,1,2,2,1],[0,0,2,2,2],[2,2,0,0,0],[1,0,2,1,2],[1,2,0,1,0],[0,1,0,1,2],[2,1,2,1,0],[1,2,2,0,0],[0,0,1,1,2],[2,2,1,1,0],[2,0,0,0,0],[0,2,2,2,2],[2,2,2,2,0],[0,0,0,0,2],[1,0,1,0,1],[1,2,1,2,1],[0,1,2,2,2],[2,1,0,0,0],[0,1,1,1,1],[2,1,1,1,1],[0,0,0,0,1],[0,0,0,1,1],[0,0,0,1,2],[0,0,1,0,0],[0,0,1,1,0],[0,0,1,1,1],[0,0,1,2,1],[0,1,0,0,0],[0,1,0,1,1],[2,0,1,0,1],[0,2,1,2,1],[0,1,0,2,0],[2,1,2,0,2],[0,1,1,1,2],[2,1,1,1,0],[0,1,1,2,2],[1,0,0,0,0],[1,0,0,1,1],[1,0,0,1,2],[0,1,1,0,1],[1,0,1,1,2],[1,0,1,2,2],[1,1,0,0,0],[1,1,0,0,1],[1,1,0,1,2],[0,0,2,1,0],[1,1,1,0,0],[1,1,2,2,2],[2,2,2,2,1],[1,1,1,1,2],[0,1,0,2,1],[1,2,2,2,2],[1,2,1,0,0],[2,2,1,0,1],[2,2,1,1,1],[2,1,2,1,1],[0,0,0,2,0],[2,2,2,0,2],[2,0,2,2,2],[0,2,0,0,0],[2,2,0,1,2],[1,0,1,1,1],[1,2,1,1,1],[1,1,2,1,0],[2,1,2,2,2],[0,2,1,1,1],[2,0,1,1,1],[1,1,1,2,0],[1,1,1,0,2],[1,1,1,1,0]],"payTable":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,2,2,2,10,2,0,0],[5,5,5,10,10,10,15,15,25,25,50,250,5,0,0],[25,25,25,50,50,50,75,75,125,125,250,2500,0,0,0],[125,125,125,250,250,250,500,500,750,750,1250,10000,0,0,0]],"freeSpinCount":9,"level":{"levelUser":0,"curLevelExp":0,"maxLevelExp":0,"agUser":250935867},"MarkBet":[1,5,10,15,20,25,50,100,200,500,1000,2000,2500,5000,10000],"singleLineBet":1000,"isBonusGame":false,"isFreeGame":true,"maxExp":100,"numExp":35,"arrayBonus":[1,1,1,1,1,0],"multiFreeGame":8,"currentChipBonus":57500000}'
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slottarzan--sprites
+  AssetName: Assets/Resources/GameView/SlotTarzan/Sprites/BGgame.jpg
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8753862968546525064
 GameObject:
   m_ObjectHideFlags: 0
@@ -16573,6 +17527,7 @@ GameObject:
   - component: {fileID: 4074719902090331943}
   - component: {fileID: 7184292577876375049}
   - component: {fileID: 4655842825149194602}
+  - component: {fileID: 8843676953038313846}
   m_Layer: 5
   m_Name: lbDiamondNum
   m_TagString: Untagged
@@ -16630,7 +17585,6 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -16671,15 +17625,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -16697,6 +17653,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8843676953038313846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8764910806937161521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 4655842825149194602}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8890731287321895224
 GameObject:
   m_ObjectHideFlags: 0
@@ -17084,6 +18061,7 @@ GameObject:
   - component: {fileID: 5899593678958359643}
   - component: {fileID: 8623695995984308639}
   - component: {fileID: 5071382779577421439}
+  - component: {fileID: 3295076271410094459}
   m_Layer: 0
   m_Name: lbTotalFreeSpin
   m_TagString: Untagged
@@ -17142,7 +18120,6 @@ MonoBehaviour:
   m_text: 25
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -17183,15 +18160,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -17209,3 +18188,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3295076271410094459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9197233895591135714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ThisTMPUGUI: {fileID: 5071382779577421439}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: 
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
+  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
+  IsSetNativeSize: 0
+  IsTextUpper: 0

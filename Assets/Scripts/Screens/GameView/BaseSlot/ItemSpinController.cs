@@ -36,7 +36,7 @@ public class ItemSpinController : MonoBehaviour
     [SerializeField]
     protected int typePosition = 0;
 
-    protected string ICON_ANIMPATH = "GameView/SlotSpine/Noel/SpineIcon/%id/skeleton_SkeletonData";
+    protected string ICON_ANIMPATH = "GameView/SlotNoel/Anims/SpineIcon/%id/skeleton_SkeletonData";
 
     [HideInInspector]
     public List<int> arrID = new List<int>();

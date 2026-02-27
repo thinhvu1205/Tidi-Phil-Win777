@@ -2498,7 +2498,7 @@ GameObject:
   - component: {fileID: 8549007990865690073}
   - component: {fileID: 2132127779340628717}
   - component: {fileID: 6939799205326741502}
-  - component: {fileID: 7278777259829096269}
+  - component: {fileID: 7605537498688766813}
   m_Layer: 5
   m_Name: Text Change Pass
   m_TagString: Untagged
@@ -2624,7 +2624,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7278777259829096269
+--- !u!114 &7605537498688766813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2633,14 +2633,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3446916979620502568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_change_pass
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 6939799205326741502}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: txt_change_pass
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3854844283897784150
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,7 +5046,7 @@ GameObject:
   - component: {fileID: 2864377723645167969}
   - component: {fileID: 5729767539695318289}
   - component: {fileID: 7277121933483915432}
-  - component: {fileID: 6242160028678147649}
+  - component: {fileID: 5277995309905279797}
   m_Layer: 5
   m_Name: Text Send Gift
   m_TagString: Untagged
@@ -5168,7 +5172,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6242160028678147649
+--- !u!114 &5277995309905279797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5177,14 +5181,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6534899345361777932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: friend_send_gift
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 7277121933483915432}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: friend_send_gift
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6616565851782547800
 GameObject:
   m_ObjectHideFlags: 0
@@ -5982,8 +5990,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'hienn111111 cvfdc dcxefdcxfd '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
-  m_sharedMaterial: {fileID: 7800525795003925199, guid: d1f0bbf15368e5b47bc91474dac86812, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7708e67653374c60af5f1595e949403, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 18992008195024ea2ae4461bd7508c92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7028,7 +7036,7 @@ GameObject:
   - component: {fileID: 8321899362464100038}
   - component: {fileID: 5888037575870684600}
   - component: {fileID: 3161505960393850301}
-  - component: {fileID: 5589324548615373782}
+  - component: {fileID: 3724217834488586630}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -7083,7 +7091,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Confirm
+  m_text: Missing txt_ok
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d274b3d5378f87b45b86f28d334676e5, type: 2}
   m_sharedMaterial: {fileID: 4019032073442011843, guid: d274b3d5378f87b45b86f28d334676e5, type: 2}
@@ -7154,7 +7162,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5589324548615373782
+--- !u!114 &3724217834488586630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7163,14 +7171,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7535104311316334078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_ok
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 3161505960393850301}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: txt_ok
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7535517881389067846
 GameObject:
   m_ObjectHideFlags: 0
@@ -8100,7 +8112,7 @@ GameObject:
   - component: {fileID: 7879685555136544472}
   - component: {fileID: 1138558668742095137}
   - component: {fileID: 1267553236907424352}
-  - component: {fileID: 7723426429426967127}
+  - component: {fileID: 1654398769952552838}
   m_Layer: 5
   m_Name: lbGroup
   m_TagString: Untagged
@@ -8226,7 +8238,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7723426429426967127
+--- !u!114 &1654398769952552838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8235,14 +8247,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8857543683195165935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  key: txt_logout
-  sprites: []
-  animName: []
-  isUpper: 0
+  Type: 3
+  ThisTMPUGUI: {fileID: 1267553236907424352}
+  BundleLabel: assets--resources--fonts--others
+  AssetName: txt_logout
+  AnimName: 
+  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &9010066696582987153
 GameObject:
   m_ObjectHideFlags: 0

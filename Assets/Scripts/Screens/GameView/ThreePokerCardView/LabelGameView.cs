@@ -14,7 +14,7 @@ public class LabelGameView : MonoBehaviour
         label.transform.localScale = Vector3.zero;  // Set label scale to 0 (hide it initially)
         m_AnimPoint.gameObject.SetActive(true);
         m_AnimPoint.Initialize(true);
-       m_AnimPoint.AnimationState.SetAnimation(0, "point", true);
+        m_AnimPoint.AnimationState.SetAnimation(0, "point", true);
 
         // Set the label string if it's not null
         if (str != null)

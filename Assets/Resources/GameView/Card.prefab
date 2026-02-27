@@ -520,6 +520,7 @@ GameObject:
   - component: {fileID: 8676753786150623060}
   - component: {fileID: 6482530771850859439}
   - component: {fileID: 3844687890381963404}
+  - component: {fileID: 4539189585617595915}
   m_Layer: 0
   m_Name: animSmoke
   m_TagString: Untagged
@@ -600,6 +601,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &4539189585617595915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3307316898556855545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--kaeng--anims
+  AssetName: Assets/Resources/GameView/Kaeng/Anims/model/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4207647394517158484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,6 +1220,7 @@ GameObject:
   - component: {fileID: 4386774792732213543}
   - component: {fileID: 7161461551353364748}
   - component: {fileID: 4211383279910092951}
+  - component: {fileID: 8017280628504876204}
   m_Layer: 0
   m_Name: blink
   m_TagString: Untagged
@@ -1278,6 +1301,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &8017280628504876204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921833730448061229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--anims
+  AssetName: Assets/Resources/GameView/Common/Anims/border/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7943773789022242307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,6 +2016,7 @@ GameObject:
   - component: {fileID: 4453248880438196645}
   - component: {fileID: 8201341179674402215}
   - component: {fileID: 7326427412701777515}
+  - component: {fileID: 7435488956423852694}
   m_Layer: 0
   m_Name: animFire
   m_TagString: Untagged
@@ -2052,6 +2097,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &7435488956423852694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607789540756613381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--kaeng--anims
+  AssetName: Assets/Resources/GameView/Kaeng/Anims/fire/skeleton_SkeletonData.asset
+  AnimName: fire1
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8807344763883807350
 GameObject:
   m_ObjectHideFlags: 0

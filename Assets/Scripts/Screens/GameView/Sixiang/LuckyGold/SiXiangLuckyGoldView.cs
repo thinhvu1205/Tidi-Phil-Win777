@@ -45,7 +45,6 @@ public class SiXiangLuckyGoldView : MonoBehaviour
     private List<GameObject> listItem = new List<GameObject>();
     public bool isAutoPlay = true;
     private bool isSelectBonusGame = false;
-    [SerializeField] List<Material> materialText = new List<Material>(); //0 green,1 gold
 
     void Start()
     {
@@ -197,11 +196,11 @@ public class SiXiangLuckyGoldView : MonoBehaviour
                 }
                 if ((int)data["jackpot"] == 0)
                 {
-                    lbChipWin.fontMaterial = materialText[0];
+                    lbChipWin.fontMaterial = BundleHandler.LoadMaterial("Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_Blue.mat");
                 }
                 else
                 {
-                    lbChipWin.fontMaterial = materialText[1];
+                    lbChipWin.fontMaterial = BundleHandler.LoadMaterial("Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat");
                 }
                 //Globals.Config.tweenNumberToNumber(SiXiangView.instance.lbChipWins, (int)data["winAmount"], totalWinAmount);
                 SiXiangView.Instance.lbChipWins.setValue(totalWinAmount, true);

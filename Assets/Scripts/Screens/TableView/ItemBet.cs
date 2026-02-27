@@ -16,8 +16,6 @@ public class ItemBet : MonoBehaviour
     [SerializeField]
     List<Sprite> lsBkg;
     JObject dataItem;
-    [SerializeField]
-    protected Material Mat_yellow, Mat_green, Mat_gray;
 
     public void setInfo(JObject _dataItem, int ndex)
     {

@@ -1,0 +1,82 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3866650877
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1a54b250e40f6af8d0b27659415d56e9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9c5ed9360926ca5bcd7e8675f5ab974d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: d2b2cfc0ad8203d2b5e395901dcaf116
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials/ReplacementMaterial
+Assets:
+- Assets/Resources/GameView/Binh/Anims/Jackpot/skeleton_Material.mat
+- Assets/Resources/GameView/Binh/Anims/sap_ca_lang/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Binh/Anims/startgame/skeleton.png
+- Assets/Resources/GameView/Binh/Anims/sap_ca_lang/skeleton.png
+- Assets/Resources/GameView/Binh/Anims/special/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Binh/Anims/chaybai/skeleton.json
+- Assets/Resources/GameView/Binh/Anims/bom/skeleton_Material.mat
+- Assets/Resources/GameView/Binh/Anims/Jackpot/skeleton.json
+- Assets/Resources/GameView/Binh/Anims/xetank/tank.json
+- Assets/Resources/GameView/Binh/Anims/chaybai/skeleton_Material.mat
+- Assets/Resources/GameView/Binh/Anims/sap_ca_lang/skeleton_Material.mat
+- Assets/Resources/GameView/Binh/Anims/special/skeleton.json
+- Assets/Resources/GameView/Binh/Anims/special/skeleton_Atlas.asset
+- Assets/Resources/GameView/Binh/Anims/chaybai/skeleton.png
+- Assets/Resources/GameView/Binh/Anims/bom/skeleton.json
+- Assets/Resources/GameView/Binh/Anims/special/skeleton_Material.mat
+- Assets/Resources/GameView/Binh/Anims/startgame/skeleton_Material.mat
+- Assets/Resources/GameView/Binh/Anims/xetank/tank.atlas.txt
+- Assets/Resources/GameView/Binh/Anims/chaybai/skeleton.atlas.txt
+- Assets/Resources/GameView/Binh/Anims/xetank/tank.png
+- Assets/Resources/GameView/Binh/Anims/Jackpot/skeleton_Atlas.asset
+- Assets/Resources/GameView/Binh/Anims/bom/skeleton.png
+- Assets/Resources/GameView/Binh/Anims/xetank/tank_SkeletonData.asset
+- Assets/Resources/GameView/Binh/Anims/chaybai/skeleton_Atlas.asset
+- Assets/Resources/GameView/Binh/Anims/sap_ca_lang/skeleton.atlas.txt
+- Assets/Resources/GameView/Binh/Anims/Jackpot/skeleton.png
+- Assets/Resources/GameView/Binh/Anims/Jackpot/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Binh/Anims/startgame/skeleton_Atlas.asset
+- Assets/Resources/GameView/Binh/Anims/special/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Binh/Anims/startgame/skeleton.atlas.txt
+- Assets/Resources/GameView/Binh/Anims/special/skeleton.atlas.txt
+- Assets/Resources/GameView/Binh/Anims/startgame/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Binh/Anims/special/skeleton.png
+- Assets/Resources/GameView/Binh/Anims/Jackpot/skeleton.atlas.txt
+- Assets/Resources/GameView/Binh/Anims/bom/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Binh/Anims/xetank/tank_Atlas.asset
+- Assets/Resources/GameView/Binh/Anims/startgame/skeleton.json
+- Assets/Resources/GameView/Binh/Anims/bom/skeleton.atlas.txt
+- Assets/Resources/GameView/Binh/Anims/sap_ca_lang/skeleton_Atlas.asset
+- Assets/Resources/GameView/Binh/Anims/startgame/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Binh/Anims/sap_ca_lang/skeleton.json
+- Assets/Resources/GameView/Binh/Anims/xetank/tank_Material.mat
+- Assets/Resources/GameView/Binh/Anims/bom/skeleton_Atlas.asset
+- Assets/Resources/GameView/Binh/Anims/chaybai/skeleton_SkeletonData.asset
+Dependencies: []

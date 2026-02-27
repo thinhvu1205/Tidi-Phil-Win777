@@ -32,7 +32,7 @@ public class Avatar : MonoBehaviour
 
     public async void loadAvatar(int idAva, string fbName, string fbId, string name = "")
     {
-        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.spriteCount)
+        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.Count)
         {
             setSpriteWithID(idAva);
         }
@@ -80,7 +80,7 @@ public class Avatar : MonoBehaviour
     }
     public async void loadAvatarAsync(int idAva, string fbName, string fbId = "")
     {
-        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.spriteCount)
+        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.Count)
         {
             setSpriteWithID(idAva);
         }
@@ -168,7 +168,7 @@ public class Avatar : MonoBehaviour
     }
     public void setSpriteWithID(int idAva)
     {
-        var avaSp = UIManager.instance.avatarAtlas.GetSprite("avatar_" + idAva);
+        var avaSp = UIManager.instance.avatarAtlas[idAva - 1];
         if (avaSp == null)
             avaSp = UIManager.instance.getRandomAvatar();
         setSpriteFrame(avaSp);
@@ -187,14 +187,14 @@ public class Avatar : MonoBehaviour
         await new Task(() =>
         {
             Debug.Log("-=-= run task");
-            setSpriteFrame(UIManager.instance.avatarAtlas.GetSprite("avatar_" + idAva));
+            setSpriteFrame(UIManager.instance.avatarAtlas[idAva - 1]);
         });
         idAvt = idAva;
     }
 
     public async Task loadAvatarAsync2(int idAva, string fbName, string fbId = "")
     {
-        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.spriteCount)
+        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.Count)
         {
             await setSpriteWithID2(idAva);
         }

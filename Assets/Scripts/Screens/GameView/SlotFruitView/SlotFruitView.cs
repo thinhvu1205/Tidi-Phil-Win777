@@ -22,8 +22,8 @@ public class SlotFruitView : BaseSlotGameView
         base.Start();
         SlotFruitView.instance = this;
         RECT_SIZE = new Vector2(130, 130f);
-        BIGWIN_ANIMPATH = "GameView/SlotSpine/Common/Bigwin/skeleton_SkeletonData";
-        MEGAWIN_ANIMPATH = "GameView/SlotSpine/Common/Bigwin/skeleton_SkeletonData";
+        BIGWIN_ANIMPATH = "GameView/Common/Anims/Bigwin/skeleton_SkeletonData";
+        MEGAWIN_ANIMPATH = "GameView/Common/Anims/Bigwin/skeleton_SkeletonData";
         ANIM_BIGWIN_NAME = "bigwin";
         ANIM_MEGAWIN_NAME = "megawin";
     }

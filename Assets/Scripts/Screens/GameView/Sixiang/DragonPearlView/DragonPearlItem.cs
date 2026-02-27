@@ -21,7 +21,6 @@ public class DragonPearlItem : MonoBehaviour
 
     [SerializeField] Image BgItem;
     [SerializeField] SkeletonGraphic SpineItem;
-    [SerializeField] List<Material> materialText = new List<Material>();
     [HideInInspector] SiXiangDragonPearlView dragonPearlView;
     public Task setInfoTask;
     public Task setInfoTask2;
@@ -88,7 +87,7 @@ public class DragonPearlItem : MonoBehaviour
                         SpineItem.AnimationState.SetAnimation(0, "rung", false);
                         SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.PEARL_Item_Normal);
                         await Task.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("rung").Duration / 2), cts_ShowEffectItem.Token);
-                        lbChipWin.fontMaterial = materialText[0];
+                        lbChipWin.fontMaterial = BundleHandler.LoadMaterial("Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_White_Red.mat");
                         lbChipWin.gameObject.SetActive(true);
                         int itemWinAmount = (int)data["winAmount"];
                         lbChipWin.text = Globals.Config.FormatMoney(itemWinAmount, true);
@@ -166,7 +165,7 @@ public class DragonPearlItem : MonoBehaviour
                         await Task.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("rung_" + getAnimNameType((int)data["jackpot"])).Duration), cts_ShowEffectItem.Token);
                         lbChipWin.gameObject.SetActive(true);
                         Debug.Log("Chay vao day");
-                        lbChipWin.fontMaterial = materialText[1];
+                        lbChipWin.fontMaterial = BundleHandler.LoadMaterial("Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat");
                         switch ((int)data["jackpot"])
                         {
                             case 1:
@@ -200,7 +199,7 @@ public class DragonPearlItem : MonoBehaviour
                             lbChipFSP.gameObject.SetActive(true);
                             lbChipFSP.alpha = 1.0f;
                             lbChipFSP.transform.localPosition = lbChipFSP.transform.parent.InverseTransformPoint(transform.position);
-                            lbChipFSP.fontMaterial = materialText[1];
+                            lbChipFSP.fontMaterial = BundleHandler.LoadMaterial("Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat");
                             lbChipFSP.text = "+3 freespin";
                             Vector2 posJump = lbChipFSP.transform.parent.InverseTransformPoint(SiXiangView.Instance.infoBar.transform.position);
                             lbChipFSP.transform.DOLocalJump(posJump, 150, 1, 0.5f)
