@@ -215,7 +215,7 @@ public class BaseSlotGameView : GameView
         GameObject animIcon;
         if (animIconPool.Count == 0)
         {
-            GameObject go = Instantiate(animIconPr, parent);
+            GameObject go = BundleHandler.Instantiate(animIconPr, parent);
 
             animIconPool.Add(go);
         }
@@ -250,7 +250,7 @@ public class BaseSlotGameView : GameView
                 }
                 else
                 {
-                    obj = Instantiate(coinEffectPrefab, parentCoin).GetComponent<Image>();
+                    obj = BundleHandler.Instantiate(coinEffectPrefab, parentCoin).GetComponent<Image>();
 
                 }
                 obj.gameObject.SetActive(true);
@@ -738,7 +738,7 @@ public class BaseSlotGameView : GameView
         payLines = (JArray)dataCtable["payLine"];
         for (int i = 1; i < 5; i++)
         {
-            CollumSpinController col = Instantiate(listCollum[0], collumContainer.transform).GetComponent<CollumSpinController>();
+            CollumSpinController col = BundleHandler.Instantiate(listCollum[0], collumContainer.transform).GetComponent<CollumSpinController>();
 
             col.transform.name = "Collum" + (i + 1);
             if (i == 4)
@@ -1242,7 +1242,7 @@ public class BaseSlotGameView : GameView
     }
     protected void createLineRect(Vector2 startPos, Color colorLine)
     {
-        GameObject lineRect = Instantiate(line2Pr, lineContainer.transform);
+        GameObject lineRect = BundleHandler.Instantiate(line2Pr, lineContainer.transform);
 
         RectTransform rt = lineRect.GetComponent<RectTransform>();
         rt.localPosition = new Vector3(rt.localPosition.x, rt.localPosition.y, 0);
@@ -1256,7 +1256,7 @@ public class BaseSlotGameView : GameView
         Vector2 lastPos = new Vector2(listPos[listPos.Count - 1].x + 90, listPos[listPos.Count - 1].y);
         listPos.Insert(0, startPos);
         listPos.Add(lastPos);
-        GameObject lineStraight = Instantiate(line2Pr, lineContainer.transform);
+        GameObject lineStraight = BundleHandler.Instantiate(line2Pr, lineContainer.transform);
 
         RectTransform rt = lineStraight.GetComponent<RectTransform>();
         rt.localPosition = new Vector3(rt.localPosition.x, rt.localPosition.y, 0);
@@ -1272,7 +1272,7 @@ public class BaseSlotGameView : GameView
     }
     protected void drawLines2(List<Vector2> listPos, Color colorLine)
     {
-        GameObject lineStraight = Instantiate(line2Pr, lineContainer.transform);
+        GameObject lineStraight = BundleHandler.Instantiate(line2Pr, lineContainer.transform);
 
         lineStraight.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
         //lineStraight.SetActive(false);
@@ -1652,7 +1652,7 @@ public class BaseSlotGameView : GameView
     }
     public override void onClickRule()
     {
-        GameObject ruleView = Instantiate(rulePr, transform);
+        GameObject ruleView = BundleHandler.Instantiate(rulePr, transform);
 
     }
 

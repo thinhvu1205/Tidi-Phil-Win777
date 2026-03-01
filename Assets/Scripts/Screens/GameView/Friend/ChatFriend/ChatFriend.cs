@@ -55,7 +55,7 @@ public class ChatFriend : BaseView
             }
             else
             {
-                itemTab = Instantiate(m_ItemTabChatFriend, m_TabChatFriends.transform).GetComponent<TabFriendChat>();
+                itemTab = BundleHandler.Instantiate(m_ItemTabChatFriend, m_TabChatFriends.transform).GetComponent<TabFriendChat>();
             }
             itemTab.SetInfo((string)Globals.COMMON_DATA.JsonDataListChatFriend[i]["userName"], (int)Globals.COMMON_DATA.JsonDataListChatFriend[i]["userId"], (int)Globals.COMMON_DATA.JsonDataListChatFriend[i]["avatar"], index, false);
             ListTabFriendChat.Add(itemTab);
@@ -85,7 +85,7 @@ public class ChatFriend : BaseView
         }
         else
         {
-            TabFriendChat itemTab = Instantiate(m_ItemTabChatFriend, m_TabChatFriends.transform).GetComponent<TabFriendChat>();
+            TabFriendChat itemTab = BundleHandler.Instantiate(m_ItemTabChatFriend, m_TabChatFriends.transform).GetComponent<TabFriendChat>();
             itemTab.SetInfo(dataFriend.userName, dataFriend.userid, dataFriend.avatar, -1, true);
             itemTab.OnClickChooseFriendChat();
         }
@@ -211,7 +211,7 @@ public class ChatFriend : BaseView
 
             }
             // Parse data
-            if (id_friends != (long)dataChat["uid"]&&(long)dataChat["uid"]!=Globals.User.userMain.Userid)
+            if (id_friends != (long)dataChat["uid"] && (long)dataChat["uid"] != Globals.User.userMain.Userid)
             {
                 showNotiChat((string)(dataChat["username"] ?? ""));
                 ListTabFriendChat.ForEach(tab =>

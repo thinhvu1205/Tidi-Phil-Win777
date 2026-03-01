@@ -63,7 +63,7 @@ public class ListBannerView : BaseView
             string urlImg = (string)dataBanner["urlImg"];
             Sprite spriteS = await Config.GetRemoteSprite(urlImg, true);
             if (spriteS == null) return;
-            RectTransform go = Instantiate(m_PrefBannerRT, m_BannersSR.content);
+            RectTransform go = BundleHandler.Instantiate(m_PrefBannerRT, m_BannersSR.content);
             go.name = i.ToString();
             go.gameObject.SetActive(true);
             BannerView nodeBanner = go.transform.GetChild(0).GetComponent<BannerView>();
@@ -77,14 +77,14 @@ public class ListBannerView : BaseView
             }
             databannerLast = dataBanner;
             lastS = spriteS;
-            GameObject dot = Instantiate(m_PrefDotRT, m_PaginatesTf).gameObject;
+            GameObject dot = BundleHandler.Instantiate(m_PrefDotRT, m_PaginatesTf).gameObject;
             dot.SetActive(true);
         }
         if (_BannerBVs.Count <= 0) return;
         if (_BannerBVs.Count > 1)
         {
-            Transform cloneFirstTf = Instantiate(m_PrefBannerRT, m_BannersSR.content);
-            Transform cloneLastTf = Instantiate(m_PrefBannerRT, m_BannersSR.content);
+            Transform cloneFirstTf = BundleHandler.Instantiate(m_PrefBannerRT, m_BannersSR.content);
+            Transform cloneLastTf = BundleHandler.Instantiate(m_PrefBannerRT, m_BannersSR.content);
             cloneFirstTf.gameObject.SetActive(true);
             cloneLastTf.gameObject.SetActive(true);
             cloneFirstTf.localScale = Vector3.one;

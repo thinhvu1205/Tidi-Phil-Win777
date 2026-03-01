@@ -1468,7 +1468,7 @@ public class BaccaratView : GameView
     {
         if (listSaveHistory.Count > 0)
         {
-            popupHistory = Instantiate(popupHistoryPrefab, transform).GetComponent<HistoryBaccarat>();
+            popupHistory = BundleHandler.Instantiate(popupHistoryPrefab, transform).GetComponent<HistoryBaccarat>();
             popupHistory.transform.SetAsLastSibling();
 
             popupHistory.handleResultHisLayer1(listSaveHistory);

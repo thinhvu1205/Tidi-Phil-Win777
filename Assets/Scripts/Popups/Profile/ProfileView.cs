@@ -213,7 +213,7 @@ public class ProfileView : BaseView
             }
             else
             {
-                avatarItem = Instantiate(AvatarPr, scrListAvatar.content);
+                avatarItem = BundleHandler.Instantiate(AvatarPr, scrListAvatar.content);
                 avatarItem.transform.localScale = AvatarPr.transform.localScale;
 
             }

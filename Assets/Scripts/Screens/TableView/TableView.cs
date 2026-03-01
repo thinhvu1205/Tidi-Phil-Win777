@@ -168,7 +168,7 @@ public class TableView : BaseView
             }
             else
             {
-                item = Instantiate(itemBetPrefab, scrBet.content).GetComponent<ItemBet>();
+                item = BundleHandler.Instantiate(itemBetPrefab, scrBet.content).GetComponent<ItemBet>();
 
             }
             item.transform.localScale = Vector3.one;
@@ -223,7 +223,7 @@ public class TableView : BaseView
             }
             else
             {
-                objButton = Instantiate(itemTabBetPrefab, scrTabBet.content);
+                objButton = BundleHandler.Instantiate(itemTabBetPrefab, scrTabBet.content);
 
             }
 
@@ -283,7 +283,7 @@ public class TableView : BaseView
                 }
                 else
                 {
-                    objItem = Instantiate(itemTablePrefab, scrTable.content);
+                    objItem = BundleHandler.Instantiate(itemTablePrefab, scrTable.content);
 
                 }
                 objItem.SetActive(true);

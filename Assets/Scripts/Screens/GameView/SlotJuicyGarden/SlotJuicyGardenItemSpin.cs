@@ -97,7 +97,7 @@ public class SlotJuicyGardenItemSpin : ItemSpinController
             TextMeshProUGUI lbValuePackage;
             if (index >= listLbValuePackage.Count)
             {
-                lbValuePackage = Instantiate(lbValuePackageTemplate, listSprItem[index].transform).GetComponent<TextMeshProUGUI>();
+                lbValuePackage = BundleHandler.Instantiate(lbValuePackageTemplate, listSprItem[index].transform).GetComponent<TextMeshProUGUI>();
 
                 listLbValuePackage.Add(lbValuePackage);
             }

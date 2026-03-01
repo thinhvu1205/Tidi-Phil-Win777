@@ -71,7 +71,7 @@ public class ChatWorldView : BaseView
             }
             else
             {
-                itemMess = Instantiate(itemChatWorld, scrListWorld.content);
+                itemMess = BundleHandler.Instantiate(itemChatWorld, scrListWorld.content);
                 itemMess.transform.localScale = Vector3.one;
             }
             itemMess.SetActive(true);
@@ -92,7 +92,7 @@ public class ChatWorldView : BaseView
         messageData["Name"] = data["N"];
         messageData["Avatar"] = data["Avatar"];
         messageData["Data"] = data["D"];
-        GameObject itemMess = Instantiate(itemChatWorld, scrListWorld.content);
+        GameObject itemMess = BundleHandler.Instantiate(itemChatWorld, scrListWorld.content);
         itemMess.transform.localScale = Vector3.one;
 
         itemMess.GetComponent<ItemChatWorld>().setInfoMess(messageData);

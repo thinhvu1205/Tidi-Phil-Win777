@@ -610,12 +610,12 @@ public class RouLetteView : GameView
         {
             if (specialBets.TryGetValue(bet.NumArr, out int betOption))
             {
-                var chipClone = Instantiate(chipBet, listBetOptions[betOption].transform);
+                var chipClone = BundleHandler.Instantiate(chipBet, listBetOptions[betOption].transform);
                 chipClone.Init(currenIdBet, bet.BetAmount);
             }
             else
             {
-                var chipClone = Instantiate(chipBet, listBetOptions[bet.IdBet].transform);
+                var chipClone = BundleHandler.Instantiate(chipBet, listBetOptions[bet.IdBet].transform);
                 chipClone.Init(currenIdBet, bet.BetAmount);
             }
         }
@@ -849,12 +849,12 @@ public class RouLetteView : GameView
         {
             if (specialBets.TryGetValue(bet.NumArr, out int betOption))
             {
-                var chipClone = Instantiate(chipBet, listBetOptions[betOption].transform);
+                var chipClone = BundleHandler.Instantiate(chipBet, listBetOptions[betOption].transform);
                 chipClone.Init(currenIdBet, bet.BetAmount);
             }
             else
             {
-                var chipClone = Instantiate(chipBet, listBetOptions[bet.IdBet].transform);
+                var chipClone = BundleHandler.Instantiate(chipBet, listBetOptions[bet.IdBet].transform);
                 chipClone.Init(currenIdBet, bet.BetAmount);
             }
         }
@@ -1146,7 +1146,7 @@ public class RouLetteView : GameView
         textNumMoney.transform.SetParent(listBetOptions[idBetOption].transform);
         ShowTextNumMoney(Vector3.zero + new Vector3(0, 20, 0), Vector3.zero + new Vector3(0, 50, 0), totalBetAtOption);
 
-        chip = Instantiate(chipBet, listBetOptions[idBetOption].transform);
+        chip = BundleHandler.Instantiate(chipBet, listBetOptions[idBetOption].transform);
         chip.Init(currenIdBet, chipValue);
     }
 
@@ -1154,7 +1154,7 @@ public class RouLetteView : GameView
     {
         if (textNumMoney == null) return;
 
-        TextMeshProUGUI newTextNumMoney = Instantiate(textNumMoney, textNumMoney.transform.parent);
+        TextMeshProUGUI newTextNumMoney = BundleHandler.Instantiate(textNumMoney, textNumMoney.transform.parent);
         newTextNumMoney.gameObject.SetActive(true);
         newTextNumMoney.transform.localPosition = posStart;
         newTextNumMoney.text = Globals.Config.FormatMoney(num, true);
@@ -1406,7 +1406,7 @@ public class RouLetteView : GameView
             _rectTransformButtonMenu.DOAnchorPosX(60, 0.5f);
             transformTabResult.DOAnchorPosX(-44, 0.75f).SetEase(Ease.InOutQuad);
         };
-        ResultHistory resultClone = Instantiate(resultHistory, transformResult);
+        ResultHistory resultClone = BundleHandler.Instantiate(resultHistory, transformResult);
         if (result == 0)
         {
             resultClone.Init(result, 0, false);

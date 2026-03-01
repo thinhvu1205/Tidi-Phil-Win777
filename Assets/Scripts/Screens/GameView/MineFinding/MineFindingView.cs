@@ -201,7 +201,7 @@ public class MineFindingView : GameView
         for (int i = 0; i < _BaseBetBtns.Count; i++)
         {
             int id = i;
-            Button btn = Instantiate(m_PrefabBaseBetBtn, m_BaseBetsSR.content);
+            Button btn = BundleHandler.Instantiate(m_PrefabBaseBetBtn, m_BaseBetsSR.content);
 
             _BaseBetBtns[id].BetBtn = btn;
             btn.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = Config.FormatMoney3(_BaseBetBtns[id].Value);
@@ -390,7 +390,7 @@ public class MineFindingView : GameView
         {
             JToken item = arrayData[i];
             string date = DateTimeOffset.FromUnixTimeMilliseconds((long)item["timestamp"]).DateTime.ToString("dd/MM");
-            Transform tf = Instantiate(m_PrefabHistory, m_HistorySR.content).transform;
+            Transform tf = BundleHandler.Instantiate(m_PrefabHistory, m_HistorySR.content).transform;
 
             tf.gameObject.SetActive(true);
             tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = date;

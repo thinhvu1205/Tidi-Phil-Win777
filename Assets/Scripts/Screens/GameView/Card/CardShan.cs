@@ -34,7 +34,7 @@ public class CardShan : MonoBehaviour
             suiteParent.SetActive(true);
             for (int i = 0; i < value; i++)
             {
-                var tiny = Instantiate(itemSuit);
+                var tiny = BundleHandler.Instantiate(itemSuit);
 
                 tiny.SetActive(true);
                 tiny.transform.SetParent(suiteParent.transform, false);

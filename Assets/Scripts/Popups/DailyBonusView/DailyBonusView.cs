@@ -286,7 +286,7 @@ public class DailyBonusView : BaseView
         {
             DOTween.Sequence().AppendInterval(i * 0.1f).AppendCallback(() =>
             {
-                var obj = Instantiate(coinEffectPrefab, transform).GetComponent<Image>();
+                var obj = BundleHandler.Instantiate(coinEffectPrefab, transform).GetComponent<Image>();
                 obj.gameObject.SetActive(true);
                 effectCoinFly(obj, transFrom, transTo);
 

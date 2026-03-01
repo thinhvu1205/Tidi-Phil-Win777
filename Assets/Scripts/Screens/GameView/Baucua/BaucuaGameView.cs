@@ -367,7 +367,7 @@ public class BaucuaGameView : GameView
     }
     public BaucuaChipManager createChip(int positionChip, long valueChip)
     {
-        GameObject go = Instantiate(m_PrepabChip, layerChip);
+        GameObject go = BundleHandler.Instantiate(m_PrepabChip, layerChip);
         BaucuaChipManager chipBet = go.GetComponent<BaucuaChipManager>();
         chipBet.SetValueChip(valueChip);
         chipBet.transform.SetSiblingIndex(transform.childCount - 2);
@@ -447,7 +447,7 @@ public class BaucuaGameView : GameView
         TextMeshProUGUI textLabelGate = spBet.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         textLabelGate.text = Globals.Config.FormatMoney(DictionMeBetInGateLast[numberGate], true);
         m_Chipdeal.text = Globals.Config.FormatMoney(DictionMeBetInGate.Sum(), true);
-     
+
     }
     private void FadeImageAlpha(Image image)
     {
@@ -531,7 +531,7 @@ public class BaucuaGameView : GameView
         }
         UpdateButtonBet();
     }
- private void UpdateButtonBet()
+    private void UpdateButtonBet()
     {
         int intChipSet = -1;
         for (int i = 0; i < ListValueChip.Count; i++)
@@ -657,7 +657,7 @@ public class BaucuaGameView : GameView
         }
         else
         {
-            GameObject item = Instantiate(m_ItemHistory, m_FrameHistory.transform);
+            GameObject item = BundleHandler.Instantiate(m_ItemHistory, m_FrameHistory.transform);
 
             item.transform.localPosition = new Vector2(7, -37);
             ItemHistory itemHistory = item.GetComponent<ItemHistory>();
@@ -743,14 +743,14 @@ public class BaucuaGameView : GameView
         ResetBetValuesAfterDeal();
 
     }
-   
+
 
     public void ClickCancel()
     {
         SoundManager.instance.soundClick();
         cancelValueBet();
         ResetBetValuesAfterDeal();
-      
+
     }
     private void cancelValueBet()
     {
@@ -834,7 +834,7 @@ public class BaucuaGameView : GameView
 
         if (instance == null)
         {
-            instance = Instantiate(m_TableHistory, m_Popup);
+            instance = BundleHandler.Instantiate(m_TableHistory, m_Popup);
             instance.name = m_TableHistory.name;
         }
 
@@ -880,7 +880,7 @@ public class BaucuaGameView : GameView
     public void onClickShowPlayer()
     {
         //if (listPlayer == null || buttonBet != null)
-        listPlayer = Instantiate(m_Prefab_popup_player, transform).GetComponent<NodePlayerBaucua>();
+        listPlayer = BundleHandler.Instantiate(m_Prefab_popup_player, transform).GetComponent<NodePlayerBaucua>();
         listPlayer.transform.SetSiblingIndex((int)GAME_ZORDER.Z_MENU_VIEW);
 
     }

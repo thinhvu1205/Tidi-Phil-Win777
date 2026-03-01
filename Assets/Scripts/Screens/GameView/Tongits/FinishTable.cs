@@ -74,7 +74,7 @@ public class FinishTable : MonoBehaviour
 
     public PlayerInfo spawnPlayerInfo(JObject data, Player player)
     {
-        PlayerInfo infoObject = Instantiate(player_info, transform);
+        PlayerInfo infoObject = BundleHandler.Instantiate(player_info, transform);
 
         infoPlayers.Add(infoObject);
         infoObject.setInfo(data, player);

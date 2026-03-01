@@ -49,7 +49,7 @@ public class SiXiangLuckyDrawView : MonoBehaviour
         SiXiangLuckyDrawView.instance = this;
         for (int i = 1; i < 5; i++)
         {
-            GameObject itemCol = Instantiate(itemCollum, collumContainer.transform);
+            GameObject itemCol = BundleHandler.Instantiate(itemCollum, collumContainer.transform);
 
         }
         for (int i = 0; i < 5; i++)

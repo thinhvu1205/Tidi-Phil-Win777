@@ -31,12 +31,12 @@ public class Notification : MonoBehaviour
         {
             var item = i < m_TransformNoti.childCount
                 ? m_TransformNoti.GetChild(i).gameObject
-                : Instantiate(m_IconNoti, m_TransformNoti);
+                : BundleHandler.Instantiate(m_IconNoti, m_TransformNoti);
 
             item.SetActive(true);
             item.GetComponent<ItemNoti>()?.setInfo(list[i]);
         }
-        
+
     }
     public void setAllItemAsReaded()
     {

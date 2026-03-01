@@ -700,7 +700,7 @@ public class Lucky9View : GameView
                 }
                 if (i == len - 1 && player.rate > 1 && arrC[i] > 0)
                 {
-                    Lucky9RateItem rateObj = Instantiate(rateItem, cardTemp.transform).GetComponent<Lucky9RateItem>();
+                    Lucky9RateItem rateObj = BundleHandler.Instantiate(rateItem, cardTemp.transform).GetComponent<Lucky9RateItem>();
                     rateObj.setRate(player.rate);
                     rateObj.transform.localScale = player == thisPlayer ? new Vector3(1.3f, 1.3f, 1.3f) : new Vector3(1.7f, 1.7f, 1.7f);
                     rateObj.transform.localPosition = new Vector3(cardTemp.GetComponent<RectTransform>().rect.width / 2, cardTemp.GetComponent<RectTransform>().rect.height / 2, 0);
@@ -771,7 +771,7 @@ public class Lucky9View : GameView
         Lucky9ScoreResult scorePanel;
         if (nodePoint.childCount == 0)
         {
-            scorePanel = Instantiate(bg_Score_Result, nodePoint);
+            scorePanel = BundleHandler.Instantiate(bg_Score_Result, nodePoint);
 
         }
         else
@@ -840,7 +840,7 @@ public class Lucky9View : GameView
     {
         if (string.IsNullOrEmpty(msg) || player == null) return;
 
-        GameObject mess = Instantiate(funnyMessage, cardContainer.transform);
+        GameObject mess = BundleHandler.Instantiate(funnyMessage, cardContainer.transform);
 
         mess.SetActive(true);
         mess.transform.localPosition = player.playerView.transform.localPosition;
@@ -879,7 +879,7 @@ public class Lucky9View : GameView
         if (player.ag == 0)
         {
             player.playerView.setTurn(false);
-            var bubble = Instantiate(itemChat, transform);
+            var bubble = BundleHandler.Instantiate(itemChat, transform);
 
             bubble.transform.localPosition = player.playerView.transform.localPosition + new Vector3(0, 40, 0);
             bubble.setMsg("All In!!!", "", player.playerView);
@@ -1290,7 +1290,7 @@ public class Lucky9View : GameView
         }
         else
         {
-            chip = Instantiate(chipLucky9Prefab, chipContainer.transform);
+            chip = BundleHandler.Instantiate(chipLucky9Prefab, chipContainer.transform);
 
         }
         chip.gameObject.SetActive(true);
@@ -1346,7 +1346,7 @@ public class Lucky9View : GameView
         }
         else
         {
-            card = Instantiate(cardPref, cardContainer.transform);
+            card = BundleHandler.Instantiate(cardPref, cardContainer.transform);
 
         }
         card.setTextureWithCode(0);

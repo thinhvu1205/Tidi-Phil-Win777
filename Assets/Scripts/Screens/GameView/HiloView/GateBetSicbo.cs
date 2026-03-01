@@ -157,7 +157,7 @@ public class GateBetSicbo : MonoBehaviour
 
         if (chipPool.Count == 0)
         {
-            ChipBetSicbo cbs = Instantiate(chip_bet_prefab, transform.Find(numberBet + "")).GetComponent<ChipBetSicbo>();
+            ChipBetSicbo cbs = BundleHandler.Instantiate(chip_bet_prefab, transform.Find(numberBet + "")).GetComponent<ChipBetSicbo>();
 
             chipPool.Add(cbs);
         }
@@ -376,7 +376,7 @@ public class GateBetSicbo : MonoBehaviour
             //Globals.Logging.Log(i + "======>" + listChipPerGate[i] + "--value:" + listGateTotalValue[i] + "----listWinResult=");
             if (!listWinResult.Contains(i - 1) && listChipPerGate[i] != null && listGateTotalValue[i] != 0)  //check xem i cos tồn tại trong mảng win ko va gate do co dat tien ko;
             {
-                ChipBetSicbo chipLoseEff = Instantiate(listChipPerGate[i].gameObject, listChipPerGate[i].transform.parent).GetComponent<ChipBetSicbo>();
+                ChipBetSicbo chipLoseEff = BundleHandler.Instantiate(listChipPerGate[i].gameObject, listChipPerGate[i].transform.parent).GetComponent<ChipBetSicbo>();
 
                 Vector2 pos = sicboGameView.dealer.transform.localPosition;
                 Vector2 orgPos = sicboGameView.transform.TransformPoint(pos);

@@ -48,7 +48,7 @@ public class SlotJuicyGardenView : BaseSlotGameView
         payLines = (JArray)dataCtable["payLine"];
         for (int i = 1; i < 5; i++)
         {
-            CollumSpinController col = Instantiate(listCollum[0], collumContainer.transform).GetComponent<CollumSpinController>();
+            CollumSpinController col = BundleHandler.Instantiate(listCollum[0], collumContainer.transform).GetComponent<CollumSpinController>();
 
             col.transform.name = "Collum" + (i + 1);
             col.collumIndex = i;
@@ -1098,7 +1098,7 @@ public class SlotJuicyGardenView : BaseSlotGameView
 
             return;
         }
-        GameObject itemPackage = Instantiate(itemTemplate, itemContainer);
+        GameObject itemPackage = BundleHandler.Instantiate(itemTemplate, itemContainer);
 
         Vector2 posInWorld = itemTemplate.GetComponent<RectTransform>().position;
         itemPackage.transform.localPosition = itemContainer.InverseTransformPoint(posInWorld);

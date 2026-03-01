@@ -177,7 +177,7 @@ public class SafeView : BaseView
             }
             else
             {
-                item = Instantiate(scrHistory.content.GetChild(0), scrHistory.content).gameObject;
+                item = BundleHandler.Instantiate(scrHistory.content.GetChild(0), scrHistory.content).gameObject;
                 item.transform.localScale = Vector3.one;
 
             }

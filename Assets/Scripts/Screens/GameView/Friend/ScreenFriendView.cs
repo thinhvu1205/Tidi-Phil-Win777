@@ -225,7 +225,7 @@ public class ScreenFriendView : MonoBehaviour
         for (int i = 0; i < ListTabFriend.Count; i++)
         {
             int index = i;
-            GameObject itemTab = Instantiate(m_ItemTabScreenFrien, m_ParentListTab);
+            GameObject itemTab = BundleHandler.Instantiate(m_ItemTabScreenFrien, m_ParentListTab);
             itemTab.gameObject.SetActive(true);
             itemTab.transform.localScale = Vector3.one;
             itemTab.transform.GetChild(1).gameObject.SetActive(i == 0 ? true : false);
@@ -336,7 +336,7 @@ public class ScreenFriendView : MonoBehaviour
         for (int i = 0; i < listData.Count; i++)
         {
             int index = i;
-            ItemFriendUpgrade item = Instantiate(m_PrefabItemFriendUpgrade, m_ContenListFriendUpgrade).GetComponent<ItemFriendUpgrade>();
+            ItemFriendUpgrade item = BundleHandler.Instantiate(m_PrefabItemFriendUpgrade, m_ContenListFriendUpgrade).GetComponent<ItemFriendUpgrade>();
             item.setInfo(listData[index]);
         }
 

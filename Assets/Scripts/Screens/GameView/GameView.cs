@@ -70,7 +70,7 @@ public class GameView : BaseView
         {
             if (i == 0) continue;
             GameObject btnInvite;
-            btnInvite = Instantiate(invitePrefab, inviteContainer == null ? transform : inviteContainer);
+            btnInvite = BundleHandler.Instantiate(invitePrefab, inviteContainer == null ? transform : inviteContainer);
             btnInvite.transform.localScale = Vector3.one;
             btnInvite.transform.localPosition = listPosView[i];
             btnInvite.GetComponent<Button>().onClick.AddListener(() => { onClickInvite(); });
@@ -124,7 +124,7 @@ public class GameView : BaseView
     public void onClickInvite()
     {
         SoundManager.instance.soundClick();
-        var subView = Instantiate(UIManager.instance.loadPrefabPopup("PopupInvite"), transform).GetComponent<InviteView>();
+        var subView = BundleHandler.Instantiate(UIManager.instance.loadPrefabPopup("PopupInvite"), transform).GetComponent<InviteView>();
         subView.setAgTable(agTable);
         subView.transform.localScale = Vector3.one;
         subView.transform.SetAsLastSibling();
@@ -134,14 +134,14 @@ public class GameView : BaseView
     public virtual void onClickBack()
     {
         SoundManager.instance.soundClick();
-        var subView = Instantiate(UIManager.instance.loadPrefab("GameView/Objects/GroupMenu"), transform);
+        var subView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/Objects/GroupMenu"), transform);
         subView.transform.localScale = Vector3.one;
     }
     public void onClickChat(string isChatText)
     {
         SoundManager.instance.soundClick();
         if (stateGame == STATE_GAME.VIEWING) return;
-        var subView = Instantiate(UIManager.instance.loadPrefab("GameView/Objects/ChatInGame"), transform).GetComponent<ChatIngameView>();
+        var subView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/Objects/ChatInGame"), transform).GetComponent<ChatIngameView>();
         subView.transform.localScale = Vector3.one;
         subView.transform.SetAsLastSibling();
 
@@ -154,7 +154,7 @@ public class GameView : BaseView
         SoundManager.instance.soundClick();
 
         if (stateGame == STATE_GAME.VIEWING && Config.curGameId != (int)GAMEID.SICBO) return;
-        var subView = Instantiate(UIManager.instance.loadPrefab("GameView/Objects/InfoPlayerInGame"), transform).GetComponent<InfoPlayerInGame>();
+        var subView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/Objects/InfoPlayerInGame"), transform).GetComponent<InfoPlayerInGame>();
         subView.transform.localScale = Vector3.one;
         subView.transform.SetAsLastSibling();
 
@@ -953,7 +953,7 @@ public class GameView : BaseView
 
     public virtual PlayerView createPlayerView()
     {
-        var plView = Instantiate(playerViewPrefab, (playerContainer != null ? playerContainer : transform));//.GetComponent<PlayerView>();
+        var plView = BundleHandler.Instantiate(playerViewPrefab, (playerContainer != null ? playerContainer : transform));//.GetComponent<PlayerView>();
         plView.transform.SetSiblingIndex((int)ZODER_VIEW.PLAYER);
         plView.transform.localScale = Vector2.one;
 
@@ -990,9 +990,9 @@ public class GameView : BaseView
         //if (cardPool.Count < 1)
         //{
         if (parent != null)
-            card = Instantiate(UIManager.instance.loadPrefab("GameView/Card"), parent).GetComponent<Card>();
+            card = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/Card"), parent).GetComponent<Card>();
         else
-            card = Instantiate(UIManager.instance.loadPrefab("GameView/Card")).GetComponent<Card>();
+            card = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/Card")).GetComponent<Card>();
         //}
         //else
         //{
@@ -1020,9 +1020,9 @@ public class GameView : BaseView
         if (chipPool.Count < 1)
         {
             if (parent != null)
-                chip = Instantiate(UIManager.instance.loadPrefab("GameView/ChipBet"), parent).GetComponent<ChipBet>();
+                chip = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/ChipBet"), parent).GetComponent<ChipBet>();
             else
-                chip = Instantiate(UIManager.instance.loadPrefab("GameView/ChipBet"), transform).GetComponent<ChipBet>();
+                chip = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/ChipBet"), transform).GetComponent<ChipBet>();
 
         }
         else

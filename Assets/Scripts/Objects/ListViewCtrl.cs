@@ -153,7 +153,7 @@ public class ListViewCtrl : MonoBehaviour
 
         for (var i = 0; i < initCount; ++i)
         { // spawn items, we only need to do this once
-            GameObject item = Instantiate(itemTemplate, scrollView.content);
+            GameObject item = BundleHandler.Instantiate(itemTemplate, scrollView.content);
 
             if (direction == DIRECTION.VERTICAL)
             {

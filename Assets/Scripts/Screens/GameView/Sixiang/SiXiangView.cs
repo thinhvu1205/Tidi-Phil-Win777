@@ -488,7 +488,7 @@ public class SiXiangView : BaseSlotView
     {
         if (BuyPealsPopup == null)
         {
-            BuyPealsPopup = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/BuyPealsPopup"), transform).GetComponent<SiXiangBuyPealsPopup>();
+            BuyPealsPopup = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/BuyPealsPopup"), transform).GetComponent<SiXiangBuyPealsPopup>();
 
         }
         BuyPealsPopup.setInfo(index, price, validBetLevels[currentBetLevel], agPlayer);
@@ -756,7 +756,7 @@ public class SiXiangView : BaseSlotView
         setStateNodeGameForLuckyGold(false);
         if (LuckyGoldView == null)
         {
-            LuckyGoldView = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/LuckyGoldView"), transform).GetComponent<SiXiangLuckyGoldView>();
+            LuckyGoldView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/LuckyGoldView"), transform).GetComponent<SiXiangLuckyGoldView>();
             LuckyGoldView.transform.SetSiblingIndex(animCutScene.transform.GetSiblingIndex() - 3);
 
         }
@@ -799,7 +799,7 @@ public class SiXiangView : BaseSlotView
         await showAnimCutScene();
         if (ScatterView == null)
         {
-            ScatterView = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/ScatterView"), transform).GetComponent<SiXiangScatterView>();
+            ScatterView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/ScatterView"), transform).GetComponent<SiXiangScatterView>();
 
         }
         ScatterView.transform.SetSiblingIndex(animCutScene.transform.GetSiblingIndex() - 1);
@@ -832,7 +832,7 @@ public class SiXiangView : BaseSlotView
         gameType = (int)GAME_TYPE.RAPID_PAY;
         if (RapidPayView == null)
         {
-            RapidPayView = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/RapidPayView"), transform).GetComponent<SiXiangRapidPayView>();
+            RapidPayView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/RapidPayView"), transform).GetComponent<SiXiangRapidPayView>();
             RapidPayView.transform.SetSiblingIndex(animCutScene.transform.GetSiblingIndex() - 2);
         }
         RapidPayView.winAmount = initWinAmount;
@@ -846,7 +846,7 @@ public class SiXiangView : BaseSlotView
         setStateButtonBuyPeals(false);
         if (LuckyDrawView == null)
         {
-            LuckyDrawView = Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/LuckyDrawView"), transform).GetComponent<SiXiangLuckyDrawView>();
+            LuckyDrawView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/SiXiang/Prefab/LuckyDrawView"), transform).GetComponent<SiXiangLuckyDrawView>();
             LuckyDrawView.transform.SetSiblingIndex(animCutScene.transform.GetSiblingIndex() - 1);
 
         }

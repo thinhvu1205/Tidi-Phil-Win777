@@ -56,7 +56,7 @@ public class MailView : BaseView
             }
             else
             {
-                item = Instantiate(itemMailPr, scrMail.content).GetComponent<MailItem>();
+                item = BundleHandler.Instantiate(itemMailPr, scrMail.content).GetComponent<MailItem>();
                 item.transform.localScale = Vector3.one;
 
             }

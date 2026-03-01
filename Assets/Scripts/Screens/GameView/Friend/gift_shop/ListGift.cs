@@ -35,7 +35,7 @@ public class ListGift : MonoBehaviour
             long chip = giftData["value"].ToObject<long>();
             int vip = giftData["vip"].ToObject<int>();
             long point = giftData["point"].ToObject<long>();
-            GiftItem item = Instantiate(m_NoGiftObj, m_ContentGift);
+            GiftItem item = BundleHandler.Instantiate(m_NoGiftObj, m_ContentGift);
             item.SetInfoItemGift(chip, point, ConvertItemToIndex(nameGift));
             if (vip <= Globals.User.userMain.VIP && chip <= Globals.User.userMain.AG)
             {

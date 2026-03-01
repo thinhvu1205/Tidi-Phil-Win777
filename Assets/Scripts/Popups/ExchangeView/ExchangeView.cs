@@ -124,7 +124,7 @@ public class ExchangeView : BaseView
             Destroy(tf.gameObject);
         for (int i = 0; i < content.Count; i++)
         {
-            Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
+            Transform tf = BundleHandler.Instantiate(m_PrefabHistoryTf, m_HistoryTf);
             tf.gameObject.SetActive(true);
             tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset
                 .FromUnixTimeMilliseconds((long)content[i]["time"])
@@ -154,7 +154,7 @@ public class ExchangeView : BaseView
 
     public void HandleUpdateHistory(JObject data)
     {
-        Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
+        Transform tf = BundleHandler.Instantiate(m_PrefabHistoryTf, m_HistoryTf);
         tf.gameObject.SetActive(true);
         tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset
             .FromUnixTimeMilliseconds((long)data["time"])
@@ -216,7 +216,7 @@ public class ExchangeView : BaseView
             string title = (string)obItem["TypeName"];
             string title_img = (string)obItem["title_img"];
 
-            GameObject btn = Instantiate(tabTop, scrTabs.content);
+            GameObject btn = BundleHandler.Instantiate(tabTop, scrTabs.content);
 
             var bkg = btn.transform.Find("Bkg").GetComponent<Image>();
             bkg.sprite = spTab[(i == 0 || i >= arrayData.Count - 1) ? 0 : 1];
@@ -291,7 +291,7 @@ public class ExchangeView : BaseView
             string title = (string)obItem["TypeName"];
             string title_img = (string)obItem["title_img"];
 
-            GameObject btn = Instantiate(tabTop, scrTabsHis.content);
+            GameObject btn = BundleHandler.Instantiate(tabTop, scrTabsHis.content);
 
             var bkg = btn.transform.Find("Bkg").GetComponent<Image>();
             bkg.sprite = spTab[(i == 0 || i >= arrayData.Count - 1) ? 0 : 1];
@@ -454,7 +454,7 @@ public class ExchangeView : BaseView
                 GameObject item =
                     i < parent.childCount
                         ? parent.GetChild(i).gameObject
-                        : Instantiate(isAgency ? itemAgency : itemEx, parent);
+                        : BundleHandler.Instantiate(isAgency ? itemAgency : itemEx, parent);
                 if (isAgency)
                     item.GetComponent<ItemAgency>().setInfo(dt);
                 else
@@ -517,7 +517,7 @@ public class ExchangeView : BaseView
                 }
                 else
                 {
-                    objItem = Instantiate(itemHistory, scrContentHistory.content);
+                    objItem = BundleHandler.Instantiate(itemHistory, scrContentHistory.content);
                 }
                 objItem.SetActive(true);
                 objItem.transform.SetParent(scrContentHistory.content);

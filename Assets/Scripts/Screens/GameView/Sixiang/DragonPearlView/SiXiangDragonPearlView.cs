@@ -32,7 +32,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
     {
         for (int i = 1; i < 15; i++)
         {
-            DragonPearlItem item = Instantiate(itemContainer.transform.GetChild(0), itemContainer.transform).GetComponent<DragonPearlItem>();
+            DragonPearlItem item = BundleHandler.Instantiate(itemContainer.transform.GetChild(0), itemContainer.transform).GetComponent<DragonPearlItem>();
             item.setBgItem(listBgItem[i]);
 
         }
@@ -170,7 +170,7 @@ public class SiXiangDragonPearlView : MonoBehaviour
         for (int i = 0; i < pearls.Count; i++)
         {
             JObject data = pearls[i];
-            GameObject itemGold = Instantiate(itemInitGold, transform);
+            GameObject itemGold = BundleHandler.Instantiate(itemInitGold, transform);
 
             itemGold.SetActive(true);
             Vector2 posSymbol = transform.InverseTransformPoint(SiXiangView.Instance.getPosSymbol((int)data["col"], (int)data["row"] + 1));

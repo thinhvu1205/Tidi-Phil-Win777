@@ -227,7 +227,7 @@ public class UIManager : MonoBehaviour
     public void showGiftShop(string name, long id)
     {
         SocketSend.sendGiftShop();
-        ListGift friend = Instantiate(loadPrefab("GameView/Friends/prefab/SendGift"), parentPopups).GetComponent<ListGift>();
+        ListGift friend = BundleHandler.Instantiate(loadPrefab("GameView/Friends/prefab/SendGift"), parentPopups).GetComponent<ListGift>();
         friend.transform.localScale = Vector3.one;
         friend.setInfoText(name, id);
         friend.transform.SetAsLastSibling();
@@ -235,54 +235,54 @@ public class UIManager : MonoBehaviour
     public void showConfirm(string NameGift, long id, int index, string name, long ip, long money)
     {
         SocketSend.sendGiftShop();
-        ConfirmSendGift friend = Instantiate(loadPrefab("GameView/Friends/prefab/Confirmation_sendGift"), parentPopups).GetComponent<ConfirmSendGift>();
+        ConfirmSendGift friend = BundleHandler.Instantiate(loadPrefab("GameView/Friends/prefab/Confirmation_sendGift"), parentPopups).GetComponent<ConfirmSendGift>();
         friend.transform.localScale = Vector3.one;
         friend.SetInfoConfirm(NameGift, id, index, name, ip, money);
         friend.transform.SetAsLastSibling();
     }
     public void showMenuFriend()
     {
-        var friend = Instantiate(loadPrefab("GameView/Friends/prefab/MenuFriend"), parentPopups).GetComponent<MenuFriend>();
+        var friend = BundleHandler.Instantiate(loadPrefab("GameView/Friends/prefab/MenuFriend"), parentPopups).GetComponent<MenuFriend>();
         friend.transform.localScale = Vector3.one;
         friend.transform.SetAsLastSibling();
     }
     public void showFortuneGift()
     {
-        var friend = Instantiate(loadPrefab("GameView/Friends/prefab/SendFoturneGift"), parentPopups);
+        var friend = BundleHandler.Instantiate(loadPrefab("GameView/Friends/prefab/SendFoturneGift"), parentPopups);
         friend.transform.localScale = Vector3.one;
         friend.transform.SetAsLastSibling();
     }
     public void showComingsoon()
     {
-        var friend = Instantiate(loadPrefab("GameView/Friends/prefab/CommingSoon"), parentPopups);
+        var friend = BundleHandler.Instantiate(loadPrefab("GameView/Friends/prefab/CommingSoon"), parentPopups);
         friend.transform.localScale = Vector3.one;
         friend.transform.SetAsLastSibling();
     }
     public void showListFriendView()
     {
-        var listFriend = Instantiate(loadPrefab("GameView/Friends/prefab/ScreenFriend"), parentPopups).GetComponent<ScreenFriendView>();
+        var listFriend = BundleHandler.Instantiate(loadPrefab("GameView/Friends/prefab/ScreenFriend"), parentPopups).GetComponent<ScreenFriendView>();
         listFriend.transform.localScale = Vector3.one;
     }
     public void showListChatFriend(DataFriend dataFriend)
     {
-        ChatFriend listFriend = Instantiate(loadPrefab("GameView/Friends/prefab/group_chat/Chat"), parentPopups).GetComponent<ChatFriend>();
+        ChatFriend listFriend = BundleHandler.Instantiate(loadPrefab("GameView/Friends/prefab/group_chat/Chat"), parentPopups).GetComponent<ChatFriend>();
         listFriend.transform.localScale = Vector3.one;
         listFriend.OpenNewChat(dataFriend);
     }
     public void showSendChips(string name, long id, string level)
     {
-        SendChip listFriend = Instantiate(loadPrefab("GameView/Friends/prefab/SendChip"), parentPopups).GetComponent<SendChip>();
+        SendChip listFriend = BundleHandler.Instantiate(loadPrefab("GameView/Friends/prefab/SendChip"), parentPopups).GetComponent<SendChip>();
         listFriend.transform.localScale = Vector3.one;
         listFriend.setInfoText(name, id, level);
     }
     public void showRefaral()
     {
-        var refalral = Instantiate(loadPrefab("GameView/Friends/prefab/refaral"), parentPopups).GetComponent<BaseView>();
+        var refalral = BundleHandler.Instantiate(loadPrefab("GameView/Friends/prefab/refaral"), parentPopups).GetComponent<BaseView>();
         refalral.transform.localScale = Vector3.one;
     }
     public void showDetailNoti(string content)
     {
-        var detailNoti = Instantiate(loadPrefab("GameView/Friends/prefab/DetailNotification"), parentPopups).GetComponent<DetailItem>();
+        var detailNoti = BundleHandler.Instantiate(loadPrefab("GameView/Friends/prefab/DetailNotification"), parentPopups).GetComponent<DetailItem>();
         detailNoti.transform.localScale = Vector3.one;
         detailNoti.transform.SetAsLastSibling();
         detailNoti.setContentDetail(content);
@@ -577,50 +577,50 @@ public class UIManager : MonoBehaviour
             case (int)Globals.GAMEID.SLOTNOEL:
                 {
                     Globals.Logging.Log("showGame SLOTNOEL");
-                    gameView = Instantiate(loadPrefabGame("SlotNoelView"), parentGame).GetComponent<SlotNoelView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("SlotNoelView"), parentGame).GetComponent<SlotNoelView>();
                     break;
                 }
             case (int)Globals.GAMEID.SLOTTARZAN:
                 {
                     Globals.Logging.Log("showGame SLOTTARZAN");
-                    gameView = Instantiate(loadPrefabGame("SlotTarzanView"), parentGame).GetComponent<SlotTarzanView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("SlotTarzanView"), parentGame).GetComponent<SlotTarzanView>();
                     break;
                 }
             case (int)Globals.GAMEID.SLOT_JUICY_GARDEN:
                 {
                     Globals.Logging.Log("showGame SLOT_9900");
-                    gameView = Instantiate(loadPrefabGame("SlotJuicyGardenView"), parentGame).GetComponent<SlotJuicyGardenView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("SlotJuicyGardenView"), parentGame).GetComponent<SlotJuicyGardenView>();
                     break;
                 }
             case (int)Globals.GAMEID.SLOT_INCA:
                 {
                     Globals.Logging.Log("showGame SLOTINCA");
 
-                    gameView = Instantiate(loadPrefabGame("SlotInCaView"), parentGame).GetComponent<SlotInCaView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("SlotInCaView"), parentGame).GetComponent<SlotInCaView>();
                     break;
                 }
             case (int)Globals.GAMEID.SLOT_SIXIANG:
                 {
                     Globals.Logging.Log("showGame SLOT_SIXIANG");
-                    gameView = Instantiate(loadPrefabGame("SiXiangView"), parentGame).GetComponent<SiXiangView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("SiXiangView"), parentGame).GetComponent<SiXiangView>();
                     break;
                 }
             case (int)Globals.GAMEID.SLOT20FRUIT:
                 {
                     Globals.Logging.Log("showGame SLOT20FRUIT");
-                    gameView = Instantiate(loadPrefabGame("SlotFruitView"), parentGame).GetComponent<SlotFruitView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("SlotFruitView"), parentGame).GetComponent<SlotFruitView>();
                     break;
                 }
             case (int)Globals.GAMEID.LUCKY_89:
                 {
                     Globals.Logging.Log("showGame Lucky89");
-                    gameView = Instantiate(loadPrefabGame("Lucky89View"), parentGame).GetComponent<Lucky89View>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("Lucky89View"), parentGame).GetComponent<Lucky89View>();
                     break;
                 }
             case (int)Globals.GAMEID.SICBO:
                 {
                     Globals.Logging.Log("showGame SICBO");
-                    gameView = Instantiate(loadPrefabGame("SicboView"), parentGame).GetComponent<SicboView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("SicboView"), parentGame).GetComponent<SicboView>();
                     //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
                     break;
                 }
@@ -628,14 +628,14 @@ public class UIManager : MonoBehaviour
             case (int)Globals.GAMEID.BACCARAT:
                 {
                     Globals.Logging.Log("showGame BACCARAT");
-                    gameView = Instantiate(loadPrefabGame("BaccaratView"), parentGame).GetComponent<BaccaratView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("BaccaratView"), parentGame).GetComponent<BaccaratView>();
                     //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
                     break;
                 }
             case (int)Globals.GAMEID.PUSOY:
                 {
                     Globals.Logging.Log("showGame BINH");
-                    gameView = Instantiate(loadPrefabGame("BinhView"), parentGame).GetComponent<BinhGameView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("BinhView"), parentGame).GetComponent<BinhGameView>();
                     //gameView.transform.eulerAngles = new Vector3(0, 0, -90);
                     Debug.Log("Set Game View Binh:" + gameView);
                     break;
@@ -643,61 +643,61 @@ public class UIManager : MonoBehaviour
             case (int)Globals.GAMEID.TONGITS_OLD:
                 {
                     Globals.Logging.Log("showGame TONGITS thuong");
-                    gameView = Instantiate(loadPrefabGame("TongitsView"), parentGame).GetComponent<TongitsView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("TongitsView"), parentGame).GetComponent<TongitsView>();
                     break;
                 }
             case (int)Globals.GAMEID.TONGITS:
                 {
                     Globals.Logging.Log("showGame TONGITS butasan");
-                    gameView = Instantiate(loadPrefabGame("TongitsView"), parentGame).GetComponent<TongitsView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("TongitsView"), parentGame).GetComponent<TongitsView>();
                     break;
                 }
             case (int)Globals.GAMEID.TONGITS_JOKER:
                 {
                     Globals.Logging.Log("showGame TONGITS joker");
-                    gameView = Instantiate(loadPrefabGame("TongitsView"), parentGame).GetComponent<TongitsView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("TongitsView"), parentGame).GetComponent<TongitsView>();
                     break;
                 }
             case (int)Globals.GAMEID.LUCKY9:
                 {
                     Globals.Logging.Log("showGame LUCKY9");
-                    gameView = Instantiate(loadPrefabGame("Lucky9View"), parentGame).GetComponent<Lucky9View>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("Lucky9View"), parentGame).GetComponent<Lucky9View>();
                     break;
                 }
             case (int)Globals.GAMEID.SABONG:
                 {
                     Globals.Logging.Log("showGame SABONG");
-                    gameView = Instantiate(loadPrefabGame("SabongView"), parentGame).GetComponent<SabongGameView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("SabongView"), parentGame).GetComponent<SabongGameView>();
                     break;
                 }
             case (int)Globals.GAMEID.MINE_FINDING:
                 {
                     Globals.Logging.Log("showGame MineFinding");
-                    gameView = Instantiate(loadPrefabGame("PopupMineFinding"), parentGame).GetComponent<MineFindingView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("PopupMineFinding"), parentGame).GetComponent<MineFindingView>();
                     break;
                 }
             case (int)Globals.GAMEID.BAUCUA:
                 {
                     Globals.Logging.Log("showGame BAUCUA");
-                    gameView = Instantiate(loadPrefabGame("BaucuaView"), parentGame).GetComponent<BaucuaGameView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("BaucuaView"), parentGame).GetComponent<BaucuaGameView>();
                     break;
                 }
             case (int)Globals.GAMEID.THREE_CARD_POKER:
                 {
                     Globals.Logging.Log("showGame 3 lá bài");
-                    gameView = Instantiate(loadPrefabGame("ThreePokerView"), parentGame).GetComponent<ThreePokerCardGameView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("ThreePokerView"), parentGame).GetComponent<ThreePokerCardGameView>();
                     break;
                 }
             case (int)Globals.GAMEID.ROULETTE:
                 {
                     Globals.Logging.Log("showGame RouLette");
-                    gameView = Instantiate(loadPrefabGame("RouLetteView"), parentGame).GetComponent<RouLetteView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("RouLetteView"), parentGame).GetComponent<RouLetteView>();
                     break;
                 }
             case (int)Globals.GAMEID.HONGKONG_POKER:
                 {
                     Globals.Logging.Log("showGame Hong Kong Poker");
-                    gameView = Instantiate(loadPrefabGame("HongKongPokerView"), parentGame).GetComponent<HongKongPokerView>();
+                    gameView = BundleHandler.Instantiate(loadPrefabGame("HongKongPokerView"), parentGame).GetComponent<HongKongPokerView>();
                     break;
                 }
             default:
@@ -869,7 +869,7 @@ public class UIManager : MonoBehaviour
     {
         //new Thread(new ThreadStart(() =>
         //{
-        DialogView dialog = Instantiate(prefab, parentPopups).GetComponent<DialogView>(); ;
+        DialogView dialog = BundleHandler.Instantiate(prefab, parentPopups).GetComponent<DialogView>(); ;
 
         listDialogOne.Add(dialog);
         dialog.gameObject.SetActive(true);
@@ -905,7 +905,7 @@ public class UIManager : MonoBehaviour
 
     DialogView createDialog(GameObject prefab, string msg, string nameBtn1 = "", Action callback1 = null, string nameBtn2 = "", Action callback2 = null, bool isShowClose = false, Action callback3 = null)
     {
-        DialogView dialog = Instantiate(prefab, parentPopups).GetComponent<DialogView>();
+        DialogView dialog = BundleHandler.Instantiate(prefab, parentPopups).GetComponent<DialogView>();
         listDialogOne.Add(dialog);
         dialog.gameObject.SetActive(true);
         dialog.transform.localScale = Vector3.one;
@@ -947,7 +947,7 @@ public class UIManager : MonoBehaviour
     public void showWebView(string url, string title = "")
     {
         //if (url == "") return;
-        var webview = Instantiate(loadPrefabPopup("WebView"), transform).GetComponent<WebViewControl>();
+        var webview = BundleHandler.Instantiate(loadPrefabPopup("WebView"), transform).GetComponent<WebViewControl>();
         webview.loadUrl(url, title);
         webview.transform.SetAsLastSibling();
     }
@@ -1003,31 +1003,31 @@ public class UIManager : MonoBehaviour
 
     public void openShop(string tabNameFocus = "")
     {
-        ShopView shopView = Instantiate(loadPrefabPopup("PopupShop"), parentPopups).GetComponent<ShopView>();
+        ShopView shopView = BundleHandler.Instantiate(loadPrefabPopup("PopupShop"), parentPopups).GetComponent<ShopView>();
         shopView.init(tabNameFocus);
         shopView.transform.localScale = Vector3.one;
     }
     public LuckyNumberView OpenLuckyNumber()
     {
-        LuckyNumberView script = Instantiate(loadPrefabPopup("PopupLuckyNumber"), parentPopups).GetComponent<LuckyNumberView>();
+        LuckyNumberView script = BundleHandler.Instantiate(loadPrefabPopup("PopupLuckyNumber"), parentPopups).GetComponent<LuckyNumberView>();
         script.transform.localScale = Vector3.one;
         return script;
     }
     public void openRuleJPThreeCard()
     {
         Debug.Log("openRuleJPBork:");
-        var ruleView = Instantiate(loadPrefab("GameView/ThreePoker/JackpotRuleThreeCard"), parentPopups).GetComponent<BaseView>();
+        var ruleView = BundleHandler.Instantiate(loadPrefab("GameView/ThreePoker/JackpotRuleThreeCard"), parentPopups).GetComponent<BaseView>();
         ruleView.transform.localScale = Vector3.one;
     }
     public void openRuleJPBinh()
     {
-        var ruleView = Instantiate(loadPrefab("GameView/Binh/JackpotRuleBinh"), parentPopups).GetComponent<BaseView>();
+        var ruleView = BundleHandler.Instantiate(loadPrefab("GameView/Binh/JackpotRuleBinh"), parentPopups).GetComponent<BaseView>();
         ruleView.transform.localScale = Vector3.one;
     }
 
     public void openVipFarm()
     {
-        var subView = Instantiate(loadPrefabPopup("PopupVipFarm"), parentPopups);
+        var subView = BundleHandler.Instantiate(loadPrefabPopup("PopupVipFarm"), parentPopups);
         subView.transform.localScale = Vector3.one;
     }
     public void openConfirmVipFarm()
@@ -1039,7 +1039,7 @@ public class UIManager : MonoBehaviour
     }
     public void openChatWorld()
     {
-        var chatWorldView = Instantiate(loadPrefabPopup("PopupChatWorld"), parentPopups).GetComponent<ChatWorldView>();
+        var chatWorldView = BundleHandler.Instantiate(loadPrefabPopup("PopupChatWorld"), parentPopups).GetComponent<ChatWorldView>();
         chatWorldView.transform.localScale = Vector3.one;
     }
     public void clickTabChatWorld()
@@ -1052,13 +1052,13 @@ public class UIManager : MonoBehaviour
     }
     public void openFriendInfo()
     {
-        var friendInfoView = Instantiate(loadPrefabPopup("PopupFriendInfo"), parentPopups).GetComponent<FriendInfoView>();
+        var friendInfoView = BundleHandler.Instantiate(loadPrefabPopup("PopupFriendInfo"), parentPopups).GetComponent<FriendInfoView>();
         friendInfoView.transform.localScale = Vector3.one;
     }
 
     public void openEx()
     {
-        var exchangeView = Instantiate(loadPrefabPopup("PopupExchange"), parentPopups).GetComponent<ExchangeView>();
+        var exchangeView = BundleHandler.Instantiate(loadPrefabPopup("PopupExchange"), parentPopups).GetComponent<ExchangeView>();
         exchangeView.transform.localScale = Vector3.one;
     }
 
@@ -1071,30 +1071,30 @@ public class UIManager : MonoBehaviour
         {
             isOnProfile = true;
         });
-        var profileView = Instantiate(loadPrefabPopup("PopupProfile"), parentPopups).GetComponent<ProfileView>();
+        var profileView = BundleHandler.Instantiate(loadPrefabPopup("PopupProfile"), parentPopups).GetComponent<ProfileView>();
         profileView.transform.localScale = Vector3.one;
     }
     public void openGiftCode()
     {
-        var giftCodeView = Instantiate(loadPrefabPopup("PopupGiftCode"), parentPopups).GetComponent<GiftCodeView>();
+        var giftCodeView = BundleHandler.Instantiate(loadPrefabPopup("PopupGiftCode"), parentPopups).GetComponent<GiftCodeView>();
         giftCodeView.transform.localScale = Vector3.one;
     }
     public void openSetting()
     {
         //curGameId = (int)Globals.GAMEID.KEANG;
         //UIManager.instance.showGame();
-        var settingView = Instantiate(loadPrefabPopup("PopupSetting"), parentPopups).GetComponent<SettingView>();
+        var settingView = BundleHandler.Instantiate(loadPrefabPopup("PopupSetting"), parentPopups).GetComponent<SettingView>();
         settingView.transform.localScale = Vector3.one;
     }
     public void openLeaderBoard(int gameID = -1)
     {
-        var leaderBoardView = Instantiate(loadPrefabPopup("PopupLeaderBoard"), parentPopups).GetComponent<LeaderBoardView>();
+        var leaderBoardView = BundleHandler.Instantiate(loadPrefabPopup("PopupLeaderBoard"), parentPopups).GetComponent<LeaderBoardView>();
         leaderBoardView.transform.localScale = Vector3.one;
         leaderBoardView.openTabGameWithID(gameID);
     }
     public void openSendGift(string idPlayerInit = "")
     {
-        var sendGiftView = Instantiate(loadPrefabPopup("PopupSendGift"), parentPopups).GetComponent<SendGiftView>();
+        var sendGiftView = BundleHandler.Instantiate(loadPrefabPopup("PopupSendGift"), parentPopups).GetComponent<SendGiftView>();
         if (idPlayerInit != "")
         {
             sendGiftView.edbID.text = idPlayerInit;
@@ -1103,28 +1103,28 @@ public class UIManager : MonoBehaviour
     }
     public void openCreateTableView()
     {
-        var createTableView = Instantiate(loadPrefabPopup("PopupCreateTable"), parentPopups).GetComponent<CreateTableView>();
+        var createTableView = BundleHandler.Instantiate(loadPrefabPopup("PopupCreateTable"), parentPopups).GetComponent<CreateTableView>();
         createTableView.transform.localScale = Vector3.one;
     }
     public void openChangePass()
     {
-        var changePassView = Instantiate(loadPrefabPopup("PopupChangeName"), parentPopups).GetComponent<ChangeNameView>();
+        var changePassView = BundleHandler.Instantiate(loadPrefabPopup("PopupChangeName"), parentPopups).GetComponent<ChangeNameView>();
     }
     public void openMailDetail(JObject data)
     {
-        var mailDetailView = Instantiate(loadPrefabPopup("PopupMailDetail"), parentPopups).GetComponent<MailDetailView>();
+        var mailDetailView = BundleHandler.Instantiate(loadPrefabPopup("PopupMailDetail"), parentPopups).GetComponent<MailDetailView>();
         mailDetailView.transform.localScale = Vector3.one;
         MailDetailView.instance.setInfo(data);
     }
     public void openSupport()
     {
-        var support = Instantiate(loadPrefabPopup("PopupSupport"), parentPopups).GetComponent<PopupSupport>();
+        var support = BundleHandler.Instantiate(loadPrefabPopup("PopupSupport"), parentPopups).GetComponent<PopupSupport>();
         support.transform.localScale = Vector3.one;
     }
 
     public void openInputPass(int tableID)
     {
-        var inputPassView = Instantiate(loadPrefabPopup("PopupInputPass"), parentPopups).GetComponent<InputPassView>();
+        var inputPassView = BundleHandler.Instantiate(loadPrefabPopup("PopupInputPass"), parentPopups).GetComponent<InputPassView>();
         inputPassView.setTableID(tableID);
         inputPassView.transform.localScale = Vector3.one;
     }
@@ -1132,7 +1132,7 @@ public class UIManager : MonoBehaviour
 
     public void openFeedback()
     {
-        var inputPassView = Instantiate(loadPrefabPopup("PopupFeedBack"), parentPopups).GetComponent<PopupFeedBack>();
+        var inputPassView = BundleHandler.Instantiate(loadPrefabPopup("PopupFeedBack"), parentPopups).GetComponent<PopupFeedBack>();
         inputPassView.transform.localScale = Vector3.one;
     }
 
@@ -1146,12 +1146,12 @@ public class UIManager : MonoBehaviour
             isOnSafe = true;
         });
         //lobbyView.setTabSafe();
-        var safeView = Instantiate(loadPrefabPopup("PopupSafe"), parentPopups).GetComponent<SafeView>();
+        var safeView = BundleHandler.Instantiate(loadPrefabPopup("PopupSafe"), parentPopups).GetComponent<SafeView>();
         safeView.transform.localScale = Vector3.one;
     }
     public void openDailyBonus()
     {
-        var dailyBonusView = Instantiate(loadPrefabPopup("PopupCountDownBonus"), parentPopups).GetComponent<DailyBonusView>();
+        var dailyBonusView = BundleHandler.Instantiate(loadPrefabPopup("PopupCountDownBonus"), parentPopups).GetComponent<DailyBonusView>();
         dailyBonusView.transform.localScale = Vector3.one;
         dailyBonusView.setInfo();
     }
@@ -1161,11 +1161,11 @@ public class UIManager : MonoBehaviour
         {
             //if (curGameId == (int)Globals.GAMEID.KEANG || curGameId == (int)Globals.GAMEID.DUMMY || curGameId == (int)Globals.GAMEID.SICBO)
             //{
-            //    Instantiate(loadPrefab("Table/TableViewHorizontal"), transform).GetComponent<TableView>();
+            //    BundleHandler.Instantiate(loadPrefab("Table/TableViewHorizontal"), transform).GetComponent<TableView>();
             //}
             //else
             //{
-            TableView tableView = Instantiate(loadPrefab("Table/TableView"), transform).GetComponent<TableView>();
+            TableView tableView = BundleHandler.Instantiate(loadPrefab("Table/TableView"), transform).GetComponent<TableView>();
             //}
         }
         else
@@ -1183,12 +1183,12 @@ public class UIManager : MonoBehaviour
     //}
     public void openMailView()
     {
-        var safeView = Instantiate(loadPrefabPopup("PopupMail"), parentPopups).GetComponent<MailView>();
+        var safeView = BundleHandler.Instantiate(loadPrefabPopup("PopupMail"), parentPopups).GetComponent<MailView>();
         safeView.transform.localScale = Vector3.one;
     }
     public void openFreeChipView()
     {
-        var subview = Instantiate(loadPrefabPopup("PopupFreeChip"), parentPopups).GetComponent<FreeChipView>();
+        var subview = BundleHandler.Instantiate(loadPrefabPopup("PopupFreeChip"), parentPopups).GetComponent<FreeChipView>();
         subview.transform.localScale = Vector3.one;
         subview.setShowBack(true);
     }
@@ -1277,7 +1277,7 @@ public class UIManager : MonoBehaviour
 
     public void showPopupListBanner()
     {
-        var subview = Instantiate(loadPrefabPopup("ListBannerView"), parentPopups).GetComponent<ListBannerView>();
+        var subview = BundleHandler.Instantiate(loadPrefabPopup("ListBannerView"), parentPopups).GetComponent<ListBannerView>();
         subview.transform.localScale = Vector3.one;
     }
 
@@ -1339,7 +1339,7 @@ public class UIManager : MonoBehaviour
         }
 
         if (loginView.getIsShow()) return;
-        var nodeBanner = Instantiate(banerTemp, parentBanner).GetComponent<BannerView>();
+        var nodeBanner = BundleHandler.Instantiate(banerTemp, parentBanner).GetComponent<BannerView>();
 
         //cc.NGWlog("push vao banner ko show game");
         if (!dataBanner.ContainsKey("isShowGameView") || !(bool)dataBanner["isShowGameView"])
@@ -1409,7 +1409,7 @@ public class UIManager : MonoBehaviour
 
     public KeyboardController showKeyboardCustom(Transform tfParrent)
     {
-        var inputKeyBoard = Instantiate(loadPrefabPopup("KeyboardController"), tfParrent).GetComponent<KeyboardController>();
+        var inputKeyBoard = BundleHandler.Instantiate(loadPrefabPopup("KeyboardController"), tfParrent).GetComponent<KeyboardController>();
         inputKeyBoard.transform.localScale = Vector3.one;
         return inputKeyBoard;
 
@@ -1509,7 +1509,7 @@ public class UIManager : MonoBehaviour
             existingPopup.gameObject.SetActive(true);
             return;
         }
-        Instantiate(popupCheckinBonus, transform);
+        BundleHandler.Instantiate(popupCheckinBonus, transform);
     }
     public void SetStateIconNotiCheckinBonus()
     {

@@ -248,7 +248,7 @@ public class HiloView : GameView
             {
                 if (buttonBet == null)
                 {
-                    buttonBet = Instantiate(prefab_button_bet, transform).GetComponent<ButtonBetSicbo>();
+                    buttonBet = BundleHandler.Instantiate(prefab_button_bet, transform).GetComponent<ButtonBetSicbo>();
                     buttonBet.transform.SetSiblingIndex(transform.childCount - 2);
 
                 }
@@ -274,7 +274,7 @@ public class HiloView : GameView
         {
             if (buttonBet == null)
             {
-                buttonBet = Instantiate(prefab_button_bet, transform).GetComponent<ButtonBetSicbo>();
+                buttonBet = BundleHandler.Instantiate(prefab_button_bet, transform).GetComponent<ButtonBetSicbo>();
                 buttonBet.transform.SetSiblingIndex(transform.childCount - 2);
 
             }
@@ -289,7 +289,7 @@ public class HiloView : GameView
         //------------- END ------------//
         if (popupHistory == null)
         {
-            popupHistory = Instantiate(history_prefab, layerPopup).GetComponent<HistorySicbo>();
+            popupHistory = BundleHandler.Instantiate(history_prefab, layerPopup).GetComponent<HistorySicbo>();
 
         }
         popupHistory.gameObject.SetActive(false);
@@ -300,7 +300,7 @@ public class HiloView : GameView
         //------------- Instance Rule ----------------//
         if (popupRule == null)
         {
-            popupRule = Instantiate(prefab_rule, layerPopup).GetComponent<RuleSicbo>();
+            popupRule = BundleHandler.Instantiate(prefab_rule, layerPopup).GetComponent<RuleSicbo>();
 
         }        //-----------------------------------//
         //------------- CREAT HISTORY ------------//
@@ -397,7 +397,7 @@ public class HiloView : GameView
             {
                 if (buttonBet == null)
                 {
-                    buttonBet = Instantiate(prefab_button_bet, transform).GetComponent<ButtonBetSicbo>();
+                    buttonBet = BundleHandler.Instantiate(prefab_button_bet, transform).GetComponent<ButtonBetSicbo>();
                     buttonBet.transform.SetSiblingIndex(transform.childCount - 2);
                 }
                 buttonBet.gameObject.SetActive(true);
@@ -424,7 +424,7 @@ public class HiloView : GameView
         {
             if (buttonBet == null)
             {
-                buttonBet = Instantiate(prefab_button_bet, transform).GetComponent<ButtonBetSicbo>();
+                buttonBet = BundleHandler.Instantiate(prefab_button_bet, transform).GetComponent<ButtonBetSicbo>();
                 buttonBet.transform.SetSiblingIndex(transform.childCount - 2);
 
             }
@@ -439,7 +439,7 @@ public class HiloView : GameView
         //------------- END ------------//
         if (popupHistory == null)
         {
-            popupHistory = Instantiate(history_prefab, layerPopup).GetComponent<HistorySicbo>();
+            popupHistory = BundleHandler.Instantiate(history_prefab, layerPopup).GetComponent<HistorySicbo>();
 
         }
         popupHistory.gameObject.SetActive(false);
@@ -450,7 +450,7 @@ public class HiloView : GameView
         //------------- Instance Rule ----------------//
         if (popupRule == null)
         {
-            popupRule = Instantiate(prefab_rule, layerPopup).GetComponent<RuleSicbo>();
+            popupRule = BundleHandler.Instantiate(prefab_rule, layerPopup).GetComponent<RuleSicbo>();
 
         }        //-----------------------------------//
         //------------- CREAT HISTORY ------------//
@@ -506,7 +506,7 @@ public class HiloView : GameView
         //------------- Instance Rule ----------------//
         if (popupRule == null)
         {
-            popupRule = Instantiate(prefab_rule, layerPopup).GetComponent<RuleSicbo>();
+            popupRule = BundleHandler.Instantiate(prefab_rule, layerPopup).GetComponent<RuleSicbo>();
 
         }
         popupRule.gameObject.SetActive(false);
@@ -514,7 +514,7 @@ public class HiloView : GameView
         // History
         if (popupHistory == null)
         {
-            popupHistory = Instantiate(history_prefab, layerPopup).GetComponent<HistorySicbo>();
+            popupHistory = BundleHandler.Instantiate(history_prefab, layerPopup).GetComponent<HistorySicbo>();
 
         }
         popupHistory.gameObject.SetActive(false);
@@ -577,7 +577,7 @@ public class HiloView : GameView
             //------ SHOW BUTTON BET ------//
             if (buttonBet == null)
             {
-                buttonBet = Instantiate(prefab_button_bet, transform).GetComponent<ButtonBetSicbo>();
+                buttonBet = BundleHandler.Instantiate(prefab_button_bet, transform).GetComponent<ButtonBetSicbo>();
                 buttonBet.transform.SetSiblingIndex(transform.childCount - 2);
 
             }
@@ -697,7 +697,7 @@ public class HiloView : GameView
     {
         if (chipBetPool.Count == 0)
         {
-            GameObject go = Instantiate(chip_bet_prefab, layerChip);
+            GameObject go = BundleHandler.Instantiate(chip_bet_prefab, layerChip);
             chipBetPool.Add(go);
 
         }
@@ -1589,7 +1589,7 @@ public class HiloView : GameView
     public void onClickShowPlayer()
     {
         //if (listPlayer == null || buttonBet != null)
-        listPlayer = Instantiate(prefab_popup_player, transform).GetComponent<NodePlayerSicbo>();
+        listPlayer = BundleHandler.Instantiate(prefab_popup_player, transform).GetComponent<NodePlayerSicbo>();
         listPlayer.transform.SetSiblingIndex((int)GAME_ZORDER.Z_MENU_VIEW);
 
     }

@@ -482,7 +482,7 @@ public class HongKongPokerView : GameView
                     long chipRt = (long)chipReturn[z];
                     if (chipBetPool.Count < 1)
                     {
-                        item = Instantiate(chipReturnHkPoker, layerChip);
+                        item = BundleHandler.Instantiate(chipReturnHkPoker, layerChip);
                     }
                     else
                     {
@@ -590,7 +590,7 @@ public class HongKongPokerView : GameView
                     GameObject temp;
                     if (chipBetPool.Count < 1)
                     {
-                        ChipReturnHkPoker go = Instantiate(chipReturnHkPoker, layerChip);
+                        ChipReturnHkPoker go = BundleHandler.Instantiate(chipReturnHkPoker, layerChip);
                         go.init(1, 0.4f);
                         temp = go.gameObject;
                     }
@@ -889,7 +889,7 @@ public class HongKongPokerView : GameView
             GameObject temp;
             if (chipBetPool.Count < 1)
             {
-                ChipBet go = Instantiate(chipReturnHkPoker, layerChip);
+                ChipBet go = BundleHandler.Instantiate(chipReturnHkPoker, layerChip);
                 go.init(1, 0.4f);
                 temp = go.gameObject;
             }
@@ -1004,7 +1004,7 @@ public class HongKongPokerView : GameView
                         GameObject temp;
                         if (chipBetPool.Count < 1)
                         {
-                            ChipBet goChipBet = Instantiate(chipReturnHkPoker, layerChip);
+                            ChipBet goChipBet = BundleHandler.Instantiate(chipReturnHkPoker, layerChip);
                             goChipBet.init(1, 0.4f);
                             temp = goChipBet.gameObject;
                         }
@@ -1109,7 +1109,7 @@ public class HongKongPokerView : GameView
         {
             if (boxBetPool.Count < 1)
             {
-                item = Instantiate(boxBetPrefab, boxBetContainer);
+                item = BundleHandler.Instantiate(boxBetPrefab, boxBetContainer);
             }
             else
             {
