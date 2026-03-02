@@ -1024,6 +1024,14 @@ namespace Globals
             .AppendInterval(timeRun * 0.45f)
             .Append(lbText.transform.DOScale(normalScale, timeRun * 0.1f));
         }
+        public static bool TrySplitToLong(string input, out long value)
+        {
+            value = 0;
+            if (string.IsNullOrEmpty(input)) return false;
+
+            string clean = input.Replace(",", "").Replace(".", "");
+            return long.TryParse(clean, out value);
+        }
         public static void tweenNumberTo(TMPro.TextMeshProUGUI lbText, long toNumber, long startNumber = 0, float timeRun = 0.3f)
         {
             if (toNumber < 10000)

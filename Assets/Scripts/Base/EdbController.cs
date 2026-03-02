@@ -33,8 +33,34 @@ public class EdbController : MonoBehaviour
         isCheckWithAg = isAg;
         edb.onValueChanged.RemoveAllListeners();
         edb.onValueChanged.AddListener(onEdbChange);
+        edb.onEndEdit.AddListener(onEdbEndEdit);
     }
+    public void onEdbEndEdit(string value)
+    {
+        if (TYPE_EDB == TYPE.NONE) return;
 
+        if (!Globals.Config.TrySplitToLong(value, out long parsedValue))
+        {
+            edb.text = "0";
+            number_input = 0;
+            return;
+        }
+
+        if (isCheckWithAg && Globals.User.userMain.AG < parsedValue)
+        {
+            parsedValue = Globals.User.userMain.AG;
+        }
+        else if (!isCheckWithAg && Globals.User.userMain.agSafe < parsedValue)
+        {
+            parsedValue = Globals.User.userMain.agSafe;
+        }
+
+        number_input = parsedValue;
+
+        edb.text = (TYPE_EDB == TYPE.NUMBER)
+            ? Globals.Config.FormatNumber(parsedValue)
+            : Globals.Config.FormatMoney(parsedValue);
+    }
     public void onEdbChange(string value)
     {
         if (TYPE_EDB == TYPE.NONE) return;
