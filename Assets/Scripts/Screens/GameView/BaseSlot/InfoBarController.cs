@@ -76,7 +76,7 @@ public class InfoBarController : MonoBehaviour
     }
     public void effectUpdateDBFSL()
     {
-        TextMeshProUGUI lbInfoShadow = Instantiate(lbInfo.gameObject, transform).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI lbInfoShadow = BundleHandler.Instantiate(lbInfo.gameObject, transform).GetComponent<TextMeshProUGUI>();
 
         lbInfoShadow.transform.localPosition = transform.InverseTransformPoint(lbInfo.transform.position);
         lbInfoShadow.transform.DOScale(new Vector2(1.3f, 1.3f), 1.0f).SetEase(Ease.OutSine);

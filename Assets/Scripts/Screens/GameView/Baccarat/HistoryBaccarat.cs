@@ -83,7 +83,7 @@ public class HistoryBaccarat : BaseView
         UIManager.instance.destroyAllChildren(layer1);
         for (int i = (resultHis.Count < 14 ? 0 : resultHis.Count - 14); i < resultHis.Count; i++)
         {
-            GameObject itemDotCol = Instantiate(parentMinHisLayer1, layer1);
+            GameObject itemDotCol = BundleHandler.Instantiate(parentMinHisLayer1, layer1);
             itemDotCol.transform.localPosition = new Vector2(currentPos.x, currentPos.y);
             currentPos.x = currentPos.x + 25f;
             itemDotCol.SetActive(true);
@@ -94,69 +94,69 @@ public class HistoryBaccarat : BaseView
                 if (resultHis[i][j] == 1)
                 {
 
-                    GameObject itemHis = Instantiate(listDots[0], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots[0], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis[i][j] == 2)
                 {
 
-                    GameObject itemHis = Instantiate(listDots[4], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots[4], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis[i][j] == 3)
                 {
 
-                    GameObject itemHis = Instantiate(listDots[8], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots[8], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis[i][j] == 102)
                 {
 
-                    GameObject itemHis = Instantiate(listDots[6], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots[6], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis[i][j] == 12)
                 {
 
-                    GameObject itemHis = Instantiate(listDots[5], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots[5], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis[i][j] == 112)
                 {
 
-                    GameObject itemHis = Instantiate(listDots[7], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots[7], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis[i][j] == 101)
                 {
 
-                    GameObject itemHis = Instantiate(listDots[2], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots[2], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis[i][j] == 11)
                 {
 
-                    GameObject itemHis = Instantiate(listDots[1], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots[1], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis[i][j] == 111)
                 {
 
-                    GameObject itemHis = Instantiate(listDots[3], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots[3], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else
                 {
-                    GameObject itemHis = Instantiate(listDots[8], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots[8], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
@@ -233,7 +233,7 @@ public class HistoryBaccarat : BaseView
         UIManager.instance.destroyAllChildren(layer2);
         for (int i = (resultHis2.Count < 32 ? 0 : resultHis2.Count - 32); i < resultHis2.Count; i++)
         {
-            GameObject itemDotCol = Instantiate(parentMinHisLayer2, layer2);
+            GameObject itemDotCol = BundleHandler.Instantiate(parentMinHisLayer2, layer2);
             itemDotCol.transform.localPosition = listPos[i];
             itemDotCol.SetActive(true);
 
@@ -242,55 +242,55 @@ public class HistoryBaccarat : BaseView
                 if (resultHis2[i][j] == 1)
                 {
 
-                    GameObject itemHis = Instantiate(listDots2[0], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots2[0], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis2[i][j] == 2)
                 {
 
-                    GameObject itemHis = Instantiate(listDots2[4], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots2[4], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis2[i][j] == 102)
                 {
 
-                    GameObject itemHis = Instantiate(listDots2[6], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots2[6], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis2[i][j] == 12)
                 {
 
-                    GameObject itemHis = Instantiate(listDots2[5], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots2[5], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis2[i][j] == 112)
                 {
 
-                    GameObject itemHis = Instantiate(listDots2[7], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots2[7], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis2[i][j] == 101)
                 {
-                    GameObject itemHis = Instantiate(listDots2[2], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots2[2], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis2[i][j] == 11)
                 {
 
-                    GameObject itemHis = Instantiate(listDots2[1], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots2[1], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }
                 else if (resultHis2[i][j] == 111)
                 {
 
-                    GameObject itemHis = Instantiate(listDots2[3], itemDotCol.transform);
+                    GameObject itemHis = BundleHandler.Instantiate(listDots2[3], itemDotCol.transform);
                     itemHis.SetActive(true);
 
                 }

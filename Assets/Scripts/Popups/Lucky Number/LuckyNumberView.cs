@@ -110,7 +110,7 @@ public class LuckyNumberView : BaseView
         for (int i = 0; i < dataTopRanks.Count; i++)
         {
             JToken item = dataTopRanks[i];
-            TopRankLuckyNumber trln = Instantiate(m_PrefabTopRankTf, m_TopRankSR.content.transform).GetComponent<TopRankLuckyNumber>();
+            TopRankLuckyNumber trln = BundleHandler.Instantiate(m_PrefabTopRankTf, m_TopRankSR.content.transform).GetComponent<TopRankLuckyNumber>();
             trln.SetData(i, (string)item["N"], (int)item["AV"], (int)item["VIP"], (int)item["AG"]);
             trln.gameObject.SetActive(true);
 
@@ -127,7 +127,7 @@ public class LuckyNumberView : BaseView
             for (int i = 0; i < historyBets.Count; i++)
             {
                 JToken item = historyBets[i];
-                HistoryBetLuckyNumber hbln = Instantiate(m_PrefabBetHistoryTf, m_BetHistorySR.content.transform).GetComponent<HistoryBetLuckyNumber>();
+                HistoryBetLuckyNumber hbln = BundleHandler.Instantiate(m_PrefabBetHistoryTf, m_BetHistorySR.content.transform).GetComponent<HistoryBetLuckyNumber>();
                 hbln.SetData((int)item["StrNumber"], (int)item["ChipsBet"], (int)item["Id"], (int)item["TypeLottery"]);
                 hbln.transform.localScale = Vector2.one * SCALE_VALUE;
                 hbln.gameObject.SetActive(true);
@@ -156,17 +156,17 @@ public class LuckyNumberView : BaseView
                 {
                     Vector2 scaleV2 = Vector2.one * SCALE_VALUE;
                     List<int> numbers = GetListResultsFromANumber((int)item["strNumber"]);
-                    Transform r1tf = Instantiate(m_Prefab1DResultTf, m_1DResultsSR.content.transform);
+                    Transform r1tf = BundleHandler.Instantiate(m_Prefab1DResultTf, m_1DResultsSR.content.transform);
                     r1tf.GetComponent<Result1DLuckyNumber>().SetData((long)item["CreateTime"], numbers.Last());
                     r1tf.localScale = scaleV2;
                     r1tf.gameObject.SetActive(true);
 
-                    Transform r2tf = Instantiate(m_Prefab2D3DResultTf, m_2DResultsSR.content.transform);
+                    Transform r2tf = BundleHandler.Instantiate(m_Prefab2D3DResultTf, m_2DResultsSR.content.transform);
                     r2tf.GetComponent<Result2D3DLuckyNumber>().SetData((long)item["CreateTime"], numbers);
                     r2tf.localScale = scaleV2;
                     r2tf.gameObject.SetActive(true);
 
-                    Transform r3tf = Instantiate(m_Prefab2D3DResultTf, m_3DResultsSR.content.transform);
+                    Transform r3tf = BundleHandler.Instantiate(m_Prefab2D3DResultTf, m_3DResultsSR.content.transform);
                     r3tf.GetComponent<Result2D3DLuckyNumber>().SetData((long)item["CreateTime"], numbers);
                     r3tf.localScale = scaleV2;
                     r3tf.gameObject.SetActive(true);
@@ -182,7 +182,7 @@ public class LuckyNumberView : BaseView
     public void HandleCreateBet(JObject data)
     {
         JObject rawData = JObject.Parse((string)data["data"]);
-        HistoryBetLuckyNumber hbln = Instantiate(m_PrefabBetHistoryTf, m_BetHistorySR.content.transform).GetComponent<HistoryBetLuckyNumber>();
+        HistoryBetLuckyNumber hbln = BundleHandler.Instantiate(m_PrefabBetHistoryTf, m_BetHistorySR.content.transform).GetComponent<HistoryBetLuckyNumber>();
         hbln.SetData((int)rawData["StrNumber"], (int)rawData["ChipsBet"], (int)rawData["Id"], (int)rawData["TypeLottery"]);
         hbln.gameObject.SetActive(true);
         hbln.transform.SetSiblingIndex(0);
@@ -220,7 +220,7 @@ public class LuckyNumberView : BaseView
         JArray rawData = JArray.Parse((string)data["data"]);
         foreach (JToken item in rawData)
         {
-            HistoryWonLuckyNumber hwln = Instantiate(m_PrefabWonHistoryTf, m_WonHistorySR.content.transform).GetComponent<HistoryWonLuckyNumber>();
+            HistoryWonLuckyNumber hwln = BundleHandler.Instantiate(m_PrefabWonHistoryTf, m_WonHistorySR.content.transform).GetComponent<HistoryWonLuckyNumber>();
             hwln.SetData((long)item["CreateTime"], (int)item["StrNumber"], (int)item["ChipsBet"], (int)item["ChipsWin"]);
             hwln.gameObject.SetActive(true);
 

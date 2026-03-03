@@ -1,0 +1,100 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3173936673
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f52f1a578b136f93730fe8278426a568
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e6a32554d661cad82f7fb1d1e8936e0d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 5744825af5162d7bb6a18ae1d5303f7b
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+Assets:
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/scatter/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/freenum/bgrfreespin_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/BtnBuy/skeleton.png
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/wild/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/bgFreeSpin/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/scatter/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bichcorotep/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/scatter/skeleton_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/AJQK/skeleton_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/binh/skeleton.json
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/scatter/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/btnSpin/skeleton_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bichcorotep/skeleton_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/wild/skeleton.json
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/AJQK/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bichcorotep/skeleton.png
+- Assets/Resources/GameView/SlotInca/Anims/BtnBuy/skeleton_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/freenum/bgrfreespin.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bird/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/BtnBuy/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bichcorotep/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/bgFreeSpin/skeleton.json
+- Assets/Resources/GameView/SlotInca/Anims/btnSpin/skeleton.json
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/AJQK/skeleton.png
+- Assets/Resources/GameView/SlotInca/Anims/freenum/bgrfreespin_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/binh/skeleton.png
+- Assets/Resources/GameView/SlotInca/Anims/freenum/bgrfreespin_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/sun/skeleton_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/sun/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/btnSpin/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/bgFreeSpin/skeleton.png
+- Assets/Resources/GameView/SlotInca/Anims/bgFreeSpin/skeleton_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/btnSpin/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bird/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/wild/skeleton.png
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bird/skeleton.png
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/binh/skeleton_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/BtnBuy/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bird/skeleton_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bird/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bird/skeleton.json
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/sun/skeleton.json
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/AJQK/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/bgFreeSpin/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/BtnBuy/skeleton.json
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/sun/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/AJQK/skeleton.json
+- Assets/Resources/GameView/SlotInca/Anims/btnSpin/skeleton.png
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bichcorotep/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/AJQK/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/binh/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/wild/skeleton_Material.mat
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/wild/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/sun/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/BtnBuy/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/binh/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/binh/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotInca/Anims/btnSpin/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/sun/skeleton.png
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/bichcorotep/skeleton.json
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/wild/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotInca/Anims/bgFreeSpin/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/scatter/skeleton.png
+- Assets/Resources/GameView/SlotInca/Anims/SpineIcon/scatter/skeleton.json
+- Assets/Resources/GameView/SlotInca/Anims/freenum/bgrfreespin.json
+- Assets/Resources/GameView/SlotInca/Anims/freenum/bgrfreespin.png
+Dependencies: []

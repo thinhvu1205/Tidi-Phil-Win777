@@ -276,7 +276,7 @@ public class LobbyView : BaseView
             var index = i;
             Texture2D texture = await Config.GetRemoteTexture(urlImg);
             if (texture == null) return;
-            var nodeBanner = Instantiate(bannerTemp).GetComponent<BannerView>();
+            var nodeBanner = BundleHandler.Instantiate(bannerTemp).GetComponent<BannerView>();
 
             nodeBanner.isBannerType9 = true;
 
@@ -524,11 +524,11 @@ public class LobbyView : BaseView
                 case (int)GAMEID.LUCKY9:
                 case (int)GAMEID.PUSOY:
                 case (int)GAMEID.TONGITS_OLD:
-                    item = Instantiate(gameItemObject, m_GamesSR.content).GetComponent<ItemGame>();
+                    item = BundleHandler.Instantiate(gameItemObject, m_GamesSR.content).GetComponent<ItemGame>();
                     item.transform.SetSiblingIndex(0);
                     break;
                 default:
-                    item = Instantiate(gameItemObject, m_MiniGameIconTf).GetComponent<ItemGame>();
+                    item = BundleHandler.Instantiate(gameItemObject, m_MiniGameIconTf).GetComponent<ItemGame>();
 
                     break;
             }
@@ -545,7 +545,7 @@ public class LobbyView : BaseView
             if (!slotGames.Contains(ig.GameId)) continue;
             SkeletonDataAsset bigSlotGameSDA = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + ig.GameId + "-big" + "/skeleton_SkeletonData");
             if (bigSlotGameSDA == null) continue;
-            ItemGame bigSlotIconIG = Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
+            ItemGame bigSlotIconIG = BundleHandler.Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
 
             bigSlotIconIG.name = ig.GameId.ToString();
             bigSlotIconIG.transform.localScale = Vector3.one;

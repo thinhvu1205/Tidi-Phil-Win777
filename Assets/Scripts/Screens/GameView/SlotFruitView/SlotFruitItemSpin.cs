@@ -50,7 +50,7 @@ public class SlotFruitItemSpin : ItemSpinController
         listSprItem[index].gameObject.SetActive(false);
         if (index >= listSpineItem.Count)
         {
-            //itemSpine = Instantiate(animIconPr, transform).GetComponent<SkeletonGraphic>();
+            //itemSpine = BundleHandler.Instantiate(animIconPr, transform).GetComponent<SkeletonGraphic>();
             itemSpine = CollumSpinCtrl.gameView.getAnimIcon(transform).GetComponent<SkeletonGraphic>();
             listSpineItem.Add(itemSpine);
         }

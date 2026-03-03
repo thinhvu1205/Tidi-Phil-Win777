@@ -1,0 +1,63 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 2226174188
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bc9e66b159e75e72d3463bd6e2d2c879
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9c5ed9360926ca5bcd7e8675f5ab974d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 563299556bfc485a3e3de1ff88e4ea11
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials/ReplacementMaterial
+Assets:
+- Assets/Resources/GameView/Lucky 9/Anims/animBigwin/skeleton_Atlas.asset
+- Assets/Resources/GameView/Lucky 9/Anims/animBigwin/skeleton.json
+- Assets/Resources/GameView/Lucky 9/Anims/animHand/bantay_SkeletonData.asset
+- Assets/Resources/GameView/Lucky 9/Anims/lk9/skeleton_Atlas.asset
+- Assets/Resources/GameView/Lucky 9/Anims/animHand/bantay_Atlas.asset
+- Assets/Resources/GameView/Lucky 9/Anims/lk9/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Lucky 9/Anims/animHand/bantay_Material.mat
+- Assets/Resources/GameView/Lucky 9/Anims/animHand/bantay.json
+- Assets/Resources/GameView/Lucky 9/Anims/animHand/bantay.png
+- Assets/Resources/GameView/Lucky 9/Anims/hirit/skeleton.json
+- Assets/Resources/GameView/Lucky 9/Anims/lk9/skeleton_Material.mat
+- Assets/Resources/GameView/Lucky 9/Anims/lk9/skeleton.json
+- Assets/Resources/GameView/Lucky 9/Anims/hirit/skeleton_Atlas.asset
+- Assets/Resources/GameView/Lucky 9/Anims/hirit/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Lucky 9/Anims/animHand/bantay.atlas.txt
+- Assets/Resources/GameView/Lucky 9/Anims/animBigwin/skeleton_Material.mat
+- Assets/Resources/GameView/Lucky 9/Anims/hirit/skeleton.png
+- Assets/Resources/GameView/Lucky 9/Anims/animBigwin/skeleton.atlas.txt
+- Assets/Resources/GameView/Lucky 9/Anims/animBigwin/skeleton.png
+- Assets/Resources/GameView/Lucky 9/Anims/lk9/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Lucky 9/Anims/hirit/skeleton_Material.mat
+- Assets/Resources/GameView/Lucky 9/Anims/hirit/skeleton.atlas.txt
+- Assets/Resources/GameView/Lucky 9/Anims/lk9/skeleton.png
+- Assets/Resources/GameView/Lucky 9/Anims/animBigwin/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Lucky 9/Anims/lk9/skeleton.atlas.txt
+Dependencies: []

@@ -90,7 +90,7 @@ public class ShopView : BaseView
                 }
             }
             if (title.Equals("iap") && iapManager == null) iapManager = new IAPManager(obItem);
-            GameObject btn = Instantiate(btnTab, scrTabs.content);
+            GameObject btn = BundleHandler.Instantiate(btnTab, scrTabs.content);
             Image bkg = btn.transform.Find("Bkg").GetComponent<Image>();
             bkg.transform.localScale = Vector3.one;
             if (i >= arrayData.Count - 1)
@@ -382,7 +382,7 @@ public class ShopView : BaseView
                 }
                 else
                 {
-                    itemTab = Instantiate(scrTabsChannel.content.GetChild(0).gameObject, scrTabsChannel.content.transform);
+                    itemTab = BundleHandler.Instantiate(scrTabsChannel.content.GetChild(0).gameObject, scrTabsChannel.content.transform);
 
                 }
                 itemTab.SetActive(true);
@@ -500,7 +500,7 @@ public class ShopView : BaseView
             }
             else
             {
-                itemS = Instantiate(itemShop, scrContent.content);
+                itemS = BundleHandler.Instantiate(itemShop, scrContent.content);
             }
 
             itemS.SetActive(true);

@@ -30,7 +30,7 @@ public class NodePlayerSicbo : BaseView
         for (int i = 0; i < list_data_player.Count; i++)
         {
             Player objData = list_data_player[i];
-            ItemPlayerSicbo item = Instantiate(item_player, list_player.content).GetComponent<ItemPlayerSicbo>();
+            ItemPlayerSicbo item = BundleHandler.Instantiate(item_player, list_player.content).GetComponent<ItemPlayerSicbo>();
             item.setInfo(objData);
             item.gameObject.SetActive(true);
 

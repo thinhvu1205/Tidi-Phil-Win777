@@ -29,7 +29,7 @@ public class ChatIngameView : BaseView
         {
             string msg = "";
             msg = Globals.Config.getTextConfig(string.Format("chat_text_{0}_{1}", Globals.Config.curGameId, i));
-            var item = Instantiate(itemChatText, scrText.content);
+            var item = BundleHandler.Instantiate(itemChatText, scrText.content);
 
             item.transform.GetComponentInChildren<TextMeshProUGUI>().text = msg;
 
@@ -43,7 +43,7 @@ public class ChatIngameView : BaseView
 
         for (var i = 1; i <= 15; i++)
         {
-            var item = Instantiate(itemChatEmo, scrEmo1.content);
+            var item = BundleHandler.Instantiate(itemChatEmo, scrEmo1.content);
 
             //item.transform.parent = scrEmo2.content;
             item.transform.localScale = Vector3.one;
@@ -62,7 +62,7 @@ public class ChatIngameView : BaseView
         }
         for (var i = 16; i <= 24; i++)
         {
-            var item = Instantiate(itemChatEmo, scrEmo2.content);
+            var item = BundleHandler.Instantiate(itemChatEmo, scrEmo2.content);
             //item.transform.parent = scrEmo1.content;
             item.transform.localScale = Vector3.one;
 

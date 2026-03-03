@@ -110,7 +110,7 @@ public class HistorySabong : BaseView
     {
         if (_Instance == null)
         {
-            _Instance = Instantiate(prefab, parentTf);
+            _Instance = BundleHandler.Instantiate(prefab, parentTf);
             _Instance.transform.localScale = Vector3.one;
             _Instance.transform.localPosition = Vector3.zero;
 

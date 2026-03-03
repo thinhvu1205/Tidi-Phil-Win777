@@ -96,7 +96,7 @@ public class SlotTarzanView : BaseSlotGameView
         payLines = (JArray)dataCtable["payLine"];
         for (int i = 1; i < 5; i++)
         {
-            CollumSpinController col = Instantiate(listCollum[0], collumContainer.transform).GetComponent<CollumSpinController>();
+            CollumSpinController col = BundleHandler.Instantiate(listCollum[0], collumContainer.transform).GetComponent<CollumSpinController>();
 
             col.transform.name = "Collum" + (i + 1);
             if (i == 4)
@@ -583,7 +583,7 @@ public class SlotTarzanView : BaseSlotGameView
         diamondContainer.AddComponent<RectTransform>();
         diamondContainer.transform.SetParent(transform);
         diamondContainer.transform.localScale = Vector3.one;
-        SkeletonGraphic diamond = Instantiate(animBtnSpin.gameObject, diamondContainer.transform).GetComponent<SkeletonGraphic>();
+        SkeletonGraphic diamond = BundleHandler.Instantiate(animBtnSpin.gameObject, diamondContainer.transform).GetComponent<SkeletonGraphic>();
 
         BundleHandler.SetDataForASkeletonGraphic(diamond, "GameView/SlotTarzan/Anims/Diamond/skeleton_SkeletonData.asset", "animation", false);
         diamond.transform.localScale = new Vector2(1f, 1f);
@@ -686,7 +686,7 @@ public class SlotTarzanView : BaseSlotGameView
         //indexChar = 3;
         List<string> listIndex = new List<string> { "J", "U", "N", "G", "L", "E" };
         string CHARACTER_ANIMPATH = "GameView/SlotTarzan/Anims/JungleCharacter/" + listIndex[indexChar] + "/skeleton_SkeletonData";
-        SkeletonGraphic character = Instantiate(animBtnSpin.gameObject, transform).GetComponent<SkeletonGraphic>();
+        SkeletonGraphic character = BundleHandler.Instantiate(animBtnSpin.gameObject, transform).GetComponent<SkeletonGraphic>();
 
         character.skeletonDataAsset = UIManager.instance.loadSkeletonData(CHARACTER_ANIMPATH);
         character.transform.localScale = new Vector2(0.5f, 0.5f);

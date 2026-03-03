@@ -11,8 +11,7 @@ public class SplashScene : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         // https://storage.googleapis.com/bigwinclub-tongits/AssetBundles
-        string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "");
-        // storedUrl = "https://storage.googleapis.com/bigwinclub-tongits/AssetBundles";
+        string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.googleapis.com/bigwinclub-tongits/AssetBundles");
         // storedUrl = "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
 
         m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,

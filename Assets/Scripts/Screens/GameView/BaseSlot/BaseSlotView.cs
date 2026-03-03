@@ -248,7 +248,7 @@ public class BaseSlotView : GameView
                 }
                 else
                 {
-                    obj = Instantiate(coinEffectPrefab, parentCoin).GetComponent<Image>();
+                    obj = BundleHandler.Instantiate(coinEffectPrefab, parentCoin).GetComponent<Image>();
 
                 }
                 obj.gameObject.SetActive(true);
@@ -382,7 +382,7 @@ public class BaseSlotView : GameView
     {
         for (int i = 1; i < 5; i++)
         {
-            CollumController col = Instantiate(listCollum[0], collumContainer.transform).GetComponent<CollumController>();
+            CollumController col = BundleHandler.Instantiate(listCollum[0], collumContainer.transform).GetComponent<CollumController>();
 
             col.transform.name = "ItemCollum" + (i + 1);
             col.collumIndex = i;
@@ -663,7 +663,7 @@ public class BaseSlotView : GameView
     }
     protected void drawLines2(List<Vector2> listPos, Color colorLine)
     {
-        GameObject lineStraight = Instantiate(linePrf, lineContainer.transform);
+        GameObject lineStraight = BundleHandler.Instantiate(linePrf, lineContainer.transform);
 
         lineStraight.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
         //lineStraight.SetActive(false);
@@ -926,7 +926,7 @@ public class BaseSlotView : GameView
         Vector2 lastPos = new Vector2(listPos[listPos.Count - 1].x + 80, listPos[listPos.Count - 1].y);
         listPos.Insert(0, startPos);
         listPos.Add(lastPos);
-        GameObject lineStraight = Instantiate(linePrf, lineContainer.transform);
+        GameObject lineStraight = BundleHandler.Instantiate(linePrf, lineContainer.transform);
 
         RectTransform rt = lineStraight.GetComponent<RectTransform>();
         rt.localPosition = new Vector3(rt.localPosition.x, rt.localPosition.y, 0);
@@ -1260,14 +1260,14 @@ public class BaseSlotView : GameView
     public override void onClickBack()
     {
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.CLICK);
-        var subView = Instantiate(UIManager.instance.loadPrefab("GameView/Objects/GroupMenu"), transform);
+        var subView = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/Objects/GroupMenu"), transform);
 
         subView.transform.localScale = Vector3.one;
 
     }
     public override void onClickRule()
     {
-        GameObject ruleView = Instantiate(rulePr, transform);
+        GameObject ruleView = BundleHandler.Instantiate(rulePr, transform);
 
         SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.CLICK);
     }

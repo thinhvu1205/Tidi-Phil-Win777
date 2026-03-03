@@ -482,7 +482,7 @@ public class Lucky89View : GameView
                         chipTf = childTf;
                         break;
                     }
-                if (chipTf == null) chipTf = Instantiate(m_PrefabChipTf, m_ChipsTf);
+                if (chipTf == null) chipTf = BundleHandler.Instantiate(m_PrefabChipTf, m_ChipsTf);
                 playSound(SOUND_GAME.GET_CHIP);
                 chipTf.gameObject.SetActive(true);
                 chipTf.position = (Vector2)(players.Find(x => x.id == pId).playerView.transform.position) + new Vector2(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f));
@@ -508,7 +508,7 @@ public class Lucky89View : GameView
                         chipTf = childTf;
                         break;
                     }
-                if (chipTf == null) chipTf = Instantiate(m_PrefabChipTf, m_ChipsTf);
+                if (chipTf == null) chipTf = BundleHandler.Instantiate(m_PrefabChipTf, m_ChipsTf);
                 playSound(SOUND_GAME.GET_CHIP);
                 chipTf.gameObject.SetActive(true);
                 chipTf.position = (Vector2)m_DealerPVL89.transform.position;

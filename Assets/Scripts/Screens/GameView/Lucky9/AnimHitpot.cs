@@ -109,7 +109,7 @@ public class AnimHitpot : MonoBehaviour
         for (int index = 0; index < length; index++)
         {
             PlayerData element = listPlayerHitPot[index];
-            Avatar player = Instantiate(avatarNode, layout_Hitpot.transform);
+            Avatar player = BundleHandler.Instantiate(avatarNode, layout_Hitpot.transform);
 
             player.transform.localScale = new Vector3(scale * 1.4f, scale * 1.4f, scale * 1.4f);
             player.gameObject.SetActive(true);

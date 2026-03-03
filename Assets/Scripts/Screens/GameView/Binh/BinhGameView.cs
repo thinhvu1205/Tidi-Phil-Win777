@@ -644,7 +644,7 @@ public class BinhGameView : GameView
                         setPointTotal(players[i], fromPos);
                         setPointTotal(players[id], toPos);
                         StartCoroutine(soundBoom(0.4f));
-                        SkeletonGraphic animation = Instantiate(m_EndSG, transform);
+                        SkeletonGraphic animation = BundleHandler.Instantiate(m_EndSG, transform);
                         animation.gameObject.SetActive(true);
                         animation.transform.localPosition = m_CardsPosV2s[toPos] + new Vector2(0, -60);
                         animation.Initialize(true);
@@ -735,7 +735,7 @@ public class BinhGameView : GameView
                 }
             }
             if (i != 0) await Awaitable.WaitForSecondsAsync(1.9f);
-            SkeletonGraphic animation = Instantiate(m_TankSG, transform);
+            SkeletonGraphic animation = BundleHandler.Instantiate(m_TankSG, transform);
             animation.gameObject.SetActive(true);
             animation.transform.localPosition = posTank;
             if (startPosId == 1 || startPosId == 2) animation.transform.localRotation = Quaternion.Euler(0, 0, 180);
@@ -755,14 +755,14 @@ public class BinhGameView : GameView
     {
         int fromPos = getDynamicIndex(getIndexOf(shooterP)), toPos = getDynamicIndex(getIndexOf(targetP));
         Vector2 tankV2 = m_CardsPosV2s[fromPos] + new Vector2(0, 100), bombV2 = m_CardsPosV2s[toPos] + new Vector2(0, 100);
-        GameObject bomb = Instantiate(m_IconBomb, transform);
+        GameObject bomb = BundleHandler.Instantiate(m_IconBomb, transform);
         bomb.transform.SetSiblingIndex(bomb.transform.parent.childCount - 2);
         bomb.transform.localPosition = tankV2;
         bomb.SetActive(true);
         bomb.transform.DOLocalMove(bombV2, 1f).SetEase(Ease.InOutCubic).OnComplete(() =>
         {
             Destroy(bomb);
-            SkeletonGraphic bombSG = Instantiate(m_BombSG, transform);
+            SkeletonGraphic bombSG = BundleHandler.Instantiate(m_BombSG, transform);
             bombSG.gameObject.SetActive(true);
             bombSG.transform.localPosition = bombV2;
             bombSG.Initialize(true);
@@ -2306,7 +2306,7 @@ public class BinhGameView : GameView
             _CardPoolCs.Remove(cardC);
             cardC.transform.SetParent(m_Cards.transform);
         }
-        else cardC = Instantiate(m_PrefabCardC, m_Cards.transform);
+        else cardC = BundleHandler.Instantiate(m_PrefabCardC, m_Cards.transform);
         cardC.gameObject.SetActive(true);
         return cardC;
     }
@@ -2334,7 +2334,7 @@ public class BinhGameView : GameView
             _ChipPoolCBs.Remove(chipCB);
             chipCB.transform.parent = m_Chips.transform;
         }
-        else chipCB = Instantiate(m_PrefabChipCB, m_Chips.transform);
+        else chipCB = BundleHandler.Instantiate(m_PrefabChipCB, m_Chips.transform);
         chipCB.gameObject.SetActive(true);
         chipCB.transform.localScale = new Vector2(0.5f, 0.5f);
         return chipCB;
@@ -2565,7 +2565,7 @@ public class BinhGameView : GameView
             }
             if (fakeCardC == null)
             {
-                fakeCardC = Instantiate(m_PrefabCardC, m_Cards1.transform);
+                fakeCardC = BundleHandler.Instantiate(m_PrefabCardC, m_Cards1.transform);
                 _FakeCardOnDragCs.Add(fakeCardC);
             }
 

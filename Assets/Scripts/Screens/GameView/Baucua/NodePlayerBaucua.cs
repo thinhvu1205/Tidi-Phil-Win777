@@ -28,7 +28,7 @@ public class NodePlayerBaucua : BaseView
         for (int i = 0; i < list_data_player.Count; i++)
         {
             Player objData = list_data_player[i];
-            ItemPlayerBaucua item = Instantiate(item_player, list_player.content).GetComponent<ItemPlayerBaucua>();
+            ItemPlayerBaucua item = BundleHandler.Instantiate(item_player, list_player.content).GetComponent<ItemPlayerBaucua>();
             item.setInfo(objData);
             item.gameObject.SetActive(true);
 

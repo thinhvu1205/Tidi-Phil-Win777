@@ -63,7 +63,7 @@ public class BinhJackpotView : BaseView
         //for (int i = 0; i < bonusVip.Length; i++)
         //{
         //    string strData = bonusVip[i];
-        //    var item = Instantiate(item_history_jackpot_prefab).GetComponent<ItemRuleJackPot>();
+        //    var item = BundleHandler.Instantiate(item_history_jackpot_prefab).GetComponent<ItemRuleJackPot>();
         //    item.transform.SetParent(scrJackPot.content, false);
         //    item.SetInfo(i, strData);
         //}
@@ -80,7 +80,7 @@ public class BinhJackpotView : BaseView
         for (var i = 0; i < lswin.Count; i++)
         {
             JObject dataPl = (JObject)lswin[i];
-            GameObject item = Instantiate(itemHistory, scrHistoryJackPot.content.transform);
+            GameObject item = BundleHandler.Instantiate(itemHistory, scrHistoryJackPot.content.transform);
 
             long epochTime = (long)dataPl["timeWin"];
             DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(epochTime);

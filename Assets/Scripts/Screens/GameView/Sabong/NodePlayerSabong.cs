@@ -23,7 +23,7 @@ public class NodePlayerSabong : BaseView
         foreach (Transform tf in m_PlayersTf.transform) Destroy(tf.gameObject);
         for (int i = 0; i < DataPs.Count; i++)
         {
-            ItemPlayerSabong ips = Instantiate(m_PrefabPlayerIPS, m_PlayersTf);
+            ItemPlayerSabong ips = BundleHandler.Instantiate(m_PrefabPlayerIPS, m_PlayersTf);
 
             ips.SetData(DataPs[i]);
             ips.gameObject.SetActive(true);
@@ -38,7 +38,7 @@ public class NodePlayerSabong : BaseView
     {
         if (_Instance == null)
         {
-            _Instance = Instantiate(prefab, parentTf);
+            _Instance = BundleHandler.Instantiate(prefab, parentTf);
             _Instance.transform.localScale = Vector3.one;
             _Instance.transform.localPosition = Vector3.zero;
 

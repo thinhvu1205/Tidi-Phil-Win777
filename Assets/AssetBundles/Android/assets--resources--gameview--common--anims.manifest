@@ -1,0 +1,124 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 608846620
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0b196f5dbf57e2091087f61c7287b615
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e6a32554d661cad82f7fb1d1e8936e0d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 77bc445aff4c0132642e373b6e5573c2
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials/ReplacementMaterial
+Assets:
+- Assets/Resources/GameView/Common/Anims/vienbg/skeleton3.png
+- Assets/Resources/GameView/Common/Anims/startgame/skeleton.json
+- Assets/Resources/GameView/Common/Anims/Lose/skeleton.json
+- Assets/Resources/GameView/Common/Anims/freespin/skeleton.png
+- Assets/Resources/GameView/Common/Anims/border/skeleton.png
+- Assets/Resources/GameView/Common/Anims/FiveOfAKind/skeleton.png
+- Assets/Resources/GameView/Common/Anims/border/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Common/Anims/Lose/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/Bigwin/skeleton2.png
+- Assets/Resources/GameView/Common/Anims/Lose/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/newLogin/skeleton_Material.mat
+- Assets/Resources/GameView/Common/Anims/startgame/skeleton.png
+- Assets/Resources/GameView/Common/Anims/Bigwin/skeleton3.png
+- Assets/Resources/GameView/Common/Anims/newLogin/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/startgame/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/Bigwin/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/ReceiveChip/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/NearFreeSpin/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/vienbg/skeleton_skeleton.mat
+- Assets/Resources/GameView/Common/Anims/vienbg/skeleton.json
+- Assets/Resources/GameView/Common/Anims/border/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/startgame/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/newLogin/skeleton.json
+- Assets/Resources/GameView/Common/Anims/freespin/skeleton2.png
+- Assets/Resources/GameView/Common/Anims/FiveOfAKind/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/ReceiveChip/skeleton_Material.mat
+- Assets/Resources/GameView/Common/Anims/newLogin/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/FiveOfAKind/skeleton_skeleton2.mat
+- Assets/Resources/GameView/Common/Anims/freespin/skeleton_skeleton2.mat
+- Assets/Resources/GameView/Common/Anims/NearFreeSpin/skeleton.png
+- Assets/Resources/GameView/Common/Anims/startgame/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Common/Anims/freespin/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/Lose/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/vienbg/skeleton_skeleton2.mat
+- Assets/Resources/GameView/Common/Anims/Lose/skeleton.png
+- Assets/Resources/GameView/Common/Anims/vienbg/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/Bigwin/skeleton_skeleton2.mat
+- Assets/Resources/GameView/Common/Anims/Bigwin/skeleton.json
+- Assets/Resources/GameView/Common/Anims/freespin/skeleton.json
+- Assets/Resources/GameView/Common/Anims/vienbg/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/xocXoc/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/Bigwin/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/border/skeleton.json
+- Assets/Resources/GameView/Common/Anims/NearFreeSpin/skeleton.json
+- Assets/Resources/GameView/Common/Anims/xocXoc/skeleton_Material.mat
+- Assets/Resources/GameView/Common/Anims/vienbg/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/vienbg/skeleton2.png
+- Assets/Resources/GameView/Common/Anims/FiveOfAKind/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/freespin/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/freespin/skeleton_skeleton.mat
+- Assets/Resources/GameView/Common/Anims/freespin/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Common/Anims/newLogin/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/Lose/skeleton_Material.mat
+- Assets/Resources/GameView/Common/Anims/newLogin/skeleton.png
+- Assets/Resources/GameView/Common/Anims/item_vip/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/NearFreeSpin/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/xocXoc/skeleton.png
+- Assets/Resources/GameView/Common/Anims/startgame/skeleton_Material.mat
+- Assets/Resources/GameView/Common/Anims/vienbg/skeleton.png
+- Assets/Resources/GameView/Common/Anims/NearFreeSpin/skeleton_Material.mat
+- Assets/Resources/GameView/Common/Anims/xocXoc/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/vienbg/skeleton_skeleton3.mat
+- Assets/Resources/GameView/Common/Anims/item_vip/skeleton.json
+- Assets/Resources/GameView/Common/Anims/item_vip/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/startgame/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/FiveOfAKind/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/FiveOfAKind/skeleton_skeleton.mat
+- Assets/Resources/GameView/Common/Anims/ReceiveChip/skeleton.json
+- Assets/Resources/GameView/Common/Anims/Bigwin/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/xocXoc/skeleton.json
+- Assets/Resources/GameView/Common/Anims/xocXoc/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/Bigwin/skeleton_skeleton.mat
+- Assets/Resources/GameView/Common/Anims/freespin/skeleton.atlas.txt
+- Assets/Resources/GameView/Common/Anims/item_vip/skeleton.png
+- Assets/Resources/GameView/Common/Anims/freespin/skeleton_Material-Screen.mat
+- Assets/Resources/GameView/Common/Anims/border/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/border/skeleton_Material.mat
+- Assets/Resources/GameView/Common/Anims/FiveOfAKind/skeleton.json
+- Assets/Resources/GameView/Common/Anims/ReceiveChip/skeleton.png
+- Assets/Resources/GameView/Common/Anims/ReceiveChip/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/Bigwin/skeleton_skeleton3.mat
+- Assets/Resources/GameView/Common/Anims/item_vip/skeleton_Material.mat
+- Assets/Resources/GameView/Common/Anims/Bigwin/skeleton.png
+- Assets/Resources/GameView/Common/Anims/NearFreeSpin/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/FiveOfAKind/skeleton2.png
+- Assets/Resources/GameView/Common/Anims/item_vip/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Common/Anims/border/skeleton_Atlas.asset
+- Assets/Resources/GameView/Common/Anims/ReceiveChip/skeleton.atlas.txt
+Dependencies: []

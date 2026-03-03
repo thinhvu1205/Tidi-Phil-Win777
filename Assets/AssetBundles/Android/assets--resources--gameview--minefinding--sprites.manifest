@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 971204864
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 84f1b86dc66d2b2abc2482fad34acb9d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 75a5894fe0f4bb06e307d77c71711e06
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/MineFinding/Sprites/frame.png
+- Assets/Resources/GameView/MineFinding/Sprites/frame_left.png
+- Assets/Resources/GameView/MineFinding/Sprites/bg_rule_content.png
+- Assets/Resources/GameView/MineFinding/Sprites/bg_rule.png
+- Assets/Resources/GameView/MineFinding/Sprites/bg.png
+Dependencies: []

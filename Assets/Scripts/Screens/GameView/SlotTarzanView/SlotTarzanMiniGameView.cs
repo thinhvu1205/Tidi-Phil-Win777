@@ -87,7 +87,7 @@ public class SlotTarzanMiniGameView : BaseView
     }
     public void addPickTurn(SlotTarzanItemBonus item, int value)
     {
-        TextMeshProUGUI lbValueEff = Instantiate(item.lbValue.gameObject, transform).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI lbValueEff = BundleHandler.Instantiate(item.lbValue.gameObject, transform).GetComponent<TextMeshProUGUI>();
 
         lbValueEff.transform.localScale = Vector2.one;
         lbValueEff.transform.localPosition = transform.InverseTransformPoint(item.lbValue.transform.position);

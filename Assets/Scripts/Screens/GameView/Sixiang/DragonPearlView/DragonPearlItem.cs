@@ -66,7 +66,7 @@ public class DragonPearlItem : MonoBehaviour
                             await Task.Delay(TimeSpan.FromSeconds(2.0f), cts_ShowEffectItem.Token);
                             Vector2 posChuTuoc = dragonPearlView.getPosSymbolChuTuoc();
                             Vector2 posItem = dragonPearlView.getPosItem((int)data["col"], (int)data["row"]);
-                            GameObject itemGold = Instantiate(dragonPearlView.itemInitGold, dragonPearlView.transform);
+                            GameObject itemGold = BundleHandler.Instantiate(dragonPearlView.itemInitGold, dragonPearlView.transform);
 
                             itemGold.transform.localPosition = dragonPearlView.transform.InverseTransformPoint(posChuTuoc);
                             itemGold.SetActive(true);

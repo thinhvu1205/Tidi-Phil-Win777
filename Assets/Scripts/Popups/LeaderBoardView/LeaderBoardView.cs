@@ -105,7 +105,7 @@ public class LeaderBoardView : BaseView
                 if (i < listTab.Count) itemTab = listTab[i];
                 else
                 {
-                    itemTab = Instantiate(itemTabGame, scrTab.content).GetComponent<TabView>();
+                    itemTab = BundleHandler.Instantiate(itemTabGame, scrTab.content).GetComponent<TabView>();
 
                     listTab.Add(itemTab);
                 }
@@ -136,7 +136,7 @@ public class LeaderBoardView : BaseView
             if (i == dataTop.Count - 1) continue;
             GameObject itemView;
             if (i < scrollView.content.childCount) itemView = scrollView.content.GetChild(i).gameObject;
-            else itemView = Instantiate(itemViewRank, scrollView.content);
+            else itemView = BundleHandler.Instantiate(itemViewRank, scrollView.content);
             itemView.SetActive(true);
             itemView.GetComponent<ItemTopGame>().setInfo((JObject)dataItem);
         }

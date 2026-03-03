@@ -200,7 +200,7 @@ public class FreeChipView : BaseView
         GameObject item;
         if (freeChipPool.Count < 1)
         {
-            GameObject go = Instantiate(item_free, list_view.content);
+            GameObject go = BundleHandler.Instantiate(item_free, list_view.content);
             freeChipPool.Add(go);
         }
         item = freeChipPool[0];

@@ -1959,7 +1959,7 @@ public class TongitsView : GameView
     }
     public void showNoti(string content)
     {
-        ShowNoti item = Instantiate(m_ShowNotiSN, m_FinishTable.transform);
+        ShowNoti item = BundleHandler.Instantiate(m_ShowNotiSN, m_FinishTable.transform);
 
         item.showContent(content);
         item.transform.localPosition = new Vector2(0, 68);
@@ -2005,7 +2005,7 @@ public class TongitsView : GameView
         if (result.Count > 2)
         {
             Card dumpCard = _DumpedCardCs[_DumpedCardCs.Count - 1];
-            GameObject eatArrow = Instantiate(m_EatArrow, m_Arrows.transform);
+            GameObject eatArrow = BundleHandler.Instantiate(m_EatArrow, m_Arrows.transform);
 
             eatArrow.transform.localPosition = new Vector2(dumpCard.transform.localPosition.x, 140);
             eatArrow.name = "eatArrow";
@@ -2156,7 +2156,7 @@ public class TongitsView : GameView
     }
     void showFightScene(int pId)
     {
-        _FightObjFS = Instantiate(m_FightSceneFS, transform).GetComponent<FightScene>();
+        _FightObjFS = BundleHandler.Instantiate(m_FightSceneFS, transform).GetComponent<FightScene>();
 
         //_FightObjFS.node.zIndex = 100;
         _FightObjFS.transform.localPosition = Vector2.zero;
@@ -2256,7 +2256,7 @@ public class TongitsView : GameView
     public async void showTongitsScene(int pId, List<List<int>> arrC)
     {
         await Task.Delay(300);
-        TongitsScene scene = Instantiate(m_TongitsSceneTS, m_TongitsSceneParent.transform);
+        TongitsScene scene = BundleHandler.Instantiate(m_TongitsSceneTS, m_TongitsSceneParent.transform);
 
         scene.transform.localPosition = Vector2.zero;
         Player player = getPlayerWithID(pId);
@@ -2281,7 +2281,7 @@ public class TongitsView : GameView
         List<Card> listCardTongit = new();
         for (int i = 0; i < tongitsCode.Count; i++)
         {
-            Card cardTemp = Instantiate(m_PrefabCardC, m_TongitsSceneParent.transform);
+            Card cardTemp = BundleHandler.Instantiate(m_PrefabCardC, m_TongitsSceneParent.transform);
 
             cardTemp.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
             Vector3 pos = getPlayerCardPosition(_CardCodes.Count, i);
@@ -2492,7 +2492,7 @@ public class TongitsView : GameView
     {
         for (int i = 0; i < 20; i++)
         {
-            Coin coin = Instantiate(m_CointHitpotC, transform);
+            Coin coin = BundleHandler.Instantiate(m_CointHitpotC, transform);
 
             coin.transform.SetAsLastSibling();
             coin.transform.localPosition = Vector2.zero;
@@ -2551,7 +2551,7 @@ public class TongitsView : GameView
             Player player = getPlayerWithID((int)data[i]["pid"]);
             players.Add(player);
         }
-        FinishTable table = Instantiate(m_ResultTableFT, m_FinishTable.transform);
+        FinishTable table = BundleHandler.Instantiate(m_ResultTableFT, m_FinishTable.transform);
 
         _ResultTableFT = table;
         table.transform.localPosition = Vector3.zero;
@@ -2770,7 +2770,7 @@ public class TongitsView : GameView
     }
     public void showGroupBanner(int groupId)
     {
-        ShowGroupBanner banner = Instantiate(m_GroupBannerSGB, m_Cards.transform);
+        ShowGroupBanner banner = BundleHandler.Instantiate(m_GroupBannerSGB, m_Cards.transform);
         banner.transform.SetAsLastSibling();
         _GroupBannerSGB.Add(banner);
         setInfoGroupBanner(groupId, banner);
@@ -2891,7 +2891,7 @@ public class TongitsView : GameView
     }
     async void showNumbOfCard(int numbCardStack, List<int> numbOfCardPlayer)
     {
-        ShowNumbOfCard item = Instantiate(m_CardNumberSNOC, m_CardNumber.transform);
+        ShowNumbOfCard item = BundleHandler.Instantiate(m_CardNumberSNOC, m_CardNumber.transform);
 
         await Task.Delay(600);
         item.setInfo(numbCardStack, numbOfCardPlayer);
@@ -3251,7 +3251,7 @@ public class TongitsView : GameView
         }
         else
         {
-            card = Instantiate(m_PrefabCardC, m_Cards.transform);
+            card = BundleHandler.Instantiate(m_PrefabCardC, m_Cards.transform);
 
         }
         card.gameObject.SetActive(true);
@@ -3449,7 +3449,7 @@ public class TongitsView : GameView
         float posX = 0f;
         if (minMax.min != null && minMax.max != null)
             posX = ((float)minMax.max + (float)minMax.min) / 2f;
-        GameObject hintScArrow = Instantiate(m_EatArrow, m_Arrows.transform);
+        GameObject hintScArrow = BundleHandler.Instantiate(m_EatArrow, m_Arrows.transform);
 
         hintScArrow.transform.localPosition = new Vector2(posX, posY + 40);
         _HintScArray.Add(hintScArrow);

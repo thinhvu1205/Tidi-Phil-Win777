@@ -89,7 +89,7 @@ public class SoundManager : MonoBehaviour
             }
             else
             {
-                audioSrc = Instantiate(audioEffect);
+                audioSrc = BundleHandler.Instantiate(audioEffect);
                 audioSrc.transform.SetParent(transform);
             }
             audioSrc.Stop();

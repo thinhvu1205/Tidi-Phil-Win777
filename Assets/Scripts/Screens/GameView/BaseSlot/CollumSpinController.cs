@@ -35,11 +35,11 @@ public class CollumSpinController : MonoBehaviour
         if (listItem.Count == 1)
         {
             listItem.Clear();
-            ItemSpinController item2 = Instantiate(itemInit.gameObject, transform).GetComponent<ItemSpinController>();
+            ItemSpinController item2 = BundleHandler.Instantiate(itemInit.gameObject, transform).GetComponent<ItemSpinController>();
             item2.transform.localPosition = new Vector2(itemInit.transform.localPosition.x, itemInit.transform.localPosition.y + itemInit.GetComponent<RectTransform>().sizeDelta.y);
             item2.setRandomData();
 
-            ItemSpinController item3 = Instantiate(itemInit.gameObject, transform).GetComponent<ItemSpinController>();
+            ItemSpinController item3 = BundleHandler.Instantiate(itemInit.gameObject, transform).GetComponent<ItemSpinController>();
             item3.transform.localPosition = new Vector2(itemInit.transform.localPosition.x, itemInit.transform.localPosition.y + 2 * itemInit.GetComponent<RectTransform>().sizeDelta.y);
             item3.setRandomData();
 

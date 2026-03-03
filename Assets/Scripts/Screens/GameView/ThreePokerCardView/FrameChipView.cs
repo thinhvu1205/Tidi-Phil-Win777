@@ -21,7 +21,7 @@ public class FrameChipView : MonoBehaviour
 
         if (isEffect)
         {
-            GameObject effectUp = Instantiate(nodeArrow, transform);
+            GameObject effectUp = BundleHandler.Instantiate(nodeArrow, transform);
             effectUp.transform.localScale = new Vector3(1, 0, 1); // Khởi tạo scale Y bằng 0 (ẩn)
             effectUp.SetActive(true); // Bật hiệu ứng
 

@@ -45,7 +45,7 @@ namespace TS.PageSlider
 #endif
             if (dot == null)
             {
-                dot = Instantiate(_prefab, transform);
+                dot = BundleHandler.Instantiate(_prefab, transform);
 
             }
 

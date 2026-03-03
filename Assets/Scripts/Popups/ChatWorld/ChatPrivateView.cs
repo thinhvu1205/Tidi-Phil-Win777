@@ -177,7 +177,7 @@ public class ChatPrivateView : MonoBehaviour
         }
         else
         {
-            item = Instantiate(itemListFriend, scrListFriend.content);
+            item = BundleHandler.Instantiate(itemListFriend, scrListFriend.content);
             item.transform.localScale = Vector3.one;
 
         }
@@ -271,7 +271,7 @@ public class ChatPrivateView : MonoBehaviour
             }
             else
             {
-                item = Instantiate(itemMessage, scrListMessage.content);
+                item = BundleHandler.Instantiate(itemMessage, scrListMessage.content);
                 item.transform.localScale = Vector3.one;
             }
             item.SetActive(true);
@@ -327,7 +327,7 @@ public class ChatPrivateView : MonoBehaviour
             }
             else
             {
-                itemMess = Instantiate(itemMessage, scrListMessage.content);
+                itemMess = BundleHandler.Instantiate(itemMessage, scrListMessage.content);
                 itemMess.transform.localScale = Vector3.one;
             }
             listMessageData.Add(jsonData);

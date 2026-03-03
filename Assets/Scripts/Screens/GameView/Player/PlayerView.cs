@@ -92,7 +92,7 @@ public class PlayerView : MonoBehaviour
             if (itemVip == null && isOnItemVip)
             {
                 isOnItemVip = false;
-                itemVip = Instantiate(UIManager.instance.loadPrefab("GameView/Objects/ItemVip"), transform);
+                itemVip = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/Objects/ItemVip"), transform);
             }
             var vecPos = itemVip.transform.localPosition;
             var vecPosThis = transform.localPosition;
@@ -182,7 +182,7 @@ public class PlayerView : MonoBehaviour
         {
             if (BkgVip == null)
             {
-                BkgVip = Instantiate(UIManager.instance.loadPrefab("GameView/Objects/BkgItemVip"), UIManager.instance.gameView.transform).transform;
+                BkgVip = BundleHandler.Instantiate(UIManager.instance.loadPrefab("GameView/Objects/BkgItemVip"), UIManager.instance.gameView.transform).transform;
                 //BkgVip.gameObject.SetActive(false);
                 //var bkgItems = itemVip.transform.GetChild(0);
 

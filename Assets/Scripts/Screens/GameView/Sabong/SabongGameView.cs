@@ -615,7 +615,7 @@ public class SabongGameView : GameView
         }
         if (chipTf == null)
         {
-            chipTf = Instantiate(m_ChipTemplateTf, m_ChipsContainerTf);
+            chipTf = BundleHandler.Instantiate(m_ChipTemplateTf, m_ChipsContainerTf);
 
         }
         chipTf.gameObject.SetActive(true);
@@ -719,7 +719,7 @@ public class SabongGameView : GameView
             _AllBetsByOption.Add(0);
             _MyBetsByOption.Add(0);
         }
-        for (int i = 0; i < LIMIT_WIN_HISTORY; i++) Instantiate(m_PrefabWinHistoryTf, m_WinHistoryTf);
+        for (int i = 0; i < LIMIT_WIN_HISTORY; i++) BundleHandler.Instantiate(m_PrefabWinHistoryTf, m_WinHistoryTf);
         _CallAsyncFunction(_ClearTable());
     }
     private class DataResult

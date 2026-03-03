@@ -83,7 +83,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
     }
     public Task Show(SiXiangView SiXiangView)
     {
-        GameObject bottom = Instantiate(SiXiangView.Instance.transform.Find("Bottom").gameObject, transform);
+        GameObject bottom = BundleHandler.Instantiate(SiXiangView.Instance.transform.Find("Bottom").gameObject, transform);
 
         lbWinAmount = bottom.transform.Find("lbTotalWin").GetComponent<TextNumberControl>();
         lbWinAmount.Text = Globals.Config.FormatNumber(SiXiangView.Instance.winAmount);
@@ -276,7 +276,7 @@ public class SiXiangLuckyGoldView : MonoBehaviour
         if (itemPool.Count == 0)
         {
             //itemPool.Add();
-            item = Instantiate(itemGold, itemContainer);
+            item = BundleHandler.Instantiate(itemGold, itemContainer);
 
         }
         else

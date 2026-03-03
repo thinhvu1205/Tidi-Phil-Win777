@@ -72,7 +72,7 @@ public class ExchangeView : BaseView
         foreach (Transform tf in m_HistoryTf) Destroy(tf.gameObject);
         for (int i = 0; i < content.Count; i++)
         {
-            Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
+            Transform tf = BundleHandler.Instantiate(m_PrefabHistoryTf, m_HistoryTf);
             tf.gameObject.SetActive(true);
             tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds((long)content[i]["time"]).DateTime.ToString("dd/MM/yyyy hh:mm:ss tt");
             tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = (string)content[i]["content"];
@@ -102,7 +102,7 @@ public class ExchangeView : BaseView
     }
     public void HandleUpdateHistory(JObject data)
     {
-        Transform tf = Instantiate(m_PrefabHistoryTf, m_HistoryTf);
+        Transform tf = BundleHandler.Instantiate(m_PrefabHistoryTf, m_HistoryTf);
         tf.gameObject.SetActive(true);
         tf.GetChild(0).GetComponent<TextMeshProUGUI>().text = DateTimeOffset.FromUnixTimeMilliseconds((long)data["time"]).DateTime.ToString();
         tf.GetChild(1).GetComponent<TextMeshProUGUI>().text = (string)data["content"];
@@ -154,7 +154,7 @@ public class ExchangeView : BaseView
             string title = (string)obItem["TypeName"];
             string title_img = (string)obItem["title_img"];
 
-            GameObject btn = Instantiate(tabTop, scrTabs.content);
+            GameObject btn = BundleHandler.Instantiate(tabTop, scrTabs.content);
 
             var bkg = btn.transform.Find("Bkg").GetComponent<Image>();
             bkg.sprite = spTab[(i == 0 || i >= arrayData.Count - 1) ? 0 : 1];
@@ -225,7 +225,7 @@ public class ExchangeView : BaseView
             string title = (string)obItem["TypeName"];
             string title_img = (string)obItem["title_img"];
 
-            GameObject btn = Instantiate(tabTop, scrTabsHis.content);
+            GameObject btn = BundleHandler.Instantiate(tabTop, scrTabsHis.content);
 
 
             var bkg = btn.transform.Find("Bkg").GetComponent<Image>();
@@ -378,7 +378,7 @@ public class ExchangeView : BaseView
             for (var i = 0; i < items.Count; i++)
             {
                 JObject dt = (JObject)items[i];
-                GameObject item = i < parent.childCount ? parent.GetChild(i).gameObject : Instantiate(isAgency ? itemAgency : itemEx, parent);
+                GameObject item = i < parent.childCount ? parent.GetChild(i).gameObject : BundleHandler.Instantiate(isAgency ? itemAgency : itemEx, parent);
                 if (isAgency) item.GetComponent<ItemAgency>().setInfo(dt);
                 else item.GetComponent<ItemEx>().setInfo(dt, () => onChooseCashOut((int)dt["ag"], (int)dt["m"]));
                 item.SetActive(true);
@@ -442,7 +442,7 @@ public class ExchangeView : BaseView
                 }
                 else
                 {
-                    objItem = Instantiate(itemHistory, scrContentHistory.content);
+                    objItem = BundleHandler.Instantiate(itemHistory, scrContentHistory.content);
 
                 }
                 objItem.SetActive(true);

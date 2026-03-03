@@ -22,7 +22,7 @@ public class TableHistory : MonoBehaviour
         ListHistoryData = ListHistoryData1;
         if (ListHistoryData.Count != 0)
         {
-    
+
             m_BorderGold.SetActive(true);
         }
         foreach (Transform child in m_ContentScoll)
@@ -37,7 +37,7 @@ public class TableHistory : MonoBehaviour
             {
                 break;
             }
-            GameObject item = Instantiate(m_ItemHistory, m_ContentScoll);
+            GameObject item = BundleHandler.Instantiate(m_ItemHistory, m_ContentScoll);
             item.SetActive(true);
             ItemHistory itemHistory = item.GetComponent<ItemHistory>();
             itemHistory.SetSquarabet(ListHistoryData[i]);

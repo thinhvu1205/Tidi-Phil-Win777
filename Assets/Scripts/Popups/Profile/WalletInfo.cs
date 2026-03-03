@@ -42,7 +42,7 @@ public class WalletInfo : MonoBehaviour
             }
             else
             {
-                itemWal = Instantiate(itemWallet, itemWalletContainer.transform);
+                itemWal = BundleHandler.Instantiate(itemWallet, itemWalletContainer.transform);
 
             }
             itemWal.GetComponent<WalletItem>().setInfo(dataWallet, i);
