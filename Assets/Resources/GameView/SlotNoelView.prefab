@@ -560,6 +560,7 @@ GameObject:
   - component: {fileID: 5898814244997334681}
   - component: {fileID: 1376273388271733712}
   - component: {fileID: 7082908226005170463}
+  - component: {fileID: 2511181580300315379}
   m_Layer: 0
   m_Name: animFreeSpinNum
   m_TagString: Untagged
@@ -641,6 +642,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &2511181580300315379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819448219083924844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotnoel--anims
+  AssetName: Assets/Resources/GameView/SlotNoel/Anims/freenum/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1875881926203628725
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +674,7 @@ GameObject:
   - component: {fileID: 3882354192127600075}
   - component: {fileID: 3105089278934420252}
   - component: {fileID: 6391785146335815065}
+  - component: {fileID: 1293575317420602162}
   m_Layer: 0
   m_Name: anim
   m_TagString: Untagged
@@ -740,6 +763,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &1293575317420602162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875881926203628725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotnoel--anims
+  AssetName: Assets/Resources/GameView/SlotNoel/Anims/btnSpin/skeleton_SkeletonData.asset
+  AnimName: autospin
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2032976281616840851
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +830,7 @@ GameObject:
   - component: {fileID: 4952680651283407485}
   - component: {fileID: 562382182251785081}
   - component: {fileID: 7359574063260340845}
+  - component: {fileID: 506980484039472083}
   m_Layer: 0
   m_Name: bgFreeSpin
   m_TagString: Untagged
@@ -868,6 +913,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &506980484039472083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087501118846006046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--anims
+  AssetName: Assets/Resources/GameView/Common/Anims/vienbg/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2295180026118901318
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +945,7 @@ GameObject:
   - component: {fileID: 296974750307628041}
   - component: {fileID: 881888584875423361}
   - component: {fileID: 2638148170691024302}
+  - component: {fileID: 2650537697325237613}
   m_Layer: 0
   m_Name: animBg
   m_TagString: Untagged
@@ -959,6 +1026,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &2650537697325237613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295180026118901318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotnoel--anims
+  AssetName: Assets/Resources/GameView/SlotNoel/Anims/bg2/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2309422697532680392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,6 +1133,7 @@ GameObject:
   - component: {fileID: 832947159066754496}
   - component: {fileID: 6196022676944471928}
   - component: {fileID: 378055596670457045}
+  - component: {fileID: 3859222072690273263}
   m_Layer: 0
   m_Name: animChipBay
   m_TagString: Untagged
@@ -1125,6 +1214,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &3859222072690273263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2484708007449008308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--anims
+  AssetName: Assets/Resources/GameView/Common/Anims/ReceiveChip/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3826524472008515746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2373,7 @@ GameObject:
   - component: {fileID: 472614604017305766}
   - component: {fileID: 5217639520707167280}
   - component: {fileID: 844590076313528282}
+  - component: {fileID: 4741273542099052457}
   m_Layer: 0
   m_Name: animTopBar
   m_TagString: Untagged
@@ -2343,6 +2454,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &4741273542099052457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920792732830350663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotnoel--anims
+  AssetName: Assets/Resources/GameView/SlotNoel/Anims/thanhNgang/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6972755679573630725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,6 +2872,7 @@ GameObject:
   - component: {fileID: 1786741631296276479}
   - component: {fileID: 7607310584644966176}
   - component: {fileID: 2528815438149725533}
+  - component: {fileID: 4404418749754679355}
   m_Layer: 5
   m_Name: bgSpin
   m_TagString: Untagged
@@ -2804,6 +2937,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4404418749754679355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742139332487600480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotnoel--sprites
+  AssetName: Assets/Resources/GameView/SlotNoel/Sprites/bgr02.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7759958421483887272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3889,7 +4043,6 @@ GameObject:
   - component: {fileID: 7759958421904687364}
   - component: {fileID: 7759958421904687366}
   - component: {fileID: 7759958421904687367}
-  - component: {fileID: 3570924299300281760}
   m_Layer: 5
   m_Name: sprStateWin
   m_TagString: Untagged
@@ -3954,25 +4107,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3570924299300281760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7759958421904687365}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  key: 
-  sprites:
-  - {fileID: 21300000, guid: b044ba1f744624021965d12eccf11983, type: 3}
-  - {fileID: 21300000, guid: 1a0883271f5227c49871ca7408cb440a, type: 3}
-  animName: []
-  isUpper: 0
 --- !u!1 &7759958422008148227
 GameObject:
   m_ObjectHideFlags: 0
@@ -5529,7 +5663,6 @@ GameObject:
   - component: {fileID: 7759958423589938457}
   - component: {fileID: 7759958423589938438}
   - component: {fileID: 7759958423589938439}
-  - component: {fileID: 5695123585924595612}
   m_Layer: 5
   m_Name: btnMaxBet
   m_TagString: Untagged
@@ -5650,25 +5783,6 @@ MonoBehaviour:
           m_StringArgument: maxbet
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5695123585924595612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7759958423589938437}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  key: 
-  sprites:
-  - {fileID: 21300000, guid: d46e8f569e5f44991873c9dbd372a9a8, type: 3}
-  - {fileID: 21300000, guid: 2bdd02ebf3d689d4da34c202a1e8a7ab, type: 3}
-  animName: []
-  isUpper: 0
 --- !u!1 &7759958423619825835
 GameObject:
   m_ObjectHideFlags: 0
@@ -6047,6 +6161,7 @@ GameObject:
   - component: {fileID: 8897432744556791877}
   - component: {fileID: 327320747923743983}
   - component: {fileID: 4644033564283776256}
+  - component: {fileID: 2531279295238910688}
   m_Layer: 0
   m_Name: animBtnShop
   m_TagString: Untagged
@@ -6127,6 +6242,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &2531279295238910688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8495798484187764015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotnoel--anims
+  AssetName: Assets/Resources/GameView/SlotNoel/Anims/ButtonShop/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8752240799704801043
 GameObject:
   m_ObjectHideFlags: 0
@@ -6470,12 +6606,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 6233402618920365087}
-  BundleLabel: assets--resources--gameview--slotspine
-  AssetName: Assets/Resources/GameView/SlotSpine/NearFreeSpin/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--anims
+  AssetName: Assets/Resources/GameView/Common/Anims/NearFreeSpin/skeleton_SkeletonData.asset
   AnimName: animation
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0

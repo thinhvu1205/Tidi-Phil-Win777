@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 9220095067032668606}
   - component: {fileID: 8374437402837361896}
   - component: {fileID: 4746282378020668784}
+  - component: {fileID: 2676159828154405040}
   m_Layer: 5
   m_Name: anim_hitpot
   m_TagString: Untagged
@@ -600,6 +601,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &2676159828154405040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584246677307852462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--tongits--anims
+  AssetName: Assets/Resources/GameView/Tongits/Anims/ruong/skeleton_SkeletonData.asset
+  AnimName: stay
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1638724279669012365
 GameObject:
   m_ObjectHideFlags: 0
@@ -5648,6 +5670,7 @@ GameObject:
   - component: {fileID: 4518580081359557469}
   - component: {fileID: 2963332758519577583}
   - component: {fileID: 2066236593796499135}
+  - component: {fileID: 5954484678445375252}
   m_Layer: 5
   m_Name: eff
   m_TagString: Untagged
@@ -5734,6 +5757,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &5954484678445375252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570111320611994191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--binh--anims
+  AssetName: Assets/Resources/GameView/Binh/Anims/startgame/skeleton_SkeletonData.asset
+  AnimName: start
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7679073021039190381
 GameObject:
   m_ObjectHideFlags: 0
@@ -6335,6 +6379,7 @@ GameObject:
   - component: {fileID: 1302265436791911980}
   - component: {fileID: 7633503323637851763}
   - component: {fileID: 2785223930427221494}
+  - component: {fileID: 3727273125747602645}
   m_Layer: 5
   m_Name: Bg
   m_TagString: Untagged
@@ -6406,6 +6451,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3727273125747602645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473877426745198907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--sprites
+  AssetName: Assets/Resources/GameView/Common/Sprites/bg2.jpg
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8535021975612427891
 GameObject:
   m_ObjectHideFlags: 0
@@ -6874,6 +6940,7 @@ GameObject:
   - component: {fileID: 7245708461596812547}
   - component: {fileID: 5243106951645804721}
   - component: {fileID: 5555543459081419031}
+  - component: {fileID: 7592704347391536832}
   m_Layer: 5
   m_Name: skeleton
   m_TagString: Untagged
@@ -6954,6 +7021,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &7592704347391536832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9118261967144388689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--tongits--anims
+  AssetName: Assets/Resources/GameView/Tongits/Anims/receive chip dailybonus/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1001 &7512821700834791891
 PrefabInstance:
   m_ObjectHideFlags: 0

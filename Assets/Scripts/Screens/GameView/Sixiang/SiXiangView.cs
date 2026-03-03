@@ -25,7 +25,6 @@ public class SiXiangView : BaseSlotView
     [SerializeField] private List<Material> materialPeals = new();
     [SerializeField] private GameObject bgQuay, bgGameGoldPick;
     [SerializeField] private SkeletonGraphic animCutScene, bgGame, animNameGame, animAnimal;
-    [SerializeField] private SkeletonDataAsset animBgNormal;
     [SerializeField] private SiXiangDragonPearlView DragonPearlView;
     [SerializeField] private SixiangChooseGameBonus ChooseGameBonus;
 
@@ -45,6 +44,7 @@ public class SiXiangView : BaseSlotView
     private const string PATH_ANIM_BACHHO = "GameView/SiXiang/Spine/Animal/Tiger/skeleton_SkeletonData";
     private const string PATH_ANIM_HUYENVU = "GameView/SiXiang/Spine/Animal/Phoenix/skeleton_SkeletonData";
     private const string PATH_ANIM_WINRESULT_DP = "GameView/SiXiang/Spine/BigWinGoldPick/skeleton_SkeletonData";
+    private const string ANIM_BG = "GameView/SiXiang/Spine/BgGame/skeleton_SkeletonData.asset";
 
     public override void OnDestroy()
     {
@@ -82,9 +82,7 @@ public class SiXiangView : BaseSlotView
     {
         base.Awake();
         Instance = this;
-        bgGame.skeletonDataAsset = animBgNormal;
-        bgGame.Initialize(true);
-        bgGame.AnimationState.SetAnimation(0, "animation", true);
+        BundleHandler.SetDataForASkeletonGraphic(bgGame, ANIM_BG, "animation", true);
         //        {
         //            "tableid": 26423,
         //  "curGameID": 8818,
@@ -615,9 +613,7 @@ public class SiXiangView : BaseSlotView
         //{
         showEffectChip();
         //}
-        bgGame.skeletonDataAsset = animBgNormal;
-        bgGame.Initialize(true);
-        bgGame.AnimationState.SetAnimation(0, "animation", true);
+        BundleHandler.SetDataForASkeletonGraphic(bgGame, ANIM_BG, "animation", true);
         isBonusGame = getBool(data, "isSelectBonusGame");
         if (isBonusGame)
         {
@@ -785,9 +781,7 @@ public class SiXiangView : BaseSlotView
         }
         else
         {
-            bgGame.skeletonDataAsset = animBgNormal;
-            bgGame.Initialize(true);
-            bgGame.AnimationState.SetAnimation(0, "animation", true);
+            BundleHandler.SetDataForASkeletonGraphic(bgGame, ANIM_BG, "animation", true);
         }
         collumContainer.SetActive(isShow);
 

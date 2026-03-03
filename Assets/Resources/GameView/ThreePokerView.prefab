@@ -6130,6 +6130,7 @@ GameObject:
   - component: {fileID: 6440140494222423321}
   - component: {fileID: 3773567315469759815}
   - component: {fileID: 4998529924724709330}
+  - component: {fileID: 1192192093473918691}
   m_Layer: 5
   m_Name: ThreePokerView
   m_TagString: Untagged
@@ -6216,7 +6217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4104100140927242898, guid: 4982ad87e5cb18a4b84e77eca03210a4, type: 3}
+  m_Sprite: {fileID: -4364034832326165938, guid: a0580eee8a9d78f4ca0bbd0421721216, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6309,6 +6310,27 @@ MonoBehaviour:
   - {fileID: 8210513455972732903}
   - {fileID: 5309969742243397617}
   m_JackpotAnimA: {fileID: 8625648517479989317}
+--- !u!114 &1192192093473918691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496233192838722677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--sprites
+  AssetName: Assets/Resources/GameView/Common/Sprites/bg1.jpg
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6615231664980767071
 GameObject:
   m_ObjectHideFlags: 0
@@ -6966,6 +6988,7 @@ GameObject:
   - component: {fileID: 7259947224055535387}
   - component: {fileID: 7970126354588634953}
   - component: {fileID: 4899947784801507864}
+  - component: {fileID: 4308994574278837690}
   m_Layer: 5
   m_Name: rule
   m_TagString: Untagged
@@ -7033,6 +7056,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4308994574278837690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7085195601051108439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--threepoker--sprites
+  AssetName: Assets/Resources/GameView/ThreePoker/Sprites/bg_popup_slide.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7105418069774869165
 GameObject:
   m_ObjectHideFlags: 0

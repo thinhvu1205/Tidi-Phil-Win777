@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 7050467666241733367}
   - component: {fileID: 5443733477274996367}
   - component: {fileID: 5137735559394669985}
+  - component: {fileID: 2172628435299167983}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -341,6 +342,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2172628435299167983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423804916879751725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotjuicygarden--sprites
+  AssetName: Assets/Resources/GameView/SlotJuicyGarden/Sprites/5.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1972259644607277044
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +514,7 @@ GameObject:
   - component: {fileID: 2265059526552692848}
   - component: {fileID: 535308697661705934}
   - component: {fileID: 7025298673473349932}
+  - component: {fileID: 7945686923844866127}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -561,6 +584,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7945686923844866127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3145710660268764477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotjuicygarden--sprites
+  AssetName: Assets/Resources/GameView/SlotJuicyGarden/Sprites/pop.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &3310229156753745601
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,14 +766,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 667311c19a55a4ac68b6b372c2cb8af0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -828,6 +872,7 @@ GameObject:
   - component: {fileID: 3482173145499973831}
   - component: {fileID: 7063771995370882425}
   - component: {fileID: 7441377774119104903}
+  - component: {fileID: 2497610004065122000}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -892,6 +937,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2497610004065122000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4112784737856305871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotjuicygarden--sprites
+  AssetName: Assets/Resources/GameView/SlotJuicyGarden/Sprites/4.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4495699188366963872
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,6 +1019,7 @@ GameObject:
   - component: {fileID: 755067350371033917}
   - component: {fileID: 6729003567511058644}
   - component: {fileID: 1999480785587489007}
+  - component: {fileID: 17471158230031390}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1017,6 +1084,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &17471158230031390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515561414949434698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotjuicygarden--sprites
+  AssetName: Assets/Resources/GameView/SlotJuicyGarden/Sprites/2.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4530792693767805649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,6 +1430,7 @@ GameObject:
   - component: {fileID: 4537120901879437662}
   - component: {fileID: 1128504133276984136}
   - component: {fileID: 3585699409294607634}
+  - component: {fileID: 5290144978298465989}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1406,6 +1495,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5290144978298465989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176193921467884433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotjuicygarden--sprites
+  AssetName: Assets/Resources/GameView/SlotJuicyGarden/Sprites/3.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6534725269473700874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,6 +1741,7 @@ GameObject:
   - component: {fileID: 2952643333771888058}
   - component: {fileID: 5284352468440198728}
   - component: {fileID: 7089705713973961707}
+  - component: {fileID: 8118687620442335787}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1695,6 +1806,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8118687620442335787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339082183574659650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--slotjuicygarden--sprites
+  AssetName: Assets/Resources/GameView/SlotJuicyGarden/Sprites/1.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7493253510953191352
 GameObject:
   m_ObjectHideFlags: 0

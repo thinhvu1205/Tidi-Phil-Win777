@@ -27,17 +27,17 @@ public class SlotJuicyGardenView : BaseSlotGameView
     private int rateJPGrand = 0, rateJPMajor = 0, rateJPMinor = 0, rateJPMini = 0, totalFreeSpinGet;
     private long valueJPGrand = 0, valueJPMajor = 0, valueJPMinor = 0, valueJPMini = 0, jpGrandPlayer = 0, jpMajorPlayer = 0, totalPackageValue = 0;
 
-    protected string BGMONEYPACKAGE_ANIMPATH = "GameView/SlotSpine/JuicyGarden/EffectPackage/skeleton_SkeletonData";
-    protected string RESULT_BONUSGAME_ANIMPATH = "GameView/SlotSpine/JuicyGarden/EndGame/skeleton_SkeletonData";
-    protected string JACKPOT_ANIMPATH = "GameView/SlotSpine/JuicyGarden/Jackpot/skeleton_SkeletonData";
+    protected string BGMONEYPACKAGE_ANIMPATH = "GameView/SlotJuicyGarden/Anims/EffectPackage/skeleton_SkeletonData";
+    protected string RESULT_BONUSGAME_ANIMPATH = "GameView/SlotJuicyGarden/Anims/EndGame/skeleton_SkeletonData";
+    protected string JACKPOT_ANIMPATH = "GameView/SlotJuicyGarden/Anims/Jackpot/skeleton_SkeletonData";
 
     protected override void Awake()
     {
         base.Awake();
-        FREESPIN_ANIMPATH = "GameView/SlotSpine/JuicyGarden/AnimBox/skeleton_SkeletonData";
-        ANIM_BG_FREESPIN = "GameView/SlotSpine/JuicyGarden/BgFreeSpin/skeleton_SkeletonData";
-        BIGWIN_ANIMPATH = "GameView/SlotSpine/JuicyGarden/big_megawinJuicy/skeleton_SkeletonData";
-        MEGAWIN_ANIMPATH = "GameView/SlotSpine/JuicyGarden/big_megawinJuicy/skeleton_SkeletonData";
+        FREESPIN_ANIMPATH = "GameView/SlotJuicyGarden/Anims/AnimBox/skeleton_SkeletonData";
+        ANIM_BG_FREESPIN = "GameView/SlotJuicyGarden/Anims/BgFreeSpin/skeleton_SkeletonData";
+        BIGWIN_ANIMPATH = "GameView/SlotJuicyGarden/Anims/big_megawinJuicy/skeleton_SkeletonData";
+        MEGAWIN_ANIMPATH = "GameView/SlotJuicyGarden/Anims/big_megawinJuicy/skeleton_SkeletonData";
         RECT_SIZE = new Vector2(120, 120);
     }
     public override void handleCTable(string data)

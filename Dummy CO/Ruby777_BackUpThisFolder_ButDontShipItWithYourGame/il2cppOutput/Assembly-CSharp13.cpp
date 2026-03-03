@@ -6700,7 +6700,7 @@ inline Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E *List_1_get_Item_m6C59436
 // T System.Collections.Generic.List`1<System.Int32>::get_Item(System.Int32)
 inline int32_t List_1_get_Item_mD99081BEFA1AB3526715F489192B0F7F596C183D(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *__this, int32_t ___index0, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *, int32_t, const RuntimeMethod *))List_1_get_Item_mD99081BEFA1AB3526715F489192B0F7F596C183D_gshared)(__this, ___index0, method);
+	return ((int32_t (*)(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *, int32_t, const RuntimeMethod *))List_1_get_Item_mD99081BEFA1AB3526715F489192B0F7F596C183D_gshared)(__this, ___index0, method);
 }
 // T System.Collections.Generic.List`1<UnityEngine.Sprite>::get_Item(System.Int32)
 inline Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99 *List_1_get_Item_m9F1FC9C6704A2B80B7E5AD5B3A8C88FAF4D55354(List_1_t7BE9C297880B5B41D1E6B89174D4394BF535D206 *__this, int32_t ___index0, const RuntimeMethod *method)
@@ -6721,17 +6721,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RectTransform_set_sizeDelta_mC9A980EA603
 // System.Int32 System.Collections.Generic.List`1<System.Int32>::get_Count()
 inline int32_t List_1_get_Count_mF590592E32D421DE2C6E2F0D5C2F62FB14CCEFDF_inline(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *__this, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *, const RuntimeMethod *))List_1_get_Count_mF590592E32D421DE2C6E2F0D5C2F62FB14CCEFDF_gshared_inline)(__this, method);
+	return ((int32_t (*)(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *, const RuntimeMethod *))List_1_get_Count_mF590592E32D421DE2C6E2F0D5C2F62FB14CCEFDF_gshared_inline)(__this, method);
 }
 // System.Int32 System.Collections.Generic.List`1<UnityEngine.Sprite>::get_Count()
 inline int32_t List_1_get_Count_mF949A7522EA5DF1109EDAD6E4D8454EFDC54B63F_inline(List_1_t7BE9C297880B5B41D1E6B89174D4394BF535D206 *__this, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t7BE9C297880B5B41D1E6B89174D4394BF535D206 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
+	return ((int32_t (*)(List_1_t7BE9C297880B5B41D1E6B89174D4394BF535D206 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
 }
 // System.Int32 System.Collections.Generic.List`1<Spine.Unity.SkeletonGraphic>::get_Count()
 inline int32_t List_1_get_Count_mFA98E78F65693F0FE3BF991DE9A240C4EFB215D5_inline(List_1_t16B609D6D4E5AEED0DA30191AE22205B0C8B86E8 *__this, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t16B609D6D4E5AEED0DA30191AE22205B0C8B86E8 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
+	return ((int32_t (*)(List_1_t16B609D6D4E5AEED0DA30191AE22205B0C8B86E8 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
 }
 // UnityEngine.GameObject BaseSlotGameView::getAnimIcon(UnityEngine.Transform)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F *BaseSlotGameView_getAnimIcon_mED2254444CDC06B5AA35DCA68E757993B9FCF4AB(BaseSlotGameView_t62518382CE7D9844F3A5EB53BC065042A2EC1BD5 *__this, Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1 *___parent0, const RuntimeMethod *method);
@@ -6830,7 +6830,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BaseSlotGameView_nextColStop_mE69765C576
 // System.Int32 System.Collections.Generic.List`1<System.Int32>::IndexOf(T)
 inline int32_t List_1_IndexOf_mC3D1A2CECAC0E3D42C78B43772E1BD3D0333C450(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *__this, int32_t ___item0, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *, int32_t, const RuntimeMethod *))List_1_IndexOf_mC3D1A2CECAC0E3D42C78B43772E1BD3D0333C450_gshared)(__this, ___item0, method);
+	return ((int32_t (*)(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *, int32_t, const RuntimeMethod *))List_1_IndexOf_mC3D1A2CECAC0E3D42C78B43772E1BD3D0333C450_gshared)(__this, ___item0, method);
 }
 // UnityEngine.Vector2 ItemSpinController::getPositionItem(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ItemSpinController_getPositionItem_mCAD163A58B53CF164DCA0A4D51E1CFA7D3A382AA(ItemSpinController_tF00D6F43B2533812A576426E738094E2CAF55E22 *__this, int32_t ___index0, const RuntimeMethod *method);
@@ -6934,7 +6934,7 @@ inline void List_1_Add_m0940F9945EDAEF6E506FB5149DB6DC81949A71B8_inline(List_1_t
 // System.Int32 System.Collections.Generic.List`1<Newtonsoft.Json.Linq.JObject>::get_Count()
 inline int32_t List_1_get_Count_m8B31132D02939777381DB9700AAE4D03F2077749_inline(List_1_t2E3C71068DC0F9AFAB779FC53B0867ABE42CE4CF *__this, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t2E3C71068DC0F9AFAB779FC53B0867ABE42CE4CF *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
+	return ((int32_t (*)(List_1_t2E3C71068DC0F9AFAB779FC53B0867ABE42CE4CF *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
 }
 // T System.Collections.Generic.List`1<Newtonsoft.Json.Linq.JObject>::get_Item(System.Int32)
 inline JObject_t22BBBA7A90517B7E66E8C9D8D16DE84CB5054DE1 *List_1_get_Item_mE1981397113FCFF6E215D3E539C1EA5547F5254F(List_1_t2E3C71068DC0F9AFAB779FC53B0867ABE42CE4CF *__this, int32_t ___index0, const RuntimeMethod *method)
@@ -6988,7 +6988,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BaseView__ctor_m8E5856BBA4CE9EDF39878C41
 // System.Int32 System.Collections.Generic.List`1<SlotTarzanItemBonus>::IndexOf(T)
 inline int32_t List_1_IndexOf_mB0B77F0B56F9573DB8B3311B098768127ED92A66(List_1_t421AEDC369F22ED24078FB3D1243EF4AB857504D *__this, SlotTarzanItemBonus_tBAD238B474E66806D73C82F18845D24946BBBD18 *___item0, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t421AEDC369F22ED24078FB3D1243EF4AB857504D *, SlotTarzanItemBonus_tBAD238B474E66806D73C82F18845D24946BBBD18 *, const RuntimeMethod *))List_1_IndexOf_m378F61BA812B79DEE58D86FE8AA9F20E3FC7D85F_gshared)(__this, ___item0, method);
+	return ((int32_t (*)(List_1_t421AEDC369F22ED24078FB3D1243EF4AB857504D *, SlotTarzanItemBonus_tBAD238B474E66806D73C82F18845D24946BBBD18 *, const RuntimeMethod *))List_1_IndexOf_m378F61BA812B79DEE58D86FE8AA9F20E3FC7D85F_gshared)(__this, ___item0, method);
 }
 // System.Void UnityEngine.Object::Destroy(UnityEngine.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object_Destroy_mFCDAE6333522488F60597AF019EA90BB1207A5AA(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C *___obj0, const RuntimeMethod *method);
@@ -7182,7 +7182,7 @@ inline List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *List_1_get_Item_mE36D65
 // System.Int32 System.Collections.Generic.List`1<CollumSpinController>::get_Count()
 inline int32_t List_1_get_Count_mD7DAB6A17AC24AA07B43F9E3001F611ADBED3FA1_inline(List_1_t840997F26448B7B94CB50B120ACE303A92122062 *__this, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t840997F26448B7B94CB50B120ACE303A92122062 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
+	return ((int32_t (*)(List_1_t840997F26448B7B94CB50B120ACE303A92122062 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
 }
 // System.Void System.Collections.Generic.List`1<DG.Tweening.TweenCallback>::Add(T)
 inline void List_1_Add_mB47015F4136FF8033380BC717C0BE24322C279CD_inline(List_1_t6EF58ECBFCFA6FA99AC1281CE3A14BB083B08524 *__this, TweenCallback_t7C8B8A38E7B30905FF1B83C943256EF23617BB24 *___item0, const RuntimeMethod *method)
@@ -7192,12 +7192,12 @@ inline void List_1_Add_mB47015F4136FF8033380BC717C0BE24322C279CD_inline(List_1_t
 // System.Int32 System.Collections.Generic.List`1<UnityEngine.Vector2>::get_Count()
 inline int32_t List_1_get_Count_mF1C0C56457C655BDFFC6EE5B46FAD8BAEC1F588B_inline(List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B *__this, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B *, const RuntimeMethod *))List_1_get_Count_mF1C0C56457C655BDFFC6EE5B46FAD8BAEC1F588B_gshared_inline)(__this, method);
+	return ((int32_t (*)(List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B *, const RuntimeMethod *))List_1_get_Count_mF1C0C56457C655BDFFC6EE5B46FAD8BAEC1F588B_gshared_inline)(__this, method);
 }
 // System.Int32 System.Collections.Generic.List`1<System.Collections.Generic.List`1<System.Int32>>::get_Count()
 inline int32_t List_1_get_Count_mE814C5617982FD5D7A3BDCA8C111F2CF81AAA492_inline(List_1_tB5A0E21D0A7C39DF93D616FD5B94C4737A083E35 *__this, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_tB5A0E21D0A7C39DF93D616FD5B94C4737A083E35 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
+	return ((int32_t (*)(List_1_tB5A0E21D0A7C39DF93D616FD5B94C4737A083E35 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
 }
 // System.Int64 GameView::getLong(Newtonsoft.Json.Linq.JObject,System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t GameView_getLong_m4B6F62BEE1CA5B4F470EB4BFDAE0C66E0B42A3BE(GameView_tBFEC60F6B097C1192E12C0F11284EF9052C091B0 *__this, JObject_t22BBBA7A90517B7E66E8C9D8D16DE84CB5054DE1 *___data0, String_t *___propertyName1, const RuntimeMethod *method);
@@ -7238,7 +7238,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Image_get_fillAmount_mDEE52
 // System.Int32 System.Collections.Generic.List`1<UnityEngine.UI.Image>::IndexOf(T)
 inline int32_t List_1_IndexOf_mAC685C0F02C536854936D54F1DBA451CF71B28C6(List_1_tE6BB71ABF15905EFA2BE92C38A2716547AEADB19 *__this, Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E *___item0, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_tE6BB71ABF15905EFA2BE92C38A2716547AEADB19 *, Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E *, const RuntimeMethod *))List_1_IndexOf_m378F61BA812B79DEE58D86FE8AA9F20E3FC7D85F_gshared)(__this, ___item0, method);
+	return ((int32_t (*)(List_1_tE6BB71ABF15905EFA2BE92C38A2716547AEADB19 *, Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E *, const RuntimeMethod *))List_1_IndexOf_m378F61BA812B79DEE58D86FE8AA9F20E3FC7D85F_gshared)(__this, ___item0, method);
 }
 // System.Void SlotTarzanView::onClickClosePopupGem()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SlotTarzanView_onClickClosePopupGem_m13EE4931374DC7C8AC06CBD120989806DCF73A2C(SlotTarzanView_t1D3C88C372BCC592FB7B84642FD4D96890F65094 *__this, const RuntimeMethod *method);
@@ -7265,14 +7265,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float GameView_getFloat_m787263F6B849B323EC5B
 // System.Int32 System.Collections.Generic.List`1<Newtonsoft.Json.Linq.JObject>::IndexOf(T)
 inline int32_t List_1_IndexOf_m292F771C0DD1FE8F217D264884DC7D461D842D10(List_1_t2E3C71068DC0F9AFAB779FC53B0867ABE42CE4CF *__this, JObject_t22BBBA7A90517B7E66E8C9D8D16DE84CB5054DE1 *___item0, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t2E3C71068DC0F9AFAB779FC53B0867ABE42CE4CF *, JObject_t22BBBA7A90517B7E66E8C9D8D16DE84CB5054DE1 *, const RuntimeMethod *))List_1_IndexOf_m378F61BA812B79DEE58D86FE8AA9F20E3FC7D85F_gshared)(__this, ___item0, method);
+	return ((int32_t (*)(List_1_t2E3C71068DC0F9AFAB779FC53B0867ABE42CE4CF *, JObject_t22BBBA7A90517B7E66E8C9D8D16DE84CB5054DE1 *, const RuntimeMethod *))List_1_IndexOf_m378F61BA812B79DEE58D86FE8AA9F20E3FC7D85F_gshared)(__this, ___item0, method);
 }
 // System.Void SlotTarzanView::showGetItemJunggle(UnityEngine.Vector2,System.Int32,DG.Tweening.TweenCallback)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SlotTarzanView_showGetItemJunggle_m17632F1817351EB710AD7A30DEB16D11834089BA(SlotTarzanView_t1D3C88C372BCC592FB7B84642FD4D96890F65094 *__this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___posChar0, int32_t ___indexChar1, TweenCallback_t7C8B8A38E7B30905FF1B83C943256EF23617BB24 *___cb2, const RuntimeMethod *method);
 // T System.Collections.Generic.List`1<UnityEngine.Vector2>::get_Item(System.Int32)
 inline Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 List_1_get_Item_m1F8E226CAD72B83C5E75BB66B43025247806B543(List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B *__this, int32_t ___index0, const RuntimeMethod *method)
 {
-	return ((Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7(*)(List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B *, int32_t, const RuntimeMethod *))List_1_get_Item_m1F8E226CAD72B83C5E75BB66B43025247806B543_gshared)(__this, ___index0, method);
+	return ((Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 (*)(List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B *, int32_t, const RuntimeMethod *))List_1_get_Item_m1F8E226CAD72B83C5E75BB66B43025247806B543_gshared)(__this, ___index0, method);
 }
 // System.Void SlotTarzanView::showGetItemDiamond(UnityEngine.Vector2,DG.Tweening.TweenCallback)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SlotTarzanView_showGetItemDiamond_m7359E4B55F2328C796C71AE8D4C57A4FBF369576(SlotTarzanView_t1D3C88C372BCC592FB7B84642FD4D96890F65094 *__this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___posItem0, TweenCallback_t7C8B8A38E7B30905FF1B83C943256EF23617BB24 *___cb1, const RuntimeMethod *method);
@@ -7443,12 +7443,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnityEvent_AddListener_m8AA4287C16628486
 // System.Int32 System.Collections.Generic.List`1<UnityEngine.UI.Button>::get_Count()
 inline int32_t List_1_get_Count_m2817F5F47727C2C1FB87CE382D77F92D2658EE78_inline(List_1_tCB5B3B0C70F6DFB6B059BB2C65DC77B101849444 *__this, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_tCB5B3B0C70F6DFB6B059BB2C65DC77B101849444 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
+	return ((int32_t (*)(List_1_tCB5B3B0C70F6DFB6B059BB2C65DC77B101849444 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
 }
 // System.Int32 System.Collections.Generic.List`1<ItemGame>::get_Count()
 inline int32_t List_1_get_Count_m6A29AB37AA14FD6587564B3CE5781BF5C550D3EA_inline(List_1_t822CE556B7B3C1A6027D45DFE83C5CDB5DCF8274 *__this, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_t822CE556B7B3C1A6027D45DFE83C5CDB5DCF8274 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
+	return ((int32_t (*)(List_1_t822CE556B7B3C1A6027D45DFE83C5CDB5DCF8274 *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
 }
 // System.Void LobbyView::reloadListGame()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LobbyView_reloadListGame_m3802D789A03E97AA0EBA4D28E9CEEA7C05522B1F(LobbyView_t10D9EA2447B0C0389B3495505B932C45C3CFC70B *__this, const RuntimeMethod *method);
@@ -7519,7 +7519,7 @@ inline void List_1_Clear_mC6C7AEBB0F980A717A87C0D12377984A464F0934_inline(List_1
 // System.Int32 System.Collections.Generic.List`1<System.String>::get_Count()
 inline int32_t List_1_get_Count_mB63183A9151F4345A9DD444A7CBE0D6E03F77C7C_inline(List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD *__this, const RuntimeMethod *method)
 {
-	return ((int32_t(*)(List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
+	return ((int32_t (*)(List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD *, const RuntimeMethod *))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
 }
 // System.Void System.Collections.Generic.List`1<System.String>::RemoveAt(System.Int32)
 inline void List_1_RemoveAt_m031D3A21689276A872FCA7566C8F2F79F9581F0D(List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD *__this, int32_t ___index0, const RuntimeMethod *method)
@@ -10528,7 +10528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SlotTarzanItemSpin_Start_m1C04D8D86297AD
 	{
 		// base.Start();
 		ItemSpinController_Start_mFC26317403D44AA7662F14C34773E605978F0D74(__this, NULL);
-		// ICON_ANIMPATH = "GameView/SlotSpine/Tarzan/SpineIcon/%id/skeleton_SkeletonData";
+		// ICON_ANIMPATH = "GameView/SlotTarzan/Anims/SpineIcon/%id/skeleton_SkeletonData";
 		((ItemSpinController_tF00D6F43B2533812A576426E738094E2CAF55E22 *)__this)->___ICON_ANIMPATH_16 = _stringLiteral3C0E08D00674BF171117770E6BD5062FB4BE424C;
 		Il2CppCodeGenWriteBarrier((void **)(&((ItemSpinController_tF00D6F43B2533812A576426E738094E2CAF55E22 *)__this)->___ICON_ANIMPATH_16), (void *)_stringLiteral3C0E08D00674BF171117770E6BD5062FB4BE424C);
 		// }
@@ -12327,13 +12327,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SlotTarzanView_Start_mB5625BE15DBF057A7B
 	{
 		// base.Start();
 		BaseSlotGameView_Start_mE19A2B5FC57BCC332A7ECDDBCAE5FDCC0A030F01(__this, NULL);
-		// BIGWIN_ANIMPATH = "GameView/SlotSpine/Tarzan/BigWin/skeleton_SkeletonData";
+		// BIGWIN_ANIMPATH = "GameView/SlotTarzan/Anims/BigWin/skeleton_SkeletonData";
 		((BaseSlotGameView_t62518382CE7D9844F3A5EB53BC065042A2EC1BD5 *)__this)->___BIGWIN_ANIMPATH_92 = _stringLiteralEF30037DB827B150754033746F1EA6E644968F06;
 		Il2CppCodeGenWriteBarrier((void **)(&((BaseSlotGameView_t62518382CE7D9844F3A5EB53BC065042A2EC1BD5 *)__this)->___BIGWIN_ANIMPATH_92), (void *)_stringLiteralEF30037DB827B150754033746F1EA6E644968F06);
-		// MEGAWIN_ANIMPATH = "GameView/SlotSpine/Tarzan/BigWin/skeleton_SkeletonData";
+		// MEGAWIN_ANIMPATH = "GameView/SlotTarzan/Anims/BigWin/skeleton_SkeletonData";
 		((BaseSlotGameView_t62518382CE7D9844F3A5EB53BC065042A2EC1BD5 *)__this)->___MEGAWIN_ANIMPATH_93 = _stringLiteralEF30037DB827B150754033746F1EA6E644968F06;
 		Il2CppCodeGenWriteBarrier((void **)(&((BaseSlotGameView_t62518382CE7D9844F3A5EB53BC065042A2EC1BD5 *)__this)->___MEGAWIN_ANIMPATH_93), (void *)_stringLiteralEF30037DB827B150754033746F1EA6E644968F06);
-		// FREESPIN_ANIMPATH = "GameView/SlotSpine/Tarzan/PopupFreespin/skeleton_SkeletonData";
+		// FREESPIN_ANIMPATH = "GameView/SlotTarzan/Anims/PopupFreespin/skeleton_SkeletonData";
 		((BaseSlotGameView_t62518382CE7D9844F3A5EB53BC065042A2EC1BD5 *)__this)->___FREESPIN_ANIMPATH_94 = _stringLiteral4640CFE25261308D9C95C55DCF8876024347A2BF;
 		Il2CppCodeGenWriteBarrier((void **)(&((BaseSlotGameView_t62518382CE7D9844F3A5EB53BC065042A2EC1BD5 *)__this)->___FREESPIN_ANIMPATH_94), (void *)_stringLiteral4640CFE25261308D9C95C55DCF8876024347A2BF);
 		// ANIM_BIGWIN_NAME = "big2";
@@ -13461,7 +13461,7 @@ IL_00a0:
 	//     {
 	//         Globals.Logging.Log("Show Anim Character");
 	//         animCharacter.gameObject.SetActive(true);
-	//         string CHARACTER_ANIMPATH = "GameView/SlotSpine/Tarzan/JungleCharacter/" + listChar[listIndex[index]] + "/skeleton_SkeletonData";
+	//         string CHARACTER_ANIMPATH = "GameView/SlotTarzan/Anims/JungleCharacter/" + listChar[listIndex[index]] + "/skeleton_SkeletonData";
 	//         animCharacter.skeletonDataAsset = UIManager.instance.loadSkeletonData(CHARACTER_ANIMPATH);
 	//         animCharacter.Initialize(true);
 	//         animCharacter.AnimationState.SetAnimation(0, "animation", false);
@@ -13952,7 +13952,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SlotTarzanView_showPopupResultGem_m12FB7
 	{
 		// Globals.Logging.Log("showPopupResultGem");
 		Logging_Log_m7179FA31B10C619BEF5A98F8A5E0B3A210842D1B(_stringLiteralF3811D4B1A6575E1D5B5E797862D5175E62E4A5B, NULL);
-		// string animPath = "GameView/SlotSpine/Tarzan/PopupFreeSpin/skeleton_SkeletonData";
+		// string animPath = "GameView/SlotTarzan/Anims/PopupFreeSpin/skeleton_SkeletonData";
 		V_0 = _stringLiteralB85948D8C6D104FB58FF28F2DC58F30F6C4CDC85;
 		// animPopupResult.gameObject.SetActive(true);
 		SkeletonGraphic_t16853919DC5368237A1FFFE440DFB70ABAFA2AF1 *L_0 = __this->___animPopupResult_120;
@@ -14074,7 +14074,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SlotTarzanView_showPopupMiniGame_mE8151F
 	}
 	String_t *V_0 = NULL;
 	{
-		// string animPath = "GameView/SlotSpine/Tarzan/Minigame/PopupCongrat/skeleton_SkeletonData";
+		// string animPath = "GameView/SlotTarzan/Anims/Minigame/PopupCongrat/skeleton_SkeletonData";
 		V_0 = _stringLiteral1EE5243BCF28331C37629C69BF9FD3E646F83C0D;
 		// animPopupMiniGame.gameObject.SetActive(true);
 		SkeletonGraphic_t16853919DC5368237A1FFFE440DFB70ABAFA2AF1 *L_0 = __this->___animPopupMiniGame_121;
@@ -14173,7 +14173,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SlotTarzanView_showPopupResultMinigame_m
 	}
 	String_t *V_0 = NULL;
 	{
-		// string animPath = "GameView/SlotSpine/Tarzan/Minigame/Result/skeleton_SkeletonData";
+		// string animPath = "GameView/SlotTarzan/Anims/Minigame/Result/skeleton_SkeletonData";
 		V_0 = _stringLiteral7C814C0E02539B687870C24280BE74F786FE1F2B;
 		// animPopupResultMinigame.gameObject.SetActive(true);
 		SkeletonGraphic_t16853919DC5368237A1FFFE440DFB70ABAFA2AF1 *L_0 = __this->___animPopupResultMinigame_122;
@@ -15599,7 +15599,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SlotTarzanView_showTransformWild_m399EDC
 		L_5 = Vector2_op_Implicit_mCD214B04BC52AED3C89C3BEF664B6247E5F8954A_inline(L_4, NULL);
 		NullCheck(L_3);
 		Transform_set_localPosition_mDE1C997F7D79C0885210B7732B4BA50EE7D73134(L_3, L_5, NULL);
-		// animTarzan.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SlotSpine/Tarzan/Model/skeleton_SkeletonData");
+		// animTarzan.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SlotTarzan/Anims/Model/skeleton_SkeletonData");
 		SkeletonGraphic_t16853919DC5368237A1FFFE440DFB70ABAFA2AF1 *L_6 = __this->___animTarzan_125;
 		UIManager_t16825A2483574F37D7D47AB939A6FA639678B1F3 *L_7 = ((UIManager_t16825A2483574F37D7D47AB939A6FA639678B1F3_StaticFields *)il2cpp_codegen_static_fields_for(UIManager_t16825A2483574F37D7D47AB939A6FA639678B1F3_il2cpp_TypeInfo_var))->___instance_4;
 		NullCheck(L_7);
@@ -15749,7 +15749,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SlotTarzanView_showGetItemJunggle_m17632
 		NullCheck(L_12);
 		List_1_Add_mF10DB1D3CBB0B14215F0E4F8AB4934A1955E5351_inline(L_12, _stringLiteral579A50C67ADB00AC3925859C23590322B2D0BE9D, List_1_Add_mF10DB1D3CBB0B14215F0E4F8AB4934A1955E5351_RuntimeMethod_var);
 		V_1 = L_12;
-		// string CHARACTER_ANIMPATH = "GameView/SlotSpine/Tarzan/JungleCharacter/" + listIndex[indexChar] + "/skeleton_SkeletonData";
+		// string CHARACTER_ANIMPATH = "GameView/SlotTarzan/Anims/JungleCharacter/" + listIndex[indexChar] + "/skeleton_SkeletonData";
 		List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD *L_13 = V_1;
 		U3CU3Ec__DisplayClass46_0_tDE873D991AA8942913FFE3AC4C2715372B0D252D *L_14 = V_0;
 		NullCheck(L_14);
@@ -19157,7 +19157,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass28_0_U3CshowEffectC
 		L_2 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_1, NULL);
 		NullCheck(L_2);
 		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_2, (bool)1, NULL);
-		// string CHARACTER_ANIMPATH = "GameView/SlotSpine/Tarzan/JungleCharacter/" + listChar[listIndex[index]] + "/skeleton_SkeletonData";
+		// string CHARACTER_ANIMPATH = "GameView/SlotTarzan/Anims/JungleCharacter/" + listChar[listIndex[index]] + "/skeleton_SkeletonData";
 		List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD *L_3 = __this->___listChar_1;
 		List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73 *L_4 = __this->___listIndex_2;
 		int32_t L_5 = __this->___index_3;

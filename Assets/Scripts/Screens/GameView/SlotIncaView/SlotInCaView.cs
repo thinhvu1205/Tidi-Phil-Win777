@@ -15,9 +15,9 @@ public class SlotInCaView : BaseSlotGameView
     {
         base.Start();
         RECT_SIZE = new Vector2(170f, 140f);
-        ANIM_BG_FREESPIN = "GameView/SlotSpine/InCa/bgFreeSpin/skeleton_SkeletonData";
-        BIGWIN_ANIMPATH = "GameView/SlotSpine/Common/Bigwin/skeleton_SkeletonData";
-        MEGAWIN_ANIMPATH = "GameView/SlotSpine/Common/Bigwin/skeleton_SkeletonData";
+        ANIM_BG_FREESPIN = "GameView/SlotInca/Anims/bgFreeSpin/skeleton_SkeletonData";
+        BIGWIN_ANIMPATH = "GameView/Common/Anims/Bigwin/skeleton_SkeletonData";
+        MEGAWIN_ANIMPATH = "GameView/Common/Anims/Bigwin/skeleton_SkeletonData";
         ANIM_BIGWIN_NAME = "bigwin";
         ANIM_MEGAWIN_NAME = "megawin";
     }

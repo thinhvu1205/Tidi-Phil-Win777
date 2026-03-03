@@ -1147,6 +1147,7 @@ GameObject:
   - component: {fileID: 7306703454025950349}
   - component: {fileID: 7417614896228852368}
   - component: {fileID: 8857333414611165267}
+  - component: {fileID: 7908556361263712761}
   m_Layer: 0
   m_Name: Anim Lucky Hand
   m_TagString: Untagged
@@ -1231,6 +1232,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &7908556361263712761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939536479693436442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--lucky 89--anims
+  AssetName: Assets/Resources/GameView/Lucky 89/Anims/Lucky 8+lucky 9/skeleton_SkeletonData.asset
+  AnimName: lucky8
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &4662828629233756041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1616,7 @@ GameObject:
   - component: {fileID: 6568782671049451605}
   - component: {fileID: 2556269066010694430}
   - component: {fileID: 7949245739576774461}
+  - component: {fileID: 1107560121978826518}
   m_Layer: 0
   m_Name: Lose
   m_TagString: Untagged
@@ -1674,6 +1697,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &1107560121978826518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158547187421229608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--anims
+  AssetName: Assets/Resources/GameView/Common/Anims/Lose/skeleton_SkeletonData.asset
+  AnimName: lose
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5328111846056894622
 GameObject:
   m_ObjectHideFlags: 0

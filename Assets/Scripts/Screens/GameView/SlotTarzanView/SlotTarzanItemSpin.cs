@@ -14,7 +14,7 @@ public class SlotTarzanItemSpin : ItemSpinController
     protected override void Start()
     {
         base.Start();
-        ICON_ANIMPATH = "GameView/SlotSpine/Tarzan/SpineIcon/%id/skeleton_SkeletonData";
+        ICON_ANIMPATH = "GameView/SlotTarzan/Anims/SpineIcon/%id/skeleton_SkeletonData";
         //CollumSpinCtrl = (SlotTarzanCollumController)CollumSpinCtrl;
     }
 

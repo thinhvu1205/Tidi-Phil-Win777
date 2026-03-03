@@ -19,7 +19,7 @@ public class SlotJuicyGardenItemSpin : ItemSpinController
     protected override void Start()
     {
         base.Start();
-        ICON_ANIMPATH = "GameView/SlotSpine/JuicyGarden/SpineIcon/%id/skeleton_SkeletonData";
+        ICON_ANIMPATH = "GameView/SlotJuicyGarden/Anims/SpineIcon/%id/skeleton_SkeletonData";
     }
     protected override void Awake()
     {

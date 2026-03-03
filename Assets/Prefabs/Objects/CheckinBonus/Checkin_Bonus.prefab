@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 3834320828977828419}
   - component: {fileID: 5270090754907350605}
   - component: {fileID: 1194473508510093256}
+  - component: {fileID: 6288216634186986042}
   m_Layer: 0
   m_Name: Gift_Anim (5)
   m_TagString: Untagged
@@ -380,6 +381,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &6288216634186986042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246433159545050235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--checkin bonus--anims
+  AssetName: Assets/Resources/Checkin Bonus/Anims/gift/skeleton_SkeletonData.asset
+  AnimName: click_receive
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &275603531685913989
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +636,7 @@ GameObject:
   - component: {fileID: 6330733531516806645}
   - component: {fileID: 4594127777999926012}
   - component: {fileID: 1829208499716829348}
+  - component: {fileID: 1321262286501390229}
   m_Layer: 0
   m_Name: Gift_Anim
   m_TagString: Untagged
@@ -695,6 +718,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &1321262286501390229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493456423184855418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--checkin bonus--anims
+  AssetName: Assets/Resources/Checkin Bonus/Anims/gift/skeleton_SkeletonData.asset
+  AnimName: click_receive
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &736852833351718205
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +1004,7 @@ GameObject:
   - component: {fileID: 5189595751271084964}
   - component: {fileID: 857986305846664515}
   - component: {fileID: 3992847673019861527}
+  - component: {fileID: 5929094874157223080}
   m_Layer: 0
   m_Name: Gift_Anim (1)
   m_TagString: Untagged
@@ -1041,6 +1086,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &5929094874157223080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126680670218737446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--checkin bonus--anims
+  AssetName: Assets/Resources/Checkin Bonus/Anims/gift/skeleton_SkeletonData.asset
+  AnimName: click_receive
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &1151261731518520533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1541,7 @@ GameObject:
   - component: {fileID: 5086853112965211513}
   - component: {fileID: 5455941196011775000}
   - component: {fileID: 6963619024375776667}
+  - component: {fileID: 5132223655551087482}
   m_Layer: 5
   m_Name: Image_BoxLarge
   m_TagString: Untagged
@@ -1541,6 +1608,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5132223655551087482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577120139319992450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--common--sprites
+  AssetName: Assets/Resources/GameView/Common/Sprites/box_large.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &2816910135565807620
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,6 +3418,7 @@ GameObject:
   - component: {fileID: 8171965611237675465}
   - component: {fileID: 456158464592643385}
   - component: {fileID: 6859691356502707975}
+  - component: {fileID: 2751534705948327639}
   m_Layer: 0
   m_Name: Anim_Light
   m_TagString: Untagged
@@ -3410,6 +3499,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &2751534705948327639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4975825419533670567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--checkin bonus--anims
+  AssetName: Assets/Resources/Checkin Bonus/Anims/light/skeleton_SkeletonData.asset
+  AnimName: animation
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5010853140982692385
 GameObject:
   m_ObjectHideFlags: 0
@@ -3557,6 +3667,7 @@ GameObject:
   - component: {fileID: 1410395218922624337}
   - component: {fileID: 2982195844924078852}
   - component: {fileID: 1556933751065114944}
+  - component: {fileID: 5613310996080666940}
   m_Layer: 0
   m_Name: Gift_Anim (3)
   m_TagString: Untagged
@@ -3638,6 +3749,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &5613310996080666940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150370958303798759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--checkin bonus--anims
+  AssetName: Assets/Resources/Checkin Bonus/Anims/gift/skeleton_SkeletonData.asset
+  AnimName: click_receive
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &5195094626082197322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4464,6 +4596,7 @@ GameObject:
   - component: {fileID: 2669347972177683594}
   - component: {fileID: 6766013744990069043}
   - component: {fileID: 5264883653485205845}
+  - component: {fileID: 1141325701542214887}
   m_Layer: 0
   m_Name: Gift_Anim (4)
   m_TagString: Untagged
@@ -4545,6 +4678,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &1141325701542214887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836180000551539491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--checkin bonus--anims
+  AssetName: Assets/Resources/Checkin Bonus/Anims/gift/skeleton_SkeletonData.asset
+  AnimName: click_receive
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &6226129017984282771
 GameObject:
   m_ObjectHideFlags: 0
@@ -5015,6 +5169,7 @@ GameObject:
   - component: {fileID: 3077162798688843864}
   - component: {fileID: 1592987284817076984}
   - component: {fileID: 6033319935466237268}
+  - component: {fileID: 7218936574918186178}
   m_Layer: 0
   m_Name: Gift_Anim (2)
   m_TagString: Untagged
@@ -5096,6 +5251,27 @@ MonoBehaviour:
       calculateTangents: 0
       addNormals: 0
       immutableTriangles: 0
+--- !u!114 &7218936574918186178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888360555347961650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--checkin bonus--anims
+  AssetName: Assets/Resources/Checkin Bonus/Anims/gift/skeleton_SkeletonData.asset
+  AnimName: click_receive
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &7311445803924947945
 GameObject:
   m_ObjectHideFlags: 0

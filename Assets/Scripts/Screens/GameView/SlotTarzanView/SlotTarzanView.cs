@@ -53,8 +53,6 @@ public class SlotTarzanView : BaseSlotGameView
     [SerializeField]
     protected List<Sprite> sprCharacterOff = new List<Sprite>();
     [SerializeField]
-    public SkeletonDataAsset animDiamond;
-    [SerializeField]
     public GameObject diamondPot;
 
     [SerializeField]
@@ -75,9 +73,9 @@ public class SlotTarzanView : BaseSlotGameView
     protected override void Start()
     {
         base.Start();
-        BIGWIN_ANIMPATH = "GameView/SlotSpine/Tarzan/BigWin/skeleton_SkeletonData";
-        MEGAWIN_ANIMPATH = "GameView/SlotSpine/Tarzan/BigWin/skeleton_SkeletonData";
-        FREESPIN_ANIMPATH = "GameView/SlotSpine/Tarzan/PopupFreespin/skeleton_SkeletonData";
+        BIGWIN_ANIMPATH = "GameView/SlotTarzan/Anims/BigWin/skeleton_SkeletonData";
+        MEGAWIN_ANIMPATH = "GameView/SlotTarzan/Anims/BigWin/skeleton_SkeletonData";
+        FREESPIN_ANIMPATH = "GameView/SlotTarzan/Anims/PopupFreespin/skeleton_SkeletonData";
         ANIM_BIGWIN_NAME = "big";
         ANIM_MEGAWIN_NAME = "mega";
         ANIM_HUGEWIN_NAME = "huge";
@@ -267,7 +265,7 @@ public class SlotTarzanView : BaseSlotGameView
                 {
                     Logging.Log("Show Anim Character");
                     animCharacter.gameObject.SetActive(true);
-                    string CHARACTER_ANIMPATH = "GameView/SlotSpine/Tarzan/JungleCharacter/" + listChar[listIndex[index]] + "/skeleton_SkeletonData";
+                    string CHARACTER_ANIMPATH = "GameView/SlotTarzan/Anims/JungleCharacter/" + listChar[listIndex[index]] + "/skeleton_SkeletonData";
                     animCharacter.skeletonDataAsset = UIManager.instance.loadSkeletonData(CHARACTER_ANIMPATH);
                     animCharacter.Initialize(true);
                     animCharacter.AnimationState.SetAnimation(0, "animation", false);
@@ -347,7 +345,7 @@ public class SlotTarzanView : BaseSlotGameView
     private void showPopupResultGem()
     {
         Logging.Log("showPopupResultGem");
-        string animPath = "GameView/SlotSpine/Tarzan/PopupFreeSpin/skeleton_SkeletonData";
+        string animPath = "GameView/SlotTarzan/Anims/PopupFreeSpin/skeleton_SkeletonData";
 
         animPopupResult.gameObject.SetActive(true);
         animPopupResult.skeletonDataAsset = UIManager.instance.loadSkeletonData(animPath);
@@ -374,7 +372,7 @@ public class SlotTarzanView : BaseSlotGameView
     }
     public void showPopupMiniGame()
     {
-        string animPath = "GameView/SlotSpine/Tarzan/Minigame/PopupCongrat/skeleton_SkeletonData";
+        string animPath = "GameView/SlotTarzan/Anims/Minigame/PopupCongrat/skeleton_SkeletonData";
         animPopupMiniGame.gameObject.SetActive(true);
         animPopupMiniGame.skeletonDataAsset = UIManager.instance.loadSkeletonData(animPath);
         animPopupMiniGame.TrimRenderers();
@@ -387,7 +385,7 @@ public class SlotTarzanView : BaseSlotGameView
     }
     public void showPopupResultMinigame(int value)
     {
-        string animPath = "GameView/SlotSpine/Tarzan/Minigame/Result/skeleton_SkeletonData";
+        string animPath = "GameView/SlotTarzan/Anims/Minigame/Result/skeleton_SkeletonData";
         animPopupResultMinigame.gameObject.SetActive(true);
         animPopupResultMinigame.skeletonDataAsset = UIManager.instance.loadSkeletonData(animPath);
         animPopupResultMinigame.TrimRenderers();
@@ -587,12 +585,10 @@ public class SlotTarzanView : BaseSlotGameView
         diamondContainer.transform.localScale = Vector3.one;
         SkeletonGraphic diamond = Instantiate(animBtnSpin.gameObject, diamondContainer.transform).GetComponent<SkeletonGraphic>();
 
-        diamond.skeletonDataAsset = animDiamond;
+        BundleHandler.SetDataForASkeletonGraphic(diamond, "GameView/SlotTarzan/Anims/Diamond/skeleton_SkeletonData.asset", "animation", false);
         diamond.transform.localScale = new Vector2(1f, 1f);
         diamond.transform.localPosition = new Vector2(453, -971);
         diamond.color = Color.white;
-        diamond.Initialize(true);
-        diamond.AnimationState.SetAnimation(0, "animation", false);
         diamondContainer.transform.localPosition = posItem;
         Vector2 posDiamondOnPos = transform.InverseTransformPoint(diamondPot.transform.position);
         diamondContainer.transform.DOLocalMove(posDiamondOnPos, 1.0f).SetEase(Ease.OutCubic).OnComplete(() =>
@@ -659,7 +655,7 @@ public class SlotTarzanView : BaseSlotGameView
     {
         animTarzan.gameObject.SetActive(true);
         animTarzan.transform.localPosition = new Vector2(0, 26);
-        animTarzan.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SlotSpine/Tarzan/Model/skeleton_SkeletonData");
+        animTarzan.skeletonDataAsset = UIManager.instance.loadSkeletonData("GameView/SlotTarzan/Anims/Model/skeleton_SkeletonData");
         animTarzan.Initialize(true);
         animTarzan.AnimationState.Complete += delegate
         {
@@ -689,7 +685,7 @@ public class SlotTarzanView : BaseSlotGameView
     {
         //indexChar = 3;
         List<string> listIndex = new List<string> { "J", "U", "N", "G", "L", "E" };
-        string CHARACTER_ANIMPATH = "GameView/SlotSpine/Tarzan/JungleCharacter/" + listIndex[indexChar] + "/skeleton_SkeletonData";
+        string CHARACTER_ANIMPATH = "GameView/SlotTarzan/Anims/JungleCharacter/" + listIndex[indexChar] + "/skeleton_SkeletonData";
         SkeletonGraphic character = Instantiate(animBtnSpin.gameObject, transform).GetComponent<SkeletonGraphic>();
 
         character.skeletonDataAsset = UIManager.instance.loadSkeletonData(CHARACTER_ANIMPATH);

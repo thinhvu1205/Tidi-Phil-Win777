@@ -68,7 +68,6 @@ MonoBehaviour:
   m_text: Hight Card
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dace99989fd0d754f89324326a16e423, type: 2}
-  m_fixThaiVowel: 1
   m_sharedMaterial: {fileID: -7149850700683112626, guid: dace99989fd0d754f89324326a16e423, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -109,15 +108,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -297,12 +298,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  ThisImg: {fileID: 0}
-  ThisSG: {fileID: 3949879990638893464}
-  BundleLabel: assets--resources--gameview--threepoker--animation
-  AssetName: Assets/Resources/GameView/ThreePoker/animation/point/skeleton_SkeletonData.asset
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--gameview--threepoker--anims
+  AssetName: Assets/Resources/GameView/ThreePoker/Anims/point/skeleton_SkeletonData.asset
   AnimName: point
-  SetNativeSize: 0
-  m_OnEnableUE:
-    m_PersistentCalls:
-      m_Calls: []
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0

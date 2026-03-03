@@ -10,7 +10,7 @@ public class SlotFruitItemSpin : ItemSpinController
     protected override void Start()
     {
         base.Start();
-        ICON_ANIMPATH = "GameView/SlotSpine/Fruit/SpineIcon/%id/skeleton_SkeletonData";
+        ICON_ANIMPATH = "GameView/SlotFruit/Anims/SpineIcon/%id/skeleton_SkeletonData";
         //CollumSpinCtrl = (SlotTarzanCollumController)CollumSpinCtrl;
     }
     public override void setItemData(List<int> arrId)

@@ -132,14 +132,14 @@ public class BaseSlotGameView : GameView
     protected List<GameObject> animIconPool = new List<GameObject>();
     protected List<TweenCallback> listActionHandleSpin = new List<TweenCallback>();//list action show  result c?a spin winscatter,freespin,5ofAkind,Bigwin,Megawin..v.v.
 
-    protected string BIGWIN_ANIMPATH = "GameView/SlotSpine/Noel/big_megawinNoel/skeleton_SkeletonData";
-    protected string MEGAWIN_ANIMPATH = "GameView/SlotSpine/Noel/big_megawinNoel/skeleton_SkeletonData";
-    protected string FREESPIN_ANIMPATH = "GameView/SlotSpine/freespin/skeleton_SkeletonData";
-    protected string FIVEOFAKIND_ANIMPATH = "GameView/SlotSpine/FiveOfAKind/skeleton_SkeletonData";
+    protected string BIGWIN_ANIMPATH = "GameView/SlotNoel/Anims/big_megawinNoel/skeleton_SkeletonData";
+    protected string MEGAWIN_ANIMPATH = "GameView/SlotNoel/Anims/big_megawinNoel/skeleton_SkeletonData";
+    protected string FREESPIN_ANIMPATH = "GameView/Common/Anims/freespin/skeleton_SkeletonData";
+    protected string FIVEOFAKIND_ANIMPATH = "GameView/Common/Anims/FiveOfAKind/skeleton_SkeletonData";
     protected string ANIM_BIGWIN_NAME = "big";
     protected string ANIM_MEGAWIN_NAME = "mega";
     protected string ANIM_HUGEWIN_NAME = "hugethai";
-    protected string ANIM_BG_FREESPIN = "GameView/SlotSpine/freespin/vienBg/skeleton_SkeletonData";
+    protected string ANIM_BG_FREESPIN = "GameView/Common/Anims/vienbg/skeleton_SkeletonData";
     protected int TYPE_BIGWIN = 1;
     protected int TYPE_MEGA = 2;
     protected int TYPE_HUGEWIN = 3;
