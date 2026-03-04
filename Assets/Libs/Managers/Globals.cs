@@ -667,7 +667,7 @@ namespace Globals
         public static bool enableLottery = false;
 
         public static JArray arrOnlistTrue = new JArray();
-        public static JArray    arrBannerLobby = new JArray();
+        public static JArray arrBannerLobby = new JArray();
 
         public static List<int> listGamePlaynow = new List<int>() { (int)GAMEID.ROULETTE, (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.MINE_FINDING, (int)GAMEID.BAUCUA };
         public static List<int> listGameSlot = new List<int>() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT20FRUIT, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL };
@@ -1019,6 +1019,14 @@ namespace Globals
             .Append(lbText.transform.DOScale(biggerScale, timeRun * 0.45f))
             .AppendInterval(timeRun * 0.45f)
             .Append(lbText.transform.DOScale(normalScale, timeRun * 0.1f));
+        }
+        public static bool TrySplitToLong(string input, out long value)
+        {
+            value = 0;
+            if (string.IsNullOrEmpty(input)) return false;
+
+            string clean = input.Replace(",", "").Replace(".", "");
+            return long.TryParse(clean, out value);
         }
         public static void tweenNumberTo(TMPro.TextMeshProUGUI lbText, long toNumber, long startNumber = 0, float timeRun = 0.3f)
         {
