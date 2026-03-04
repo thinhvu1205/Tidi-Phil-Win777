@@ -2282,7 +2282,6 @@ GameObject:
   - component: {fileID: 2779473142244645680}
   - component: {fileID: 141226168206082587}
   - component: {fileID: 1668663870281491388}
-  - component: {fileID: 4247908625951902981}
   m_Layer: 5
   m_Name: lbChip2
   m_TagString: Untagged
@@ -2408,27 +2407,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4247908625951902981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4728583076131725057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1668663870281491388}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &4762550453872524664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,7 +3291,6 @@ GameObject:
   - component: {fileID: 7366558818911267983}
   - component: {fileID: 1989237988120172520}
   - component: {fileID: 1993801414240267900}
-  - component: {fileID: 3902059838173741153}
   m_Layer: 5
   m_Name: lbChip6
   m_TagString: Untagged
@@ -3439,27 +3416,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3902059838173741153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6454238113240840045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1993801414240267900}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6802510302593831304
 GameObject:
   m_ObjectHideFlags: 0
@@ -3536,7 +3492,6 @@ GameObject:
   - component: {fileID: 938980618613915131}
   - component: {fileID: 2025011405067317961}
   - component: {fileID: 7781169903700178668}
-  - component: {fileID: 5153318499599432186}
   m_Layer: 5
   m_Name: lbChip0
   m_TagString: Untagged
@@ -3662,27 +3617,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5153318499599432186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6859423824986781999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7781169903700178668}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7133167869808336762
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,7 +3754,6 @@ GameObject:
   - component: {fileID: 283910119658393147}
   - component: {fileID: 2856311871633193496}
   - component: {fileID: 2375097660894524585}
-  - component: {fileID: 5597019824032146933}
   m_Layer: 5
   m_Name: lbChipWins
   m_TagString: Untagged
@@ -3962,27 +3895,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &5597019824032146933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7184338068821001615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2856311871633193496}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7289370441656913191
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,7 +3906,6 @@ GameObject:
   - component: {fileID: 1243306002709689777}
   - component: {fileID: 8342085956766284240}
   - component: {fileID: 2552787198411327759}
-  - component: {fileID: 3238190538019123449}
   m_Layer: 5
   m_Name: lbChip4
   m_TagString: Untagged
@@ -4120,27 +4031,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3238190538019123449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289370441656913191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2552787198411327759}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7390867072912970755
 GameObject:
   m_ObjectHideFlags: 0

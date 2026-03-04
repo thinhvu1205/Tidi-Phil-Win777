@@ -162,7 +162,6 @@ GameObject:
   - component: {fileID: 1775999458354405011}
   - component: {fileID: 1775999458354405009}
   - component: {fileID: 8353190995697007586}
-  - component: {fileID: 4186099433334242499}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -288,27 +287,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4186099433334242499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775999458354405010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8353190995697007586}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1775999458461066848
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +298,6 @@ GameObject:
   - component: {fileID: 1775999458461066849}
   - component: {fileID: 1775999458461066863}
   - component: {fileID: 4757645217776323177}
-  - component: {fileID: 928673822723811355}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -446,27 +423,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &928673822723811355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775999458461066848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4757645217776323177}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1775999459403659611
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +590,6 @@ GameObject:
   - component: {fileID: 1775999459461685010}
   - component: {fileID: 1775999459461685008}
   - component: {fileID: 3656058308968110988}
-  - component: {fileID: 2562434061485366228}
   m_Layer: 5
   m_Name: TextContent
   m_TagString: Untagged
@@ -760,27 +715,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2562434061485366228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775999459461685013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 3656058308968110988}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1775999459494066222
 GameObject:
   m_ObjectHideFlags: 0

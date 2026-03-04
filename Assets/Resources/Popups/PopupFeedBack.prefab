@@ -1225,7 +1225,7 @@ GameObject:
   - component: {fileID: 4756783408454702210}
   - component: {fileID: 3279882601394268760}
   - component: {fileID: 8276946202995866078}
-  - component: {fileID: 5674533999383545574}
+  - component: {fileID: 4176431912527565649}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5674533999383545574
+--- !u!114 &4176431912527565649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1360,18 +1360,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8831386672304511093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8276946202995866078}
-  BundleLabel: assets--resources--fonts--thailandtmp
-  AssetName: gop_y
-  AnimName: 
-  FontName: Assets/Resources/Fonts/ThaiLandTMP/FontTitle SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: gop_y
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &9086523887332887463
 GameObject:
   m_ObjectHideFlags: 0

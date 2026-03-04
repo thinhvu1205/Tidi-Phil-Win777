@@ -1324,7 +1324,6 @@ GameObject:
   - component: {fileID: 4274771493606711884}
   - component: {fileID: 6282008437990454372}
   - component: {fileID: 912651114097294756}
-  - component: {fileID: 6286287990537992116}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1450,27 +1449,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6286287990537992116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884498120225053571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 912651114097294756}
-  BundleLabel: assets--resources--fonts--thailandtmp
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/ThaiLandTMP/FontTitle SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1912302576601296036
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6071777615710576637}
   - component: {fileID: 5618624319363564374}
   - component: {fileID: 8379090439739460639}
-  - component: {fileID: 5295979913301893456}
   m_Layer: 0
   m_Name: lbMultiplierNum
   m_TagString: Untagged
@@ -137,27 +136,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5295979913301893456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37675057761270005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8379090439739460639}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &108894437953618263
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +325,6 @@ GameObject:
   - component: {fileID: 2314473354910747066}
   - component: {fileID: 856245581718775742}
   - component: {fileID: 4600856980760054612}
-  - component: {fileID: 3660342655687434243}
   m_Layer: 0
   m_Name: lbFreeSpinTurn
   m_TagString: Untagged
@@ -473,27 +450,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3660342655687434243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161854054083774659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4600856980760054612}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &172207095601029572
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +897,6 @@ GameObject:
   - component: {fileID: 3813283425057633484}
   - component: {fileID: 5220616634070511319}
   - component: {fileID: 7356056572436176240}
-  - component: {fileID: 5313691056907724572}
   m_Layer: 5
   m_Name: lbCurrentChips
   m_TagString: Untagged
@@ -1097,27 +1052,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &5313691056907724572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472713693100323485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5220616634070511319}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/green_noel.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &487858620305843119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1128,6 @@ GameObject:
   - component: {fileID: 806121006281643220}
   - component: {fileID: 2957054684106299630}
   - component: {fileID: 2234426419451978429}
-  - component: {fileID: 5335415580836736490}
   m_Layer: 5
   m_Name: lbPickLeft
   m_TagString: Untagged
@@ -1320,27 +1253,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5335415580836736490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490286738410072070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2234426419451978429}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &528211089981809875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,7 +1414,6 @@ GameObject:
   - component: {fileID: 2627939204714665223}
   - component: {fileID: 2376540177092402662}
   - component: {fileID: 8940120798049500631}
-  - component: {fileID: 3759122483077624291}
   m_Layer: 0
   m_Name: lbFreeSpinWin
   m_TagString: Untagged
@@ -1628,27 +1539,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3759122483077624291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573205756096226145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8940120798049500631}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &602040654635939150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,7 +1860,6 @@ GameObject:
   - component: {fileID: 4312140094817644476}
   - component: {fileID: 463274847017066110}
   - component: {fileID: 6081464309334886510}
-  - component: {fileID: 7616663658898987127}
   m_Layer: 0
   m_Name: lbReward
   m_TagString: Untagged
@@ -2096,27 +1985,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7616663658898987127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772430778688001522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6081464309334886510}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &810796690098953624
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,7 +2355,6 @@ GameObject:
   - component: {fileID: 1096681047262491414}
   - component: {fileID: 2842181118735856603}
   - component: {fileID: 1110399622432018218}
-  - component: {fileID: 5085979887337900990}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -2613,27 +2480,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5085979887337900990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302952848446166600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1110399622432018218}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1591613442585032180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,7 +2664,6 @@ GameObject:
   - component: {fileID: 3971185120785181162}
   - component: {fileID: 956958810845495763}
   - component: {fileID: 3870418126953671522}
-  - component: {fileID: 7562765456738756646}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -2944,27 +2789,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7562765456738756646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1699258495913123723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 3870418126953671522}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1773912562357520910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,7 +3531,6 @@ GameObject:
   - component: {fileID: 4614607047347048032}
   - component: {fileID: 3254327315754973899}
   - component: {fileID: 6217307430584153727}
-  - component: {fileID: 1640019664594705137}
   m_Layer: 5
   m_Name: lbBigWin
   m_TagString: Untagged
@@ -3847,27 +3670,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1640019664594705137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2255559012561468570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6217307430584153727}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &2281472657098038318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4570,7 +4372,6 @@ GameObject:
   - component: {fileID: 8794285071532023912}
   - component: {fileID: 1875932828768051797}
   - component: {fileID: 6847389143194621709}
-  - component: {fileID: 5106482770396730866}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -4696,27 +4497,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5106482770396730866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2923839025029055145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6847389143194621709}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3016843290770531152
 GameObject:
   m_ObjectHideFlags: 0
@@ -4803,7 +4583,6 @@ GameObject:
   - component: {fileID: 2942847209079351469}
   - component: {fileID: 4545027605926869625}
   - component: {fileID: 8783585133647390325}
-  - component: {fileID: 1716523673862581003}
   m_Layer: 0
   m_Name: lbReward
   m_TagString: Untagged
@@ -4929,27 +4708,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1716523673862581003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3105566773680847638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8783585133647390325}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3223148064193445118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,7 +4719,6 @@ GameObject:
   - component: {fileID: 6786942986154064}
   - component: {fileID: 3921931191547145884}
   - component: {fileID: 8182013056627796375}
-  - component: {fileID: 3408246435189616194}
   m_Layer: 5
   m_Name: lbTotalWin
   m_TagString: Untagged
@@ -5087,27 +4844,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3408246435189616194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3223148064193445118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8182013056627796375}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3234443086142352137
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,7 +5118,6 @@ GameObject:
   - component: {fileID: 3543736368007191537}
   - component: {fileID: 6601934765742510182}
   - component: {fileID: 7341029446024001}
-  - component: {fileID: 8145636628701740605}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -5508,27 +5243,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8145636628701740605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3629097979613250271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7341029446024001}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3659079426794097953
 GameObject:
   m_ObjectHideFlags: 0
@@ -6542,7 +6256,6 @@ GameObject:
   - component: {fileID: 873656083222048856}
   - component: {fileID: 7588595584127389596}
   - component: {fileID: 4225340109922719373}
-  - component: {fileID: 7583904666907564658}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -6668,27 +6381,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7583904666907564658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4187339676801079910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4225340109922719373}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &4195093815123258326
 GameObject:
   m_ObjectHideFlags: 0
@@ -6700,7 +6392,6 @@ GameObject:
   - component: {fileID: 1977286460302477412}
   - component: {fileID: 4038175749478311230}
   - component: {fileID: 7994474806868059688}
-  - component: {fileID: 5042436088604858917}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -6826,27 +6517,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5042436088604858917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4195093815123258326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 0}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &4270468786722508916
 GameObject:
   m_ObjectHideFlags: 0
@@ -7595,7 +7265,6 @@ GameObject:
   - component: {fileID: 1022932597829998767}
   - component: {fileID: 7877907053828291710}
   - component: {fileID: 7181543971515896459}
-  - component: {fileID: 1950446456356235783}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -7721,27 +7390,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1950446456356235783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4828009314304449414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7181543971515896459}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &4849046095973137491
 GameObject:
   m_ObjectHideFlags: 0
@@ -8017,7 +7665,6 @@ GameObject:
   - component: {fileID: 1874655383455881538}
   - component: {fileID: 2410342124456592690}
   - component: {fileID: 8769253362422251589}
-  - component: {fileID: 8309986218902852138}
   m_Layer: 0
   m_Name: lbMultplier
   m_TagString: Untagged
@@ -8143,27 +7790,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8309986218902852138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5088237717206340620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8769253362422251589}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5101965655961495607
 GameObject:
   m_ObjectHideFlags: 0
@@ -8175,7 +7801,6 @@ GameObject:
   - component: {fileID: 5060217216477497719}
   - component: {fileID: 2487476317941632191}
   - component: {fileID: 2606965962463856376}
-  - component: {fileID: 1311988180080500104}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -8301,27 +7926,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1311988180080500104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5101965655961495607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 0}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5219852948529899822
 GameObject:
   m_ObjectHideFlags: 0
@@ -8551,7 +8155,6 @@ GameObject:
   - component: {fileID: 7002495478462865257}
   - component: {fileID: 5026003257610993159}
   - component: {fileID: 8547176929570181132}
-  - component: {fileID: 5683853299584302035}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -8677,27 +8280,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5683853299584302035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5335642850504838440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 0}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5367955247823477157
 GameObject:
   m_ObjectHideFlags: 0
@@ -9049,7 +8631,6 @@ GameObject:
   - component: {fileID: 1493503907545592052}
   - component: {fileID: 8762364672128566367}
   - component: {fileID: 2803166672783951867}
-  - component: {fileID: 6915740714151478815}
   m_Layer: 5
   m_Name: lbFreespinNum
   m_TagString: Untagged
@@ -9189,27 +8770,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6915740714151478815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5476033780041056782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2803166672783951867}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5635652980964745270
 GameObject:
   m_ObjectHideFlags: 0
@@ -9334,7 +8894,6 @@ GameObject:
   - component: {fileID: 4390421150799384915}
   - component: {fileID: 4073680436920189842}
   - component: {fileID: 8714031994503691113}
-  - component: {fileID: 1493960183396927096}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -9460,27 +9019,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1493960183396927096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5638691647642896210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8714031994503691113}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5649776934667498821
 GameObject:
   m_ObjectHideFlags: 0
@@ -9527,7 +9065,6 @@ GameObject:
   - component: {fileID: 612442540963181583}
   - component: {fileID: 5539561964712347446}
   - component: {fileID: 4310267664637705251}
-  - component: {fileID: 1972740735508381498}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -9653,27 +9190,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1972740735508381498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692562794897099871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4310267664637705251}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5698473692051269739
 GameObject:
   m_ObjectHideFlags: 0
@@ -10573,7 +10089,6 @@ GameObject:
   - component: {fileID: 2307966805912891826}
   - component: {fileID: 6344465146602254133}
   - component: {fileID: 2690206611642442897}
-  - component: {fileID: 7221380773965311527}
   m_Layer: 5
   m_Name: lbChipBonus
   m_TagString: Untagged
@@ -10713,27 +10228,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7221380773965311527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330731866734263832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2690206611642442897}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6477033119417207382
 GameObject:
   m_ObjectHideFlags: 0
@@ -11160,7 +10654,6 @@ GameObject:
   - component: {fileID: 3763320227002949970}
   - component: {fileID: 8360378106256109872}
   - component: {fileID: 5829184151755276389}
-  - component: {fileID: 1311747810451479513}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -11286,27 +10779,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1311747810451479513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6729069300235128847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 0}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6813697638361251648
 GameObject:
   m_ObjectHideFlags: 0
@@ -12190,7 +11662,6 @@ GameObject:
   - component: {fileID: 8956000747061822526}
   - component: {fileID: 2829383403300722281}
   - component: {fileID: 4836676320173264405}
-  - component: {fileID: 1718905310531338731}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -12316,27 +11787,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1718905310531338731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7244151725849365603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 0}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7288039262635176442
 GameObject:
   m_ObjectHideFlags: 0
@@ -13672,7 +13122,6 @@ GameObject:
   - component: {fileID: 5239037064141840331}
   - component: {fileID: 245013919024640960}
   - component: {fileID: 1604688741010805548}
-  - component: {fileID: 5087746206115805607}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -13798,27 +13247,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5087746206115805607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8112916049064418693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1604688741010805548}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8178623610576278979
 GameObject:
   m_ObjectHideFlags: 0
@@ -14479,7 +13907,6 @@ GameObject:
   - component: {fileID: 8948147826774798162}
   - component: {fileID: 8202038501105061634}
   - component: {fileID: 8176887532221309025}
-  - component: {fileID: 8504605119654569260}
   m_Layer: 5
   m_Name: lbValue
   m_TagString: Untagged
@@ -14605,27 +14032,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8504605119654569260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8683406145599977527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8176887532221309025}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8739014396576639132
 GameObject:
   m_ObjectHideFlags: 0
@@ -14856,7 +14262,6 @@ GameObject:
   - component: {fileID: 8753862967020105316}
   - component: {fileID: 8753862967020105314}
   - component: {fileID: 463271363982801230}
-  - component: {fileID: 2856749151696120263}
   m_Layer: 5
   m_Name: lbCurrentBet
   m_TagString: Untagged
@@ -14996,27 +14401,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2856749151696120263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8753862967020105312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 463271363982801230}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8753862967166101967
 GameObject:
   m_ObjectHideFlags: 0
@@ -15324,7 +14708,6 @@ GameObject:
   - component: {fileID: 8753862967406686118}
   - component: {fileID: 5085785196253921534}
   - component: {fileID: 4703212225401516787}
-  - component: {fileID: 4771618055747464767}
   m_Layer: 5
   m_Name: lbChipWin
   m_TagString: Untagged
@@ -15480,27 +14863,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &4771618055747464767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8753862967406686116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5085785196253921534}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8753862967449670188
 GameObject:
   m_ObjectHideFlags: 0
@@ -17527,7 +16889,6 @@ GameObject:
   - component: {fileID: 4074719902090331943}
   - component: {fileID: 7184292577876375049}
   - component: {fileID: 4655842825149194602}
-  - component: {fileID: 8843676953038313846}
   m_Layer: 5
   m_Name: lbDiamondNum
   m_TagString: Untagged
@@ -17653,27 +17014,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8843676953038313846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8764910806937161521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4655842825149194602}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8890731287321895224
 GameObject:
   m_ObjectHideFlags: 0
@@ -18061,7 +17401,6 @@ GameObject:
   - component: {fileID: 5899593678958359643}
   - component: {fileID: 8623695995984308639}
   - component: {fileID: 5071382779577421439}
-  - component: {fileID: 3295076271410094459}
   m_Layer: 0
   m_Name: lbTotalFreeSpin
   m_TagString: Untagged
@@ -18188,24 +17527,3 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3295076271410094459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9197233895591135714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5071382779577421439}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0

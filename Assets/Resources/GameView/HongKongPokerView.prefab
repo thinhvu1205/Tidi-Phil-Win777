@@ -2454,7 +2454,6 @@ GameObject:
   - component: {fileID: 3963287959893478141}
   - component: {fileID: 2273120669461417570}
   - component: {fileID: 2740345827379417949}
-  - component: {fileID: 3943143784729007110}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -2580,27 +2579,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3943143784729007110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879891413407671515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2740345827379417949}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/font player.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &2299584020766867207
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,7 +4207,6 @@ GameObject:
   - component: {fileID: 1285164297176538654}
   - component: {fileID: 4590349523257970635}
   - component: {fileID: 2834642006433290552}
-  - component: {fileID: 3458206936648495567}
   m_Layer: 0
   m_Name: Text Title
   m_TagString: Untagged
@@ -4355,27 +4332,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3458206936648495567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3716019618105824618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2834642006433290552}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Rowdies-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3730526982511626401
 GameObject:
   m_ObjectHideFlags: 0
@@ -9342,7 +9298,6 @@ GameObject:
   - component: {fileID: 3103774323390705351}
   - component: {fileID: 6583616483765228270}
   - component: {fileID: 4685616762775220527}
-  - component: {fileID: 5042429937313462743}
   m_Layer: 0
   m_Name: TipChips
   m_TagString: Untagged
@@ -9468,27 +9423,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5042429937313462743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7023439591044566070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4685616762775220527}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7031132149080774006
 GameObject:
   m_ObjectHideFlags: 0

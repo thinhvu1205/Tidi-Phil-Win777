@@ -2029,7 +2029,6 @@ GameObject:
   - component: {fileID: 478369271144896467}
   - component: {fileID: 4128713565250189451}
   - component: {fileID: 1876462000233177753}
-  - component: {fileID: 4935055753141261134}
   m_Layer: 5
   m_Name: lbChipWin
   m_TagString: Untagged
@@ -2185,27 +2184,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 3
---- !u!114 &4935055753141261134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478369271144896465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4128713565250189451}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &478369271248332546
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,7 +2675,6 @@ GameObject:
   - component: {fileID: 478369271833630225}
   - component: {fileID: 478369271833630231}
   - component: {fileID: 8770104371502055739}
-  - component: {fileID: 5069634633863314379}
   m_Layer: 5
   m_Name: lbCurrentBet
   m_TagString: Untagged
@@ -2837,27 +2814,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5069634633863314379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478369271833630229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8770104371502055739}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &478369271908131180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,7 +3118,6 @@ GameObject:
   - component: {fileID: 1258542318519074208}
   - component: {fileID: 2923670109268182069}
   - component: {fileID: 8604331467879896977}
-  - component: {fileID: 2561652249457908452}
   m_Layer: 0
   m_Name: lbFreeSpinNum
   m_TagString: Untagged
@@ -3288,28 +3243,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2561652249457908452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767447403345375639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8604331467879896977}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_FreeSpinNum.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &773247428864859730
 GameObject:
   m_ObjectHideFlags: 0
@@ -3972,7 +3905,6 @@ GameObject:
   - component: {fileID: 699749718803714863}
   - component: {fileID: 1628409789336898946}
   - component: {fileID: 6569388631497881734}
-  - component: {fileID: 54109842399842638}
   m_Layer: 5
   m_Name: lbTitle_2
   m_TagString: Untagged
@@ -4098,27 +4030,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &54109842399842638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210706207001607559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6569388631497881734}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1264952652124237455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4422,7 +4333,6 @@ GameObject:
   - component: {fileID: 5060337289521646632}
   - component: {fileID: 1778750997751959880}
   - component: {fileID: 4413418155203948398}
-  - component: {fileID: 6106356531252569505}
   m_Layer: 0
   m_Name: lbPackageValueWin
   m_TagString: Untagged
@@ -4548,28 +4458,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6106356531252569505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357404522842787283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4413418155203948398}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Blue_mini.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1358612230142896428
 GameObject:
   m_ObjectHideFlags: 0
@@ -6201,7 +6089,6 @@ GameObject:
   - component: {fileID: 1483283008029389066}
   - component: {fileID: 7059393613132403295}
   - component: {fileID: 5437206097956809750}
-  - component: {fileID: 5106898423879270347}
   m_Layer: 5
   m_Name: lbJackpotGrand
   m_TagString: Untagged
@@ -6343,28 +6230,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &5106898423879270347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2412346830261803201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7059393613132403295}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Black.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &2664953295108015839
 GameObject:
   m_ObjectHideFlags: 0
@@ -7337,7 +7202,6 @@ GameObject:
   - component: {fileID: 3671175136545099773}
   - component: {fileID: 3671175136545099775}
   - component: {fileID: 3671175136545099774}
-  - component: {fileID: 1019372069733724100}
   m_Layer: 5
   m_Name: lbNumline_1
   m_TagString: Untagged
@@ -7463,27 +7327,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1019372069733724100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3671175136545099772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 3671175136545099774}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3671175138515048206
 GameObject:
   m_ObjectHideFlags: 0
@@ -7495,7 +7338,6 @@ GameObject:
   - component: {fileID: 3671175138515048207}
   - component: {fileID: 3671175138515048201}
   - component: {fileID: 3671175138515048200}
-  - component: {fileID: 8774032128947464926}
   m_Layer: 5
   m_Name: lbNumline
   m_TagString: Untagged
@@ -7621,27 +7463,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8774032128947464926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3671175138515048206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 3671175138515048200}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3757886762950998651
 GameObject:
   m_ObjectHideFlags: 0
@@ -7653,7 +7474,6 @@ GameObject:
   - component: {fileID: 1257117272604429490}
   - component: {fileID: 7737615479520135297}
   - component: {fileID: 6430767056017522574}
-  - component: {fileID: 5290507322023569046}
   m_Layer: 5
   m_Name: lbFreespinNum
   m_TagString: Untagged
@@ -7779,28 +7599,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5290507322023569046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3757886762950998651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6430767056017522574}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Green_Maijor.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3816667043862039992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8122,7 +7920,6 @@ GameObject:
   - component: {fileID: 7370642153066916657}
   - component: {fileID: 3135939222664016947}
   - component: {fileID: 343452708641708193}
-  - component: {fileID: 1159503950903621947}
   m_Layer: 5
   m_Name: lbTitle_1
   m_TagString: Untagged
@@ -8248,27 +8045,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1159503950903621947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4154227435460962745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 343452708641708193}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &4474335227723401408
 GameObject:
   m_ObjectHideFlags: 0
@@ -8926,7 +8702,6 @@ GameObject:
   - component: {fileID: 4503858292039770895}
   - component: {fileID: 9201835178440887222}
   - component: {fileID: 6758423652111490092}
-  - component: {fileID: 799697348847328444}
   m_Layer: 5
   m_Name: lbTitle_3
   m_TagString: Untagged
@@ -9052,27 +8827,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &799697348847328444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280232829929556462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6758423652111490092}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5450941042930950940
 GameObject:
   m_ObjectHideFlags: 0
@@ -9478,7 +9232,6 @@ GameObject:
   - component: {fileID: 6882922510181029504}
   - component: {fileID: 2306116472043304830}
   - component: {fileID: 8201041002406084280}
-  - component: {fileID: 6876573281177957057}
   m_Layer: 0
   m_Name: lbAddedWild
   m_TagString: Untagged
@@ -9604,28 +9357,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6876573281177957057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5595112233774501028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8201041002406084280}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Violet_Minor.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5604977193775287567
 GameObject:
   m_ObjectHideFlags: 0
@@ -9788,7 +9519,6 @@ GameObject:
   - component: {fileID: 5319685438801969819}
   - component: {fileID: 7083272855706518771}
   - component: {fileID: 3441621829304184432}
-  - component: {fileID: 3117149007728531853}
   m_Layer: 5
   m_Name: lbJPMajor
   m_TagString: Untagged
@@ -9930,28 +9660,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &3117149007728531853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5773319890977334293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7083272855706518771}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Black.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5822074082194781890
 GameObject:
   m_ObjectHideFlags: 0
@@ -10168,7 +9876,6 @@ GameObject:
   - component: {fileID: 6273340960673468632}
   - component: {fileID: 4668925677048185356}
   - component: {fileID: 449767910752214528}
-  - component: {fileID: 7949162065897906188}
   m_Layer: 0
   m_Name: lbReward
   m_TagString: Untagged
@@ -10294,27 +10001,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7949162065897906188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6107238619422229347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 449767910752214528}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron ExtraBold SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/Neuron ExtraBold/Neuron_ExtraBold_SDF_Yellow.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6126697222252733573
 GameObject:
   m_ObjectHideFlags: 0
@@ -11355,7 +11041,6 @@ GameObject:
   - component: {fileID: 3707429547565228628}
   - component: {fileID: 4092780833295517927}
   - component: {fileID: 7510887300022561893}
-  - component: {fileID: 7985962495067051093}
   m_Layer: 5
   m_Name: lbChipPackage
   m_TagString: Untagged
@@ -11481,28 +11166,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7985962495067051093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6940190100386734751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7510887300022561893}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Black.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6959520840603731183
 GameObject:
   m_ObjectHideFlags: 0
@@ -11514,7 +11177,6 @@ GameObject:
   - component: {fileID: 5026492390707524134}
   - component: {fileID: 4598761282556376597}
   - component: {fileID: 2994935012843343370}
-  - component: {fileID: 6478815798442524513}
   m_Layer: 5
   m_Name: lbBigWin
   m_TagString: Untagged
@@ -11640,28 +11302,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6478815798442524513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6959520840603731183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2994935012843343370}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Black.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7084757958655471484
 GameObject:
   m_ObjectHideFlags: 0
@@ -11963,7 +11603,6 @@ GameObject:
   - component: {fileID: 2202415834808716722}
   - component: {fileID: 7248380161779371080}
   - component: {fileID: 2077371541572268578}
-  - component: {fileID: 2786081445633181081}
   m_Layer: 0
   m_Name: lbAdded
   m_TagString: Untagged
@@ -12089,28 +11728,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2786081445633181081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7433729227378027699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2077371541572268578}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Violet_Minor.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7624310848125750657
 GameObject:
   m_ObjectHideFlags: 0
@@ -12433,7 +12050,6 @@ GameObject:
   - component: {fileID: 8058539632682807836}
   - component: {fileID: 5563430604460606138}
   - component: {fileID: 5586320792969196887}
-  - component: {fileID: 1818436121510116935}
   m_Layer: 5
   m_Name: lbTitle
   m_TagString: Untagged
@@ -12559,27 +12175,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1818436121510116935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8441390047097760551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5586320792969196887}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8520176586474127529
 GameObject:
   m_ObjectHideFlags: 0
@@ -12591,7 +12186,6 @@ GameObject:
   - component: {fileID: 1230171105781700177}
   - component: {fileID: 5065587002563470754}
   - component: {fileID: 5233618509150677205}
-  - component: {fileID: 4926673381727059930}
   m_Layer: 5
   m_Name: lbTotalPackageWin
   m_TagString: Untagged
@@ -12717,28 +12311,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4926673381727059930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8520176586474127529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5233618509150677205}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_PackageValue.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8582475432386625833
 GameObject:
   m_ObjectHideFlags: 0
@@ -12960,7 +12532,6 @@ GameObject:
   - component: {fileID: 6602318168958578034}
   - component: {fileID: 6855427646629373331}
   - component: {fileID: 272966765253182882}
-  - component: {fileID: 4922340546311602408}
   m_Layer: 0
   m_Name: lbPackageValueWin
   m_TagString: Untagged
@@ -13086,28 +12657,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4922340546311602408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8659324999634918164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 272966765253182882}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Pink.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8682956210651550714
 GameObject:
   m_ObjectHideFlags: 0
@@ -13120,7 +12669,6 @@ GameObject:
   - component: {fileID: 7006255174932373419}
   - component: {fileID: 7820698088442058401}
   - component: {fileID: 6327542913529596210}
-  - component: {fileID: 8291563728646305095}
   m_Layer: 5
   m_Name: lbMinor
   m_TagString: Untagged
@@ -13262,28 +12810,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &8291563728646305095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8682956210651550714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7820698088442058401}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Black.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8686564743898242214
 GameObject:
   m_ObjectHideFlags: 0
@@ -13436,7 +12962,6 @@ GameObject:
   - component: {fileID: 2742733287474247698}
   - component: {fileID: 4011351051682813602}
   - component: {fileID: 1141722433687194438}
-  - component: {fileID: 7335990962370310619}
   m_Layer: 5
   m_Name: lbCurrentChips
   m_TagString: Untagged
@@ -13578,27 +13103,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &7335990962370310619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8743491514241387240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4011351051682813602}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/green_noel.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8761284608784754224
 GameObject:
   m_ObjectHideFlags: 0
@@ -13611,7 +13115,6 @@ GameObject:
   - component: {fileID: 4860183556610371209}
   - component: {fileID: 4125369324852054867}
   - component: {fileID: 8811949957702201499}
-  - component: {fileID: 5954374016344835481}
   m_Layer: 5
   m_Name: lbJPMini
   m_TagString: Untagged
@@ -13753,28 +13256,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &5954374016344835481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8761284608784754224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4125369324852054867}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/AlfaSlabOne/AlfaSlabOne-Regular
-    SDF_Black.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &9040524296955361389
 GameObject:
   m_ObjectHideFlags: 0

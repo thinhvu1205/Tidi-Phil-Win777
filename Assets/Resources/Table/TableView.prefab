@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 891053240512648687}
   - component: {fileID: 891053240512648681}
   - component: {fileID: 8168421691000288340}
-  - component: {fileID: 1152932932942935721}
+  - component: {fileID: 3609941174189942078}
   m_Layer: 5
   m_Name: lbPlayerNumber
   m_TagString: Untagged
@@ -484,7 +484,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1152932932942935721
+--- !u!114 &3609941174189942078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -493,18 +493,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 891053240512648684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8168421691000288340}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: txt_player_private_table
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: txt_player_private_table
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &891053240523678441
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,7 +905,7 @@ GameObject:
   - component: {fileID: 891053240698618421}
   - component: {fileID: 891053240698618423}
   - component: {fileID: 5838345026784571902}
-  - component: {fileID: 704332726580538071}
+  - component: {fileID: 6137254705238540808}
   m_Layer: 5
   m_Name: lbNameRoom
   m_TagString: Untagged
@@ -1035,7 +1031,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &704332726580538071
+--- !u!114 &6137254705238540808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1044,18 +1040,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 891053240698618426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5838345026784571902}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: txt_room_name_private_table
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: txt_room_name_private_table
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &891053240719014472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,7 +2324,7 @@ GameObject:
   - component: {fileID: 891053241987795153}
   - component: {fileID: 891053241987795155}
   - component: {fileID: 8866424666283872874}
-  - component: {fileID: 4312184030759966804}
+  - component: {fileID: 6291171699898168315}
   m_Layer: 5
   m_Name: lbIDTable
   m_TagString: Untagged
@@ -2458,7 +2450,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4312184030759966804
+--- !u!114 &6291171699898168315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2467,18 +2459,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 891053241987795158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8866424666283872874}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: txt_id_private_table
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: txt_id_private_table
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &891053242033912072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2690,7 +2678,7 @@ GameObject:
   - component: {fileID: 891053242176760223}
   - component: {fileID: 891053242176760217}
   - component: {fileID: 1802273039183370768}
-  - component: {fileID: 1305051911043018932}
+  - component: {fileID: 6089135546597599375}
   m_Layer: 5
   m_Name: lbBet
   m_TagString: Untagged
@@ -2816,7 +2804,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1305051911043018932
+--- !u!114 &6089135546597599375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2825,18 +2813,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 891053242176760220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1802273039183370768}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: txt_table_bet_private_table
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: txt_table_bet_private_table
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &891053242188552551
 GameObject:
   m_ObjectHideFlags: 0

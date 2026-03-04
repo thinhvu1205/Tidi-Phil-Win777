@@ -182,7 +182,6 @@ GameObject:
   - component: {fileID: 5963186221643131785}
   - component: {fileID: 4603434856557616930}
   - component: {fileID: 4936876228418540438}
-  - component: {fileID: 7486934703145918017}
   m_Layer: 5
   m_Name: lbBigWin
   m_TagString: Untagged
@@ -322,27 +321,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7486934703145918017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974541237296060787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4936876228418540438}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Rowdies-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1460420230673946484
 GameObject:
   m_ObjectHideFlags: 0
@@ -3730,7 +3708,6 @@ GameObject:
   - component: {fileID: 6079657597098501399}
   - component: {fileID: 8216351913018534667}
   - component: {fileID: 1227079152853852926}
-  - component: {fileID: 3155666924738144860}
   m_Layer: 5
   m_Name: lbChipWin
   m_TagString: Untagged
@@ -3886,27 +3863,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 3
---- !u!114 &3155666924738144860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7759958421831453261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6079657597098501399}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Rowdies-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7759958421861873605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4362,7 +4318,6 @@ GameObject:
   - component: {fileID: 7759958422216657805}
   - component: {fileID: 7759958422216657803}
   - component: {fileID: 1488088068834876583}
-  - component: {fileID: 5000612711167540105}
   m_Layer: 5
   m_Name: lbCurrentBet
   m_TagString: Untagged
@@ -4502,27 +4457,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5000612711167540105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7759958422216657801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1488088068834876583}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Rowdies-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7759958422221419117
 GameObject:
   m_ObjectHideFlags: 0

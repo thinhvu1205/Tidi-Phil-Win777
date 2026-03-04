@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 2438391929826583065}
   - component: {fileID: 7131441073037401213}
   - component: {fileID: 2378587453618249852}
-  - component: {fileID: 864741337708277098}
   m_Layer: 5
   m_Name: Text_Chip_Bonus
   m_TagString: Untagged
@@ -213,27 +212,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &864741337708277098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170036068039519087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2378587453618249852}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/font player.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &215573012736039405
 GameObject:
   m_ObjectHideFlags: 0
@@ -3531,7 +3509,6 @@ GameObject:
   - component: {fileID: 4768016447309482280}
   - component: {fileID: 8468944714862230970}
   - component: {fileID: 2186231555254716335}
-  - component: {fileID: 7423812961690401374}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3657,27 +3634,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7423812961690401374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5010853140982692385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2186231555254716335}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/font player.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5150370958303798759
 GameObject:
   m_ObjectHideFlags: 0
@@ -6708,7 +6664,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5612781544686702248, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6832,37 +6789,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1606626169345967454, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3200889176679356402}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
---- !u!1 &1980370037776953342 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1606626169345967454, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
-  m_PrefabInstance: {fileID: 950349627896572576}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3200889176679356402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980370037776953342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8348302979634088797}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/font player.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!114 &2666279181103281846 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2896051206295985174, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
@@ -6879,17 +6807,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6917943263157675675, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
   m_PrefabInstance: {fileID: 950349627896572576}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8348302979634088797 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9145527333642297853, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
-  m_PrefabInstance: {fileID: 950349627896572576}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980370037776953342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3232693803483334041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6982,7 +6899,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5612781544686702248, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7099,7 +7017,8 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: f99eb9477b6621343be933f2b2ca3f02, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5612781544686702248, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7212,7 +7131,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5612781544686702248, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7325,7 +7245,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5612781544686702248, guid: 864bc37a6e7f2dc4b971b724281e5db9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

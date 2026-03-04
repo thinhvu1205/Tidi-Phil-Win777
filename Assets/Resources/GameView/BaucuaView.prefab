@@ -11826,7 +11826,6 @@ GameObject:
   - component: {fileID: 5474349131830064275}
   - component: {fileID: 5921032853026378262}
   - component: {fileID: 5271267529129831992}
-  - component: {fileID: 4701641908753101770}
   m_Layer: 0
   m_Name: value
   m_TagString: Untagged
@@ -11952,27 +11951,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4701641908753101770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4903477274034681686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5271267529129831992}
-  BundleLabel: assets--resources--fonts--fonttimedigital
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/FontTimeDigital/digital SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &4916147613547352835
 GameObject:
   m_ObjectHideFlags: 0

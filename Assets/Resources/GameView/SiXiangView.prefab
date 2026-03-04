@@ -1198,7 +1198,6 @@ GameObject:
   - component: {fileID: 2247232384999584022}
   - component: {fileID: 1987247634008203717}
   - component: {fileID: 6352929101340067465}
-  - component: {fileID: 5586502249422545257}
   m_Layer: 5
   m_Name: lbChip
   m_TagString: Untagged
@@ -1324,27 +1323,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5586502249422545257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118829644682735622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6352929101340067465}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1146951714443267523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,7 +2082,6 @@ GameObject:
   - component: {fileID: 4975389450899508464}
   - component: {fileID: 6088923135023207802}
   - component: {fileID: 796499653415600491}
-  - component: {fileID: 6349878335484786441}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2230,27 +2207,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6349878335484786441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558568021391069214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 796499653415600491}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1593163830636385288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,7 +2415,6 @@ GameObject:
   - component: {fileID: 4625449338806133560}
   - component: {fileID: 246825845739849258}
   - component: {fileID: 5723863071605462741}
-  - component: {fileID: 316508633549753022}
   m_Layer: 5
   m_Name: lbTotalLine
   m_TagString: Untagged
@@ -2585,27 +2540,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &316508633549753022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766723796532198073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5723863071605462741}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1804333779137093830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3262,7 +3196,6 @@ GameObject:
   - component: {fileID: 3038035079958547177}
   - component: {fileID: 936601632634318699}
   - component: {fileID: 1825932294201860094}
-  - component: {fileID: 6581564311436416308}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3388,27 +3321,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6581564311436416308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963963700171974202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1825932294201860094}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1964604106361997232
 GameObject:
   m_ObjectHideFlags: 0
@@ -3806,7 +3718,6 @@ GameObject:
   - component: {fileID: 2697213119643950660}
   - component: {fileID: 8936215153244708162}
   - component: {fileID: 2579780585150645829}
-  - component: {fileID: 4845177073196707459}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3932,27 +3843,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4845177073196707459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2187252551517062466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2579780585150645829}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &2239416919122060204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3965,7 +3855,6 @@ GameObject:
   - component: {fileID: 642379970780019676}
   - component: {fileID: 7700807509648341474}
   - component: {fileID: 8691552708200394802}
-  - component: {fileID: 7144270730800046043}
   m_Layer: 5
   m_Name: lbSpinInfo
   m_TagString: Untagged
@@ -4105,27 +3994,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
---- !u!114 &7144270730800046043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2239416919122060204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7700807509648341474}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &2332475438237123814
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,7 +5445,6 @@ GameObject:
   - component: {fileID: 1707505825738781780}
   - component: {fileID: 510631098592774333}
   - component: {fileID: 1475876639331954976}
-  - component: {fileID: 353445013160918191}
   m_Layer: 5
   m_Name: lbJPGrand
   m_TagString: Untagged
@@ -5719,27 +5586,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &353445013160918191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3090181955861730900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 510631098592774333}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3117804650261599101
 GameObject:
   m_ObjectHideFlags: 0
@@ -6092,7 +5938,6 @@ GameObject:
   - component: {fileID: 7444263662063065167}
   - component: {fileID: 1350413207850208645}
   - component: {fileID: 8937448906318610883}
-  - component: {fileID: 5496353787585437537}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6218,27 +6063,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5496353787585437537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3389321514576201762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8937448906318610883}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3510443496187205706
 GameObject:
   m_ObjectHideFlags: 0
@@ -6251,7 +6075,6 @@ GameObject:
   - component: {fileID: 3576051300468912640}
   - component: {fileID: 7205854468380863826}
   - component: {fileID: 9040228466994775819}
-  - component: {fileID: 5861474615092610271}
   m_Layer: 5
   m_Name: lbJPMajor
   m_TagString: Untagged
@@ -6393,27 +6216,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &5861474615092610271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3510443496187205706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7205854468380863826}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3533989435799101791
 GameObject:
   m_ObjectHideFlags: 0
@@ -8493,7 +8295,6 @@ GameObject:
   - component: {fileID: 7743002822108931294}
   - component: {fileID: 6663608511061883301}
   - component: {fileID: 9134996937292324034}
-  - component: {fileID: 2620028776770605058}
   m_Layer: 5
   m_Name: lbFSP
   m_TagString: Untagged
@@ -8619,27 +8420,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2620028776770605058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958276089780709143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 9134996937292324034}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &4982446778662143211
 GameObject:
   m_ObjectHideFlags: 0
@@ -8852,7 +8632,7 @@ GameObject:
   - component: {fileID: 4973718964419748345}
   - component: {fileID: 3581133293210138702}
   - component: {fileID: 6879134414166911347}
-  - component: {fileID: 2698212909864746505}
+  - component: {fileID: 1235565262787431288}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -8978,7 +8758,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2698212909864746505
+--- !u!114 &1235565262787431288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8987,18 +8767,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5076735095839366879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6879134414166911347}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: txt_ok
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: txt_ok
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &5105204465745674393
 GameObject:
   m_ObjectHideFlags: 0
@@ -9151,7 +8927,6 @@ GameObject:
   - component: {fileID: 323917695542890829}
   - component: {fileID: 3881164056177287548}
   - component: {fileID: 8960696380128418323}
-  - component: {fileID: 5868749629480260755}
   m_Layer: 5
   m_Name: lbBalance
   m_TagString: Untagged
@@ -9293,27 +9068,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &5868749629480260755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5215179864882488666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 3881164056177287548}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5281425871743341461
 GameObject:
   m_ObjectHideFlags: 0
@@ -9403,7 +9157,6 @@ GameObject:
   - component: {fileID: 520735296549085896}
   - component: {fileID: 5379343862309622312}
   - component: {fileID: 3631711748389801137}
-  - component: {fileID: 9160713551401478480}
   m_Layer: 0
   m_Name: lbJackpotWin
   m_TagString: Untagged
@@ -9545,27 +9298,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &9160713551401478480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5294489493886056095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5379343862309622312}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_Gradient.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5436042007473048149
 GameObject:
   m_ObjectHideFlags: 0
@@ -10304,7 +10036,7 @@ GameObject:
   - component: {fileID: 6978605188416506288}
   - component: {fileID: 4950919691868409401}
   - component: {fileID: 3337677589108015718}
-  - component: {fileID: 1688884733381662676}
+  - component: {fileID: 5053679086635734092}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -10430,7 +10162,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1688884733381662676
+--- !u!114 &5053679086635734092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10439,18 +10171,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5884191659192035349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 3337677589108015718}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: txt_ok
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: txt_ok
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &6011177111154007306
 GameObject:
   m_ObjectHideFlags: 0
@@ -10976,7 +10704,6 @@ GameObject:
   - component: {fileID: 2685883681886129873}
   - component: {fileID: 6539891751139419423}
   - component: {fileID: 2377113611459924468}
-  - component: {fileID: 1722410790093508756}
   m_Layer: 5
   m_Name: lbJpMinor
   m_TagString: Untagged
@@ -11118,27 +10845,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &1722410790093508756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6391175396171142319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6539891751139419423}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6505023379214983848
 GameObject:
   m_ObjectHideFlags: 0
@@ -11458,7 +11164,6 @@ GameObject:
   - component: {fileID: 2806750047480468046}
   - component: {fileID: 8651476562392955244}
   - component: {fileID: 8854265393965220370}
-  - component: {fileID: 7585353262616445284}
   m_Layer: 0
   m_Name: lbMoneyBigMega
   m_TagString: Untagged
@@ -11600,27 +11305,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &7585353262616445284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6640266673355101320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8651476562392955244}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_Gradient.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6807976371666471460
 GameObject:
   m_ObjectHideFlags: 0
@@ -12388,7 +12072,6 @@ GameObject:
   - component: {fileID: 5381430156656154765}
   - component: {fileID: 13162776532094585}
   - component: {fileID: 5447352574273661489}
-  - component: {fileID: 2847298173775980744}
   m_Layer: 5
   m_Name: lbTotalWin
   m_TagString: Untagged
@@ -12530,27 +12213,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &2847298173775980744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7337201377417356435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 13162776532094585}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7380144141590227015
 GameObject:
   m_ObjectHideFlags: 0
@@ -13397,7 +13059,6 @@ GameObject:
   - component: {fileID: 337621055910904632}
   - component: {fileID: 6138569439357122658}
   - component: {fileID: 5973820753167500788}
-  - component: {fileID: 7453669326438880007}
   m_Layer: 0
   m_Name: lbMoneyWinResult
   m_TagString: Untagged
@@ -13523,27 +13184,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7453669326438880007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7656044026005708088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5973820753167500788}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_Gradient.mat
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7659083171546912839
 GameObject:
   m_ObjectHideFlags: 0
@@ -14060,7 +13700,6 @@ GameObject:
   - component: {fileID: 1536850964978508737}
   - component: {fileID: 4931094038482724687}
   - component: {fileID: 8542369788832704516}
-  - component: {fileID: 3830353340069222708}
   m_Layer: 5
   m_Name: lbJPMega
   m_TagString: Untagged
@@ -14202,27 +13841,6 @@ MonoBehaviour:
   isFormatMoney: 0
   scale: 1
   FormatType: 0
---- !u!114 &3830353340069222708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8118362079785703580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4931094038482724687}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8191633127044179164
 GameObject:
   m_ObjectHideFlags: 0
@@ -14868,7 +14486,6 @@ GameObject:
   - component: {fileID: 1078375359798908902}
   - component: {fileID: 1769837929049268926}
   - component: {fileID: 1872184131208251250}
-  - component: {fileID: 8715573250989521306}
   m_Layer: 5
   m_Name: lbTotalBet
   m_TagString: Untagged
@@ -14994,27 +14611,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8715573250989521306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8804449081308288091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1872184131208251250}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/go3v2/go3v2 SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8813706230026055812
 GameObject:
   m_ObjectHideFlags: 0

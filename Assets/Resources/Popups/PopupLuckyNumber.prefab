@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 7385966457951851705}
   - component: {fileID: 1336219984166854869}
   - component: {fileID: 2136584262921321792}
-  - component: {fileID: 2505580510497867487}
   m_Layer: 5
   m_Name: Text Bellow
   m_TagString: Untagged
@@ -214,27 +213,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2505580510497867487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139425309452422804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2136584262921321792}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &144935202901004126
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +224,6 @@ GameObject:
   - component: {fileID: 4321720151491075241}
   - component: {fileID: 404211142480090102}
   - component: {fileID: 929989129871673742}
-  - component: {fileID: 8398592596824094585}
   m_Layer: 5
   m_Name: Chip Bet
   m_TagString: Untagged
@@ -372,27 +349,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8398592596824094585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144935202901004126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 929989129871673742}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &164747604471056518
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +360,6 @@ GameObject:
   - component: {fileID: 6488555606983129952}
   - component: {fileID: 1436873526826412572}
   - component: {fileID: 2053394798272800100}
-  - component: {fileID: 7641259903630852375}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -530,27 +485,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7641259903630852375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164747604471056518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2053394798272800100}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &229591972343785414
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +497,6 @@ GameObject:
   - component: {fileID: 1676177913804887255}
   - component: {fileID: 5735751873667332304}
   - component: {fileID: 1562174039162965965}
-  - component: {fileID: 4750016806134996302}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -709,27 +642,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &4750016806134996302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229591972343785414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5735751873667332304}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &237319413691531417
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,7 +728,6 @@ GameObject:
   - component: {fileID: 2018849190791208219}
   - component: {fileID: 7750643743178412144}
   - component: {fileID: 5430983847137345149}
-  - component: {fileID: 4052122029814579408}
   m_Layer: 5
   m_Name: Text 8
   m_TagString: Untagged
@@ -942,27 +853,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4052122029814579408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350418988166147126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5430983847137345149}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &487739392931728796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1130,6 @@ GameObject:
   - component: {fileID: 4437808233714705646}
   - component: {fileID: 3264642391676745233}
   - component: {fileID: 6166457631128838083}
-  - component: {fileID: 2828940346351321848}
   m_Layer: 5
   m_Name: Text Above
   m_TagString: Untagged
@@ -1366,27 +1255,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2828940346351321848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 646906559990404675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6166457631128838083}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &851414117182889847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,7 +1958,6 @@ GameObject:
   - component: {fileID: 6932263180507740413}
   - component: {fileID: 7340673856283696537}
   - component: {fileID: 971367441771763144}
-  - component: {fileID: 9186022877217433858}
   m_Layer: 5
   m_Name: Date
   m_TagString: Untagged
@@ -2216,27 +2083,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &9186022877217433858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231726885007483626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 971367441771763144}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1259386475055711102
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,7 +2202,6 @@ GameObject:
   - component: {fileID: 131433303837469966}
   - component: {fileID: 4293637443740275202}
   - component: {fileID: 3656653214609414909}
-  - component: {fileID: 5596282793164333405}
   m_Layer: 5
   m_Name: Text Left
   m_TagString: Untagged
@@ -2482,27 +2327,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5596282793164333405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351773464544518297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 3656653214609414909}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1371203660810296716
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,7 +2428,6 @@ GameObject:
   - component: {fileID: 3508638951456950704}
   - component: {fileID: 8212195027814721612}
   - component: {fileID: 1885989932728440421}
-  - component: {fileID: 7012700445214684680}
   m_Layer: 5
   m_Name: Text Bellow
   m_TagString: Untagged
@@ -2730,27 +2553,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7012700445214684680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387411823955132428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1885989932728440421}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1560572508641553088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,7 +2639,6 @@ GameObject:
   - component: {fileID: 1878519328653743038}
   - component: {fileID: 817737286941284429}
   - component: {fileID: 5729843773258175904}
-  - component: {fileID: 6623869110501450144}
   m_Layer: 5
   m_Name: Text Above
   m_TagString: Untagged
@@ -2963,27 +2764,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6623869110501450144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665935009537318153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5729843773258175904}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1754946143486576913
 GameObject:
   m_ObjectHideFlags: 0
@@ -3128,7 +2908,6 @@ GameObject:
   - component: {fileID: 201950242945485396}
   - component: {fileID: 7181509267430776349}
   - component: {fileID: 5549000082344518322}
-  - component: {fileID: 5075134329490587620}
   m_Layer: 5
   m_Name: Chip Bet
   m_TagString: Untagged
@@ -3254,27 +3033,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5075134329490587620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801111176129881886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5549000082344518322}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1828713037300524841
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,7 +3355,6 @@ GameObject:
   - component: {fileID: 1860467219421596666}
   - component: {fileID: 7694377009193467226}
   - component: {fileID: 289852457081218535}
-  - component: {fileID: 1774732224760086095}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3757,27 +3514,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1774732224760086095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979350458726417923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 289852457081218535}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &1994195514516992354
 GameObject:
   m_ObjectHideFlags: 0
@@ -4212,7 +3948,6 @@ GameObject:
   - component: {fileID: 8193196154068352966}
   - component: {fileID: 4748098776186274318}
   - component: {fileID: 6938419430665264501}
-  - component: {fileID: 5201502907386748352}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -4338,27 +4073,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5201502907386748352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2296714773688975612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6938419430665264501}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &2324822373526205460
 GameObject:
   m_ObjectHideFlags: 0
@@ -4370,7 +4084,6 @@ GameObject:
   - component: {fileID: 8008442420358110550}
   - component: {fileID: 6811723167616994736}
   - component: {fileID: 8129712196778856074}
-  - component: {fileID: 6744577202890320228}
   m_Layer: 5
   m_Name: Text 1
   m_TagString: Untagged
@@ -4496,27 +4209,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6744577202890320228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2324822373526205460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8129712196778856074}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &2373224871999113178
 GameObject:
   m_ObjectHideFlags: 0
@@ -4565,7 +4257,6 @@ GameObject:
   - component: {fileID: 2530278908641406873}
   - component: {fileID: 8920418755973370290}
   - component: {fileID: 6055316249523303476}
-  - component: {fileID: 5150324069771523634}
   m_Layer: 5
   m_Name: Text 7
   m_TagString: Untagged
@@ -4691,27 +4382,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5150324069771523634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2469859504205851783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6055316249523303476}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &2503386836438164296
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,7 +4712,6 @@ GameObject:
   - component: {fileID: 8331619255723596446}
   - component: {fileID: 3983977194795773292}
   - component: {fileID: 2071989596093261795}
-  - component: {fileID: 7903739053582545608}
   m_Layer: 5
   m_Name: Text Right
   m_TagString: Untagged
@@ -5168,27 +4837,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7903739053582545608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2890261216646137110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2071989596093261795}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &2900514678303370455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6395,7 +6043,6 @@ GameObject:
   - component: {fileID: 1473664864201748991}
   - component: {fileID: 1889033268978900968}
   - component: {fileID: 7964952204524372531}
-  - component: {fileID: 7671390118892622808}
   m_Layer: 5
   m_Name: Text 9
   m_TagString: Untagged
@@ -6521,27 +6168,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7671390118892622808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3286918016764278614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7964952204524372531}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3372343304270061952
 GameObject:
   m_ObjectHideFlags: 0
@@ -6689,7 +6315,6 @@ GameObject:
   - component: {fileID: 8664915439733701426}
   - component: {fileID: 4709073289870185615}
   - component: {fileID: 1221340064756313366}
-  - component: {fileID: 7379854974382322537}
   m_Layer: 5
   m_Name: Text 2
   m_TagString: Untagged
@@ -6815,27 +6440,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7379854974382322537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3521667913317947521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1221340064756313366}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3546824979826274382
 GameObject:
   m_ObjectHideFlags: 0
@@ -6847,7 +6451,6 @@ GameObject:
   - component: {fileID: 6579410916547513877}
   - component: {fileID: 7439764605233484372}
   - component: {fileID: 436321772823413349}
-  - component: {fileID: 3477485191471366602}
   m_Layer: 5
   m_Name: Text 6
   m_TagString: Untagged
@@ -6973,27 +6576,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3477485191471366602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3546824979826274382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 436321772823413349}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3694953392810834737
 GameObject:
   m_ObjectHideFlags: 0
@@ -7042,7 +6624,6 @@ GameObject:
   - component: {fileID: 7694285412129504433}
   - component: {fileID: 4138053189996060099}
   - component: {fileID: 7299320595638557188}
-  - component: {fileID: 7074105353049483829}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -7168,27 +6749,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7074105353049483829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715359672035332034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7299320595638557188}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3743665998030797734
 GameObject:
   m_ObjectHideFlags: 0
@@ -8667,7 +8227,6 @@ GameObject:
   - component: {fileID: 3501466400464502626}
   - component: {fileID: 1100621377709015659}
   - component: {fileID: 5133972409863713502}
-  - component: {fileID: 1392191759248851256}
   m_Layer: 5
   m_Name: Date Time
   m_TagString: Untagged
@@ -8793,27 +8352,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1392191759248851256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4675292494448080369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5133972409863713502}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &4692246355339990521
 GameObject:
   m_ObjectHideFlags: 0
@@ -9300,7 +8838,6 @@ GameObject:
   - component: {fileID: 3231888418698005936}
   - component: {fileID: 7221113471525484080}
   - component: {fileID: 1937025782263050318}
-  - component: {fileID: 329725664120721601}
   m_Layer: 5
   m_Name: Text 3
   m_TagString: Untagged
@@ -9426,27 +8963,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &329725664120721601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5153151293481786634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1937025782263050318}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5172462199073157180
 GameObject:
   m_ObjectHideFlags: 0
@@ -9510,7 +9026,6 @@ GameObject:
   - component: {fileID: 3596223956883881299}
   - component: {fileID: 7787441728072043687}
   - component: {fileID: 362440359196113600}
-  - component: {fileID: 8798798388557407631}
   m_Layer: 5
   m_Name: Text 1
   m_TagString: Untagged
@@ -9636,27 +9151,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8798798388557407631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5334380041912954068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 362440359196113600}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5339728514814442334
 GameObject:
   m_ObjectHideFlags: 0
@@ -9668,7 +9162,6 @@ GameObject:
   - component: {fileID: 275048441170271557}
   - component: {fileID: 668922736518505683}
   - component: {fileID: 5070287518831671961}
-  - component: {fileID: 1174120435384219046}
   m_Layer: 5
   m_Name: Text Rank Number
   m_TagString: Untagged
@@ -9794,27 +9287,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1174120435384219046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5339728514814442334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5070287518831671961}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5419711315760633191
 GameObject:
   m_ObjectHideFlags: 0
@@ -9826,7 +9298,6 @@ GameObject:
   - component: {fileID: 5308725295759656011}
   - component: {fileID: 7592976011045172178}
   - component: {fileID: 5540015511139587018}
-  - component: {fileID: 8464202928486350980}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -9952,27 +9423,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8464202928486350980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5419711315760633191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5540015511139587018}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5441786155461534226
 GameObject:
   m_ObjectHideFlags: 0
@@ -10111,7 +9561,6 @@ GameObject:
   - component: {fileID: 7151957852684890915}
   - component: {fileID: 4390476798424527759}
   - component: {fileID: 669729250537578773}
-  - component: {fileID: 6210657668849592015}
   m_Layer: 5
   m_Name: Text win chip
   m_TagString: Untagged
@@ -10237,27 +9686,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6210657668849592015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5483455149131180497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 669729250537578773}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5505218534649318488
 GameObject:
   m_ObjectHideFlags: 0
@@ -10702,7 +10130,6 @@ GameObject:
   - component: {fileID: 6813305014986964713}
   - component: {fileID: 42565337736365309}
   - component: {fileID: 5259404357313650597}
-  - component: {fileID: 2602591937946351070}
   m_Layer: 5
   m_Name: Text 0
   m_TagString: Untagged
@@ -10828,27 +10255,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2602591937946351070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5830925657068393864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5259404357313650597}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5869149459542164484
 GameObject:
   m_ObjectHideFlags: 0
@@ -11900,7 +11306,6 @@ GameObject:
   - component: {fileID: 8472678812339058977}
   - component: {fileID: 1696455607137025713}
   - component: {fileID: 3266339221696364813}
-  - component: {fileID: 459779671247323934}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -12046,27 +11451,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &459779671247323934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317483153714576386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1696455607137025713}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6409902242615111017
 GameObject:
   m_ObjectHideFlags: 0
@@ -12079,7 +11463,6 @@ GameObject:
   - component: {fileID: 5588651651959192364}
   - component: {fileID: 5664644960620720176}
   - component: {fileID: 8844462019826050872}
-  - component: {fileID: 4240726330833635648}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -12225,27 +11608,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &4240726330833635648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6409902242615111017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5664644960620720176}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6411467932698817113
 GameObject:
   m_ObjectHideFlags: 0
@@ -12310,7 +11672,6 @@ GameObject:
   - component: {fileID: 3145149363081132168}
   - component: {fileID: 2144323847616567913}
   - component: {fileID: 2427456648070388019}
-  - component: {fileID: 4991979684831867779}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -12456,27 +11817,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &4991979684831867779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6454290044352775001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2144323847616567913}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6488840478108129799
 GameObject:
   m_ObjectHideFlags: 0
@@ -12619,7 +11959,6 @@ GameObject:
   - component: {fileID: 6668827084314226558}
   - component: {fileID: 2385883473604020824}
   - component: {fileID: 7557098536631669033}
-  - component: {fileID: 1520831792534334561}
   m_Layer: 5
   m_Name: Chip Bet
   m_TagString: Untagged
@@ -12745,27 +12084,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1520831792534334561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6683623901872698391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7557098536631669033}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6957366913019886807
 GameObject:
   m_ObjectHideFlags: 0
@@ -13003,7 +12321,6 @@ GameObject:
   - component: {fileID: 5256924593140084761}
   - component: {fileID: 3890413247741946817}
   - component: {fileID: 7491491332103752371}
-  - component: {fileID: 7874763775392277144}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -13129,27 +12446,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7874763775392277144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7196738882813978445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7491491332103752371}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7234006739262362728
 GameObject:
   m_ObjectHideFlags: 0
@@ -13815,7 +13111,6 @@ GameObject:
   - component: {fileID: 6642482783166487493}
   - component: {fileID: 266865912488166845}
   - component: {fileID: 448080909497205574}
-  - component: {fileID: 1635501566799933382}
   m_Layer: 5
   m_Name: Text 4
   m_TagString: Untagged
@@ -13941,27 +13236,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1635501566799933382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7815533935332475898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 448080909497205574}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7859206901479038133
 GameObject:
   m_ObjectHideFlags: 0
@@ -14179,7 +13453,6 @@ GameObject:
   - component: {fileID: 8089641322177579511}
   - component: {fileID: 1678776686523438969}
   - component: {fileID: 2888362939959446222}
-  - component: {fileID: 8817801157917646471}
   m_Layer: 5
   m_Name: Text 5
   m_TagString: Untagged
@@ -14305,27 +13578,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8817801157917646471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7885904742759288366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2888362939959446222}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7915891217964038285
 GameObject:
   m_ObjectHideFlags: 0
@@ -14412,7 +13664,6 @@ GameObject:
   - component: {fileID: 4918310730299593434}
   - component: {fileID: 9133619719759945641}
   - component: {fileID: 8289126543894577429}
-  - component: {fileID: 5654401812628317069}
   m_Layer: 5
   m_Name: Number
   m_TagString: Untagged
@@ -14538,27 +13789,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5654401812628317069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7940653863052680180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 8289126543894577429}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &7947934697730623549
 GameObject:
   m_ObjectHideFlags: 0
@@ -14769,7 +13999,6 @@ GameObject:
   - component: {fileID: 5857114406644045929}
   - component: {fileID: 3659671632812018205}
   - component: {fileID: 4628964415148097250}
-  - component: {fileID: 4512331986661559304}
   m_Layer: 5
   m_Name: Index
   m_TagString: Untagged
@@ -14895,27 +14124,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4512331986661559304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8021957645492684052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4628964415148097250}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8213009865077147210
 GameObject:
   m_ObjectHideFlags: 0
@@ -15279,7 +14487,6 @@ GameObject:
   - component: {fileID: 16662515264332108}
   - component: {fileID: 6940701682541790756}
   - component: {fileID: 9092020346710423965}
-  - component: {fileID: 5478202577062644862}
   m_Layer: 5
   m_Name: Text 2
   m_TagString: Untagged
@@ -15405,27 +14612,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5478202577062644862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8414543581977452758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 9092020346710423965}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8421029613566338209
 GameObject:
   m_ObjectHideFlags: 0
@@ -15437,7 +14623,6 @@ GameObject:
   - component: {fileID: 5984658992679862888}
   - component: {fileID: 5209559348349581476}
   - component: {fileID: 521538741668865717}
-  - component: {fileID: 8367349578871095072}
   m_Layer: 5
   m_Name: Number
   m_TagString: Untagged
@@ -15563,27 +14748,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8367349578871095072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8421029613566338209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 521538741668865717}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8675035496572860374
 GameObject:
   m_ObjectHideFlags: 0
@@ -15595,7 +14759,6 @@ GameObject:
   - component: {fileID: 2375335233538631166}
   - component: {fileID: 3952014670061993709}
   - component: {fileID: 5465697853701584493}
-  - component: {fileID: 7434431911453096728}
   m_Layer: 5
   m_Name: Text 3
   m_TagString: Untagged
@@ -15721,27 +14884,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7434431911453096728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8675035496572860374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5465697853701584493}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8714764883400702704
 GameObject:
   m_ObjectHideFlags: 0
@@ -15753,7 +14895,6 @@ GameObject:
   - component: {fileID: 4613523581064065003}
   - component: {fileID: 1455992988348146596}
   - component: {fileID: 6177756015831279734}
-  - component: {fileID: 1037010806083832472}
   m_Layer: 5
   m_Name: Chip Bet
   m_TagString: Untagged
@@ -15879,27 +15020,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1037010806083832472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8714764883400702704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6177756015831279734}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8863284594193545592
 GameObject:
   m_ObjectHideFlags: 0
@@ -16003,7 +15123,6 @@ GameObject:
   - component: {fileID: 43482882454303958}
   - component: {fileID: 5411891749033984046}
   - component: {fileID: 223887778125821198}
-  - component: {fileID: 6510237838224750245}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -16149,27 +15268,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &6510237838224750245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8875902319663990926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5411891749033984046}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOOK SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &8932813876259400828
 GameObject:
   m_ObjectHideFlags: 0
@@ -16656,7 +15754,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6107693914157373173, guid: dbc72c5e5f575490c8c6e343526a67f0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16815,7 +15914,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6107693914157373173, guid: dbc72c5e5f575490c8c6e343526a67f0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

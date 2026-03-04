@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 7670646560558837053}
   - component: {fileID: 444999418236795662}
   - component: {fileID: 1127114751562679209}
-  - component: {fileID: 8055334863790784496}
+  - component: {fileID: 2873015206832457648}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8055334863790784496
+--- !u!114 &2873015206832457648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1231,18 +1231,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8958424073984493273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 1127114751562679209}
-  BundleLabel: assets--resources--fonts--thailandtmp
-  AssetName: txt_mail_admin
-  AnimName: 
-  FontName: Assets/Resources/Fonts/ThaiLandTMP/FontTitle SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: txt_mail_admin
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &9158796072005449893
 GameObject:
   m_ObjectHideFlags: 0

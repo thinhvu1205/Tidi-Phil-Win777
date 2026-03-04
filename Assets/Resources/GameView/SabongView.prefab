@@ -4285,7 +4285,6 @@ GameObject:
   - component: {fileID: 1285164297176538654}
   - component: {fileID: 4590349523257970635}
   - component: {fileID: 2834642006433290552}
-  - component: {fileID: 6336849937047542236}
   m_Layer: 0
   m_Name: Text Title
   m_TagString: Untagged
@@ -4411,27 +4410,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6336849937047542236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3716019618105824618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2834642006433290552}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/Rowdies-Regular SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &3730526982511626401
 GameObject:
   m_ObjectHideFlags: 0
@@ -10123,7 +10101,6 @@ GameObject:
   - component: {fileID: 1987424188193641420}
   - component: {fileID: 1638979719262590672}
   - component: {fileID: 5108133786435650814}
-  - component: {fileID: 8521310143727609097}
   m_Layer: 0
   m_Name: Text Time
   m_TagString: Untagged
@@ -10249,27 +10226,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8521310143727609097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6888062338745149497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5108133786435650814}
-  BundleLabel: assets--resources--fonts--fonttimedigital
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/FontTimeDigital/digital SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &6956464801696399981
 GameObject:
   m_ObjectHideFlags: 0

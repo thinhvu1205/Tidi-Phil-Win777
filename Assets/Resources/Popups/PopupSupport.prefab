@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 1367205717292676501}
   - component: {fileID: 6606964304067246746}
   - component: {fileID: 6624253132594738581}
-  - component: {fileID: 6711080272830963681}
+  - component: {fileID: 5955833501243812776}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6711080272830963681
+--- !u!114 &5955833501243812776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,18 +267,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 814960610820825992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 6624253132594738581}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: join
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: join
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &1937798545893451157
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +425,7 @@ GameObject:
   - component: {fileID: 1980223883009725169}
   - component: {fileID: 2487547967502277279}
   - component: {fileID: 2762913341685384362}
-  - component: {fileID: 7020487254284809314}
+  - component: {fileID: 4880428465702100168}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -555,7 +551,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7020487254284809314
+--- !u!114 &4880428465702100168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -564,18 +560,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2637032321235992924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 2762913341685384362}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: join
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: join
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &2683360043992886231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,7 +1256,7 @@ GameObject:
   - component: {fileID: 2893717349043777611}
   - component: {fileID: 993754768325834449}
   - component: {fileID: 4308111926515937826}
-  - component: {fileID: 2467724089901553140}
+  - component: {fileID: 4299097885084346368}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1390,7 +1382,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2467724089901553140
+--- !u!114 &4299097885084346368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1399,18 +1391,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5874454902805039298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 4308111926515937826}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: txt_full
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: txt_full
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &6085423842542843257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,7 +1982,7 @@ GameObject:
   - component: {fileID: 1711985694822948364}
   - component: {fileID: 2440003025378635900}
   - component: {fileID: 7807352436038267541}
-  - component: {fileID: 2406411528349383152}
+  - component: {fileID: 4452392360491048444}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2120,7 +2108,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2406411528349383152
+--- !u!114 &4452392360491048444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2129,18 +2117,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8075564238158391381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 7807352436038267541}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: txt_full
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BOLD SDF.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: txt_full
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &8150177735831529492
 GameObject:
   m_ObjectHideFlags: 0

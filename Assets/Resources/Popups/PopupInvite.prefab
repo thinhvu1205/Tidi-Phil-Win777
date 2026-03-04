@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 7277075225461738362}
   - component: {fileID: 7803319870257961189}
   - component: {fileID: 675736667204157990}
-  - component: {fileID: 8800142741548390674}
+  - component: {fileID: 5663970446811560397}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8800142741548390674
+--- !u!114 &5663970446811560397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,18 +244,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3661116530844148675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 675736667204157990}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: invite_refresh
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: invite_refresh
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &4752177360178557118
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +605,7 @@ GameObject:
   - component: {fileID: 3365830545949210784}
   - component: {fileID: 1253253023410887052}
   - component: {fileID: 5539022937351974992}
-  - component: {fileID: 7008554427031624655}
+  - component: {fileID: 7255675855172036021}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -735,7 +731,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7008554427031624655
+--- !u!114 &7255675855172036021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -744,18 +740,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6971596707044948301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 5539022937351974992}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: invite
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/ARBORIA-BLACK SDF Outline black.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
+  type: 0
+  key: invite
+  sprites: []
+  animName: []
+  isUpper: 0
 --- !u!1 &6992854556324718748
 GameObject:
   m_ObjectHideFlags: 0

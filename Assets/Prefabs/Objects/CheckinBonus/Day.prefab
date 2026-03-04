@@ -297,7 +297,6 @@ GameObject:
   - component: {fileID: 6335682971412914392}
   - component: {fileID: 8948853338468087392}
   - component: {fileID: 9145527333642297853}
-  - component: {fileID: 5612781544686702248}
   m_Layer: 5
   m_Name: Text_Chip_Bonus
   m_TagString: Untagged
@@ -423,27 +422,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5612781544686702248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1606626169345967454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 3
-  ThisTMPUGUI: {fileID: 9145527333642297853}
-  BundleLabel: assets--resources--fonts--others
-  AssetName: 
-  AnimName: 
-  FontName: Assets/Resources/Fonts/Others/font player.asset
-  FontMaterialName: 
-  IsSetNativeSize: 0
-  IsTextUpper: 0
 --- !u!1 &5611969420981116603
 GameObject:
   m_ObjectHideFlags: 0
