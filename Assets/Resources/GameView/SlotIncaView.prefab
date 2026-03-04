@@ -3763,7 +3763,6 @@ GameObject:
   - component: {fileID: 4590942562560099277}
   - component: {fileID: 4590942562560099282}
   - component: {fileID: 4590942562560099283}
-  - component: {fileID: 1949918208765385032}
   m_Layer: 5
   m_Name: btnMaxBet
   m_TagString: Untagged
@@ -3884,25 +3883,6 @@ MonoBehaviour:
           m_StringArgument: maxbet
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1949918208765385032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4590942562560099281}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489ab9b30bbc94ccbbfd360ae829d09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  key: 
-  sprites:
-  - {fileID: 21300000, guid: b65b2d6a83bdf8e428b44d84565dc874, type: 3}
-  - {fileID: 21300000, guid: 4668408e00d411940a950cbb4dd73d67, type: 3}
-  animName: []
-  isUpper: 0
 --- !u!1 &4590942562597328511
 GameObject:
   m_ObjectHideFlags: 0

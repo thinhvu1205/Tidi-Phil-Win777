@@ -1,16 +1,16 @@
 ManifestFileVersion: 0
 UnityVersion: 6000.1.17f1
-CRC: 3749266063
+CRC: 675517458
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 04db6abfbb2b8c8ae5fde602c51adf05
+    Hash: 58944ef66faed273f2c6b105349e05b5
   TypeTreeHash:
     serializedVersion: 2
     Hash: bc9f87c7e64ff656997db0f2b2a91703
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 5afe56e8d1de26f23080ca6eaeb9a615
+    Hash: 149ff4e9f3e3b9e69cdb147b012e4d4a
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -26,5 +26,8 @@ Assets:
 - Assets/Resources/GameView/SiXiang/Sprites/table.png
 - Assets/Resources/GameView/SiXiang/Sprites/4_phil.png
 - Assets/Resources/GameView/SiXiang/Sprites/5_phil.png
+- Assets/Resources/GameView/SiXiang/Sprites/bg.png
+- Assets/Resources/GameView/SiXiang/Sprites/table_miniGame.png
 - Assets/Resources/GameView/SiXiang/Sprites/popup.png
+- Assets/Resources/GameView/SiXiang/Sprites/bg 1.png
 Dependencies: []
