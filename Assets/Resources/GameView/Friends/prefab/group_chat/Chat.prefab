@@ -1633,6 +1633,7 @@ GameObject:
   - component: {fileID: 8589765299223417462}
   - component: {fileID: 5364780354483889997}
   - component: {fileID: 3437828061588933130}
+  - component: {fileID: 2790023930506149303}
   m_Layer: 5
   m_Name: frameNoti
   m_TagString: Untagged
@@ -1702,6 +1703,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2790023930506149303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199338139302946355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c22c521faec38a47b8234a4a8483126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  ThisTMPUGUI: {fileID: 0}
+  BundleLabel: assets--resources--chat--sprites
+  AssetName: Assets/Resources/Chat/Sprites/popup_chat 1.png
+  AnimName: 
+  FontName: 
+  FontMaterialName: 
+  IsSetNativeSize: 0
+  IsTextUpper: 0
 --- !u!1 &8595230665116185501
 GameObject:
   m_ObjectHideFlags: 0
