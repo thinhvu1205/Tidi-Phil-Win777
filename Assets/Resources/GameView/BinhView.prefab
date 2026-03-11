@@ -4062,7 +4062,7 @@ MonoBehaviour:
   m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
-  m_sharedMaterial: {fileID: -2123317149822155123, guid: 849836c8a0815f54384b508bd3bf1a90, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: fa30dea16f61fd74aa254194cdde3d67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4073,8 +4073,8 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 1, g: 0.77761424, b: 0, a: 1}
-    topRight: {r: 1, g: 0.841411, b: 0, a: 1}
+    topLeft: {r: 0.9710667, g: 1, b: 0, a: 1}
+    topRight: {r: 1, g: 0.9882855, b: 0, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
