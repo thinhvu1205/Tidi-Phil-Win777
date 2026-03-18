@@ -4,13 +4,14 @@ using UnityEngine;
 using DG.Tweening;
 using System.Threading.Tasks;
 using Spine.Unity;
+using Cysharp.Threading.Tasks;
 
 public class SiXiangSymbolController : SymbolController
 {
     // Start is called before the first frame update
 
 
-    public async Task showEffectSpeadWild(Vector2 initPos)
+    public async UniTask showEffectSpeadWild(Vector2 initPos)
     {
         spine.transform.SetParent(collumCtrl.transform);
         spine.transform.localPosition = initPos;

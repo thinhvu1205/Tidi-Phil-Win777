@@ -7,6 +7,7 @@ using DG.Tweening;
 using Spine.Unity;
 using System;
 using Globals;
+using Cysharp.Threading.Tasks;
 
 public class CollumController : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class CollumController : MonoBehaviour
     public JObject SPEED_TYPE = new JObject();
     [HideInInspector]
     public List<int> listIDResult = new List<int>();
-    private Task collumSpinTask;
+    private UniTask collumSpinTask;
     public bool isNeerSpin = false;
     private bool isChangeSpeedNFS = false;
     public float speedNFS = 0.05f;
@@ -38,11 +39,11 @@ public class CollumController : MonoBehaviour
         SPEED_TYPE["AUTO"] = 0.05f;
     }
 
-    public Task Stop(List<int> listID)
+    public UniTask Stop(List<int> listID)
     {
 
         listIDResult.AddRange(listID);
-        collumSpinTask = new Task(() => { });
+        collumSpinTask = new();
         if (isNeerSpin)
         {
             listSymbols.ForEach((sym) => { sym.Speed = (float)SPEED_TYPE["AUTO"]; });
@@ -115,7 +116,7 @@ public class CollumController : MonoBehaviour
     }
     public void prepareStop()
     {
-        collumSpinTask.Start();
+        collumSpinTask.Forget();
     }
     public void Reset()
     {
@@ -164,7 +165,7 @@ public class CollumController : MonoBehaviour
             symbol.sprite.color = Color.white;
         });
     }
-    public async Task activeSymbol(int index)
+    public async UniTask activeSymbol(int index)
     {
         listSymbols[index].setSpine(listSymbols[index].id);
         listSymbols[index].setBgWin(true);
@@ -174,7 +175,7 @@ public class CollumController : MonoBehaviour
             listSymbols[index].setBgWin(false);
             listSymbols[index].setSprite(listSymbols[index].id);
         }).SetTarget(listSymbols[index]);
-        await Task.Delay(TimeSpan.FromSeconds(2.0f), slotView.cts_ShowEffect.Token);
+        await UniTask.Delay(TimeSpan.FromSeconds(2.0f), cancellationToken: slotView.cts_ShowEffect.Token);
     }
     public Vector2 getPosSymbol(int index)
     {

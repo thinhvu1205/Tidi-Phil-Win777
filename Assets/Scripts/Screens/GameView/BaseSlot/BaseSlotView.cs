@@ -14,6 +14,7 @@ using static SiXiangView;
 using Unity.VisualScripting;
 using Socket.Quobject.EngineIoClientDotNet.Modules;
 using Globals;
+using Cysharp.Threading.Tasks;
 
 public class BaseSlotView : GameView
 {
@@ -129,8 +130,8 @@ public class BaseSlotView : GameView
     protected GameObject lineContainer;
     public CancellationTokenSource cts_ShowEffect;
     private List<CancellationTokenSource> cancelTokList = new List<CancellationTokenSource>();
-    protected Task spineSpecialWinTask = null;
-    protected Task spineJPWinTask = null;
+    protected UniTask spineSpecialWinTask;
+    protected UniTask spineJPWinTask;
 
     protected string PATH_ANIM_SPECICAL_WIN = "";
 
@@ -229,7 +230,7 @@ public class BaseSlotView : GameView
         Transform transFrom = lbChipWins.transform;
         Transform transTo = lbUserAmount.transform;
         coinFly(transFrom, transTo);
-        await Task.Delay(TimeSpan.FromSeconds(1.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
         //Globals.Config.tweenNumberToNumber(lbUserAmount, agPlayer, agPlayer - winAmount, 0.2f);
         lbUserAmount.setValue(agPlayer, true);
     }
@@ -446,7 +447,7 @@ public class BaseSlotView : GameView
         }
     }
 
-    protected async Task checkScatterItem()
+    protected async UniTask checkScatterItem()
     {
         int scatterInCol = 0;
 
@@ -464,7 +465,7 @@ public class BaseSlotView : GameView
                 col.showScatterSymbol();
             });
             SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.SCATTER_WIN);
-            await Task.Delay(TimeSpan.FromSeconds(1.5f));
+            await UniTask.Delay(TimeSpan.FromSeconds(1.5f));
         }
     }
 
@@ -499,7 +500,7 @@ public class BaseSlotView : GameView
         foreach (CollumController col in listCollum)
         {
             col.Stop(spinReelView[listCollum.IndexOf(col)]);
-            await Task.Delay(TimeSpan.FromSeconds(spintype == SPIN_TYPE.NORMAL ? 0.4f : 0.2f));
+            await UniTask.Delay(TimeSpan.FromSeconds(spintype == SPIN_TYPE.NORMAL ? 0.4f : 0.2f));
         }
         _CanSpinDP = true;
     }
@@ -563,7 +564,7 @@ public class BaseSlotView : GameView
         });
 
     }
-    protected async Task showWinLine()
+    protected async UniTask showWinLine()
     {
         if (spinPayLines.Count > 0)
         {
@@ -581,9 +582,9 @@ public class BaseSlotView : GameView
                     listPos.Add(lineContainer.transform.InverseTransformPoint(listCollum[j].getPosSymbol(payLineWin[j] + 1)));
                 }
                 drawLines(listPos, colorLine);
-                await Task.Delay(100);
+                await UniTask.Delay(100);
             }
-            await Task.Delay(500);
+            await UniTask.Delay(500);
             listLineStraight.ForEach(line => Destroy(line));
             listLineStraight.Clear();
             await showLineOneByOne();
@@ -593,63 +594,59 @@ public class BaseSlotView : GameView
     {
         return listCollum[col].getPosSymbol(row);
     }
-    protected async Task showLineOneByOne()
+    protected async UniTask showLineOneByOne()
     {
         if (autoSpinRemain == 0 || (spintype == SPIN_TYPE.AUTO && spinPayLines.Count == 1))
         {
-            await Task.Run(async () =>
+            UnityMainThread.instance.AddJob(() =>
             {
-                UnityMainThread.instance.AddJob(() =>
+                setStateSpin(GAME_STATE.SHOWING_RESULT);
+
+                if (spinPayLines.Count > 0)
                 {
-                    setStateSpin(GAME_STATE.SHOWING_RESULT);
-
-                    if (spinPayLines.Count > 0)
-                    {
-                        lbChipWins.ResetValue();
-                        lbChipWins.setValue(normalWinAmount, true);
-                        infoBar.setStateWin("win");
-                    }
-                });
-                List<Vector2> listPos = new List<Vector2>();
-                int index = 0;
-                for (int i = 0, l = spinPayLines.Count; i < l; i++)
-                {
-                    List<Task> drawLinesTask = new List<Task>();
-
-                    UnityMainThread.instance.AddJob(() =>
-                    {
-                        SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.LINE_WIN);
-                        hideAllSymbol();
-                        listPos.Clear();
-                        JObject dataLine = spinPayLines[index];
-                        List<int> payLineWin = payLines[getInt(dataLine, "lineNumber")];
-                        int numberOfSymbols = getInt(dataLine, "numberOfSymbols");
-                        Color colorLine = new Color();
-                        UnityEngine.ColorUtility.TryParseHtmlString(listColor[getInt(dataLine, "lineNumber")], out colorLine);
-                        infoBar.setInfoWinLine(getInt(dataLine, "symbol"), numberOfSymbols, getInt(dataLine, "winAmount"));
-                        for (int j = 0; j < numberOfSymbols; j++)
-                        {
-                            //listPos.Add(lineContainer.transform.InverseTransformPoint(listCollum[j].getPosSymbol(payLineWin[j] + 1)));
-                            drawLinesTask.Add(listCollum[j].activeSymbol(payLineWin[j] + 1));
-
-                        }
-                        index++;
-
-                    });
-                    await Task.Delay(TimeSpan.FromSeconds(0.1f), cts_ShowEffect.Token);
-                    await Task.WhenAll(drawLinesTask.ToArray());
+                    lbChipWins.ResetValue();
+                    lbChipWins.setValue(normalWinAmount, true);
+                    infoBar.setStateWin("win");
                 }
+            });
+            List<Vector2> listPos = new List<Vector2>();
+            int index = 0;
+            for (int i = 0, l = spinPayLines.Count; i < l; i++)
+            {
+                List<UniTask> drawLinesTask = new();
+
                 UnityMainThread.instance.AddJob(() =>
                 {
-                    activeAllSymbol();
+                    SoundManager.instance.playEffectFromPath(SOUND_SLOT_BASE.LINE_WIN);
+                    hideAllSymbol();
+                    listPos.Clear();
+                    JObject dataLine = spinPayLines[index];
+                    List<int> payLineWin = payLines[getInt(dataLine, "lineNumber")];
+                    int numberOfSymbols = getInt(dataLine, "numberOfSymbols");
+                    Color colorLine = new Color();
+                    UnityEngine.ColorUtility.TryParseHtmlString(listColor[getInt(dataLine, "lineNumber")], out colorLine);
+                    infoBar.setInfoWinLine(getInt(dataLine, "symbol"), numberOfSymbols, getInt(dataLine, "winAmount"));
+                    for (int j = 0; j < numberOfSymbols; j++)
+                    {
+                        //listPos.Add(lineContainer.transform.InverseTransformPoint(listCollum[j].getPosSymbol(payLineWin[j] + 1)));
+                        drawLinesTask.Add(listCollum[j].activeSymbol(payLineWin[j] + 1));
+
+                    }
+                    index++;
+
                 });
-            }, cts_ShowEffect.Token);
+                await UniTask.Delay(TimeSpan.FromSeconds(0.1f), cancellationToken: cts_ShowEffect.Token);
+                await UniTask.WhenAll(drawLinesTask.ToArray());
+            }
+            UnityMainThread.instance.AddJob(() =>
+            {
+                activeAllSymbol();
+            });
         }
 
     }
     protected Vector2 getCrossPoint(Vector2 vec1, Vector2 vec2)
     {
-
         int delta = vec1.y > vec2.y ? -1 : 1;
         Vector2 posA = new Vector2(vec1.x - RECT_SIZE.x / 2, vec1.y + (RECT_SIZE.y / 2) * delta);
         Vector2 posB = new Vector2(posA.x + RECT_SIZE.x, posA.y);
@@ -962,14 +959,14 @@ public class BaseSlotView : GameView
                 }
         }
     }
-    public async Task showResultMoneyAnim(string path, string animName, long chipWin, Vector2 posLbMoney)
+    public async UniTask showResultMoneyAnim(string path, string animName, long chipWin, Vector2 posLbMoney)
     {
 
-        spineJPWinTask = new Task(() => { spineJPWinTask = null; });
+        spineJPWinTask = new();
         Action<SkeletonDataAsset> cb = async (skeData) =>
         {
             spineJackpotWin.skeletonDataAsset = skeData;// UIManager.instance.loadSkeletonData(path);
-            await Task.Delay(TimeSpan.FromSeconds(0.2f));
+            await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
             spineBgMoney.skeletonDataAsset = UIManager.instance.loadSkeletonData(PATH_ANIM_SPECICAL_WIN);
             spineBgMoney.Initialize(true);
             spineBgMoney.AnimationState.SetAnimation(0, "money", true);
@@ -989,9 +986,8 @@ public class BaseSlotView : GameView
                 soundMoney?.Stop();
                 SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.COUNGTING_MONEY_END);
             });
-            await Task.Delay(TimeSpan.FromSeconds(spineJackpotWin.Skeleton.Data.FindAnimation(animName).Duration + 1.0f));
-            Debug.Log("spineJPWinTask=" + spineJPWinTask);
-            spineJPWinTask.Start();
+            await UniTask.Delay(TimeSpan.FromSeconds(spineJackpotWin.Skeleton.Data.FindAnimation(animName).Duration + 1.0f));
+            spineJPWinTask = new();
             spineJackpotWin.transform.parent.gameObject.SetActive(false);
             spineJackpotWin.gameObject.SetActive(false);
             effectContainer.SetActive(false);
@@ -1005,13 +1001,9 @@ public class BaseSlotView : GameView
         await spineJPWinTask;
     }
 
-    protected Task showSpineSpecialWin(WIN_TYPE wintype, long chipWin = 0)
+    protected UniTask showSpineSpecialWin(WIN_TYPE wintype, long chipWin = 0)
     {
-        spineSpecialWinTask = new Task(() =>
-        {
-            spineSpecialWinTask = null;
-            Debug.Log("showSpineSpecialWin start:" + winType);
-        });
+        spineSpecialWinTask = new();
 
         if (wintype != WIN_TYPE.NORMAL)
         {
@@ -1019,7 +1011,7 @@ public class BaseSlotView : GameView
             {
                 string animName = "";
                 spineSpecialWin.skeletonDataAsset = skeData;// UIManager.instance.loadSkeletonData(PATH_ANIM_SPECICAL_WIN);
-                await Task.Delay(TimeSpan.FromSeconds(0.1f));
+                await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
                 float timeRun = 1.0f;
                 switch (wintype)
                 {
@@ -1085,13 +1077,14 @@ public class BaseSlotView : GameView
         {
             DOTween.Sequence().AppendInterval(0.2f).AppendCallback(() =>
             {
-                spineSpecialWinTask.Start();
+                spineSpecialWinTask = new();
+                Debug.Log("showSpineSpecialWin start:" + winType);
             });
         }
         return spineSpecialWinTask;
 
     }
-    public async Task showSpineJackpotWin(long chipWin)
+    public async UniTask showSpineJackpotWin(long chipWin)
     {
 
         Action<SkeletonDataAsset> cb = async (skeData) =>
@@ -1099,7 +1092,7 @@ public class BaseSlotView : GameView
             string animName = "";
             spineJackpotWin.skeletonDataAsset = skeData;// UIManager.instance.loadSkeletonData("GameView/SiXiang/Spine/LuckyDraw/BigWin/skeleton_SkeletonData");
             spineBgMoney.skeletonDataAsset = UIManager.instance.loadSkeletonData(PATH_ANIM_SPECICAL_WIN);
-            await Task.Delay(TimeSpan.FromSeconds(0.1f));
+            await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
             switch (winTypeJackpot)
             {
                 case WIN_JACKPOT_TYPE.JACKPOT_MINOR:
@@ -1148,7 +1141,7 @@ public class BaseSlotView : GameView
             };
             if (spintype == SPIN_TYPE.AUTO)
             {
-                await Task.Delay(TimeSpan.FromSeconds(5.0f + spineJackpotWin.Skeleton.Data.FindAnimation(animName).Duration));
+                await UniTask.Delay(TimeSpan.FromSeconds(5.0f + spineJackpotWin.Skeleton.Data.FindAnimation(animName).Duration));
                 if (spineJackpotWin.gameObject.activeSelf)
                 {
                     hideSpineJackpot();
@@ -1159,12 +1152,9 @@ public class BaseSlotView : GameView
            {
                UIManager.instance.loadSkeletonDataAsync("GameView/SiXiang/Spine/LuckyDraw/BigWin/skeleton_SkeletonData", cb);
            });
-        spineJPWinTask = new Task(() =>
-        {
-            Debug.Log("showSpineJackpotWin start");
-            spineJPWinTask = null;
-        });
-        await spineJPWinTask;
+        Debug.Log("showSpineJackpotWin start");
+        spineJPWinTask = new();
+        // await spineJPWinTask;
         //spineSpecialWin.transform.parent.gameObject.SetActive(false);
         //spineSpecialWin.gameObject.SetActive(false);
         //effectContainer.SetActive(false);
@@ -1172,8 +1162,7 @@ public class BaseSlotView : GameView
     }
     public void hideSpineSpecical()
     {
-
-        spineSpecialWinTask.Start();
+        spineSpecialWinTask.Forget();
         spineSpecialWin.transform.parent.gameObject.SetActive(false);
         spineSpecialWin.gameObject.SetActive(false);
         effectContainer.SetActive(false);
@@ -1181,7 +1170,7 @@ public class BaseSlotView : GameView
     }
     public void hideSpineJackpot()
     {
-        spineJPWinTask.Start();
+        spineJPWinTask.Forget();
         spineJackpotWin.transform.parent.gameObject.SetActive(false);
         spineJackpotWin.gameObject.SetActive(false);
         effectContainer.SetActive(false);

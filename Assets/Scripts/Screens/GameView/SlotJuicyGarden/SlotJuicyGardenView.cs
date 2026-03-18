@@ -10,6 +10,7 @@ using DG.Tweening;
 using Spine.Unity;
 using System.Threading.Tasks;
 using Globals;
+using Cysharp.Threading.Tasks;
 
 public class SlotJuicyGardenView : BaseSlotGameView
 {
@@ -1284,7 +1285,7 @@ public class SlotJuicyGardenView : BaseSlotGameView
         {
             listCollum[i].setStartView((JArray)dataStartView[i], this);
         }
-        await Task.Delay(500);
+        await UniTask.Delay(500);
         if (checkConditionHolderPackage())
         {
             createHolderPackageView();

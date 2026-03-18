@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Newtonsoft.Json.Linq;
 using Spine.Unity;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 
 public class RapidPayRowController : MonoBehaviour
@@ -53,7 +54,7 @@ public class RapidPayRowController : MonoBehaviour
         SocketSend.sendPackageRapidPay(Globals.ACTION_SLOT_SIXIANG.rapidPay, btnItemPick.IndexOf(btn).ToString());
     }
 
-    public async Task<Button> setResult(JObject data)
+    public async UniTask<Button> setResult(JObject data)
     {
         listResult = data["items"].ToObject<List<int>>();
         int result = (int)data["item"];
@@ -72,7 +73,7 @@ public class RapidPayRowController : MonoBehaviour
                 SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.CLICK_ITEM_MISS);
             else
                 SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.RAPID_ITEM_WIN);
-            await Task.Delay((int)spineItemCurrent.Skeleton.Data.FindAnimation(getAnimName(result)).Duration * 1000);
+            await UniTask.Delay((int)spineItemCurrent.Skeleton.Data.FindAnimation(getAnimName(result)).Duration * 1000);
         }
         for (int i = 0; i < btnItemPick.Count; i++)
         {

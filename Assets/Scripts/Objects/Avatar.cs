@@ -7,6 +7,7 @@ using UnityEngine.Analytics;
 using DG.Tweening;
 using System.Threading.Tasks;
 using Globals;
+using Cysharp.Threading.Tasks;
 
 public class Avatar : MonoBehaviour
 {
@@ -182,17 +183,12 @@ public class Avatar : MonoBehaviour
     /**
      * Dung cho alert
      */
-    public async Task setSpriteWithID2(int idAva)
+    public async UniTask setSpriteWithID2(int idAva)
     {
-        await new Task(() =>
-        {
-            Debug.Log("-=-= run task");
-            setSpriteFrame(UIManager.instance.avatarAtlas[idAva - 1]);
-        });
         idAvt = idAva;
     }
 
-    public async Task loadAvatarAsync2(int idAva, string fbName, string fbId = "")
+    public async UniTask loadAvatarAsync2(int idAva, string fbName, string fbId = "")
     {
         if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.Count)
         {

@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using DG.Tweening;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
+using Cysharp.Threading.Tasks;
 
 public class AlertShort : MonoBehaviour
 {
@@ -147,7 +148,7 @@ public class AlertShort : MonoBehaviour
             }
         }
     }
-    public async Task showShortMessage()
+    public async UniTask showShortMessage()
     {
         //vip0,vip1 show all(sảnh game,sảnh bàn,ingame)
         //>=vip2 show sảnh bàn,in game
@@ -197,7 +198,7 @@ public class AlertShort : MonoBehaviour
                   }).SetTarget(alertShortView.transform);
         }
     }
-    public async Task checkShowAlertShort()
+    public async UniTask checkShowAlertShort()
     {
         if (Globals.Config.list_AlertShort.Count > 0)
         {

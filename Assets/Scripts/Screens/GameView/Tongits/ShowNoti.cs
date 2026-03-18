@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Threading.Tasks;
 using TMPro;
 using DG.Tweening;
+using Cysharp.Threading.Tasks;
 
 public class ShowNoti : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class ShowNoti : MonoBehaviour
             transform.DOScale(1, 0.3f).SetEase(Ease.OutCubic);
         });
         lbl_content.text = content;
-        await Task.Delay(2000);
+        await UniTask.Delay(2000);
         Destroy(gameObject);
     }
 }

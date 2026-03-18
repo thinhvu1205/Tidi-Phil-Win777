@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -11,11 +12,11 @@ public class LoadImage : MonoBehaviour
     // Start is called before the first frame update
     async void Start()
     {
-      
+
     }
 
     // Update is called once per frame
-    public  async Task<Sprite> GetRemoteSprite(string url)
+    public async UniTask<Sprite> GetRemoteSprite(string url)
     {
         using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(url))
         {
@@ -24,7 +25,7 @@ public class LoadImage : MonoBehaviour
 
             // await until it's done: 
             while (asyncOp.isDone == false)
-                await Task.Delay(1000 / 30);//30 hertz
+                await UniTask.Delay(1000 / 30);//30 hertz
 
             // read results:
             //if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
@@ -44,7 +45,7 @@ public class LoadImage : MonoBehaviour
             }
         }
     }
-    public async  void loadImage()
+    public async void loadImage()
     {
         Debug.Log("Start Load Banner");
         img.sprite = await GetRemoteSprite("https://storage.googleapis.com/cdn.topmanilaclub.com/NewBanner/1004/Code/V01/1004T9.png");

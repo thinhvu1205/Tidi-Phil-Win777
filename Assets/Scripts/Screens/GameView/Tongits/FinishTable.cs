@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
-using Newtonsoft.Json.Linq;
 using UnityEngine.EventSystems;
 using Spine.Unity;
 using System;

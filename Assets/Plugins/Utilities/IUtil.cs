@@ -214,7 +214,7 @@ public class IUtil
     public static void CopyToClipBoard(string value)
     {
 #if UNITY_WEBGL
-        WebGLNative.CopyToClipboardJS(value);
+        // WebGLNative.CopyToClipboardJS(value);
 #else
         TextEditor te = new() { text = value };
         te.SelectAll();

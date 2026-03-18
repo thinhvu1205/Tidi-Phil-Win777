@@ -10,6 +10,7 @@ using System;
 using DG.Tweening;
 using System.Threading;
 using Globals;
+using Cysharp.Threading.Tasks;
 
 public class DragonPearlItem : MonoBehaviour
 {
@@ -22,9 +23,8 @@ public class DragonPearlItem : MonoBehaviour
     [SerializeField] Image BgItem;
     [SerializeField] SkeletonGraphic SpineItem;
     [HideInInspector] SiXiangDragonPearlView dragonPearlView;
-    public Task setInfoTask;
-    public Task setInfoTask2;
     public CancellationTokenSource cts_ShowEffectItem;
+    [SerializeField] private List<Material> m_TextMs;
     private bool isCancelEffect = false;
 
     private string PATH_ANIM_GOLD = "GameView/SiXiang/Spine/DragonPearl/ItemGold/skeleton_SkeletonData";
@@ -38,14 +38,11 @@ public class DragonPearlItem : MonoBehaviour
 
     }
 
-    public Task setInfo(JObject data, SiXiangDragonPearlView dpView)
+    public UniTask setInfo(JObject data, SiXiangDragonPearlView dpView)
     {
         cts_ShowEffectItem = SiXiangView.Instance.getCancelToken();
         dragonPearlView = dpView;
-        Task setInfoItemTask = new Task(() =>
-        {
-
-        });
+        UniTask setInfoItemTask = new();
         UnityMainThread.instance.AddJob(async () =>
         {
 
@@ -58,11 +55,11 @@ public class DragonPearlItem : MonoBehaviour
                     {
                         if ((bool)data["isDoubled"] == true) //x2
                         {
-                            await Task.Delay(TimeSpan.FromSeconds(1.0f), cts_ShowEffectItem.Token);
+                            await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: cts_ShowEffectItem.Token);
                         }
                         if ((bool)data["isBonusSpin"] == true)//add item
                         {
-                            await Task.Delay(TimeSpan.FromSeconds(2.0f), cts_ShowEffectItem.Token);
+                            await UniTask.Delay(TimeSpan.FromSeconds(2.0f), cancellationToken: cts_ShowEffectItem.Token);
                             Vector2 posChuTuoc = dragonPearlView.getPosSymbolChuTuoc();
                             Vector2 posItem = dragonPearlView.getPosItem((int)data["col"], (int)data["row"]);
                             GameObject itemGold = BundleHandler.Instantiate(dragonPearlView.itemInitGold, dragonPearlView.transform);
@@ -74,7 +71,7 @@ public class DragonPearlItem : MonoBehaviour
                             {
                                 Destroy(itemGold);
                             });
-                            await Task.Delay(TimeSpan.FromSeconds(1.0f), cts_ShowEffectItem.Token);
+                            await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: cts_ShowEffectItem.Token);
                         }
                         BgItem.enabled = true;
                         SpineItem.gameObject.SetActive(true);
@@ -83,11 +80,11 @@ public class DragonPearlItem : MonoBehaviour
                         SpineItem.AnimationState.SetAnimation(0, "start", false);
                         SpineItem.transform.localPosition = Vector2.zero;
                         SpineItem.transform.localScale = new Vector2(1, 1);
-                        await Task.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("start").Duration), cts_ShowEffectItem.Token);
+                        await UniTask.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("start").Duration), cancellationToken: cts_ShowEffectItem.Token);
                         SpineItem.AnimationState.SetAnimation(0, "rung", false);
                         SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.PEARL_Item_Normal);
-                        await Task.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("rung").Duration / 2), cts_ShowEffectItem.Token);
-                        lbChipWin.fontMaterial = BundleHandler.LoadMaterial("Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_White_Red.mat");
+                        await UniTask.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("rung").Duration / 2), cancellationToken: cts_ShowEffectItem.Token);
+                        lbChipWin.fontMaterial = m_TextMs[0];
                         lbChipWin.gameObject.SetActive(true);
                         int itemWinAmount = (int)data["winAmount"];
                         lbChipWin.text = Globals.Config.FormatMoney(itemWinAmount, true);
@@ -95,7 +92,7 @@ public class DragonPearlItem : MonoBehaviour
                         lbChipWin.transform.DOScale(Vector2.one, 0.2f).SetEase(Ease.OutBack);
                         SpineItem.AnimationState.SetAnimation(0, "normal", true);
 
-                        setInfoItemTask.Start();
+                        setInfoItemTask.Forget();
                     }
                     catch (SystemException errr)
                     {
@@ -140,13 +137,13 @@ public class DragonPearlItem : MonoBehaviour
                     SpineItem.gameObject.SetActive(true);
                     SpineItem.transform.localPosition = Vector2.zero;
                     SpineItem.skeletonDataAsset = UIManager.instance.loadSkeletonData(PATH_ANIM_LIXI);
-                    await Task.Delay(TimeSpan.FromSeconds(0.1f), cts_ShowEffectItem.Token);
+                    await UniTask.Delay(TimeSpan.FromSeconds(0.1f), cancellationToken: cts_ShowEffectItem.Token);
                     SpineItem.Initialize(true);
                     SpineItem.AnimationState.SetAnimation(0, "animation", false);
-                    await Task.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("animation").Duration), cts_ShowEffectItem.Token);
+                    await UniTask.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("animation").Duration), cancellationToken: cts_ShowEffectItem.Token);
                     SoundManager.instance.playEffectFromPath(soundSymbol);
                     SpineItem.skeletonDataAsset = UIManager.instance.loadSkeletonData(pathEye);
-                    await Task.Delay(TimeSpan.FromSeconds(0.1f), cts_ShowEffectItem.Token);
+                    await UniTask.Delay(TimeSpan.FromSeconds(0.1f), cancellationToken: cts_ShowEffectItem.Token);
                     SpineItem.transform.localScale = new Vector2(0.9f, 0.9f);
                     Vector2 posSymbol = SpineItem.transform.parent.InverseTransformPoint(SiXiangView.Instance.getPosSymbol((int)data["col"], (int)data["row"] + 1));
                     SpineItem.transform.localPosition = new Vector2(posSymbol.x + 2, posSymbol.y);
@@ -156,16 +153,16 @@ public class DragonPearlItem : MonoBehaviour
                     lbChipWin.gameObject.SetActive(false);
                     if ((int)data["luckyMoney"] == 4)
                     {
-                        await Task.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("animation").Duration), cts_ShowEffectItem.Token);
+                        await UniTask.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("animation").Duration), cancellationToken: cts_ShowEffectItem.Token);
                         SpineItem.skeletonDataAsset = UIManager.instance.loadSkeletonData(PATH_ANIM_GOLD);
-                        await Task.Delay(TimeSpan.FromSeconds(0.1f), cts_ShowEffectItem.Token);
+                        await UniTask.Delay(TimeSpan.FromSeconds(0.1f), cancellationToken: cts_ShowEffectItem.Token);
                         SpineItem.Initialize(true);
                         SpineItem.transform.localScale = Vector2.one;
                         SpineItem.AnimationState.SetAnimation(0, "rung_" + getAnimNameType((int)data["jackpot"]), false);
-                        await Task.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("rung_" + getAnimNameType((int)data["jackpot"])).Duration), cts_ShowEffectItem.Token);
+                        await UniTask.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("rung_" + getAnimNameType((int)data["jackpot"])).Duration), cancellationToken: cts_ShowEffectItem.Token);
                         lbChipWin.gameObject.SetActive(true);
                         Debug.Log("Chay vao day");
-                        lbChipWin.fontMaterial = BundleHandler.LoadMaterial("Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat");
+                        lbChipWin.fontMaterial = m_TextMs[1];
                         switch ((int)data["jackpot"])
                         {
                             case 1:
@@ -193,13 +190,13 @@ public class DragonPearlItem : MonoBehaviour
                     }
                     else if ((int)data["luckyMoney"] == 1)
                     {
-                        await Task.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("animation").Duration * 1.0f), cts_ShowEffectItem.Token);
+                        await UniTask.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("animation").Duration * 1.0f), cancellationToken: cts_ShowEffectItem.Token);
                         if (dragonPearlView.isDPSpin)
                         {
                             lbChipFSP.gameObject.SetActive(true);
                             lbChipFSP.alpha = 1.0f;
                             lbChipFSP.transform.localPosition = lbChipFSP.transform.parent.InverseTransformPoint(transform.position);
-                            lbChipFSP.fontMaterial = BundleHandler.LoadMaterial("Assets/Resources/Fonts/Others/go3v2/go3v2_SDF_YELLOW.mat");
+                            lbChipFSP.fontMaterial = m_TextMs[1];
                             lbChipFSP.text = "+3 freespin";
                             Vector2 posJump = lbChipFSP.transform.parent.InverseTransformPoint(SiXiangView.Instance.infoBar.transform.position);
                             lbChipFSP.transform.DOLocalJump(posJump, 150, 1, 0.5f)
@@ -216,15 +213,15 @@ public class DragonPearlItem : MonoBehaviour
                     }
                     else if ((int)data["luckyMoney"] == 3)
                     {
-                        await Task.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("animation").Duration), cts_ShowEffectItem.Token);
+                        await UniTask.Delay(TimeSpan.FromSeconds(SpineItem.Skeleton.Data.FindAnimation("animation").Duration), cancellationToken: cts_ShowEffectItem.Token);
                         SpineItem.skeletonDataAsset = UIManager.instance.loadSkeletonData(PATH_ANIM_CHUTUOC);
-                        await Task.Delay(TimeSpan.FromSeconds(0.1f), cts_ShowEffectItem.Token);
+                        await UniTask.Delay(TimeSpan.FromSeconds(0.1f), cancellationToken: cts_ShowEffectItem.Token);
                         SpineItem.Initialize(true);
                         SpineItem.AnimationState.SetAnimation(0, "animation", false);
 
                     }
                     //setInfoTask.Start();
-                    setInfoItemTask.Start();
+                    setInfoItemTask.Forget();
                 }
                 catch (SystemException e)
                 {

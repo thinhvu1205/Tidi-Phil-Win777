@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Globals;
 using Newtonsoft.Json.Linq;
 using TMPro;
@@ -198,7 +199,7 @@ public class ExchangeView : BaseView
         DoClickButton(go, objData);
     }
 
-    async Task genTabTop(JArray arrayData)
+    async UniTask genTabTop(JArray arrayData)
     {
         scrTabs.enabled = arrayData.Count > 4;
         JObject item0 = null;

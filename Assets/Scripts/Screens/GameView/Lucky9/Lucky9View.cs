@@ -8,6 +8,7 @@ using Spine.Unity;
 using System.Threading.Tasks;
 using System.Linq;
 using Globals;
+using Cysharp.Threading.Tasks;
 
 public class Lucky9View : GameView
 {
@@ -373,7 +374,7 @@ public class Lucky9View : GameView
     public async void handleIsDealer(JObject data)
     {
         revealFirstCardCoroutine((int)data["C"]);
-        await Task.Delay(1400);
+        await UniTask.Delay(1400);
         setDealerAfterDelay((int)data["pid"]);
     }
 
@@ -384,7 +385,7 @@ public class Lucky9View : GameView
         {
             player.playerView.showDealer(player.id == _CurDealerId, player._indexDynamic <= 8);
         }
-        await Task.Delay(600);
+        await UniTask.Delay(600);
         handleLc();
     }
 
@@ -404,7 +405,7 @@ public class Lucky9View : GameView
 
     async void foldCardUp(Card card, int code, float time, float scale = 0.4f, int delay = 200)
     {
-        await Task.Delay(delay);
+        await UniTask.Delay(delay);
         Vector2 scaleCard = new Vector2(0.01f, scale);
         card.transform.DOScale(scaleCard, time / 2f).OnComplete(() =>
         {
@@ -512,7 +513,7 @@ public class Lucky9View : GameView
         {
             bool isRotateLeft = i < len;
             int index = i < len ? i : i - len;
-            await Task.Delay(250);
+            await UniTask.Delay(250);
             SoundManager.instance.playEffectFromPath(SOUND_GAME.CARD_FLIP_1);
             var cardTemp = spawnCard();
             cardTemp.transform.SetParent(listDealCard[index].playerView.nodeCard.transform, false);
@@ -528,7 +529,7 @@ public class Lucky9View : GameView
             }
             if (i == len * 2 - 1)
             {
-                await Task.Delay(500);
+                await UniTask.Delay(500);
                 cardStackNode.transform.DOLocalMove(new Vector2(0, 130), 0.6f).SetEase(Ease.InOutCubic);
                 cardStackNode.transform.DOScale(1, 0.6f).SetEase(Ease.InOutCubic).OnComplete(() =>
                 {
@@ -571,7 +572,7 @@ public class Lucky9View : GameView
         thisPlayer.rate = getInt(data, "isRate");
         while (!_LcDone)
         {
-            await Task.Delay(200);
+            await UniTask.Delay(200);
             Debug.Log("chua chia bai xong");
             if (this == null) return;
         }

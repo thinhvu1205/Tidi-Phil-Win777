@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Globals;
 using Newtonsoft.Json.Linq;
 using OneSignalSDK;
@@ -138,7 +139,7 @@ public class LoadConfig : MonoBehaviour
         //// await until it's done: 
         while (!asyncOp.isDone)
         {
-            await Task.Yield();
+            await UniTask.Yield();
             //await Task.Delay(200);//30 hertz
         }
         if (UIManager.instance != null) UIManager.instance.hideWatting();
@@ -621,7 +622,7 @@ public class LoadConfig : MonoBehaviour
     void updateConfigUmode(int umode, string uop1, string uop2, string utar, string umsg)
     {
         //// let umode = 0; /*FIXED CHANGE WHEN RELEASE*/
-        umode = 0;//dev de test
+        // umode = 0;//dev de test
         switch (umode)
         {
             case 0: // mode == 0, vao thang ko can hoi

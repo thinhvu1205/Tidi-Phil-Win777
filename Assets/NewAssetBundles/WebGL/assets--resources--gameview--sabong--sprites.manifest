@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 540743147
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ad479a37ca912be7839d1693e248b31c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 6b32f74148d143b1db61167a12f0e56b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/Sabong/Sprites/bg_room.png
+- Assets/Resources/GameView/Sabong/Sprites/result_board.png
+Dependencies: []

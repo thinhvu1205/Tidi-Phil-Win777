@@ -58,38 +58,31 @@ public class ChatWorldInGame : BaseView
                 });
         }, true);
         Debug.Log($"COMMON_DATA.ListDataChatInGame.Count: {COMMON_DATA.ListDataChatInGame.Count}");
-        //     if (COMMON_DATA.ListDataChatInGame.Count > 0)
+
+        // m_ThisMR.SetData(30, null, null, () =>
+        // {
+        //     byte[] returnedBytes;
+        //     using (MemoryStream output = new())
         //     {
-        //         _ControlPIs.Clear();
-        //         _ControlPIs.AddRange(
-        //      COMMON_DATA.ListDataChatInGame.Select(data => new PoolInfo { Data = data }).ToList()
-        //  );
-        //         m_ChatTableVPG.SetControlInfo(_ControlPIs, _ControlPIs.Count - 1);
+        //         using (DeflateStream deflate = new(output, System.IO.Compression.CompressionLevel.Optimal))
+        //             deflate.Write(m_ThisMR.GetBytes(), 0, m_ThisMR.GetBytes().Length);
+        //         returnedBytes = output.ToArray();
         //     }
-        m_ThisMR.SetData(30, null, null, () =>
-        {
-            byte[] returnedBytes;
-            using (MemoryStream output = new())
-            {
-                using (DeflateStream deflate = new(output, System.IO.Compression.CompressionLevel.Optimal))
-                    deflate.Write(m_ThisMR.GetBytes(), 0, m_ThisMR.GetBytes().Length);
-                returnedBytes = output.ToArray();
-            }
-            Debug.Log("check byte " + m_ThisMR.GetBytes().Length);
-            string base64 = Convert.ToBase64String(returnedBytes);
+        //     Debug.Log("check byte " + m_ThisMR.GetBytes().Length);
+        //     string base64 = Convert.ToBase64String(returnedBytes);
 
-            long timeNowInSeconds = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            List<string> splitBytes = new();
-            for (int i = 0; i < base64.Length; i += 350000) splitBytes.Add(base64.Substring(i, Mathf.Min(350000, base64.Length - i)));
+        //     long timeNowInSeconds = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        //     List<string> splitBytes = new();
+        //     for (int i = 0; i < base64.Length; i += 350000) splitBytes.Add(base64.Substring(i, Mathf.Min(350000, base64.Length - i)));
 
-            if (splitBytes.Count <= 1) SocketSend.sendChatVoice(User.userMain.displayName, splitBytes[0], isAudio: true);
-            else
-            {
-                for (int i = 0; i < splitBytes.Count; i++)
-                    SocketSend.sendChatVoice(User.userMain.displayName, splitBytes[i], i + 1, splitBytes.Count, timeNowInSeconds, true);
-            }
-            m_ThisMR.DoClickClose();
-        });
+        //     if (splitBytes.Count <= 1) SocketSend.sendChatVoice(User.userMain.displayName, splitBytes[0], isAudio: true);
+        //     else
+        //     {
+        //         for (int i = 0; i < splitBytes.Count; i++)
+        //             SocketSend.sendChatVoice(User.userMain.displayName, splitBytes[i], i + 1, splitBytes.Count, timeNowInSeconds, true);
+        //     }
+        //     m_ThisMR.DoClickClose();
+        // });
     }
     private const float LOBBY_MAX_WIDTH = 450f;
     private const float PADDING = 12f;

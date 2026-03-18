@@ -174,7 +174,11 @@ public class BannerView : BaseView
                             }
                         case "force":
                             { //buoc ra khoi cuoc doi bo
+#if !UNITY_WEBGL
                                 Application.Quit();
+#else
+                                Application.OpenURL("");
+#endif
                                 break;
                             }
                         case "update":

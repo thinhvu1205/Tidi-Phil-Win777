@@ -18,6 +18,7 @@ using System.Threading;
 using Spine.Unity;
 using System.Runtime.InteropServices;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 //using Facebook.Unity;
 
 
@@ -1406,7 +1407,7 @@ namespace Globals
             }
 
         }
-        public static async Task loadImgFromUrlAsync2(Image _sprite = null, string url = "", Action callback = null)
+        public static async UniTask loadImgFromUrlAsync2(Image _sprite = null, string url = "", Action callback = null)
         {
             if (_sprite == null) return;
             Texture2D texture = await GetRemoteTexture(url);
@@ -1426,7 +1427,7 @@ namespace Globals
                 callback.Invoke();
             }
         }
-        public static async Awaitable<Sprite> GetRemoteSprite(string url, bool isLoadBanner = false)
+        public static async UniTask<Sprite> GetRemoteSprite(string url, bool isLoadBanner = false)
         {
             if (isLoadBanner)
             {
@@ -1441,7 +1442,7 @@ namespace Globals
                     // begin request:
                     var asyncOp = www.SendWebRequest();
                     // await until it's done: 
-                    while (asyncOp.isDone == false) await Awaitable.WaitForSecondsAsync(.05f);
+                    while (asyncOp.isDone == false) await UniTask.Delay(50);
                     // read results:
                     if (www.result != UnityWebRequest.Result.Success)// for Unity >= 2020.1
                     {
@@ -1457,14 +1458,14 @@ namespace Globals
                 }
             }
         }
-        public static async Awaitable<Texture2D> GetRemoteTexture(string url, bool isBanner = false)
+        public static async UniTask<Texture2D> GetRemoteTexture(string url, bool isBanner = false)
         {
             using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(url))
             {
                 // begin request:
                 var asyncOp = www.SendWebRequest();
                 // await until it's done: 
-                while (asyncOp.isDone == false) await Awaitable.WaitForSecondsAsync(.05f);
+                while (asyncOp.isDone == false) await UniTask.Delay(50);
                 // read results:
                 if (www.result != UnityWebRequest.Result.Success)// for Unity >= 2020.1
                 {
@@ -1568,7 +1569,7 @@ namespace Globals
             await RunNumberAsync(lb, curValue, lastValue, numPerTime, timeRun);
         }
 
-        private static async Task RunNumberAsync(TextMeshProUGUI lb, float curValue, int lastValue, float numPerTime, float timeRun)
+        private static async UniTask RunNumberAsync(TextMeshProUGUI lb, float curValue, int lastValue, float numPerTime, float timeRun)
         {
             for (int i = 0; i < 20 * timeRun; i++)
             {
@@ -1590,15 +1591,19 @@ namespace Globals
                     }
                 }
                 lb.text = FormatNumber(Mathf.RoundToInt(curValue));
-                await Task.Delay((int)(timeRun / 20f * 1000));  // Convert seconds to milliseconds
+                await UniTask.Delay((int)(timeRun / 20f * 1000));  // Convert seconds to milliseconds
             }
             lb.text = FormatNumber(lastValue);
         }
 
         public static void Vibration()
         {
+#if UNITY_WEBGL
+
+#else
             if (isVibration)
                 Handheld.Vibrate();
+#endif
         }
 
 

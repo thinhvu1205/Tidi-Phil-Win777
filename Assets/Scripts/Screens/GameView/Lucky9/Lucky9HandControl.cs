@@ -10,6 +10,7 @@ using Spine.Unity;
 using System;
 using System.Threading.Tasks;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 
 public class Lucky9HandControl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -181,7 +182,7 @@ public class Lucky9HandControl : MonoBehaviour, IBeginDragHandler, IDragHandler,
         float newZRotation = Mathf.Clamp(currentZRotation - deltaX, minRotation, maxRotation);
 
         thumbTip.transform.eulerAngles = new Vector3(0, 0, newZRotation);
-        listNodeCard[0].transform.eulerAngles = new Vector3(0, 0, -newZRotation/3);
+        listNodeCard[0].transform.eulerAngles = new Vector3(0, 0, -newZRotation / 3);
         listNodeCard[0].transform.localPosition = new Vector2(betaX, betaY);
     }
 
@@ -202,7 +203,7 @@ public class Lucky9HandControl : MonoBehaviour, IBeginDragHandler, IDragHandler,
             thumbTip.transform.DORotate(new Vector3(0, 0, -15), 0.6f).SetEase(Ease.InOutCubic);
             listNodeCard[0].transform.DOLocalMove(new Vector2(BASEX - 30, BASEY - 15), 0.6f).SetEase(Ease.InOutCubic);
             listNodeCard[0].transform.DORotate(new Vector3(0, 0, 5), 0.6f).SetEase(Ease.InOutCubic);
-            await Task.Delay(1000);
+            await UniTask.Delay(1000);
             onHide();
         }
         else
@@ -225,7 +226,7 @@ public class Lucky9HandControl : MonoBehaviour, IBeginDragHandler, IDragHandler,
         timeCountDown.gameObject.SetActive(false);
 
         gameObject.transform.DOKill();
-        await Task.Delay(500);
+        await UniTask.Delay(500);
         gameObject.SetActive(false);
         gameView.onHideFoldCard(timeLeft);
     }

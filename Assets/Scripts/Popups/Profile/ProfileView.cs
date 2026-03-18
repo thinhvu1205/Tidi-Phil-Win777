@@ -226,7 +226,11 @@ public class ProfileView : BaseView
     public void onClickQuit()
     {
         SoundManager.instance.soundClick();
+#if !UNITY_WEBGL
         Application.Quit();
+#else
+        Application.OpenURL("");
+#endif
     }
     public void onClickLogout()
     {

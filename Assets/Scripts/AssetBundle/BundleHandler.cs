@@ -7,7 +7,7 @@ using UnityEngine.Video;
 
 public class BundleHandler
 {
-    public enum PLATFORM { Android, iOS }
+    public enum PLATFORM { Android, iOS, WebGL }
     public static BundleHandler MAIN
     {
         get

@@ -12,6 +12,7 @@ using UnityEngine.UI;
 public class BundleDownloader : MonoBehaviour
 {
     public const string STORED_BUNDLE_URL = "storedBundleUrl";
+    public const string CATEGORY_WEBGL = "categoryWebGL";
     [SerializeField] private Image m_ProgressImg;
     [SerializeField] private TextMeshProUGUI m_ProgressTMPUI;
     private List<Coroutine> _SentGettingBundleCs = new();
@@ -31,6 +32,8 @@ public class BundleDownloader : MonoBehaviour
         string platformFolder = "/" + BundleHandler.PLATFORM.Android.ToString() + "/";
 #elif UNITY_IOS
         string platformFolder = "/" + BundleHandler.PLATFORM.iOS.ToString() + "/";
+#elif UNITY_WEBGL
+        string platformFolder = "/" + BundleHandler.PLATFORM.WebGL.ToString() + "/";
 #endif
         if (!_url.EndsWith(platformFolder)) _url += platformFolder.Remove(0, 1);
         PlayerPrefs.SetString(STORED_BUNDLE_URL, _url);
@@ -46,7 +49,7 @@ public class BundleDownloader : MonoBehaviour
     private IEnumerator _GetAssetBundles(string _url, float _delay)
     {
         if (_delay > 0) yield return new WaitForSeconds(_delay);
-        using UnityWebRequest aUWR = UnityWebRequest.Get(_url + BundleHandler.CATEGORY); // get new category content from server
+        using UnityWebRequest aUWR = UnityWebRequest.Get(_url + BundleHandler.CATEGORY);
         yield return aUWR.SendWebRequest();
 
         if (aUWR.result != UnityWebRequest.Result.Success)
@@ -57,24 +60,37 @@ public class BundleDownloader : MonoBehaviour
         else
         {
             BundleHandler.MAIN.ClearAssetsDictionary();
-            string newContent = aUWR.downloadHandler.text, storedPath = Application.persistentDataPath + "/" + BundleHandler.CATEGORY;
-            if (!_TryParseCategory(_NewDataBVs, _TryParseJsonArray(newContent), _url))
+            string newCategoryContent = aUWR.downloadHandler.text;
+            if (!_TryParseCategory(_NewDataBVs, _TryParseJsonArray(newCategoryContent), _url))
             {
-                Debug.Log("|   ) )=3 Wrong latest bundle info!");
+                Debug.Log("|   ) )=3 Wrong latest bundle category info!");
                 _OnFailCb?.Invoke();
                 yield break;
             }
-            if (File.Exists(storedPath))
+            string storedCategoryContent = "";
+#if UNITY_WEBGL
+            storedCategoryContent = PlayerPrefs.GetString(CATEGORY_WEBGL);
+            if (string.IsNullOrEmpty(storedCategoryContent) || !_TryParseCategory(_StoredDataBVs, _TryParseJsonArray(storedCategoryContent)))
             {
-                if (!_TryParseCategory(_StoredDataBVs, _TryParseJsonArray(File.ReadAllText(storedPath)), ""))
+                Debug.Log("|   ) )=3 Wrong stored bundles info!");
+                storedCategoryContent = "";
+            }
+            PlayerPrefs.SetString(CATEGORY_WEBGL, storedCategoryContent);
+            PlayerPrefs.Save();
+#else
+            storedCategoryContent = Application.persistentDataPath + "/" + BundleHandler.CATEGORY;
+            if (File.Exists(storedCategoryContent))
+            {
+                if (!_TryParseCategory(_StoredDataBVs, _TryParseJsonArray(File.ReadAllText(storedCategoryContent))))
                 {
                     Debug.Log("|   ) )=3 Wrong stored bundles info, clear all cached bundles!");
                     Caching.ClearCache();
-                    File.Delete(storedPath);
+                    File.Delete(storedCategoryContent);
                 }
             }
-            File.WriteAllText(storedPath, newContent);
+            File.WriteAllText(storedCategoryContent, newCategoryContent);
             _ClearOldCachedBundleVersions();
+#endif
             _TotalBundles = _NewDataBVs.Count;
             _CachedBundles = 0;
             if (_TotalBundles > 0)
@@ -90,7 +106,9 @@ public class BundleDownloader : MonoBehaviour
         if (_NewDataBVs.Count > 0)
         {
             BundleVersion thisBV = _NewDataBVs[0];
+#if !UNITY_WEBGL
             while (!Caching.ready) yield return null;
+#endif
             using UnityWebRequest aUWR = UnityWebRequestAssetBundle.GetAssetBundle(thisBV.Url, thisBV.HashH128, 0);
             thisBV.State = BundleVersion.STATE.Downloading;
             aUWR.SendWebRequest();
@@ -113,7 +131,7 @@ public class BundleDownloader : MonoBehaviour
                 thisBV.AssetNamesHS = thisBV.BundleAB.GetAllAssetNames().ToHashSet();
                 BundleHandler.MAIN.AddToLocalMap(thisBV);
                 _NewDataBVs.Remove(thisBV);
-                _CachedBundles += 1;
+                _CachedBundles++;
                 _SentGettingBundleCs.Add(StartCoroutine(_LoadAssetBundles()));
             }
         }
@@ -124,7 +142,7 @@ public class BundleDownloader : MonoBehaviour
         try { return JSON.Parse(_input).AsArray; }
         catch (Exception e) { Debug.Log("|   ) )=3 Error parsing array: " + e); return null; }
     }
-    private bool _TryParseCategory(List<BundleVersion> _storedBVs, JSONArray _categoryJA, string _url)
+    private bool _TryParseCategory(List<BundleVersion> _storedBVs, JSONArray _categoryJA, string _url = "")
     {
         try
         {
@@ -137,18 +155,24 @@ public class BundleDownloader : MonoBehaviour
             }
             return true;
         }
-        catch (Exception e) { Debug.Log("|   ) )=3 Fail to parse Category content!!! " + e); return false; }
+        catch (Exception e)
+        {
+            Debug.Log("|   ) )=3 Fail to parse Category content!!! " + e);
+            _storedBVs.Clear();
+            return false;
+        }
     }
+#if !UNITY_WEBGL
     private void _ClearOldCachedBundleVersions()
     {
         foreach (BundleVersion aBV in _StoredDataBVs)
             if (_NewDataBVs.Find(x => x.Name.Equals(aBV.Name) && x.HashH128 != aBV.HashH128) != null)
                 Caching.ClearCachedVersion(aBV.Name, aBV.HashH128);
-    }
+}
+#endif
     private void _SetProgressUI(float _value)
     {
         SetProgressValue(_value);
-        // SetProgressText((value >= 1 ? _TotalBundles : _CachedBundles) + "/" + _TotalBundles);
         SetProgressText("Loading " + (_value >= 1 ? "100%" : (m_ProgressImg.fillAmount * 100).ToString("F0") + "%"));
     }
     private void _CompleteLoadingAssets()

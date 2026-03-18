@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Globals;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SimpleJSON;
 using SocketIOClient;
+using SocketIOClient.Messages;
 using SocketIOClient.Newtonsoft.Json;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,7 +26,8 @@ public class SocketIOManager
     private ConnectionStatus connectionStatus = ConnectionStatus.NONE;
     private SocketIOUnity clientIO;
     private string EVENT = "event", REGINFO = "reginfo", LOGIN = "login", BEHAVIOR = "behavior", UPDATE = "update", url_old = "";
-    private bool isGetedListFillter, isEmitReginfo;
+    private bool isGetedListFillter, isEmitReginfo, _IsJSWebSocketReady;
+    private string _UriAbsolutePath;
 
     public static SocketIOManager getInstance()
     {
@@ -60,69 +66,87 @@ public class SocketIOManager
             if (connectionStatus == ConnectionStatus.CONNECTED || connectionStatus == ConnectionStatus.CONNECTING) return;
 
             Debug.Log("-=-== start Connect " + Config.u_SIO);
+#if UNITY_WEBGL && !UNITY_EDITOR
+            Uri uri = new(Config.u_SIO);
+            _UriAbsolutePath = uri.AbsolutePath;
+            connectionStatus = ConnectionStatus.CONNECTING;
+            Application.ExternalCall("createBannerWebSocket", Config.u_SIO);
+#else
             SocketIOOptions options = new() { IgnoreServerCertificateValidation = true };
             Uri uri = new(Config.u_SIO);
             clientIO = new(uri, options) { JsonSerializer = new NewtonsoftJsonSerializer() };
             connectionStatus = ConnectionStatus.CONNECTING;
-            clientIO.OnConnected += (sender, e) =>
-            {
-                Debug.Log("-=-== CONNECTED SIO ");
-                connectionStatus = ConnectionStatus.CONNECTED;
-                if (!isEmitReginfo)
-                {
-                    emitReginfo();
-                    isEmitReginfo = true;
-                }
-                if (isSendFirst)
-                    if (Config.isLoginSuccess)
-                        emitLogin();
-                if (DATAEVT0 != null)
-                    if (Config.isLoginSuccess)
-                        emitSIOWithValue(DATAEVT0, "LoginPacket", false);
-                for (int i = 0; i < listResendData.Count; i++)
-                {
-                    if (listResendData[i].Contains("ClickLogOut")) continue;
-                    emitSIO(listResendData[i]);
-                }
-                listResendData.Clear();
-            };
-            clientIO.OnDisconnected += (sender, e) =>
-            {
-                Debug.Log("SML DISCONNECTED");
-                isSendFirst = false;
-                isEmitReginfo = false;
-                connectionStatus = ConnectionStatus.DISCONNECTED;
-            };
-            clientIO.OnError += (sender, e) =>
-            {
-                Debug.Log("SML Connect Error:" + e.ToString());
-                isSendFirst = false;
-                isEmitReginfo = false;
-                connectionStatus = ConnectionStatus.DISCONNECTED;
-            };
-            clientIO.On(EVENT, data =>
-            {
-                Debug.Log("SML===============> event:" + data.ToString());
-                UnityMainThread.instance.AddJob(() =>
-                {
-                    string dataStr = data.ToString();
-                    handleEvent(dataStr);
-                });
-            });
+            clientIO.OnConnected += (sender, e) => HandleOnOpenBannerWebSocket();
+            clientIO.OnDisconnected += (sender, e) => HandleOnCloseBannerWebSocket();
+            clientIO.OnError += (sender, e) => HandleOnErrorBannerWebSocket();
+            clientIO.On(EVENT, data => { HandleOnMessageBannerWebSocket(data.ToString()); });
             clientIO.Connect();
+#endif
         }
         catch (Exception e) { Debug.LogException(e); }
     }
+    public void HandleOnErrorBannerWebSocket()
+    {
+        Debug.Log("SML Connect Error:");
+        isSendFirst = false;
+        isEmitReginfo = false;
+        connectionStatus = ConnectionStatus.DISCONNECTED;
+    }
+    public void HandleOnCloseBannerWebSocket()
+    {
+        Debug.Log("SML DISCONNECTED");
+        isSendFirst = false;
+        isEmitReginfo = false;
+        connectionStatus = ConnectionStatus.DISCONNECTED;
+    }
+    public void HandleOnOpenBannerWebSocket()
+    {
+        Debug.Log("-=-== CONNECTED SIO ");
+        connectionStatus = ConnectionStatus.CONNECTED;
+        if (!isEmitReginfo)
+        {
+            emitReginfo();
+            isEmitReginfo = true;
+        }
+        if (isSendFirst)
+            if (Config.isLoginSuccess)
+                emitLogin();
+        if (DATAEVT0 != null)
+            if (Config.isLoginSuccess)
+                emitSIOWithValue(DATAEVT0, "LoginPacket", false);
+        for (int i = 0; i < listResendData.Count; i++)
+        {
+            if (listResendData[i].Contains("ClickLogOut")) continue;
+            emitSIO(listResendData[i]);
+        }
+        listResendData.Clear();
+    }
+    public void HandleOnMessageBannerWebSocket(string data)
+    {
+        Debug.Log("SML===============> event:" + data.ToString());
+        UnityMainThread.instance.AddJob(() =>
+        {
+            string strData = data.ToString();
+            handleEvent(strData);
+        });
+    }
+    public void CheckBannerWebSocketReady(string isReady)
+    {
+        _IsJSWebSocketReady = isReady.Equals("true");
+    }
     public void stopIO()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+    Application.ExternalCall("closeBannerWebSocket");
+#else
         if (clientIO != null) clientIO.Disconnect();
         clientIO = null;
+#endif
     }
-    async Task handleEvent(string strData)
+    private async UniTask handleEvent(string strData)
     {
         JArray dataArr = JArray.Parse(strData);
         JToken data = dataArr[0];
-        //{ "event":"filter","packetDetail":["0","LoginPacket","JoinPacket","LeavePacket"],"packet":["0","ltv","pctable","selectG2","uag"],"behaviorI":[],"valueGet":[]}
         string evt = (string)data["event"];
         Debug.Log("===============> SIO: handleEvent la " + strData);
         try
@@ -147,7 +171,7 @@ public class SocketIOManager
                     }
                 case "banner":
                     {
-                        if (HandleData.DelayHandleLeave > 0) await Task.Delay((int)(HandleData.DelayHandleLeave + 0.5f) * 1000); //delay thêm 0.5s cho chắc
+                        if (HandleData.DelayHandleLeave > 0) await UniTask.Delay((int)(HandleData.DelayHandleLeave + 0.5f) * 1000); //delay thêm 0.5s cho chắc
                         JArray arrData = (JArray)data["data"];
                         JArray arrOnlistFalse = new(), arrOnlistTrue = new(), arrBannerLobby = new();
                         for (int i = 0; i < arrData.Count; i++)
@@ -179,26 +203,81 @@ public class SocketIOManager
         }
         catch (Exception e) { Debug.LogException(e); }
     }
-    // public void testBanner()
-    // {
-    //     //string str = "{\"event\":\"banner\",\"data\":[{\"arrButton\":[{\"type\":\"openlink\",\"urlBtn\":\"https://storage.googleapis.com/cdn.lengbear.com/Banner/lq0/1011/btn_recharge.png\",\"pos\":[0.5,0.5],\"urlLink\":\"http://kenh14.vn/\"}],\"_id\":\"5dcba97af89e24167aee37f1\",\"id\":\"5dc3edacdda6164a2693f86e\",\"title\":\"testchọngame\",\"isClose\":true,\"urlImg\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/tongits_club_online_test/demo.png\",\"isOnList\":false,\"showByActionType\":6,\"priority\":1},{\"arrButton\":[{\"type\":\"openlink\",\"urlBtn\":\"https://storage.googleapis.com/cdn.lengbear.com/Banner/lq0/1011/btn_recharge.png\",\"pos\":[0.5,0.2],\"urlLink\":\"https://vnexpress.net/\"}],\"_id\":\"5dcba97af89e24167aee37f2\",\"id\":\"5dca5cb01442f41a4c8f2242\",\"title\":\"testchọngame\",\"isClose\":true,\"urlImg\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/tongits_club_online_test/demo.png\",\"isOnList\":false,\"showByActionType\":6,\"priority\":2}]}";
-
-    //     string str = "{\"event\":\"banner\",\"data\":[{\"arrButton\":[{\"type\":\"showwebview\",\"urlBtn\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/Banner_Lobby/May25/V0.jpg\",\"urlLink\":\"http://pm.davaogames.com/fortumo?userid=%uid%&price=20\",\"pos\":[0.5,0.5]}],\"_id\":\"62c3a3fe24f9eb0018cf82ed\",\"id\":\"628d96bb56d93d00186cd4f9\",\"title\":\"[May25]NewBanner\",\"isClose\":true,\"urlImg\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/Banner_Lobby/May25/V0.jpg\",\"isOnList\":false,\"showByActionType\":9,\"priority\":1,\"isShowGameView\":false},{\"arrButton\":[],\"_id\":\"62c3a3fe24f9eb0018cf82ee\",\"id\":\"62be6891d31c8e001a9385d1\",\"title\":\"Invite-01July\",\"isClose\":true,\"urlImg\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/tongits_club_online_test/1.jpg\",\"isOnList\":false,\"showByActionType\":9,\"priority\":2,\"isShowGameView\":false},{\"arrButton\":[{\"type\":\"cashout\",\"urlBtn\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/tongits_club_online_test/3.png\",\"pos\":[0.5,0.5]}],\"_id\":\"62c3a3fe24f9eb0018cf82ef\",\"id\":\"62a965db08c8fb001181661d\",\"title\":\"MờiCO-01Jul\",\"isClose\":true,\"urlImg\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/tongits_club_online_test/3.png\",\"isOnList\":false,\"showByActionType\":9,\"priority\":3,\"isShowGameView\":false},{\"arrButton\":[{\"type\":\"openlink\",\"urlBtn\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/tongits_club_online_test/4.png\",\"pos\":[0.5,0.5],\"urlLink\":\"https://laropay.net/\"}],\"_id\":\"62c3a3fe24f9eb0018cf82f2\",\"id\":\"62be6b0ed31c8e001a9385d3\",\"title\":\"GiớithiệuLaropay-01Jul\",\"isClose\":true,\"urlImg\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/tongits_club_online_test/4.png\",\"isOnList\":false,\"showByActionType\":9,\"priority\":4,\"isShowGameView\":false},{\"arrButton\":[],\"_id\":\"62c3a3fe24f9eb0018cf82f1\",\"id\":\"62a94c6808c8fb00118165fc\",\"title\":\"Cảnhbáo-1006-all-15Jun\",\"isClose\":true,\"urlImg\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/1006_ios/Warning/2.png\",\"isOnList\":true,\"showByActionType\":7,\"priority\":4,\"isShowGameView\":false},{\"arrButton\":[{\"type\":\"openlink\",\"urlBtn\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/1006_ios/HDN/b2.png\",\"urlLink\":\"https://www.facebook.com/bigwinclub.site\",\"pos\":[0.6,0.1]}],\"_id\":\"62c3a3fe24f9eb0018cf82f4\",\"id\":\"62a97e6408c8fb0011816629\",\"title\":\"Hướngdẫnnạp-1006-V0,1-15Jun\",\"isClose\":true,\"urlImg\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/1006_ios/HDN/i2.png\",\"isOnList\":true,\"showByActionType\":7,\"priority\":7,\"isShowGameView\":false},{\"arrButton\":[{\"type\":\"openlink\",\"urlBtn\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/1006_ios/Laropay/3a.png\",\"urlLink\":\"https://laropay.net/\",\"pos\":[0.5,0.1]}],\"_id\":\"62c3a3fe24f9eb0018cf82f6\",\"id\":\"62a95c2308c8fb0011816602\",\"title\":\"Laropay-1006-V0,5-15Jun\",\"isClose\":true,\"urlImg\":\"https://storage.googleapis.com/cdn.davaogames.com/NewBanner/1006_ios/Laropay/3ai.png\",\"isOnList\":true,\"showByActionType\":7,\"priority\":8,\"isShowGameView\":false}]}";
-    //     handleEvent(str);
-    // }
     void emitSIO(string strData)
     {
-        if (clientIO != null && connectionStatus == ConnectionStatus.CONNECTED)
+#if UNITY_WEBGL && !UNITY_EDITOR
+        Application.ExternalCall("checkBannerWebSocketReady");
+        if (connectionStatus == ConnectionStatus.CONNECTED && _IsJSWebSocketReady)
         {
             Debug.Log("-=-=SML emitSIO  data: " + strData);
-            if (!IsJSON(strData)) clientIO.Emit("event", strData);
-            else clientIO.EmitStringAsJSON("event", strData);
+            if (!IsJSON(strData))
+            {
+                if (strData != null && strData.Length > 0)
+                {
+                    byte[] result = Encoding.UTF8.GetBytes(strData);
+                    if (result.Length > 0)
+                    {
+                        var msg = new BinaryMessage
+                        {
+                            Namespace = _UriAbsolutePath,
+                            OutgoingBytes = new List<byte[]>() { result },
+                            Event = EVENT,
+                            Json = new JSONString(strData).ToString()
+                        };
+                        Application.ExternalCall("sendBannerData", msg);
+                    }
+                    else
+                    {
+                        var msg = new EventMessage
+                        {
+                            Namespace = _UriAbsolutePath,
+                            Event = EVENT,
+                            Json = new JSONString(strData).ToString()
+                        };
+                        Application.ExternalCall("sendBannerData", msg);
+                    }
+                }
+                else
+                {
+                    var msg = new EventMessage
+                    {
+                        Namespace = _UriAbsolutePath,
+                        Event = EVENT
+                    };
+                    Application.ExternalCall("sendBannerData", msg);
+                }
+            }
+            else{
+                var msg = new EventMessage
+                {
+                    Namespace = _UriAbsolutePath,
+                    Event = EVENT,
+                };
+                if (!string.IsNullOrEmpty(strData))
+                {
+                    msg.Json = "[" + strData + "]";
+                }
+                Application.ExternalCall("sendBannerData", msg);
+            } 
         }
         else
         {
             //listResendEvent.Add(eventName);
             if (listResendData.Count < 100) listResendData.Add(strData);
         }
+#else
+        if (clientIO != null && connectionStatus == ConnectionStatus.CONNECTED)
+        {
+            Debug.Log("-=-=SML emitSIO  data: " + strData);
+            if (!IsJSON(strData)) clientIO.Emit(EVENT, strData);
+            else clientIO.EmitStringAsJSON(EVENT, strData);
+        }
+        else
+        {
+            //listResendEvent.Add(eventName);
+            if (listResendData.Count < 100) listResendData.Add(strData);
+        }
+#endif
     }
     public static bool IsJSON(string str)
     {
@@ -225,18 +304,8 @@ public class SocketIOManager
         JObject objectVL = new();
         foreach (KeyValuePair<string, string> kvp in mapData)
         {
-            //if (kvp.Key == "vip" || kvp.Key == "ag" || kvp.Key == "id")
-            //{
-            //    objectVL[kvp.Key] = int.Parse(kvp.Value);
-            //}
-            //else
-            //{
             objectVL[kvp.Key] = kvp.Value;
-            //}
         }
-        //    mapData.forEach((valu, key) => {
-        //        objectVL[key] = valu;
-        //    });
         objectVL["event"] = evtName;
         objectVL["timestamp"] = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         emitSIO(objectVL.ToString());
@@ -358,7 +427,7 @@ public class SocketIOManager
         //catch (Exception e)
         //{
 
-        //    Debug.LogException(e);
+        // Debug.LogException(e);
         //}
     }
 

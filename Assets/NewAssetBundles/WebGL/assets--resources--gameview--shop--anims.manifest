@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3605335196
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b68702955a1c9179b190ec5b26300573
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e6a32554d661cad82f7fb1d1e8936e0d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 91907930635f7732e6e55b0c4b32371a
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+Assets:
+- Assets/Resources/GameView/Shop/Anims/bestdeal_shop/skeleton_Atlas.asset
+- Assets/Resources/GameView/Shop/Anims/bestdeal_shop/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Shop/Anims/bestdeal_shop/skeleton.json
+- Assets/Resources/GameView/Shop/Anims/bestdeal_shop/skeleton.png
+- Assets/Resources/GameView/Shop/Anims/bestdeal_shop/skeleton.atlas.txt
+- Assets/Resources/GameView/Shop/Anims/bestdeal_shop/skeleton_Material.mat
+Dependencies: []

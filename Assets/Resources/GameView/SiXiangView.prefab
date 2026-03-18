@@ -4309,6 +4309,9 @@ MonoBehaviour:
   lbChipFSP: {fileID: 9134996937292324034}
   BgItem: {fileID: 6921033515422535739}
   SpineItem: {fileID: 4566345678367958848}
+  m_TextMs:
+  - {fileID: 2100000, guid: a46a7ca2baf79884ba49a89effa43406, type: 2}
+  - {fileID: 2100000, guid: 0745538ed83de4945ac1fbb020425b30, type: 2}
 --- !u!1 &2424504624034954283
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,14 @@ public class CreateAssetBundles
         AssetBundleManifest manifestABM = BuildPipeline.BuildAssetBundles(basePath, BuildAssetBundleOptions.None, BuildTarget.iOS);
         _BuildCategory(basePath, manifestABM);
     }
+    [MenuItem("Asset Bundles/Build/WebGL")]
+    private static void _BuildForWebGL()
+    {
+        string basePath = _PrepareRootFolder(BundleHandler.PLATFORM.WebGL);
+        if (basePath.Equals("")) return;
+        AssetBundleManifest manifestABM = BuildPipeline.BuildAssetBundles(basePath, BuildAssetBundleOptions.None, BuildTarget.WebGL);
+        _BuildCategory(basePath, manifestABM);
+    }
     private static string _PrepareRootFolder(BundleHandler.PLATFORM _platformType)
     {
         string basePath = BundleHandler.BASE_PATH;
@@ -39,6 +47,11 @@ public class CreateAssetBundles
             case BundleHandler.PLATFORM.iOS:
                 {
                     basePath += BundleHandler.PLATFORM.iOS.ToString();
+                    break;
+                }
+            case BundleHandler.PLATFORM.WebGL:
+                {
+                    basePath += BundleHandler.PLATFORM.WebGL.ToString();
                     break;
                 }
             default:

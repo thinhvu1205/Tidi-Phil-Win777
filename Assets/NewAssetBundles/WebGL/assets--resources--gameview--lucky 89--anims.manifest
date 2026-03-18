@@ -1,0 +1,57 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3046960763
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: afbe95d51104eec7ed1552d2cf3d819b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e6a32554d661cad82f7fb1d1e8936e0d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 56dff7db143cb3347307d210d38d449e
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials/ReplacementMaterial
+Assets:
+- Assets/Resources/GameView/Lucky 89/Anims/Lucky 8+lucky 9/skeleton.atlas.txt
+- Assets/Resources/GameView/Lucky 89/Anims/Win/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Lucky 89/Anims/Lucky 8+lucky 9/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Lucky 89/Anims/Start Game/skeleton_Atlas.asset
+- Assets/Resources/GameView/Lucky 89/Anims/Lucky 8+lucky 9/skeleton_Material.mat
+- Assets/Resources/GameView/Lucky 89/Anims/Win/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Lucky 89/Anims/Win/skeleton.json
+- Assets/Resources/GameView/Lucky 89/Anims/Lucky 8+lucky 9/skeleton.png
+- Assets/Resources/GameView/Lucky 89/Anims/Start Game/skeleton.png
+- Assets/Resources/GameView/Lucky 89/Anims/Start Game/skeleton_Material.mat
+- Assets/Resources/GameView/Lucky 89/Anims/Start Game/skeleton.json
+- Assets/Resources/GameView/Lucky 89/Anims/Start Game/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Lucky 89/Anims/Lucky 8+lucky 9/skeleton_Atlas.asset
+- Assets/Resources/GameView/Lucky 89/Anims/Win/skeleton_Atlas.asset
+- Assets/Resources/GameView/Lucky 89/Anims/Start Game/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Lucky 89/Anims/Lucky 8+lucky 9/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Lucky 89/Anims/Win/skeleton_Material.mat
+- Assets/Resources/GameView/Lucky 89/Anims/Start Game/skeleton.atlas.txt
+- Assets/Resources/GameView/Lucky 89/Anims/Win/skeleton.png
+- Assets/Resources/GameView/Lucky 89/Anims/Lucky 8+lucky 9/skeleton.json
+- Assets/Resources/GameView/Lucky 89/Anims/Win/skeleton.atlas.txt
+Dependencies: []

@@ -76,8 +76,6 @@ public class UIManager : MonoBehaviour
     public Sprite spAvatarMe;
     void Awake()
     {
-        // Application.targetFrameRate = 60;
-
         instance = this;
         curGameId = PlayerPrefs.GetInt("curGameId", 0);
         curServerIp = PlayerPrefs.GetString("curServerIp", "");
@@ -116,34 +114,48 @@ public class UIManager : MonoBehaviour
     {
         if (!videoPlayer.isPlaying)
         {
-            videoPlayer.clip = videoStartSiXiang;
             videoBg.SetActive(false);
             videoBg.GetComponent<RawImage>().color = new Color32(255, 255, 225, 0);
             videoPlayer.gameObject.SetActive(true);
 
-            videoPlayer.Play();
+            videoPlayer.prepareCompleted += (vp) =>
+            {
+                Debug.Log("videoPlayer.prepareCompleted is run " + (float)videoPlayer.length);
+                videoPlayer.Play();
+
+                DOTween.Sequence().AppendInterval(1.4f).AppendCallback(() =>
+                {
+                    Debug.Log("showGame is run");
+                    showGame();
+                });
+            };
+
             videoStartedListener = delegate
             {
+                Debug.Log("videoStartedListener is run");
                 videoBg.SetActive(true);
                 videoBg.GetComponent<RawImage>().color = new Color32(255, 255, 225, 255);
                 videoPlayer.started -= videoStartedListener;
             };
-            videoPlayer.started += videoStartedListener;
+
             videoEndedListener = delegate
             {
-
-
-            };
-            //videoPlayer.loopPointReached += videoEndedListener;
-            DOTween.Sequence().AppendInterval(1.5f).AppendCallback(() =>
-            {
-                showGame();
-            }).AppendInterval(1.1f).AppendCallback(() =>
-            {
+                Debug.Log("videoEndedListener is run");
                 videoBg.SetActive(false);
                 videoPlayer.gameObject.SetActive(false);
                 videoPlayer.loopPointReached -= videoEndedListener;
-            });
+            };
+
+            videoPlayer.started += videoStartedListener;
+            videoPlayer.loopPointReached += videoEndedListener;
+
+            videoPlayer.errorReceived += (vp, message) =>
+            {
+                Debug.LogError("Error: " + message);
+                showGame();
+            };
+
+            videoPlayer.Prepare();
         }
 
     }
@@ -946,8 +958,11 @@ public class UIManager : MonoBehaviour
 
     public void showWebView(string url, string title = "")
     {
+
+        if (!string.IsNullOrEmpty(url)) Application.OpenURL(url);
+        return;
         //if (url == "") return;
-        var webview = BundleHandler.Instantiate(loadPrefabPopup("WebView"), transform).GetComponent<WebViewControl>();
+        var webview = Instantiate(loadPrefabPopup("WebView"), transform).GetComponent<WebViewControl>();
         webview.loadUrl(url, title);
         webview.transform.SetAsLastSibling();
     }

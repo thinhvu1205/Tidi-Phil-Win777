@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 260456972
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3136ae3dda5372ea1c12f9d5d4e9097c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: ed70c9d419733bc0bc2dd65cd427bb1f
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/Sicbo/Sprites/rule_eng.jpg
+- Assets/Resources/GameView/Sicbo/Sprites/table.png
+- Assets/Resources/GameView/Sicbo/Sprites/rule_eng2.jpg
+Dependencies: []

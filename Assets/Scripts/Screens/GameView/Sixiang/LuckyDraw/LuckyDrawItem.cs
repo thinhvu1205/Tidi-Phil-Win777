@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using DG.Tweening;
 using System.Threading.Tasks;
 using System;
+using Cysharp.Threading.Tasks;
 
 public class LuckyDrawItem : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class LuckyDrawItem : MonoBehaviour
     {
 
     }
-    public async Task setResult(JObject data)
+    public async UniTask setResult(JObject data)
     {
         //{"winAmount":0,"userAmount":2299779,"card":4,"multiplier":0.0,"index":10,"jackpot":0,"isFinished":false," ":0,"isSelectBonusGame":false}
         string animationQuay = "quay_";
@@ -119,7 +120,7 @@ public class LuckyDrawItem : MonoBehaviour
             {
                 SoundManager.instance.playEffectFromPath(Globals.SOUND_SLOT_BASE.LUCKYDRAW_ITEM_JACKPOT);
             });
-            await Task.Delay(TimeSpan.FromSeconds(timeDelayAnim));
+            await UniTask.Delay(TimeSpan.FromSeconds(timeDelayAnim));
             spine.AnimationState.SetAnimation(0, (data.ContainsKey("isFinished") && (bool)data["isFinished"]) ? animName : animationNormal + typeAnim, true);
         }
 

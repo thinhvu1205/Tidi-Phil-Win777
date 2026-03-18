@@ -1,4 +1,6 @@
 using System.Collections;
+using SimpleJSON;
+using SocketIOClient;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,8 +12,9 @@ public class SplashScene : MonoBehaviour
 
     private void Awake()
     {
-        Application.targetFrameRate = 60;
+        // Application.targetFrameRate = 60;
         string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.googleapis.com/tongitswar/AssetBundles");
+        storedUrl = "https://storage.googleapis.com/tongitswar/NewAssetBundles";
         // storedUrl = "D:/Unity projects/Tidi-Phil-Win777/Assets/AssetBundles";
         m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,
             () =>

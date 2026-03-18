@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System;
 using Spine;
 using Random = UnityEngine.Random;
+using Cysharp.Threading.Tasks;
 
 public class SymbolController : MonoBehaviour
 {
@@ -174,7 +175,7 @@ public class SymbolController : MonoBehaviour
     {
         setSpine(10);
         sprite.gameObject.SetActive(false);
-        await Task.Delay(1000);
+        await UniTask.Delay(1000);
         spine.gameObject.SetActive(false);
         sprite.gameObject.SetActive(true);
     }

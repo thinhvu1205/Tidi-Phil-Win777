@@ -15,6 +15,7 @@ public class WebSocketManager : MonoBehaviour
     [HideInInspector] public ConnectionStatus connectionStatus = ConnectionStatus.NONE;
     WebSocket ws = null;
     Action _OnConnectCb;
+    bool _IsJSWebSocketReady;
     static WebSocketManager instance = null;
     [HideInInspector] public bool UserLogout;
 
@@ -42,6 +43,10 @@ public class WebSocketManager : MonoBehaviour
         Config.isErrorNet = false;
         stop();
         jobsResend.Clear();
+#if UNITY_WEBGL && !UNITY_EDITOR
+        connectionStatus = ConnectionStatus.CONNECTING;
+        Application.ExternalCall("createWebSocket");
+#else
         //Config.isSvTest = true;
         //Config.curServerIp = "app.test.topbangkokclub.com";
         //Config.curServerIp = "app1.jakartagames.net";
@@ -58,16 +63,17 @@ public class WebSocketManager : MonoBehaviour
         //ws.Connect();
 
         ws.EmitOnPing = true;
-        ws.WaitTime = TimeSpan.FromSeconds(10); 
+        ws.WaitTime = TimeSpan.FromSeconds(10);
         ws.SslConfiguration.EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12;
         ws.SslConfiguration.CheckCertificateRevocation = false;
-        ws.OnError += (sender, e) => _HandleOnErrorWebSocket();
-        ws.OnClose += (sender, e) => _HandleOnCloseWebSocket();
-        ws.OnOpen += (sender, e) => _HandleOnOpenWebSocket();
-        ws.OnMessage += (sender, e) => _HandleOnMessageWebSocket(e.Data);
+        ws.OnError += (sender, e) => HandleOnErrorWebSocket();
+        ws.OnClose += (sender, e) => HandleOnCloseWebSocket();
+        ws.OnOpen += (sender, e) => HandleOnOpenWebSocket();
+        ws.OnMessage += (sender, e) => HandleOnMessageWebSocket(e.Data);
+#endif
     }
 
-    private void _HandleOnErrorWebSocket()
+    public void HandleOnErrorWebSocket()
     {
         if (connectionStatus == ConnectionStatus.DISCONNECTED) return;
         connectionStatus = ConnectionStatus.DISCONNECTED;
@@ -77,7 +83,7 @@ public class WebSocketManager : MonoBehaviour
             UIManager.instance.showLoginScreen(false);
         });
     }
-    private void _HandleOnCloseWebSocket()
+    public void HandleOnCloseWebSocket()
     {
         if (connectionStatus == ConnectionStatus.DISCONNECTED) return;
         connectionStatus = ConnectionStatus.DISCONNECTED;
@@ -91,15 +97,14 @@ public class WebSocketManager : MonoBehaviour
             }
         });
     }
-    private void _HandleOnOpenWebSocket()
+    public void HandleOnOpenWebSocket()
     {
         connectionStatus = ConnectionStatus.CONNECTED;
         _OnConnectCb?.Invoke();
         Logging.Log("OnOpen ");
-        while (jobsResend.Count > 0)
-            jobsResend.Dequeue().Invoke();
+        while (jobsResend.Count > 0) jobsResend.Dequeue().Invoke();
     }
-    private void _HandleOnMessageWebSocket(string data)
+    public void HandleOnMessageWebSocket(string data)
     {
         UnityMainThread.instance.AddJob(() =>
             {
@@ -145,17 +150,48 @@ public class WebSocketManager : MonoBehaviour
 
     public void stop(bool isClearTask = true)
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+    Application.ExternalCall("closeWebSocket");
+#else
         if (ws != null) ws.Close();
+#endif
         if (isClearTask) jobsResend.Clear();
     }
 
     public bool IsAlive()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        Application.ExternalCall("checkWebSocketReady");
+        if(_IsJSWebSocketReady){
+            _IsJSWebSocketReady=false;
+            return true;
+        }else return false;
+#else
         return ws != null && ws.IsAlive;
+#endif
+    }
+    public void CheckWebSocketReady(string isReady)
+    {
+        _IsJSWebSocketReady = isReady.Equals("true");
     }
 
     public void SendData(string dataSend)
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        Application.ExternalCall("checkWebSocketReady");
+        if (connectionStatus == ConnectionStatus.CONNECTED && _IsJSWebSocketReady)
+        {
+            Application.ExternalCall("SendData", dataSend);
+            _IsJSWebSocketReady = false;
+        }
+        else
+        {
+            jobsResend.Enqueue(() =>
+            {
+                Application.ExternalCall("SendData", dataSend);
+            });
+        }
+#else
         if (connectionStatus == ConnectionStatus.CONNECTED && ws.ReadyState == WebSocketState.Open)
         {
             ws.SendAsync(dataSend, (msg) => { });
@@ -167,7 +203,7 @@ public class WebSocketManager : MonoBehaviour
                 ws.SendAsync(dataSend, (msg) => { });
             });
         }
-
+#endif
     }
 
     /**
