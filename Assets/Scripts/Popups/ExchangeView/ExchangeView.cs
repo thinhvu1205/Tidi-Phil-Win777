@@ -42,7 +42,7 @@ public class ExchangeView : BaseView
         scrTabsHis;
 
     [SerializeField]
-    private InputField m_PhoneIF,
+    private TMP_InputField m_PhoneIF,
         m_ConfirmPhoneIF;
 
     private List<JObject> listDataHis = new List<JObject>();
@@ -553,10 +553,10 @@ public class ExchangeView : BaseView
                     textBox = (JArray)rewardData["textBox"];
                 else
                     textBox = (JArray)rewardData["child"][indexTabNap]["textBox"];
-                m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(
+                m_PhoneIF.placeholder.GetComponent<TextMeshProUGUI>().text = Config.getTextConfig(
                     (string)textBox[0]["key_placeHolder"]
                 );
-                m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig(
+                m_ConfirmPhoneIF.placeholder.GetComponent<TextMeshProUGUI>().text = Config.getTextConfig(
                     (string)textBox[1]["key_placeHolder"]
                 );
             }

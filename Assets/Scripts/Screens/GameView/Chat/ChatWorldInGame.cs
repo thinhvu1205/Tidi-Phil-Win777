@@ -218,20 +218,20 @@ public class ChatWorldInGame : BaseView
     }
     private void Update()
     {
-        if (m_Mic_off.activeSelf)
-        {
-            if (m_Message.text.Trim().Length > 0)
-            {
-                m_Mic_off.transform.GetChild(1).gameObject.SetActive(false);
-                m_Mic_off.transform.GetChild(2).gameObject.SetActive(true);
-            }
-            else
-            {
-                m_Mic_off.transform.GetChild(1).gameObject.SetActive(true);
-                m_Mic_off.transform.GetChild(2).gameObject.SetActive(false);
-            }
+        // if (m_Mic_off.activeSelf)
+        // {
+        //     if (m_Message.text.Trim().Length > 0)
+        //     {
+        //         m_Mic_off.transform.GetChild(1).gameObject.SetActive(false);
+        //         m_Mic_off.transform.GetChild(2).gameObject.SetActive(true);
+        //     }
+        //     else
+        //     {
+        //         m_Mic_off.transform.GetChild(1).gameObject.SetActive(true);
+        //         m_Mic_off.transform.GetChild(2).gameObject.SetActive(false);
+        //     }
 
-        }
+        // }
         if (!m_Mic_on.activeSelf)
         {
             m_Mic_off.SetActive(true);

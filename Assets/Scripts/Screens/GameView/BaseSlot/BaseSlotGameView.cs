@@ -838,13 +838,14 @@ public class BaseSlotGameView : GameView
         }
         checkFiveOfAKind();
 
-        Sequence s = DOTween.Sequence();
-        s.AppendInterval(1.0f).AppendCallback(() =>
+        StartCoroutine(delayStop());
+        IEnumerator delayStop()
         {
+            StopCoroutine(delayStop());
+            yield return new WaitForSeconds(1f);
             listCollum[0].isStop = true;
             currentIndexStop = 0;
-        });
-
+        }
     }
     public void forceFreeSpin()
     {

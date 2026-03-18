@@ -568,13 +568,14 @@ public class SlotTarzanView : BaseSlotGameView
         }
         checkFiveOfAKind();
         isWinScatter = checkWinScatter();
-        Sequence s = DOTween.Sequence();
-        s.AppendInterval(1.0f)
-        .AppendCallback(() =>
+        StartCoroutine(delayStop());
+        IEnumerator delayStop()
         {
+            StopCoroutine(delayStop());
+            yield return new WaitForSeconds(1f);
             listCollum[0].isStop = true;
             currentIndexStop = 0;
-        });
+        }
 
     }
     private void showGetItemDiamond(Vector2 posItem, TweenCallback cb = null)
@@ -923,6 +924,8 @@ public class SlotTarzanView : BaseSlotGameView
             }
             else if (spintype == SPIN_TYPE.AUTO)
             {
+                if (winningLines.Count == 1)
+                    listActionHandleSpin.Add(() => { showOneByOneLine(); });
                 TweenCallback acShowAnimChipBay = () =>
                 {
                     // showAnimChipBay();
