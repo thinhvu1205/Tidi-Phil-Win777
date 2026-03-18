@@ -32,7 +32,7 @@ public class EdbController : MonoBehaviour
         if (TYPE_EDB == TYPE.NONE) return;
         isCheckWithAg = isAg;
         edb.onValueChanged.RemoveAllListeners();
-        edb.onValueChanged.AddListener(onEdbChange);
+        // edb.onValueChanged.AddListener(onEdbChange);
         edb.onEndEdit.AddListener(onEdbEndEdit);
     }
     public void onEdbEndEdit(string value)
