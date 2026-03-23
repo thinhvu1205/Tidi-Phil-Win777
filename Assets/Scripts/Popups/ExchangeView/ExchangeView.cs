@@ -559,8 +559,6 @@ public class ExchangeView : BaseView
                     (string)textBox[1]["key_placeHolder"]
                 );
             }
-            Debug.Log($"-=-= textBox {rewardData} // textBox {rewardData["textBox"]} // child {rewardData["child"]} // indexTabNap {rewardData["child"][indexTabNap]} // textBox {rewardData["child"][indexTabNap]["textBox"]}");
-            Debug.Log($"// textBox {rewardData["textBox"]} // child {rewardData["child"]} // indexTabNap {rewardData["child"][indexTabNap]} // textBox {rewardData["child"][indexTabNap]["textBox"]}");
         }
 
         valueCO = value;
