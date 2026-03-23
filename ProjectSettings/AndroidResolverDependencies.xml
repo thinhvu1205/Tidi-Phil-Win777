@@ -15,7 +15,7 @@
   <files />
   <settings>
     <setting name="androidAbis" value="arm64-v8a" />
-    <setting name="bundleId" value="unity.tongit.online.com" />
+    <setting name="bundleId" value="unity.tongit.pusoyph.com" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradlePropertiesTemplateEnabled" value="True" />

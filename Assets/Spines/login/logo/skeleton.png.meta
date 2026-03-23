@@ -20,12 +20,6 @@ TextureImporter:
   - first:
       213: -8664327905045170009
     second: skeleton_5
-  - first:
-      213: -7423335518844729702
-    second: skeleton_6
-  - first:
-      213: 7269522917121967659
-    second: skeleton_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -142,7 +136,7 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048

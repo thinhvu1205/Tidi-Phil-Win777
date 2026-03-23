@@ -1311,6 +1311,9 @@ MonoBehaviour:
   animResult: {fileID: 5143188967132298871}
   remainPick: 20
   isAutoPlay: 1
+  m_PrizeMs:
+  - {fileID: 2100000, guid: f6cf0f1dfefe66a4294e65d972a0fc11, type: 2}
+  - {fileID: 2100000, guid: 0745538ed83de4945ac1fbb020425b30, type: 2}
 --- !u!1 &8880854558007252015
 GameObject:
   m_ObjectHideFlags: 0

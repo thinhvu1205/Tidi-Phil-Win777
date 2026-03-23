@@ -28,7 +28,7 @@ public class LoadConfig : MonoBehaviour
     void Awake()
     {
         // Config.publisher = "Luckypusoy_apk_pro";
-        Config.publisher = "unity_tongit_1_0";
+        Config.publisher = "unity_tongit_ph_1_0";
         if (instance == null) instance = this;
         else
         {
@@ -214,7 +214,7 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        wWForm["bundleID"] = "unity.tongit.online.com";
+        wWForm["bundleID"] = "unity.tongit.pusoyph.com";
         wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
