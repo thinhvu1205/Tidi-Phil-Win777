@@ -16,7 +16,7 @@ public class ExchangeView : BaseView
     [SerializeField] TextMeshProUGUI lbChips, m_RewardTMP, m_HistoryTMP;
     [SerializeField] BaseView popupInput;
     [SerializeField] ScrollRect scrContentRedeem, scrContentAgency, scrContentHistory, scrTabs, scrTabsHis;
-    [SerializeField] private InputField m_PhoneIF, m_ConfirmPhoneIF;
+    [SerializeField] private TMP_InputField m_PhoneIF, m_ConfirmPhoneIF;
 
     private List<JObject> listDataHis = new List<JObject>();
     private JObject firstTabHistItem, curDataTabNap;
@@ -482,8 +482,8 @@ public class ExchangeView : BaseView
                 JArray textBox = null;
                 if (rewardData["textBox"] != null) textBox = (JArray)rewardData["textBox"];
                 else textBox = (JArray)rewardData["child"][indexTabNap]["textBox"];
-                m_PhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig((string)textBox[0]["key_placeHolder"]);
-                m_ConfirmPhoneIF.placeholder.GetComponent<Text>().text = Config.getTextConfig((string)textBox[1]["key_placeHolder"]);
+                m_PhoneIF.placeholder.GetComponent<TextMeshProUGUI>().text = Config.getTextConfig((string)textBox[0]["key_placeHolder"]);
+                m_ConfirmPhoneIF.placeholder.GetComponent<TextMeshProUGUI>().text = Config.getTextConfig((string)textBox[1]["key_placeHolder"]);
             }
         }
 

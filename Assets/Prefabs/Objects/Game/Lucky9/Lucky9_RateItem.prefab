@@ -88,9 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08e22f77d03ecb4f8e7b05fe2810b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  face: {fileID: 0}
   listFace:
   - {fileID: 21300000, guid: 84fe298828bae43e08eddf9714d39114, type: 3}
   - {fileID: 21300000, guid: 93d7ce8d1afad4a98bfec099e8e14fde, type: 3}
-  - {fileID: 8321528207803008786, guid: bb70dbb6be3b73849a380e0fea64a18a, type: 3}
+  - {fileID: 21300000, guid: bb70dbb6be3b73849a380e0fea64a18a, type: 3}
   - {fileID: 21300000, guid: b01887131a60b4609af643671b8a92e7, type: 3}
