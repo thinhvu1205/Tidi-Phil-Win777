@@ -285,12 +285,14 @@ public class ScreenFriendView : MonoBehaviour
                 isTab = 4;
                 m_ButtonAddMore.SetActive(false);
                 ReloadListInviteRequest(ListRequest, 4);
+                Debug.Log($"list request: {ListRequest}");
                 break;
             case 5:
                 listFrienDelete.Clear();
                 isTab = 5;
                 m_ButtonAddMore.SetActive(false);
                 ReloadListInviteRequest(ListInvited, 5);
+                Debug.Log($"list ListInvited: {ListInvited}");
                 break;
             default: reloadFriend(ListFriend, 0); break;
         }
@@ -389,7 +391,6 @@ public class ScreenFriendView : MonoBehaviour
         {
             m_ScrollContentFriend.content.GetChild(i).gameObject.SetActive(false);
         }
-        m_ChatTableVPG.SetControlInfo(_ControlPIs, 0);
         Debug.Log("xem list data count" + data.Count + " " + _ControlPIs.Count);
         for (int i = 0; i < data.Count; i++)
         {
@@ -420,7 +421,6 @@ public class ScreenFriendView : MonoBehaviour
         {
             m_ScrollContentFriend.content.GetChild(i).gameObject.SetActive(false);
         }
-        m_ChatTableVPG.SetControlInfo(_ControlPIs, 0);
         Debug.Log("xem list data count" + data.Count + " " + _ControlPIs.Count);
         for (int i = 0; i < data.Count; i++)
         {

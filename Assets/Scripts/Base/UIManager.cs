@@ -50,8 +50,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI testFont;
 
     float timeShowLoad = 0;
-    public List<Sprite> avatarAtlas = new();
-    public SpriteAtlas cardAtlas;
+    public SpriteAtlas avatarAtlas, cardAtlas;
     [SerializeField] Sprite avtDefault;
     [SerializeField] Canvas canvasGame;
     [HideInInspector] public GameView gameView;

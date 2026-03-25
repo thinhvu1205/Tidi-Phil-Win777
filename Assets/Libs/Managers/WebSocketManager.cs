@@ -58,7 +58,7 @@ public class WebSocketManager : MonoBehaviour
         //ws.Connect();
 
         ws.EmitOnPing = true;
-        ws.WaitTime = TimeSpan.FromSeconds(10); 
+        ws.WaitTime = TimeSpan.FromSeconds(10);
         ws.SslConfiguration.EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12;
         ws.SslConfiguration.CheckCertificateRevocation = false;
         ws.OnError += (sender, e) => _HandleOnErrorWebSocket();
@@ -185,8 +185,10 @@ public class WebSocketManager : MonoBehaviour
         ServiceTransportPacket serviceTransport = new ServiceTransportPacket();
         serviceTransport.service = "com.athena.services.api.ServiceContract";
         serviceTransport.servicedata = Config.getByte(strData);// utf8.toByteArray(data);
-
-        serviceTransport.pid = User.userMain.Userid;
+        if (User.userMain != null)
+        {
+            serviceTransport.pid = User.userMain.Userid;
+        }
         serviceTransport.seq = 1;
         serviceTransport.idtype = 1;
         //connector.sendProtocolObject(serviceTransport);

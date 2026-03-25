@@ -690,6 +690,10 @@ public class ThreePokerCardGameView : GameView
             }
             JArray Arr = getJArray(jPlayer, "Arr");
             if (Arr.Count > 0) DealCardPlayer(player, Arr.ToObject<List<int>>());
+            for (int j = 0; j < getJArray(jPlayer, "listBeted").Count; j++)
+            {
+                setPlayerDataBeted(getJArray(jPlayer, "listBeted")[j].ToObject<JObject>());
+            }
             if (player != thisPlayer)
             {
                 createFrameChip(player, getInt(jPlayer, "totalBet"));
@@ -713,10 +717,6 @@ public class ThreePokerCardGameView : GameView
                         text.gameObject.SetActive(true);
                         text.text = Globals.Config.FormatMoney2(MoneyAllInGate[j], true);
                     }
-                }
-                for (int j = 0; j < getJArray(jPlayer, "listBeted").Count; j++)
-                {
-                    setPlayerDataBeted(getJArray(jPlayer, "listBeted")[j].ToObject<JObject>());
                 }
 
                 if (getString(jData, "gameStatus") == "PLAY" &&
@@ -770,6 +770,7 @@ public class ThreePokerCardGameView : GameView
     }
     public override void handleRJTable(string data)
     {
+        Debug.Log("handleRJTable: " + data);
         base.handleRJTable(data);
         JObject jData = JObject.Parse(data);
         agTable = getInt(jData, "M");

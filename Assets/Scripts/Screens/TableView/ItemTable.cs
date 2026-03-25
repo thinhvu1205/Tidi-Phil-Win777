@@ -62,9 +62,11 @@ public class ItemTable : MonoBehaviour
             {
                 tbName = name.Substring(0, 7) + "..., ";
             }
+            else tbName = name + ", ";
             tableName += tbName;
         }
         txtName.text = tableName;
+        Globals.Config.effectTextRunInMask(txtName);
         txtID.text = (int)dataItem["id"] + "";
         //var gameId = Globals.Config.curGameId;
         //if (gameId == (int)Globals.GAMEID.TONGITS || gameId == (int)Globals.GAMEID.TONGITS_JOKER)
