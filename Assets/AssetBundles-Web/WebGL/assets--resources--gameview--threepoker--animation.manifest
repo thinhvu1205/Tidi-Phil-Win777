@@ -1,0 +1,47 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 503298289
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2f2729f86c303fd97117606e0a622c97
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e6a32554d661cad82f7fb1d1e8936e0d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: b19fe19e56253db25ab58af08646029c
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+Assets:
+- Assets/Resources/GameView/ThreePoker/animation/fold_Play/skeleton_Atlas.asset
+- Assets/Resources/GameView/ThreePoker/animation/point/skeleton_skeleton.mat
+- Assets/Resources/GameView/ThreePoker/animation/fold_Play/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/ThreePoker/animation/point/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/ThreePoker/animation/point/skeleton.atlas.txt
+- Assets/Resources/GameView/ThreePoker/animation/point/skeleton.json
+- Assets/Resources/GameView/ThreePoker/animation/point/skeleton_.mat
+- Assets/Resources/GameView/ThreePoker/animation/fold_Play/skeleton.atlas.txt
+- Assets/Resources/GameView/ThreePoker/animation/fold_Play/skeleton.json
+- Assets/Resources/GameView/ThreePoker/animation/point/skeleton_Atlas.asset
+- Assets/Resources/GameView/ThreePoker/animation/point/skeleton.png
+- Assets/Resources/GameView/ThreePoker/animation/fold_Play/skeleton.png
+- Assets/Resources/GameView/ThreePoker/animation/fold_Play/skeleton_Material.mat
+Dependencies: []

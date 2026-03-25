@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3530799707
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0dd83ea3f36d95fa9fa6a7b1eb4f5031
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 0d93951f0ceef2111ea4a1476689796c
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/SlotNoel/Sprites/03.png
+- Assets/Resources/GameView/SlotNoel/Sprites/01.png
+- Assets/Resources/GameView/SlotNoel/Sprites/bgr02.png
+- Assets/Resources/GameView/SlotNoel/Sprites/02.png
+- Assets/Resources/GameView/SlotNoel/Sprites/popup.png
+Dependencies: []

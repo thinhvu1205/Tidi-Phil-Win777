@@ -33,7 +33,7 @@ public class Avatar : MonoBehaviour
 
     public async void loadAvatar(int idAva, string fbName, string fbId, string name = "")
     {
-        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.Count)
+        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.spriteCount)
         {
             setSpriteWithID(idAva);
         }
@@ -81,7 +81,7 @@ public class Avatar : MonoBehaviour
     }
     public async void loadAvatarAsync(int idAva, string fbName, string fbId = "")
     {
-        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.Count)
+        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.spriteCount)
         {
             setSpriteWithID(idAva);
         }
@@ -169,7 +169,7 @@ public class Avatar : MonoBehaviour
     }
     public void setSpriteWithID(int idAva)
     {
-        var avaSp = UIManager.instance.avatarAtlas[idAva - 1];
+        var avaSp = UIManager.instance.avatarAtlas.GetSprite("avatar_" + idAva);
         if (avaSp == null)
             avaSp = UIManager.instance.getRandomAvatar();
         setSpriteFrame(avaSp);
@@ -190,7 +190,7 @@ public class Avatar : MonoBehaviour
 
     public async UniTask loadAvatarAsync2(int idAva, string fbName, string fbId = "")
     {
-        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.Count)
+        if (idAva > 0 && idAva <= UIManager.instance.avatarAtlas.spriteCount)
         {
             await setSpriteWithID2(idAva);
         }

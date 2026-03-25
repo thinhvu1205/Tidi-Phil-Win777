@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 2929070634
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4106052b5cf2850b87f00ed362dfa28d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 9f6a6aa13c140de364baf9a5161730d1
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/SlotJuicyGarden/Sprites/pop.png
+- Assets/Resources/GameView/SlotJuicyGarden/Sprites/3.png
+- Assets/Resources/GameView/SlotJuicyGarden/Sprites/2.png
+- Assets/Resources/GameView/SlotJuicyGarden/Sprites/bkg_slot.jpg
+- Assets/Resources/GameView/SlotJuicyGarden/Sprites/table.png
+- Assets/Resources/GameView/SlotJuicyGarden/Sprites/1.png
+- Assets/Resources/GameView/SlotJuicyGarden/Sprites/4.png
+- Assets/Resources/GameView/SlotJuicyGarden/Sprites/popup2.png
+- Assets/Resources/GameView/SlotJuicyGarden/Sprites/5.png
+Dependencies: []

@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 1984180601
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 78b7b5eb2168852d25535bfbdd068877
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 7502bd2b01e5ae01bf127522c72a0163
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Chat/Sprites/popup_chat 1.png
+- Assets/Resources/Chat/Sprites/BOX_LARGE.png
+- Assets/Resources/Chat/Sprites/popup_chat.png
+Dependencies: []
