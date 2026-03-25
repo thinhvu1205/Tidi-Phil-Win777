@@ -43,7 +43,6 @@ public class UIManager : MonoBehaviour
     public TMP_FontAsset fontDefault = null;
 
     //public AnimatorController animatorButton;
-
     public LoginView loginView;
     public LobbyView lobbyView;
     [SerializeField] private CheckinBonus popupCheckinBonus;

@@ -66,6 +66,9 @@ public class ButtonVipFarm : MonoBehaviour
     }
     private void Awake()
     {
-        UIManager.instance.UpdateVipFarmsList(this, true);
+        if (UIManager.instance != null)
+        {
+            UIManager.instance.UpdateVipFarmsList(this, true);
+        }
     }
 }

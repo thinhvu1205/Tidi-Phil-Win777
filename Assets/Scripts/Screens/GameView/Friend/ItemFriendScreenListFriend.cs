@@ -98,7 +98,7 @@ public class ItemFriendScreenListFriend : MonoBehaviour
     }
     public void OnClickFriendChat()
     {
-
+        ScreenFriendView.instance.isOpenChatFriend = true;
         UIManager.instance.showListChatFriend(dataFriend);
         SocketSend.sendGetDetailChatFriend(dataFriend.userid);
     }

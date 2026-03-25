@@ -55,10 +55,15 @@ public class TabFriendChat : MonoBehaviour
             else
             {
                 Debug.Log("có gọi ở đây ko");
-                SocketSend.sendGetDetailChatFriend(idFriend);
+                if (!ScreenFriendView.instance.isOpenChatFriend)
+                {
+                    SocketSend.sendGetDetailChatFriend(idFriend);
+                }
+
             }
 
         }
+        ScreenFriendView.instance.isOpenChatFriend = false;
         ChatFriend.Instance.id_friends = idFriend;
         isChoose = true;
         ChatFriend.Instance.setOffAllTab();

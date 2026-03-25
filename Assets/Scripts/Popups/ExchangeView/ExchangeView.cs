@@ -88,6 +88,7 @@ public class ExchangeView : BaseView
             m_ConfirmPhoneIF.text = "";
             SocketSend.sendCashOut(value, phoneNumber, typeName);
             UIManager.instance.showWaiting();
+            Debug.Log("send cashout  " + value + "  " + phoneNumber + "  " + typeName);
         }
     }
     #endregion
@@ -545,6 +546,8 @@ public class ExchangeView : BaseView
         else
         {
             popupInput.show();
+            Debug.Log("indexTabNap = " + indexTabNap);
+            // Debug.Log("child count = " + (JArray)rewardData["child"].Count);
             if (rewardData != null)
             {
                 JArray textBox = null;
@@ -560,7 +563,6 @@ public class ExchangeView : BaseView
                 );
             }
         }
-
         valueCO = value;
     }
 

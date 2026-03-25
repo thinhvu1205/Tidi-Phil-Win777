@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class ScreenFriendView : MonoBehaviour
 {
     public static ScreenFriendView instance;
+    public bool isOpenChatFriend = false;
     [SerializeField] private GameObject m_ItemTabScreenFrien;
     [SerializeField] private Transform m_ParentListTab;
     [SerializeField] private ScrollRect m_ScrollContentFriend;
