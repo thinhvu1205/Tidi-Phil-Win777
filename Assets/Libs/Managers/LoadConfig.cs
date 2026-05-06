@@ -214,7 +214,7 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        wWForm["bundleID"] = "unity.tongit.pusoyph.com";
+        wWForm["bundleID"] = "tongitsph.pusoy.com";
         wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
