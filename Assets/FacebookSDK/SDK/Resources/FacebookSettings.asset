@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - f467b733128925b86c741c106e54d58f
+  - d2fe9164c6d4075e4d866612c958891e
   appIds:
-  - 2075254929993239
+  - 3037282406470046
   appLabels:
-  - Casino Plus - Tongits Online
+  - Tongits Online - PusoyPH
   cookie: 1
   logging: 1
   status: 1
