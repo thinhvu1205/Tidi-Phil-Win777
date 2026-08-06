@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3667839951
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 755fa923ccf6e05e043af25602280bc5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 9e4dfd3077f90492f15e5393ed2d32d4
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/ThreePoker/Sprites/bg_popup_slide.png
+Dependencies: []

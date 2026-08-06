@@ -1,0 +1,64 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3563364480
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0e6aa292e395ebf29ae5763a91673db9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e6a32554d661cad82f7fb1d1e8936e0d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: c2b48e179aa9f62a158061c4266a8d55
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+Assets:
+- Assets/Resources/GameView/Tongits/Anims/anim_chip/skeleton.json
+- Assets/Resources/GameView/Tongits/Anims/anim_chip/skeleton_Atlas.asset
+- Assets/Resources/GameView/Tongits/Anims/receive chip dailybonus/skeleton.atlas.txt
+- Assets/Resources/GameView/Tongits/Anims/ruong/skeleton.json
+- Assets/Resources/GameView/Tongits/Anims/fight_dialog/skeleton.json
+- Assets/Resources/GameView/Tongits/Anims/fight_dialog/skeleton.png
+- Assets/Resources/GameView/Tongits/Anims/ruong/skeleton.atlas.txt
+- Assets/Resources/GameView/Tongits/Anims/receive chip dailybonus/skeleton_Atlas.asset
+- Assets/Resources/GameView/Tongits/Anims/ruong/skeleton_Material.mat
+- Assets/Resources/GameView/Tongits/Anims/ruong/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Tongits/Anims/anim_chip/skeleton.png
+- Assets/Resources/GameView/Tongits/Anims/fight_dialog/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Tongits/Anims/receive chip dailybonus/skeleton_Material.mat
+- Assets/Resources/GameView/Tongits/Anims/anim_chip/skeleton.atlas.txt
+- Assets/Resources/GameView/Tongits/Anims/fight_dialog/skeleton.atlas.txt
+- Assets/Resources/GameView/Tongits/Anims/receive chip dailybonus/skeleton.png
+- Assets/Resources/GameView/Tongits/Anims/anim_special_binh_tongit/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Tongits/Anims/fight_dialog/skeleton_Material.mat
+- Assets/Resources/GameView/Tongits/Anims/anim_special_binh_tongit/skeleton.atlas.txt
+- Assets/Resources/GameView/Tongits/Anims/anim_chip/skeleton_Material.mat
+- Assets/Resources/GameView/Tongits/Anims/anim_special_binh_tongit/skeleton.json
+- Assets/Resources/GameView/Tongits/Anims/anim_special_binh_tongit/skeleton_Atlas.asset
+- Assets/Resources/GameView/Tongits/Anims/ruong/skeleton_Atlas.asset
+- Assets/Resources/GameView/Tongits/Anims/anim_chip/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Tongits/Anims/receive chip dailybonus/skeleton.json
+- Assets/Resources/GameView/Tongits/Anims/ruong/skeleton.png
+- Assets/Resources/GameView/Tongits/Anims/receive chip dailybonus/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Tongits/Anims/anim_special_binh_tongit/skeleton.png
+- Assets/Resources/GameView/Tongits/Anims/anim_special_binh_tongit/skeleton_Material.mat
+- Assets/Resources/GameView/Tongits/Anims/fight_dialog/skeleton_Atlas.asset
+Dependencies: []

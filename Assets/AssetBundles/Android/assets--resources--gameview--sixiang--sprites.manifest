@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3749266063
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 04db6abfbb2b8c8ae5fde602c51adf05
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 11565ad4f133fc8392f3c14db099b631
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/SiXiang/Sprites/2_cam.png
+- Assets/Resources/GameView/SiXiang/Sprites/1_phil.png
+- Assets/Resources/GameView/SiXiang/Sprites/3_phil.png
+- Assets/Resources/GameView/SiXiang/Sprites/bg.jpg
+- Assets/Resources/GameView/SiXiang/Sprites/table.png
+- Assets/Resources/GameView/SiXiang/Sprites/4_phil.png
+- Assets/Resources/GameView/SiXiang/Sprites/5_phil.png
+- Assets/Resources/GameView/SiXiang/Sprites/popup.png
+Dependencies: []

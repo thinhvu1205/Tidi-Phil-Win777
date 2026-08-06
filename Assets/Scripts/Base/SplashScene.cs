@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SplashScene : MonoBehaviour
 {
-    //https://console.cloud.google.com/storage/browser/tongitswar
+    //https://console.cloud.google.com/storage/browser/bigwinclub-slots-tongits/AssetBundles
     [SerializeField] private BundleDownloader m_BundleBD;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.googleapis.com/tongitswar/NewAssetBundles");
+        string storedUrl = PlayerPrefs.GetString(BundleDownloader.STORED_BUNDLE_URL, "https://storage.googleapis.com/bigwinclub-slots-tongits/AssetBundles");
+        BundleHandler.MAIN.BundleUrl = storedUrl;
         m_BundleBD.CheckAndDownloadAssets(storedUrl, 1f,
             () =>
             {

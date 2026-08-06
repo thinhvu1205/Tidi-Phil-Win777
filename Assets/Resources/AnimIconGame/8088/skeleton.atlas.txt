@@ -1,55 +1,237 @@
 
 skeleton.png
-size: 540,216
+size: 424,2008
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-bg
-  rotate: false
-  xy: 2, 33
-  size: 195, 181
-  orig: 195, 181
-  offset: 0, 0
-  index: -1
-butasan_jk
-  rotate: false
-  xy: 439, 2
-  size: 98, 95
-  orig: 98, 95
-  offset: 0, 0
-  index: -1
-chip
-  rotate: false
-  xy: 439, 99
-  size: 95, 115
-  orig: 95, 115
-  offset: 0, 0
-  index: -1
-ef
-  rotate: false
-  xy: 199, 76
-  size: 138, 138
-  orig: 140, 140
-  offset: 1, 1
-  index: -1
-ef2
-  rotate: false
-  xy: 199, 76
-  size: 138, 138
-  orig: 140, 140
-  offset: 1, 1
-  index: -1
-labai
+Jor
   rotate: true
-  xy: 339, 95
-  size: 119, 98
-  orig: 121, 100
-  offset: 1, 1
+  xy: 175, 972
+  size: 157, 184
+  orig: 157, 184
+  offset: 0, 0
   index: -1
-tongits
+Kbich
   rotate: false
-  xy: 199, 14
-  size: 107, 60
-  orig: 107, 60
+  xy: 350, 1278
+  size: 67, 84
+  orig: 67, 84
+  offset: 0, 0
+  index: -1
+Kco
+  rotate: false
+  xy: 318, 12
+  size: 75, 94
+  orig: 75, 94
+  offset: 0, 0
+  index: -1
+Ktep
+  rotate: false
+  xy: 322, 1364
+  size: 92, 109
+  orig: 92, 109
+  offset: 0, 0
+  index: -1
+Laye30
+  rotate: true
+  xy: 2, 1364
+  size: 259, 318
+  orig: 259, 318
+  offset: 0, 0
+  index: -1
+Layer 233 copy
+  rotate: false
+  xy: 322, 1542
+  size: 80, 81
+  orig: 80, 81
+  offset: 0, 0
+  index: -1
+box text
+  rotate: false
+  xy: 2, 881
+  size: 226, 76
+  orig: 226, 76
+  offset: 0, 0
+  index: -1
+cup
+  rotate: false
+  xy: 230, 850
+  size: 136, 120
+  orig: 136, 120
+  offset: 0, 0
+  index: -1
+ef1
+  rotate: true
+  xy: 2, 959
+  size: 170, 171
+  orig: 170, 171
+  offset: 0, 0
+  index: -1
+i/coin_01
+  rotate: false
+  xy: 2, 775
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_02
+  rotate: false
+  xy: 160, 744
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_03
+  rotate: false
+  xy: 2, 638
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_04
+  rotate: false
+  xy: 160, 638
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_05
+  rotate: false
+  xy: 2, 532
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_06
+  rotate: false
+  xy: 160, 532
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_07
+  rotate: false
+  xy: 2, 426
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_08
+  rotate: false
+  xy: 160, 426
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_09
+  rotate: false
+  xy: 2, 320
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_10
+  rotate: false
+  xy: 160, 320
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_11
+  rotate: false
+  xy: 2, 214
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_12
+  rotate: false
+  xy: 160, 214
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_13
+  rotate: false
+  xy: 2, 108
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_14
+  rotate: false
+  xy: 160, 108
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_15
+  rotate: false
+  xy: 2, 2
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_16
+  rotate: false
+  xy: 160, 2
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_17
+  rotate: true
+  xy: 318, 692
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+i/coin_18
+  rotate: true
+  xy: 318, 534
+  size: 156, 104
+  orig: 156, 104
+  offset: 0, 0
+  index: -1
+light ngang
+  rotate: true
+  xy: 318, 108
+  size: 225, 46
+  orig: 225, 46
+  offset: 0, 0
+  index: -1
+light trong
+  rotate: false
+  xy: 2, 1625
+  size: 363, 380
+  orig: 363, 380
+  offset: 0, 0
+  index: -1
+rec
+  rotate: true
+  xy: 2, 1131
+  size: 231, 346
+  orig: 231, 346
+  offset: 0, 0
+  index: -1
+t
+  rotate: true
+  xy: 350, 1134
+  size: 142, 38
+  orig: 142, 38
+  offset: 0, 0
+  index: -1
+t2
+  rotate: true
+  xy: 361, 1022
+  size: 110, 38
+  orig: 110, 38
+  offset: 0, 0
+  index: -1
+txt
+  rotate: true
+  xy: 318, 364
+  size: 168, 74
+  orig: 168, 74
   offset: 0, 0
   index: -1

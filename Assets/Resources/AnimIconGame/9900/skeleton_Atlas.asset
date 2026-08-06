@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
   m_Name: skeleton_Atlas
   m_EditorClassIdentifier: 
-  atlasFile: {fileID: 4900000, guid: f12cf7c0faf50864d83d79d08800d8f9, type: 3}
+  atlasFile: {fileID: 4900000, guid: 9b0cca6b8931acb439eb58f14b739047, type: 3}
   materials:
-  - {fileID: 2100000, guid: 21580fca32d21f2479fb293dca340c0a, type: 2}
+  - {fileID: 2100000, guid: e740f616bce210d4ab6a5130942006d2, type: 2}

@@ -1,125 +1,90 @@
 
 skeleton.png
-size: 485,485
+size: 264,1680
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 1l
   rotate: true
-  xy: 380, 356
-  size: 127, 87
+  xy: 2, 284
+  size: 127, 130
   orig: 127, 130
-  offset: 0, 19
+  offset: 0, 0
   index: -1
-3light
+Laye30
   rotate: false
-  xy: 200, 84
-  size: 97, 115
-  orig: 100, 116
-  offset: 1, 0
+  xy: 2, 1325
+  size: 248, 351
+  orig: 248, 351
+  offset: 0, 0
   index: -1
-4light
+abich
   rotate: true
-  xy: 249, 206
-  size: 142, 112
-  orig: 143, 143
-  offset: 1, 15
+  xy: 123, 147
+  size: 94, 120
+  orig: 94, 120
+  offset: 0, 0
   index: -1
-A bích
+aco
   rotate: true
-  xy: 299, 4
-  size: 88, 93
-  orig: 88, 93
+  xy: 2, 178
+  size: 104, 119
+  orig: 104, 119
   offset: 0, 0
   index: -1
-A bích copy
-  rotate: false
-  xy: 363, 218
-  size: 120, 130
-  orig: 123, 132
-  offset: 1, 1
-  index: -1
-A bích copy 2
-  rotate: false
-  xy: 299, 94
-  size: 105, 110
-  orig: 105, 110
-  offset: 0, 0
-  index: -1
-A bích copy 3
-  rotate: false
-  xy: 249, 350
-  size: 129, 133
-  orig: 131, 135
-  offset: 1, 1
-  index: -1
-Layer 11
+atep
   rotate: true
-  xy: 242, 51
-  size: 31, 42
-  orig: 32, 42
+  xy: 113, 18
+  size: 79, 108
+  orig: 79, 108
   offset: 0, 0
   index: -1
-Tongits
-  rotate: false
-  xy: 2, 18
-  size: 144, 82
-  orig: 145, 82
-  offset: 0, 0
-  index: -1
-bich
-  rotate: false
-  xy: 406, 182
-  size: 30, 34
-  orig: 30, 34
-  offset: 0, 0
-  index: -1
-co
-  rotate: false
-  xy: 189, 14
-  size: 33, 34
-  orig: 33, 34
-  offset: 0, 0
-  index: -1
-ewvs
-  rotate: false
-  xy: 189, 50
-  size: 51, 32
-  orig: 51, 32
-  offset: 0, 0
-  index: -1
-laup
+azo
   rotate: true
-  xy: 148, 40
-  size: 60, 39
-  orig: 60, 39
+  xy: 2, 2
+  size: 95, 109
+  orig: 95, 109
+  offset: 0, 0
+  index: -1
+box text
+  rotate: false
+  xy: 2, 413
+  size: 226, 76
+  orig: 226, 76
+  offset: 0, 0
+  index: -1
+chhip
+  rotate: false
+  xy: 2, 491
+  size: 190, 157
+  orig: 190, 157
+  offset: 0, 0
+  index: -1
+ef2
+  rotate: false
+  xy: 2, 998
+  size: 260, 325
+  orig: 260, 325
+  offset: 0, 0
+  index: -1
+light ngang
+  rotate: false
+  xy: 2, 99
+  size: 225, 46
+  orig: 225, 46
   offset: 0, 0
   index: -1
 rec
   rotate: false
-  xy: 2, 102
-  size: 196, 381
-  orig: 201, 385
-  offset: 2, 4
+  xy: 2, 650
+  size: 231, 346
+  orig: 231, 346
+  offset: 0, 0
   index: -1
-ro
+txt
   rotate: true
-  xy: 148, 11
-  size: 27, 39
-  orig: 27, 39
-  offset: 0, 0
-  index: -1
-runLight
-  rotate: false
-  xy: 200, 201
-  size: 47, 282
-  orig: 47, 282
-  offset: 0, 0
-  index: -1
-tep
-  rotate: false
-  xy: 406, 150
-  size: 28, 30
-  orig: 28, 30
+  xy: 134, 243
+  size: 168, 74
+  orig: 168, 74
   offset: 0, 0
   index: -1

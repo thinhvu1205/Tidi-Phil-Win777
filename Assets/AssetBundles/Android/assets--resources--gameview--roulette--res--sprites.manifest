@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 3309437866
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6fa7e55ded8b2d68fdd717c1610f870d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc9f87c7e64ff656997db0f2b2a91703
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 71a3b4ec583ef5ad2a944bc1296af3ba
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/GameView/Roulette/res/Sprites/khung.png
+Dependencies: []

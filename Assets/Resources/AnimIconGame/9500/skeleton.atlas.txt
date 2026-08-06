@@ -1,48 +1,104 @@
 
 skeleton.png
-size: 294,294
+size: 268,736
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+1
+  rotate: false
+  xy: 230, 122
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
 1l
   rotate: true
-  xy: 199, 65
-  size: 68, 70
+  xy: 2, 266
+  size: 127, 130
   orig: 127, 130
-  offset: 28, 29
+  offset: 0, 0
   index: -1
-A
+9
   rotate: true
-  xy: 199, 217
-  size: 75, 93
-  orig: 79, 97
-  offset: 2, 2
+  xy: 125, 154
+  size: 100, 117
+  orig: 100, 117
+  offset: 0, 0
   index: -1
-bg
+a
   rotate: false
-  xy: 2, 103
-  size: 195, 189
-  orig: 195, 195
+  xy: 2, 395
+  size: 231, 167
+  orig: 231, 167
   offset: 0, 0
   index: -1
 chip
   rotate: false
-  xy: 2, 5
-  size: 63, 58
-  orig: 63, 58
+  xy: 134, 265
+  size: 124, 128
+  orig: 124, 128
   offset: 0, 0
   index: -1
 k
   rotate: true
-  xy: 199, 135
-  size: 80, 86
-  orig: 83, 89
-  offset: 2, 1
+  xy: 2, 154
+  size: 110, 121
+  orig: 110, 121
+  offset: 0, 0
   index: -1
-text
+kbich
   rotate: false
-  xy: 67, 10
-  size: 164, 53
-  orig: 164, 53
+  xy: 164, 5
+  size: 51, 45
+  orig: 51, 45
+  offset: 0, 0
+  index: -1
+kco
+  rotate: true
+  xy: 230, 81
+  size: 39, 20
+  orig: 39, 20
+  offset: 0, 0
+  index: -1
+ktep
+  rotate: false
+  xy: 217, 2
+  size: 47, 48
+  orig: 47, 48
+  offset: 0, 0
+  index: -1
+light ngang
+  rotate: false
+  xy: 2, 52
+  size: 225, 46
+  orig: 225, 46
+  offset: 0, 0
+  index: -1
+mo
+  rotate: false
+  xy: 2, 100
+  size: 226, 52
+  orig: 226, 52
+  offset: 0, 0
+  index: -1
+rec
+  rotate: false
+  xy: 2, 564
+  size: 231, 170
+  orig: 231, 170
+  offset: 0, 0
+  index: -1
+rejjc
+  rotate: false
+  xy: 229, 52
+  size: 34, 27
+  orig: 34, 27
+  offset: 0, 0
+  index: -1
+txt
+  rotate: false
+  xy: 2, 9
+  size: 160, 41
+  orig: 160, 41
   offset: 0, 0
   index: -1

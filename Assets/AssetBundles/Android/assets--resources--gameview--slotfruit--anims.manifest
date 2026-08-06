@@ -1,0 +1,130 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 194720975
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9bd929d724fd8e49c6c04e792756897d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e6a32554d661cad82f7fb1d1e8936e0d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: a8d9e61da0d999d917ecbbfbf62c869b
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+Assets:
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/0/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/12/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/BtnSpin/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/10/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/BtnSpin/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/1/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/0/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/3/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/8/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/3/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/6/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/4/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/7/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/4/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/8/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/4/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/btn_buy/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/8/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/8/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/3/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/5/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/2/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/6/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/2/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/1/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/3/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/0/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/9/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/0/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/7/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/FreeSpinNum/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/0/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/8/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/2/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/6/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/8/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/11/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/6/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/4/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/7/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/5/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/2/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/FreeSpinNum/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/12/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/BtnSpin/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/9/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/11/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/9/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/12/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/BtnSpin/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/5/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/9/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/BtnSpin/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/5/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/10/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/4/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/btn_buy/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/9/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/4/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/11/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/1/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/2/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/5/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/9/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/10/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/btn_buy/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/10/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/btn_buy/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/11/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/FreeSpinNum/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/12/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/btn_buy/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/btn_buy/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/12/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/12/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/FreeSpinNum/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/FreeSpinNum/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/3/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/FreeSpinNum/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/1/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/7/skeleton.png
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/1/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/2/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/BtnSpin/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/6/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/5/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/10/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/7/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/7/skeleton_Atlas.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/10/skeleton.atlas.txt
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/3/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/11/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/11/skeleton.json
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/6/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/1/skeleton_Material.mat
+- Assets/Resources/GameView/SlotFruit/Anims/SpineIcon/0/skeleton_Material.mat
+Dependencies: []

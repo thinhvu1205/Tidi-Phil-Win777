@@ -1,0 +1,89 @@
+{
+"skeleton": {
+	"hash": "WbVuiDIvq8RDFvMo7hAt971ohBc",
+	"spine": "3.8.99",
+	"x": -64,
+	"y": -68,
+	"width": 133,
+	"height": 140,
+	"images": "./images/",
+	"audio": "E:/Z.CAMBODIA/Lengbear Plus/Friend/cut/icon_social Hub"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bg", "parent": "root" },
+	{ "name": "bone", "parent": "root", "y": -2.14 },
+	{ "name": "bone2", "parent": "root" }
+],
+"slots": [
+	{ "name": "Layer 39 copy", "bone": "bg", "attachment": "Layer 39 copy", "blend": "additive" },
+	{ "name": "Ellipse 2", "bone": "root", "attachment": "Ellipse 2" },
+	{ "name": "ro", "bone": "bone2", "attachment": "ro" },
+	{ "name": "ro2", "bone": "root", "attachment": "ro", "blend": "additive" },
+	{ "name": "icon", "bone": "bone", "attachment": "icon" },
+	{ "name": "Social Hub", "bone": "root", "attachment": "Social Hub" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Ellipse 2": {
+				"Ellipse 2": { "x": -0.5, "y": 1.5, "width": 103, "height": 97 }
+			},
+			"Layer 39 copy": {
+				"Layer 39 copy": { "x": 1, "y": 2, "scaleX": 0.8, "scaleY": 0.8, "width": 150, "height": 152 }
+			},
+			"Social Hub": {
+				"Social Hub": { "x": -0.5, "y": -41.5, "width": 101, "height": 35 }
+			},
+			"icon": {
+				"icon": { "x": 2, "y": 1, "width": 74, "height": 67 }
+			},
+			"ro": {
+				"ro": { "x": 2.5, "y": 2, "width": 133, "height": 140 }
+			},
+			"ro2": {
+				"ro": { "x": 2.5, "y": 2, "width": 133, "height": 140 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"ro2": {
+				"color": [
+					{ "color": "ffffff73" }
+				]
+			}
+		},
+		"bones": {
+			"bg": {
+				"rotate": [
+					{},
+					{ "time": 3, "angle": 180 },
+					{ "time": 6 }
+				]
+			},
+			"bone": {
+				"scale": [
+					{ "x": 0.9, "y": 0.9 },
+					{ "time": 1 },
+					{ "time": 2, "x": 0.9, "y": 0.9 },
+					{ "time": 3 },
+					{ "time": 4, "x": 0.9, "y": 0.9 },
+					{ "time": 5 },
+					{ "time": 6, "x": 0.9, "y": 0.9 }
+				]
+			},
+			"bone2": {
+				"rotate": [
+					{},
+					{ "time": 3, "angle": 180 },
+					{ "time": 6 }
+				]
+			}
+		}
+	}
+}
+}

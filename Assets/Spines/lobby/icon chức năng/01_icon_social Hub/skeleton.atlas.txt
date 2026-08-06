@@ -1,0 +1,41 @@
+
+skeleton.png
+size: 176,380
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ellipse 2
+  rotate: false
+  xy: 2, 2
+  size: 103, 97
+  orig: 103, 97
+  offset: 0, 0
+  index: -1
+Layer 39 copy
+  rotate: false
+  xy: 2, 225
+  size: 150, 152
+  orig: 150, 152
+  offset: 0, 0
+  index: -1
+Social Hub
+  rotate: true
+  xy: 140, 101
+  size: 98, 33
+  orig: 101, 35
+  offset: 1, 1
+  index: -1
+icon
+  rotate: true
+  xy: 107, 25
+  size: 74, 67
+  orig: 74, 67
+  offset: 0, 0
+  index: -1
+ro
+  rotate: true
+  xy: 2, 101
+  size: 122, 136
+  orig: 133, 140
+  offset: 4, 3
+  index: -1

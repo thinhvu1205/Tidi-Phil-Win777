@@ -5623,6 +5623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c065837172a884dbebb26ea1d18037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpenChatFriend: 0
   m_ItemTabScreenFrien: {fileID: 5226747667891948518, guid: 704576f74440ef3469904dfc6e285ea2, type: 3}
   m_ParentListTab: {fileID: 4515294177796302107}
   m_ScrollContentFriend: {fileID: 2946196349812201970}

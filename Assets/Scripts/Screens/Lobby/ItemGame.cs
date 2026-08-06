@@ -29,7 +29,7 @@ public class ItemGame : MonoBehaviour
             alphaGAK[0] = new(1, 0);
             alphaGAK[1] = new(1, 1);
             if ((!isShowAllGames && Config.listGameSlot.Contains(GameId)) ||
-                        GameId == (int)GAMEID.TONGITS_OLD || GameId == (int)GAMEID.PUSOY || GameId == (int)GAMEID.LUCKY9)
+                        GameId == (int)GAMEID.TONGITS_OLD || GameId == (int)GAMEID.TONGITS || GameId == (int)GAMEID.TONGITS_JOKER)
             {
                 shownSG = m_LargeSG;
                 borderG2 = m_LargeBorderG2;

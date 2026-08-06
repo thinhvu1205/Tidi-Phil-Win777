@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "XzrgKv2r2CTqBj22tNozDZC+aQg",
+	"hash": "xlmr0S7Q/F3uZaELnmmnumWwVVg",
 	"spine": "3.8.99",
-	"x": -97.5,
-	"y": -90.5,
-	"width": 214.61,
-	"height": 189.36,
+	"x": -115.5,
+	"y": -85,
+	"width": 232.61,
+	"height": 183.86,
 	"images": "./image/",
 	"audio": ""
 },
@@ -23,6 +23,7 @@
 	{ "name": "bg", "bone": "bone2", "attachment": "bg" },
 	{ "name": "icon1", "bone": "icon", "attachment": "icon1" },
 	{ "name": "icon2", "bone": "bone3", "attachment": "icon2" },
+	{ "name": "box text", "bone": "root", "attachment": "box text" },
 	{ "name": "text", "bone": "bone2", "attachment": "text" },
 	{ "name": "1l", "bone": "1l", "attachment": "1l", "blend": "additive" },
 	{ "name": "1l2", "bone": "1l2", "attachment": "1l", "blend": "additive" },
@@ -39,7 +40,10 @@
 				"1l": { "x": 0.94, "y": -0.94, "width": 127, "height": 130 }
 			},
 			"bg": {
-				"bg": { "x": -0.05, "y": 98.71, "width": 195, "height": 181 }
+				"bg": { "x": -0.05, "y": 98.71, "width": 231, "height": 170 }
+			},
+			"box text": {
+				"box text": { "x": 0.48, "y": -56.28, "width": 226, "height": 52 }
 			},
 			"icon1": {
 				"icon1": { "x": 2.37, "y": 22.77, "width": 140, "height": 109 }
@@ -48,7 +52,7 @@
 				"icon2": { "width": 128, "height": 128 }
 			},
 			"text": {
-				"text": { "x": 2.36, "y": 55.47, "width": 129, "height": 56 }
+				"text": { "x": 2.36, "y": 55.47, "width": 161, "height": 46 }
 			},
 			"tru": {
 				"tru": { "x": 11.63, "y": 38.08, "width": 18, "height": 34 }

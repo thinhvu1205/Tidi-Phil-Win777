@@ -14,7 +14,7 @@ public class LobbyView : BaseView
 {
     [SerializeField] List<Button> listTabs = new();
     [SerializeField]
-    GameObject objDot, btnEx, btnChatLobby, gameItemObject, modelLobby, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
+    GameObject objDot, btnEx, btnChatLobby, gameItemObject, iconSafe, btnSafe, btnGiftCode, btnLeaderboard,
         icNotiMail, icNotiFree, icNotiMessage, bannerTemp, btnBannerNews, m_Lottery;
     [SerializeField] RectTransform tfBot, CenterNode;
     [SerializeField] TextMeshProUGUI lb_name, lb_id, lb_ag, lb_safe, lbTimeOnline, lbQuickGame;
@@ -28,6 +28,7 @@ public class LobbyView : BaseView
     [SerializeField] PageSlider m_BannersPS;
     [SerializeField] Material materialDefault;
     [SerializeField] Button buttonCheckinBonus;
+    [SerializeField] private SkeletonGraphic modelLobby;
     private List<ItemGame> _AllGameIGs = new List<ItemGame>();
     private List<string> listShowPopupNoti = new();
     private Coroutine _GetInfoPusoyJackPotC;
@@ -201,9 +202,16 @@ public class LobbyView : BaseView
         OnClickTab(listTabs[TabGame]);
         if (m_BannersPS.pageCount > 0)
         {
+            modelLobby.gameObject.SetActive(false);
             m_BannersPS.gameObject.SetActive(true);
             _SetPosWhenBannerActive();
         }
+        // else
+        // {
+        //     modelLobby.gameObject.SetActive(true);
+        //     modelLobby.Initialize(true);
+        //     modelLobby.AnimationState.SetAnimation(0, "animation", true);
+        // }
         if (Config.isChangeTable)
         {
             Config.isChangeTable = false;
@@ -259,6 +267,7 @@ public class LobbyView : BaseView
         bool isShow = Config.arrBannerLobby.Count > 0;
         bool updatePos = false;
         m_BannersPS.gameObject.SetActive(isShow);
+        modelLobby.gameObject.SetActive(!isShow);
         if (!isShow) return;
         for (var i = 0; i < Config.arrBannerLobby.Count; i++)
         {
@@ -501,25 +510,28 @@ public class LobbyView : BaseView
         }
 
         _AllGameIGs.Clear();
-        List<int> slotGames = new() { (int)GAMEID.SLOT_SIXIANG, (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_INCA, (int)GAMEID.SLOT_JUICY_GARDEN, (int)GAMEID.SLOT20FRUIT };
+        List<int> slotGames = new() { (int)GAMEID.SLOTTARZAN, (int)GAMEID.SLOTNOEL, (int)GAMEID.SLOT_JUICY_GARDEN, };
         Rect sizeCell = m_GamesSR.GetComponent<RectTransform>().rect;
         for (var i = 0; i < Config.listGame.Count; i++)
         {
             JObject data = (JObject)Config.listGame[i];
             int gameId = (int)data["id"];
             SkeletonDataAsset skeAsset = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + gameId + "/skeleton_SkeletonData");
+            // SkeletonDataAsset skeAsset = Resources.Load<SkeletonDataAsset>("AnimIconGame/" + gameId + "/skeleton_SkeletonData");
             if (skeAsset == null) continue;
             ItemGame item = null;
             switch (gameId)
             {
-                case (int)GAMEID.LUCKY9:
-                case (int)GAMEID.PUSOY:
                 case (int)GAMEID.TONGITS_OLD:
+                case (int)GAMEID.TONGITS:
+                case (int)GAMEID.TONGITS_JOKER:
                     item = BundleHandler.Instantiate(gameItemObject, m_GamesSR.content).GetComponent<ItemGame>();
+                    // item = Instantiate(gameItemObject, m_GamesSR.content).GetComponent<ItemGame>();
                     item.transform.SetSiblingIndex(0);
                     break;
                 default:
                     item = BundleHandler.Instantiate(gameItemObject, m_MiniGameIconTf).GetComponent<ItemGame>();
+                    // item = Instantiate(gameItemObject, m_MiniGameIconTf).GetComponent<ItemGame>();
 
                     break;
             }
@@ -535,8 +547,10 @@ public class LobbyView : BaseView
         {
             if (!slotGames.Contains(ig.GameId)) continue;
             SkeletonDataAsset bigSlotGameSDA = BundleHandler.LoadSkeletonDataAsset("AnimIconGame/" + ig.GameId + "-big" + "/skeleton_SkeletonData");
+            // SkeletonDataAsset bigSlotGameSDA = Resources.Load<SkeletonDataAsset>("AnimIconGame/" + ig.GameId + "-big" + "/skeleton_SkeletonData");
             if (bigSlotGameSDA == null) continue;
             ItemGame bigSlotIconIG = BundleHandler.Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
+            // ItemGame bigSlotIconIG = Instantiate(gameItemObject, m_OnlySloticonTf).GetComponent<ItemGame>();
 
             bigSlotIconIG.name = ig.GameId.ToString();
             bigSlotIconIG.transform.localScale = Vector3.one;

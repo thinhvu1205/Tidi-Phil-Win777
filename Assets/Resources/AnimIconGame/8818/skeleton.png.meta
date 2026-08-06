@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 448b03b66f1ed4143bbd71f14b4f3266
+guid: cdd832384d7955d4a9628b7b1e371d5c
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -56,6 +56,15 @@ TextureImporter:
   - first:
       213: 297061580493148339
     second: skeleton_17
+  - first:
+      213: 5311655696396966444
+    second: skeleton_18
+  - first:
+      213: 1968703191191527569
+    second: skeleton_19
+  - first:
+      213: -3039514967756492387
+    second: skeleton_20
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -136,19 +145,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1

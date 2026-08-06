@@ -1,0 +1,90 @@
+
+skeleton.png
+size: 452,932
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1l
+  rotate: true
+  xy: 61, 3
+  size: 127, 130
+  orig: 127, 130
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 2, 234
+  size: 411, 694
+  orig: 411, 694
+  offset: 0, 0
+  index: -1
+h0
+  rotate: false
+  xy: 2, 592
+  size: 107, 114
+  orig: 107, 114
+  offset: 0, 0
+  index: -1
+h1
+  rotate: false
+  xy: 2, 614
+  size: 74, 45
+  orig: 74, 45
+  offset: 0, 0
+  index: -1
+h2
+  rotate: false
+  xy: 392, 292
+  size: 54, 167
+  orig: 54, 167
+  offset: 0, 0
+  index: -1
+h3
+  rotate: 180
+  xy: 255, 99
+  size: 189, 294
+  orig: 189, 294
+  offset: 0, 0
+  index: -1
+h4
+  rotate: false
+  xy: 2, 467
+  size: 125, 143
+  orig: 125, 143
+  offset: 0, 0
+  index: -1
+hat
+  rotate: 180
+  xy: 2, 71
+  size: 246, 247
+  orig: 246, 247
+  offset: 0, 0
+  index: -1
+khuyenphai
+  rotate: false
+  xy: 76, 813
+  size: 24, 47
+  orig: 24, 47
+  offset: 0, 0
+  index: -1
+khuyentrai
+  rotate: false
+  xy: 76, 862
+  size: 26, 66
+  orig: 26, 66
+  offset: 0, 0
+  index: -1
+tay1
+  rotate: false
+  xy: 2, 820
+  size: 72, 108
+  orig: 72, 108
+  offset: 0, 0
+  index: -1
+tay2
+  rotate: false
+  xy: 344, 42
+  size: 105, 113
+  orig: 105, 113
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,132 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 56522387
+HashAppended: 0
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: assets--resources--gameview--sixiang--spine
+      Dependencies: {}
+    Info_1:
+      Name: assets--resources--gameview--lucky 9--anims
+      Dependencies: {}
+    Info_2:
+      Name: assets--resources--gameview--roulette--res--sprites
+      Dependencies: {}
+    Info_3:
+      Name: assets--resources--gameview--baucua--anims
+      Dependencies: {}
+    Info_4:
+      Name: assets--resources--gameview--sixiang--sprites
+      Dependencies: {}
+    Info_5:
+      Name: assets--resources--gameview--slotjuicygarden--anims
+      Dependencies: {}
+    Info_6:
+      Name: assets--resources--gameview--lucky 89--anims
+      Dependencies: {}
+    Info_7:
+      Name: assets--resources--vipfarm--anims
+      Dependencies: {}
+    Info_8:
+      Name: assets--resources--gameview--sabong--anims
+      Dependencies: {}
+    Info_9:
+      Name: assets--resources--gameview--baucua--sprites
+      Dependencies: {}
+    Info_10:
+      Name: assets--resources--gameview--slotnoel--anims
+      Dependencies: {}
+    Info_11:
+      Name: assets--resources--gameview--sicbo--sprites
+      Dependencies: {}
+    Info_12:
+      Name: assets--resources--gameview--roulette--res--spine
+      Dependencies: {}
+    Info_13:
+      Name: assets--resources--gameview--slotjuicygarden--sprites
+      Dependencies: {}
+    Info_14:
+      Name: assets--resources--gameview--tongits--sprites
+      Dependencies: {}
+    Info_15:
+      Name: assets--resources--chat--sprites
+      Dependencies: {}
+    Info_16:
+      Name: assets--resources--animicongame
+      Dependencies: {}
+    Info_17:
+      Name: assets--resources--gameview--sicbo--anims
+      Dependencies: {}
+    Info_18:
+      Name: assets--resources--sounds
+      Dependencies: {}
+    Info_19:
+      Name: assets--resources--gameview--slottarzan--anims
+      Dependencies: {}
+    Info_20:
+      Name: assets--resources--gameview--sabong--sprites
+      Dependencies: {}
+    Info_21:
+      Name: assets--resources--gameview--common--sprites
+      Dependencies: {}
+    Info_22:
+      Name: assets--resources--gameview--slotnoel--sprites
+      Dependencies: {}
+    Info_23:
+      Name: assets--resources--gameview--slottarzan--sprites
+      Dependencies: {}
+    Info_24:
+      Name: assets--resources--gameview--binh--anims
+      Dependencies: {}
+    Info_25:
+      Name: assets--resources--gameview--slotfruit--anims
+      Dependencies: {}
+    Info_26:
+      Name: assets--resources--gameview--threepoker--sprites
+      Dependencies: {}
+    Info_27:
+      Name: assets--resources--gameview--common--anims
+      Dependencies: {}
+    Info_28:
+      Name: assets--resources--gameview--lucky 9--sprites
+      Dependencies: {}
+    Info_29:
+      Name: assets--resources--gameview--slotfruit--sprites
+      Dependencies: {}
+    Info_30:
+      Name: assets--resources--gameview--tongits--anims
+      Dependencies: {}
+    Info_31:
+      Name: assets--resources--checkin bonus--anims
+      Dependencies: {}
+    Info_32:
+      Name: assets--resources--gameview--minefinding--anims
+      Dependencies: {}
+    Info_33:
+      Name: assets--resources--gameview--shop--anims
+      Dependencies: {}
+    Info_34:
+      Name: assets--resources--gameview--slotinca--anims
+      Dependencies: {}
+    Info_35:
+      Name: assets--resources--gameview--threepoker--animation
+      Dependencies: {}
+    Info_36:
+      Name: assets--resources--gameview--emo
+      Dependencies: {}
+    Info_37:
+      Name: assets--resources--gameview--minefinding--sprites
+      Dependencies: {}
+    Info_38:
+      Name: assets--resources--gameview--slotinca--sprites
+      Dependencies: {}
+    Info_39:
+      Name: assets--resources--gameview--kaeng--anims
+      Dependencies: {}
+    Info_40:
+      Name: assets--resources--gameview--sixiang--sound
+      Dependencies: {}
+    Info_41:
+      Name: assets--resources--gameview--baccarat--anims
+      Dependencies: {}

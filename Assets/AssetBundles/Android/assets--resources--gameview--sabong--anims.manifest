@@ -1,0 +1,73 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.1.17f1
+CRC: 2184119926
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b8dc4b4ab9b41063ce2400a9b7a129ae
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e6a32554d661cad82f7fb1d1e8936e0d
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 3d2942b67dfaa9bdb4e3c585d3112a47
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials
+- AssemblyName: spine-unity
+  ClassName: Spine.Unity.BlendModeMaterials/ReplacementMaterial
+Assets:
+- Assets/Resources/GameView/Sabong/Anims/2/skeleton.atlas.txt
+- Assets/Resources/GameView/Sabong/Anims/2/skeleton_Atlas.asset
+- Assets/Resources/GameView/Sabong/Anims/dealer/skeleton_Atlas.asset
+- Assets/Resources/GameView/Sabong/Anims/clock/clock.json
+- Assets/Resources/GameView/Sabong/Anims/Winning Card/skeleton.atlas.txt
+- Assets/Resources/GameView/Sabong/Anims/clock/clock.png
+- Assets/Resources/GameView/Sabong/Anims/2/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Sabong/Anims/clock/clock.atlas.txt
+- Assets/Resources/GameView/Sabong/Anims/VS/skeleton.png
+- Assets/Resources/GameView/Sabong/Anims/1/skeleton.atlas.txt
+- Assets/Resources/GameView/Sabong/Anims/1/skeleton.png
+- Assets/Resources/GameView/Sabong/Anims/1/skeleton_Atlas.asset
+- Assets/Resources/GameView/Sabong/Anims/2/skeleton.json
+- Assets/Resources/GameView/Sabong/Anims/clock/clock_SkeletonData.asset
+- Assets/Resources/GameView/Sabong/Anims/clock/clock_Material.mat
+- Assets/Resources/GameView/Sabong/Anims/dealer/skeleton.atlas.txt
+- Assets/Resources/GameView/Sabong/Anims/VS/skeleton_Material.mat
+- Assets/Resources/GameView/Sabong/Anims/2/skeleton.png
+- Assets/Resources/GameView/Sabong/Anims/dealer/skeleton.json
+- Assets/Resources/GameView/Sabong/Anims/VS/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Sabong/Anims/dealer/skeleton_Material.mat
+- Assets/Resources/GameView/Sabong/Anims/Winning Card/skeleton.png
+- Assets/Resources/GameView/Sabong/Anims/clock/clock_Atlas.asset
+- Assets/Resources/GameView/Sabong/Anims/dealer/skeleton.png
+- Assets/Resources/GameView/Sabong/Anims/VS/skeleton.json
+- Assets/Resources/GameView/Sabong/Anims/Winning Card/skeleton.json
+- Assets/Resources/GameView/Sabong/Anims/Winning Card/skeleton_Atlas.asset
+- Assets/Resources/GameView/Sabong/Anims/1/skeleton.json
+- Assets/Resources/GameView/Sabong/Anims/Winning Card/skeleton_Material-Additive.mat
+- Assets/Resources/GameView/Sabong/Anims/2/skeleton_Material.mat
+- Assets/Resources/GameView/Sabong/Anims/VS/skeleton.atlas.txt
+- Assets/Resources/GameView/Sabong/Anims/1/skeleton_Material.mat
+- Assets/Resources/GameView/Sabong/Anims/VS/skeleton_Atlas.asset
+- Assets/Resources/GameView/Sabong/Anims/1/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Sabong/Anims/dealer/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Sabong/Anims/Winning Card/skeleton_SkeletonData.asset
+- Assets/Resources/GameView/Sabong/Anims/Winning Card/skeleton_Material.mat
+Dependencies: []
