@@ -206,12 +206,12 @@ public class LobbyView : BaseView
             m_BannersPS.gameObject.SetActive(true);
             _SetPosWhenBannerActive();
         }
-        // else
-        // {
-        //     modelLobby.gameObject.SetActive(true);
-        //     modelLobby.Initialize(true);
-        //     modelLobby.AnimationState.SetAnimation(0, "animation", true);
-        // }
+        else
+        {
+            modelLobby.gameObject.SetActive(true);
+            modelLobby.Initialize(true);
+            modelLobby.AnimationState.SetAnimation(0, "animation", true);
+        }
         if (Config.isChangeTable)
         {
             Config.isChangeTable = false;

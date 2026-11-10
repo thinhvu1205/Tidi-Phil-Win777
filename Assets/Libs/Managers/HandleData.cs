@@ -203,6 +203,7 @@ public class HandleData
             tags.Add("blq7", User.userMain.BLQ7.ToString());
             tags.Add("avg7", User.userMain.AVG7.ToString());
             tags.Add("group", User.userMain.Group.ToString());
+            Debug.Log($"PackageName: {Config.package_name}");
             OneSignal.User.AddTags(tags);
         }
         else
