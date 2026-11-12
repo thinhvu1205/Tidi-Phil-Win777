@@ -27,7 +27,7 @@ public class LoadConfig : MonoBehaviour
     private bool _isConfigLoaded = false;
     void Awake()
     {
-        Config.publisher = "bigwinclub_pusoy_1";
+        Config.publisher = "game_pusoy_ph_asia_1";
         if (instance == null) instance = this;
         else
         {
@@ -188,7 +188,7 @@ public class LoadConfig : MonoBehaviour
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
         wWForm["bundleID"] = Config.package_name;
-        wWForm["publisher"] = "bigwinclub.pusoy";
+        wWForm["publisher"] = "game.pusoy.ph.asia";
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";
         if (User.userMain != null)
