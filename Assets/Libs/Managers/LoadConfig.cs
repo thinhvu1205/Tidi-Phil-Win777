@@ -187,7 +187,7 @@ public class LoadConfig : MonoBehaviour
         JObject wWForm = new JObject();
         wWForm["version"] = Config.versionGame + "";
         wWForm["operatorID"] = Config.OPERATOR + "";
-        wWForm["bundleID"] = Config.package_name;
+        wWForm["bundleID"] = "game.pusoy.ph.asia";
         wWForm["publisher"] = Config.publisher;
         wWForm["os"] = osName;
         wWForm["mcc"] = "[0,0]";

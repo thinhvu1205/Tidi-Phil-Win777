@@ -121,21 +121,27 @@ public class ListBannerView : BaseView
     private Vector2 _FindNearestBannerLocalPos()
     {
         RectTransform contentRT = m_BannersSR.content, viewportRT = m_BannersSR.viewport;
-        Vector2 returnedV2 = new();
-        float minDistance = float.MaxValue;
+        List<(float distance, Vector2 localPos, BannerView bv)> bannerDistances = new();
         for (int i = 0; i < contentRT.childCount; i++)
         {
             RectTransform childRT = contentRT.GetChild(i).GetComponent<RectTransform>();
             Vector2 childWorldV2 = childRT.position, childLocalV2 = viewportRT.InverseTransformPoint(childWorldV2);
             float distance = childLocalV2.magnitude;
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                returnedV2 = childLocalV2;
-                _BannerNowBV = childRT.GetComponentInChildren<BannerView>();
-            }
+            BannerView bv = childRT.GetComponentInChildren<BannerView>();
+            bannerDistances.Add((distance, childLocalV2, bv));
         }
-        return returnedV2;
+        // Sắp xếp theo khoảng cách tăng dần
+        bannerDistances.Sort((a, b) => a.distance.CompareTo(b.distance));
+        float threshold = m_PrefBannerRT.rect.width * 0.9f; if (bannerDistances.Count > 1 && bannerDistances[1].distance <= threshold)
+        {
+            _BannerNowBV = bannerDistances[1].bv;
+            return bannerDistances[1].localPos;
+        }
+        else
+        {
+            _BannerNowBV = bannerDistances[0].bv;
+            return bannerDistances[0].localPos;
+        }
     }
     private void _CheckOnEdge()
     {
