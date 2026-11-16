@@ -132,7 +132,8 @@ public class ListBannerView : BaseView
         }
         // Sắp xếp theo khoảng cách tăng dần
         bannerDistances.Sort((a, b) => a.distance.CompareTo(b.distance));
-        float threshold = m_PrefBannerRT.rect.width * 0.9f; if (bannerDistances.Count > 1 && bannerDistances[1].distance <= threshold)
+        float threshold = m_PrefBannerRT.rect.width * 0.9f;
+        if (bannerDistances.Count > 1 && bannerDistances[1].distance <= threshold)
         {
             _BannerNowBV = bannerDistances[1].bv;
             return bannerDistances[1].localPos;

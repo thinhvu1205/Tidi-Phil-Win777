@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - d40af8f1f92be5a6b2d3f20035afc8e0
+  - c03ea25a059885f1b527ca3bf87fe85a
   appIds:
-  - 2943403742682487
+  - 1697331071986948
   appLabels:
   - BinWinClub
   cookie: 1
