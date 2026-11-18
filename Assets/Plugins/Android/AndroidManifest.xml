@@ -23,10 +23,10 @@
     <activity android:name="com.facebook.unity.FBUnityGameRequestActivity" />
     <activity android:name="com.facebook.unity.FBUnityCreateGameGroupActivity" />
     <activity android:name="com.facebook.unity.FBUnityJoinGameGroupActivity" />
-    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="fb2943403742682487" />
+    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="fb1697331071986948" />
     <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="true" />
     <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled" android:value="true" />
-    <meta-data android:name="com.facebook.sdk.ClientToken" android:value="d40af8f1f92be5a6b2d3f20035afc8e0" />
-    <provider android:name="com.facebook.FacebookContentProvider" android:authorities="com.facebook.app.FacebookContentProvider2943403742682487" android:exported="true" />
+    <meta-data android:name="com.facebook.sdk.ClientToken" android:value="c03ea25a059885f1b527ca3bf87fe85a" />
+    <provider android:name="com.facebook.FacebookContentProvider" android:authorities="com.facebook.app.FacebookContentProvider1697331071986948" android:exported="true" />
   </application>
 </manifest>
